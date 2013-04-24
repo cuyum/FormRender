@@ -43,19 +43,33 @@
 				</h:panelGroup>
 				<h:outputText/>
 				
+				<h:outputLabel for="formularioBeanExampleUrl" value="URL:" />
+				<h:panelGroup>
+					<h:inputText id="formularioBeanExampleUrl" value="#{formularioBean.formulario.url}" required="true"/>
+					<h:message for="formularioBeanExampleUrl" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				
 				<h:outputLabel for="formularioBeanFormularioFormVersion" value="Version:"/>
 				<h:panelGroup>
 					<h:inputText id="formularioBeanFormularioFormVersion" value="#{formularioBean.formulario.formVersion}"/>
 					<h:message for="formularioBeanFormularioFormVersion" styleClass="error"/>
 				</h:panelGroup>
-				<h:outputText/>
+				<h:outputText/>				
 				
-				<h:outputLabel value="Archivo (xml):"/>				
+				
+				
+				<h:outputLabel value="Archivo (xml):"/>
 				<p:fileUpload value="#{formularioBean.file}" mode="simple" sizeLimit="100000" allowTypes=".xml" styleClass="btn btn-primary"/>
-				<h:outputText/>
+				<h:outputText/>			
+			</h:panelGrid>
 				
-			</h:panelGrid>	
-
+			<!-- Visible si es Edicion -->
+			<h:panelGrid columnClasses="label,component,required" columns="3" rendered="#{!empty formularioBean.id}">
+				<h:outputText />
+				<h:outputText value="#{formularioBean.formulario.archivo}"/>
+				<h:outputText/>
+			</h:panelGrid>
 			<div class="buttons">			
 				<p:commandLink ajax="false" value="Guardar" action="#{formularioBean.update}" styleClass="btn btn-primary"/>
 				<c:choose>

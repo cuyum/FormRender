@@ -85,6 +85,12 @@
 						<h:outputText id="itemFormVersion" value="#{_item.formVersion}"/>
 					</h:link>
 				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="URL"/>
+					</f:facet>
+					<a href="#{_item.url}" target="_blank">#{_item.url}</a>					
+				</h:column>
 			</h:dataTable>
 			<ui:include src="/resources/scaffold/paginator.xhtml">
 				<ui:param name="paginatorBean" value="#{formularioBean}"/>

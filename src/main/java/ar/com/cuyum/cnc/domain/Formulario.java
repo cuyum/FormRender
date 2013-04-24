@@ -18,7 +18,7 @@ public class Formulario implements Serializable
    private static final long serialVersionUID = 1L;
 
    @Id
-   @GeneratedValue(strategy = GenerationType.AUTO)
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column(name = "id", updatable = false, nullable = false)
    private Long id = null;
    
@@ -34,6 +34,9 @@ public class Formulario implements Serializable
 
    @Column
    private String formVersion;
+   
+   @Column
+   private String url;
    
    public Long getId()
    {
@@ -114,6 +117,14 @@ public class Formulario implements Serializable
    public void setArchivo(String archivo) {
 	  this.archivo = archivo;
    }
+
+   public String getUrl() {
+	   return url;
+   }
+	
+   public void setUrl(String url) {
+		this.url = url;
+	}
 
    @Override
    public String toString()
