@@ -91,6 +91,12 @@
 					</f:facet>
 					<a href="#{_item.url}" target="_blank">#{_item.url}</a>					
 				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Xml"/>
+					</f:facet>
+					<a href="#{_item.url}" target="_blank">#{formularioBean.pathXml}#{_item.archivo}</a>					
+				</h:column>
 			</h:dataTable>
 			<ui:include src="/resources/scaffold/paginator.xhtml">
 				<ui:param name="paginatorBean" value="#{formularioBean}"/>

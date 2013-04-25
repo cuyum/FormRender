@@ -11,8 +11,8 @@
 		<primefaces.version>3.4.2</primefaces.version>
 		<primefaces.themes.version>1.0.8</primefaces.themes.version>
 		<commons-fileupload.version>1.2.2</commons-fileupload.version>
-		<commons-io.version>2.4</commons-io.version>
-	</properties>
+		<commons-io.version>2.4</commons-io.version>	
+  </properties>
   
   <dependencyManagement>
     <dependencies>
@@ -95,9 +95,14 @@
 	    <groupId>commons-io</groupId>
 	    <artifactId>commons-io</artifactId>
 	    <version>${commons-io.version}</version>
-	</dependency>
-    
+	</dependency>	
+	<dependency>
+		<groupId>log4j</groupId>
+		<artifactId>log4j</artifactId>
+		<version>1.2.14</version>
+	</dependency>    
   </dependencies>
+  
   <repositories>
     <repository>
       <id>JBOSS_NEXUS</id>
@@ -109,14 +114,14 @@
     </repository>
   </repositories>
   <build>
-    <finalName>FormRender</finalName>
-    <plugins>
+    <finalName>FormRender</finalName>    
+    <plugins>    
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>2.1.1</version>
-        <configuration>
-          <failOnMissingWebXml>false</failOnMissingWebXml>
-        </configuration>
+        <configuration>        
+          <failOnMissingWebXml>false</failOnMissingWebXml> 
+        </configuration>        
       </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>

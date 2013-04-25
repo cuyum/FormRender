@@ -1,0 +1,501 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>C.1.3</h:title>
+    <model>
+      <itext>
+        <translation default="true()" lang="default">
+          <text id="static_instance-list-0">
+            <value>SDH</value>
+          </text>
+          <text id="static_instance-list-1">
+            <value>DWDM</value>
+          </text>
+          <text id="static_instance-list-2">
+            <value>PDH</value>
+          </text>
+          <text id="static_instance-list-3">
+            <value>IP</value>
+          </text>
+          <text id="static_instance-list-4">
+            <value>Otros</value>
+          </text>
+          <text id="static_instance-provincias-0">
+            <value>Buenos Aires</value>
+          </text>
+          <text id="static_instance-provincias-1">
+            <value>Catamarca</value>
+          </text>
+          <text id="static_instance-list2-1">
+            <value>MW</value>
+          </text>
+          <text id="static_instance-list2-0">
+            <value>FO</value>
+          </text>
+          <text id="static_instance-localidades-14">
+            <value>Barrio Bancario</value>
+          </text>
+          <text id="static_instance-list2-2">
+            <value>Otros</value>
+          </text>
+          <text id="static_instance-list3-0">
+            <value>AÉREO</value>
+          </text>
+          <text id="static_instance-list3-1">
+            <value>SUBTERRANEO</value>
+          </text>
+          <text id="static_instance-list3-2">
+            <value>Otros</value>
+          </text>
+          <text id="static_instance-localidades-11">
+            <value>Antofalla</value>
+          </text>
+          <text id="static_instance-localidades-4">
+            <value>16 de Julio</value>
+          </text>
+          <text id="static_instance-localidades-5">
+            <value>Ariel</value>
+          </text>
+          <text id="static_instance-localidades-6">
+            <value>17 de Agosto</value>
+          </text>
+          <text id="static_instance-localidades-7">
+            <value>Azopardo</value>
+          </text>
+          <text id="static_instance-localidades-0">
+            <value>Caseros</value>
+          </text>
+          <text id="static_instance-localidades-1">
+            <value>Churruca</value>
+          </text>
+          <text id="static_instance-localidades-2">
+            <value>Dudignac</value>
+          </text>
+          <text id="static_instance-localidades-3">
+            <value>La Aurora (Est. La Niña)</value>
+          </text>
+          <text id="static_instance-localidades-8">
+            <value>Anillaco</value>
+          </text>
+          <text id="static_instance-localidades-9">
+            <value>Antinaco</value>
+          </text>
+          <text id="static_instance-localidades-15">
+            <value>El Pantanillo</value>
+          </text>
+          <text id="static_instance-localidades-12">
+            <value>Apoyaco</value>
+          </text>
+          <text id="static_instance-localidades-13">
+            <value>Colana</value>
+          </text>
+          <text id="static_instance-localidades-10">
+            <value>Antofagasta de la Sierra</value>
+          </text>
+          <text id="static_instance-partidos-6">
+            <value>Poman</value>
+          </text>
+          <text id="static_instance-partidos-7">
+            <value>Capital</value>
+          </text>
+          <text id="static_instance-partidos-4">
+            <value>Tinogasta</value>
+          </text>
+          <text id="static_instance-partidos-5">
+            <value>Antofagasta de la Sierra</value>
+          </text>
+          <text id="static_instance-partidos-2">
+            <value>Azul</value>
+          </text>
+          <text id="static_instance-partidos-3">
+            <value>Puan</value>
+          </text>
+          <text id="static_instance-partidos-0">
+            <value>Tres De Febrero</value>
+          </text>
+          <text id="static_instance-partidos-1">
+            <value>9 de Julio</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <C.1.3 id="C13">
+          <repeat jr:template="">
+            <equipamiento>
+              <spinner/>
+              <my_int1/>
+              <my_int2/>
+            </equipamiento>
+            <medio>
+              <spinner/>
+              <my_int1/>
+              <my_int2/>
+            </medio>
+            <tendido>
+              <spinner/>
+              <my_int1/>
+              <my_int2/>
+            </tendido>
+            <gral>
+              <provincia/>
+              <partido/>
+              <localidad/>
+            </gral>
+          </repeat>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C.1.3>
+      </instance>
+      <instance id="list">
+        <root>
+          <item>
+            <itextId>static_instance-list-0</itextId>
+            <name>a</name>
+          </item>
+          <item>
+            <itextId>static_instance-list-1</itextId>
+            <name>b</name>
+          </item>
+          <item>
+            <itextId>static_instance-list-2</itextId>
+            <name>c</name>
+          </item>
+          <item>
+            <itextId>static_instance-list-3</itextId>
+            <name>d</name>
+          </item>
+          <item>
+            <itextId>static_instance-list-4</itextId>
+            <name>e</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="list3">
+        <root>
+          <item>
+            <itextId>static_instance-list3-0</itextId>
+            <name>1</name>
+          </item>
+          <item>
+            <itextId>static_instance-list3-1</itextId>
+            <name>2</name>
+          </item>
+          <item>
+            <itextId>static_instance-list3-2</itextId>
+            <name>3</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="list2">
+        <root>
+          <item>
+            <itextId>static_instance-list2-0</itextId>
+            <name>1</name>
+          </item>
+          <item>
+            <itextId>static_instance-list2-1</itextId>
+            <name>2</name>
+          </item>
+          <item>
+            <itextId>static_instance-list2-2</itextId>
+            <name>3</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="partidos">
+        <root>
+          <item>
+            <itextId>static_instance-partidos-0</itextId>
+            <provincia>buenosAires</provincia>
+            <name>tresFebrero</name>
+          </item>
+          <item>
+            <itextId>static_instance-partidos-1</itextId>
+            <provincia>buenosAires</provincia>
+            <name>nueveJulio</name>
+          </item>
+          <item>
+            <itextId>static_instance-partidos-2</itextId>
+            <provincia>buenosAires</provincia>
+            <name>azul</name>
+          </item>
+          <item>
+            <itextId>static_instance-partidos-3</itextId>
+            <provincia>buenosAires</provincia>
+            <name>puan</name>
+          </item>
+          <item>
+            <itextId>static_instance-partidos-4</itextId>
+            <provincia>catamarca</provincia>
+            <name>tinogasta</name>
+          </item>
+          <item>
+            <itextId>static_instance-partidos-5</itextId>
+            <provincia>catamarca</provincia>
+            <name>antofagasta</name>
+          </item>
+          <item>
+            <itextId>static_instance-partidos-6</itextId>
+            <provincia>catamarca</provincia>
+            <name>poman</name>
+          </item>
+          <item>
+            <itextId>static_instance-partidos-7</itextId>
+            <provincia>catamarca</provincia>
+            <name>capital</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="localidades">
+        <root>
+          <item>
+            <itextId>static_instance-localidades-0</itextId>
+            <partido>tresFebrero</partido>
+            <provincia>buenosAires</provincia>
+            <name>caseros</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-1</itextId>
+            <partido>tresFebrero</partido>
+            <provincia>buenosAires</provincia>
+            <name>churruca</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-2</itextId>
+            <partido>nueveJulio</partido>
+            <provincia>buenosAires</provincia>
+            <name>dudignac</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-3</itextId>
+            <partido>nueveJulio</partido>
+            <provincia>buenosAires</provincia>
+            <name>laAurora</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-4</itextId>
+            <partido>azul</partido>
+            <provincia>buenosAires</provincia>
+            <name>dieciseisJulio</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-5</itextId>
+            <partido>azul</partido>
+            <provincia>buenosAires</provincia>
+            <name>ariel</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-6</itextId>
+            <partido>puan</partido>
+            <provincia>buenosAires</provincia>
+            <name>diecisieteAgosto</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-7</itextId>
+            <partido>puan</partido>
+            <provincia>buenosAires</provincia>
+            <name>azopardo</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-8</itextId>
+            <partido>tinogasta</partido>
+            <provincia>catamarca</provincia>
+            <name>anillaco</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-9</itextId>
+            <partido>tinogasta</partido>
+            <provincia>catamarca</provincia>
+            <name>antinaco</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-10</itextId>
+            <partido>antofagasta</partido>
+            <provincia>catamarca</provincia>
+            <name>antofagasta</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-11</itextId>
+            <partido>antofagasta</partido>
+            <provincia>catamarca</provincia>
+            <name>antofalla</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-12</itextId>
+            <partido>poman</partido>
+            <provincia>catamarca</provincia>
+            <name>apoyaco</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-13</itextId>
+            <partido>poman</partido>
+            <provincia>catamarca</provincia>
+            <name>colana</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-14</itextId>
+            <partido>capital</partido>
+            <provincia>catamarca</provincia>
+            <name>barrioBancario</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-15</itextId>
+            <partido>capital</partido>
+            <provincia>catamarca</provincia>
+            <name>elPantanillo</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="provincias">
+        <root>
+          <item>
+            <itextId>static_instance-provincias-0</itextId>
+            <name>buenosAires</name>
+          </item>
+          <item>
+            <itextId>static_instance-provincias-1</itextId>
+            <name>catamarca</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/C.1.3/repeat/equipamiento/spinner" type="select1"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;99999" jr:constraintMsg="Debe ingresar un numero entero" nodeset="/C.1.3/repeat/equipamiento/my_int1" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000" jr:constraintMsg="Debe ingresar un numero entero" nodeset="/C.1.3/repeat/equipamiento/my_int2" type="int"/>
+      <bind nodeset="/C.1.3/repeat/medio/spinner" type="select1"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;99999" jr:constraintMsg="Debe ingresar un numero entero" nodeset="/C.1.3/repeat/medio/my_int1" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;99999" jr:constraintMsg="Debe ingresar un numero entero" nodeset="/C.1.3/repeat/medio/my_int2" type="int"/>
+      <bind nodeset="/C.1.3/repeat/tendido/spinner" type="select1"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;99999" jr:constraintMsg="Debe ingresar un numero entero" nodeset="/C.1.3/repeat/tendido/my_int1" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;99999" jr:constraintMsg="Debe ingresar un numero entero" nodeset="/C.1.3/repeat/tendido/my_int2" type="int"/>
+      <bind nodeset="/C.1.3/repeat/gral/provincia" type="select1"/>
+      <bind nodeset="/C.1.3/repeat/gral/partido" type="select1"/>
+      <bind nodeset="/C.1.3/repeat/gral/localidad" type="select1"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C.1.3/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/C.1.3/repeat">
+      <label>Infraestructura de Red</label>
+      <repeat nodeset="/C.1.3/repeat">
+        <group ref="/C.1.3/repeat/equipamiento">
+          <label>Equipamiento</label>
+          <select1 appearance="minimal" ref="/C.1.3/repeat/equipamiento/spinner">
+            <label>Tecnología</label>
+            <hint>Seleccione Tecnología</hint>
+            <item>
+              <label>SDH</label>
+              <value>a</value>
+            </item>
+            <item>
+              <label>DWDM</label>
+              <value>b</value>
+            </item>
+            <item>
+              <label>PDH</label>
+              <value>c</value>
+            </item>
+            <item>
+              <label>IP</label>
+              <value>d</value>
+            </item>
+            <item>
+              <label>Otros</label>
+              <value>e</value>
+            </item>
+          </select1>
+          <input ref="/C.1.3/repeat/equipamiento/my_int1">
+            <label>Capacidad Disponible</label>
+            <hint>Agregue numero entero</hint>
+          </input>
+          <input ref="/C.1.3/repeat/equipamiento/my_int2">
+            <label>Capacidad Utilizada</label>
+            <hint>Agregue numero entero</hint>
+          </input>
+        </group>
+        <group ref="/C.1.3/repeat/medio">
+          <label>Medio</label>
+          <select1 appearance="minimal" ref="/C.1.3/repeat/medio/spinner">
+            <label>Tecnología</label>
+            <hint>Seleccione Tecnología</hint>
+            <item>
+              <label>FO</label>
+              <value>1</value>
+            </item>
+            <item>
+              <label>MW</label>
+              <value>2</value>
+            </item>
+            <item>
+              <label>Otros</label>
+              <value>3</value>
+            </item>
+          </select1>
+          <input ref="/C.1.3/repeat/medio/my_int1">
+            <label>Capacidad Disponible</label>
+            <hint>Agregue numero entero</hint>
+          </input>
+          <input ref="/C.1.3/repeat/medio/my_int2">
+            <label>Capacidad Utilizada</label>
+            <hint>Agregue numero entero</hint>
+          </input>
+        </group>
+        <group ref="/C.1.3/repeat/tendido">
+          <label>Tendido</label>
+          <select1 appearance="minimal" ref="/C.1.3/repeat/tendido/spinner">
+            <label>Tecnología</label>
+            <hint>Seleccione Tecnología</hint>
+            <item>
+              <label>AÉREO</label>
+              <value>1</value>
+            </item>
+            <item>
+              <label>SUBTERRANEO</label>
+              <value>2</value>
+            </item>
+            <item>
+              <label>Otros</label>
+              <value>3</value>
+            </item>
+          </select1>
+          <input ref="/C.1.3/repeat/tendido/my_int1">
+            <label>Capacidad Disponible</label>
+            <hint>Agregue numero entero</hint>
+          </input>
+          <input ref="/C.1.3/repeat/tendido/my_int2">
+            <label>Capacidad Utilizada</label>
+            <hint>Agregue numero entero</hint>
+          </input>
+        </group>
+        <group ref="/C.1.3/repeat/gral">
+          <label>Ubicación</label>
+          <select1 ref="/C.1.3/repeat/gral/provincia">
+            <label>Provincia/Región</label>
+            <item>
+              <label>Buenos Aires</label>
+              <value>buenosAires</value>
+            </item>
+            <item>
+              <label>Catamarca</label>
+              <value>catamarca</value>
+            </item>
+          </select1>
+          <select1 ref="/C.1.3/repeat/gral/partido">
+            <label>Partido/Dpto</label>
+            <itemset nodeset="instance('partidos')/root/item[provincia= /C.1.3/repeat/gral/provincia ]">
+              <value ref="name"/>
+              <label ref="jr:itext(itextId)"/>
+            </itemset>
+          </select1>
+          <select1 ref="/C.1.3/repeat/gral/localidad">
+            <label>Localidad</label>
+            <itemset nodeset="instance('localidades')/root/item[provincia= /C.1.3/repeat/gral/provincia  and partido= /C.1.3/repeat/gral/partido ]">
+              <value ref="name"/>
+              <label ref="jr:itext(itextId)"/>
+            </itemset>
+          </select1>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

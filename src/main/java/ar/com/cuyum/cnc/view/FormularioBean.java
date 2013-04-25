@@ -33,6 +33,7 @@ import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
 import ar.com.cuyum.cnc.domain.Formulario;
+import ar.com.cuyum.cnc.utils.FormRenderProperties;
 
 /**
  * Backing bean for Formulario entities.
@@ -52,9 +53,10 @@ public class FormularioBean implements Serializable
 
    private static final long serialVersionUID = 1L;
    
-   private static final String CARPETA_DESTINO="Formularios";
-   
    private FacesMessage msgArchivoSubida;
+   
+   @Inject
+   private FormRenderProperties formRenderProperties;
 
    /*
     * Support creating and retrieving Formulario entities
@@ -131,43 +133,70 @@ public class FormularioBean implements Serializable
       return this.entityManager.find(Formulario.class, id);
    }
    
-   public boolean copyFile(UploadedFile file) {
+   public boolean copyFile(UploadedFile file, String destination) {
 	  
 	   boolean copiado = false;
+	   boolean procesar = true;
 	   try {
-		   String fileName = file.getFileName();
+		   
 		   InputStream in = file.getInputstream();
 		   
-		   String destination=System.getProperty("user.home") + System.getProperty("file.separator") + CARPETA_DESTINO
-				   + System.getProperty("file.separator");
-		   
-		   File carpeta = new File(destination);
-		   if (!carpeta.exists()){
-			   carpeta.mkdir();
-		   }
-		   File archivo = new File(destination+ System.getProperty("file.separator")+this.file.getFileName());
-		   if (archivo.exists()){
+		   if (null != destination && !destination.isEmpty()){
+			   destination = destination.trim();
+			   if (!destination.endsWith(System.getProperty("file.separator"))){
+				   //Agrego separador de fin
+				   destination = destination + System.getProperty("file.separator");
+			   }
+			   File carpeta = new File(destination);
+			   if (!carpeta.exists()){
+				   msgArchivoSubida = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Carga de Archivo Fallida",
+						   "Destino incorrecto o no existente: "+ destination);
+				   procesar = false;
+				   copiado = false;
+			   }  
+		   } else {
 			   msgArchivoSubida = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Carga de Archivo Fallida",
-					   "Ya existe un archivo con ese nombre: "+this.file.getFileName());
+					   "Destino incorrecto o no existente: "+ destination);
+			   procesar = false;
 			   copiado = false;
-		   } else {			   
-			   OutputStream out = new FileOutputStream(destination + fileName);
-			   int read = 0;
-			   byte[] bytes = new byte[1024];
-			   while ((read = in.read(bytes)) != -1) {
-				   out.write(bytes, 0, read);
-			   }	     
-			   in.close();
-			   out.flush();
-			   out.close();	    
-		       copiado = true;
 		   }
+		   
+		   if (procesar){
+			   File archivo = new File(destination+ System.getProperty("file.separator") + this.file.getFileName());
+			   if (archivo.exists()){
+				   msgArchivoSubida = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Carga de Archivo Fallida",
+						   "Ya existe un archivo con ese nombre: "+this.file.getFileName());
+				   copiado = false;
+			   } else {			   
+				   OutputStream out = new FileOutputStream(destination + this.file.getFileName());
+				   int read = 0;
+				   byte[] bytes = new byte[1024];
+				   while ((read = in.read(bytes)) != -1) {
+					   out.write(bytes, 0, read);
+				   }	     
+				   in.close();
+				   out.flush();
+				   out.close();	    
+			       copiado = true;
+			   }
+		   }
+
 	   } catch (IOException e) {
 		   msgArchivoSubida = new FacesMessage(FacesMessage.SEVERITY_ERROR, 
 				   "Carga de Archivo Fallida",  e.getMessage());		   
 		   copiado = false;		   
 	   }
 	   return copiado;
+   }
+   
+   public String getPathXml(){
+	   String path = formRenderProperties.getDestinationXml();
+	   path = path.trim();
+	   if (!path.endsWith(System.getProperty("file.separator"))){
+		   //Agrego separador de fin
+		   path = path + System.getProperty("file.separator");
+	   }
+	   return path;
    }
 
    /*
@@ -180,7 +209,8 @@ public class FormularioBean implements Serializable
 	  if(this.file != null && !file.getFileName().isEmpty()) {
 		  String nameFile = file.getFileName();
 		  if (nameFile.endsWith("xml")){
-		  	  copiado = copyFile(file);
+			  String destination = formRenderProperties.getDestinationXml();			  
+		  	  copiado = copyFile(file, destination);
 		  	  if (copiado)
 		  		this.formulario.setArchivo(file.getFileName());
 		  	  else {		  		

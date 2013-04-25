@@ -97,6 +97,13 @@ Hace la carga inicial y creacion de tablas automaticamente.
 
 1) Este proyecto usa git para control de versiones y esta disponible en github. 
    Para bajarse el proyecto, hacer git clone https://github.com/cuyum/FormRender.git
+   
+2) Configurar path destino de los archivos de especificacion de formularios (.xml)  en archivo de propiedades
+
+	FormRender\src\main\resources\formrender.properties
+	
+	Ej.
+	xmlForms.destination = C:\\jboss-as-7.1.0.Final\\welcome-content
 	
 2) Situarse en la raiz del directorio y ejecutar 
 	$>mvn clean package
