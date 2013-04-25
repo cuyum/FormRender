@@ -1,0 +1,680 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>C.1.17</h:title>
+    <model>
+      <itext>
+        <translation default="true()" lang="default">
+          <text id="static_instance-meses-6">
+            <value>Julio</value>
+          </text>
+          <text id="static_instance-meses-7">
+            <value>Agosto</value>
+          </text>
+          <text id="static_instance-meses-4">
+            <value>Mayo</value>
+          </text>
+          <text id="static_instance-meses-5">
+            <value>Junio</value>
+          </text>
+          <text id="static_instance-meses-2">
+            <value>Marzo</value>
+          </text>
+          <text id="static_instance-meses-3">
+            <value>Abril</value>
+          </text>
+          <text id="static_instance-meses-0">
+            <value>Enero</value>
+          </text>
+          <text id="static_instance-meses-1">
+            <value>Febrero</value>
+          </text>
+          <text id="static_instance-areas-11">
+            <value>BARRIO PARQUE SICARDI</value>
+          </text>
+          <text id="static_instance-areas-10">
+            <value>ABASTO</value>
+          </text>
+          <text id="static_instance-areas-13">
+            <value>LA PLATA</value>
+          </text>
+          <text id="static_instance-areas-12">
+            <value>BARTOLOME BAVIO</value>
+          </text>
+          <text id="static_instance-areas-14">
+            <value>LISANDRO OLMOS</value>
+          </text>
+          <text id="static_instance-meses-8">
+            <value>Septiembre</value>
+          </text>
+          <text id="static_instance-meses-9">
+            <value>Octubre</value>
+          </text>
+          <text id="static_instance-meses-18">
+            <value>Julio</value>
+          </text>
+          <text id="static_instance-meses-19">
+            <value>Agosto</value>
+          </text>
+          <text id="static_instance-periodos-4">
+            <value>Enero-Diciembre</value>
+          </text>
+          <text id="static_instance-meses-10">
+            <value>Noviembre</value>
+          </text>
+          <text id="static_instance-meses-11">
+            <value>Diciembre</value>
+          </text>
+          <text id="static_instance-meses-12">
+            <value>Enero</value>
+          </text>
+          <text id="static_instance-meses-13">
+            <value>Febrero</value>
+          </text>
+          <text id="static_instance-meses-14">
+            <value>Marzo</value>
+          </text>
+          <text id="static_instance-meses-15">
+            <value>Abril</value>
+          </text>
+          <text id="static_instance-meses-16">
+            <value>Mayo</value>
+          </text>
+          <text id="static_instance-meses-17">
+            <value>Junio</value>
+          </text>
+          <text id="static_instance-localidades-14">
+            <value>Barrio Bancario</value>
+          </text>
+          <text id="static_instance-localidades-15">
+            <value>El Pantanillo</value>
+          </text>
+          <text id="static_instance-localidades-12">
+            <value>Apoyaco</value>
+          </text>
+          <text id="static_instance-localidades-13">
+            <value>Colana</value>
+          </text>
+          <text id="static_instance-localidades-10">
+            <value>Antofagasta de la Sierra</value>
+          </text>
+          <text id="static_instance-localidades-11">
+            <value>Antofalla</value>
+          </text>
+          <text id="static_instance-periodos-1">
+            <value>Abril-Junio</value>
+          </text>
+          <text id="static_instance-periodos-0">
+            <value>Enero-Marzo</value>
+          </text>
+          <text id="static_instance-periodos-3">
+            <value>Octubre-Diciembre</value>
+          </text>
+          <text id="static_instance-periodos-2">
+            <value>Julio-Septiembre</value>
+          </text>
+          <text id="static_instance-localidades-4">
+            <value>16 de Julio</value>
+          </text>
+          <text id="static_instance-localidades-5">
+            <value>Ariel</value>
+          </text>
+          <text id="static_instance-localidades-6">
+            <value>17 de Agosto</value>
+          </text>
+          <text id="static_instance-localidades-7">
+            <value>Azopardo</value>
+          </text>
+          <text id="static_instance-localidades-0">
+            <value>Caseros</value>
+          </text>
+          <text id="static_instance-localidades-1">
+            <value>Churruca</value>
+          </text>
+          <text id="static_instance-localidades-2">
+            <value>Dudignac</value>
+          </text>
+          <text id="static_instance-localidades-3">
+            <value>La Aurora (Est. La Niña)</value>
+          </text>
+          <text id="static_instance-localidades-8">
+            <value>Anillaco</value>
+          </text>
+          <text id="static_instance-localidades-9">
+            <value>Antinaco</value>
+          </text>
+          <text id="static_instance-meses-21">
+            <value>Octubre</value>
+          </text>
+          <text id="static_instance-meses-20">
+            <value>Septiembre</value>
+          </text>
+          <text id="static_instance-meses-23">
+            <value>Diciembre</value>
+          </text>
+          <text id="static_instance-meses-22">
+            <value>Noviembre</value>
+          </text>
+          <text id="static_instance-areas-9">
+            <value>VIRREY DEL PINO</value>
+          </text>
+          <text id="static_instance-areas-8">
+            <value>GONZALEZ CATAN</value>
+          </text>
+          <text id="static_instance-areas-5">
+            <value>PLOMMER</value>
+          </text>
+          <text id="static_instance-areas-4">
+            <value>MERLO (PROV.  BUENOS AIRES)</value>
+          </text>
+          <text id="static_instance-areas-7">
+            <value>VILLARS</value>
+          </text>
+          <text id="static_instance-areas-6">
+            <value>PONTEVEDRA</value>
+          </text>
+          <text id="static_instance-areas-1">
+            <value>LIBERTAD</value>
+          </text>
+          <text id="static_instance-areas-0">
+            <value>GENERAL LAS HERAS</value>
+          </text>
+          <text id="static_instance-areas-3">
+            <value>MARIANO ACOSTA</value>
+          </text>
+          <text id="static_instance-areas-2">
+            <value>MARCOS PAZ</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <C.1.17 id="C.1.17">
+          <intro/>
+          <periodo/>
+          <mensual jr:template="">
+            <meses/>
+            <amba>0</amba>
+            <buenos_Aires>0</buenos_Aires>
+            <catamarca>0</catamarca>
+            <chaco>0</chaco>
+            <chubut>0</chubut>
+            <cordoba>0</cordoba>
+            <corrientes>0</corrientes>
+            <entre_rios>0</entre_rios>
+            <formosa>0</formosa>
+            <jujuy>0</jujuy>
+            <la_Pampa>0</la_Pampa>
+            <la_Rioja>0</la_Rioja>
+            <mendoza>0</mendoza>
+            <misiones>0</misiones>
+            <neuquen>0</neuquen>
+            <rio_Negro>0</rio_Negro>
+            <salta>0</salta>
+            <san_Juan>0</san_Juan>
+            <san_Luis>0</san_Luis>
+            <santa_Cruz>0</santa_Cruz>
+            <santa_Fe>0</santa_Fe>
+            <santiago_Estero>0</santiago_Estero>
+            <tierra_Fuego>0</tierra_Fuego>
+            <tucuman>0</tucuman>
+            <calculate/>
+            <calculate_test_output/>
+          </mensual>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C.1.17>
+      </instance>
+      <instance id="meses">
+        <root>
+          <item>
+            <itextId>static_instance-meses-0</itextId>
+            <periodo>1</periodo>
+            <name>a</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-1</itextId>
+            <periodo>1</periodo>
+            <name>b</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-2</itextId>
+            <periodo>1</periodo>
+            <name>c</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-3</itextId>
+            <periodo>2</periodo>
+            <name>d</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-4</itextId>
+            <periodo>2</periodo>
+            <name>e</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-5</itextId>
+            <periodo>2</periodo>
+            <name>f</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-6</itextId>
+            <periodo>3</periodo>
+            <name>g</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-7</itextId>
+            <periodo>3</periodo>
+            <name>h</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-8</itextId>
+            <periodo>3</periodo>
+            <name>i</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-9</itextId>
+            <periodo>4</periodo>
+            <name>j</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-10</itextId>
+            <periodo>4</periodo>
+            <name>k</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-11</itextId>
+            <periodo>4</periodo>
+            <name>l</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-12</itextId>
+            <periodo>5</periodo>
+            <name>a</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-13</itextId>
+            <periodo>5</periodo>
+            <name>b</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-14</itextId>
+            <periodo>5</periodo>
+            <name>c</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-15</itextId>
+            <periodo>5</periodo>
+            <name>d</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-16</itextId>
+            <periodo>5</periodo>
+            <name>e</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-17</itextId>
+            <periodo>5</periodo>
+            <name>f</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-18</itextId>
+            <periodo>5</periodo>
+            <name>g</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-19</itextId>
+            <periodo>5</periodo>
+            <name>h</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-20</itextId>
+            <periodo>5</periodo>
+            <name>i</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-21</itextId>
+            <periodo>5</periodo>
+            <name>j</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-22</itextId>
+            <periodo>5</periodo>
+            <name>k</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-23</itextId>
+            <periodo>5</periodo>
+            <name>l</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="periodos">
+        <root>
+          <item>
+            <itextId>static_instance-periodos-0</itextId>
+            <name>1</name>
+          </item>
+          <item>
+            <itextId>static_instance-periodos-1</itextId>
+            <name>2</name>
+          </item>
+          <item>
+            <itextId>static_instance-periodos-2</itextId>
+            <name>3</name>
+          </item>
+          <item>
+            <itextId>static_instance-periodos-3</itextId>
+            <name>4</name>
+          </item>
+          <item>
+            <itextId>static_instance-periodos-4</itextId>
+            <name>5</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="localidades">
+        <root>
+          <item>
+            <itextId>static_instance-localidades-0</itextId>
+            <name>caseros</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-1</itextId>
+            <name>churruca</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-2</itextId>
+            <name>dudignac</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-3</itextId>
+            <name>laAurora</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-4</itextId>
+            <name>dieciseisJulio</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-5</itextId>
+            <name>ariel</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-6</itextId>
+            <name>diecisieteAgosto</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-7</itextId>
+            <name>azopardo</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-8</itextId>
+            <name>anillaco</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-9</itextId>
+            <name>antinaco</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-10</itextId>
+            <name>antofagasta</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-11</itextId>
+            <name>antofalla</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-12</itextId>
+            <name>apoyaco</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-13</itextId>
+            <name>colana</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-14</itextId>
+            <name>barrioBancario</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-15</itextId>
+            <name>elPantanillo</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="areas">
+        <root>
+          <item>
+            <itextId>static_instance-areas-0</itextId>
+            <name>GENERAL_LAS_HERAS</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-1</itextId>
+            <name>LIBERTAD</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-2</itextId>
+            <name>MARCOS_PAZ</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-3</itextId>
+            <name>MARIANO_ACOSTA</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-4</itextId>
+            <name>MERLO</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-5</itextId>
+            <name>PLOMMER</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-6</itextId>
+            <name>PONTEVEDRA</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-7</itextId>
+            <name>VILLARS</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-8</itextId>
+            <name>GONZALEZ_CATAN</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-9</itextId>
+            <name>VIRREY_PINO</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-10</itextId>
+            <name>ABASTO</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-11</itextId>
+            <name>BARRIO_PARQUE_SICARDI</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-12</itextId>
+            <name>BARTOLOME_BAVIO</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-13</itextId>
+            <name>LA_PLATA</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-14</itextId>
+            <name>LISANDRO_OLMOS</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/C.1.17/intro" readonly="true()" type="string"/>
+      <bind nodeset="/C.1.17/periodo" type="select1"/>
+      <bind nodeset="/C.1.17/mensual/meses" type="select1"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.99" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/amba" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.100" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/buenos_Aires" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.101" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/catamarca" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.102" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/chaco" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.103" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/chubut" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.104" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/cordoba" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.105" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/corrientes" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.106" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/entre_rios" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.107" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/formosa" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.108" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/jujuy" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.109" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/la_Pampa" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.110" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/la_Rioja" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.111" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/mendoza" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.112" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/misiones" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.113" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/neuquen" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.114" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/rio_Negro" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.115" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/salta" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.116" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/san_Juan" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.117" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/san_Luis" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.118" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/santa_Cruz" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.119" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/santa_Fe" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.120" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/santiago_Estero" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.121" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/tierra_Fuego" type="decimal"/>
+      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.122" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/tucuman" type="decimal"/>
+      <bind calculate=" /C.1.17/mensual/amba + /C.1.17/mensual/buenos_Aires + /C.1.17/mensual/catamarca + /C.1.17/mensual/chaco + /C.1.17/mensual/chubut + /C.1.17/mensual/cordoba + /C.1.17/mensual/corrientes + /C.1.17/mensual/entre_rios + /C.1.17/mensual/formosa + /C.1.17/mensual/jujuy + /C.1.17/mensual/la_Pampa + /C.1.17/mensual/la_Rioja + /C.1.17/mensual/mendoza + /C.1.17/mensual/misiones + /C.1.17/mensual/neuquen + /C.1.17/mensual/rio_Negro + /C.1.17/mensual/salta + /C.1.17/mensual/san_Juan + /C.1.17/mensual/san_Luis + /C.1.17/mensual/santa_Cruz + /C.1.17/mensual/santa_Fe + /C.1.17/mensual/santiago_Estero + /C.1.17/mensual/tierra_Fuego + /C.1.17/mensual/tucuman " nodeset="/C.1.17/mensual/calculate" type="string"/>
+      <bind nodeset="/C.1.17/mensual/calculate_test_output" readonly="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C.1.17/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/C.1.17/intro">
+      <label>ingresos Totales Telefonia Local por Provincia</label>
+    </input>
+    <select1 ref="/C.1.17/periodo">
+      <label>Periodo</label>
+      <hint>Seleccione Periodo DDJJ</hint>
+      <item>
+        <label>Enero-Marzo</label>
+        <value>1</value>
+      </item>
+      <item>
+        <label>Abril-Junio</label>
+        <value>2</value>
+      </item>
+      <item>
+        <label>Julio-Septiembre</label>
+        <value>3</value>
+      </item>
+      <item>
+        <label>Octubre-Diciembre</label>
+        <value>4</value>
+      </item>
+      <item>
+        <label>Enero-Diciembre</label>
+        <value>5</value>
+      </item>
+    </select1>
+    <group ref="/C.1.17/mensual">
+      <label>Ingrese Datos</label>
+      <repeat nodeset="/C.1.17/mensual">
+        <select1 ref="/C.1.17/mensual/meses">
+          <label>Mes</label>
+          <hint>Seleccione Mes</hint>
+          <itemset nodeset="instance('meses')/root/item[periodo= /C.1.17/periodo ]">
+            <value ref="name"/>
+            <label ref="jr:itext(itextId)"/>
+          </itemset>
+        </select1>
+        <input ref="/C.1.17/mensual/amba">
+          <label>AMBA</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/buenos_Aires">
+          <label>Buenos Aires</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/catamarca">
+          <label>Catamarca</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/chaco">
+          <label>Chaco</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/chubut">
+          <label>Chubut</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/cordoba">
+          <label>Córdoba</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/corrientes">
+          <label>Corrientes</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/entre_rios">
+          <label>Entre Ríos</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/formosa">
+          <label>Formosa</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/jujuy">
+          <label>Jujuy</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/la_Pampa">
+          <label>La Pampa</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/la_Rioja">
+          <label>La Rioja</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/mendoza">
+          <label>Mendoza</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/misiones">
+          <label>Misiones</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/neuquen">
+          <label>Neuquén</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/rio_Negro">
+          <label>Río Negro</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/salta">
+          <label>Salta</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/san_Juan">
+          <label>San Juan</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/san_Luis">
+          <label>San Luis</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/santa_Cruz">
+          <label>Santa Cruz</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/santa_Fe">
+          <label>Santa Fe</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/santiago_Estero">
+          <label>Santiago del Estero</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/tierra_Fuego">
+          <label>Tierra del Fuego</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/tucuman">
+          <label>Tucumán</label>
+          <hint>Ingrese un numero decimal</hint>
+        </input>
+        <input ref="/C.1.17/mensual/calculate_test_output">
+          <label>Total <output value=" /C.1.17/mensual/calculate "/></label></input>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+	<title>#{empty pageTitle ? '{#pageTitle}' : pageTitle}</title>
+	<link rel="icon" href="#{resources['favicon.ico']}" />
+	<h:outputStylesheet name="style.css"/>	
+</h:head>
+
+<h:body>
+<div id="container">
+	<div id="header">
+			<h:form>
+				<h:graphicImage value="/resources/indice.jpg"/>
+				<h:panelGroup id="loginout">        			
+        			
+        				<h:graphicImage value="/resources/cerrar_sesion.png"  />
+        			
+    			</h:panelGroup> 
+			</h:form>
+		</div>
+		<div id="navigation">			
+			<ul>
+				<li>
+					<h:link outcome="/formulario/search" value="Formularios"/>
+				</li>
+				<!-- 
+				<li>
+					<h:link outcome="/xsl/search" value="Xsl"/>
+				</li>
+				-->
+			</ul>
+		</div>
+
+		
+	
+	<div id="wrapper">
+	
+			
+		
+			<div id="content">
+				<h1><ui:insert name="header"/></h1>		
+				<h2><ui:insert name="subheader"/></h2>
+		
+				<ui:insert name="main"/>
+				<br/>
+
+							</div>	
+							
+								
+		</div>
+
+	<div id="footer">
+					CUYUM - 2013
+	</div>		
+</div>
+</h:body>
+
+</html>
