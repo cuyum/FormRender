@@ -193,7 +193,7 @@ public class FormularioBean implements Serializable
 	          FacesContext.getCurrentInstance().addMessage(null, msg); 
 	          return null;
 		  }
-	  } else {
+	  } else if (this.id == null){
     	  FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Archivo de configuracion del formulario", "No hay adjuntado el archivo!!");  
           FacesContext.getCurrentInstance().addMessage(null, msg);  
           return null;

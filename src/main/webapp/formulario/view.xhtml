@@ -31,6 +31,9 @@
 			<h:outputLabel for="formularioBeanFormularioArchivo" value="Archivo:"/>
 			<h:outputText id="formularioBeanFormularioArchivo" value="#{formularioBean.formulario.archivo}"/>
 			<h:outputText/>
+			<h:outputLabel for="formularioBeanFormularioUrl" value="URL:"/>
+			<h:outputText id="formularioBeanFormularioUrl" value="#{formularioBean.formulario.url}"/>
+			<h:outputText/>
 			<h:outputLabel for="formularioBeanFormularioFormVersion" value="Version:"/>
 			<h:outputText id="formularioBeanFormularioFormVersion" value="#{formularioBean.formulario.formVersion}"/>
 			<h:outputText/>
@@ -38,7 +41,7 @@
 
 		<div class="buttons">
 			<h:link value="Ver Todos" outcome="search" styleClass="btn btn-primary"/> 
-			<!-- <h:link value="Editar" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/> -->
+			<h:link value="Editar" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
 			<h:link value="Nuevo" outcome="create" styleClass="btn btn-primary"/>
 		</div>
 	</ui:define>
