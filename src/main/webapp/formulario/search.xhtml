@@ -95,7 +95,7 @@
 					<f:facet name="header">
 						<h:outputText value="Xml"/>
 					</f:facet>
-					<a href="#{_item.url}" target="_blank">#{formularioBean.pathXml}#{_item.archivo}</a>					
+					<a href="http://localhost:8080/#{_item.archivo}" target="_blank">#{_item.archivo}</a>
 				</h:column>
 			</h:dataTable>
 			<ui:include src="/resources/scaffold/paginator.xhtml">
