@@ -415,7 +415,8 @@ public class FormularioBean implements Serializable
 	  
 	   String serverName = FacesContext.getCurrentInstance().getExternalContext().getRequestServerName();
 	   int serverPort = FacesContext.getCurrentInstance().getExternalContext().getRequestServerPort();
-	   String dir = "http://"+serverName + ":" + serverPort+"/";
+	   String nameApp = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath();
+	   String dir = "http://"+serverName + ":" + serverPort+ nameApp + "/salidaForms/";
 	   return dir;
    }
 
