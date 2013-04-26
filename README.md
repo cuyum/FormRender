@@ -96,7 +96,9 @@ Hace la carga inicial y creacion de tablas automaticamente.
 3.1 Pasos
 
 1) Este proyecto usa git para control de versiones y esta disponible en github. 
-   Para bajarse el proyecto, hacer git clone https://github.com/cuyum/FormRender.git
+   Para bajarse el proyecto, hacer git clone 
+   
+   git@cluster.softwarepublico.gob.ar:cnc2220.git
    
 2) Configurar path destino de los archivos de especificacion de formularios (.xml)  en archivo de propiedades
 
@@ -135,4 +137,4 @@ FormRender
    
 6) Acceder desde un browser a la direccion 
 	
-	http://localhost:8080/FormRender/
+	http://<localhost:8080>/FormRender/
