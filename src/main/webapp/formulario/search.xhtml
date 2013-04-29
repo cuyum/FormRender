@@ -89,13 +89,13 @@
 					<f:facet name="header">
 						<h:outputText value="URL"/>
 					</f:facet>
-					<a href="#{_item.url}" target="_blank">#{_item.url}</a>					
+					<a href="#{formularioBean.serverName}#{_item.url}" target="_blank">#{_item.url}</a>					
 				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Xml"/>
 					</f:facet>
-					<a href="http://localhost:8080/#{_item.archivo}" target="_blank">#{_item.archivo}</a>
+					<a href="#{formularioBean.serverName}#{_item.archivo}" target="_blank">#{_item.archivo}</a>
 				</h:column>
 			</h:dataTable>
 			<ui:include src="/resources/scaffold/paginator.xhtml">

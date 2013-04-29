@@ -96,7 +96,9 @@ Hace la carga inicial y creacion de tablas automaticamente.
 3.1 Pasos
 
 1) Este proyecto usa git para control de versiones y esta disponible en github. 
-   Para bajarse el proyecto, hacer git clone https://github.com/cuyum/FormRender.git
+   Para bajarse el proyecto, hacer git clone 
+   
+   git@cluster.softwarepublico.gob.ar:cnc2220.git
    
 2) Configurar path destino de los archivos de especificacion de formularios (.xml)  en archivo de propiedades
 
@@ -112,27 +114,12 @@ Hace la carga inicial y creacion de tablas automaticamente.
 3) Deployar el archivo "FormRender.war" generado, para ello
    en JBoss 7.1.0 copiar el archivo al directorio <jboss-as-7.1.0.Final>\standalone\deployments
    
-4) Copiar Contenido estatico 
-
-Es necesario copiar los archivos html estaticos en 
-
-<jboss-as-7.1.0.Final>\welcome-content
-
-Para ello situarse en el codigo fuente del proyecto FormRender.
-
-y copiar la carpeta forms (FormRender/form) completa, pegándola en la ruta del jboss especificada anteriormente.
-
-FormRender
-	forms
-		<form1>.html
-		<form2>.html
-		...
-		<formn>.html
-		archivos 
-
+4) Iniciar el server (standalone.bat en windows o standalone.sh unix)
    
-5) Iniciar el server (standalone.bat en windows o standalone.sh unix)
-   
-6) Acceder desde un browser a la direccion 
+5) Acceder desde un browser a la direccion. Ej
 	
-	http://localhost:8080/FormRender/
+	http://<localhost:8080>/FormRender/
+	
+	La página de inicio muestra un listado de los formularios que se presentaron de muestra para esta entrega
+	xml y html (columnas URL y XML respectivamente). Haciendo click en cada uno de ellos se pueden visualizar.
+	

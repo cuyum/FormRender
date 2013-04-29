@@ -410,6 +410,15 @@ public class FormularioBean implements Serializable
          }
       };
    }
+   
+   public String getServerName (){
+	  
+	   String serverName = FacesContext.getCurrentInstance().getExternalContext().getRequestServerName();
+	   int serverPort = FacesContext.getCurrentInstance().getExternalContext().getRequestServerPort();
+	   String nameApp = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath();
+	   String dir = "http://"+serverName + ":" + serverPort+ nameApp + "/salidaForms/";
+	   return dir;
+   }
 
    /*
     * Support adding children to bidirectional, one-to-many tables
