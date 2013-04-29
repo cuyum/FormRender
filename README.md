@@ -107,7 +107,7 @@ Hace la carga inicial y creacion de tablas automaticamente.
 	Ej.
 	xmlForms.destination = C:\\jboss-as-7.1.0.Final\\welcome-content
 	
-2) Situarse en la raiz del directorio y ejecutar 
+2) Situarse en la raiz del directorio del codigo y ejecutar 
 	$>mvn clean package
 	Esto genera un archivo war en "FormRender/target/FormRender.war"
 	
