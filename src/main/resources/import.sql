@@ -1,7 +1,11 @@
 INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.2','0','C.1.2.xml', 0);
 INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.3','0','C.1.3.xml', 0);
 INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.4','0','C.1.4.xml', 0);
+INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.7','0','C.1.7.xml', 0);
+INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.7.3','0','C.1.7.3.xml', 0);
+INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.10.3','0','C.1.10.3.xml', 0);
 INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.12','0','C.1.12.xml', 0);
+INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.15','0','C.1.15.xml', 0);
 INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.17','0','C.1.17.xml', 0);
 INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.22','0','C.1.22.xml', 0);
 INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.23','0','C.1.23.xml', 0);
@@ -9,5 +13,6 @@ INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.24',
 INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.25','0','C.1.25.xml', 0);
 INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.26','0','C.1.26.xml', 0);
 INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.27.1','0','C.1.27.1.xml', 0);
+INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.28-C.1.29','0','C.1.28-C.1.29.xml', 0);
 INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.31','0','C.1.31.xml', 0);
 INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.32','0','C.1.32.1.xml', 0);

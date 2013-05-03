@@ -3,6 +3,8 @@ FormRender
 
 Permite el Ingreso de Formularios en archivos .xml que contienen su especificacion (tipos de datos, requeridos o no, etc).
 
+Transformación xml => html.
+
 1.Objetivo del documento 
 -------------------------
 
@@ -103,10 +105,7 @@ Hace la carga inicial y creacion de tablas automaticamente.
 2) Configurar path destino de los archivos de especificacion de formularios (.xml)  en archivo de propiedades
 
 	FormRender\src\main\resources\formrender.properties
-	
-	Ej.
-	xmlForms.destination = C:\\jboss-as-7.1.0.Final\\welcome-content
-	
+
 2) Situarse en la raiz del directorio del codigo y ejecutar 
 	$>mvn clean package
 	Esto genera un archivo war en "FormRender/target/FormRender.war"

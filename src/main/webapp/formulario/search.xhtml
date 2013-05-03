@@ -58,7 +58,7 @@
 			</f:validateBean>
 			
 			<p:dataTable id="formularioBeanPageItems" value="#{formularioBean.pageItems}" var="_item" style="font-size:12px;" rows="5" 
-			paginator="true" paginatorPosition="bottom">
+			paginator="true" paginatorPosition="bottom" emptyMessage="">
 				<p:column headerText="Nombre">					
 					<h:link outcome="/formulario/view" styleClass="decoNone">
 						<f:param name="id" value="#{_item.id}"/>

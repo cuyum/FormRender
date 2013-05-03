@@ -3,107 +3,14 @@
   <h:head>
     <h:title>C.1.22 - INGRESOS TELEFONIA LARGA DISTANCIA NACIONAL</h:title>
     <model>
-      <itext>
-        <translation default="true()" lang="default">
-          <text id="static_instance-meses-6">
-            <value>Julio</value>
-          </text>
-          <text id="static_instance-meses-7">
-            <value>Agosto</value>
-          </text>
-          <text id="static_instance-meses-4">
-            <value>Mayo</value>
-          </text>
-          <text id="static_instance-meses-5">
-            <value>Junio</value>
-          </text>
-          <text id="static_instance-meses-2">
-            <value>Marzo</value>
-          </text>
-          <text id="static_instance-meses-3">
-            <value>Abril</value>
-          </text>
-          <text id="static_instance-meses-0">
-            <value>Enero</value>
-          </text>
-          <text id="static_instance-meses-1">
-            <value>Febrero</value>
-          </text>
-          <text id="static_instance-meses-8">
-            <value>Septiembre</value>
-          </text>
-          <text id="static_instance-meses-9">
-            <value>Octubre</value>
-          </text>
-          <text id="static_instance-meses-18">
-            <value>Julio</value>
-          </text>
-          <text id="static_instance-meses-19">
-            <value>Agosto</value>
-          </text>
-          <text id="static_instance-periodos-4">
-            <value>Enero-Diciembre</value>
-          </text>
-          <text id="static_instance-meses-10">
-            <value>Noviembre</value>
-          </text>
-          <text id="static_instance-meses-11">
-            <value>Diciembre</value>
-          </text>
-          <text id="static_instance-meses-12">
-            <value>Enero</value>
-          </text>
-          <text id="static_instance-meses-13">
-            <value>Febrero</value>
-          </text>
-          <text id="static_instance-meses-14">
-            <value>Marzo</value>
-          </text>
-          <text id="static_instance-meses-15">
-            <value>Abril</value>
-          </text>
-          <text id="static_instance-meses-16">
-            <value>Mayo</value>
-          </text>
-          <text id="static_instance-meses-17">
-            <value>Junio</value>
-          </text>
-          <text id="static_instance-periodos-1">
-            <value>Abril-Junio</value>
-          </text>
-          <text id="static_instance-periodos-0">
-            <value>Enero-Marzo</value>
-          </text>
-          <text id="static_instance-periodos-3">
-            <value>Octubre-Diciembre</value>
-          </text>
-          <text id="static_instance-periodos-2">
-            <value>Julio-Septiembre</value>
-          </text>
-          <text id="static_instance-meses-21">
-            <value>Octubre</value>
-          </text>
-          <text id="static_instance-meses-20">
-            <value>Septiembre</value>
-          </text>
-          <text id="static_instance-meses-23">
-            <value>Diciembre</value>
-          </text>
-          <text id="static_instance-meses-22">
-            <value>Noviembre</value>
-          </text>
-        </translation>
-      </itext>
       <instance>
         <C.1.22 id="C12">
-          <periodo/>
-          <meses/>
           <nota/>
           <nota2/>
           <cuadro1>
             <horarioNormal/>
             <clave1>
-              <generated_table_list_label_13/>
+              <generated_table_list_label_9/>
               <familia1_1>0</familia1_1>
               <comercial1_1>0</comercial1_1>
               <gobierno1_1>0</gobierno1_1>
@@ -114,7 +21,7 @@
               <calculate_test_output1_1/>
             </clave1>
             <clave23>
-              <generated_table_list_label_26/>
+              <generated_table_list_label_22/>
               <familia2_1>0</familia2_1>
               <comercial2_1>0</comercial2_1>
               <gobierno2_1>0</gobierno2_1>
@@ -125,7 +32,7 @@
               <calculate_test_output2_1/>
             </clave23>
             <clave45>
-              <generated_table_list_label_39/>
+              <generated_table_list_label_35/>
               <familia3_1>0</familia3_1>
               <comercial3_1>0</comercial3_1>
               <gobierno3_1>0</gobierno3_1>
@@ -136,7 +43,7 @@
               <calculate_test_output3_1/>
             </clave45>
             <clave612>
-              <generated_table_list_label_52/>
+              <generated_table_list_label_48/>
               <familia4_1>0</familia4_1>
               <comercial4_1>0</comercial4_1>
               <gobierno4_1>0</gobierno4_1>
@@ -151,7 +58,7 @@
             <nota3/>
             <horarioReducido/>
             <clave1_2>
-              <generated_table_list_label_71/>
+              <generated_table_list_label_67/>
               <familia1>0</familia1>
               <comercial1>0</comercial1>
               <gobierno1>0</gobierno1>
@@ -162,7 +69,7 @@
               <calculate_test_output1/>
             </clave1_2>
             <clave23_2>
-              <generated_table_list_label_84/>
+              <generated_table_list_label_80/>
               <familia2>0</familia2>
               <comercial2>0</comercial2>
               <gobierno2>0</gobierno2>
@@ -173,7 +80,7 @@
               <calculate_test_output2/>
             </clave23_2>
             <clave45_2>
-              <generated_table_list_label_97/>
+              <generated_table_list_label_93/>
               <familia3>0</familia3>
               <comercial3>0</comercial3>
               <gobierno3>0</gobierno3>
@@ -184,7 +91,7 @@
               <calculate_test_output3/>
             </clave45_2>
             <clave612_2>
-              <generated_table_list_label_110/>
+              <generated_table_list_label_106/>
               <familia4>0</familia4>
               <comercial4>0</comercial4>
               <gobierno4>0</gobierno4>
@@ -200,160 +107,10 @@
           </meta>
         </C.1.22>
       </instance>
-      <instance id="meses">
-        <root>
-          <item>
-            <itextId>static_instance-meses-0</itextId>
-            <periodo>1</periodo>
-            <name>a</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-1</itextId>
-            <periodo>1</periodo>
-            <name>b</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-2</itextId>
-            <periodo>1</periodo>
-            <name>c</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-3</itextId>
-            <periodo>2</periodo>
-            <name>d</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-4</itextId>
-            <periodo>2</periodo>
-            <name>e</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-5</itextId>
-            <periodo>2</periodo>
-            <name>f</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-6</itextId>
-            <periodo>3</periodo>
-            <name>g</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-7</itextId>
-            <periodo>3</periodo>
-            <name>h</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-8</itextId>
-            <periodo>3</periodo>
-            <name>i</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-9</itextId>
-            <periodo>4</periodo>
-            <name>j</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-10</itextId>
-            <periodo>4</periodo>
-            <name>k</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-11</itextId>
-            <periodo>4</periodo>
-            <name>l</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-12</itextId>
-            <periodo>5</periodo>
-            <name>a</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-13</itextId>
-            <periodo>5</periodo>
-            <name>b</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-14</itextId>
-            <periodo>5</periodo>
-            <name>c</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-15</itextId>
-            <periodo>5</periodo>
-            <name>d</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-16</itextId>
-            <periodo>5</periodo>
-            <name>e</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-17</itextId>
-            <periodo>5</periodo>
-            <name>f</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-18</itextId>
-            <periodo>5</periodo>
-            <name>g</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-19</itextId>
-            <periodo>5</periodo>
-            <name>h</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-20</itextId>
-            <periodo>5</periodo>
-            <name>i</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-21</itextId>
-            <periodo>5</periodo>
-            <name>j</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-22</itextId>
-            <periodo>5</periodo>
-            <name>k</name>
-          </item>
-          <item>
-            <itextId>static_instance-meses-23</itextId>
-            <periodo>5</periodo>
-            <name>l</name>
-          </item>
-        </root>
-      </instance>
-      <instance id="periodos">
-        <root>
-          <item>
-            <itextId>static_instance-periodos-0</itextId>
-            <name>1</name>
-          </item>
-          <item>
-            <itextId>static_instance-periodos-1</itextId>
-            <name>2</name>
-          </item>
-          <item>
-            <itextId>static_instance-periodos-2</itextId>
-            <name>3</name>
-          </item>
-          <item>
-            <itextId>static_instance-periodos-3</itextId>
-            <name>4</name>
-          </item>
-          <item>
-            <itextId>static_instance-periodos-4</itextId>
-            <name>5</name>
-          </item>
-        </root>
-      </instance>
-      <bind nodeset="/C.1.22/periodo" required="true()" type="select1"/>
-      <bind nodeset="/C.1.22/meses" required="true()" type="select1"/>
       <bind nodeset="/C.1.22/nota" readonly="true()" type="string"/>
       <bind nodeset="/C.1.22/nota2" readonly="true()" type="string"/>
       <bind nodeset="/C.1.22/cuadro1/horarioNormal" type="string"/>
-      <bind nodeset="/C.1.22/cuadro1/clave1/generated_table_list_label_13" readonly="true()" type="string"/>
+      <bind nodeset="/C.1.22/cuadro1/clave1/generated_table_list_label_9" readonly="true()" type="string"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro1/clave1/familia1_1" required="true()" type="int"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro1/clave1/comercial1_1" required="true()" type="int"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro1/clave1/gobierno1_1" required="true()" type="int"/>
@@ -362,7 +119,7 @@
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro1/clave1/otras1_1" required="true()" type="int"/>
       <bind calculate=" /C.1.22/cuadro1/clave1/familia1_1 + /C.1.22/cuadro1/clave1/comercial1_1 + /C.1.22/cuadro1/clave1/gobierno1_1 + /C.1.22/cuadro1/clave1/jubilados1_1 + /C.1.22/cuadro1/clave1/profesional1_1 + /C.1.22/cuadro1/clave1/otras1_1 " nodeset="/C.1.22/cuadro1/clave1/calculate1_1" type="string"/>
       <bind nodeset="/C.1.22/cuadro1/clave1/calculate_test_output1_1" readonly="true()" type="string"/>
-      <bind nodeset="/C.1.22/cuadro1/clave23/generated_table_list_label_26" readonly="true()" type="string"/>
+      <bind nodeset="/C.1.22/cuadro1/clave23/generated_table_list_label_22" readonly="true()" type="string"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro1/clave23/familia2_1" required="true()" type="int"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro1/clave23/comercial2_1" required="true()" type="int"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro1/clave23/gobierno2_1" required="true()" type="int"/>
@@ -371,7 +128,7 @@
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro1/clave23/otras2_1" required="true()" type="int"/>
       <bind calculate=" /C.1.22/cuadro1/clave23/familia2_1 + /C.1.22/cuadro1/clave23/comercial2_1 + /C.1.22/cuadro1/clave23/gobierno2_1 + /C.1.22/cuadro1/clave23/jubilados2_1 + /C.1.22/cuadro1/clave23/profesional2_1 + /C.1.22/cuadro1/clave23/otras2_1 " nodeset="/C.1.22/cuadro1/clave23/calculate2_1" type="string"/>
       <bind nodeset="/C.1.22/cuadro1/clave23/calculate_test_output2_1" readonly="true()" type="string"/>
-      <bind nodeset="/C.1.22/cuadro1/clave45/generated_table_list_label_39" readonly="true()" type="string"/>
+      <bind nodeset="/C.1.22/cuadro1/clave45/generated_table_list_label_35" readonly="true()" type="string"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro1/clave45/familia3_1" required="true()" type="int"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro1/clave45/comercial3_1" required="true()" type="int"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro1/clave45/gobierno3_1" required="true()" type="int"/>
@@ -380,7 +137,7 @@
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro1/clave45/otras3_1" required="true()" type="int"/>
       <bind calculate=" /C.1.22/cuadro1/clave45/familia3_1 + /C.1.22/cuadro1/clave45/comercial3_1 + /C.1.22/cuadro1/clave45/gobierno3_1 + /C.1.22/cuadro1/clave45/jubilados3_1 + /C.1.22/cuadro1/clave45/profesional3_1 + /C.1.22/cuadro1/clave45/otras3_1 " nodeset="/C.1.22/cuadro1/clave45/calculate3_1" type="string"/>
       <bind nodeset="/C.1.22/cuadro1/clave45/calculate_test_output3_1" readonly="true()" type="string"/>
-      <bind nodeset="/C.1.22/cuadro1/clave612/generated_table_list_label_52" readonly="true()" type="string"/>
+      <bind nodeset="/C.1.22/cuadro1/clave612/generated_table_list_label_48" readonly="true()" type="string"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro1/clave612/familia4_1" required="true()" type="int"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro1/clave612/comercial4_1" required="true()" type="int"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro1/clave612/gobierno4_1" required="true()" type="int"/>
@@ -391,7 +148,7 @@
       <bind nodeset="/C.1.22/cuadro1/clave612/calculate_test_output4_1" readonly="true()" type="string"/>
       <bind nodeset="/C.1.22/cuadro2/nota3" readonly="true()" type="string"/>
       <bind nodeset="/C.1.22/cuadro2/horarioReducido" type="string"/>
-      <bind nodeset="/C.1.22/cuadro2/clave1_2/generated_table_list_label_71" readonly="true()" type="string"/>
+      <bind nodeset="/C.1.22/cuadro2/clave1_2/generated_table_list_label_67" readonly="true()" type="string"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro2/clave1_2/familia1" required="true()" type="int"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro2/clave1_2/comercial1" required="true()" type="int"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro2/clave1_2/gobierno1" required="true()" type="int"/>
@@ -400,7 +157,7 @@
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro2/clave1_2/otras1" required="true()" type="int"/>
       <bind calculate=" /C.1.22/cuadro2/clave1_2/familia1 + /C.1.22/cuadro2/clave1_2/comercial1 + /C.1.22/cuadro2/clave1_2/gobierno1 + /C.1.22/cuadro2/clave1_2/jubilados1 + /C.1.22/cuadro2/clave1_2/profesional1 + /C.1.22/cuadro2/clave1_2/otras1 " nodeset="/C.1.22/cuadro2/clave1_2/calculate1" type="string"/>
       <bind nodeset="/C.1.22/cuadro2/clave1_2/calculate_test_output1" readonly="true()" type="string"/>
-      <bind nodeset="/C.1.22/cuadro2/clave23_2/generated_table_list_label_84" readonly="true()" type="string"/>
+      <bind nodeset="/C.1.22/cuadro2/clave23_2/generated_table_list_label_80" readonly="true()" type="string"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro2/clave23_2/familia2" required="true()" type="int"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro2/clave23_2/comercial2" required="true()" type="int"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro2/clave23_2/gobierno2" required="true()" type="int"/>
@@ -409,7 +166,7 @@
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro2/clave23_2/otras2" required="true()" type="int"/>
       <bind calculate=" /C.1.22/cuadro2/clave23_2/familia2 + /C.1.22/cuadro2/clave23_2/comercial2 + /C.1.22/cuadro2/clave23_2/gobierno2 + /C.1.22/cuadro2/clave23_2/jubilados2 + /C.1.22/cuadro2/clave23_2/profesional2 + /C.1.22/cuadro2/clave23_2/otras2 " nodeset="/C.1.22/cuadro2/clave23_2/calculate2" type="string"/>
       <bind nodeset="/C.1.22/cuadro2/clave23_2/calculate_test_output2" readonly="true()" type="string"/>
-      <bind nodeset="/C.1.22/cuadro2/clave45_2/generated_table_list_label_97" readonly="true()" type="string"/>
+      <bind nodeset="/C.1.22/cuadro2/clave45_2/generated_table_list_label_93" readonly="true()" type="string"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro2/clave45_2/familia3" required="true()" type="int"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro2/clave45_2/comercial3" required="true()" type="int"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro2/clave45_2/gobierno3" required="true()" type="int"/>
@@ -418,7 +175,7 @@
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro2/clave45_2/otras3" required="true()" type="int"/>
       <bind calculate=" /C.1.22/cuadro2/clave45_2/familia3 + /C.1.22/cuadro2/clave45_2/comercial3 + /C.1.22/cuadro2/clave45_2/gobierno3 + /C.1.22/cuadro2/clave45_2/jubilados3 + /C.1.22/cuadro2/clave45_2/profesional3 + /C.1.22/cuadro2/clave45_2/otras3 " nodeset="/C.1.22/cuadro2/clave45_2/calculate3" type="string"/>
       <bind nodeset="/C.1.22/cuadro2/clave45_2/calculate_test_output3" readonly="true()" type="string"/>
-      <bind nodeset="/C.1.22/cuadro2/clave612_2/generated_table_list_label_110" readonly="true()" type="string"/>
+      <bind nodeset="/C.1.22/cuadro2/clave612_2/generated_table_list_label_106" readonly="true()" type="string"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro2/clave612_2/familia4" required="true()" type="int"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro2/clave612_2/comercial4" required="true()" type="int"/>
       <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C.1.22/cuadro2/clave612_2/gobierno4" required="true()" type="int"/>
@@ -431,38 +188,6 @@
     </model>
   </h:head>
   <h:body>
-    <select1 ref="/C.1.22/periodo">
-      <label>Periodo</label>
-      <hint>Seleccione Periodo DDJJ</hint>
-      <item>
-        <label>Enero-Marzo</label>
-        <value>1</value>
-      </item>
-      <item>
-        <label>Abril-Junio</label>
-        <value>2</value>
-      </item>
-      <item>
-        <label>Julio-Septiembre</label>
-        <value>3</value>
-      </item>
-      <item>
-        <label>Octubre-Diciembre</label>
-        <value>4</value>
-      </item>
-      <item>
-        <label>Enero-Diciembre</label>
-        <value>5</value>
-      </item>
-    </select1>
-    <select1 ref="/C.1.22/meses">
-      <label>Mes</label>
-      <hint>Seleccione Mes</hint>
-      <itemset nodeset="instance('meses')/root/item[periodo= /C.1.22/periodo ]">
-        <value ref="name"/>
-        <label ref="jr:itext(itextId)"/>
-      </itemset>
-    </select1>
     <input ref="/C.1.22/nota">
       <label>(*) En caso de utilizar distintos tramos de larga distancia nacional, detallar.</label>
     </input>
@@ -475,7 +200,7 @@
         <label>Detallar horario</label>
       </input>
       <group appearance="field-list" ref="/C.1.22/cuadro1/clave1">
-        <input ref="/C.1.22/cuadro1/clave1/generated_table_list_label_13">
+        <input ref="/C.1.22/cuadro1/clave1/generated_table_list_label_9">
           <label>CLAVE 1 (hasta 30 km) Por tipo de categoría de abonado</label>
         </input>
         <input ref="/C.1.22/cuadro1/clave1/familia1_1">
@@ -506,7 +231,7 @@
           <label>Total: <output value=" /C.1.22/cuadro1/clave1/calculate1_1 "/></label></input>
       </group>
       <group appearance="field-list" ref="/C.1.22/cuadro1/clave23">
-        <input ref="/C.1.22/cuadro1/clave23/generated_table_list_label_26">
+        <input ref="/C.1.22/cuadro1/clave23/generated_table_list_label_22">
           <label>CLAVE 2 (hasta 55 km) y CLAVE 3 (hasta 110 km) - Por tipo de categoría de abonado</label>
         </input>
         <input ref="/C.1.22/cuadro1/clave23/familia2_1">
@@ -537,7 +262,7 @@
           <label>Total: <output value=" /C.1.22/cuadro1/clave23/calculate2_1 "/></label></input>
       </group>
       <group appearance="field-list" ref="/C.1.22/cuadro1/clave45">
-        <input ref="/C.1.22/cuadro1/clave45/generated_table_list_label_39">
+        <input ref="/C.1.22/cuadro1/clave45/generated_table_list_label_35">
           <label>CLAVE 4 (hasta 170 km) y CLAVE 5 (hasta 240 km) - Por tipo de categoría de abonado</label>
         </input>
         <input ref="/C.1.22/cuadro1/clave45/familia3_1">
@@ -568,7 +293,7 @@
           <label>Total: <output value=" /C.1.22/cuadro1/clave45/calculate3_1 "/></label></input>
       </group>
       <group appearance="field-list" ref="/C.1.22/cuadro1/clave612">
-        <input ref="/C.1.22/cuadro1/clave612/generated_table_list_label_52">
+        <input ref="/C.1.22/cuadro1/clave612/generated_table_list_label_48">
           <label>CLAVE 6-12 (más de 240 km) - Por tipo de categoría de abonado</label>
         </input>
         <input ref="/C.1.22/cuadro1/clave612/familia4_1">
@@ -608,7 +333,7 @@
         <label>Detallar horario</label>
       </input>
       <group appearance="field-list" ref="/C.1.22/cuadro2/clave1_2">
-        <input ref="/C.1.22/cuadro2/clave1_2/generated_table_list_label_71">
+        <input ref="/C.1.22/cuadro2/clave1_2/generated_table_list_label_67">
           <label>CLAVE 1 (hasta 30 km) Por tipo de categoría de abonado</label>
         </input>
         <input ref="/C.1.22/cuadro2/clave1_2/familia1">
@@ -639,7 +364,7 @@
           <label>Total: <output value=" /C.1.22/cuadro2/clave1_2/calculate1 "/></label></input>
       </group>
       <group appearance="field-list" ref="/C.1.22/cuadro2/clave23_2">
-        <input ref="/C.1.22/cuadro2/clave23_2/generated_table_list_label_84">
+        <input ref="/C.1.22/cuadro2/clave23_2/generated_table_list_label_80">
           <label>CLAVE 2 (hasta 55 km) y CLAVE 3 (hasta 110 km) - Por tipo de categoría de abonado</label>
         </input>
         <input ref="/C.1.22/cuadro2/clave23_2/familia2">
@@ -670,7 +395,7 @@
           <label>Total: <output value=" /C.1.22/cuadro2/clave23_2/calculate2 "/></label></input>
       </group>
       <group appearance="field-list" ref="/C.1.22/cuadro2/clave45_2">
-        <input ref="/C.1.22/cuadro2/clave45_2/generated_table_list_label_97">
+        <input ref="/C.1.22/cuadro2/clave45_2/generated_table_list_label_93">
           <label>CLAVE 4 (hasta 170 km) y CLAVE 5 (hasta 240 km) - Por tipo de categoría de abonado</label>
         </input>
         <input ref="/C.1.22/cuadro2/clave45_2/familia3">
@@ -701,7 +426,7 @@
           <label>Total: <output value=" /C.1.22/cuadro2/clave45_2/calculate3 "/></label></input>
       </group>
       <group appearance="field-list" ref="/C.1.22/cuadro2/clave612_2">
-        <input ref="/C.1.22/cuadro2/clave612_2/generated_table_list_label_110">
+        <input ref="/C.1.22/cuadro2/clave612_2/generated_table_list_label_106">
           <label>CLAVE 6-12 (más de 240 km) - Por tipo de categoría de abonado</label>
         </input>
         <input ref="/C.1.22/cuadro2/clave612_2/familia4">

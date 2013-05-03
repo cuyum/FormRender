@@ -1,0 +1,445 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>C.1.10.3 - Calidad de Servicio Atención Personalizada</h:title>
+    <model>
+      <itext>
+        <translation default="true()" lang="default">
+          <text id="static_instance-areas-11">
+            <value>BARRIO PARQUE SICARDI</value>
+          </text>
+          <text id="static_instance-areas-10">
+            <value>ABASTO</value>
+          </text>
+          <text id="static_instance-areas-13">
+            <value>LA PLATA</value>
+          </text>
+          <text id="static_instance-areas-12">
+            <value>BARTOLOME BAVIO</value>
+          </text>
+          <text id="static_instance-areas-14">
+            <value>LISANDRO OLMOS</value>
+          </text>
+          <text id="static_instance-provincias-0">
+            <value>Buenos Aires</value>
+          </text>
+          <text id="static_instance-provincias-1">
+            <value>Catamarca</value>
+          </text>
+          <text id="static_instance-localidades-14">
+            <value>Barrio Bancario</value>
+          </text>
+          <text id="static_instance-localidades-15">
+            <value>El Pantanillo</value>
+          </text>
+          <text id="static_instance-localidades-12">
+            <value>Apoyaco</value>
+          </text>
+          <text id="static_instance-localidades-13">
+            <value>Colana</value>
+          </text>
+          <text id="static_instance-localidades-10">
+            <value>Antofagasta de la Sierra</value>
+          </text>
+          <text id="static_instance-localidades-11">
+            <value>Antofalla</value>
+          </text>
+          <text id="static_instance-localidades-4">
+            <value>16 de Julio</value>
+          </text>
+          <text id="static_instance-localidades-5">
+            <value>Ariel</value>
+          </text>
+          <text id="static_instance-localidades-6">
+            <value>17 de Agosto</value>
+          </text>
+          <text id="static_instance-localidades-7">
+            <value>Azopardo</value>
+          </text>
+          <text id="static_instance-localidades-0">
+            <value>Caseros</value>
+          </text>
+          <text id="static_instance-localidades-1">
+            <value>Churruca</value>
+          </text>
+          <text id="static_instance-localidades-2">
+            <value>Dudignac</value>
+          </text>
+          <text id="static_instance-localidades-3">
+            <value>La Aurora (Est. La Niña)</value>
+          </text>
+          <text id="static_instance-localidades-8">
+            <value>Anillaco</value>
+          </text>
+          <text id="static_instance-localidades-9">
+            <value>Antinaco</value>
+          </text>
+          <text id="static_instance-areas-9">
+            <value>VIRREY DEL PINO</value>
+          </text>
+          <text id="static_instance-areas-8">
+            <value>GONZALEZ CATAN</value>
+          </text>
+          <text id="static_instance-areas-5">
+            <value>PLOMMER</value>
+          </text>
+          <text id="static_instance-areas-4">
+            <value>MERLO (PROV.  BUENOS AIRES)</value>
+          </text>
+          <text id="static_instance-areas-7">
+            <value>VILLARS</value>
+          </text>
+          <text id="static_instance-areas-6">
+            <value>PONTEVEDRA</value>
+          </text>
+          <text id="static_instance-areas-1">
+            <value>LIBERTAD</value>
+          </text>
+          <text id="static_instance-areas-0">
+            <value>GENERAL LAS HERAS</value>
+          </text>
+          <text id="static_instance-areas-3">
+            <value>MARIANO ACOSTA</value>
+          </text>
+          <text id="static_instance-areas-2">
+            <value>MARCOS PAZ</value>
+          </text>
+          <text id="static_instance-partidos-6">
+            <value>Poman</value>
+          </text>
+          <text id="static_instance-partidos-7">
+            <value>Capital</value>
+          </text>
+          <text id="static_instance-partidos-4">
+            <value>Tinogasta</value>
+          </text>
+          <text id="static_instance-partidos-5">
+            <value>Antofagasta de la Sierra</value>
+          </text>
+          <text id="static_instance-partidos-2">
+            <value>Azul</value>
+          </text>
+          <text id="static_instance-partidos-3">
+            <value>Puan</value>
+          </text>
+          <text id="static_instance-partidos-0">
+            <value>Tres De Febrero</value>
+          </text>
+          <text id="static_instance-partidos-1">
+            <value>9 de Julio</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <C.1.10.3 id="C_1_10_3">
+          <my_int2/>
+          <provincia/>
+          <partido/>
+          <localidad/>
+          <areasLocal/>
+          <centros_atencion/>
+          <personal/>
+          <espera_promedio/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C.1.10.3>
+      </instance>
+      <instance id="localidades">
+        <root>
+          <item>
+            <itextId>static_instance-localidades-0</itextId>
+            <partido>tresFebrero</partido>
+            <provincia>buenosAires</provincia>
+            <name>caseros</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-1</itextId>
+            <partido>tresFebrero</partido>
+            <provincia>buenosAires</provincia>
+            <name>churruca</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-2</itextId>
+            <partido>nueveJulio</partido>
+            <provincia>buenosAires</provincia>
+            <name>dudignac</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-3</itextId>
+            <partido>nueveJulio</partido>
+            <provincia>buenosAires</provincia>
+            <name>laAurora</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-4</itextId>
+            <partido>azul</partido>
+            <provincia>buenosAires</provincia>
+            <name>dieciseisJulio</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-5</itextId>
+            <partido>azul</partido>
+            <provincia>buenosAires</provincia>
+            <name>ariel</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-6</itextId>
+            <partido>puan</partido>
+            <provincia>buenosAires</provincia>
+            <name>diecisieteAgosto</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-7</itextId>
+            <partido>puan</partido>
+            <provincia>buenosAires</provincia>
+            <name>azopardo</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-8</itextId>
+            <partido>tinogasta</partido>
+            <provincia>catamarca</provincia>
+            <name>anillaco</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-9</itextId>
+            <partido>tinogasta</partido>
+            <provincia>catamarca</provincia>
+            <name>antinaco</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-10</itextId>
+            <partido>antofagasta</partido>
+            <provincia>catamarca</provincia>
+            <name>antofagasta</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-11</itextId>
+            <partido>antofagasta</partido>
+            <provincia>catamarca</provincia>
+            <name>antofalla</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-12</itextId>
+            <partido>poman</partido>
+            <provincia>catamarca</provincia>
+            <name>apoyaco</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-13</itextId>
+            <partido>poman</partido>
+            <provincia>catamarca</provincia>
+            <name>colana</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-14</itextId>
+            <partido>capital</partido>
+            <provincia>catamarca</provincia>
+            <name>barrioBancario</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-15</itextId>
+            <partido>capital</partido>
+            <provincia>catamarca</provincia>
+            <name>elPantanillo</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="partidos">
+        <root>
+          <item>
+            <itextId>static_instance-partidos-0</itextId>
+            <provincia>buenosAires</provincia>
+            <name>tresFebrero</name>
+          </item>
+          <item>
+            <itextId>static_instance-partidos-1</itextId>
+            <provincia>buenosAires</provincia>
+            <name>nueveJulio</name>
+          </item>
+          <item>
+            <itextId>static_instance-partidos-2</itextId>
+            <provincia>buenosAires</provincia>
+            <name>azul</name>
+          </item>
+          <item>
+            <itextId>static_instance-partidos-3</itextId>
+            <provincia>buenosAires</provincia>
+            <name>puan</name>
+          </item>
+          <item>
+            <itextId>static_instance-partidos-4</itextId>
+            <provincia>catamarca</provincia>
+            <name>tinogasta</name>
+          </item>
+          <item>
+            <itextId>static_instance-partidos-5</itextId>
+            <provincia>catamarca</provincia>
+            <name>antofagasta</name>
+          </item>
+          <item>
+            <itextId>static_instance-partidos-6</itextId>
+            <provincia>catamarca</provincia>
+            <name>poman</name>
+          </item>
+          <item>
+            <itextId>static_instance-partidos-7</itextId>
+            <provincia>catamarca</provincia>
+            <name>capital</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="provincias">
+        <root>
+          <item>
+            <itextId>static_instance-provincias-0</itextId>
+            <name>buenosAires</name>
+          </item>
+          <item>
+            <itextId>static_instance-provincias-1</itextId>
+            <name>catamarca</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="areas">
+        <root>
+          <item>
+            <itextId>static_instance-areas-0</itextId>
+            <provincia>buenosAires</provincia>
+            <name>GENERAL_LAS_HERAS</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-1</itextId>
+            <provincia>buenosAires</provincia>
+            <name>LIBERTAD</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-2</itextId>
+            <provincia>buenosAires</provincia>
+            <name>MARCOS_PAZ</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-3</itextId>
+            <provincia>buenosAires</provincia>
+            <name>MARIANO_ACOSTA</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-4</itextId>
+            <provincia>buenosAires</provincia>
+            <name>MERLO</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-5</itextId>
+            <provincia>buenosAires</provincia>
+            <name>PLOMMER</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-6</itextId>
+            <provincia>buenosAires</provincia>
+            <name>PONTEVEDRA</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-7</itextId>
+            <provincia>catamarca</provincia>
+            <name>VILLARS</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-8</itextId>
+            <provincia>catamarca</provincia>
+            <name>GONZALEZ_CATAN</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-9</itextId>
+            <provincia>catamarca</provincia>
+            <name>VIRREY_PINO</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-10</itextId>
+            <provincia>catamarca</provincia>
+            <name>ABASTO</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-11</itextId>
+            <provincia>catamarca</provincia>
+            <name>BARRIO_PARQUE_SICARDI</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-12</itextId>
+            <provincia>catamarca</provincia>
+            <name>BARTOLOME_BAVIO</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-13</itextId>
+            <provincia>catamarca</provincia>
+            <name>LA_PLATA</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-14</itextId>
+            <provincia>catamarca</provincia>
+            <name>LISANDRO_OLMOS</name>
+          </item>
+        </root>
+      </instance>
+      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$')" jr:constraintMsg="Debe ingresar un número entero de 11 dígitos sin guión" nodeset="/C.1.10.3/my_int2" required="true()" type="int"/>
+      <bind nodeset="/C.1.10.3/provincia" required="true()" type="select1"/>
+      <bind nodeset="/C.1.10.3/partido" required="true()" type="select1"/>
+      <bind nodeset="/C.1.10.3/localidad" required="true()" type="select1"/>
+      <bind nodeset="/C.1.10.3/areasLocal" required="true()" type="select1"/>
+      <bind constraint="regex(., '[0-9]*') and .&gt;0" jr:constraintMsg="Debe ingresar un número entero mayor a 0" nodeset="/C.1.10.3/centros_atencion" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&gt;0" jr:constraintMsg="Debe ingresar un número entero mayor a 0" nodeset="/C.1.10.3/personal" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 3 dígitos y mayor a 0" nodeset="/C.1.10.3/espera_promedio" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C.1.10.3/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/C.1.10.3/my_int2">
+      <label>Prestador</label>
+      <hint>11 dígitos sin guiones ni espacios</hint>
+    </input>
+    <select1 ref="/C.1.10.3/provincia">
+      <label>Provincia/Región</label>
+      <item>
+        <label>Buenos Aires</label>
+        <value>buenosAires</value>
+      </item>
+      <item>
+        <label>Catamarca</label>
+        <value>catamarca</value>
+      </item>
+    </select1>
+    <select1 ref="/C.1.10.3/partido">
+      <label>Partido/Dpto</label>
+      <itemset nodeset="instance('partidos')/root/item[provincia= /C.1.10.3/provincia ]">
+        <value ref="name"/>
+        <label ref="jr:itext(itextId)"/>
+      </itemset>
+    </select1>
+    <select1 ref="/C.1.10.3/localidad">
+      <label>Localidad</label>
+      <itemset nodeset="instance('localidades')/root/item[provincia= /C.1.10.3/provincia  and partido= /C.1.10.3/partido ]">
+        <value ref="name"/>
+        <label ref="jr:itext(itextId)"/>
+      </itemset>
+    </select1>
+    <select1 ref="/C.1.10.3/areasLocal">
+      <label>Área Local</label>
+      <hint>Seleccione Área Local</hint>
+      <itemset nodeset="instance('areas')/root/item[provincia= /C.1.10.3/provincia ]">
+        <value ref="name"/>
+        <label ref="jr:itext(itextId)"/>
+      </itemset>
+    </select1>
+    <input ref="/C.1.10.3/centros_atencion">
+      <label>Centros de Atención</label>
+      <hint>Ingrese cantidad</hint>
+    </input>
+    <input ref="/C.1.10.3/personal">
+      <label>Personal</label>
+      <hint>Ingrese cantidad</hint>
+    </input>
+    <input ref="/C.1.10.3/espera_promedio">
+      <label>Espera Promedio</label>
+      <hint>Ingrese promedio</hint>
+    </input>
+  </h:body>
+</h:html>

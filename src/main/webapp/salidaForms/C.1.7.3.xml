@@ -1,0 +1,435 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>C.1.7.3 - Tráfico de Llamadas hacia Móviles</h:title>
+    <model>
+      <itext>
+        <translation default="true()" lang="default">
+          <text id="static_instance-areas-11">
+            <value>HUACO</value>
+          </text>
+          <text id="static_instance-areas-10">
+            <value>VILLA CARIÑO</value>
+          </text>
+          <text id="static_instance-areas-13">
+            <value>ESTACIÓN ANGACO NORTE</value>
+          </text>
+          <text id="static_instance-areas-12">
+            <value>LA CIÉNAGA (PROV. SAN JUAN, DTO. JACHAL)</value>
+          </text>
+          <text id="static_instance-areas-14">
+            <value>PUNTA DEL MONTE</value>
+          </text>
+          <text id="static_instance-localidades-4">
+            <value>EL ENCÓN</value>
+          </text>
+          <text id="static_instance-localidades-5">
+            <value>HUACO</value>
+          </text>
+          <text id="static_instance-localidades-6">
+            <value>VILLA EL SALVADOR</value>
+          </text>
+          <text id="static_instance-localidades-0">
+            <value>ANGUALASTO</value>
+          </text>
+          <text id="static_instance-localidades-1">
+            <value>LOS BALDECITOS</value>
+          </text>
+          <text id="static_instance-localidades-2">
+            <value>VILLA SAN AGUSTÍN</value>
+          </text>
+          <text id="static_instance-localidades-3">
+            <value>BARREAL - VILLA PITUIL</value>
+          </text>
+          <text id="static_instance-areas-9">
+            <value>SAN JUAN</value>
+          </text>
+          <text id="static_instance-areas-8">
+            <value>HILARIO</value>
+          </text>
+          <text id="static_instance-areas-5">
+            <value>SAN AGUSTÍN DEL VALLE FÉRTIL</value>
+          </text>
+          <text id="static_instance-areas-4">
+            <value>LA MAJADITA</value>
+          </text>
+          <text id="static_instance-areas-7">
+            <value>COLON (PROV. SAN JUAN)</value>
+          </text>
+          <text id="static_instance-areas-6">
+            <value>BARREAL</value>
+          </text>
+          <text id="static_instance-areas-1">
+            <value>RODEO</value>
+          </text>
+          <text id="static_instance-areas-0">
+            <value>COLANGÜIL</value>
+          </text>
+          <text id="static_instance-areas-3">
+            <value>SAN AGUSTÍN DEL VALLE FÉRTIL</value>
+          </text>
+          <text id="static_instance-areas-2">
+            <value>ISCHIGUALASTO</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <C.1.7.3 id="C_1_7_3">
+          <cantidad>
+            <localidad/>
+            <areasLocal/>
+            <my_int2/>
+            <ll>
+              <generated_table_list_label_8/>
+              <salientes_ll/>
+              <operador_ll/>
+            </ll>
+            <l-ldn>
+              <generated_table_list_label_12/>
+              <salientes_lldn/>
+              <operador_lldn/>
+            </l-ldn>
+            <l-ldi>
+              <generated_table_list_label_16/>
+              <salientes_lldi/>
+              <operador_lldi/>
+            </l-ldi>
+          </cantidad>
+          <minutos>
+            <localidad1/>
+            <areasLocal1/>
+            <my_int2_1/>
+            <ll1>
+              <generated_table_list_label_30/>
+              <salientes_ll1/>
+              <operador_ll1/>
+            </ll1>
+            <l-ldn1>
+              <generated_table_list_label_34/>
+              <salientes_lldn1/>
+              <operador_lldn1/>
+            </l-ldn1>
+            <l-ldi1>
+              <generated_table_list_label_38/>
+              <salientes_lldi1/>
+              <operador_lldi1/>
+            </l-ldi1>
+          </minutos>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C.1.7.3>
+      </instance>
+      <instance id="localidades">
+        <root>
+          <item>
+            <itextId>static_instance-localidades-0</itextId>
+            <name>angualasto</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-1</itextId>
+            <name>baldecitos</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-2</itextId>
+            <name>sanAgustin</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-3</itextId>
+            <name>barreal_VP</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-4</itextId>
+            <name>elEncon</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-5</itextId>
+            <name>huaco_l</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-6</itextId>
+            <name>villaElsalvador</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="areas">
+        <root>
+          <item>
+            <itextId>static_instance-areas-0</itextId>
+            <areaChoices>angualasto</areaChoices>
+            <name>colanguil</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-1</itextId>
+            <areaChoices>angualasto</areaChoices>
+            <name>rodeo</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-2</itextId>
+            <areaChoices>baldecitos</areaChoices>
+            <name>ischigualasto</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-3</itextId>
+            <areaChoices>baldecitos</areaChoices>
+            <name>sanAgustin_VF</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-4</itextId>
+            <areaChoices>sanAgustin</areaChoices>
+            <name>laMajadita</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-5</itextId>
+            <areaChoices>sanAgustin</areaChoices>
+            <name>sanAgustin_VF</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-6</itextId>
+            <areaChoices>barreal_VP</areaChoices>
+            <name>barreal</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-7</itextId>
+            <areaChoices>barreal_VP</areaChoices>
+            <name>colon</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-8</itextId>
+            <areaChoices>barreal_VP</areaChoices>
+            <name>hilario</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-9</itextId>
+            <areaChoices>elEncon</areaChoices>
+            <name>sanJuan</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-10</itextId>
+            <areaChoices>elEncon</areaChoices>
+            <name>villaCarino</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-11</itextId>
+            <areaChoices>huaco_l</areaChoices>
+            <name>huaco_a</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-12</itextId>
+            <areaChoices>huaco_l</areaChoices>
+            <name>laCienaga</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-13</itextId>
+            <areaChoices>villaElsalvador</areaChoices>
+            <name>estacion</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-14</itextId>
+            <areaChoices>villaElsalvador</areaChoices>
+            <name>puntaDelmonte</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/C.1.7.3/cantidad/localidad" required="true()" type="select1"/>
+      <bind nodeset="/C.1.7.3/cantidad/areasLocal" required="true()" type="select1"/>
+      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$')" jr:constraintMsg="Debe ingresar un número entero de 11 dígitos sin guión" nodeset="/C.1.7.3/cantidad/my_int2" required="true()" type="int"/>
+      <bind nodeset="/C.1.7.3/cantidad/ll/generated_table_list_label_8" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C.1.7.3/cantidad/ll/salientes_ll" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C.1.7.3/cantidad/ll/operador_ll" required="true()" type="int"/>
+      <bind nodeset="/C.1.7.3/cantidad/l-ldn/generated_table_list_label_12" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C.1.7.3/cantidad/l-ldn/salientes_lldn" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C.1.7.3/cantidad/l-ldn/operador_lldn" required="true()" type="int"/>
+      <bind nodeset="/C.1.7.3/cantidad/l-ldi/generated_table_list_label_16" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C.1.7.3/cantidad/l-ldi/salientes_lldi" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C.1.7.3/cantidad/l-ldi/operador_lldi" required="true()" type="int"/>
+      <bind nodeset="/C.1.7.3/minutos/localidad1" required="true()" type="select1"/>
+      <bind nodeset="/C.1.7.3/minutos/areasLocal1" required="true()" type="select1"/>
+      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$')" jr:constraintMsg="Debe ingresar un número entero de 11 dígitos sin guión" nodeset="/C.1.7.3/minutos/my_int2_1" required="true()" type="int"/>
+      <bind nodeset="/C.1.7.3/minutos/ll1/generated_table_list_label_30" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 3 dígitos y mayor a 0" nodeset="/C.1.7.3/minutos/ll1/salientes_ll1" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 3 dígitos y mayor a 0" nodeset="/C.1.7.3/minutos/ll1/operador_ll1" required="true()" type="int"/>
+      <bind nodeset="/C.1.7.3/minutos/l-ldn1/generated_table_list_label_34" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 3 dígitos y mayor a 0" nodeset="/C.1.7.3/minutos/l-ldn1/salientes_lldn1" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 3 dígitos y mayor a 0" nodeset="/C.1.7.3/minutos/l-ldn1/operador_lldn1" required="true()" type="int"/>
+      <bind nodeset="/C.1.7.3/minutos/l-ldi1/generated_table_list_label_38" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 3 dígitos y mayor a 0" nodeset="/C.1.7.3/minutos/l-ldi1/salientes_lldi1" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 3 dígitos y mayor a 0" nodeset="/C.1.7.3/minutos/l-ldi1/operador_lldi1" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C.1.7.3/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/C.1.7.3/cantidad">
+      <label>En Cantidad</label>
+      <select1 ref="/C.1.7.3/cantidad/localidad">
+        <label>Localidad</label>
+        <hint>Seleccione Localidad</hint>
+        <item>
+          <label>ANGUALASTO</label>
+          <value>angualasto</value>
+        </item>
+        <item>
+          <label>LOS BALDECITOS</label>
+          <value>baldecitos</value>
+        </item>
+        <item>
+          <label>VILLA SAN AGUSTÍN</label>
+          <value>sanAgustin</value>
+        </item>
+        <item>
+          <label>BARREAL - VILLA PITUIL</label>
+          <value>barreal_VP</value>
+        </item>
+        <item>
+          <label>EL ENCÓN</label>
+          <value>elEncon</value>
+        </item>
+        <item>
+          <label>HUACO</label>
+          <value>huaco_l</value>
+        </item>
+        <item>
+          <label>VILLA EL SALVADOR</label>
+          <value>villaElsalvador</value>
+        </item>
+      </select1>
+      <select1 ref="/C.1.7.3/cantidad/areasLocal">
+        <label>Área Local</label>
+        <hint>Seleccione Área Local</hint>
+        <itemset nodeset="instance('areas')/root/item[areaChoices= /C.1.7.3/cantidad/localidad ]">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <input ref="/C.1.7.3/cantidad/my_int2">
+        <label>Prestador</label>
+        <hint>11 dígitos sin guiones ni espacios</hint>
+      </input>
+      <group appearance="field-list" ref="/C.1.7.3/cantidad/ll">
+        <input ref="/C.1.7.3/cantidad/ll/generated_table_list_label_8">
+          <label>L-L</label>
+        </input>
+        <input ref="/C.1.7.3/cantidad/ll/salientes_ll">
+          <label>Salientes</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+        <input ref="/C.1.7.3/cantidad/ll/operador_ll">
+          <label>Operador</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+      </group>
+      <group appearance="field-list" ref="/C.1.7.3/cantidad/l-ldn">
+        <input ref="/C.1.7.3/cantidad/l-ldn/generated_table_list_label_12">
+          <label>L-LDN</label>
+        </input>
+        <input ref="/C.1.7.3/cantidad/l-ldn/salientes_lldn">
+          <label>Salientes</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+        <input ref="/C.1.7.3/cantidad/l-ldn/operador_lldn">
+          <label>Operador</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+      </group>
+      <group appearance="field-list" ref="/C.1.7.3/cantidad/l-ldi">
+        <input ref="/C.1.7.3/cantidad/l-ldi/generated_table_list_label_16">
+          <label>L-LDI</label>
+        </input>
+        <input ref="/C.1.7.3/cantidad/l-ldi/salientes_lldi">
+          <label>Salientes</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+        <input ref="/C.1.7.3/cantidad/l-ldi/operador_lldi">
+          <label>Operador</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+      </group>
+    </group>
+    <group ref="/C.1.7.3/minutos">
+      <label>En Minutos</label>
+      <select1 ref="/C.1.7.3/minutos/localidad1">
+        <label>Localidad</label>
+        <hint>Seleccione Localidad</hint>
+        <item>
+          <label>ANGUALASTO</label>
+          <value>angualasto</value>
+        </item>
+        <item>
+          <label>LOS BALDECITOS</label>
+          <value>baldecitos</value>
+        </item>
+        <item>
+          <label>VILLA SAN AGUSTÍN</label>
+          <value>sanAgustin</value>
+        </item>
+        <item>
+          <label>BARREAL - VILLA PITUIL</label>
+          <value>barreal_VP</value>
+        </item>
+        <item>
+          <label>EL ENCÓN</label>
+          <value>elEncon</value>
+        </item>
+        <item>
+          <label>HUACO</label>
+          <value>huaco_l</value>
+        </item>
+        <item>
+          <label>VILLA EL SALVADOR</label>
+          <value>villaElsalvador</value>
+        </item>
+      </select1>
+      <select1 ref="/C.1.7.3/minutos/areasLocal1">
+        <label>Área Local</label>
+        <hint>Seleccione Área Local</hint>
+        <itemset nodeset="instance('areas')/root/item[areaChoices= /C.1.7.3/minutos/localidad1 ]">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <input ref="/C.1.7.3/minutos/my_int2_1">
+        <label>Prestador</label>
+        <hint>11 dígitos sin guiones ni espacios</hint>
+      </input>
+      <group appearance="field-list" ref="/C.1.7.3/minutos/ll1">
+        <input ref="/C.1.7.3/minutos/ll1/generated_table_list_label_30">
+          <label>L-L</label>
+        </input>
+        <input ref="/C.1.7.3/minutos/ll1/salientes_ll1">
+          <label>Salientes</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+        <input ref="/C.1.7.3/minutos/ll1/operador_ll1">
+          <label>Operador</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+      </group>
+      <group appearance="field-list" ref="/C.1.7.3/minutos/l-ldn1">
+        <input ref="/C.1.7.3/minutos/l-ldn1/generated_table_list_label_34">
+          <label>L-LDN</label>
+        </input>
+        <input ref="/C.1.7.3/minutos/l-ldn1/salientes_lldn1">
+          <label>Salientes</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+        <input ref="/C.1.7.3/minutos/l-ldn1/operador_lldn1">
+          <label>Operador</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+      </group>
+      <group appearance="field-list" ref="/C.1.7.3/minutos/l-ldi1">
+        <input ref="/C.1.7.3/minutos/l-ldi1/generated_table_list_label_38">
+          <label>L-LDI</label>
+        </input>
+        <input ref="/C.1.7.3/minutos/l-ldi1/salientes_lldi1">
+          <label>Salientes</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+        <input ref="/C.1.7.3/minutos/l-ldi1/operador_lldi1">
+          <label>Operador</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+      </group>
+    </group>
+  </h:body>
+</h:html>

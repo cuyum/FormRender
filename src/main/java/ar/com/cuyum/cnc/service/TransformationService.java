@@ -42,8 +42,8 @@ public class TransformationService {
 
 		List<BasicNameValuePair> bodyParams = new ArrayList<BasicNameValuePair>();
 		HttpPost method = null;
-		try {
-			String urlpath = "http://localhost/services/transform.php";
+		try {			
+			String urlpath = "http://localhost/formRenderServices/transform.php";
 			method = new HttpPost(urlpath);
 			if (bodyParams != null) {
 				if (bodyParams.size() == 0) {

@@ -337,8 +337,6 @@ public class FormularioBean implements Serializable
       root = criteria.from(Formulario.class);
       TypedQuery<Formulario> query = this.entityManager.createQuery(criteria
             .select(root).where(getSearchPredicates(root)));
-      query.setFirstResult(this.page * getPageSize()).setMaxResults(
-            getPageSize());
       this.pageItems = query.getResultList();
    }
 
