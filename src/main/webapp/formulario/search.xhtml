@@ -78,7 +78,8 @@
 					</h:link>
 				</p:column>				
 				<p:column headerText="Xml">
-					<a href="#{formularioBean.serverName}#{_item.archivo}" type="xml" target="_blank" class="decoNone">#{_item.archivo}</a>		
+					<h:outputText id="itemFormArchivo" value="#{_item.archivo}"/>
+					<!-- <a href="#{formularioBean.serverName}#{_item.archivo}" type="xml" target="_blank" class="decoNone">#{_item.archivo}</a> -->		
 				</p:column>
 				<p:column headerText="Html">				
 					<h:link outcome="/formulario/render" value="Ver" styleClass="button" target="_blank">

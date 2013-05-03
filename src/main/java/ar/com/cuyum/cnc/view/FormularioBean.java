@@ -450,7 +450,6 @@ public class FormularioBean implements Serializable
        FacesContext.getCurrentInstance().addMessage(null, msg);
    }
    
-   
    public String getFormDom() {
 		return formDom;
    }
@@ -460,7 +459,9 @@ public class FormularioBean implements Serializable
    }
    
    public void xsltTransformation(){
-	   String xslTranformXml = ts.transformXml(getServerName()+formulario.getArchivo());
+	   FacesContext fc = FacesContext.getCurrentInstance();
+	   InputStream xmlStream = fc.getExternalContext().getResourceAsStream("/WEB-INF/classes/formularios/"+formulario.getArchivo());
+	   String xslTranformXml = ts.transformXml(xmlStream);
 	   this.formDom = xslTranformXml;
    }
    
@@ -480,7 +481,9 @@ public class FormularioBean implements Serializable
 	    	}
 	    	this.formulario = findById(xmlId);
 	    	
-			String xmlTransformed = ts.transformXml(getServerName()+formulario.getArchivo());
+	    	InputStream xmlStream = ec.getResourceAsStream("/WEB-INF/classes/formularios/"+formulario.getArchivo());
+	    	
+			String xmlTransformed = ts.transformXml(xmlStream);
 			ec.responseReset(); // Some JSF component library or some Filter might have set some headers in the buffer beforehand. We want to get rid of them, else it may collide.
 		    ec.setResponseContentType("text/xml"); // Check http://www.iana.org/assignments/media-types for all types. Use if necessary ExternalContext#getMimeType() for auto-detection based on filename.
 		    ec.setResponseHeader("Content-Disposition", "attachment; filename=\""+formulario.getArchivo()+"\""); // The Save As popup magic is done here. You can give it any file name you want, this only won't work in MSIE, it will use current request URL as file name instead.
