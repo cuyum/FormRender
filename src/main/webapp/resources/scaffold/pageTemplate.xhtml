@@ -8,7 +8,9 @@
 <h:head>
 	<title>#{empty pageTitle ? '{#pageTitle}' : pageTitle}</title>
 	<link rel="icon" href="#{resources['favicon.ico']}" />
-	<h:outputStylesheet name="style.css"/>	
+	<h:outputStylesheet name="style.css"/> 	
+	<h:outputScript library="primefaces" name="jquery/jquery.js" />
+	<ui:insert name="scripts"/>
 </h:head>
 
 <h:body>

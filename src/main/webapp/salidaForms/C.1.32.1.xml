@@ -1,0 +1,372 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>C.1.32.1 - Comercio Exterior</h:title>
+    <model>
+      <itext>
+        <translation default="true()" lang="default">
+          <text id="static_instance-meses-6">
+            <value>Julio</value>
+          </text>
+          <text id="static_instance-meses-7">
+            <value>Agosto</value>
+          </text>
+          <text id="static_instance-meses-4">
+            <value>Mayo</value>
+          </text>
+          <text id="static_instance-meses-5">
+            <value>Junio</value>
+          </text>
+          <text id="static_instance-meses-2">
+            <value>Marzo</value>
+          </text>
+          <text id="static_instance-meses-3">
+            <value>Abril</value>
+          </text>
+          <text id="static_instance-meses-0">
+            <value>Enero</value>
+          </text>
+          <text id="static_instance-meses-1">
+            <value>Febrero</value>
+          </text>
+          <text id="static_instance-meses-8">
+            <value>Septiembre</value>
+          </text>
+          <text id="static_instance-meses-9">
+            <value>Octubre</value>
+          </text>
+          <text id="static_instance-meses-18">
+            <value>Julio</value>
+          </text>
+          <text id="static_instance-meses-19">
+            <value>Agosto</value>
+          </text>
+          <text id="static_instance-periodos-4">
+            <value>Enero-Diciembre</value>
+          </text>
+          <text id="static_instance-meses-10">
+            <value>Noviembre</value>
+          </text>
+          <text id="static_instance-meses-11">
+            <value>Diciembre</value>
+          </text>
+          <text id="static_instance-meses-12">
+            <value>Enero</value>
+          </text>
+          <text id="static_instance-meses-13">
+            <value>Febrero</value>
+          </text>
+          <text id="static_instance-meses-14">
+            <value>Marzo</value>
+          </text>
+          <text id="static_instance-meses-15">
+            <value>Abril</value>
+          </text>
+          <text id="static_instance-meses-16">
+            <value>Mayo</value>
+          </text>
+          <text id="static_instance-meses-17">
+            <value>Junio</value>
+          </text>
+          <text id="static_instance-periodos-1">
+            <value>Abril-Junio</value>
+          </text>
+          <text id="static_instance-periodos-0">
+            <value>Enero-Marzo</value>
+          </text>
+          <text id="static_instance-periodos-3">
+            <value>Octubre-Diciembre</value>
+          </text>
+          <text id="static_instance-periodos-2">
+            <value>Julio-Septiembre</value>
+          </text>
+          <text id="static_instance-meses-21">
+            <value>Octubre</value>
+          </text>
+          <text id="static_instance-meses-20">
+            <value>Septiembre</value>
+          </text>
+          <text id="static_instance-meses-23">
+            <value>Diciembre</value>
+          </text>
+          <text id="static_instance-meses-22">
+            <value>Noviembre</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <C.1.32.1 id="C_1_32_1">
+          <periodo/>
+          <meses/>
+          <nota/>
+          <telecomunicaciones>
+            <exportaciones1>0</exportaciones1>
+            <importaciones1>0</importaciones1>
+          </telecomunicaciones>
+          <servicios>
+            <exportaciones2>0</exportaciones2>
+            <importaciones2>0</importaciones2>
+          </servicios>
+          <otros>
+            <importaciones3>0</importaciones3>
+            <importaciones4>0</importaciones4>
+            <regalias>0</regalias>
+          </otros>
+          <totales>
+            <calculate1/>
+            <exportaciones/>
+            <calculate2/>
+            <importaciones/>
+          </totales>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C.1.32.1>
+      </instance>
+      <instance id="meses">
+        <root>
+          <item>
+            <itextId>static_instance-meses-0</itextId>
+            <periodo>1</periodo>
+            <name>a</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-1</itextId>
+            <periodo>1</periodo>
+            <name>b</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-2</itextId>
+            <periodo>1</periodo>
+            <name>c</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-3</itextId>
+            <periodo>2</periodo>
+            <name>d</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-4</itextId>
+            <periodo>2</periodo>
+            <name>e</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-5</itextId>
+            <periodo>2</periodo>
+            <name>f</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-6</itextId>
+            <periodo>3</periodo>
+            <name>g</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-7</itextId>
+            <periodo>3</periodo>
+            <name>h</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-8</itextId>
+            <periodo>3</periodo>
+            <name>i</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-9</itextId>
+            <periodo>4</periodo>
+            <name>j</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-10</itextId>
+            <periodo>4</periodo>
+            <name>k</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-11</itextId>
+            <periodo>4</periodo>
+            <name>l</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-12</itextId>
+            <periodo>5</periodo>
+            <name>a</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-13</itextId>
+            <periodo>5</periodo>
+            <name>b</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-14</itextId>
+            <periodo>5</periodo>
+            <name>c</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-15</itextId>
+            <periodo>5</periodo>
+            <name>d</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-16</itextId>
+            <periodo>5</periodo>
+            <name>e</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-17</itextId>
+            <periodo>5</periodo>
+            <name>f</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-18</itextId>
+            <periodo>5</periodo>
+            <name>g</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-19</itextId>
+            <periodo>5</periodo>
+            <name>h</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-20</itextId>
+            <periodo>5</periodo>
+            <name>i</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-21</itextId>
+            <periodo>5</periodo>
+            <name>j</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-22</itextId>
+            <periodo>5</periodo>
+            <name>k</name>
+          </item>
+          <item>
+            <itextId>static_instance-meses-23</itextId>
+            <periodo>5</periodo>
+            <name>l</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="periodos">
+        <root>
+          <item>
+            <itextId>static_instance-periodos-0</itextId>
+            <name>1</name>
+          </item>
+          <item>
+            <itextId>static_instance-periodos-1</itextId>
+            <name>2</name>
+          </item>
+          <item>
+            <itextId>static_instance-periodos-2</itextId>
+            <name>3</name>
+          </item>
+          <item>
+            <itextId>static_instance-periodos-3</itextId>
+            <name>4</name>
+          </item>
+          <item>
+            <itextId>static_instance-periodos-4</itextId>
+            <name>5</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/C.1.32.1/periodo" required="true()" type="select1"/>
+      <bind nodeset="/C.1.32.1/meses" required="true()" type="select1"/>
+      <bind nodeset="/C.1.32.1/nota" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 8 dígitos" nodeset="/C.1.32.1/telecomunicaciones/exportaciones1" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de hasta 8 dígitos" nodeset="/C.1.32.1/telecomunicaciones/importaciones1" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 8 dígitos" nodeset="/C.1.32.1/servicios/exportaciones2" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de hasta 8 dígitos" nodeset="/C.1.32.1/servicios/importaciones2" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 8 dígitos" nodeset="/C.1.32.1/otros/importaciones3" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de hasta 8 dígitos" nodeset="/C.1.32.1/otros/importaciones4" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de hasta 8 dígitos" nodeset="/C.1.32.1/otros/regalias" type="int"/>
+      <bind calculate=" /C.1.32.1/telecomunicaciones/exportaciones1 + /C.1.32.1/servicios/exportaciones2 " nodeset="/C.1.32.1/totales/calculate1" type="string"/>
+      <bind nodeset="/C.1.32.1/totales/exportaciones" readonly="true()" type="string"/>
+      <bind calculate=" /C.1.32.1/telecomunicaciones/importaciones1 + /C.1.32.1/servicios/importaciones2 + /C.1.32.1/otros/importaciones3 + /C.1.32.1/otros/importaciones4 " nodeset="/C.1.32.1/totales/calculate2" type="string"/>
+      <bind nodeset="/C.1.32.1/totales/importaciones" readonly="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C.1.32.1/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <select1 ref="/C.1.32.1/periodo">
+      <label>Periodo</label>
+      <hint>Seleccione Periodo DDJJ</hint>
+      <item>
+        <label>Enero-Marzo</label>
+        <value>1</value>
+      </item>
+      <item>
+        <label>Abril-Junio</label>
+        <value>2</value>
+      </item>
+      <item>
+        <label>Julio-Septiembre</label>
+        <value>3</value>
+      </item>
+      <item>
+        <label>Octubre-Diciembre</label>
+        <value>4</value>
+      </item>
+      <item>
+        <label>Enero-Diciembre</label>
+        <value>5</value>
+      </item>
+    </select1>
+    <select1 ref="/C.1.32.1/meses">
+      <label>Mes</label>
+      <hint>Seleccione Mes</hint>
+      <itemset nodeset="instance('meses')/root/item[periodo= /C.1.32.1/periodo ]">
+        <value ref="name"/>
+        <label ref="jr:itext(itextId)"/>
+      </itemset>
+    </select1>
+    <input ref="/C.1.32.1/nota">
+      <label>Expresar en miles de pesos 8 dígitos</label>
+    </input>
+    <group ref="/C.1.32.1/telecomunicaciones">
+      <label>Telecomunicaciones</label>
+      <input ref="/C.1.32.1/telecomunicaciones/exportaciones1">
+        <label>Exportaciones</label>
+        <hint>En miles de pesos de 8 dígitos</hint>
+      </input>
+      <input ref="/C.1.32.1/telecomunicaciones/importaciones1">
+        <label>Importaciones</label>
+        <hint>En miles de pesos de 8 dígitos</hint>
+      </input>
+    </group>
+    <group ref="/C.1.32.1/servicios">
+      <label>Servicios</label>
+      <input ref="/C.1.32.1/servicios/exportaciones2">
+        <label>Exportaciones</label>
+        <hint>En miles de pesos de 8 dígitos</hint>
+      </input>
+      <input ref="/C.1.32.1/servicios/importaciones2">
+        <label>Importaciones</label>
+        <hint>En miles de pesos de 8 dígitos</hint>
+      </input>
+    </group>
+    <group ref="/C.1.32.1/otros">
+      <label>Otros</label>
+      <input ref="/C.1.32.1/otros/importaciones3">
+        <label>Importaciones Bienes de Capital</label>
+        <hint>En miles de pesos de 8 dígitos</hint>
+      </input>
+      <input ref="/C.1.32.1/otros/importaciones4">
+        <label>Importaciones Partes y Piezas para Bienes de Capital</label>
+        <hint>En miles de pesos de 8 dígitos</hint>
+      </input>
+      <input ref="/C.1.32.1/otros/regalias">
+        <label>Regalías y Derechos de Licencia</label>
+        <hint>En miles de pesos de 8 dígitos</hint>
+      </input>
+    </group>
+    <group ref="/C.1.32.1/totales">
+      <label>Totales</label>
+      <input ref="/C.1.32.1/totales/exportaciones">
+        <label>Exportaciones: $ <output value=" /C.1.32.1/totales/calculate1 "/></label></input>
+      <input ref="/C.1.32.1/totales/importaciones">
+        <label>Importaciones: $ <output value=" /C.1.32.1/totales/calculate2 "/></label></input>
+    </group>
+  </h:body>
+</h:html>

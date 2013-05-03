@@ -1,185 +1,226 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>C.1.12</h:title>
+    <h:title>C.1.12 - TARIFA/PRECIO MINUTO DE COMUNICACIÓN TELEFONÍA FIJA*</h:title>
     <model>
-      <itext>
-        <translation default="true()" lang="default">
-          <text id="/C.1.12/minuto_mlu_pos/minuto_mlu_pos_detail/generated_table_list_label_4:label">
-            <value>Tarifa / Precio pospago</value>
-          </text>
-          <text id="/C.1.12/minuto_mlu_pos/minuto_mlu_pre_detail/generated_table_list_label_8:label">
-            <value>grid widget</value>
-          </text>
-        </translation>
-      </itext>
       <instance>
-        <C.1.12 id="C.1.12">
+        <C.1.12 id="C_1_12">
           <title/>
+          <def_hn/>
+          <def_hr/>
+          <nota/>
           <minuto_mlu_pos>
             <minuto_mlu_pos_detail>
-              <generated_table_list_label_4/>
+              <generated_table_list_label_9/>
               <hr_mlu_pos/>
               <hn_mlu_pos/>
             </minuto_mlu_pos_detail>
             <minuto_mlu_pre_detail>
-              <generated_table_list_label_8/>
+              <generated_table_list_label_13/>
               <hr_mlu_pre/>
               <hn_mlu_pre/>
             </minuto_mlu_pre_detail>
           </minuto_mlu_pos>
+          <minuto_ldn_pos_1>
+            <minuto_ldn_pos_1_detail>
+              <generated_table_list_label_19/>
+              <hr_ldn1_pos/>
+              <hn_ldn1_pos/>
+            </minuto_ldn_pos_1_detail>
+            <minuto_ldn_pre_1_detail>
+              <generated_table_list_label_23/>
+              <hr_ldn1_pre/>
+              <hn_ldn1_pre/>
+            </minuto_ldn_pre_1_detail>
+          </minuto_ldn_pos_1>
+          <minuto_ldn_pos_2>
+            <minuto_ldn_pos_2_detail>
+              <generated_table_list_label_29/>
+              <hr_ldn2_pos/>
+              <hn_ldn2_pos/>
+            </minuto_ldn_pos_2_detail>
+            <minuto_ldn_pre_2_detail>
+              <generated_table_list_label_33/>
+              <hr_ldn2_pre/>
+              <hn_ldn2_pre/>
+            </minuto_ldn_pre_2_detail>
+          </minuto_ldn_pos_2>
+          <minuto_ldn_pos_3>
+            <minuto_ldn_pos_3_detail>
+              <generated_table_list_label_40/>
+              <hr_ldn3_pos/>
+              <hn_ldn3_pos/>
+            </minuto_ldn_pos_3_detail>
+            <minuto_ldn_pre_3_detail>
+              <generated_table_list_label_44/>
+              <hr_ldn3_pre/>
+              <hn_ldn3_pre/>
+            </minuto_ldn_pre_3_detail>
+          </minuto_ldn_pos_3>
+          <minuto_ldn_pos_4>
+            <minuto_ldn_pos_4_detail>
+              <generated_table_list_label_51/>
+              <hr_ldn4_pos/>
+              <hn_ldn4_pos/>
+            </minuto_ldn_pos_4_detail>
+            <minuto_ldn_pre_4_detail>
+              <generated_table_list_label_55/>
+              <hr_ldn4_pre/>
+              <hn_ldn4_pre/>
+            </minuto_ldn_pre_4_detail>
+          </minuto_ldn_pos_4>
           <minuto_ldn_pos_5>
             <minuto_ldn_pos_5_detail>
-              <generated_table_list_label_14/>
+              <generated_table_list_label_61/>
               <hr_ldn5_pos/>
               <hn_ldn5_pos/>
             </minuto_ldn_pos_5_detail>
             <minuto_ldn_pre_5_detail>
-              <generated_table_list_label_18/>
+              <generated_table_list_label_65/>
               <hr_ldn5_pre/>
               <hn_ldn5_pre/>
             </minuto_ldn_pre_5_detail>
           </minuto_ldn_pos_5>
           <minuto_ldn_pos_6>
             <minuto_ldn_pos_6_detail>
-              <generated_table_list_label_24/>
+              <generated_table_list_label_71/>
               <hr_ldn6_pos/>
               <hn_ldn6_pos/>
             </minuto_ldn_pos_6_detail>
             <minuto_ldn_pre_6_detail>
-              <generated_table_list_label_28/>
+              <generated_table_list_label_75/>
               <hr_ldn6_pre/>
               <hn_ldn6_pre/>
             </minuto_ldn_pre_6_detail>
           </minuto_ldn_pos_6>
           <minuto_ldi_pos_fronterizo>
             <minuto_ldi_pos_detail>
-              <generated_table_list_label_34/>
+              <generated_table_list_label_81/>
               <hr_ldi_pos/>
               <hn_ldi_pos/>
             </minuto_ldi_pos_detail>
             <minuto_ldi_pre_detail>
-              <generated_table_list_label_38/>
+              <generated_table_list_label_85/>
               <hr_ldi_pre/>
               <hn_ldi_pre/>
             </minuto_ldi_pre_detail>
           </minuto_ldi_pos_fronterizo>
           <minuto_ldi_pos_AS>
             <minuto_ldi_pos_AS_detail>
-              <generated_table_list_label_44/>
+              <generated_table_list_label_91/>
               <hr_ldi_AS_pos/>
               <hn_ldi_AS_pos/>
             </minuto_ldi_pos_AS_detail>
             <minuto_ldi_pre_AS_detail>
-              <generated_table_list_label_48/>
+              <generated_table_list_label_95/>
               <hr_ldi_AS_pre/>
               <hn_ldi_AS_pre/>
             </minuto_ldi_pre_AS_detail>
           </minuto_ldi_pos_AS>
           <minuto_ldi_pos_AC>
             <minuto_ldi_pos_AC_detail>
-              <generated_table_list_label_54/>
+              <generated_table_list_label_101/>
               <hr_ldi_AC_pos/>
               <hn_ldi_AC_pos/>
             </minuto_ldi_pos_AC_detail>
             <minuto_ldi_pre_AC_detail>
-              <generated_table_list_label_58/>
+              <generated_table_list_label_105/>
               <hr_ldi_AC_pre/>
               <hn_ldi_AC_pre/>
             </minuto_ldi_pre_AC_detail>
           </minuto_ldi_pos_AC>
           <minuto_ldi_pos_AN>
             <minuto_ldi_pos_AN_detail>
-              <generated_table_list_label_64/>
+              <generated_table_list_label_111/>
               <hr_ldi_AN_pos/>
               <hn_ldi_AN_pos/>
             </minuto_ldi_pos_AN_detail>
             <minuto_ldi_pre_AN_detail>
-              <generated_table_list_label_68/>
+              <generated_table_list_label_115/>
               <hr_ldi_AN_pre/>
               <hn_ldi_AN_pre/>
             </minuto_ldi_pre_AN_detail>
           </minuto_ldi_pos_AN>
           <minuto_ldi_pos_EU>
             <minuto_ldi_pos_EU_detail>
-              <generated_table_list_label_74/>
+              <generated_table_list_label_121/>
               <hr_ldi_EU_pos/>
               <hn_ldi_EU_pos/>
             </minuto_ldi_pos_EU_detail>
             <minuto_ldi_pre_EU_detail>
-              <generated_table_list_label_78/>
+              <generated_table_list_label_125/>
               <hr_ldi_EU_pre/>
               <hn_ldi_EU_pre/>
             </minuto_ldi_pre_EU_detail>
           </minuto_ldi_pos_EU>
           <minuto_ldi_pos_AFR>
             <minuto_ldi_pos_AFR_detail>
-              <generated_table_list_label_84/>
+              <generated_table_list_label_131/>
               <hr_ldi_AFR_pos/>
               <hn_ldi_AFR_pos/>
             </minuto_ldi_pos_AFR_detail>
             <minuto_ldi_pre_AFR_detail>
-              <generated_table_list_label_88/>
+              <generated_table_list_label_135/>
               <hr_ldi_AFR_pre/>
               <hn_ldi_AFR_pre/>
             </minuto_ldi_pre_AFR_detail>
           </minuto_ldi_pos_AFR>
           <minuto_ldi_pos_ASI>
             <minuto_ldi_pos_ASI_detail>
-              <generated_table_list_label_94/>
+              <generated_table_list_label_141/>
               <hr_ldi_ASI_pos/>
               <hn_ldi_ASI_pos/>
             </minuto_ldi_pos_ASI_detail>
             <minuto_ldi_pre_ASI_detail>
-              <generated_table_list_label_98/>
+              <generated_table_list_label_145/>
               <hr_ldi_ASI_pre/>
               <hn_ldi_ASI_pre/>
             </minuto_ldi_pre_ASI_detail>
           </minuto_ldi_pos_ASI>
           <minuto_ldi_pos_OCE>
             <minuto_ldi_pos_OCE_detail>
-              <generated_table_list_label_104/>
+              <generated_table_list_label_151/>
               <hr_ldi_OCE_pos/>
               <hn_ldi_OCE_pos/>
             </minuto_ldi_pos_OCE_detail>
             <minuto_ldi_pre_OCE_detail>
-              <generated_table_list_label_108/>
+              <generated_table_list_label_155/>
               <hr_ldi_OCE_pre/>
               <hn_ldi_OCE_pre/>
             </minuto_ldi_pre_OCE_detail>
           </minuto_ldi_pos_OCE>
           <minuto_revertida_pos_local>
             <minuto_revertida_pos_local_detail>
-              <generated_table_list_label_114/>
+              <generated_table_list_label_161/>
               <hr_revertida_local_pos/>
               <hn_revertida_local_pos/>
             </minuto_revertida_pos_local_detail>
             <minuto_revertida_pre_local_detail>
-              <generated_table_list_label_118/>
+              <generated_table_list_label_165/>
               <hr_revertida_local_pre/>
               <hn_revertida_local_pre/>
             </minuto_revertida_pre_local_detail>
           </minuto_revertida_pos_local>
           <minuto_revertida_pos_ldn>
             <minuto_revertida_pos_ldn_detail>
-              <generated_table_list_label_124/>
+              <generated_table_list_label_171/>
               <hr_revertida_ldn_pos/>
               <hn_revertida_ldn_pos/>
             </minuto_revertida_pos_ldn_detail>
             <minuto_revertida_pre_ldn_detail>
-              <generated_table_list_label_128/>
+              <generated_table_list_label_175/>
               <hr_revertida_ldn_pre/>
               <hn_revertida_ldn_pre/>
             </minuto_revertida_pre_ldn_detail>
           </minuto_revertida_pos_ldn>
           <minuto_revertida_pos_ldi>
             <minuto_revertida_pos_ldi_detail>
-              <generated_table_list_label_134/>
+              <generated_table_list_label_181/>
               <hr_revertida_ldi_pos/>
               <hn_revertida_ldi_pos/>
             </minuto_revertida_pos_ldi_detail>
             <minuto_revertida_pre_ldi_detail>
-              <generated_table_list_label_138/>
+              <generated_table_list_label_185/>
               <hr_revertida_ldi_pre/>
               <hn_revertida_ldi_pre/>
             </minuto_revertida_pre_ldi_detail>
@@ -190,104 +231,139 @@
         </C.1.12>
       </instance>
       <bind nodeset="/C.1.12/title" readonly="true()" type="string"/>
-      <bind nodeset="/C.1.12/minuto_mlu_pos/minuto_mlu_pos_detail/generated_table_list_label_4" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_mlu_pos/minuto_mlu_pos_detail/hr_mlu_pos" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_mlu_pos/minuto_mlu_pos_detail/hn_mlu_pos" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_mlu_pos/minuto_mlu_pre_detail/generated_table_list_label_8" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_mlu_pos/minuto_mlu_pre_detail/hr_mlu_pre" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_mlu_pos/minuto_mlu_pre_detail/hn_mlu_pre" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_ldn_pos_5/minuto_ldn_pos_5_detail/generated_table_list_label_14" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_5/minuto_ldn_pos_5_detail/hr_ldn5_pos" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_5/minuto_ldn_pos_5_detail/hn_ldn5_pos" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_ldn_pos_5/minuto_ldn_pre_5_detail/generated_table_list_label_18" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_5/minuto_ldn_pre_5_detail/hr_ldn5_pre" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_5/minuto_ldn_pre_5_detail/hn_ldn5_pre" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_ldn_pos_6/minuto_ldn_pos_6_detail/generated_table_list_label_24" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_6/minuto_ldn_pos_6_detail/hr_ldn6_pos" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_6/minuto_ldn_pos_6_detail/hn_ldn6_pos" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_ldn_pos_6/minuto_ldn_pre_6_detail/generated_table_list_label_28" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_6/minuto_ldn_pre_6_detail/hr_ldn6_pre" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_6/minuto_ldn_pre_6_detail/hn_ldn6_pre" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_ldi_pos_fronterizo/minuto_ldi_pos_detail/generated_table_list_label_34" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_fronterizo/minuto_ldi_pos_detail/hr_ldi_pos" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_fronterizo/minuto_ldi_pos_detail/hn_ldi_pos" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_ldi_pos_fronterizo/minuto_ldi_pre_detail/generated_table_list_label_38" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_fronterizo/minuto_ldi_pre_detail/hr_ldi_pre" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_fronterizo/minuto_ldi_pre_detail/hn_ldi_pre" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail/generated_table_list_label_44" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail/hr_ldi_AS_pos" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail/hn_ldi_AS_pos" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail/generated_table_list_label_48" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail/hr_ldi_AS_pre" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail/hn_ldi_AS_pre" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail/generated_table_list_label_54" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail/hr_ldi_AC_pos" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail/hn_ldi_AC_pos" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail/generated_table_list_label_58" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail/hr_ldi_AC_pre" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail/hn_ldi_AC_pre" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail/generated_table_list_label_64" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail/hr_ldi_AN_pos" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail/hn_ldi_AN_pos" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail/generated_table_list_label_68" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail/hr_ldi_AN_pre" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail/hn_ldi_AN_pre" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail/generated_table_list_label_74" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail/hr_ldi_EU_pos" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail/hn_ldi_EU_pos" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail/generated_table_list_label_78" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail/hr_ldi_EU_pre" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail/hn_ldi_EU_pre" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail/generated_table_list_label_84" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail/hr_ldi_AFR_pos" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail/hn_ldi_AFR_pos" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail/generated_table_list_label_88" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail/hr_ldi_AFR_pre" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail/hn_ldi_AFR_pre" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail/generated_table_list_label_94" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail/hr_ldi_ASI_pos" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail/hn_ldi_ASI_pos" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail/generated_table_list_label_98" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail/hr_ldi_ASI_pre" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail/hn_ldi_ASI_pre" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail/generated_table_list_label_104" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail/hr_ldi_OCE_pos" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail/hn_ldi_OCE_pos" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail/generated_table_list_label_108" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail/hr_ldi_OCE_pre" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail/hn_ldi_OCE_pre" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_revertida_pos_local/minuto_revertida_pos_local_detail/generated_table_list_label_114" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_local/minuto_revertida_pos_local_detail/hr_revertida_local_pos" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_local/minuto_revertida_pos_local_detail/hn_revertida_local_pos" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_revertida_pos_local/minuto_revertida_pre_local_detail/generated_table_list_label_118" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_local/minuto_revertida_pre_local_detail/hr_revertida_local_pre" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_local/minuto_revertida_pre_local_detail/hn_revertida_local_pre" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail/generated_table_list_label_124" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail/hr_revertida_ldn_pos" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail/hn_revertida_ldn_pos" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail/generated_table_list_label_128" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail/hr_revertida_ldn_pre" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail/hn_revertida_ldn_pre" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail/generated_table_list_label_134" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail/hr_revertida_ldi_pos" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail/hn_revertida_ldi_pos" type="decimal"/>
-      <bind nodeset="/C.1.12/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail/generated_table_list_label_138" readonly="true()" type="string"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail/hr_revertida_ldi_pre" type="decimal"/>
-      <bind jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail/hn_revertida_ldi_pre" type="decimal"/>
+      <bind nodeset="/C.1.12/def_hn" type="string"/>
+      <bind nodeset="/C.1.12/def_hr" type="string"/>
+      <bind nodeset="/C.1.12/nota" readonly="true()" type="string"/>
+      <bind nodeset="/C.1.12/minuto_mlu_pos/minuto_mlu_pos_detail/generated_table_list_label_9" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_mlu_pos/minuto_mlu_pos_detail/hr_mlu_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_mlu_pos/minuto_mlu_pos_detail/hn_mlu_pos" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_mlu_pos/minuto_mlu_pre_detail/generated_table_list_label_13" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_mlu_pos/minuto_mlu_pre_detail/hr_mlu_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_mlu_pos/minuto_mlu_pre_detail/hn_mlu_pre" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldn_pos_1/minuto_ldn_pos_1_detail/generated_table_list_label_19" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_1/minuto_ldn_pos_1_detail/hr_ldn1_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_1/minuto_ldn_pos_1_detail/hn_ldn1_pos" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldn_pos_1/minuto_ldn_pre_1_detail/generated_table_list_label_23" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_1/minuto_ldn_pre_1_detail/hr_ldn1_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_1/minuto_ldn_pre_1_detail/hn_ldn1_pre" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldn_pos_2/minuto_ldn_pos_2_detail/generated_table_list_label_29" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_2/minuto_ldn_pos_2_detail/hr_ldn2_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_2/minuto_ldn_pos_2_detail/hn_ldn2_pos" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldn_pos_2/minuto_ldn_pre_2_detail/generated_table_list_label_33" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_2/minuto_ldn_pre_2_detail/hr_ldn2_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_2/minuto_ldn_pre_2_detail/hn_ldn2_pre" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldn_pos_3/minuto_ldn_pos_3_detail/generated_table_list_label_40" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_3/minuto_ldn_pos_3_detail/hr_ldn3_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_3/minuto_ldn_pos_3_detail/hn_ldn3_pos" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldn_pos_3/minuto_ldn_pre_3_detail/generated_table_list_label_44" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_3/minuto_ldn_pre_3_detail/hr_ldn3_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_3/minuto_ldn_pre_3_detail/hn_ldn3_pre" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldn_pos_4/minuto_ldn_pos_4_detail/generated_table_list_label_51" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_4/minuto_ldn_pos_4_detail/hr_ldn4_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_4/minuto_ldn_pos_4_detail/hn_ldn4_pos" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldn_pos_4/minuto_ldn_pre_4_detail/generated_table_list_label_55" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_4/minuto_ldn_pre_4_detail/hr_ldn4_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_4/minuto_ldn_pre_4_detail/hn_ldn4_pre" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldn_pos_5/minuto_ldn_pos_5_detail/generated_table_list_label_61" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_5/minuto_ldn_pos_5_detail/hr_ldn5_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_5/minuto_ldn_pos_5_detail/hn_ldn5_pos" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldn_pos_5/minuto_ldn_pre_5_detail/generated_table_list_label_65" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_5/minuto_ldn_pre_5_detail/hr_ldn5_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_5/minuto_ldn_pre_5_detail/hn_ldn5_pre" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldn_pos_6/minuto_ldn_pos_6_detail/generated_table_list_label_71" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_6/minuto_ldn_pos_6_detail/hr_ldn6_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_6/minuto_ldn_pos_6_detail/hn_ldn6_pos" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldn_pos_6/minuto_ldn_pre_6_detail/generated_table_list_label_75" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_6/minuto_ldn_pre_6_detail/hr_ldn6_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldn_pos_6/minuto_ldn_pre_6_detail/hn_ldn6_pre" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldi_pos_fronterizo/minuto_ldi_pos_detail/generated_table_list_label_81" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_fronterizo/minuto_ldi_pos_detail/hr_ldi_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_fronterizo/minuto_ldi_pos_detail/hn_ldi_pos" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldi_pos_fronterizo/minuto_ldi_pre_detail/generated_table_list_label_85" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_fronterizo/minuto_ldi_pre_detail/hr_ldi_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_fronterizo/minuto_ldi_pre_detail/hn_ldi_pre" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail/generated_table_list_label_91" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail/hr_ldi_AS_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail/hn_ldi_AS_pos" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail/generated_table_list_label_95" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail/hr_ldi_AS_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail/hn_ldi_AS_pre" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail/generated_table_list_label_101" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail/hr_ldi_AC_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail/hn_ldi_AC_pos" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail/generated_table_list_label_105" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail/hr_ldi_AC_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail/hn_ldi_AC_pre" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail/generated_table_list_label_111" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail/hr_ldi_AN_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail/hn_ldi_AN_pos" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail/generated_table_list_label_115" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail/hr_ldi_AN_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail/hn_ldi_AN_pre" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail/generated_table_list_label_121" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail/hr_ldi_EU_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail/hn_ldi_EU_pos" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail/generated_table_list_label_125" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail/hr_ldi_EU_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail/hn_ldi_EU_pre" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail/generated_table_list_label_131" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail/hr_ldi_AFR_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail/hn_ldi_AFR_pos" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail/generated_table_list_label_135" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail/hr_ldi_AFR_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail/hn_ldi_AFR_pre" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail/generated_table_list_label_141" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail/hr_ldi_ASI_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail/hn_ldi_ASI_pos" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail/generated_table_list_label_145" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail/hr_ldi_ASI_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail/hn_ldi_ASI_pre" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail/generated_table_list_label_151" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail/hr_ldi_OCE_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail/hn_ldi_OCE_pos" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail/generated_table_list_label_155" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail/hr_ldi_OCE_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail/hn_ldi_OCE_pre" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_revertida_pos_local/minuto_revertida_pos_local_detail/generated_table_list_label_161" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_local/minuto_revertida_pos_local_detail/hr_revertida_local_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_local/minuto_revertida_pos_local_detail/hn_revertida_local_pos" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_revertida_pos_local/minuto_revertida_pre_local_detail/generated_table_list_label_165" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_local/minuto_revertida_pre_local_detail/hr_revertida_local_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_local/minuto_revertida_pre_local_detail/hn_revertida_local_pre" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail/generated_table_list_label_171" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail/hr_revertida_ldn_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail/hn_revertida_ldn_pos" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail/generated_table_list_label_175" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail/hr_revertida_ldn_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail/hn_revertida_ldn_pre" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail/generated_table_list_label_181" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail/hr_revertida_ldi_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail/hn_revertida_ldi_pos" required="true()" type="int"/>
+      <bind nodeset="/C.1.12/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail/generated_table_list_label_185" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail/hr_revertida_ldi_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C.1.12/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail/hn_revertida_ldi_pre" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C.1.12/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
     <input ref="/C.1.12/title">
-      <label>TARIFA/PRECIO MINUTO DE COMUNICACIÓN TELEFONÍA FIJA al cierre del período</label>
-      <hint>*Salvo EGT, especificar HN: HORARIO NORMAL / HR: HORARIO REDUCIDO. y franjas horarias contenidas en c/u</hint>
+      <label>*Salvo EGT, especificar HN: HORARIO NORMAL / HR: HORARIO REDUCIDO. y franjas horarias contenidas en c/u</label>
+    </input>
+    <input ref="/C.1.12/def_hn">
+      <label>HN:</label>
+    </input>
+    <input ref="/C.1.12/def_hr">
+      <label>HR:</label>
+    </input>
+    <input ref="/C.1.12/nota">
+      <label>Expresar en miles de pesos, 12 dígitos</label>
     </input>
     <group appearance="field-list" ref="/C.1.12/minuto_mlu_pos">
       <label>Minuto Local/urbano</label>
       <group appearance="field-list" ref="/C.1.12/minuto_mlu_pos/minuto_mlu_pos_detail">
-        <input ref="/C.1.12/minuto_mlu_pos/minuto_mlu_pos_detail/generated_table_list_label_4">
-          <label ref="jr:itext('/C.1.12/minuto_mlu_pos/minuto_mlu_pos_detail/generated_table_list_label_4:label')"/>
-          <hint>Cantidad en pesos mayor a cero</hint>
+        <input ref="/C.1.12/minuto_mlu_pos/minuto_mlu_pos_detail/generated_table_list_label_9">
+          <label>POSPAGO</label>
+          <hint>Cantidad en miles de pesos mayor a cero</hint>
         </input>
         <input ref="/C.1.12/minuto_mlu_pos/minuto_mlu_pos_detail/hr_mlu_pos">
           <label>HR</label>
@@ -297,8 +373,8 @@
         </input>
       </group>
       <group appearance="field-list" ref="/C.1.12/minuto_mlu_pos/minuto_mlu_pre_detail">
-        <input ref="/C.1.12/minuto_mlu_pos/minuto_mlu_pre_detail/generated_table_list_label_8">
-          <label ref="jr:itext('/C.1.12/minuto_mlu_pos/minuto_mlu_pre_detail/generated_table_list_label_8:label')"/>
+        <input ref="/C.1.12/minuto_mlu_pos/minuto_mlu_pre_detail/generated_table_list_label_13">
+          <label>PREPAGO</label>
         </input>
         <input ref="/C.1.12/minuto_mlu_pos/minuto_mlu_pre_detail/hr_mlu_pre">
           <label>HR</label>
@@ -308,12 +384,116 @@
         </input>
       </group>
     </group>
+    <group appearance="field-list" ref="/C.1.12/minuto_ldn_pos_1">
+      <label>Minuto LDN Clave 1 (hasta 30 km)</label>
+      <group appearance="field-list" ref="/C.1.12/minuto_ldn_pos_1/minuto_ldn_pos_1_detail">
+        <input ref="/C.1.12/minuto_ldn_pos_1/minuto_ldn_pos_1_detail/generated_table_list_label_19">
+          <label>POSPAGO</label>
+          <hint>Cantidad en miles de pesos mayor a cero</hint>
+        </input>
+        <input ref="/C.1.12/minuto_ldn_pos_1/minuto_ldn_pos_1_detail/hr_ldn1_pos">
+          <label>HR</label>
+        </input>
+        <input ref="/C.1.12/minuto_ldn_pos_1/minuto_ldn_pos_1_detail/hn_ldn1_pos">
+          <label>HN</label>
+        </input>
+      </group>
+      <group appearance="field-list" ref="/C.1.12/minuto_ldn_pos_1/minuto_ldn_pre_1_detail">
+        <input ref="/C.1.12/minuto_ldn_pos_1/minuto_ldn_pre_1_detail/generated_table_list_label_23">
+          <label>PREPAGO</label>
+        </input>
+        <input ref="/C.1.12/minuto_ldn_pos_1/minuto_ldn_pre_1_detail/hr_ldn1_pre">
+          <label>HR</label>
+        </input>
+        <input ref="/C.1.12/minuto_ldn_pos_1/minuto_ldn_pre_1_detail/hn_ldn1_pre">
+          <label>HN</label>
+        </input>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/C.1.12/minuto_ldn_pos_2">
+      <label>Minuto LDN Clave 2 (hasta 55 km)</label>
+      <group appearance="field-list" ref="/C.1.12/minuto_ldn_pos_2/minuto_ldn_pos_2_detail">
+        <input ref="/C.1.12/minuto_ldn_pos_2/minuto_ldn_pos_2_detail/generated_table_list_label_29">
+          <label>POSPAGO</label>
+          <hint>Cantidad en miles de pesos mayor a cero</hint>
+        </input>
+        <input ref="/C.1.12/minuto_ldn_pos_2/minuto_ldn_pos_2_detail/hr_ldn2_pos">
+          <label>HR</label>
+        </input>
+        <input ref="/C.1.12/minuto_ldn_pos_2/minuto_ldn_pos_2_detail/hn_ldn2_pos">
+          <label>HN</label>
+        </input>
+      </group>
+      <group appearance="field-list" ref="/C.1.12/minuto_ldn_pos_2/minuto_ldn_pre_2_detail">
+        <input ref="/C.1.12/minuto_ldn_pos_2/minuto_ldn_pre_2_detail/generated_table_list_label_33">
+          <label>PREPAGO</label>
+        </input>
+        <input ref="/C.1.12/minuto_ldn_pos_2/minuto_ldn_pre_2_detail/hr_ldn2_pre">
+          <label>HR</label>
+        </input>
+        <input ref="/C.1.12/minuto_ldn_pos_2/minuto_ldn_pre_2_detail/hn_ldn2_pre">
+          <label>HN</label>
+        </input>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/C.1.12/minuto_ldn_pos_3">
+      <label>Minuto LDN Clave 3 (hasta 110 km)</label>
+      <group appearance="field-list" ref="/C.1.12/minuto_ldn_pos_3/minuto_ldn_pos_3_detail">
+        <input ref="/C.1.12/minuto_ldn_pos_3/minuto_ldn_pos_3_detail/generated_table_list_label_40">
+          <label>POSPAGO</label>
+          <hint>Cantidad en miles de pesos mayor a cero</hint>
+        </input>
+        <input ref="/C.1.12/minuto_ldn_pos_3/minuto_ldn_pos_3_detail/hr_ldn3_pos">
+          <label>HR</label>
+        </input>
+        <input ref="/C.1.12/minuto_ldn_pos_3/minuto_ldn_pos_3_detail/hn_ldn3_pos">
+          <label>HN</label>
+        </input>
+      </group>
+      <group appearance="field-list" ref="/C.1.12/minuto_ldn_pos_3/minuto_ldn_pre_3_detail">
+        <input ref="/C.1.12/minuto_ldn_pos_3/minuto_ldn_pre_3_detail/generated_table_list_label_44">
+          <label>PREPAGO</label>
+        </input>
+        <input ref="/C.1.12/minuto_ldn_pos_3/minuto_ldn_pre_3_detail/hr_ldn3_pre">
+          <label>HR</label>
+        </input>
+        <input ref="/C.1.12/minuto_ldn_pos_3/minuto_ldn_pre_3_detail/hn_ldn3_pre">
+          <label>HN</label>
+        </input>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/C.1.12/minuto_ldn_pos_4">
+      <label>Minuto LDN Clave 4 (hasta 170 km)</label>
+      <group appearance="field-list" ref="/C.1.12/minuto_ldn_pos_4/minuto_ldn_pos_4_detail">
+        <input ref="/C.1.12/minuto_ldn_pos_4/minuto_ldn_pos_4_detail/generated_table_list_label_51">
+          <label>POSPAGO</label>
+          <hint>Cantidad en miles de pesos mayor a cero</hint>
+        </input>
+        <input ref="/C.1.12/minuto_ldn_pos_4/minuto_ldn_pos_4_detail/hr_ldn4_pos">
+          <label>HR</label>
+        </input>
+        <input ref="/C.1.12/minuto_ldn_pos_4/minuto_ldn_pos_4_detail/hn_ldn4_pos">
+          <label>HN</label>
+        </input>
+      </group>
+      <group appearance="field-list" ref="/C.1.12/minuto_ldn_pos_4/minuto_ldn_pre_4_detail">
+        <input ref="/C.1.12/minuto_ldn_pos_4/minuto_ldn_pre_4_detail/generated_table_list_label_55">
+          <label>PREPAGO</label>
+        </input>
+        <input ref="/C.1.12/minuto_ldn_pos_4/minuto_ldn_pre_4_detail/hr_ldn4_pre">
+          <label>HR</label>
+        </input>
+        <input ref="/C.1.12/minuto_ldn_pos_4/minuto_ldn_pre_4_detail/hn_ldn4_pre">
+          <label>HN</label>
+        </input>
+      </group>
+    </group>
     <group appearance="field-list" ref="/C.1.12/minuto_ldn_pos_5">
       <label>Minuto LDN Clave 5 (hasta 240 km)</label>
       <group appearance="field-list" ref="/C.1.12/minuto_ldn_pos_5/minuto_ldn_pos_5_detail">
-        <input ref="/C.1.12/minuto_ldn_pos_5/minuto_ldn_pos_5_detail/generated_table_list_label_14">
-          <label>Tarifa / Precio pospago</label>
-          <hint>Cantidad en pesos mayor a cero</hint>
+        <input ref="/C.1.12/minuto_ldn_pos_5/minuto_ldn_pos_5_detail/generated_table_list_label_61">
+          <label>POSPAGO</label>
+          <hint>Cantidad en miles de pesos mayor a cero</hint>
         </input>
         <input ref="/C.1.12/minuto_ldn_pos_5/minuto_ldn_pos_5_detail/hr_ldn5_pos">
           <label>HR</label>
@@ -323,8 +503,8 @@
         </input>
       </group>
       <group appearance="field-list" ref="/C.1.12/minuto_ldn_pos_5/minuto_ldn_pre_5_detail">
-        <input ref="/C.1.12/minuto_ldn_pos_5/minuto_ldn_pre_5_detail/generated_table_list_label_18">
-          <label>Tarifa / Precio prepago</label>
+        <input ref="/C.1.12/minuto_ldn_pos_5/minuto_ldn_pre_5_detail/generated_table_list_label_65">
+          <label>PREPAGO</label>
         </input>
         <input ref="/C.1.12/minuto_ldn_pos_5/minuto_ldn_pre_5_detail/hr_ldn5_pre">
           <label>HR</label>
@@ -337,9 +517,9 @@
     <group appearance="field-list" ref="/C.1.12/minuto_ldn_pos_6">
       <label>Minuto LDN Clave 6-12 (más de 240 km)</label>
       <group appearance="field-list" ref="/C.1.12/minuto_ldn_pos_6/minuto_ldn_pos_6_detail">
-        <input ref="/C.1.12/minuto_ldn_pos_6/minuto_ldn_pos_6_detail/generated_table_list_label_24">
-          <label>Tarifa / Precio pospago</label>
-          <hint>Cantidad en pesos mayor a cero numérico</hint>
+        <input ref="/C.1.12/minuto_ldn_pos_6/minuto_ldn_pos_6_detail/generated_table_list_label_71">
+          <label>POSPAGO</label>
+          <hint>Cantidad en miles de pesos mayor a cero</hint>
         </input>
         <input ref="/C.1.12/minuto_ldn_pos_6/minuto_ldn_pos_6_detail/hr_ldn6_pos">
           <label>HR</label>
@@ -349,8 +529,8 @@
         </input>
       </group>
       <group appearance="field-list" ref="/C.1.12/minuto_ldn_pos_6/minuto_ldn_pre_6_detail">
-        <input ref="/C.1.12/minuto_ldn_pos_6/minuto_ldn_pre_6_detail/generated_table_list_label_28">
-          <label>Tarifa / Precio prepago</label>
+        <input ref="/C.1.12/minuto_ldn_pos_6/minuto_ldn_pre_6_detail/generated_table_list_label_75">
+          <label>PREPAGO</label>
         </input>
         <input ref="/C.1.12/minuto_ldn_pos_6/minuto_ldn_pre_6_detail/hr_ldn6_pre">
           <label>HR</label>
@@ -363,9 +543,9 @@
     <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_fronterizo">
       <label>Minuto LDI de salida promedio fronterizo</label>
       <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_fronterizo/minuto_ldi_pos_detail">
-        <input ref="/C.1.12/minuto_ldi_pos_fronterizo/minuto_ldi_pos_detail/generated_table_list_label_34">
-          <label>Tarifa / Precio pospago</label>
-          <hint>Cantidad en pesos mayor a cero</hint>
+        <input ref="/C.1.12/minuto_ldi_pos_fronterizo/minuto_ldi_pos_detail/generated_table_list_label_81">
+          <label>POSPAGO</label>
+          <hint>Cantidad en miles de pesos mayor a cero</hint>
         </input>
         <input ref="/C.1.12/minuto_ldi_pos_fronterizo/minuto_ldi_pos_detail/hr_ldi_pos">
           <label>HR</label>
@@ -375,8 +555,8 @@
         </input>
       </group>
       <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_fronterizo/minuto_ldi_pre_detail">
-        <input ref="/C.1.12/minuto_ldi_pos_fronterizo/minuto_ldi_pre_detail/generated_table_list_label_38">
-          <label>Tarifa / Precio prepago</label>
+        <input ref="/C.1.12/minuto_ldi_pos_fronterizo/minuto_ldi_pre_detail/generated_table_list_label_85">
+          <label>PREPAGO</label>
         </input>
         <input ref="/C.1.12/minuto_ldi_pos_fronterizo/minuto_ldi_pre_detail/hr_ldi_pre">
           <label>HR</label>
@@ -389,9 +569,9 @@
     <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_AS">
       <label>Minuto LDI de salida promedio América del Sur</label>
       <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail">
-        <input ref="/C.1.12/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail/generated_table_list_label_44">
-          <label>Tarifa / Precio pospago</label>
-          <hint>Cantidad en pesos mayor a cero numérico</hint>
+        <input ref="/C.1.12/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail/generated_table_list_label_91">
+          <label>POSPAGO</label>
+          <hint>Cantidad en miles de pesos mayor a cero</hint>
         </input>
         <input ref="/C.1.12/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail/hr_ldi_AS_pos">
           <label>HR</label>
@@ -401,8 +581,8 @@
         </input>
       </group>
       <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail">
-        <input ref="/C.1.12/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail/generated_table_list_label_48">
-          <label>Tarifa / Precio prepago</label>
+        <input ref="/C.1.12/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail/generated_table_list_label_95">
+          <label>PREPAGO</label>
         </input>
         <input ref="/C.1.12/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail/hr_ldi_AS_pre">
           <label>HR</label>
@@ -415,9 +595,9 @@
     <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_AC">
       <label>Minuto LDI de salida promedio América Central</label>
       <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail">
-        <input ref="/C.1.12/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail/generated_table_list_label_54">
-          <label>Tarifa / Precio pospago</label>
-          <hint>Cantidad en pesos mayor a cero</hint>
+        <input ref="/C.1.12/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail/generated_table_list_label_101">
+          <label>POSPAGO</label>
+          <hint>Cantidad en miles de pesos mayor a cero</hint>
         </input>
         <input ref="/C.1.12/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail/hr_ldi_AC_pos">
           <label>HR</label>
@@ -427,8 +607,8 @@
         </input>
       </group>
       <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail">
-        <input ref="/C.1.12/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail/generated_table_list_label_58">
-          <label>Tarifa / Precio prepago</label>
+        <input ref="/C.1.12/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail/generated_table_list_label_105">
+          <label>PREPAGO</label>
         </input>
         <input ref="/C.1.12/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail/hr_ldi_AC_pre">
           <label>HR</label>
@@ -441,9 +621,9 @@
     <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_AN">
       <label>Minuto LDI de salida promedio América del Norte</label>
       <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail">
-        <input ref="/C.1.12/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail/generated_table_list_label_64">
-          <label>Tarifa / Precio pospago</label>
-          <hint>Cantidad en pesos mayor a cero</hint>
+        <input ref="/C.1.12/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail/generated_table_list_label_111">
+          <label>POSPAGO</label>
+          <hint>Cantidad en miles de pesos mayor a cero</hint>
         </input>
         <input ref="/C.1.12/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail/hr_ldi_AN_pos">
           <label>HR</label>
@@ -453,8 +633,8 @@
         </input>
       </group>
       <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail">
-        <input ref="/C.1.12/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail/generated_table_list_label_68">
-          <label>Tarifa / Precio prepago</label>
+        <input ref="/C.1.12/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail/generated_table_list_label_115">
+          <label>PREPAGO</label>
         </input>
         <input ref="/C.1.12/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail/hr_ldi_AN_pre">
           <label>HR</label>
@@ -467,9 +647,9 @@
     <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_EU">
       <label>Minuto LDI de salida promedio Europa</label>
       <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail">
-        <input ref="/C.1.12/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail/generated_table_list_label_74">
-          <label>Tarifa / Precio pospago</label>
-          <hint>Cantidad en pesos mayor a cero</hint>
+        <input ref="/C.1.12/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail/generated_table_list_label_121">
+          <label>POSPAGO</label>
+          <hint>Cantidad en miles de pesos mayor a cero</hint>
         </input>
         <input ref="/C.1.12/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail/hr_ldi_EU_pos">
           <label>HR</label>
@@ -479,8 +659,8 @@
         </input>
       </group>
       <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail">
-        <input ref="/C.1.12/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail/generated_table_list_label_78">
-          <label>Tarifa / Precio prepago</label>
+        <input ref="/C.1.12/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail/generated_table_list_label_125">
+          <label>PREPAGO</label>
         </input>
         <input ref="/C.1.12/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail/hr_ldi_EU_pre">
           <label>HR</label>
@@ -493,9 +673,9 @@
     <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_AFR">
       <label>Minuto LDI de salida promedio África</label>
       <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail">
-        <input ref="/C.1.12/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail/generated_table_list_label_84">
-          <label>Tarifa / Precio pospago</label>
-          <hint>Cantidad en pesos mayor a cero</hint>
+        <input ref="/C.1.12/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail/generated_table_list_label_131">
+          <label>POSPAGO</label>
+          <hint>Cantidad en miles de pesos mayor a cero</hint>
         </input>
         <input ref="/C.1.12/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail/hr_ldi_AFR_pos">
           <label>HR</label>
@@ -505,8 +685,8 @@
         </input>
       </group>
       <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail">
-        <input ref="/C.1.12/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail/generated_table_list_label_88">
-          <label>Tarifa / Precio prepago</label>
+        <input ref="/C.1.12/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail/generated_table_list_label_135">
+          <label>PREPAGO</label>
         </input>
         <input ref="/C.1.12/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail/hr_ldi_AFR_pre">
           <label>HR</label>
@@ -519,9 +699,9 @@
     <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_ASI">
       <label>Minuto LDI de salida promedio Asia</label>
       <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail">
-        <input ref="/C.1.12/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail/generated_table_list_label_94">
-          <label>Tarifa / Precio pospago</label>
-          <hint>Cantidad en pesos mayor a cero</hint>
+        <input ref="/C.1.12/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail/generated_table_list_label_141">
+          <label>POSPAGO</label>
+          <hint>Cantidad en miles de pesos mayor a cero</hint>
         </input>
         <input ref="/C.1.12/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail/hr_ldi_ASI_pos">
           <label>HR</label>
@@ -531,8 +711,8 @@
         </input>
       </group>
       <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail">
-        <input ref="/C.1.12/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail/generated_table_list_label_98">
-          <label>Tarifa / Precio prepago</label>
+        <input ref="/C.1.12/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail/generated_table_list_label_145">
+          <label>PREPAGO</label>
         </input>
         <input ref="/C.1.12/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail/hr_ldi_ASI_pre">
           <label>HR</label>
@@ -545,9 +725,9 @@
     <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_OCE">
       <label>Minuto LDI de salida promedio Oceanía</label>
       <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail">
-        <input ref="/C.1.12/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail/generated_table_list_label_104">
-          <label>Tarifa / Precio pospago</label>
-          <hint>Cantidad en pesos mayor a cero</hint>
+        <input ref="/C.1.12/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail/generated_table_list_label_151">
+          <label>POSPAGO</label>
+          <hint>Cantidad en miles de pesos mayor a cero</hint>
         </input>
         <input ref="/C.1.12/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail/hr_ldi_OCE_pos">
           <label>HR</label>
@@ -557,8 +737,8 @@
         </input>
       </group>
       <group appearance="field-list" ref="/C.1.12/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail">
-        <input ref="/C.1.12/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail/generated_table_list_label_108">
-          <label>Tarifa / Precio prepago</label>
+        <input ref="/C.1.12/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail/generated_table_list_label_155">
+          <label>PREPAGO</label>
         </input>
         <input ref="/C.1.12/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail/hr_ldi_OCE_pre">
           <label>HR</label>
@@ -571,9 +751,9 @@
     <group appearance="field-list" ref="/C.1.12/minuto_revertida_pos_local">
       <label>Minuto Llamada por cobro revertido Local</label>
       <group appearance="field-list" ref="/C.1.12/minuto_revertida_pos_local/minuto_revertida_pos_local_detail">
-        <input ref="/C.1.12/minuto_revertida_pos_local/minuto_revertida_pos_local_detail/generated_table_list_label_114">
-          <label>Tarifa / Precio pospago</label>
-          <hint>Cantidad en pesos mayor a cero</hint>
+        <input ref="/C.1.12/minuto_revertida_pos_local/minuto_revertida_pos_local_detail/generated_table_list_label_161">
+          <label>POSPAGO</label>
+          <hint>Cantidad en miles de pesos mayor a cero</hint>
         </input>
         <input ref="/C.1.12/minuto_revertida_pos_local/minuto_revertida_pos_local_detail/hr_revertida_local_pos">
           <label>HR</label>
@@ -583,8 +763,8 @@
         </input>
       </group>
       <group appearance="field-list" ref="/C.1.12/minuto_revertida_pos_local/minuto_revertida_pre_local_detail">
-        <input ref="/C.1.12/minuto_revertida_pos_local/minuto_revertida_pre_local_detail/generated_table_list_label_118">
-          <label>Tarifa / Precio prepago</label>
+        <input ref="/C.1.12/minuto_revertida_pos_local/minuto_revertida_pre_local_detail/generated_table_list_label_165">
+          <label>PREPAGO</label>
         </input>
         <input ref="/C.1.12/minuto_revertida_pos_local/minuto_revertida_pre_local_detail/hr_revertida_local_pre">
           <label>HR</label>
@@ -597,9 +777,9 @@
     <group appearance="field-list" ref="/C.1.12/minuto_revertida_pos_ldn">
       <label>Minuto Llamada por cobro revertido LDN</label>
       <group appearance="field-list" ref="/C.1.12/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail">
-        <input ref="/C.1.12/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail/generated_table_list_label_124">
-          <label>Tarifa / Precio pospago</label>
-          <hint>Cantidad en pesos mayor a cero</hint>
+        <input ref="/C.1.12/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail/generated_table_list_label_171">
+          <label>POSPAGO</label>
+          <hint>Cantidad en miles de pesos mayor a cero</hint>
         </input>
         <input ref="/C.1.12/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail/hr_revertida_ldn_pos">
           <label>HR</label>
@@ -609,8 +789,8 @@
         </input>
       </group>
       <group appearance="field-list" ref="/C.1.12/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail">
-        <input ref="/C.1.12/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail/generated_table_list_label_128">
-          <label>Tarifa / Precio prepago</label>
+        <input ref="/C.1.12/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail/generated_table_list_label_175">
+          <label>PREPAGO</label>
         </input>
         <input ref="/C.1.12/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail/hr_revertida_ldn_pre">
           <label>HR</label>
@@ -623,9 +803,9 @@
     <group appearance="field-list" ref="/C.1.12/minuto_revertida_pos_ldi">
       <label>Minuto Llamada por cobro revertido LDI de salida</label>
       <group appearance="field-list" ref="/C.1.12/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail">
-        <input ref="/C.1.12/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail/generated_table_list_label_134">
-          <label>Tarifa / Precio pospago</label>
-          <hint>Cantidad en pesos mayor a cero</hint>
+        <input ref="/C.1.12/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail/generated_table_list_label_181">
+          <label>POSPAGO</label>
+          <hint>Cantidad en miles de pesos mayor a cero</hint>
         </input>
         <input ref="/C.1.12/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail/hr_revertida_ldi_pos">
           <label>HR</label>
@@ -635,8 +815,8 @@
         </input>
       </group>
       <group appearance="field-list" ref="/C.1.12/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail">
-        <input ref="/C.1.12/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail/generated_table_list_label_138">
-          <label>Tarifa / Precio prepago</label>
+        <input ref="/C.1.12/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail/generated_table_list_label_185">
+          <label>PREPAGO</label>
         </input>
         <input ref="/C.1.12/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail/hr_revertida_ldi_pre">
           <label>HR</label>

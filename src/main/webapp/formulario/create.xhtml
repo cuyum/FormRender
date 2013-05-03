@@ -35,18 +35,11 @@
 	<ui:define name="main">
 		<h:form id="create" enctype="multipart/form-data">			
 		    <p:messages id="messages" globalOnly="true" showDetail="true" autoUpdate="true" />			
-			<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:panelGrid columns="3">
 				<h:outputLabel for="formularioBeanExampleNombre" value="Nombre:" />
 				<h:panelGroup>
 					<h:inputText id="formularioBeanExampleNombre" value="#{formularioBean.formulario.nombre}" required="true"/>
 					<h:message for="formularioBeanExampleNombre" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				
-				<h:outputLabel for="formularioBeanExampleUrl" value="URL:" />
-				<h:panelGroup>
-					<h:inputText id="formularioBeanExampleUrl" value="#{formularioBean.formulario.url}"/>
-					<h:message for="formularioBeanExampleUrl" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				
@@ -55,12 +48,10 @@
 					<h:inputText id="formularioBeanFormularioFormVersion" value="#{formularioBean.formulario.formVersion}"/>
 					<h:message for="formularioBeanFormularioFormVersion" styleClass="error"/>
 				</h:panelGroup>
-				<h:outputText/>				
+				<h:outputText/>			
 				
-				
-				
-				<h:outputLabel value="Archivo (xml):"/>
-				<p:fileUpload value="#{formularioBean.file}" mode="simple" sizeLimit="100000" allowTypes=".xml" styleClass="btn btn-primary"/>
+				<h:outputLabel value="Archivo (xml):"/>				
+				<p:fileUpload value="#{formularioBean.file}" mode="simple" sizeLimit="100000" allowTypes=".xml" />
 				<h:outputText/>			
 			</h:panelGrid>
 				

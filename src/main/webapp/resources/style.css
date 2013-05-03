@@ -389,7 +389,7 @@ input .error {
 	margin-left: 1px;
 	margin-right: 1px;
 	margin-bottom: 5px;
-	color: #ffffff;
+	color: #ffffff;	
 	padding-top: 3px;
 	padding-bottom: 3px;
 	padding-left: 10px;
@@ -423,10 +423,6 @@ input .error {
 	margin-left: 5px;
 	margin-right: 5px;
 }
-/*
-.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Geneva, Verdana,
-		Arial, sans-serif;
-    font-size: 13px;
+.decoNone{
+	text-decoration: none;
 }
-*/

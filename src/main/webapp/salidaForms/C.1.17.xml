@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>C.1.17</h:title>
+    <h:title>C.1.17 - INGRESOS TOTALES TELEFONÍA BÁSICA POR PROVINCIA</h:title>
     <model>
       <itext>
         <translation default="true()" lang="default">
@@ -188,38 +188,36 @@
         </translation>
       </itext>
       <instance>
-        <C.1.17 id="C.1.17">
-          <intro/>
+        <C.1.17 id="C_1_17">
           <periodo/>
-          <mensual jr:template="">
-            <meses/>
-            <amba>0</amba>
-            <buenos_Aires>0</buenos_Aires>
-            <catamarca>0</catamarca>
-            <chaco>0</chaco>
-            <chubut>0</chubut>
-            <cordoba>0</cordoba>
-            <corrientes>0</corrientes>
-            <entre_rios>0</entre_rios>
-            <formosa>0</formosa>
-            <jujuy>0</jujuy>
-            <la_Pampa>0</la_Pampa>
-            <la_Rioja>0</la_Rioja>
-            <mendoza>0</mendoza>
-            <misiones>0</misiones>
-            <neuquen>0</neuquen>
-            <rio_Negro>0</rio_Negro>
-            <salta>0</salta>
-            <san_Juan>0</san_Juan>
-            <san_Luis>0</san_Luis>
-            <santa_Cruz>0</santa_Cruz>
-            <santa_Fe>0</santa_Fe>
-            <santiago_Estero>0</santiago_Estero>
-            <tierra_Fuego>0</tierra_Fuego>
-            <tucuman>0</tucuman>
-            <calculate/>
-            <calculate_test_output/>
-          </mensual>
+          <meses/>
+          <intro/>
+          <amba>0</amba>
+          <buenos_Aires>0</buenos_Aires>
+          <catamarca>0</catamarca>
+          <chaco>0</chaco>
+          <chubut>0</chubut>
+          <cordoba>0</cordoba>
+          <corrientes>0</corrientes>
+          <entre_rios>0</entre_rios>
+          <formosa>0</formosa>
+          <jujuy>0</jujuy>
+          <la_Pampa>0</la_Pampa>
+          <la_Rioja>0</la_Rioja>
+          <mendoza>0</mendoza>
+          <misiones>0</misiones>
+          <neuquen>0</neuquen>
+          <rio_Negro>0</rio_Negro>
+          <salta>0</salta>
+          <san_Juan>0</san_Juan>
+          <san_Luis>0</san_Luis>
+          <santa_Cruz>0</santa_Cruz>
+          <santa_Fe>0</santa_Fe>
+          <santiago_Estero>0</santiago_Estero>
+          <tierra_Fuego>0</tierra_Fuego>
+          <tucuman>0</tucuman>
+          <calculate/>
+          <calculate_test_output/>
           <meta>
             <instanceID/>
           </meta>
@@ -505,42 +503,39 @@
           </item>
         </root>
       </instance>
-      <bind nodeset="/C.1.17/intro" readonly="true()" type="string"/>
       <bind nodeset="/C.1.17/periodo" type="select1"/>
-      <bind nodeset="/C.1.17/mensual/meses" type="select1"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.99" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/amba" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.100" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/buenos_Aires" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.101" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/catamarca" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.102" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/chaco" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.103" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/chubut" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.104" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/cordoba" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.105" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/corrientes" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.106" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/entre_rios" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.107" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/formosa" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.108" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/jujuy" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.109" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/la_Pampa" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.110" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/la_Rioja" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.111" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/mendoza" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.112" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/misiones" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.113" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/neuquen" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.114" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/rio_Negro" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.115" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/salta" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.116" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/san_Juan" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.117" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/san_Luis" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.118" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/santa_Cruz" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.119" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/santa_Fe" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.120" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/santiago_Estero" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.121" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/tierra_Fuego" type="decimal"/>
-      <bind constraint=". &gt; 0.01 and . &lt; 999999999999.122" jr:constraintMsg="Debe ingresar un numero decimal" nodeset="/C.1.17/mensual/tucuman" type="decimal"/>
-      <bind calculate=" /C.1.17/mensual/amba + /C.1.17/mensual/buenos_Aires + /C.1.17/mensual/catamarca + /C.1.17/mensual/chaco + /C.1.17/mensual/chubut + /C.1.17/mensual/cordoba + /C.1.17/mensual/corrientes + /C.1.17/mensual/entre_rios + /C.1.17/mensual/formosa + /C.1.17/mensual/jujuy + /C.1.17/mensual/la_Pampa + /C.1.17/mensual/la_Rioja + /C.1.17/mensual/mendoza + /C.1.17/mensual/misiones + /C.1.17/mensual/neuquen + /C.1.17/mensual/rio_Negro + /C.1.17/mensual/salta + /C.1.17/mensual/san_Juan + /C.1.17/mensual/san_Luis + /C.1.17/mensual/santa_Cruz + /C.1.17/mensual/santa_Fe + /C.1.17/mensual/santiago_Estero + /C.1.17/mensual/tierra_Fuego + /C.1.17/mensual/tucuman " nodeset="/C.1.17/mensual/calculate" type="string"/>
-      <bind nodeset="/C.1.17/mensual/calculate_test_output" readonly="true()" type="string"/>
+      <bind nodeset="/C.1.17/meses" type="select1"/>
+      <bind nodeset="/C.1.17/intro" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/amba" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/buenos_Aires" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/catamarca" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/chaco" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/chubut" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/cordoba" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/corrientes" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/entre_rios" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/formosa" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/jujuy" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/la_Pampa" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/la_Rioja" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/mendoza" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/misiones" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/neuquen" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/rio_Negro" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/salta" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/san_Juan" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/san_Luis" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/santa_Cruz" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/santa_Fe" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/santiago_Estero" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/tierra_Fuego" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C.1.17/tucuman" required="true()" type="int"/>
+      <bind calculate=" /C.1.17/amba + /C.1.17/buenos_Aires + /C.1.17/catamarca + /C.1.17/chaco + /C.1.17/chubut + /C.1.17/cordoba + /C.1.17/corrientes + /C.1.17/entre_rios + /C.1.17/formosa + /C.1.17/jujuy + /C.1.17/la_Pampa + /C.1.17/la_Rioja + /C.1.17/mendoza + /C.1.17/misiones + /C.1.17/neuquen + /C.1.17/rio_Negro + /C.1.17/salta + /C.1.17/san_Juan + /C.1.17/san_Luis + /C.1.17/santa_Cruz + /C.1.17/santa_Fe + /C.1.17/santiago_Estero + /C.1.17/tierra_Fuego + /C.1.17/tucuman " nodeset="/C.1.17/calculate" type="string"/>
+      <bind nodeset="/C.1.17/calculate_test_output" readonly="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C.1.17/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <input ref="/C.1.17/intro">
-      <label>ingresos Totales Telefonia Local por Provincia</label>
-    </input>
     <select1 ref="/C.1.17/periodo">
       <label>Periodo</label>
       <hint>Seleccione Periodo DDJJ</hint>
@@ -565,116 +560,114 @@
         <value>5</value>
       </item>
     </select1>
-    <group ref="/C.1.17/mensual">
-      <label>Ingrese Datos</label>
-      <repeat nodeset="/C.1.17/mensual">
-        <select1 ref="/C.1.17/mensual/meses">
-          <label>Mes</label>
-          <hint>Seleccione Mes</hint>
-          <itemset nodeset="instance('meses')/root/item[periodo= /C.1.17/periodo ]">
-            <value ref="name"/>
-            <label ref="jr:itext(itextId)"/>
-          </itemset>
-        </select1>
-        <input ref="/C.1.17/mensual/amba">
-          <label>AMBA</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/buenos_Aires">
-          <label>Buenos Aires</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/catamarca">
-          <label>Catamarca</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/chaco">
-          <label>Chaco</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/chubut">
-          <label>Chubut</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/cordoba">
-          <label>Córdoba</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/corrientes">
-          <label>Corrientes</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/entre_rios">
-          <label>Entre Ríos</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/formosa">
-          <label>Formosa</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/jujuy">
-          <label>Jujuy</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/la_Pampa">
-          <label>La Pampa</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/la_Rioja">
-          <label>La Rioja</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/mendoza">
-          <label>Mendoza</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/misiones">
-          <label>Misiones</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/neuquen">
-          <label>Neuquén</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/rio_Negro">
-          <label>Río Negro</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/salta">
-          <label>Salta</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/san_Juan">
-          <label>San Juan</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/san_Luis">
-          <label>San Luis</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/santa_Cruz">
-          <label>Santa Cruz</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/santa_Fe">
-          <label>Santa Fe</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/santiago_Estero">
-          <label>Santiago del Estero</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/tierra_Fuego">
-          <label>Tierra del Fuego</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/tucuman">
-          <label>Tucumán</label>
-          <hint>Ingrese un numero decimal</hint>
-        </input>
-        <input ref="/C.1.17/mensual/calculate_test_output">
-          <label>Total <output value=" /C.1.17/mensual/calculate "/></label></input>
-      </repeat>
-    </group>
+    <select1 ref="/C.1.17/meses">
+      <label>Mes</label>
+      <hint>Seleccione Mes</hint>
+      <itemset nodeset="instance('meses')/root/item[periodo= /C.1.17/periodo ]">
+        <value ref="name"/>
+        <label ref="jr:itext(itextId)"/>
+      </itemset>
+    </select1>
+    <input ref="/C.1.17/intro">
+      <label>Expresar en miles de pesos, 8 dígitos</label>
+    </input>
+    <input ref="/C.1.17/amba">
+      <label>AMBA</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/buenos_Aires">
+      <label>Buenos Aires</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/catamarca">
+      <label>Catamarca</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/chaco">
+      <label>Chaco</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/chubut">
+      <label>Chubut</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/cordoba">
+      <label>Córdoba</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/corrientes">
+      <label>Corrientes</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/entre_rios">
+      <label>Entre Ríos</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/formosa">
+      <label>Formosa</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/jujuy">
+      <label>Jujuy</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/la_Pampa">
+      <label>La Pampa</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/la_Rioja">
+      <label>La Rioja</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/mendoza">
+      <label>Mendoza</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/misiones">
+      <label>Misiones</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/neuquen">
+      <label>Neuquén</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/rio_Negro">
+      <label>Río Negro</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/salta">
+      <label>Salta</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/san_Juan">
+      <label>San Juan</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/san_Luis">
+      <label>San Luis</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/santa_Cruz">
+      <label>Santa Cruz</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/santa_Fe">
+      <label>Santa Fe</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/santiago_Estero">
+      <label>Santiago del Estero</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/tierra_Fuego">
+      <label>Tierra del Fuego</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/tucuman">
+      <label>Tucumán</label>
+      <hint>En miles de pesos, 8 dígitos</hint>
+    </input>
+    <input ref="/C.1.17/calculate_test_output">
+      <label>Total: $ <output value=" /C.1.17/calculate "/></label></input>
   </h:body>
 </h:html>

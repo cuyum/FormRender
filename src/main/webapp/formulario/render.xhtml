@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/renderTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{formularioBean.id}" />
+		<f:event type="preRenderView" listener="#{formularioBean.retrieve}" />
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Ver Formulario"/>
+
+	<ui:define name="scripts">
+		<h:outputStylesheet name="webform.css" />		
+		<script type="text/javascript"
+			src="../resources/js/libraries_all_min.js" />
+		<script type="text/javascript"
+			src="../resources/js/webform_preview_min.js" />		
+	</ui:define>
+
+
+	<ui:define name="main">
+		<div id="feedback-bar" class="alert">
+			<i class="icon-info-sign"></i> <a href="#" class="close">&times;</a>
+		</div>
+
+		<div id="dialog-alert" class="modal hide fade ">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3></h3>
+			</div>
+			<div class="modal-body">
+				<p class="alert alert-block alert-error"></p>
+			</div>
+			<div class="modal-footer">
+				<span class="self-destruct-timer"></span>
+				<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+			</div>
+		</div>
+
+		<div id="dialog-confirm" class="modal hide fade">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3></h3>
+			</div>
+			<div class="modal-body">
+				<p class="alert alert-block alert-error"></p>
+				<p class="msg"></p>
+			</div>
+			<div class="modal-footer">
+				<span class="self-destruct-timer"></span>
+				<button class="negative btn">Cerrar</button>
+				<button class="positive btn btn-primary">Confirmar</button>
+			</div>
+		</div>
+
+		<div id="dialog-save" class="dialog" style="display: none;">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3></h3>
+			</div>
+			<div class="modal-body">
+				<form onsubmit="return false;">
+					<span class="dialog-msg"></span> <span
+						class="dialog-error ui-state-error"></span> <label>nombre:<input
+						name="record-name" type="text" /></label> <label><input
+						name="record-final" type="checkbox" value="true" /><span>final</span></label>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+			</div>
+		</div>
+		<h3 class="preview">Previsualización</h3>
+		<div class="main">
+			<article class="paper">
+			<div class="form-header clearfix">
+				<span class="records"
+					title="Records Queued - Click to Backup to File"><span
+					class="queue-length"></span></span>
+				<!-- 
+				<button onclick="return false;" class="print">
+					<img src="/images/print.png" alt="print button" title="Print Form" />
+				</button>
+				 
+				<span class="form-language-selector"><span>Choose
+						Language</span></span>
+						-->
+			</div>
+			<progress></progress>
+			<button id="validate-form" class="btn btn-primary btn-large" disabled="disabled">
+				<i class="icon-ok icon-white"></i>Validar
+			</button>
+			</article>
+		</div>
+	</ui:define>
+
+</ui:composition>

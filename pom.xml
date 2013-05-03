@@ -8,7 +8,7 @@
   <packaging>war</packaging>
   
   <properties>
-		<primefaces.version>3.4.2</primefaces.version>
+		<primefaces.version>3.5</primefaces.version>
 		<primefaces.themes.version>1.0.8</primefaces.themes.version>
 		<commons-fileupload.version>1.2.2</commons-fileupload.version>
 		<commons-io.version>2.4</commons-io.version>	
@@ -28,17 +28,7 @@
         <artifactId>hibernate-validator</artifactId>
         <version>5.0.0.Final</version>
         <scope>provided</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.primefaces</groupId>
-        <artifactId>primefaces</artifactId>
-        <version>3.0</version>
-      </dependency>
-      <dependency>
-        <groupId>org.primefaces.themes</groupId>
-        <artifactId>cupertino</artifactId>
-        <version>1.0.6</version>
-      </dependency>
+      </dependency>      
     </dependencies>
   </dependencyManagement>
   
@@ -81,10 +71,12 @@
     <dependency>
       <groupId>org.primefaces</groupId>
       <artifactId>primefaces</artifactId>
+      <version>${primefaces.version}</version>
     </dependency>
     <dependency>
       <groupId>org.primefaces.themes</groupId>
       <artifactId>cupertino</artifactId>
+      <version>${primefaces.themes.version}</version>
     </dependency>
     <dependency>
 	    <groupId>commons-fileupload</groupId>
@@ -100,7 +92,17 @@
 		<groupId>log4j</groupId>
 		<artifactId>log4j</artifactId>
 		<version>1.2.14</version>
-	</dependency>    
+	</dependency>   
+	<dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpclient</artifactId>
+		<version>4.2.2</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpmime</artifactId>
+		<version>4.2.2</version>
+	</dependency>
   </dependencies>
     <profiles>
     <profile>

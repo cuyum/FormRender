@@ -57,50 +57,38 @@
 				</p:panel>
 			</f:validateBean>
 			
-			<h:dataTable id="formularioBeanPageItems" styleClass="data-table" value="#{formularioBean.pageItems}" var="_item">
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Nombre"/>
-					</f:facet>
-					<h:link outcome="/formulario/view">
+			<p:dataTable id="formularioBeanPageItems" value="#{formularioBean.pageItems}" var="_item" style="font-size:12px;" rows="5" 
+			paginator="true" paginatorPosition="bottom">
+				<p:column headerText="Nombre">					
+					<h:link outcome="/formulario/view" styleClass="decoNone">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+						<h:outputText id="itemNombre" value="#{_item.nombre}" />
 					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Archivo"/>
-					</f:facet>
-					<h:link outcome="/formulario/view">
+				</p:column>
+				<p:column headerText="Archivo">					
+					<h:link outcome="/formulario/view" styleClass="decoNone">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemArchivo" value="#{_item.archivo}"/>
 					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Version"/>
-					</f:facet>
-					<h:link outcome="/formulario/view">
+				</p:column>
+				<p:column headerText="Version">					
+					<h:link outcome="/formulario/view" styleClass="decoNone">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemFormVersion" value="#{_item.formVersion}"/>
 					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="URL"/>
-					</f:facet>
-					<a href="#{formularioBean.serverName}#{_item.url}" target="_blank">#{_item.url}</a>					
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Xml"/>
-					</f:facet>
-					<a href="#{formularioBean.serverName}#{_item.archivo}" target="_blank">#{_item.archivo}</a>
-				</h:column>
-			</h:dataTable>
-			<ui:include src="/resources/scaffold/paginator.xhtml">
-				<ui:param name="paginatorBean" value="#{formularioBean}"/>
-			</ui:include>
+				</p:column>				
+				<p:column headerText="Xml">
+					<a href="#{formularioBean.serverName}#{_item.archivo}" type="xml" target="_blank" class="decoNone">#{_item.archivo}</a>		
+				</p:column>
+				<p:column headerText="Html">				
+					<h:link outcome="/formulario/render" value="Ver" styleClass="button" target="_blank">
+						<f:param name="id" value="#{_item.id}"/>						
+					</h:link>				
+				</p:column>
+			</p:dataTable>
+			
+			
+			
 		</h:form>
 			
 	</ui:define>

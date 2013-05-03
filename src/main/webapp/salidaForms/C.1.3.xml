@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>C.1.3</h:title>
+    <h:title>C.1.3 - Redes e Infraestructura</h:title>
     <model>
       <itext>
         <translation default="true()" lang="default">
@@ -33,7 +33,7 @@
             <value>FO</value>
           </text>
           <text id="static_instance-localidades-14">
-            <value>Barrio Bancario</value>
+            <value>Otros</value>
           </text>
           <text id="static_instance-list2-2">
             <value>Otros</value>
@@ -48,19 +48,25 @@
             <value>Otros</value>
           </text>
           <text id="static_instance-localidades-11">
-            <value>Antofalla</value>
+            <value>Otros</value>
+          </text>
+          <text id="static_instance-localidades-18">
+            <value>Apoyaco</value>
+          </text>
+          <text id="static_instance-localidades-19">
+            <value>Colana</value>
           </text>
           <text id="static_instance-localidades-4">
-            <value>16 de Julio</value>
+            <value>La Aurora (Est. La Niña)</value>
           </text>
           <text id="static_instance-localidades-5">
-            <value>Ariel</value>
+            <value>Otros</value>
           </text>
           <text id="static_instance-localidades-6">
-            <value>17 de Agosto</value>
+            <value>16 de Julio</value>
           </text>
           <text id="static_instance-localidades-7">
-            <value>Azopardo</value>
+            <value>Ariel</value>
           </text>
           <text id="static_instance-localidades-0">
             <value>Caseros</value>
@@ -69,28 +75,34 @@
             <value>Churruca</value>
           </text>
           <text id="static_instance-localidades-2">
-            <value>Dudignac</value>
+            <value>Otros</value>
           </text>
           <text id="static_instance-localidades-3">
-            <value>La Aurora (Est. La Niña)</value>
+            <value>Dudignac</value>
           </text>
           <text id="static_instance-localidades-8">
-            <value>Anillaco</value>
+            <value>Otros</value>
           </text>
           <text id="static_instance-localidades-9">
-            <value>Antinaco</value>
+            <value>17 de Agosto</value>
+          </text>
+          <text id="static_instance-localidades-16">
+            <value>Antofalla</value>
           </text>
           <text id="static_instance-localidades-15">
-            <value>El Pantanillo</value>
+            <value>Antofagasta de la Sierra</value>
           </text>
           <text id="static_instance-localidades-12">
-            <value>Apoyaco</value>
+            <value>Anillaco</value>
           </text>
           <text id="static_instance-localidades-13">
-            <value>Colana</value>
+            <value>Antinaco</value>
           </text>
           <text id="static_instance-localidades-10">
-            <value>Antofagasta de la Sierra</value>
+            <value>Azopardo</value>
+          </text>
+          <text id="static_instance-localidades-17">
+            <value>Otros</value>
           </text>
           <text id="static_instance-partidos-6">
             <value>Poman</value>
@@ -116,32 +128,72 @@
           <text id="static_instance-partidos-1">
             <value>9 de Julio</value>
           </text>
+          <text id="static_instance-localidades-23">
+            <value>Otros</value>
+          </text>
+          <text id="static_instance-localidades-22">
+            <value>El Pantanillo</value>
+          </text>
+          <text id="static_instance-localidades-21">
+            <value>Barrio Bancario</value>
+          </text>
+          <text id="static_instance-localidades-20">
+            <value>Otros</value>
+          </text>
         </translation>
       </itext>
       <instance>
-        <C.1.3 id="C13">
-          <repeat jr:template="">
-            <equipamiento>
-              <spinner/>
-              <my_int1/>
-              <my_int2/>
-            </equipamiento>
-            <medio>
-              <spinner/>
-              <my_int1/>
-              <my_int2/>
-            </medio>
-            <tendido>
-              <spinner/>
-              <my_int1/>
-              <my_int2/>
-            </tendido>
-            <gral>
-              <provincia/>
-              <partido/>
-              <localidad/>
-            </gral>
-          </repeat>
+        <C.1.3 id="C_1_3">
+          <nota/>
+          <equipamiento>
+            <equip_tec>1</equip_tec>
+            <list_otro/>
+            <my_int1/>
+            <my_int2/>
+          </equipamiento>
+          <medio>
+            <medio_tec>1</medio_tec>
+            <list2_otro/>
+            <my_int1/>
+            <my_int2/>
+          </medio>
+          <tendido>
+            <tend_tipo>1</tend_tipo>
+            <list3_otro/>
+            <my_int1/>
+            <my_int2/>
+          </tendido>
+          <ubic>
+            <provincia/>
+            <partido/>
+            <localidad/>
+            <localidad_otro/>
+          </ubic>
+          <nota2/>
+          <equipFin>
+            <equipFin_tec>1</equipFin_tec>
+            <listFin_otro/>
+            <my_int1/>
+            <my_int2/>
+          </equipFin>
+          <medioFin>
+            <medioFin_tec>1</medioFin_tec>
+            <list2_otro/>
+            <my_int1/>
+            <my_int2/>
+          </medioFin>
+          <tendidoFin>
+            <tendFin_tipo>1</tendFin_tipo>
+            <list3_otro/>
+            <my_int1/>
+            <my_int2/>
+          </tendidoFin>
+          <ubicFin>
+            <provinciaFin/>
+            <partidoFin/>
+            <localidadFin/>
+            <localidadFin_otro/>
+          </ubicFin>
           <meta>
             <instanceID/>
           </meta>
@@ -151,23 +203,23 @@
         <root>
           <item>
             <itextId>static_instance-list-0</itextId>
-            <name>a</name>
+            <name>1</name>
           </item>
           <item>
             <itextId>static_instance-list-1</itextId>
-            <name>b</name>
+            <name>2</name>
           </item>
           <item>
             <itextId>static_instance-list-2</itextId>
-            <name>c</name>
+            <name>3</name>
           </item>
           <item>
             <itextId>static_instance-list-3</itextId>
-            <name>d</name>
+            <name>4</name>
           </item>
           <item>
             <itextId>static_instance-list-4</itextId>
-            <name>e</name>
+            <name>5</name>
           </item>
         </root>
       </instance>
@@ -263,87 +315,135 @@
           </item>
           <item>
             <itextId>static_instance-localidades-2</itextId>
-            <partido>nueveJulio</partido>
+            <partido>tresFebrero</partido>
             <provincia>buenosAires</provincia>
-            <name>dudignac</name>
+            <name>otros1</name>
           </item>
           <item>
             <itextId>static_instance-localidades-3</itextId>
             <partido>nueveJulio</partido>
             <provincia>buenosAires</provincia>
-            <name>laAurora</name>
+            <name>dudignac</name>
           </item>
           <item>
             <itextId>static_instance-localidades-4</itextId>
+            <partido>nueveJulio</partido>
+            <provincia>buenosAires</provincia>
+            <name>laAurora</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-5</itextId>
+            <partido>nueveJulio</partido>
+            <provincia>buenosAires</provincia>
+            <name>otros2</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-6</itextId>
             <partido>azul</partido>
             <provincia>buenosAires</provincia>
             <name>dieciseisJulio</name>
           </item>
           <item>
-            <itextId>static_instance-localidades-5</itextId>
+            <itextId>static_instance-localidades-7</itextId>
             <partido>azul</partido>
             <provincia>buenosAires</provincia>
             <name>ariel</name>
           </item>
           <item>
-            <itextId>static_instance-localidades-6</itextId>
+            <itextId>static_instance-localidades-8</itextId>
+            <partido>azul</partido>
+            <provincia>buenosAires</provincia>
+            <name>otros3</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-9</itextId>
             <partido>puan</partido>
             <provincia>buenosAires</provincia>
             <name>diecisieteAgosto</name>
           </item>
           <item>
-            <itextId>static_instance-localidades-7</itextId>
+            <itextId>static_instance-localidades-10</itextId>
             <partido>puan</partido>
             <provincia>buenosAires</provincia>
             <name>azopardo</name>
           </item>
           <item>
-            <itextId>static_instance-localidades-8</itextId>
+            <itextId>static_instance-localidades-11</itextId>
+            <partido>puan</partido>
+            <provincia>buenosAires</provincia>
+            <name>otros4</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-12</itextId>
             <partido>tinogasta</partido>
             <provincia>catamarca</provincia>
             <name>anillaco</name>
           </item>
           <item>
-            <itextId>static_instance-localidades-9</itextId>
+            <itextId>static_instance-localidades-13</itextId>
             <partido>tinogasta</partido>
             <provincia>catamarca</provincia>
             <name>antinaco</name>
           </item>
           <item>
-            <itextId>static_instance-localidades-10</itextId>
+            <itextId>static_instance-localidades-14</itextId>
+            <partido>tinogasta</partido>
+            <provincia>catamarca</provincia>
+            <name>otros5</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-15</itextId>
             <partido>antofagasta</partido>
             <provincia>catamarca</provincia>
             <name>antofagasta</name>
           </item>
           <item>
-            <itextId>static_instance-localidades-11</itextId>
+            <itextId>static_instance-localidades-16</itextId>
             <partido>antofagasta</partido>
             <provincia>catamarca</provincia>
             <name>antofalla</name>
           </item>
           <item>
-            <itextId>static_instance-localidades-12</itextId>
+            <itextId>static_instance-localidades-17</itextId>
+            <partido>antofagasta</partido>
+            <provincia>catamarca</provincia>
+            <name>otros6</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-18</itextId>
             <partido>poman</partido>
             <provincia>catamarca</provincia>
             <name>apoyaco</name>
           </item>
           <item>
-            <itextId>static_instance-localidades-13</itextId>
+            <itextId>static_instance-localidades-19</itextId>
             <partido>poman</partido>
             <provincia>catamarca</provincia>
             <name>colana</name>
           </item>
           <item>
-            <itextId>static_instance-localidades-14</itextId>
+            <itextId>static_instance-localidades-20</itextId>
+            <partido>poman</partido>
+            <provincia>catamarca</provincia>
+            <name>otros7</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-21</itextId>
             <partido>capital</partido>
             <provincia>catamarca</provincia>
             <name>barrioBancario</name>
           </item>
           <item>
-            <itextId>static_instance-localidades-15</itextId>
+            <itextId>static_instance-localidades-22</itextId>
             <partido>capital</partido>
             <provincia>catamarca</provincia>
             <name>elPantanillo</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-23</itextId>
+            <partido>capital</partido>
+            <provincia>catamarca</provincia>
+            <name>otros8</name>
           </item>
         </root>
       </instance>
@@ -359,143 +459,307 @@
           </item>
         </root>
       </instance>
-      <bind nodeset="/C.1.3/repeat/equipamiento/spinner" type="select1"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;99999" jr:constraintMsg="Debe ingresar un numero entero" nodeset="/C.1.3/repeat/equipamiento/my_int1" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;100000" jr:constraintMsg="Debe ingresar un numero entero" nodeset="/C.1.3/repeat/equipamiento/my_int2" type="int"/>
-      <bind nodeset="/C.1.3/repeat/medio/spinner" type="select1"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;99999" jr:constraintMsg="Debe ingresar un numero entero" nodeset="/C.1.3/repeat/medio/my_int1" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;99999" jr:constraintMsg="Debe ingresar un numero entero" nodeset="/C.1.3/repeat/medio/my_int2" type="int"/>
-      <bind nodeset="/C.1.3/repeat/tendido/spinner" type="select1"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;99999" jr:constraintMsg="Debe ingresar un numero entero" nodeset="/C.1.3/repeat/tendido/my_int1" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;99999" jr:constraintMsg="Debe ingresar un numero entero" nodeset="/C.1.3/repeat/tendido/my_int2" type="int"/>
-      <bind nodeset="/C.1.3/repeat/gral/provincia" type="select1"/>
-      <bind nodeset="/C.1.3/repeat/gral/partido" type="select1"/>
-      <bind nodeset="/C.1.3/repeat/gral/localidad" type="select1"/>
+      <bind nodeset="/C.1.3/nota" readonly="true()" type="string"/>
+      <bind nodeset="/C.1.3/equipamiento/equip_tec" required="true()" type="select1"/>
+      <bind nodeset="/C.1.3/equipamiento/list_otro" relevant=" /C.1.3/equipamiento/equip_tec ='5'" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000" jr:constraintMsg="Debe ingresar un numero entero hasta 6 digitos y mayor a 0" nodeset="/C.1.3/equipamiento/my_int1" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000" jr:constraintMsg="Debe ingresar un numero entero hasta 6 digitos y mayor a 0" nodeset="/C.1.3/equipamiento/my_int2" required="true()" type="int"/>
+      <bind nodeset="/C.1.3/medio/medio_tec" required="true()" type="select1"/>
+      <bind nodeset="/C.1.3/medio/list2_otro" relevant=" /C.1.3/medio/medio_tec ='3'" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000" jr:constraintMsg="Debe ingresar un numero entero hasta 6 digitos y mayor a 0" nodeset="/C.1.3/medio/my_int1" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000" jr:constraintMsg="Debe ingresar un numero entero hasta 6 digitos y mayor a 0" nodeset="/C.1.3/medio/my_int2" required="true()" type="int"/>
+      <bind nodeset="/C.1.3/tendido/tend_tipo" required="true()" type="select1"/>
+      <bind nodeset="/C.1.3/tendido/list3_otro" relevant=" /C.1.3/tendido/tend_tipo ='3'" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000" jr:constraintMsg="Debe ingresar un numero entero hasta 6 digitos y mayor a 0" nodeset="/C.1.3/tendido/my_int1" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000" jr:constraintMsg="Debe ingresar un numero entero hasta 6 digitos y mayor a 0" nodeset="/C.1.3/tendido/my_int2" required="true()" type="int"/>
+      <bind nodeset="/C.1.3/ubic/provincia" required="true()" type="select1"/>
+      <bind nodeset="/C.1.3/ubic/partido" required="true()" type="select1"/>
+      <bind nodeset="/C.1.3/ubic/localidad" required="true()" type="select1"/>
+      <bind nodeset="/C.1.3/ubic/localidad_otro" relevant=" /C.1.3/ubic/localidad ='otros1' or  /C.1.3/ubic/localidad ='otros2' or  /C.1.3/ubic/localidad ='otros3' or  /C.1.3/ubic/localidad ='otros4' or  /C.1.3/ubic/localidad ='otros5' or  /C.1.3/ubic/localidad ='otros6' or  /C.1.3/ubic/localidad ='otros7' or  /C.1.3/ubic/localidad ='otros8'" type="string"/>
+      <bind nodeset="/C.1.3/nota2" readonly="true()" type="string"/>
+      <bind nodeset="/C.1.3/equipFin/equipFin_tec" required="true()" type="select1"/>
+      <bind nodeset="/C.1.3/equipFin/listFin_otro" relevant=" /C.1.3/equipamiento/equip_tec ='5'" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000" jr:constraintMsg="Debe ingresar un numero entero hasta 6 digitos y mayor a 0" nodeset="/C.1.3/equipFin/my_int1" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000" jr:constraintMsg="Debe ingresar un numero entero hasta 6 digitos y mayor a 0" nodeset="/C.1.3/equipFin/my_int2" required="true()" type="int"/>
+      <bind nodeset="/C.1.3/medioFin/medioFin_tec" required="true()" type="select1"/>
+      <bind nodeset="/C.1.3/medioFin/list2_otro" relevant=" /C.1.3/medio/medio_tec ='3'" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000" jr:constraintMsg="Debe ingresar un numero entero hasta 6 digitos y mayor a 0" nodeset="/C.1.3/medioFin/my_int1" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000" jr:constraintMsg="Debe ingresar un numero entero hasta 6 digitos y mayor a 0" nodeset="/C.1.3/medioFin/my_int2" required="true()" type="int"/>
+      <bind nodeset="/C.1.3/tendidoFin/tendFin_tipo" required="true()" type="select1"/>
+      <bind nodeset="/C.1.3/tendidoFin/list3_otro" relevant=" /C.1.3/tendido/tend_tipo ='3'" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000" jr:constraintMsg="Debe ingresar un numero entero hasta 6 digitos y mayor a 0" nodeset="/C.1.3/tendidoFin/my_int1" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000" jr:constraintMsg="Debe ingresar un numero entero hasta 6 digitos y mayor a 0" nodeset="/C.1.3/tendidoFin/my_int2" required="true()" type="int"/>
+      <bind nodeset="/C.1.3/ubicFin/provinciaFin" required="true()" type="select1"/>
+      <bind nodeset="/C.1.3/ubicFin/partidoFin" required="true()" type="select1"/>
+      <bind nodeset="/C.1.3/ubicFin/localidadFin" required="true()" type="select1"/>
+      <bind nodeset="/C.1.3/ubicFin/localidadFin_otro" relevant=" /C.1.3/ubicFin/localidadFin ='otros1' or  /C.1.3/ubicFin/localidadFin ='otros2' or  /C.1.3/ubicFin/localidadFin ='otros3' or  /C.1.3/ubicFin/localidadFin ='otros4' or  /C.1.3/ubicFin/localidadFin ='otros5' or  /C.1.3/ubicFin/localidadFin ='otros6' or  /C.1.3/ubicFin/localidadFin ='otros7' or  /C.1.3/ubicFin/localidadFin ='otros8'" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C.1.3/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group ref="/C.1.3/repeat">
-      <label>Infraestructura de Red</label>
-      <repeat nodeset="/C.1.3/repeat">
-        <group ref="/C.1.3/repeat/equipamiento">
-          <label>Equipamiento</label>
-          <select1 appearance="minimal" ref="/C.1.3/repeat/equipamiento/spinner">
-            <label>Tecnología</label>
-            <hint>Seleccione Tecnología</hint>
-            <item>
-              <label>SDH</label>
-              <value>a</value>
-            </item>
-            <item>
-              <label>DWDM</label>
-              <value>b</value>
-            </item>
-            <item>
-              <label>PDH</label>
-              <value>c</value>
-            </item>
-            <item>
-              <label>IP</label>
-              <value>d</value>
-            </item>
-            <item>
-              <label>Otros</label>
-              <value>e</value>
-            </item>
-          </select1>
-          <input ref="/C.1.3/repeat/equipamiento/my_int1">
-            <label>Capacidad Disponible</label>
-            <hint>Agregue numero entero</hint>
-          </input>
-          <input ref="/C.1.3/repeat/equipamiento/my_int2">
-            <label>Capacidad Utilizada</label>
-            <hint>Agregue numero entero</hint>
-          </input>
-        </group>
-        <group ref="/C.1.3/repeat/medio">
-          <label>Medio</label>
-          <select1 appearance="minimal" ref="/C.1.3/repeat/medio/spinner">
-            <label>Tecnología</label>
-            <hint>Seleccione Tecnología</hint>
-            <item>
-              <label>FO</label>
-              <value>1</value>
-            </item>
-            <item>
-              <label>MW</label>
-              <value>2</value>
-            </item>
-            <item>
-              <label>Otros</label>
-              <value>3</value>
-            </item>
-          </select1>
-          <input ref="/C.1.3/repeat/medio/my_int1">
-            <label>Capacidad Disponible</label>
-            <hint>Agregue numero entero</hint>
-          </input>
-          <input ref="/C.1.3/repeat/medio/my_int2">
-            <label>Capacidad Utilizada</label>
-            <hint>Agregue numero entero</hint>
-          </input>
-        </group>
-        <group ref="/C.1.3/repeat/tendido">
-          <label>Tendido</label>
-          <select1 appearance="minimal" ref="/C.1.3/repeat/tendido/spinner">
-            <label>Tecnología</label>
-            <hint>Seleccione Tecnología</hint>
-            <item>
-              <label>AÉREO</label>
-              <value>1</value>
-            </item>
-            <item>
-              <label>SUBTERRANEO</label>
-              <value>2</value>
-            </item>
-            <item>
-              <label>Otros</label>
-              <value>3</value>
-            </item>
-          </select1>
-          <input ref="/C.1.3/repeat/tendido/my_int1">
-            <label>Capacidad Disponible</label>
-            <hint>Agregue numero entero</hint>
-          </input>
-          <input ref="/C.1.3/repeat/tendido/my_int2">
-            <label>Capacidad Utilizada</label>
-            <hint>Agregue numero entero</hint>
-          </input>
-        </group>
-        <group ref="/C.1.3/repeat/gral">
-          <label>Ubicación</label>
-          <select1 ref="/C.1.3/repeat/gral/provincia">
-            <label>Provincia/Región</label>
-            <item>
-              <label>Buenos Aires</label>
-              <value>buenosAires</value>
-            </item>
-            <item>
-              <label>Catamarca</label>
-              <value>catamarca</value>
-            </item>
-          </select1>
-          <select1 ref="/C.1.3/repeat/gral/partido">
-            <label>Partido/Dpto</label>
-            <itemset nodeset="instance('partidos')/root/item[provincia= /C.1.3/repeat/gral/provincia ]">
-              <value ref="name"/>
-              <label ref="jr:itext(itextId)"/>
-            </itemset>
-          </select1>
-          <select1 ref="/C.1.3/repeat/gral/localidad">
-            <label>Localidad</label>
-            <itemset nodeset="instance('localidades')/root/item[provincia= /C.1.3/repeat/gral/provincia  and partido= /C.1.3/repeat/gral/partido ]">
-              <value ref="name"/>
-              <label ref="jr:itext(itextId)"/>
-            </itemset>
-          </select1>
-        </group>
-      </repeat>
+    <input ref="/C.1.3/nota">
+      <label>Información del punto de inicio del enlace</label>
+    </input>
+    <group ref="/C.1.3/equipamiento">
+      <label>Equipamiento</label>
+      <select1 appearance="minimal" ref="/C.1.3/equipamiento/equip_tec">
+        <label>Tecnología</label>
+        <hint>Seleccione Tecnología</hint>
+        <item>
+          <label>SDH</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>DWDM</label>
+          <value>2</value>
+        </item>
+        <item>
+          <label>PDH</label>
+          <value>3</value>
+        </item>
+        <item>
+          <label>IP</label>
+          <value>4</value>
+        </item>
+        <item>
+          <label>Otros</label>
+          <value>5</value>
+        </item>
+      </select1>
+      <input ref="/C.1.3/equipamiento/list_otro">
+        <label>Por favor especifique</label>
+      </input>
+      <input ref="/C.1.3/equipamiento/my_int1">
+        <label>Capacidad Disponible</label>
+        <hint>Entero de hasta 6 digitos y mayor a 0</hint>
+      </input>
+      <input ref="/C.1.3/equipamiento/my_int2">
+        <label>Capacidad Utilizada</label>
+        <hint>Entero de hasta 6 digitos y mayor a 0</hint>
+      </input>
+    </group>
+    <group ref="/C.1.3/medio">
+      <label>Medio</label>
+      <select1 appearance="minimal" ref="/C.1.3/medio/medio_tec">
+        <label>Tecnología</label>
+        <hint>Seleccione Tecnología</hint>
+        <item>
+          <label>FO</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>MW</label>
+          <value>2</value>
+        </item>
+        <item>
+          <label>Otros</label>
+          <value>3</value>
+        </item>
+      </select1>
+      <input ref="/C.1.3/medio/list2_otro">
+        <label>Por favor especifique</label>
+      </input>
+      <input ref="/C.1.3/medio/my_int1">
+        <label>Capacidad Disponible</label>
+        <hint>Entero de hasta 6 digitos y mayor a 0</hint>
+      </input>
+      <input ref="/C.1.3/medio/my_int2">
+        <label>Capacidad Utilizada</label>
+        <hint>Entero de hasta 6 digitos y mayor a 0</hint>
+      </input>
+    </group>
+    <group ref="/C.1.3/tendido">
+      <label>Tendido</label>
+      <select1 appearance="minimal" ref="/C.1.3/tendido/tend_tipo">
+        <label>Tipo</label>
+        <hint>Seleccione Tipo</hint>
+        <item>
+          <label>AÉREO</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>SUBTERRANEO</label>
+          <value>2</value>
+        </item>
+        <item>
+          <label>Otros</label>
+          <value>3</value>
+        </item>
+      </select1>
+      <input ref="/C.1.3/tendido/list3_otro">
+        <label>Por favor especifique</label>
+      </input>
+      <input ref="/C.1.3/tendido/my_int1">
+        <label>Capacidad Disponible</label>
+        <hint>Entero de hasta 6 digitos y mayor a 0</hint>
+      </input>
+      <input ref="/C.1.3/tendido/my_int2">
+        <label>Capacidad Utilizada</label>
+        <hint>Entero de hasta 6 digitos y mayor a 0</hint>
+      </input>
+    </group>
+    <group ref="/C.1.3/ubic">
+      <label>Ubicación</label>
+      <select1 ref="/C.1.3/ubic/provincia">
+        <label>Provincia/Región</label>
+        <item>
+          <label>Buenos Aires</label>
+          <value>buenosAires</value>
+        </item>
+        <item>
+          <label>Catamarca</label>
+          <value>catamarca</value>
+        </item>
+      </select1>
+      <select1 ref="/C.1.3/ubic/partido">
+        <label>Partido/Dpto</label>
+        <itemset nodeset="instance('partidos')/root/item[provincia= /C.1.3/ubic/provincia ]">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/C.1.3/ubic/localidad">
+        <label>Localidad</label>
+        <itemset nodeset="instance('localidades')/root/item[provincia= /C.1.3/ubic/provincia  and partido= /C.1.3/ubic/partido ]">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <input ref="/C.1.3/ubic/localidad_otro">
+        <label>Por favor especifique</label>
+      </input>
+    </group>
+    <input ref="/C.1.3/nota2">
+      <label>Información del punto de finalización del enlace</label>
+    </input>
+    <group ref="/C.1.3/equipFin">
+      <label>Equipamiento</label>
+      <select1 appearance="minimal" ref="/C.1.3/equipFin/equipFin_tec">
+        <label>Tecnología</label>
+        <hint>Seleccione Tecnología</hint>
+        <item>
+          <label>SDH</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>DWDM</label>
+          <value>2</value>
+        </item>
+        <item>
+          <label>PDH</label>
+          <value>3</value>
+        </item>
+        <item>
+          <label>IP</label>
+          <value>4</value>
+        </item>
+        <item>
+          <label>Otros</label>
+          <value>5</value>
+        </item>
+      </select1>
+      <input ref="/C.1.3/equipFin/listFin_otro">
+        <label>Por favor especifique</label>
+      </input>
+      <input ref="/C.1.3/equipFin/my_int1">
+        <label>Capacidad Disponible</label>
+        <hint>Entero de hasta 6 digitos y mayor a 0</hint>
+      </input>
+      <input ref="/C.1.3/equipFin/my_int2">
+        <label>Capacidad Utilizada</label>
+        <hint>Entero de hasta 6 digitos y mayor a 0</hint>
+      </input>
+    </group>
+    <group ref="/C.1.3/medioFin">
+      <label>Medio</label>
+      <select1 appearance="minimal" ref="/C.1.3/medioFin/medioFin_tec">
+        <label>Tecnología</label>
+        <hint>Seleccione Tecnología</hint>
+        <item>
+          <label>FO</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>MW</label>
+          <value>2</value>
+        </item>
+        <item>
+          <label>Otros</label>
+          <value>3</value>
+        </item>
+      </select1>
+      <input ref="/C.1.3/medioFin/list2_otro">
+        <label>Por favor especifique</label>
+      </input>
+      <input ref="/C.1.3/medioFin/my_int1">
+        <label>Capacidad Disponible</label>
+        <hint>Entero de hasta 6 digitos y mayor a 0</hint>
+      </input>
+      <input ref="/C.1.3/medioFin/my_int2">
+        <label>Capacidad Utilizada</label>
+        <hint>Entero de hasta 6 digitos y mayor a 0</hint>
+      </input>
+    </group>
+    <group ref="/C.1.3/tendidoFin">
+      <label>Tendido</label>
+      <select1 appearance="minimal" ref="/C.1.3/tendidoFin/tendFin_tipo">
+        <label>Tipo</label>
+        <hint>Seleccione Tipo</hint>
+        <item>
+          <label>AÉREO</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>SUBTERRANEO</label>
+          <value>2</value>
+        </item>
+        <item>
+          <label>Otros</label>
+          <value>3</value>
+        </item>
+      </select1>
+      <input ref="/C.1.3/tendidoFin/list3_otro">
+        <label>Por favor especifique</label>
+      </input>
+      <input ref="/C.1.3/tendidoFin/my_int1">
+        <label>Capacidad Disponible</label>
+        <hint>Entero de hasta 6 digitos y mayor a 0</hint>
+      </input>
+      <input ref="/C.1.3/tendidoFin/my_int2">
+        <label>Capacidad Utilizada</label>
+        <hint>Entero de hasta 6 digitos y mayor a 0</hint>
+      </input>
+    </group>
+    <group ref="/C.1.3/ubicFin">
+      <label>Ubicación</label>
+      <select1 ref="/C.1.3/ubicFin/provinciaFin">
+        <label>Provincia/Región</label>
+        <item>
+          <label>Buenos Aires</label>
+          <value>buenosAires</value>
+        </item>
+        <item>
+          <label>Catamarca</label>
+          <value>catamarca</value>
+        </item>
+      </select1>
+      <select1 ref="/C.1.3/ubicFin/partidoFin">
+        <label>Partido/Dpto</label>
+        <itemset nodeset="instance('partidos')/root/item[provincia= /C.1.3/ubicFin/provinciaFin ]">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <select1 ref="/C.1.3/ubicFin/localidadFin">
+        <label>Localidad</label>
+        <itemset nodeset="instance('localidades')/root/item[provincia= /C.1.3/ubicFin/provinciaFin  and partido= /C.1.3/ubicFin/partidoFin ]">
+          <value ref="name"/>
+          <label ref="jr:itext(itextId)"/>
+        </itemset>
+      </select1>
+      <input ref="/C.1.3/ubicFin/localidadFin_otro">
+        <label>Por favor especifique</label>
+      </input>
     </group>
   </h:body>
 </h:html>

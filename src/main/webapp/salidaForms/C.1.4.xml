@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>C.1.4 - Accesos Operativos</h:title>
+    <model>
+      <instance>
+        <C.1.4 id="C_1_4">
+          <accesos/>
+          <trama_e1/>
+          <prepago/>
+          <pospago/>
+          <mixto/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C.1.4>
+      </instance>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C.1.4/accesos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C.1.4/trama_e1" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C.1.4/prepago" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C.1.4/pospago" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C.1.4/mixto" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C.1.4/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/C.1.4/accesos">
+      <label>ACCESOS</label>
+      <hint>Ingrese número entero</hint>
+    </input>
+    <input ref="/C.1.4/trama_e1">
+      <label>TRAMAS E1</label>
+      <hint>Ingrese número entero</hint>
+    </input>
+    <input ref="/C.1.4/prepago">
+      <label>PREPAGO</label>
+      <hint>Ingrese número entero</hint>
+    </input>
+    <input ref="/C.1.4/pospago">
+      <label>POSPAGO</label>
+      <hint>Ingrese número entero</hint>
+    </input>
+    <input ref="/C.1.4/mixto">
+      <label>MIXTO</label>
+      <hint>Ingrese número entero</hint>
+    </input>
+  </h:body>
+</h:html>

@@ -6,8 +6,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.ejb.SessionContext;
@@ -16,6 +18,7 @@ import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.inject.Inject;
@@ -33,6 +36,7 @@ import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
 import ar.com.cuyum.cnc.domain.Formulario;
+import ar.com.cuyum.cnc.service.TransformationService;
 import ar.com.cuyum.cnc.utils.FormRenderProperties;
 
 /**
@@ -57,7 +61,12 @@ public class FormularioBean implements Serializable
    
    @Inject
    private FormRenderProperties formRenderProperties;
+   
+   @Inject 
+   private TransformationService ts;
 
+   private String formDom;
+   
    /*
     * Support creating and retrieving Formulario entities
     */
@@ -224,7 +233,7 @@ public class FormularioBean implements Serializable
 	          return null;
 		  }
 	  } else if (this.id == null){
-    	  FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Archivo de configuracion del formulario", "No hay adjuntado el archivo!!");  
+    	  FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Archivo de configuracion del formulario", "Adjunte el archivo!!");  
           FacesContext.getCurrentInstance().addMessage(null, msg);  
           return null;
       }
@@ -437,9 +446,55 @@ public class FormularioBean implements Serializable
       this.add = new Formulario();
       return added;
    }
-   
+
    public void handleFileUpload(FileUploadEvent event) {  
        FacesMessage msg = new FacesMessage(event.getFile().getFileName() + " subido correctamente!");  
        FacesContext.getCurrentInstance().addMessage(null, msg);
+   }
+   
+   
+   public String getFormDom() {
+		return formDom;
+   }
+	
+   public void setFormDom(String formDom) {
+		this.formDom = formDom;
+   }
+   
+   public void xsltTransformation(){
+	   String xslTranformXml = ts.transformXml(getServerName()+formulario.getArchivo());
+	   this.formDom = xslTranformXml;
+   }
+   
+   public void transformXml(){
+	   
+	   FacesContext fc = FacesContext.getCurrentInstance();
+	   
+	   Map<String,String> requestParams = fc.getExternalContext().getRequestParameterMap();
+       String id = requestParams.get("form_id");
+       Long xmlId = null;
+       if(id!=null&& !id.isEmpty()) xmlId = Long.valueOf(id);
+	   
+	    ExternalContext ec = fc.getExternalContext();
+	    try {
+	    	if(xmlId==null){
+	    		xmlId = getId();
+	    	}
+	    	this.formulario = findById(xmlId);
+	    	
+			String xmlTransformed = ts.transformXml(getServerName()+formulario.getArchivo());
+			ec.responseReset(); // Some JSF component library or some Filter might have set some headers in the buffer beforehand. We want to get rid of them, else it may collide.
+		    ec.setResponseContentType("text/xml"); // Check http://www.iana.org/assignments/media-types for all types. Use if necessary ExternalContext#getMimeType() for auto-detection based on filename.
+		    ec.setResponseHeader("Content-Disposition", "attachment; filename=\""+formulario.getArchivo()+"\""); // The Save As popup magic is done here. You can give it any file name you want, this only won't work in MSIE, it will use current request URL as file name instead.
+		    OutputStream output = ec.getResponseOutputStream();
+			output.write(xmlTransformed.getBytes());
+			
+		} catch (MalformedURLException e1) {
+			e1.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	    fc.responseComplete(); // Important! Otherwise JSF will attempt to render the response which obviously will fail since it's already written with a file and closed.
    }
 }
