@@ -474,27 +474,16 @@ public class FormularioBean implements Serializable
        FacesContext.getCurrentInstance().addMessage(null, msg);
    }
    
-   public String getFormDom() {
-		return formDom;
-   }
-	
-   public void setFormDom(String formDom) {
-		this.formDom = formDom;
-   }
-   
-   public void xsltTransformation(){
-	   FacesContext fc = FacesContext.getCurrentInstance();
-	   InputStream xmlStream = fc.getExternalContext().getResourceAsStream("/WEB-INF/classes/formularios/"+formulario.getArchivo());
-	   String xslTranformXml = ts.transformXml(xmlStream);
-	   this.formDom = xslTranformXml;
-   }
-   
-   public void transformXml(){
+   public void transform(){
 	   
 	   FacesContext fc = FacesContext.getCurrentInstance();
 	   
 	   Map<String,String> requestParams = fc.getExternalContext().getRequestParameterMap();
        String id = requestParams.get("form_id");
+       if(id==null){
+    	   id = requestParams.get("id");
+       }
+       
        Long xmlId = null;
        if(id!=null&& !id.isEmpty()) xmlId = Long.valueOf(id);
 	   
@@ -504,16 +493,14 @@ public class FormularioBean implements Serializable
 	    		xmlId = getId();
 	    	}
 	    	this.formulario = findById(xmlId);
-	    	
 	    	InputStream xmlStream = ec.getResourceAsStream("/WEB-INF/classes/formularios/"+formulario.getArchivo());
-	    	
-			String xmlTransformed = ts.transformXml(xmlStream);
+	    	ts.setRemoteTransformation(false);
+			String transformedHtml = ts.transform(xmlStream);
 			ec.responseReset(); // Some JSF component library or some Filter might have set some headers in the buffer beforehand. We want to get rid of them, else it may collide.
-		    ec.setResponseContentType("text/xml"); // Check http://www.iana.org/assignments/media-types for all types. Use if necessary ExternalContext#getMimeType() for auto-detection based on filename.
-		    ec.setResponseHeader("Content-Disposition", "attachment; filename=\""+formulario.getArchivo()+"\""); // The Save As popup magic is done here. You can give it any file name you want, this only won't work in MSIE, it will use current request URL as file name instead.
+//		    ec.setResponseContentType("text/html"); // Check http://www.iana.org/assignments/media-types for all types. Use if necessary ExternalContext#getMimeType() for auto-detection based on filename.
+//		    ec.setResponseHeader("Content-Disposition", "attachment; filename=\""+formulario.getArchivo()+"\""); // The Save As popup magic is done here. You can give it any file name you want, this only won't work in MSIE, it will use current request URL as file name instead.
 		    OutputStream output = ec.getResponseOutputStream();
-			output.write(xmlTransformed.getBytes());
-			
+			output.write(transformedHtml.getBytes());
 		} catch (MalformedURLException e1) {
 			e1.printStackTrace();
 		} catch (IOException e) {
