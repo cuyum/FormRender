@@ -32,11 +32,15 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import org.apache.log4j.Logger;
 import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 import org.primefaces.model.UploadedFile;
 
 import ar.com.cuyum.cnc.domain.Formulario;
 import ar.com.cuyum.cnc.service.TransformationService;
+import ar.com.cuyum.cnc.utils.DomUtils;
 import ar.com.cuyum.cnc.utils.FormRenderProperties;
 
 /**
@@ -54,6 +58,7 @@ import ar.com.cuyum.cnc.utils.FormRenderProperties;
 @ConversationScoped
 public class FormularioBean implements Serializable
 {
+	public static Logger log = Logger.getLogger(FormularioBean.class);
 
    private static final long serialVersionUID = 1L;
    
@@ -99,8 +104,19 @@ public class FormularioBean implements Serializable
    public void setFile(UploadedFile file) {  
        this.file = file;  
    }
+   
+   private StreamedContent downloadFile;
 
-   @Inject
+   public StreamedContent getDownloadFile() {
+	   getXmlFile();
+	   return downloadFile;
+   }
+	
+   public void setDownloadFile(StreamedContent downloadFile) {
+	   this.downloadFile = downloadFile;
+   }
+
+	@Inject
    private Conversation conversation;
 
    @PersistenceContext(type = PersistenceContextType.EXTENDED)
@@ -140,6 +156,14 @@ public class FormularioBean implements Serializable
    {
 
       return this.entityManager.find(Formulario.class, id);
+   }
+   
+   public String getXmlFile() {
+	   //retrieve();
+	   FacesContext fc = FacesContext.getCurrentInstance();
+	   InputStream xmlStream = fc.getExternalContext().getResourceAsStream("/WEB-INF/classes/formularios/"+formulario.getArchivo());
+       downloadFile = new DefaultStreamedContent(xmlStream, "application/xml", formulario.getArchivo());  
+       return null;			
    }
    
    public boolean copyFile(UploadedFile file, String destination) {
@@ -418,13 +442,13 @@ public class FormularioBean implements Serializable
       };
    }
    
-   public String getServerName (){
-	  
-	   String serverName = FacesContext.getCurrentInstance().getExternalContext().getRequestServerName();
-	   int serverPort = FacesContext.getCurrentInstance().getExternalContext().getRequestServerPort();
-	   String nameApp = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath();
-	   String dir = "http://"+serverName + ":" + serverPort+ nameApp + "/salidaForms/";
-	   return dir;
+   public void xmlView (){
+	   FacesContext fc = FacesContext.getCurrentInstance();
+	   ExternalContext ec = fc.getExternalContext();
+	   InputStream xmlStream = ec.getResourceAsStream("/WEB-INF/classes/formularios/"+formulario.getArchivo());
+	   DomUtils utils = new DomUtils();
+	   formDom = utils.format(xmlStream);
+	   //formDom = XmlUtils.formatXml(formDom, 4);
    }
 
    /*

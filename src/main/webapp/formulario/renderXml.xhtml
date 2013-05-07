@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" 	
+	xmlns:p="http://primefaces.org/ui"
+    template="/resources/scaffold/pageTemplate.xhtml">
+   
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{formularioBean.id}" />
+		<f:event type="preRenderView" listener="#{formularioBean.retrieve}" />
+		<f:event type="preRenderView" listener="#{formularioBean.xmlView}" />
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Ver Xml"/>
+	
+	<ui:define name="header">
+		#{formularioBean.formulario.archivo}
+	</ui:define>
+
+	<ui:define name="subheader">
+		Source
+	</ui:define>
+	
+    <ui:define name="footer"/>
+	<ui:define name="main">	
+		<h:form id="form">
+			
+			
+			<p:panel styleClass="component">
+			<p:inputTextarea value="#{formularioBean.formDom}" cols="95" 
+				rows="20" readonly="true" autoResize="false" />
+			</p:panel>
+			<div class="buttons">
+				<p:commandLink id="downloadLink" value="Descargar" ajax="false"> 				 
+			    	<p:fileDownload value="#{formularioBean.downloadFile}"/>	  
+				</p:commandLink>
+				<h:link value="Cancelar" outcome="search" styleClass="btn btn-primary"/>
+			</div>
+			
+		</h:form>
+		
+	</ui:define>
+</ui:composition>
