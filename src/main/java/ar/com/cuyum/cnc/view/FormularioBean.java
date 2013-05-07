@@ -76,7 +76,15 @@ public class FormularioBean implements Serializable
     * Support creating and retrieving Formulario entities
     */
 
-   private Long id;
+   public String getFormDom() {
+	return formDom;
+}
+
+public void setFormDom(String formDom) {
+	this.formDom = formDom;
+}
+
+private Long id;
 
    public Long getId()
    {
@@ -447,8 +455,7 @@ public class FormularioBean implements Serializable
 	   ExternalContext ec = fc.getExternalContext();
 	   InputStream xmlStream = ec.getResourceAsStream("/WEB-INF/classes/formularios/"+formulario.getArchivo());
 	   DomUtils utils = new DomUtils();
-	   formDom = utils.format(xmlStream);
-	   //formDom = XmlUtils.formatXml(formDom, 4);
+	   formDom = utils.format(xmlStream);	   
    }
 
    /*
