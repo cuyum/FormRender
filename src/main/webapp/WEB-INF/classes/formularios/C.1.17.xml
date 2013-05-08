@@ -68,7 +68,7 @@
     </model>
   </h:head>
   <h:body>
-    <group appearance="cols6" ref="/C.1.17/Enero">
+    <group appearance="col6" ref="/C.1.17/Enero">
       <label>Enero</label>
       <input ref="/C.1.17/Enero/amba">
         <label>AMBA</label>
