@@ -82,6 +82,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
         <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
         <html>
             <head>
+            	<meta charset="utf-8"/>
             </head>
             <body>
 	            <form class="jr" autocomplete="off">
