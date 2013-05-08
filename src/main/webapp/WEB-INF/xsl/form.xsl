@@ -31,8 +31,9 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
     xmlns:jr="http://openrosa.org/javarosa"
     xmlns:exsl="http://exslt.org/common"
     xmlns:str="http://exslt.org/strings"
-    xmlns:dyn="http://exslt.org/dynamic"
-    extension-element-prefixes="exsl str dyn"
+    xmlns:saxon="http://saxon.sf.net/"
+    xmlns:fn= "http://www.w3.org/2005/xpath-functions"
+    extension-element-prefixes="fn saxon exsl str"
     version="1.0"
     >
 
@@ -64,37 +65,25 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
     	<xsl:if test="not(function-available('exsl:node-set'))">
             <xsl:message terminate="yes">FATAL ERROR: exsl:node-set function is not available in this XSLT processor</xsl:message>
         </xsl:if>
-        <xsl:if test="not(function-available('str:replace'))">
-            <xsl:message terminate="yes">FATAL ERROR: str:tokenize function is not available in this XSLT processor</xsl:message>
+        <xsl:if test="not(function-available('fn:replace'))">
+            <xsl:message terminate="yes">FATAL ERROR: fn:replace function is not available in this XSLT processor</xsl:message>
         </xsl:if>
-        <xsl:if test="not(function-available('dyn:evaluate'))">
-            <xsl:message terminate="yes">FATAL ERROR: dyn:evaluate function is not available in this XSLT processor</xsl:message>
+        <xsl:if test="not(function-available('saxon:evaluate'))">
+            <xsl:message terminate="yes">FATAL ERROR: saxon:evaluate function is not available in this XSLT processor</xsl:message>
         </xsl:if>
-        <xsl:if test="not(function-available('str:tokenize'))">
-            <xsl:message terminate="yes">FATAL ERROR: dyn:evaluate function is not available in this XSLT processor</xsl:message>
+        <xsl:if test="not(function-available('fn:tokenize'))">
+            <xsl:message terminate="yes">FATAL ERROR: fn:tokenize function is not available in this XSLT processor</xsl:message>
         </xsl:if>
         <xsl:for-each select="/h:html/h:head/xf:model/xf:bind">
         	<xsl:if test="not(substring(./@nodeset, 1, 1) = '/')">
         		<xsl:message terminate="no">WARNING: Found binding(s) with relative (= bad!) nodeset attribute <!--on element: <xsl:value-of select="./@nodeset" />--> (form may work correctly if relative nodesets were used consistently throughout xml form in bindings as well as body, otherwise it will certainly be messed up). </xsl:message>
         	</xsl:if>
         </xsl:for-each>
-       <!--> <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
+        <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
         <html>
             <head>
-                <title>
-                    <xsl:text>Transformation of JR (X)Form to HTML5</xsl:text>
-                </title>
-                <script src="jquery.min.js" type="text/javascript" ><xsl:text> </xsl:text></script>
-                <script type="text/javascript">
-                    <xsl:text disable-output-escaping='yes'>
-		              $(function() {
-				            $('#form-languages a').click(function(){
-					           $('form [lang]').show().not('[lang="'+$(this).attr('lang')+'"], [lang=""], #form-languages a').hide();
-				            });
-				      });</xsl:text>
-                </script>
-            </head>-->
-            <root>
+            </head>
+            <body>
 	            <form class="jr" autocomplete="off">
 	                <xsl:attribute name="id">
                         <xsl:choose>
@@ -176,7 +165,8 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
                         <xsl:message>ERROR: Submissions element(s) not supported yet.</xsl:message>
                     </xsl:if>
 	            </form>
-            </root>
+	            </body>
+            </html>
         </xsl:template>
 
     <xsl:template match="h:head"/> <!--[not(self::xf:model/xf:bind[@jr:preload])]" />-->
@@ -304,7 +294,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 
     <xsl:template name="appearance">
         <xsl:if test="@appearance">
-             <xsl:value-of select="concat('jr-appearance-', translate(@appearance, $upper-case, $lower-case))"/>
+             <xsl:value-of select="translate(@appearance, $upper-case, $lower-case)"/>
         </xsl:if>
     </xsl:template>
 
@@ -484,7 +474,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
         <xsl:variable name="value-ref" select="./xf:value/@ref" />
         <xsl:variable name="label-ref" select="./xf:label/@ref" />
         <xsl:variable name="iwq" select="substring-before(substring-after(@nodeset, 'instance('),')/')" />
-        <xsl:variable name="instance-path" select="str:replace(substring-after(@nodeset, ')'), '/', '/xf:')" />
+        <xsl:variable name="instance-path" select="fn:replace(substring-after(@nodeset, ')'), '/', '/xf:')" />
         <xsl:variable name="instance-path-nofilter">
             <xsl:call-template name="strip-filter">
                 <xsl:with-param name="string" select="$instance-path"/>
@@ -505,7 +495,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
                     <xsl:attribute name="data-label-ref">
                         <xsl:value-of select="$label-node-name"/>
                     </xsl:attribute>
-                    <xsl:for-each select="dyn:evaluate(concat('/h:html/h:head/xf:model/xf:instance[@id=&quot;', $instance-id, '&quot;]', $instance-path-nofilter))">
+                    <xsl:for-each select="saxon:evaluate(concat('/h:html/h:head/xf:model/xf:instance[@id=&quot;', $instance-id, '&quot;]', $instance-path-nofilter))">
                         <!-- so this is support for itext(node) (not itext(path/to/node)), but only 'ad-hoc' for itemset labels for now -->
                         <xsl:variable name="id" select="./*[name()=$label-node-name]" />
                         <xsl:call-template name="translations">

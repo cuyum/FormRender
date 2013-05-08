@@ -86,7 +86,7 @@ public class TransformationService {
 		StringWriter resultHtml = new StringWriter();
 		
 		// Create a transformer for the stylesheet.
-		Transformer transformer = tfactory.newTransformer(new StreamSource(loadXsl(XSL_HTML)));
+		Transformer transformer = tfactory.newTransformer(new StreamSource(loadXsl(XSL_FORM)));
 
 		// Transform the source XML to System.out.
 		transformer.transform(new StreamSource(xmlStream),  new StreamResult(resultHtml));
@@ -98,25 +98,7 @@ public class TransformationService {
 		InputStream xslIS = FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream("/WEB-INF/xsl/"+xsl);
 		return xslIS;
 	}
-	
-//	private void loquesea(){
-//		String xmlString = "<root><person><name>Jorge</name></person></root>";
-//		InputSource xmlSource = new InputSource(new StringReader(xmlString));
-//		DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
-//       
-//        try {
-//        	DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-//        	docBuilderFactory.setNamespaceAware(true);
-//			Document doc = docBuilder.parse(xmlSource);
-//		} catch (SAXException e) {
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		} catch (ParserConfigurationException e) {
-//			e.printStackTrace();
-//		}
-//	}
-	
+
 	
 	/*=============== VIA HTTP REQUEST======================*/
 	
