@@ -1,0 +1,229 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>C.1.1 - ÁREAS DE PRESTACIÓN DE SERVICIO</h:title>
+    <model>
+      <itext>
+        <translation lang="Spanish">
+          <text id="static_instance-areas-7">
+            <value>PONTEVEDRA</value>
+          </text>
+          <text id="static_instance-localidades-0">
+            <value>[List of choices TBD]</value>
+          </text>
+          <text id="static_instance-partidos-0">
+            <value>[List of choices TBD]</value>
+          </text>
+          <text id="static_instance-areas-11">
+            <value>ABASTO</value>
+          </text>
+          <text id="static_instance-areas-10">
+            <value>VIRREY DEL PINO</value>
+          </text>
+          <text id="static_instance-areas-13">
+            <value>BARTOLOME BAVIO</value>
+          </text>
+          <text id="static_instance-areas-12">
+            <value>BARRIO PARQUE SICARDI</value>
+          </text>
+          <text id="static_instance-areas-15">
+            <value>LISANDRO OLMOS</value>
+          </text>
+          <text id="static_instance-areas-14">
+            <value>LA PLATA</value>
+          </text>
+          <text id="static_instance-areas-9">
+            <value>GONZALEZ CATAN</value>
+          </text>
+          <text id="static_instance-areas-8">
+            <value>VILLARS</value>
+          </text>
+          <text id="static_instance-provincias-0">
+            <value>[List of choices TBD]</value>
+          </text>
+          <text id="static_instance-areas-5">
+            <value>MERLO (PROV.  BUENOS AIRES)</value>
+          </text>
+          <text id="static_instance-areas-4">
+            <value>MARIANO ACOSTA</value>
+          </text>
+          <text id="/C.1.1PRUEBA/provincia/[TBD]:label">
+            <value>[List of choices TBD]</value>
+          </text>
+          <text id="static_instance-areas-6">
+            <value>PLOMMER</value>
+          </text>
+          <text id="static_instance-areas-1">
+            <value>GENERAL LAS HERAS</value>
+          </text>
+          <text id="static_instance-areas-0">
+            <value>[List of choices TBD]</value>
+          </text>
+          <text id="static_instance-areas-3">
+            <value>MARCOS PAZ</value>
+          </text>
+          <text id="static_instance-areas-2">
+            <value>LIBERTAD</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <C.1.1PRUEBA id="C_1_1">
+          <provincia/>
+          <partido/>
+          <localidad/>
+          <area/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C.1.1PRUEBA>
+      </instance>
+      <instance id="localidades">
+        <root>
+          <item>
+            <itextId>static_instance-localidades-0</itextId>
+            <provincia>[List of choices TBD]</provincia>
+            <name>[TBD]</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="partidos">
+        <root>
+          <item>
+            <itextId>static_instance-partidos-0</itextId>
+            <provincia>[List of choices TBD]</provincia>
+            <name>[TBD]</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="provincias">
+        <root>
+          <item>
+            <itextId>static_instance-provincias-0</itextId>
+            <provincia>[List of choices TBD]</provincia>
+            <name>[TBD]</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="areas">
+        <root>
+          <item>
+            <itextId>static_instance-areas-0</itextId>
+            <provincia>[List of choices TBD]</provincia>
+            <name>[TBD]</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-1</itextId>
+            <provincia>buenosAires</provincia>
+            <name>GENERAL_LAS_HERAS</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-2</itextId>
+            <provincia>buenosAires</provincia>
+            <name>LIBERTAD</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-3</itextId>
+            <provincia>buenosAires</provincia>
+            <name>MARCOS_PAZ</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-4</itextId>
+            <provincia>buenosAires</provincia>
+            <name>MARIANO_ACOSTA</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-5</itextId>
+            <provincia>buenosAires</provincia>
+            <name>MERLO</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-6</itextId>
+            <provincia>buenosAires</provincia>
+            <name>PLOMMER</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-7</itextId>
+            <provincia>buenosAires</provincia>
+            <name>PONTEVEDRA</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-8</itextId>
+            <provincia>catamarca</provincia>
+            <name>VILLARS</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-9</itextId>
+            <provincia>catamarca</provincia>
+            <name>GONZALEZ_CATAN</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-10</itextId>
+            <provincia>catamarca</provincia>
+            <name>VIRREY_PINO</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-11</itextId>
+            <provincia>catamarca</provincia>
+            <name>ABASTO</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-12</itextId>
+            <provincia>catamarca</provincia>
+            <name>BARRIO_PARQUE_SICARDI</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-13</itextId>
+            <provincia>catamarca</provincia>
+            <name>BARTOLOME_BAVIO</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-14</itextId>
+            <provincia>catamarca</provincia>
+            <name>LA_PLATA</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-15</itextId>
+            <provincia>catamarca</provincia>
+            <name>LISANDRO_OLMOS</name>
+          </item>
+        </root>
+      </instance>
+      <bind jr:constraintMsg="true()" nodeset="/C.1.1PRUEBA/provincia" required="true()" type="select1"/>
+      <bind jr:constraintMsg="true()" nodeset="/C.1.1PRUEBA/partido" required="true()" type="select1"/>
+      <bind jr:constraintMsg="true()" nodeset="/C.1.1PRUEBA/localidad" required="true()" type="select1"/>
+      <bind jr:constraintMsg="true()" nodeset="/C.1.1PRUEBA/area" required="true()" type="select1"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C.1.1PRUEBA/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <select1 ref="/C.1.1PRUEBA/provincia">
+      <label>Provincia/Región</label>
+      <item>
+        <label ref="jr:itext('/C.1.1PRUEBA/provincia/[TBD]:label')"/>
+        <value>[TBD]</value>
+      </item>
+    </select1>
+    <select1 ref="/C.1.1PRUEBA/partido">
+      <label>Partido/Dpto</label>
+      <itemset nodeset="instance('partidos')/root/item[provincia= /C.1.1PRUEBA/provincia ]">
+        <value ref="name"/>
+        <label ref="jr:itext(itextId)"/>
+      </itemset>
+    </select1>
+    <select1 ref="/C.1.1PRUEBA/localidad">
+      <label>Localidad</label>
+      <itemset nodeset="instance('localidades')/root/item[provincia= /C.1.1PRUEBA/provincia  and partido= /C.1.1PRUEBA/partido ]">
+        <value ref="name"/>
+        <label ref="jr:itext(itextId)"/>
+      </itemset>
+    </select1>
+    <select1 ref="/C.1.1PRUEBA/area">
+      <label>Area Local</label>
+      <itemset nodeset="instance('areas')/root/item[provincia= /C.1.1PRUEBA/provincia  and localidad= /C.1.1PRUEBA/localidad ]">
+        <value ref="name"/>
+        <label ref="jr:itext(itextId)"/>
+      </itemset>
+    </select1>
+  </h:body>
+</h:html>
