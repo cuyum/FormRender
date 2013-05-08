@@ -3,7 +3,10 @@
  */
 package ar.com.cuyum.cnc.service;
 
+import java.io.BufferedOutputStream;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.net.URL;
 
@@ -86,10 +89,10 @@ public class TransformationService {
 		StringWriter resultHtml = new StringWriter();
 		
 		// Create a transformer for the stylesheet.
-		Transformer transformer = tfactory.newTransformer(new StreamSource(loadXsl(XSL_FORM)));
+		Transformer transformer = tfactory.newTransformer(new StreamSource(new InputStreamReader(loadXsl(XSL_FORM),"UTF-8")));
 
 		// Transform the source XML to System.out.
-		transformer.transform(new StreamSource(xmlStream),  new StreamResult(resultHtml));
+		transformer.transform(new StreamSource(new InputStreamReader(xmlStream),"UTF-8"),  new StreamResult(resultHtml));
 		
 		return resultHtml.toString();
 	}
