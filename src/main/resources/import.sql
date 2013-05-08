@@ -1,3 +1,4 @@
+INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.1','0','C.1.1.xml', 0);
 INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.2','0','C.1.2.xml', 0);
 INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.3','0','C.1.3.xml', 0);
 INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.4','0','C.1.4.xml', 0);
