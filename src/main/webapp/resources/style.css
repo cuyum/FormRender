@@ -190,13 +190,13 @@ h4 small { font-size: 14px; }
                                              margin-bottom:10px;
                                         }
                                         fieldset .col2 label {
-                                            width: 48%;
+                                            width: 47%;
                                             float: left;
                                             padding-bottom: 8px;
                                             margin-left: 10px;
                                             color: #5F5F5F;
                                             font-family: Arial, Helvetica, sans-serif;
-                                            font-size: 12px;
+                                            font-size: 11px;
                                             line-height: 22px;
                                         }
                                         .col1{
@@ -219,4 +219,19 @@ h4 small { font-size: 14px; }
                                             font-family: Arial, Helvetica, sans-serif;
                                             font-size: 12px;
                                             line-height: 22px;}
-                                        
+                                        fieldset .col2 label .error {
+                                        color:#B94A48;
+                                        font-size:10px;
+                                        margin-left:1px;}
+                                         fieldset .col3 label .error {
+                                        color:#B94A48;
+                                        font-size:10px;
+                                        margin-left:1px;}
+                                         fieldset .col4 label .error {
+                                        color:#B94A48;
+                                        font-size:10px;
+                                        margin-left:1px;}
+                                         fieldset .col6 label .error {
+                                        color:#B94A48;
+                                        font-size:10px;
+                                        margin-left:1px;}
