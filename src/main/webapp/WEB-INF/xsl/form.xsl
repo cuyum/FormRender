@@ -41,6 +41,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 
     <xsl:variable name="upper-case" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
     <xsl:variable name="lower-case" select="'abcdefghijklmnopqrstuvwxyz'" />
+    <xsl:variable name="txFormId" select="translate(/h:html/h:head/xf:model/xf:instance/child::node()/@id, ' ', '_' )" />
     <xsl:variable name="undefined">undefined</xsl:variable>
     <xsl:variable name="warning">warning</xsl:variable>
     <xsl:variable name="error">error</xsl:variable>
@@ -83,8 +84,25 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
         <html>
             <head>
             	<meta charset="utf-8"/>
+            	<link rel="stylesheet" href="/FormRender/resources/style.css"/>
+			  	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js">
+            		<xsl:text>&#10;</xsl:text>
+            	</script>
+			  	<script type="text/javascript" src="/FormRender/resources/js/jquery.validate.js">
+            		<xsl:text>&#10;</xsl:text>
+            	</script>
             </head>
             <body>
+            	<script type="text/javascript">
+            	<xsl:text>
+				$(document).ready(function() {
+					var form = document.forms[0];
+<!-- 					var validator = $(form).validate({ -->
+<!-- 						submitHandler: function() { alert("Enviado"); } -->
+<!-- 					}); -->
+				});
+            	</xsl:text>
+            	</script>
 	            <form class="jr" autocomplete="off">
 	                <xsl:attribute name="id">
                         <xsl:choose>
@@ -100,7 +118,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
                         </xsl:choose>
 	                </xsl:attribute>
 	                <xsl:text>&#10;</xsl:text>
-	                <xsl:comment>This form was created by transforming a javaRosa-style (X)Form using an XSLT sheet created by Aid Web Solutions.</xsl:comment>
+	                <xsl:comment>This form was created by transforming a javaRosa-style (X)Form using an XSLT sheet.</xsl:comment>
                     <section class="form-logo">
                         <xsl:text> </xsl:text>
                     </section>
@@ -165,6 +183,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
                     <xsl:if test="//xf:submission">
                         <xsl:message>ERROR: Submissions element(s) not supported yet.</xsl:message>
                     </xsl:if>
+                    <input type="submit" value="submit"/>
 	            </form>
 	            </body>
             </html>
