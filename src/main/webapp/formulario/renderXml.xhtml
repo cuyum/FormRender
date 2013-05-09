@@ -26,9 +26,8 @@
 	
     <ui:define name="footer"/>
 	<ui:define name="main">	
-		<h:form id="form">
-			
-			
+		<h:form id="form">			
+			<p:messages id="messages" globalOnly="true" showDetail="true" autoUpdate="true" />
 			<p:panel styleClass="component">
 			<p:inputTextarea value="#{formularioBean.formDom}" cols="95" 
 				rows="20" readonly="true" autoResize="false" />

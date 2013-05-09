@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C.1.24 - INGRESOS INTERCONEXION (INTERNACIONAL A 3)</h:title>
+    <model>
+      <itext>
+        <translation default="true()" lang="Spanish">
+          <text id="/C.1.24_3/mes/internacional1:label">
+            <value>Arriendos Circuitos LDI</value>
+          </text>
+          <text id="/C.1.24_3/mes/internacional5:label">
+            <value>Total Neto de Corresp. de Salida</value>
+          </text>
+          <text id="/C.1.24_3/mes/internacional4:label">
+            <value>Corresponsales de Salida</value>
+          </text>
+          <text id="/C.1.24_3/mes/internacional3:label">
+            <value>Corresponsales de Entrada</value>
+          </text>
+          <text id="/C.1.24_3/mes/internacional2:hint">
+            <value>Miles de pesos 12 dígitos</value>
+          </text>
+          <text id="/C.1.24_3/mes:label">
+            <value>Mes</value>
+          </text>
+          <text id="/C.1.24_3/mes/internacional6:label">
+            <value>TOTAL: $ <output value=" /C.1.24_3/mes/calculate3 "/></value></text>
+          <text id="/C.1.24_3/mes/internacional3:hint">
+            <value>Miles de pesos 12 dígitos</value>
+          </text>
+          <text id="/C.1.24_3/mes/internacional4:hint">
+            <value>Miles de pesos 12 dígitos</value>
+          </text>
+          <text id="/C.1.24_3/nota:label">
+            <value>Expresar en miles de pesos 12 dígitos</value>
+          </text>
+          <text id="/C.1.24_3/mes/calculate3:label">
+            <value>-</value>
+          </text>
+          <text id="/C.1.24_3/mes/internacional1:hint">
+            <value>Miles de pesos 12 dígitos</value>
+          </text>
+          <text id="/C.1.24_3/mes/internacional5:hint">
+            <value>Miles de pesos 12 dígitos</value>
+          </text>
+          <text id="/C.1.24_3/mes/internacional2:label">
+            <value>Tráfico LDI</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <C.1.24_3 id="C_1_24_3">
+          <nota/>
+          <mes>
+            <internacional1>0</internacional1>
+            <internacional2>0</internacional2>
+            <internacional3>0</internacional3>
+            <internacional4>0</internacional4>
+            <internacional5>0</internacional5>
+            <calculate3/>
+            <internacional6/>
+          </mes>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C.1.24_3>
+      </instance>
+      <bind nodeset="/C.1.24_3/nota" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C.1.24_3/mes/internacional1" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C.1.24_3/mes/internacional2" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C.1.24_3/mes/internacional3" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C.1.24_3/mes/internacional4" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C.1.24_3/mes/internacional5" required="true()" type="int"/>
+      <bind calculate=" /C.1.24_3/mes/internacional1 + /C.1.24_3/mes/internacional2 + /C.1.24_3/mes/internacional3 + /C.1.24_3/mes/internacional4 + /C.1.24_3/mes/internacional5 " nodeset="/C.1.24_3/mes/calculate3" type="string"/>
+      <bind nodeset="/C.1.24_3/mes/internacional6" readonly="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C.1.24_3/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/C.1.24_3/nota">
+      <label ref="jr:itext('/C.1.24_3/nota:label')"/>
+    </input>
+    <group appearance="col3" ref="/C.1.24_3/mes">
+      <label ref="jr:itext('/C.1.24_3/mes:label')"/>
+      <input ref="/C.1.24_3/mes/internacional1">
+        <label ref="jr:itext('/C.1.24_3/mes/internacional1:label')"/>
+        <hint ref="jr:itext('/C.1.24_3/mes/internacional1:hint')"/>
+      </input>
+      <input ref="/C.1.24_3/mes/internacional2">
+        <label ref="jr:itext('/C.1.24_3/mes/internacional2:label')"/>
+        <hint ref="jr:itext('/C.1.24_3/mes/internacional2:hint')"/>
+      </input>
+      <input ref="/C.1.24_3/mes/internacional3">
+        <label ref="jr:itext('/C.1.24_3/mes/internacional3:label')"/>
+        <hint ref="jr:itext('/C.1.24_3/mes/internacional3:hint')"/>
+      </input>
+      <input ref="/C.1.24_3/mes/internacional4">
+        <label ref="jr:itext('/C.1.24_3/mes/internacional4:label')"/>
+        <hint ref="jr:itext('/C.1.24_3/mes/internacional4:hint')"/>
+      </input>
+      <input ref="/C.1.24_3/mes/internacional5">
+        <label ref="jr:itext('/C.1.24_3/mes/internacional5:label')"/>
+        <hint ref="jr:itext('/C.1.24_3/mes/internacional5:hint')"/>
+      </input>
+      <input ref="/C.1.24_3/mes/internacional6">
+        <label ref="jr:itext('/C.1.24_3/mes/internacional6:label')"/>
+      </input>
+    </group>
+  </h:body>
+</h:html>

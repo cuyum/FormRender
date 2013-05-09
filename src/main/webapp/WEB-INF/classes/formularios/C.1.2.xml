@@ -1,15 +1,45 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>C.1.2 - Interconexión</h:title>
+    <h:title>Formulario C.1.2 - INTERCONEXIÓN</h:title>
     <model>
       <itext>
-        <translation default="true()" lang="default">
+        <translation default="true()" lang="Spanish">
+          <text id="static_instance-localidades-5">
+            <value>Otros</value>
+          </text>
+          <text id="static_instance-areas-11">
+            <value>BARRIO PARQUE SICARDI</value>
+          </text>
+          <text id="static_instance-areas-10">
+            <value>ABASTO</value>
+          </text>
+          <text id="static_instance-areas-13">
+            <value>LA PLATA</value>
+          </text>
+          <text id="static_instance-areas-12">
+            <value>BARTOLOME BAVIO</value>
+          </text>
+          <text id="static_instance-areas-14">
+            <value>LISANDRO OLMOS</value>
+          </text>
+          <text id="/C.1.2/datos/interconexion/cuit_prestador:label">
+            <value>PRESTADOR</value>
+          </text>
+          <text id="/C.1.2/datos/interconexion:label">
+            <value>Interconexión</value>
+          </text>
           <text id="static_instance-provincias-0">
             <value>Buenos Aires</value>
           </text>
           <text id="static_instance-provincias-1">
             <value>Catamarca</value>
+          </text>
+          <text id="/C.1.2/datos/interconexion/cantidad:label">
+            <value>CAPACIDAD</value>
+          </text>
+          <text id="static_instance-areas-7">
+            <value>VILLARS</value>
           </text>
           <text id="static_instance-localidades-16">
             <value>Antofalla</value>
@@ -35,17 +65,38 @@
           <text id="static_instance-localidades-11">
             <value>Otros</value>
           </text>
+          <text id="static_instance-partidos-1">
+            <value>9 de Julio</value>
+          </text>
+          <text id="static_instance-localidades-3">
+            <value>Dudignac</value>
+          </text>
           <text id="static_instance-localidades-18">
             <value>Apoyaco</value>
           </text>
           <text id="static_instance-localidades-19">
             <value>Colana</value>
           </text>
+          <text id="static_instance-partidos-5">
+            <value>Antofagasta de la Sierra</value>
+          </text>
+          <text id="/C.1.2/datos/interconexion/areas_local:label">
+            <value>Área Local</value>
+          </text>
+          <text id="/C.1.2/datos/interconexion/medida/xxe1:label">
+            <value>n*E1</value>
+          </text>
+          <text id="/C.1.2/datos/interconexion/areas_local:hint">
+            <value>Seleccione Área Local</value>
+          </text>
+          <text id="/C.1.2/datos/interconexion/partido:label">
+            <value>Partido/Dpto</value>
+          </text>
           <text id="static_instance-localidades-4">
             <value>La Aurora (Est. La Niña)</value>
           </text>
-          <text id="static_instance-localidades-5">
-            <value>Otros</value>
+          <text id="/C.1.2/datos/interconexion/medida:label">
+            <value>Unidad</value>
           </text>
           <text id="static_instance-localidades-6">
             <value>16 de Julio</value>
@@ -62,8 +113,8 @@
           <text id="static_instance-localidades-2">
             <value>Otros</value>
           </text>
-          <text id="static_instance-localidades-3">
-            <value>Dudignac</value>
+          <text id="/C.1.2/datos/interconexion/medida/mbps:label">
+            <value>Mbps</value>
           </text>
           <text id="static_instance-medidas-0">
             <value>Mbps</value>
@@ -71,11 +122,50 @@
           <text id="static_instance-medidas-1">
             <value>n*E1</value>
           </text>
+          <text id="/C.1.2/datos/interconexion/provincia:label">
+            <value>Provincia/Región</value>
+          </text>
           <text id="static_instance-localidades-8">
             <value>Otros</value>
           </text>
           <text id="static_instance-localidades-9">
             <value>17 de Agosto</value>
+          </text>
+          <text id="/C.1.2/datos/interconexion/localidad:label">
+            <value>Localidad</value>
+          </text>
+          <text id="static_instance-areas-9">
+            <value>VIRREY DEL PINO</value>
+          </text>
+          <text id="static_instance-areas-8">
+            <value>GONZALEZ CATAN</value>
+          </text>
+          <text id="static_instance-areas-5">
+            <value>PLOMMER</value>
+          </text>
+          <text id="static_instance-areas-4">
+            <value>MERLO (PROV.  BUENOS AIRES)</value>
+          </text>
+          <text id="/C.1.2/datos/interconexion/provincia/buenosAires:label">
+            <value>Buenos Aires</value>
+          </text>
+          <text id="static_instance-areas-6">
+            <value>PONTEVEDRA</value>
+          </text>
+          <text id="static_instance-areas-1">
+            <value>LIBERTAD</value>
+          </text>
+          <text id="static_instance-areas-0">
+            <value>GENERAL LAS HERAS</value>
+          </text>
+          <text id="static_instance-areas-3">
+            <value>MARIANO ACOSTA</value>
+          </text>
+          <text id="static_instance-areas-2">
+            <value>MARCOS PAZ</value>
+          </text>
+          <text id="/C.1.2/datos/interconexion/cantidad:hint">
+            <value>Ingrese número entero</value>
           </text>
           <text id="static_instance-partidos-6">
             <value>Poman</value>
@@ -86,8 +176,8 @@
           <text id="static_instance-partidos-4">
             <value>Tinogasta</value>
           </text>
-          <text id="static_instance-partidos-5">
-            <value>Antofagasta de la Sierra</value>
+          <text id="/C.1.2/datos/interconexion/localidad_otro:label">
+            <value>Por favor especifique</value>
           </text>
           <text id="static_instance-partidos-2">
             <value>Azul</value>
@@ -98,8 +188,11 @@
           <text id="static_instance-partidos-0">
             <value>Tres De Febrero</value>
           </text>
-          <text id="static_instance-partidos-1">
-            <value>9 de Julio</value>
+          <text id="/C.1.2/datos/interconexion/cuit_prestador:hint">
+            <value>11 dígitos sin guiones ni espacios</value>
+          </text>
+          <text id="static_instance-localidades-20">
+            <value>Otros</value>
           </text>
           <text id="static_instance-localidades-23">
             <value>Otros</value>
@@ -110,20 +203,25 @@
           <text id="static_instance-localidades-21">
             <value>Barrio Bancario</value>
           </text>
-          <text id="static_instance-localidades-20">
-            <value>Otros</value>
+          <text id="/C.1.2/datos/interconexion/provincia/catamarca:label">
+            <value>Catamarca</value>
           </text>
         </translation>
       </itext>
       <instance>
-        <C.1.2 id="C12">
-          <provincia/>
-          <partido/>
-          <localidad/>
-          <localidad_otro/>
-          <cantidad/>
-          <medida>mbps</medida>
-          <cuit_prestador/>
+        <C.1.2 id="C_1_2">
+          <datos jr:template="">
+            <interconexion>
+              <provincia/>
+              <partido/>
+              <localidad/>
+              <localidad_otro/>
+              <areas_local/>
+              <cantidad/>
+              <medida/>
+              <cuit_prestador/>
+            </interconexion>
+          </datos>
           <meta>
             <instanceID/>
           </meta>
@@ -345,63 +443,159 @@
           </item>
         </root>
       </instance>
-      <bind constraint="true()" nodeset="/C.1.2/provincia" required="true()" type="select1"/>
-      <bind constraint="true()" nodeset="/C.1.2/partido" required="true()" type="select1"/>
-      <bind constraint="true()" nodeset="/C.1.2/localidad" required="true()" type="select1"/>
-      <bind constraint="true()" nodeset="/C.1.2/localidad_otro" relevant=" /C.1.2/localidad ='otros1' or  /C.1.2/localidad ='otros2' or  /C.1.2/localidad ='otros3' or  /C.1.2/localidad ='otros4' or  /C.1.2/localidad ='otros5' or  /C.1.2/localidad ='otros6' or  /C.1.2/localidad ='otros7' or  /C.1.2/localidad ='otros8'" type="string"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 6 digitos y mayor a 0" nodeset="/C.1.2/cantidad" required="true()" type="int"/>
-      <bind constraint="true()" nodeset="/C.1.2/medida" required="true()" type="select1"/>
-      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$')" jr:constraintMsg="11 dígitos sin guiones ni espacios" nodeset="/C.1.2/cuit_prestador" required="true()" type="int"/>
+      <instance id="areas">
+        <root>
+          <item>
+            <itextId>static_instance-areas-0</itextId>
+            <provincia>buenosAires</provincia>
+            <name>GENERAL_LAS_HERAS</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-1</itextId>
+            <provincia>buenosAires</provincia>
+            <name>LIBERTAD</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-2</itextId>
+            <provincia>buenosAires</provincia>
+            <name>MARCOS_PAZ</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-3</itextId>
+            <provincia>buenosAires</provincia>
+            <name>MARIANO_ACOSTA</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-4</itextId>
+            <provincia>buenosAires</provincia>
+            <name>MERLO</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-5</itextId>
+            <provincia>buenosAires</provincia>
+            <name>PLOMMER</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-6</itextId>
+            <provincia>buenosAires</provincia>
+            <name>PONTEVEDRA</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-7</itextId>
+            <provincia>catamarca</provincia>
+            <name>VILLARS</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-8</itextId>
+            <provincia>catamarca</provincia>
+            <name>GONZALEZ_CATAN</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-9</itextId>
+            <provincia>catamarca</provincia>
+            <name>VIRREY_PINO</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-10</itextId>
+            <provincia>catamarca</provincia>
+            <name>ABASTO</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-11</itextId>
+            <provincia>catamarca</provincia>
+            <name>BARRIO_PARQUE_SICARDI</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-12</itextId>
+            <provincia>catamarca</provincia>
+            <name>BARTOLOME_BAVIO</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-13</itextId>
+            <provincia>catamarca</provincia>
+            <name>LA_PLATA</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-14</itextId>
+            <provincia>catamarca</provincia>
+            <name>LISANDRO_OLMOS</name>
+          </item>
+        </root>
+      </instance>
+      <bind constraint="true()" nodeset="/C.1.2/datos/interconexion/provincia" required="true()" type="select1"/>
+      <bind constraint="true()" nodeset="/C.1.2/datos/interconexion/partido" required="true()" type="select1"/>
+      <bind constraint="true()" nodeset="/C.1.2/datos/interconexion/localidad" required="true()" type="select1"/>
+      <bind constraint="true()" nodeset="/C.1.2/datos/interconexion/localidad_otro" relevant=" /C.1.2/datos/interconexion/localidad ='otros1' or  /C.1.2/datos/interconexion/localidad ='otros2' or  /C.1.2/datos/interconexion/localidad ='otros3' or  /C.1.2/datos/interconexion/localidad ='otros4' or  /C.1.2/datos/interconexion/localidad ='otros5' or  /C.1.2/datos/interconexion/localidad ='otros6' or  /C.1.2/datos/interconexion/localidad ='otros7' or  /C.1.2/datos/interconexion/localidad ='otros8'" type="string"/>
+      <bind nodeset="/C.1.2/datos/interconexion/areas_local" required="true()" type="select1"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 6 digitos y mayor a 0" nodeset="/C.1.2/datos/interconexion/cantidad" required="true()" type="int"/>
+      <bind nodeset="/C.1.2/datos/interconexion/medida" required="true()" type="select1"/>
+      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$')" jr:constraintMsg="11 dígitos sin guiones ni espacios" nodeset="/C.1.2/datos/interconexion/cuit_prestador" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C.1.2/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <select1 ref="/C.1.2/provincia">
-      <label>Provincia/Región</label>
-      <item>
-        <label>Buenos Aires</label>
-        <value>buenosAires</value>
-      </item>
-      <item>
-        <label>Catamarca</label>
-        <value>catamarca</value>
-      </item>
-    </select1>
-    <select1 ref="/C.1.2/partido">
-      <label>Partido/Dpto</label>
-      <itemset nodeset="instance('partidos')/root/item[provincia= /C.1.2/provincia ]">
-        <value ref="name"/>
-        <label ref="jr:itext(itextId)"/>
-      </itemset>
-    </select1>
-    <select1 ref="/C.1.2/localidad">
-      <label>Localidad</label>
-      <itemset nodeset="instance('localidades')/root/item[provincia= /C.1.2/provincia  and partido= /C.1.2/partido ]">
-        <value ref="name"/>
-        <label ref="jr:itext(itextId)"/>
-      </itemset>
-    </select1>
-    <input ref="/C.1.2/localidad_otro">
-      <label>Por favor especifique</label>
-    </input>
-    <input ref="/C.1.2/cantidad">
-      <label>Capacidad Disponible</label>
-      <hint>Ingrese número entero</hint>
-    </input>
-    <select1 appearance="minimal" ref="/C.1.2/medida">
-      <label>Seleccione unidad correspondiente</label>
-      <item>
-        <label>Mbps</label>
-        <value>mbps</value>
-      </item>
-      <item>
-        <label>n*E1</label>
-        <value>xxe1</value>
-      </item>
-    </select1>
-    <input ref="/C.1.2/cuit_prestador">
-      <label>CUIT Prestador</label>
-      <hint>11 dígitos sin guiones ni espacios</hint>
-    </input>
+    <group ref="/C.1.2/datos">
+      <label></label>
+      <repeat nodeset="/C.1.2/datos">
+        <group appearance="col4" ref="/C.1.2/datos/interconexion">
+          <label ref="jr:itext('/C.1.2/datos/interconexion:label')"/>
+          <select1 appearance="minimal" ref="/C.1.2/datos/interconexion/provincia">
+            <label ref="jr:itext('/C.1.2/datos/interconexion/provincia:label')"/>
+            <item>
+              <label ref="jr:itext('/C.1.2/datos/interconexion/provincia/buenosAires:label')"/>
+              <value>buenosAires</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/C.1.2/datos/interconexion/provincia/catamarca:label')"/>
+              <value>catamarca</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C.1.2/datos/interconexion/partido">
+            <label ref="jr:itext('/C.1.2/datos/interconexion/partido:label')"/>
+            <itemset nodeset="instance('partidos')/root/item[provincia= /C.1.2/datos/interconexion/provincia ]">
+              <value ref="name"/>
+              <label ref="jr:itext(itextId)"/>
+            </itemset>
+          </select1>
+          <select1 appearance="minimal" ref="/C.1.2/datos/interconexion/localidad">
+            <label ref="jr:itext('/C.1.2/datos/interconexion/localidad:label')"/>
+            <itemset nodeset="instance('localidades')/root/item[provincia= /C.1.2/datos/interconexion/provincia  and partido= /C.1.2/datos/interconexion/partido ]">
+              <value ref="name"/>
+              <label ref="jr:itext(itextId)"/>
+            </itemset>
+          </select1>
+          <input ref="/C.1.2/datos/interconexion/localidad_otro">
+            <label ref="jr:itext('/C.1.2/datos/interconexion/localidad_otro:label')"/>
+          </input>
+          <select1 appearance="minimal" ref="/C.1.2/datos/interconexion/areas_local">
+            <label ref="jr:itext('/C.1.2/datos/interconexion/areas_local:label')"/>
+            <hint ref="jr:itext('/C.1.2/datos/interconexion/areas_local:hint')"/>
+            <itemset nodeset="instance('areas')/root/item[provincia= /C.1.2/datos/interconexion/provincia ]">
+              <value ref="name"/>
+              <label ref="jr:itext(itextId)"/>
+            </itemset>
+          </select1>
+          <input ref="/C.1.2/datos/interconexion/cantidad">
+            <label ref="jr:itext('/C.1.2/datos/interconexion/cantidad:label')"/>
+            <hint ref="jr:itext('/C.1.2/datos/interconexion/cantidad:hint')"/>
+          </input>
+          <select1 appearance="minimal" ref="/C.1.2/datos/interconexion/medida">
+            <label ref="jr:itext('/C.1.2/datos/interconexion/medida:label')"/>
+            <item>
+              <label ref="jr:itext('/C.1.2/datos/interconexion/medida/mbps:label')"/>
+              <value>mbps</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/C.1.2/datos/interconexion/medida/xxe1:label')"/>
+              <value>xxe1</value>
+            </item>
+          </select1>
+          <input ref="/C.1.2/datos/interconexion/cuit_prestador">
+            <label ref="jr:itext('/C.1.2/datos/interconexion/cuit_prestador:label')"/>
+            <hint ref="jr:itext('/C.1.2/datos/interconexion/cuit_prestador:hint')"/>
+          </input>
+        </group>
+      </repeat>
+    </group>
   </h:body>
 </h:html>
