@@ -1,9 +1,15 @@
 package ar.com.cuyum.cnc.utils;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.io.StringWriter;
 
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -14,12 +20,16 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
-public class DomUtils {
+import ar.com.cuyum.cnc.domain.Formulario;
+
+public class DomUtils implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	public static Logger log = Logger.getLogger(DomUtils.class);
 	
 	public String format(InputStream isXml) {
@@ -77,4 +87,33 @@ public class DomUtils {
             throw new RuntimeException(e);
         }
     }
+	
+	public InputStream getInputStream(Formulario formulario){
+		InputStream xmlStream=null;
+		String from;
+		try {
+		   from = formulario.getUrl();
+		   if (from != null && !from.isEmpty()){
+			   //Leer archivo desde ubicacion
+			   if (!from.endsWith(System.getProperty("file.separator"))){
+				   //Agrego separador de fin
+				   from = from + System.getProperty("file.separator");
+			}			
+			File archivo = new File(from+ System.getProperty("file.separator") + formulario.getArchivo());
+			if (archivo.exists()){
+				xmlStream = new FileInputStream(archivo);
+				//xmlStream.close();
+			}
+			   
+		   } else {
+			   //Probar del context
+			   FacesContext fc = FacesContext.getCurrentInstance();
+			   ExternalContext ec = fc.getExternalContext();
+			   xmlStream = ec.getResourceAsStream("/WEB-INF/classes/formularios/"+formulario.getArchivo());
+		   }
+		} catch (FileNotFoundException e) {
+			log.error(e.getMessage());
+		} 
+		return xmlStream;
+	}
 }

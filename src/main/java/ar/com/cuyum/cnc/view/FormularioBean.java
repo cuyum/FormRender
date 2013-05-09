@@ -69,6 +69,9 @@ public class FormularioBean implements Serializable
    
    @Inject 
    private TransformationService ts;
+   
+   @Inject 
+   private DomUtils fileUtils;
 
    private String formDom;
    
@@ -166,12 +169,17 @@ private Long id;
       return this.entityManager.find(Formulario.class, id);
    }
    
-   public String getXmlFile() {
-	   //retrieve();
-	   FacesContext fc = FacesContext.getCurrentInstance();
-	   InputStream xmlStream = fc.getExternalContext().getResourceAsStream("/WEB-INF/classes/formularios/"+formulario.getArchivo());
-       downloadFile = new DefaultStreamedContent(xmlStream, "application/xml", formulario.getArchivo());  
-       return null;			
+   public String getXmlFile() {	  
+	   InputStream xmlStream=null;	   	  
+	   xmlStream = fileUtils.getInputStream(formulario);
+	   if (null != xmlStream){	   
+		   downloadFile = new DefaultStreamedContent(xmlStream, "application/xml", formulario.getArchivo()); 
+	   } else {
+		   FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error:", 
+					  "Archivo no encontrado en !");  
+	       FacesContext.getCurrentInstance().addMessage(null, msg); 	       
+	   }
+	   return null;	   
    }
    
    public boolean copyFile(UploadedFile file, String destination) {
@@ -208,7 +216,7 @@ private Long id;
 				   msgArchivoSubida = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Carga de Archivo Fallida",
 						   "Ya existe un archivo con ese nombre: "+this.file.getFileName());
 				   copiado = false;
-			   } else {			   
+			   } else {					   
 				   OutputStream out = new FileOutputStream(destination + this.file.getFileName());
 				   int read = 0;
 				   byte[] bytes = new byte[1024];
@@ -252,8 +260,10 @@ private Long id;
 		  if (nameFile.endsWith("xml")){
 			  String destination = formRenderProperties.getDestinationXml();			  
 		  	  copiado = copyFile(file, destination);
-		  	  if (copiado)
+		  	  if (copiado) {
 		  		this.formulario.setArchivo(file.getFileName());
+		  		this.formulario.setUrl(destination);
+		  	  }	
 		  	  else {		  		
 				   FacesContext.getCurrentInstance().addMessage(null, msgArchivoSubida);
 				   return null;
@@ -450,12 +460,17 @@ private Long id;
       };
    }
    
-   public void xmlView (){
-	   FacesContext fc = FacesContext.getCurrentInstance();
-	   ExternalContext ec = fc.getExternalContext();
-	   InputStream xmlStream = ec.getResourceAsStream("/WEB-INF/classes/formularios/"+formulario.getArchivo());
-	   DomUtils utils = new DomUtils();
-	   formDom = utils.format(xmlStream);	   
+   public String xmlView (){
+	   InputStream xmlStream=null;	    
+	   xmlStream = fileUtils.getInputStream(formulario);
+	   if (null != xmlStream){		   
+		   formDom = fileUtils.format(xmlStream);		   
+	   } else {
+		   FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error:", 
+					  "Archivo no encontrado en !");  
+	       FacesContext.getCurrentInstance().addMessage(null, msg); 	       
+	   }
+	   return null;	   	   
    }
 
    /*
@@ -482,7 +497,8 @@ private Long id;
    }
    
    public void transform(){
-	   
+	   InputStream xmlStream=null; 	   
+ 	   
 	   FacesContext fc = FacesContext.getCurrentInstance();
 	   
 	   Map<String,String> requestParams = fc.getExternalContext().getRequestParameterMap();
@@ -500,7 +516,11 @@ private Long id;
 	    		xmlId = getId();
 	    	}
 	    	this.formulario = findById(xmlId);
-	    	InputStream xmlStream = ec.getResourceAsStream("/WEB-INF/classes/formularios/"+formulario.getArchivo());
+	    	
+//	    	InputStream xmlStream = ec.getResourceAsStream("/WEB-INF/classes/formularios/"+formulario.getArchivo());
+	    	////////////////
+	    	 
+	 	    xmlStream = fileUtils.getInputStream(formulario);
 	    	ts.setRemoteTransformation(false);
 			String transformedHtml = ts.transform(xmlStream);
 			ec.responseReset(); // Some JSF component library or some Filter might have set some headers in the buffer beforehand. We want to get rid of them, else it may collide.
