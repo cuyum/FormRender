@@ -1,0 +1,1084 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.23 - Tarifa/precio minuto de comunicación telefonía fija</h:title>
+    <model>
+      <itext>
+        <translation default="true()" lang="Spanish">
+          <text id="/C1.23/minuto_ldn_pos_2/minuto_ldn_pre_2_detail:label">
+            <value>Prepago</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_local/minuto_revertida_pos_local_detail:hint">
+            <value>Cantidad en pesos mayor a cero</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_1/minuto_ldn_pos_1_detail/hn_ldn1_pos:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail/hr_revertida_ldn_pos:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail:label">
+            <value>Prepago</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail/hn_revertida_ldn_pos:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail:label">
+            <value>Prepago</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_1/minuto_ldn_pre_1_detail/hn_ldn1_pre:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_mlu_pos/minuto_mlu_pos_detail:label">
+            <value>Pospago</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail:label">
+            <value>Pospago</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail:hint">
+            <value>Cantidad en pesos mayor a cero</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail:hint">
+            <value>Cantidad en pesos mayor a cero</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail/hr_ldi_AN_pre:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_4/minuto_ldn_pre_4_detail:label">
+            <value>Prepago</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_5/minuto_ldn_pre_5_detail/hn_ldn5_pre:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail/hr_ldi_ASI_pos:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail/hn_ldi_OCE_pre:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail/hn_ldi_ASI_pos:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pos_FR_detail/hn_ldi_FR_pos:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_5/minuto_ldn_pos_5_detail/hr_ldn5_pos:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_5/minuto_ldn_pre_5_detail:label">
+            <value>Prepago</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail/hn_ldi_AS_pos:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_ldi:label">
+            <value>Minuto Llamada por Cobro Revertido LDI de Salida</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AFR:label">
+            <value>Minuto LDI Promedio África</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_3/minuto_ldn_pos_3_detail:hint">
+            <value>Cantidad en pesos mayor a cero</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail/hn_revertida_ldn_pre:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_local/minuto_revertida_pre_local_detail/hr_revertida_local_pre:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_6/minuto_ldn_pre_6_detail:label">
+            <value>Prepago</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_EU:label">
+            <value>Minuto LDI Promedio Europa</value>
+          </text>
+          <text id="/C1.23/minuto_mlu_pos/minuto_mlu_pre_detail/hn_mlu_pre:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail:label">
+            <value>Prepago</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail:label">
+            <value>Pospago</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_5/minuto_ldn_pos_5_detail/hn_ldn4_pos:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_2:label">
+            <value>Minuto LDN Clave 2</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_4/minuto_ldn_pos_4_detail/hr_ldn4_pos:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_6/minuto_ldn_pos_6_detail:hint">
+            <value>Cantidad en pesos mayor a cero</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_2/minuto_ldn_pre_2_detail/hr_ldn2_pre:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail:hint">
+            <value>Cantidad en pesos mayor a cero</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail:label">
+            <value>Pospago</value>
+          </text>
+          <text id="/C1.23/minuto_mlu_pos:label">
+            <value>Minuto Local/Urbano</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail/hr_revertida_ldi_pre:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail/hr_ldi_AN_pos:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail/hn_revertida_ldi_pre:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_2/minuto_ldn_pos_2_detail:label">
+            <value>Pospago</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_local/minuto_revertida_pre_local_detail/hn_revertida_local_pre:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail:label">
+            <value>Pospago</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail:label">
+            <value>Prepago</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_1/minuto_ldn_pos_1_detail:label">
+            <value>Pospago</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail/hr_ldi_AC_pre:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_1/minuto_ldn_pre_1_detail:label">
+            <value>Prepago</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_FR:label">
+            <value>Minuto LDI Promedio Fronterizo</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_5/minuto_ldn_pos_5_detail:label">
+            <value>Pospago</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail:hint">
+            <value>Cantidad en pesos mayor a cero</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_3:label">
+            <value>Minuto LDN Clave 3</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AC:label">
+            <value>Minuto LDI Promedio América Central</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail:hint">
+            <value>Cantidad en pesos mayor a cero</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_6/minuto_ldn_pos_6_detail/hn_ldn6_pos:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail/hr_ldi_OCE_pre:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail:label">
+            <value>Prepago</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail/hn_revertida_ldi_pos:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_4/minuto_ldn_pos_4_detail/hn_ldn4_pos:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_mlu_pos/minuto_mlu_pos_detail/hr_mlu_pos:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail/hr_ldi_ASI_pre:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_3/minuto_ldn_pos_3_detail:label">
+            <value>Pospago</value>
+          </text>
+          <text id="/C1.23/minuto_mlu_pos/minuto_mlu_pre_detail:label">
+            <value>Prepago</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail:label">
+            <value>Pospago</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail:hint">
+            <value>Cantidad en pesos mayor a cero</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pos_FR_detail:hint">
+            <value>Cantidad en pesos mayor a cero</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_3/minuto_ldn_pre_3_detail/hr_ldn3_pre:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_4/minuto_ldn_pre_4_detail/hr_ldn4_pre:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail/hn_ldi_ASI_pre:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_mlu_pos/minuto_mlu_pre_detail/hr_mlu_pre:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_1/minuto_ldn_pos_1_detail/hr_ldn1_pos:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_3/minuto_ldn_pos_3_detail/hr_ldn3_pos:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail/hr_revertida_ldn_pre:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail:label">
+            <value>Pospago</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AN:label">
+            <value>Minuto LDI Promedio América del Norte</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AS:label">
+            <value>Minuto LDI Promedio América del Sur</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_local/minuto_revertida_pos_local_detail:label">
+            <value>Pospago</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail/hr_ldi_EU_pos:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_mlu_pos/minuto_mlu_pos_detail/hn_mlu_pos:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_2/minuto_ldn_pre_2_detail/hn_ldn2_pre:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail:hint">
+            <value>Cantidad en pesos mayor a cero</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_6/minuto_ldn_pos_6_detail/hr_ldn6_pos:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail/hr_ldi_OCE_pos:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_5/minuto_ldn_pre_5_detail/hr_ldn5_pre:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail/hr_ldi_AFR_pos:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_4:label">
+            <value>Minuto LDN Clave 4</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_local/minuto_revertida_pre_local_detail:label">
+            <value>Prepago</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail/hr_ldi_EU_pre:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail:label">
+            <value>Prepago</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_4/minuto_ldn_pos_4_detail:label">
+            <value>Pospago</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_2/minuto_ldn_pos_2_detail/hr_ldn2_pos:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_1/minuto_ldn_pos_1_detail:hint">
+            <value>Cantidad en pesos mayor a cero</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_6/minuto_ldn_pos_6_detail:label">
+            <value>Pospago</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_2/minuto_ldn_pos_2_detail/hn_ldn6_pos:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_6/minuto_ldn_pre_6_detail/hn_ldn6_pre:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pre_FR_detail/hn_ldi_FR_pre:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail/hn_ldi_AFR_pos:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_3/minuto_ldn_pre_3_detail/hn_ldn3_pre:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail/hr_ldi_AS_pre:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail:hint">
+            <value>Cantidad en pesos mayor a cero</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail/hn_ldi_AC_pre:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail/hn_ldi_EU_pre:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_3/minuto_ldn_pre_3_detail:label">
+            <value>Prepago</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail:label">
+            <value>Pospago</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail/hn_ldi_AC_pos:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail:label">
+            <value>Pospago</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail/hr_ldi_AC_pos:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail/hr_ldi_AFR_pre:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_5:label">
+            <value>Minuto LDN Clave 5</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_4/minuto_ldn_pre_4_detail/hn_ldn4_pre:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_5/minuto_ldn_pos_5_detail:hint">
+            <value>Cantidad en pesos mayor a cero</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_3/minuto_ldn_pos_3_detail/hn_ldn3_pos:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_local:label">
+            <value>Minuto Llamada por Cobro Revertido Local</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail:label">
+            <value>Pospago</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail/hn_ldi_AFR_pre:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_local/minuto_revertida_pos_local_detail/hn_revertida_local_pos:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_ASI:label">
+            <value>Minuto LDI Promedio Asia</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pre_FR_detail:label">
+            <value>Prepago</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pos_FR_detail:label">
+            <value>Pospago</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_1/minuto_ldn_pre_1_detail/hr_ldn1_pre:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail:label">
+            <value>Prepago</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pos_FR_detail/hr_ldi_FR_pos:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail:hint">
+            <value>Cantidad en pesos mayor a cero</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail/hn_ldi_EU_pos:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail:label">
+            <value>Prepago</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail/hn_ldi_AS_pre:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_ldn:label">
+            <value>Minuto Llamada por Cobro Revertido LDN</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail/hr_ldi_AS_pos:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_6/minuto_ldn_pre_6_detail/hr_ldn6_pre:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail/hn_ldi_OCE_pos:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_4/minuto_ldn_pos_4_detail:hint">
+            <value>Cantidad en pesos mayor a cero</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_local/minuto_revertida_pos_local_detail/hr_revertida_local_pos:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_1:label">
+            <value>Minuto LDN Clave 1</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_2/minuto_ldn_pos_2_detail:hint">
+            <value>Cantidad en pesos mayor a cero numérico</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pre_FR_detail/hr_ldi_FR_pre:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_mlu_pos/minuto_mlu_pos_detail:hint">
+            <value>Cantidad en pesos mayor a cero</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail/hn_ldi_AN_pos:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail/hr_revertida_ldi_pos:label">
+            <value>HR</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_OCE:label">
+            <value>Minuto LDI Promedio Oceanía</value>
+          </text>
+          <text id="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail/hn_ldi_AN_pre:label">
+            <value>HN</value>
+          </text>
+          <text id="/C1.23/minuto_ldn_pos_6:label">
+            <value>Minuto LDN Clave 6-12</value>
+          </text>
+          <text id="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail:label">
+            <value>Prepago</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <C1.23 id="C1.23">
+          <minuto_mlu_pos>
+            <minuto_mlu_pos_detail>
+              <hr_mlu_pos/>
+              <hn_mlu_pos/>
+            </minuto_mlu_pos_detail>
+            <minuto_mlu_pre_detail>
+              <hr_mlu_pre/>
+              <hn_mlu_pre/>
+            </minuto_mlu_pre_detail>
+          </minuto_mlu_pos>
+          <minuto_ldn_pos_1>
+            <minuto_ldn_pos_1_detail>
+              <hr_ldn1_pos/>
+              <hn_ldn1_pos/>
+            </minuto_ldn_pos_1_detail>
+            <minuto_ldn_pre_1_detail>
+              <hr_ldn1_pre/>
+              <hn_ldn1_pre/>
+            </minuto_ldn_pre_1_detail>
+          </minuto_ldn_pos_1>
+          <minuto_ldn_pos_2>
+            <minuto_ldn_pos_2_detail>
+              <hr_ldn2_pos/>
+              <hn_ldn6_pos/>
+            </minuto_ldn_pos_2_detail>
+            <minuto_ldn_pre_2_detail>
+              <hr_ldn2_pre/>
+              <hn_ldn2_pre/>
+            </minuto_ldn_pre_2_detail>
+          </minuto_ldn_pos_2>
+          <minuto_ldn_pos_3>
+            <minuto_ldn_pos_3_detail>
+              <hr_ldn3_pos/>
+              <hn_ldn3_pos/>
+            </minuto_ldn_pos_3_detail>
+            <minuto_ldn_pre_3_detail>
+              <hr_ldn3_pre/>
+              <hn_ldn3_pre/>
+            </minuto_ldn_pre_3_detail>
+          </minuto_ldn_pos_3>
+          <minuto_ldn_pos_4>
+            <minuto_ldn_pos_4_detail>
+              <hr_ldn4_pos/>
+              <hn_ldn4_pos/>
+            </minuto_ldn_pos_4_detail>
+            <minuto_ldn_pre_4_detail>
+              <hr_ldn4_pre/>
+              <hn_ldn4_pre/>
+            </minuto_ldn_pre_4_detail>
+          </minuto_ldn_pos_4>
+          <minuto_ldn_pos_5>
+            <minuto_ldn_pos_5_detail>
+              <hr_ldn5_pos/>
+              <hn_ldn4_pos/>
+            </minuto_ldn_pos_5_detail>
+            <minuto_ldn_pre_5_detail>
+              <hr_ldn5_pre/>
+              <hn_ldn5_pre/>
+            </minuto_ldn_pre_5_detail>
+          </minuto_ldn_pos_5>
+          <minuto_ldn_pos_6>
+            <minuto_ldn_pos_6_detail>
+              <hr_ldn6_pos/>
+              <hn_ldn6_pos/>
+            </minuto_ldn_pos_6_detail>
+            <minuto_ldn_pre_6_detail>
+              <hr_ldn6_pre/>
+              <hn_ldn6_pre/>
+            </minuto_ldn_pre_6_detail>
+          </minuto_ldn_pos_6>
+          <minuto_ldi_pos_FR>
+            <minuto_ldi_pos_FR_detail>
+              <hr_ldi_FR_pos/>
+              <hn_ldi_FR_pos/>
+            </minuto_ldi_pos_FR_detail>
+            <minuto_ldi_pre_FR_detail>
+              <hr_ldi_FR_pre/>
+              <hn_ldi_FR_pre/>
+            </minuto_ldi_pre_FR_detail>
+          </minuto_ldi_pos_FR>
+          <minuto_ldi_pos_AS>
+            <minuto_ldi_pos_AS_detail>
+              <hr_ldi_AS_pos/>
+              <hn_ldi_AS_pos/>
+            </minuto_ldi_pos_AS_detail>
+            <minuto_ldi_pre_AS_detail>
+              <hr_ldi_AS_pre/>
+              <hn_ldi_AS_pre/>
+            </minuto_ldi_pre_AS_detail>
+          </minuto_ldi_pos_AS>
+          <minuto_ldi_pos_AC>
+            <minuto_ldi_pos_AC_detail>
+              <hr_ldi_AC_pos/>
+              <hn_ldi_AC_pos/>
+            </minuto_ldi_pos_AC_detail>
+            <minuto_ldi_pre_AC_detail>
+              <hr_ldi_AC_pre/>
+              <hn_ldi_AC_pre/>
+            </minuto_ldi_pre_AC_detail>
+          </minuto_ldi_pos_AC>
+          <minuto_ldi_pos_AN>
+            <minuto_ldi_pos_AN_detail>
+              <hr_ldi_AN_pos/>
+              <hn_ldi_AN_pos/>
+            </minuto_ldi_pos_AN_detail>
+            <minuto_ldi_pre_AN_detail>
+              <hr_ldi_AN_pre/>
+              <hn_ldi_AN_pre/>
+            </minuto_ldi_pre_AN_detail>
+          </minuto_ldi_pos_AN>
+          <minuto_ldi_pos_EU>
+            <minuto_ldi_pos_EU_detail>
+              <hr_ldi_EU_pos/>
+              <hn_ldi_EU_pos/>
+            </minuto_ldi_pos_EU_detail>
+            <minuto_ldi_pre_EU_detail>
+              <hr_ldi_EU_pre/>
+              <hn_ldi_EU_pre/>
+            </minuto_ldi_pre_EU_detail>
+          </minuto_ldi_pos_EU>
+          <minuto_ldi_pos_AFR>
+            <minuto_ldi_pos_AFR_detail>
+              <hr_ldi_AFR_pos/>
+              <hn_ldi_AFR_pos/>
+            </minuto_ldi_pos_AFR_detail>
+            <minuto_ldi_pre_AFR_detail>
+              <hr_ldi_AFR_pre/>
+              <hn_ldi_AFR_pre/>
+            </minuto_ldi_pre_AFR_detail>
+          </minuto_ldi_pos_AFR>
+          <minuto_ldi_pos_ASI>
+            <minuto_ldi_pos_ASI_detail>
+              <hr_ldi_ASI_pos/>
+              <hn_ldi_ASI_pos/>
+            </minuto_ldi_pos_ASI_detail>
+            <minuto_ldi_pre_ASI_detail>
+              <hr_ldi_ASI_pre/>
+              <hn_ldi_ASI_pre/>
+            </minuto_ldi_pre_ASI_detail>
+          </minuto_ldi_pos_ASI>
+          <minuto_ldi_pos_OCE>
+            <minuto_ldi_pos_OCE_detail>
+              <hr_ldi_OCE_pos/>
+              <hn_ldi_OCE_pos/>
+            </minuto_ldi_pos_OCE_detail>
+            <minuto_ldi_pre_OCE_detail>
+              <hr_ldi_OCE_pre/>
+              <hn_ldi_OCE_pre/>
+            </minuto_ldi_pre_OCE_detail>
+          </minuto_ldi_pos_OCE>
+          <minuto_revertida_pos_local>
+            <minuto_revertida_pos_local_detail>
+              <hr_revertida_local_pos/>
+              <hn_revertida_local_pos/>
+            </minuto_revertida_pos_local_detail>
+            <minuto_revertida_pre_local_detail>
+              <hr_revertida_local_pre/>
+              <hn_revertida_local_pre/>
+            </minuto_revertida_pre_local_detail>
+          </minuto_revertida_pos_local>
+          <minuto_revertida_pos_ldn>
+            <minuto_revertida_pos_ldn_detail>
+              <hr_revertida_ldn_pos/>
+              <hn_revertida_ldn_pos/>
+            </minuto_revertida_pos_ldn_detail>
+            <minuto_revertida_pre_ldn_detail>
+              <hr_revertida_ldn_pre/>
+              <hn_revertida_ldn_pre/>
+            </minuto_revertida_pre_ldn_detail>
+          </minuto_revertida_pos_ldn>
+          <minuto_revertida_pos_ldi>
+            <minuto_revertida_pos_ldi_detail>
+              <hr_revertida_ldi_pos/>
+              <hn_revertida_ldi_pos/>
+            </minuto_revertida_pos_ldi_detail>
+            <minuto_revertida_pre_ldi_detail>
+              <hr_revertida_ldi_pre/>
+              <hn_revertida_ldi_pre/>
+            </minuto_revertida_pre_ldi_detail>
+          </minuto_revertida_pos_ldi>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.23>
+      </instance>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_mlu_pos/minuto_mlu_pos_detail/hr_mlu_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_mlu_pos/minuto_mlu_pos_detail/hn_mlu_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_mlu_pos/minuto_mlu_pre_detail/hr_mlu_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_mlu_pos/minuto_mlu_pre_detail/hn_mlu_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_1/minuto_ldn_pos_1_detail/hr_ldn1_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_1/minuto_ldn_pos_1_detail/hn_ldn1_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_1/minuto_ldn_pre_1_detail/hr_ldn1_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_1/minuto_ldn_pre_1_detail/hn_ldn1_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_2/minuto_ldn_pos_2_detail/hr_ldn2_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_2/minuto_ldn_pos_2_detail/hn_ldn6_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_2/minuto_ldn_pre_2_detail/hr_ldn2_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_2/minuto_ldn_pre_2_detail/hn_ldn2_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_3/minuto_ldn_pos_3_detail/hr_ldn3_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_3/minuto_ldn_pos_3_detail/hn_ldn3_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_3/minuto_ldn_pre_3_detail/hr_ldn3_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_3/minuto_ldn_pre_3_detail/hn_ldn3_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_4/minuto_ldn_pos_4_detail/hr_ldn4_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_4/minuto_ldn_pos_4_detail/hn_ldn4_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_4/minuto_ldn_pre_4_detail/hr_ldn4_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_4/minuto_ldn_pre_4_detail/hn_ldn4_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_5/minuto_ldn_pos_5_detail/hr_ldn5_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_5/minuto_ldn_pos_5_detail/hn_ldn4_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_5/minuto_ldn_pre_5_detail/hr_ldn5_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_5/minuto_ldn_pre_5_detail/hn_ldn5_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_6/minuto_ldn_pos_6_detail/hr_ldn6_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_6/minuto_ldn_pos_6_detail/hn_ldn6_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_6/minuto_ldn_pre_6_detail/hr_ldn6_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldn_pos_6/minuto_ldn_pre_6_detail/hn_ldn6_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pos_FR_detail/hr_ldi_FR_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pos_FR_detail/hn_ldi_FR_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pre_FR_detail/hr_ldi_FR_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pre_FR_detail/hn_ldi_FR_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail/hr_ldi_AS_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail/hn_ldi_AS_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail/hr_ldi_AS_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail/hn_ldi_AS_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail/hr_ldi_AC_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail/hn_ldi_AC_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail/hr_ldi_AC_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail/hn_ldi_AC_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail/hr_ldi_AN_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail/hn_ldi_AN_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail/hr_ldi_AN_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail/hn_ldi_AN_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail/hr_ldi_EU_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail/hn_ldi_EU_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail/hr_ldi_EU_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail/hn_ldi_EU_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail/hr_ldi_AFR_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail/hn_ldi_AFR_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail/hr_ldi_AFR_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail/hn_ldi_AFR_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail/hr_ldi_ASI_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail/hn_ldi_ASI_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail/hr_ldi_ASI_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail/hn_ldi_ASI_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail/hr_ldi_OCE_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail/hn_ldi_OCE_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail/hr_ldi_OCE_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail/hn_ldi_OCE_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_revertida_pos_local/minuto_revertida_pos_local_detail/hr_revertida_local_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_revertida_pos_local/minuto_revertida_pos_local_detail/hn_revertida_local_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_revertida_pos_local/minuto_revertida_pre_local_detail/hr_revertida_local_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_revertida_pos_local/minuto_revertida_pre_local_detail/hn_revertida_local_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail/hr_revertida_ldn_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail/hn_revertida_ldn_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail/hr_revertida_ldn_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail/hn_revertida_ldn_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail/hr_revertida_ldi_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail/hn_revertida_ldi_pos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail/hr_revertida_ldi_pre" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Numérico de 12 dígitos" nodeset="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail/hn_revertida_ldi_pre" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.23/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col1" ref="/C1.23/minuto_mlu_pos">
+      <label ref="jr:itext('/C1.23/minuto_mlu_pos:label')"/>
+      <group appearance="col2" ref="/C1.23/minuto_mlu_pos/minuto_mlu_pos_detail">
+        <label ref="jr:itext('/C1.23/minuto_mlu_pos/minuto_mlu_pos_detail:label')"/>
+        <input ref="/C1.23/minuto_mlu_pos/minuto_mlu_pos_detail/hr_mlu_pos">
+          <label ref="jr:itext('/C1.23/minuto_mlu_pos/minuto_mlu_pos_detail/hr_mlu_pos:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_mlu_pos/minuto_mlu_pos_detail/hn_mlu_pos">
+          <label ref="jr:itext('/C1.23/minuto_mlu_pos/minuto_mlu_pos_detail/hn_mlu_pos:label')"/>
+        </input>
+      </group>
+      <group appearance="col2" ref="/C1.23/minuto_mlu_pos/minuto_mlu_pre_detail">
+        <label ref="jr:itext('/C1.23/minuto_mlu_pos/minuto_mlu_pre_detail:label')"/>
+        <input ref="/C1.23/minuto_mlu_pos/minuto_mlu_pre_detail/hr_mlu_pre">
+          <label ref="jr:itext('/C1.23/minuto_mlu_pos/minuto_mlu_pre_detail/hr_mlu_pre:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_mlu_pos/minuto_mlu_pre_detail/hn_mlu_pre">
+          <label ref="jr:itext('/C1.23/minuto_mlu_pos/minuto_mlu_pre_detail/hn_mlu_pre:label')"/>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1" ref="/C1.23/minuto_ldn_pos_1">
+      <label ref="jr:itext('/C1.23/minuto_ldn_pos_1:label')"/>
+      <group appearance="col2" ref="/C1.23/minuto_ldn_pos_1/minuto_ldn_pos_1_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldn_pos_1/minuto_ldn_pos_1_detail:label')"/>
+        <input ref="/C1.23/minuto_ldn_pos_1/minuto_ldn_pos_1_detail/hr_ldn1_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_1/minuto_ldn_pos_1_detail/hr_ldn1_pos:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldn_pos_1/minuto_ldn_pos_1_detail/hn_ldn1_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_1/minuto_ldn_pos_1_detail/hn_ldn1_pos:label')"/>
+        </input>
+      </group>
+      <group appearance="col2" ref="/C1.23/minuto_ldn_pos_1/minuto_ldn_pre_1_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldn_pos_1/minuto_ldn_pre_1_detail:label')"/>
+        <input ref="/C1.23/minuto_ldn_pos_1/minuto_ldn_pre_1_detail/hr_ldn1_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_1/minuto_ldn_pre_1_detail/hr_ldn1_pre:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldn_pos_1/minuto_ldn_pre_1_detail/hn_ldn1_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_1/minuto_ldn_pre_1_detail/hn_ldn1_pre:label')"/>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1" ref="/C1.23/minuto_ldn_pos_2">
+      <label ref="jr:itext('/C1.23/minuto_ldn_pos_2:label')"/>
+      <group appearance="col2" ref="/C1.23/minuto_ldn_pos_2/minuto_ldn_pos_2_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldn_pos_2/minuto_ldn_pos_2_detail:label')"/>
+        <input ref="/C1.23/minuto_ldn_pos_2/minuto_ldn_pos_2_detail/hr_ldn2_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_2/minuto_ldn_pos_2_detail/hr_ldn2_pos:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldn_pos_2/minuto_ldn_pos_2_detail/hn_ldn6_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_2/minuto_ldn_pos_2_detail/hn_ldn6_pos:label')"/>
+        </input>
+      </group>
+      <group appearance="col2" ref="/C1.23/minuto_ldn_pos_2/minuto_ldn_pre_2_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldn_pos_2/minuto_ldn_pre_2_detail:label')"/>
+        <input ref="/C1.23/minuto_ldn_pos_2/minuto_ldn_pre_2_detail/hr_ldn2_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_2/minuto_ldn_pre_2_detail/hr_ldn2_pre:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldn_pos_2/minuto_ldn_pre_2_detail/hn_ldn2_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_2/minuto_ldn_pre_2_detail/hn_ldn2_pre:label')"/>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1" ref="/C1.23/minuto_ldn_pos_3">
+      <label ref="jr:itext('/C1.23/minuto_ldn_pos_3:label')"/>
+      <group appearance="col2" ref="/C1.23/minuto_ldn_pos_3/minuto_ldn_pos_3_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldn_pos_3/minuto_ldn_pos_3_detail:label')"/>
+        <input ref="/C1.23/minuto_ldn_pos_3/minuto_ldn_pos_3_detail/hr_ldn3_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_3/minuto_ldn_pos_3_detail/hr_ldn3_pos:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldn_pos_3/minuto_ldn_pos_3_detail/hn_ldn3_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_3/minuto_ldn_pos_3_detail/hn_ldn3_pos:label')"/>
+        </input>
+      </group>
+      <group appearance="col2" ref="/C1.23/minuto_ldn_pos_3/minuto_ldn_pre_3_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldn_pos_3/minuto_ldn_pre_3_detail:label')"/>
+        <input ref="/C1.23/minuto_ldn_pos_3/minuto_ldn_pre_3_detail/hr_ldn3_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_3/minuto_ldn_pre_3_detail/hr_ldn3_pre:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldn_pos_3/minuto_ldn_pre_3_detail/hn_ldn3_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_3/minuto_ldn_pre_3_detail/hn_ldn3_pre:label')"/>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1" ref="/C1.23/minuto_ldn_pos_4">
+      <label ref="jr:itext('/C1.23/minuto_ldn_pos_4:label')"/>
+      <group appearance="col2" ref="/C1.23/minuto_ldn_pos_4/minuto_ldn_pos_4_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldn_pos_4/minuto_ldn_pos_4_detail:label')"/>
+        <input ref="/C1.23/minuto_ldn_pos_4/minuto_ldn_pos_4_detail/hr_ldn4_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_4/minuto_ldn_pos_4_detail/hr_ldn4_pos:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldn_pos_4/minuto_ldn_pos_4_detail/hn_ldn4_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_4/minuto_ldn_pos_4_detail/hn_ldn4_pos:label')"/>
+        </input>
+      </group>
+      <group appearance="col2" ref="/C1.23/minuto_ldn_pos_4/minuto_ldn_pre_4_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldn_pos_4/minuto_ldn_pre_4_detail:label')"/>
+        <input ref="/C1.23/minuto_ldn_pos_4/minuto_ldn_pre_4_detail/hr_ldn4_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_4/minuto_ldn_pre_4_detail/hr_ldn4_pre:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldn_pos_4/minuto_ldn_pre_4_detail/hn_ldn4_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_4/minuto_ldn_pre_4_detail/hn_ldn4_pre:label')"/>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1" ref="/C1.23/minuto_ldn_pos_5">
+      <label ref="jr:itext('/C1.23/minuto_ldn_pos_5:label')"/>
+      <group appearance="col2" ref="/C1.23/minuto_ldn_pos_5/minuto_ldn_pos_5_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldn_pos_5/minuto_ldn_pos_5_detail:label')"/>
+        <input ref="/C1.23/minuto_ldn_pos_5/minuto_ldn_pos_5_detail/hr_ldn5_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_5/minuto_ldn_pos_5_detail/hr_ldn5_pos:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldn_pos_5/minuto_ldn_pos_5_detail/hn_ldn4_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_5/minuto_ldn_pos_5_detail/hn_ldn4_pos:label')"/>
+        </input>
+      </group>
+      <group appearance="col2" ref="/C1.23/minuto_ldn_pos_5/minuto_ldn_pre_5_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldn_pos_5/minuto_ldn_pre_5_detail:label')"/>
+        <input ref="/C1.23/minuto_ldn_pos_5/minuto_ldn_pre_5_detail/hr_ldn5_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_5/minuto_ldn_pre_5_detail/hr_ldn5_pre:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldn_pos_5/minuto_ldn_pre_5_detail/hn_ldn5_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_5/minuto_ldn_pre_5_detail/hn_ldn5_pre:label')"/>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1" ref="/C1.23/minuto_ldn_pos_6">
+      <label ref="jr:itext('/C1.23/minuto_ldn_pos_6:label')"/>
+      <group appearance="col2" ref="/C1.23/minuto_ldn_pos_6/minuto_ldn_pos_6_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldn_pos_6/minuto_ldn_pos_6_detail:label')"/>
+        <input ref="/C1.23/minuto_ldn_pos_6/minuto_ldn_pos_6_detail/hr_ldn6_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_6/minuto_ldn_pos_6_detail/hr_ldn6_pos:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldn_pos_6/minuto_ldn_pos_6_detail/hn_ldn6_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_6/minuto_ldn_pos_6_detail/hn_ldn6_pos:label')"/>
+        </input>
+      </group>
+      <group appearance="col2" ref="/C1.23/minuto_ldn_pos_6/minuto_ldn_pre_6_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldn_pos_6/minuto_ldn_pre_6_detail:label')"/>
+        <input ref="/C1.23/minuto_ldn_pos_6/minuto_ldn_pre_6_detail/hr_ldn6_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_6/minuto_ldn_pre_6_detail/hr_ldn6_pre:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldn_pos_6/minuto_ldn_pre_6_detail/hn_ldn6_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldn_pos_6/minuto_ldn_pre_6_detail/hn_ldn6_pre:label')"/>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1" ref="/C1.23/minuto_ldi_pos_FR">
+      <label ref="jr:itext('/C1.23/minuto_ldi_pos_FR:label')"/>
+      <group appearance="col2" ref="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pos_FR_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldi_pos_FR/minuto_ldi_pos_FR_detail:label')"/>
+        <input ref="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pos_FR_detail/hr_ldi_FR_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_FR/minuto_ldi_pos_FR_detail/hr_ldi_FR_pos:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pos_FR_detail/hn_ldi_FR_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_FR/minuto_ldi_pos_FR_detail/hn_ldi_FR_pos:label')"/>
+        </input>
+      </group>
+      <group appearance="col2" ref="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pre_FR_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldi_pos_FR/minuto_ldi_pre_FR_detail:label')"/>
+        <input ref="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pre_FR_detail/hr_ldi_FR_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_FR/minuto_ldi_pre_FR_detail/hr_ldi_FR_pre:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pre_FR_detail/hn_ldi_FR_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_FR/minuto_ldi_pre_FR_detail/hn_ldi_FR_pre:label')"/>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1" ref="/C1.23/minuto_ldi_pos_AS">
+      <label ref="jr:itext('/C1.23/minuto_ldi_pos_AS:label')"/>
+      <group appearance="col2" ref="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail:label')"/>
+        <input ref="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail/hr_ldi_AS_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail/hr_ldi_AS_pos:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail/hn_ldi_AS_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail/hn_ldi_AS_pos:label')"/>
+        </input>
+      </group>
+      <group appearance="col2" ref="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail:label')"/>
+        <input ref="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail/hr_ldi_AS_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail/hr_ldi_AS_pre:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail/hn_ldi_AS_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail/hn_ldi_AS_pre:label')"/>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1" ref="/C1.23/minuto_ldi_pos_AC">
+      <label ref="jr:itext('/C1.23/minuto_ldi_pos_AC:label')"/>
+      <group appearance="col2" ref="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail:label')"/>
+        <input ref="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail/hr_ldi_AC_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail/hr_ldi_AC_pos:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail/hn_ldi_AC_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail/hn_ldi_AC_pos:label')"/>
+        </input>
+      </group>
+      <group appearance="col2" ref="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail:label')"/>
+        <input ref="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail/hr_ldi_AC_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail/hr_ldi_AC_pre:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail/hn_ldi_AC_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail/hn_ldi_AC_pre:label')"/>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1" ref="/C1.23/minuto_ldi_pos_AN">
+      <label ref="jr:itext('/C1.23/minuto_ldi_pos_AN:label')"/>
+      <group appearance="col2" ref="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail:label')"/>
+        <input ref="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail/hr_ldi_AN_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail/hr_ldi_AN_pos:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail/hn_ldi_AN_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail/hn_ldi_AN_pos:label')"/>
+        </input>
+      </group>
+      <group appearance="col2" ref="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail:label')"/>
+        <input ref="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail/hr_ldi_AN_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail/hr_ldi_AN_pre:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail/hn_ldi_AN_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail/hn_ldi_AN_pre:label')"/>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1" ref="/C1.23/minuto_ldi_pos_EU">
+      <label ref="jr:itext('/C1.23/minuto_ldi_pos_EU:label')"/>
+      <group appearance="col2" ref="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail:label')"/>
+        <input ref="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail/hr_ldi_EU_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail/hr_ldi_EU_pos:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail/hn_ldi_EU_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail/hn_ldi_EU_pos:label')"/>
+        </input>
+      </group>
+      <group appearance="col2" ref="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail:label')"/>
+        <input ref="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail/hr_ldi_EU_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail/hr_ldi_EU_pre:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail/hn_ldi_EU_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail/hn_ldi_EU_pre:label')"/>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1" ref="/C1.23/minuto_ldi_pos_AFR">
+      <label ref="jr:itext('/C1.23/minuto_ldi_pos_AFR:label')"/>
+      <group appearance="col2" ref="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail:label')"/>
+        <input ref="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail/hr_ldi_AFR_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail/hr_ldi_AFR_pos:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail/hn_ldi_AFR_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail/hn_ldi_AFR_pos:label')"/>
+        </input>
+      </group>
+      <group appearance="col2" ref="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail:label')"/>
+        <input ref="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail/hr_ldi_AFR_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail/hr_ldi_AFR_pre:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail/hn_ldi_AFR_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail/hn_ldi_AFR_pre:label')"/>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1" ref="/C1.23/minuto_ldi_pos_ASI">
+      <label ref="jr:itext('/C1.23/minuto_ldi_pos_ASI:label')"/>
+      <group appearance="col2" ref="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail:label')"/>
+        <input ref="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail/hr_ldi_ASI_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail/hr_ldi_ASI_pos:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail/hn_ldi_ASI_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail/hn_ldi_ASI_pos:label')"/>
+        </input>
+      </group>
+      <group appearance="col2" ref="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail:label')"/>
+        <input ref="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail/hr_ldi_ASI_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail/hr_ldi_ASI_pre:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail/hn_ldi_ASI_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail/hn_ldi_ASI_pre:label')"/>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1" ref="/C1.23/minuto_ldi_pos_OCE">
+      <label ref="jr:itext('/C1.23/minuto_ldi_pos_OCE:label')"/>
+      <group appearance="col2" ref="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail:label')"/>
+        <input ref="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail/hr_ldi_OCE_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail/hr_ldi_OCE_pos:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail/hn_ldi_OCE_pos">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail/hn_ldi_OCE_pos:label')"/>
+        </input>
+      </group>
+      <group appearance="col2" ref="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail">
+        <label ref="jr:itext('/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail:label')"/>
+        <input ref="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail/hr_ldi_OCE_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail/hr_ldi_OCE_pre:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail/hn_ldi_OCE_pre">
+          <label ref="jr:itext('/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail/hn_ldi_OCE_pre:label')"/>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1" ref="/C1.23/minuto_revertida_pos_local">
+      <label ref="jr:itext('/C1.23/minuto_revertida_pos_local:label')"/>
+      <group appearance="col2" ref="/C1.23/minuto_revertida_pos_local/minuto_revertida_pos_local_detail">
+        <label ref="jr:itext('/C1.23/minuto_revertida_pos_local/minuto_revertida_pos_local_detail:label')"/>
+        <input ref="/C1.23/minuto_revertida_pos_local/minuto_revertida_pos_local_detail/hr_revertida_local_pos">
+          <label ref="jr:itext('/C1.23/minuto_revertida_pos_local/minuto_revertida_pos_local_detail/hr_revertida_local_pos:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_revertida_pos_local/minuto_revertida_pos_local_detail/hn_revertida_local_pos">
+          <label ref="jr:itext('/C1.23/minuto_revertida_pos_local/minuto_revertida_pos_local_detail/hn_revertida_local_pos:label')"/>
+        </input>
+      </group>
+      <group appearance="col2" ref="/C1.23/minuto_revertida_pos_local/minuto_revertida_pre_local_detail">
+        <label ref="jr:itext('/C1.23/minuto_revertida_pos_local/minuto_revertida_pre_local_detail:label')"/>
+        <input ref="/C1.23/minuto_revertida_pos_local/minuto_revertida_pre_local_detail/hr_revertida_local_pre">
+          <label ref="jr:itext('/C1.23/minuto_revertida_pos_local/minuto_revertida_pre_local_detail/hr_revertida_local_pre:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_revertida_pos_local/minuto_revertida_pre_local_detail/hn_revertida_local_pre">
+          <label ref="jr:itext('/C1.23/minuto_revertida_pos_local/minuto_revertida_pre_local_detail/hn_revertida_local_pre:label')"/>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1" ref="/C1.23/minuto_revertida_pos_ldn">
+      <label ref="jr:itext('/C1.23/minuto_revertida_pos_ldn:label')"/>
+      <group appearance="col2" ref="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail">
+        <label ref="jr:itext('/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail:label')"/>
+        <input ref="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail/hr_revertida_ldn_pos">
+          <label ref="jr:itext('/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail/hr_revertida_ldn_pos:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail/hn_revertida_ldn_pos">
+          <label ref="jr:itext('/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail/hn_revertida_ldn_pos:label')"/>
+        </input>
+      </group>
+      <group appearance="col2" ref="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail">
+        <label ref="jr:itext('/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail:label')"/>
+        <input ref="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail/hr_revertida_ldn_pre">
+          <label ref="jr:itext('/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail/hr_revertida_ldn_pre:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail/hn_revertida_ldn_pre">
+          <label ref="jr:itext('/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail/hn_revertida_ldn_pre:label')"/>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1" ref="/C1.23/minuto_revertida_pos_ldi">
+      <label ref="jr:itext('/C1.23/minuto_revertida_pos_ldi:label')"/>
+      <group appearance="col2" ref="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail">
+        <label ref="jr:itext('/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail:label')"/>
+        <input ref="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail/hr_revertida_ldi_pos">
+          <label ref="jr:itext('/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail/hr_revertida_ldi_pos:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail/hn_revertida_ldi_pos">
+          <label ref="jr:itext('/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail/hn_revertida_ldi_pos:label')"/>
+        </input>
+      </group>
+      <group appearance="col2" ref="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail">
+        <label ref="jr:itext('/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail:label')"/>
+        <input ref="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail/hr_revertida_ldi_pre">
+          <label ref="jr:itext('/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail/hr_revertida_ldi_pre:label')"/>
+        </input>
+        <input ref="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail/hn_revertida_ldi_pre">
+          <label ref="jr:itext('/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail/hn_revertida_ldi_pre:label')"/>
+        </input>
+      </group>
+    </group>
+  </h:body>
+</h:html>

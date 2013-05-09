@@ -1,0 +1,326 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.29 - Ingresos/totales telefonía local por provincia</h:title>
+    <model>
+      <itext>
+        <translation default="true()" lang="Spanish">
+          <text id="/C1.29/mes/mendoza:label">
+            <value>Mendoza</value>
+          </text>
+          <text id="/C1.29/mes/tucuman:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/la_Pampa:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/corrientes:label">
+            <value>Corrientes</value>
+          </text>
+          <text id="/C1.29/mes/la_Pampa:label">
+            <value>La Pampa</value>
+          </text>
+          <text id="/C1.29/mes/santa_Fe:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/santa_Cruz:label">
+            <value>Santa Cruz</value>
+          </text>
+          <text id="/C1.29/mes/san_Luis:label">
+            <value>San Luis</value>
+          </text>
+          <text id="/C1.29/mes/buenos_Aires:label">
+            <value>Buenos Aires</value>
+          </text>
+          <text id="/C1.29/mes/santiago_Estero:label">
+            <value>Santiago del Estero</value>
+          </text>
+          <text id="/C1.29/mes/formosa:label">
+            <value>Formosa</value>
+          </text>
+          <text id="/C1.29/mes/salta:label">
+            <value>Salta</value>
+          </text>
+          <text id="/C1.29/mes/amba:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/catamarca:label">
+            <value>Catamarca</value>
+          </text>
+          <text id="/C1.29/mes/tierra_Fuego:label">
+            <value>Tierra del Fuego</value>
+          </text>
+          <text id="/C1.29/mes/buenos_Aires:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/tierra_Fuego:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/amba:label">
+            <value>AMBA</value>
+          </text>
+          <text id="/C1.29/intro:label">
+            <value>Expresar en miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/entre_rios:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/jujuy:label">
+            <value>Jujuy</value>
+          </text>
+          <text id="/C1.29/mes/santa_Fe:label">
+            <value>Santa Fe</value>
+          </text>
+          <text id="/C1.29/mes/corrientes:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/catamarca:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/neuquen:label">
+            <value>Neuquén</value>
+          </text>
+          <text id="/C1.29/mes/la_Rioja:label">
+            <value>La Rioja</value>
+          </text>
+          <text id="/C1.29/mes/santiago_Estero:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/chaco:label">
+            <value>Chaco</value>
+          </text>
+          <text id="/C1.29/mes/mendoza:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/misiones:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes:label">
+            <value>Mes</value>
+          </text>
+          <text id="/C1.29/mes/san_Juan:label">
+            <value>San Juan</value>
+          </text>
+          <text id="/C1.29/mes/san_Juan:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/neuquen:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/san_Luis:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/jujuy:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/la_Rioja:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/entre_rios:label">
+            <value>Entre Ríos</value>
+          </text>
+          <text id="/C1.29/mes/chubut:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/cordoba:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/tucuman:label">
+            <value>Tucumán</value>
+          </text>
+          <text id="/C1.29/mes/rio_Negro:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/formosa:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/chaco:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/rio_Negro:label">
+            <value>Río Negro</value>
+          </text>
+          <text id="/C1.29/mes/cordoba:label">
+            <value>Córdoba</value>
+          </text>
+          <text id="/C1.29/mes/santa_Cruz:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+          <text id="/C1.29/mes/misiones:label">
+            <value>Misiones</value>
+          </text>
+          <text id="/C1.29/mes/chubut:label">
+            <value>Chubut</value>
+          </text>
+          <text id="/C1.29/mes/salta:hint">
+            <value>En miles de pesos, 8 dígitos</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <C1.29 id="C1.29">
+          <intro/>
+          <mes>
+            <amba>0</amba>
+            <buenos_Aires>0</buenos_Aires>
+            <catamarca>0</catamarca>
+            <chaco>0</chaco>
+            <chubut>0</chubut>
+            <cordoba>0</cordoba>
+            <corrientes>0</corrientes>
+            <entre_rios>0</entre_rios>
+            <formosa>0</formosa>
+            <jujuy>0</jujuy>
+            <la_Pampa>0</la_Pampa>
+            <la_Rioja>0</la_Rioja>
+            <mendoza>0</mendoza>
+            <misiones>0</misiones>
+            <neuquen>0</neuquen>
+            <rio_Negro>0</rio_Negro>
+            <salta>0</salta>
+            <san_Juan>0</san_Juan>
+            <san_Luis>0</san_Luis>
+            <santa_Cruz>0</santa_Cruz>
+            <santa_Fe>0</santa_Fe>
+            <santiago_Estero>0</santiago_Estero>
+            <tierra_Fuego>0</tierra_Fuego>
+            <tucuman>0</tucuman>
+          </mes>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.29>
+      </instance>
+      <bind nodeset="/C1.29/intro" readonly="true()" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/amba" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/buenos_Aires" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/catamarca" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/chaco" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/chubut" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/cordoba" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/corrientes" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/entre_rios" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/formosa" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/jujuy" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/la_Pampa" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/la_Rioja" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/mendoza" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/misiones" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/neuquen" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/rio_Negro" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/salta" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/san_Juan" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/san_Luis" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/santa_Cruz" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/santa_Fe" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/santiago_Estero" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/tierra_Fuego" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/mes/tucuman" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.29/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/C1.29/intro">
+      <label ref="jr:itext('/C1.29/intro:label')"/>
+    </input>
+    <group appearance="col6" ref="/C1.29/mes">
+      <label ref="jr:itext('/C1.29/mes:label')"/>
+      <input ref="/C1.29/mes/amba">
+        <label ref="jr:itext('/C1.29/mes/amba:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/amba:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/buenos_Aires">
+        <label ref="jr:itext('/C1.29/mes/buenos_Aires:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/buenos_Aires:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/catamarca">
+        <label ref="jr:itext('/C1.29/mes/catamarca:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/catamarca:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/chaco">
+        <label ref="jr:itext('/C1.29/mes/chaco:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/chaco:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/chubut">
+        <label ref="jr:itext('/C1.29/mes/chubut:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/chubut:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/cordoba">
+        <label ref="jr:itext('/C1.29/mes/cordoba:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/cordoba:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/corrientes">
+        <label ref="jr:itext('/C1.29/mes/corrientes:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/corrientes:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/entre_rios">
+        <label ref="jr:itext('/C1.29/mes/entre_rios:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/entre_rios:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/formosa">
+        <label ref="jr:itext('/C1.29/mes/formosa:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/formosa:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/jujuy">
+        <label ref="jr:itext('/C1.29/mes/jujuy:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/jujuy:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/la_Pampa">
+        <label ref="jr:itext('/C1.29/mes/la_Pampa:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/la_Pampa:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/la_Rioja">
+        <label ref="jr:itext('/C1.29/mes/la_Rioja:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/la_Rioja:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/mendoza">
+        <label ref="jr:itext('/C1.29/mes/mendoza:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/mendoza:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/misiones">
+        <label ref="jr:itext('/C1.29/mes/misiones:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/misiones:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/neuquen">
+        <label ref="jr:itext('/C1.29/mes/neuquen:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/neuquen:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/rio_Negro">
+        <label ref="jr:itext('/C1.29/mes/rio_Negro:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/rio_Negro:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/salta">
+        <label ref="jr:itext('/C1.29/mes/salta:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/salta:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/san_Juan">
+        <label ref="jr:itext('/C1.29/mes/san_Juan:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/san_Juan:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/san_Luis">
+        <label ref="jr:itext('/C1.29/mes/san_Luis:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/san_Luis:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/santa_Cruz">
+        <label ref="jr:itext('/C1.29/mes/santa_Cruz:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/santa_Cruz:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/santa_Fe">
+        <label ref="jr:itext('/C1.29/mes/santa_Fe:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/santa_Fe:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/santiago_Estero">
+        <label ref="jr:itext('/C1.29/mes/santiago_Estero:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/santiago_Estero:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/tierra_Fuego">
+        <label ref="jr:itext('/C1.29/mes/tierra_Fuego:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/tierra_Fuego:hint')"/>
+      </input>
+      <input ref="/C1.29/mes/tucuman">
+        <label ref="jr:itext('/C1.29/mes/tucuman:label')"/>
+        <hint ref="jr:itext('/C1.29/mes/tucuman:hint')"/>
+      </input>
+    </group>
+  </h:body>
+</h:html>

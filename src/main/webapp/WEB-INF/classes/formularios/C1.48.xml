@@ -1,0 +1,286 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.48 - Costos de interconexión</h:title>
+    <model>
+      <itext>
+        <translation default="true()" lang="Spanish">
+          <text id="/C1.48/mes/red_fija/mantenimiento:hint">
+            <value>Número hasta 6 dígitos</value>
+          </text>
+          <text id="/C1.48/mes/red_fija/costo_otros_1:hint">
+            <value>Número hasta 6 dígitos</value>
+          </text>
+          <text id="/C1.48/mes/total1/total_red:label">
+            <value>Total <output value=" /C1.48/mes/total1/calculate1 "/></value></text>
+          <text id="/C1.48/mes/red_movil/costo1:hint">
+            <value>Número hasta 6 dígitos</value>
+          </text>
+          <text id="/C1.48/mes/red_fija/prove_otros_1:label">
+            <value>Proveedor</value>
+          </text>
+          <text id="/C1.48/mes/red_movil/costo2:label">
+            <value>Costo</value>
+          </text>
+          <text id="/C1.48/mes/red_movil/prove1:hint">
+            <value>11 dígitos sin guiones ni espacios</value>
+          </text>
+          <text id="/C1.48/mes/total1/calculate1:label">
+            <value>-</value>
+          </text>
+          <text id="/C1.48/mes/otros1/costos1:label">
+            <value>Costos</value>
+          </text>
+          <text id="/C1.48/mes:label">
+            <value>Mes</value>
+          </text>
+          <text id="/C1.48/mes/red_movil/costo3:hint">
+            <value>Número hasta 6 dígitos</value>
+          </text>
+          <text id="/C1.48/mes/otros1/costos1:hint">
+            <value>11 dígitos sin guiones ni espacios</value>
+          </text>
+          <text id="/C1.48/mes/red_movil/costo2:hint">
+            <value>Número hasta 6 dígitos</value>
+          </text>
+          <text id="/C1.48/mes/otros1:label">
+            <value>Otros</value>
+          </text>
+          <text id="/C1.48/mes/red_fija:label">
+            <value>Costo interconexión a red fija</value>
+          </text>
+          <text id="/C1.48/mes/red_fija/costo_otros_1:label">
+            <value>Costo</value>
+          </text>
+          <text id="/C1.48/mes/red_movil:label">
+            <value>Costo interconexión a red móvil</value>
+          </text>
+          <text id="/C1.48/mes/red_fija/mantenimiento:label">
+            <value>Proveedor Otros</value>
+          </text>
+          <text id="/C1.48/mes/red_fija/costo1_1:label">
+            <value>Costo</value>
+          </text>
+          <text id="/C1.48/mes/otros1/mantenimiento1:hint">
+            <value>Número hasta 6 dígitos</value>
+          </text>
+          <text id="/C1.48/mes/otros1/mantenimiento1:label">
+            <value>Mantenimiento</value>
+          </text>
+          <text id="/C1.48/mes/total1:label">
+            <value>Total</value>
+          </text>
+          <text id="/C1.48/mes/red_movil/prove2:hint">
+            <value>11 dígitos sin guiones ni espacios</value>
+          </text>
+          <text id="/C1.48/mes/red_movil/prove1:label">
+            <value>Proveedor</value>
+          </text>
+          <text id="/C1.48/mes/red_movil/costo_otros:hint">
+            <value>Número hasta 6 dígitos</value>
+          </text>
+          <text id="/C1.48/mes/red_movil/costo3:label">
+            <value>Costo</value>
+          </text>
+          <text id="/C1.48/mes/red_fija/costo1_1:hint">
+            <value>Número hasta 6 dígitos</value>
+          </text>
+          <text id="/C1.48/mes/red_fija/red_movil_otros:label">
+            <value>Costo Otros</value>
+          </text>
+          <text id="/C1.48/mes/red_movil/costo1:label">
+            <value>Costo</value>
+          </text>
+          <text id="/C1.48/mes/red_fija/prove1_1:hint">
+            <value>11 dígitos sin guiones ni espacios</value>
+          </text>
+          <text id="/C1.48/mes/red_fija/costo2_1:hint">
+            <value>Número hasta 6 dígitos</value>
+          </text>
+          <text id="/C1.48/mes/red_movil/prove_otros:label">
+            <value>Proveedor Otros</value>
+          </text>
+          <text id="/C1.48/mes/red_fija/prove_otros_1:hint">
+            <value>11 dígitos sin guiones ni espacios</value>
+          </text>
+          <text id="/C1.48/mes/red_movil/prove3:label">
+            <value>Proveedor</value>
+          </text>
+          <text id="/C1.48/mes/red_fija/prove1_1:label">
+            <value>Proveedor</value>
+          </text>
+          <text id="/C1.48/mes/red_fija/prove2_1:label">
+            <value>Proveedor</value>
+          </text>
+          <text id="/C1.48/mes/red_fija/costo2_1:label">
+            <value>Costo</value>
+          </text>
+          <text id="/C1.48/mes/red_movil/prove3:hint">
+            <value>11 dígitos sin guiones ni espacios</value>
+          </text>
+          <text id="/C1.48/mes/red_movil/prove2:label">
+            <value>Proveedor</value>
+          </text>
+          <text id="/C1.48/mes/red_fija/prove2_1:hint">
+            <value>11 dígitos sin guiones ni espacios</value>
+          </text>
+          <text id="/C1.48/mes/red_movil/costo_otros:label">
+            <value>Costo Otros</value>
+          </text>
+          <text id="/C1.48/mes/red_movil/prove_otros:hint">
+            <value>11 dígitos sin guiones ni espacios</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <C1.48 id="C1.48">
+          <mes>
+            <red_movil>
+              <prove1/>
+              <costo1>0</costo1>
+              <prove2/>
+              <costo2>0</costo2>
+              <prove3/>
+              <costo3>0</costo3>
+              <prove_otros/>
+              <costo_otros>0</costo_otros>
+            </red_movil>
+            <red_fija>
+              <prove1_1/>
+              <costo1_1>0</costo1_1>
+              <prove2_1/>
+              <costo2_1>0</costo2_1>
+              <prove_otros_1/>
+              <costo_otros_1>0</costo_otros_1>
+              <mantenimiento>0</mantenimiento>
+              <red_movil_otros>0</red_movil_otros>
+            </red_fija>
+            <otros1>
+              <mantenimiento1>0</mantenimiento1>
+              <costos1/>
+            </otros1>
+            <total1>
+              <calculate1/>
+              <total_red/>
+            </total1>
+          </mes>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.48>
+      </instance>
+      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$')" jr:constraintMsg="11 dígitos sin guiones ni espacios" nodeset="/C1.48/mes/red_movil/prove1" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número de hasta 6 dígitos" nodeset="/C1.48/mes/red_movil/costo1" required="true()" type="int"/>
+      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$')" jr:constraintMsg="11 dígitos sin guiones ni espacios" nodeset="/C1.48/mes/red_movil/prove2" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número de hasta 6 dígitos" nodeset="/C1.48/mes/red_movil/costo2" required="true()" type="int"/>
+      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$')" jr:constraintMsg="11 dígitos sin guiones ni espacios" nodeset="/C1.48/mes/red_movil/prove3" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número de hasta 6 dígitos" nodeset="/C1.48/mes/red_movil/costo3" required="true()" type="int"/>
+      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$')" jr:constraintMsg="11 dígitos sin guiones ni espacios" nodeset="/C1.48/mes/red_movil/prove_otros" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número de hasta 6 dígitos" nodeset="/C1.48/mes/red_movil/costo_otros" required="true()" type="int"/>
+      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$')" jr:constraintMsg="11 dígitos sin guiones ni espacios" nodeset="/C1.48/mes/red_fija/prove1_1" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número de hasta 6 dígitos" nodeset="/C1.48/mes/red_fija/costo1_1" required="true()" type="int"/>
+      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$')" jr:constraintMsg="11 dígitos sin guiones ni espacios" nodeset="/C1.48/mes/red_fija/prove2_1" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número de hasta 6 dígitos" nodeset="/C1.48/mes/red_fija/costo2_1" required="true()" type="int"/>
+      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$')" jr:constraintMsg="11 dígitos sin guiones ni espacios" nodeset="/C1.48/mes/red_fija/prove_otros_1" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número de hasta 6 dígitos" nodeset="/C1.48/mes/red_fija/costo_otros_1" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número de hasta 6 dígitos" nodeset="/C1.48/mes/red_fija/mantenimiento" required="true()" type="int"/>
+      <bind nodeset="/C1.48/mes/red_fija/red_movil_otros" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número de hasta 6 dígitos" nodeset="/C1.48/mes/otros1/mantenimiento1" required="true()" type="int"/>
+      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$')" jr:constraintMsg="11 dígitos sin guiones ni espacios" nodeset="/C1.48/mes/otros1/costos1" required="true()" type="int"/>
+      <bind calculate=" /C1.48/mes/red_movil/costo1 + /C1.48/mes/red_movil/costo2 + /C1.48/mes/red_movil/costo3 + /C1.48/mes/red_movil/costo_otros + /C1.48/mes/red_fija/costo1_1 + /C1.48/mes/red_fija/costo2_1 + /C1.48/mes/red_fija/costo_otros_1 + /C1.48/mes/red_fija/mantenimiento + /C1.48/mes/red_fija/red_movil_otros " nodeset="/C1.48/mes/total1/calculate1" type="string"/>
+      <bind nodeset="/C1.48/mes/total1/total_red" readonly="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.48/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col1" ref="/C1.48/mes">
+      <label ref="jr:itext('/C1.48/mes:label')"/>
+      <group appearance="col2" ref="/C1.48/mes/red_movil">
+        <label ref="jr:itext('/C1.48/mes/red_movil:label')"/>
+        <input ref="/C1.48/mes/red_movil/prove1">
+          <label ref="jr:itext('/C1.48/mes/red_movil/prove1:label')"/>
+          <hint ref="jr:itext('/C1.48/mes/red_movil/prove1:hint')"/>
+        </input>
+        <input ref="/C1.48/mes/red_movil/costo1">
+          <label ref="jr:itext('/C1.48/mes/red_movil/costo1:label')"/>
+          <hint ref="jr:itext('/C1.48/mes/red_movil/costo1:hint')"/>
+        </input>
+        <input ref="/C1.48/mes/red_movil/prove2">
+          <label ref="jr:itext('/C1.48/mes/red_movil/prove2:label')"/>
+          <hint ref="jr:itext('/C1.48/mes/red_movil/prove2:hint')"/>
+        </input>
+        <input ref="/C1.48/mes/red_movil/costo2">
+          <label ref="jr:itext('/C1.48/mes/red_movil/costo2:label')"/>
+          <hint ref="jr:itext('/C1.48/mes/red_movil/costo2:hint')"/>
+        </input>
+        <input ref="/C1.48/mes/red_movil/prove3">
+          <label ref="jr:itext('/C1.48/mes/red_movil/prove3:label')"/>
+          <hint ref="jr:itext('/C1.48/mes/red_movil/prove3:hint')"/>
+        </input>
+        <input ref="/C1.48/mes/red_movil/costo3">
+          <label ref="jr:itext('/C1.48/mes/red_movil/costo3:label')"/>
+          <hint ref="jr:itext('/C1.48/mes/red_movil/costo3:hint')"/>
+        </input>
+        <input ref="/C1.48/mes/red_movil/prove_otros">
+          <label ref="jr:itext('/C1.48/mes/red_movil/prove_otros:label')"/>
+          <hint ref="jr:itext('/C1.48/mes/red_movil/prove_otros:hint')"/>
+        </input>
+        <input ref="/C1.48/mes/red_movil/costo_otros">
+          <label ref="jr:itext('/C1.48/mes/red_movil/costo_otros:label')"/>
+          <hint ref="jr:itext('/C1.48/mes/red_movil/costo_otros:hint')"/>
+        </input>
+      </group>
+      <group appearance="col2" ref="/C1.48/mes/red_fija">
+        <label ref="jr:itext('/C1.48/mes/red_fija:label')"/>
+        <input ref="/C1.48/mes/red_fija/prove1_1">
+          <label ref="jr:itext('/C1.48/mes/red_fija/prove1_1:label')"/>
+          <hint ref="jr:itext('/C1.48/mes/red_fija/prove1_1:hint')"/>
+        </input>
+        <input ref="/C1.48/mes/red_fija/costo1_1">
+          <label ref="jr:itext('/C1.48/mes/red_fija/costo1_1:label')"/>
+          <hint ref="jr:itext('/C1.48/mes/red_fija/costo1_1:hint')"/>
+        </input>
+        <input ref="/C1.48/mes/red_fija/prove2_1">
+          <label ref="jr:itext('/C1.48/mes/red_fija/prove2_1:label')"/>
+          <hint ref="jr:itext('/C1.48/mes/red_fija/prove2_1:hint')"/>
+        </input>
+        <input ref="/C1.48/mes/red_fija/costo2_1">
+          <label ref="jr:itext('/C1.48/mes/red_fija/costo2_1:label')"/>
+          <hint ref="jr:itext('/C1.48/mes/red_fija/costo2_1:hint')"/>
+        </input>
+        <input ref="/C1.48/mes/red_fija/prove_otros_1">
+          <label ref="jr:itext('/C1.48/mes/red_fija/prove_otros_1:label')"/>
+          <hint ref="jr:itext('/C1.48/mes/red_fija/prove_otros_1:hint')"/>
+        </input>
+        <input ref="/C1.48/mes/red_fija/costo_otros_1">
+          <label ref="jr:itext('/C1.48/mes/red_fija/costo_otros_1:label')"/>
+          <hint ref="jr:itext('/C1.48/mes/red_fija/costo_otros_1:hint')"/>
+        </input>
+        <input ref="/C1.48/mes/red_fija/mantenimiento">
+          <label ref="jr:itext('/C1.48/mes/red_fija/mantenimiento:label')"/>
+          <hint ref="jr:itext('/C1.48/mes/red_fija/mantenimiento:hint')"/>
+        </input>
+        <input ref="/C1.48/mes/red_fija/red_movil_otros">
+          <label ref="jr:itext('/C1.48/mes/red_fija/red_movil_otros:label')"/>
+        </input>
+      </group>
+      <group appearance="col2" ref="/C1.48/mes/otros1">
+        <label ref="jr:itext('/C1.48/mes/otros1:label')"/>
+        <input ref="/C1.48/mes/otros1/mantenimiento1">
+          <label ref="jr:itext('/C1.48/mes/otros1/mantenimiento1:label')"/>
+          <hint ref="jr:itext('/C1.48/mes/otros1/mantenimiento1:hint')"/>
+        </input>
+        <input ref="/C1.48/mes/otros1/costos1">
+          <label ref="jr:itext('/C1.48/mes/otros1/costos1:label')"/>
+          <hint ref="jr:itext('/C1.48/mes/otros1/costos1:hint')"/>
+        </input>
+      </group>
+      <group appearance="col2" ref="/C1.48/mes/total1">
+        <label ref="jr:itext('/C1.48/mes/total1:label')"/>
+        <input ref="/C1.48/mes/total1/total_red">
+          <label ref="jr:itext('/C1.48/mes/total1/total_red:label')"/>
+        </input>
+      </group>
+    </group>
+  </h:body>
+</h:html>

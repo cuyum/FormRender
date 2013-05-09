@@ -36,30 +36,32 @@
 		<h:form id="create" enctype="multipart/form-data">			
 		    <p:messages id="messages" globalOnly="true" showDetail="true" autoUpdate="true" />			
 			<h:panelGrid columns="3">
+				<h:outputLabel for="formularioBeanExampleCodigo" value="C&oacute;digo:" />
+				<h:panelGroup>
+					<h:inputText id="formularioBeanExampleCodigo" value="#{formularioBean.formulario.codigo}" required="true"/>
+					<h:message for="formularioBeanExampleCodigo" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				
 				<h:outputLabel for="formularioBeanExampleNombre" value="Nombre:" />
 				<h:panelGroup>
 					<h:inputText id="formularioBeanExampleNombre" value="#{formularioBean.formulario.nombre}" required="true"/>
 					<h:message for="formularioBeanExampleNombre" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				
-				<h:outputLabel for="formularioBeanFormularioFormVersion" value="Version:"/>
+				<h:outputLabel value="Archivo (xml):"/>	
+				<h:panelGrid columns="1">		
+					<p:fileUpload value="#{formularioBean.file}" mode="simple" sizeLimit="100000" allowTypes=".xml" />
+					<h:outputText value="#{formularioBean.formulario.archivo}" rendered="#{!empty formularioBean.id}"/>						
+				</h:panelGrid>	
+				<h:outputText/>
+				<!-- 
+				<h:outputLabel for="formularioBeanFormularioFormVersion" value="Versión:"/>
 				<h:panelGroup>
 					<h:inputText id="formularioBeanFormularioFormVersion" value="#{formularioBean.formulario.formVersion}"/>
 					<h:message for="formularioBeanFormularioFormVersion" styleClass="error"/>
 				</h:panelGroup>
-				<h:outputText/>			
-				
-				<h:outputLabel value="Archivo (xml):"/>				
-				<p:fileUpload value="#{formularioBean.file}" mode="simple" sizeLimit="100000" allowTypes=".xml" />
-				<h:outputText/>			
-			</h:panelGrid>
-				
-			<!-- Visible si es Edicion -->
-			<h:panelGrid columnClasses="label,component,required" columns="3" rendered="#{!empty formularioBean.id}">
-				<h:outputText />
-				<h:outputText value="#{formularioBean.formulario.archivo}"/>
-				<h:outputText/>
+				<h:outputText/>		-->	
 			</h:panelGrid>
 			<div class="buttons">			
 				<p:commandLink ajax="false" value="Guardar" action="#{formularioBean.update}" styleClass="btn btn-primary"/>

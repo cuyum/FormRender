@@ -1,5 +1,13 @@
-INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.1','0','C.1.1.xml', 0);
-INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.2','0','C.1.2.xml', 0);
+--INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.1','0','C.1.1.xml', 0);
+--INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.2','0','C.1.2.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.23','Tarifas/precio minuto de comunicación telefonia fija','0','C1.23.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.29','Ingresos/totales telefonia local por provincia','0','C1.29.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.36','Ingresos/larga distancia nacional horario normal','0','C1.36.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.37','Ingresos/larga distancia nacional horario reducido','0','C1.37.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.38','Ingresos/larga distancia internacional horario normal','0','C1.38.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.39','Ingresos/larga distancia internacional horario reducido','0','C1.39.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.48','Costos interconexión','0','C1.48.xml', 0);
+
 INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.3','0','C.1.3.xml', 0);
 INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.4','0','C.1.4.xml', 0);
 INSERT INTO formulario (nombre, formVersion, archivo, version) VALUES ('C.1.7','0','C.1.7.xml', 0);

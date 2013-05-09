@@ -31,6 +31,12 @@
 				<p:panel styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="formularioBeanExampleFormCodigo" value="C&oacute;digo:"/>
+						<h:panelGroup>
+							<h:inputText id="formularioBeanExampleFormCodigo" value="#{formularioBean.example.codigo}"/>
+							<h:message for="formularioBeanExampleFormCodigo" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="formularioBeanExampleNombre" value="Nombre:"/>
 						<h:panelGroup>
 							<h:inputText id="formularioBeanExampleNombre" value="#{formularioBean.example.nombre}"/>
@@ -42,13 +48,7 @@
 							<h:inputText id="formularioBeanArchivo" value="#{formularioBean.example.archivo}"/>
 							<h:message for="formularioBeanArchivo" styleClass="error"/>
 						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="formularioBeanExampleFormVersion" value="Version:"/>
-						<h:panelGroup>
-							<h:inputText id="formularioBeanExampleFormVersion" value="#{formularioBean.example.formVersion}"/>
-							<h:message for="formularioBeanExampleFormVersion" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
+						<h:outputText/>						
 					</h:panelGrid>
 					<p:panel styleClass="buttons">
 						<p:commandLink value="Buscar" action="#{formularioBean.search}" styleClass="btn btn-primary"/>
@@ -57,8 +57,14 @@
 				</p:panel>
 			</f:validateBean>
 			
-			<p:dataTable id="formularioBeanPageItems" value="#{formularioBean.pageItems}" var="_item" style="font-size:12px;" rows="5" 
+			<p:dataTable id="formularioBeanPageItems" value="#{formularioBean.pageItems}" var="_item" style="font-size:12px;" rows="10" 
 			paginator="true" paginatorPosition="bottom" emptyMessage="">
+				<p:column headerText="Cod.">					
+					<h:link outcome="/formulario/view" styleClass="decoNone">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+					</h:link>
+				</p:column>
 				<p:column headerText="Nombre">					
 					<h:link outcome="/formulario/view" styleClass="decoNone">
 						<f:param name="id" value="#{_item.id}"/>
@@ -70,13 +76,7 @@
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemArchivo" value="#{_item.archivo}"/>
 					</h:link>
-				</p:column>
-				<p:column headerText="Version">					
-					<h:link outcome="/formulario/view" styleClass="decoNone">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemFormVersion" value="#{_item.formVersion}"/>
-					</h:link>
-				</p:column>				
+				</p:column>								
 				<p:column headerText="Xml">
 					<h:link value="Ver" outcome="/formulario/renderXml" styleClass="button">	
 						<f:param name="id" value="#{_item.id}"/>								

@@ -25,6 +25,9 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="formularioBeanFormularioCodigo" value="C&oacute;digo:"/>
+			<h:outputText id="formularioBeanFormularioCodigo" value="#{formularioBean.formulario.codigo}"/>
+			<h:outputText/>
 			<h:outputLabel for="formularioBeanFormularioNombre" value="Nombre:"/>
 			<h:outputText id="formularioBeanFormularioNombre" value="#{formularioBean.formulario.nombre}"/>
 			<h:outputText/>
@@ -34,9 +37,10 @@
 			<h:outputLabel for="formularioBeanFormularioUrl" value="URL:"/>
 			<h:outputText id="formularioBeanFormularioUrl" value="#{formularioBean.formulario.url}"/>
 			<h:outputText/>
+			<!-- 
 			<h:outputLabel for="formularioBeanFormularioFormVersion" value="Version:"/>
 			<h:outputText id="formularioBeanFormularioFormVersion" value="#{formularioBean.formulario.formVersion}"/>
-			<h:outputText/>
+			<h:outputText/> -->
 		</h:panelGrid>
 
 		<div class="buttons">
