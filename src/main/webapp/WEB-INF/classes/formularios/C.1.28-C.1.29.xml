@@ -64,7 +64,7 @@
     </model>
   </h:head>
   <h:body>
-    <group appearance="col2" ref="/C.1.28-C.1.29/mes">
+    <group appearance="col1" ref="/C.1.28-C.1.29/mes">
       <label>Mes</label>
       <group appearance="col2" ref="/C.1.28-C.1.29/mes/red_movil">
         <label>COSTO INTERCONEXIÓN A RED MÓVIL</label>
@@ -146,7 +146,7 @@
           <hint>11 dígitos sin guiones ni espacios</hint>
         </input>
       </group>
-      <group appearance="col1" ref="/C.1.28-C.1.29/mes/total1">
+      <group appearance="col2" ref="/C.1.28-C.1.29/mes/total1">
         <label>TOTAL</label>
         <input ref="/C.1.28-C.1.29/mes/total1/total_red">
           <label>TOTAL <output value=" /C.1.28-C.1.29/mes/total1/calculate1 "/></label></input>
