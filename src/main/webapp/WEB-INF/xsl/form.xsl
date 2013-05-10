@@ -84,6 +84,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
         <html>
             <head>
             	<meta charset="utf-8"/>
+            	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
             	<link rel="stylesheet" href="/FormRender/resources/style.css"/>
 			  	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js">
             		<xsl:text>&#10;</xsl:text>
@@ -91,18 +92,14 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 			  	<script type="text/javascript" src="/FormRender/resources/js/jquery.validate.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
+			  	 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js">
+            		<xsl:text>&#10;</xsl:text>
+            	</script>
+			  	<script type="text/javascript" src="/FormRender/resources/js/transform.js">
+            		<xsl:text>&#10;</xsl:text>
+            	</script>
             </head>
             <body>
-            	<script type="text/javascript">
-            	<xsl:text>
-				$(document).ready(function() {
-					var form = document.forms[0];
-<!-- 					var validator = $(form).validate({ -->
-<!-- 						submitHandler: function() { alert("Enviado"); } -->
-<!-- 					}); -->
-				});
-            	</xsl:text>
-            	</script>
 	            <form class="jr" autocomplete="off">
 	                <xsl:attribute name="id">
                         <xsl:choose>
