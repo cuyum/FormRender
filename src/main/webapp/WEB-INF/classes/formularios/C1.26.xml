@@ -23,10 +23,10 @@
       <bind nodeset="/C1.26/planes/plan" required="true()" type="string"/>
       <bind nodeset="/C1.26/planes/aplicacion" required="true()" type="select1"/>
       <bind nodeset="/C1.26/planes/segmento" required="true()" type="select1"/>
-      <bind constraint="regex(., '^(\d{1}\.)?(\d+\.?)+(,\d{2})') and .&lt;1000.00 and .&gt;0.00" jr:constraintMsg="Debe ingresar número de 3 dígitos y 2 decimales." nodeset="/C1.26/planes/abono" required="true()" type="decimal"/>
+      <bind constraint=".&lt;1000.00 and .&gt;0.00" jr:constraintMsg="Debe ingresar número de 3 dígitos y 2 decimales." nodeset="/C1.26/planes/abono" required="true()" type="decimal"/>
       <bind nodeset="/C1.26/planes/selec_opcion" required="true()" type="select1"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000 and .&gt;0" jr:constraintMsg="Debe ingresar número entero de hasta 3 dígitos" nodeset="/C1.26/planes/minutos" relevant=" /C1.26/planes/selec_opcion ='limitado'" type="int"/>
-      <bind constraint="regex(., '^(\d{1}\.)?(\d+\.?)+(,\d{2})') and .&lt;1000.00 and .&gt;0.00" jr:constraintMsg="Debe ingresar número de 3 dígitos y 2 decimales." nodeset="/C1.26/planes/precio" required="true()" type="decimal"/>
+      <bind constraint=".&lt;1000 and .&gt;0" jr:constraintMsg="Debe ingresar número entero de hasta 3 dígitos" nodeset="/C1.26/planes/minutos" relevant=" /C1.26/planes/selec_opcion ='limitado'" type="int"/>
+      <bind constraint=".&lt;1000.00 and .&gt;0.00" jr:constraintMsg="Debe ingresar número de 3 dígitos y 2 decimales." nodeset="/C1.26/planes/precio" required="true()" type="decimal"/>
       <bind nodeset="/C1.26/planes/observaciones" required="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.26/meta/instanceID" readonly="true()" type="string"/>
     </model>
