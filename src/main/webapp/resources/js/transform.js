@@ -21,11 +21,10 @@ var setupValidations = function(field){
 	var f = $(field);
 	var form = $(document.forms[0]);
 	if(f.attr("required") != undefined){
-		console.log(f.attr("name") + " es requerido");
 		var fieldName = f.attr("name");
 		
-		if(f.attr("required")){
-			console.log(f.attr("name")+" is required");
+		var isRequired = f.attr("required");
+		if(isRequired){
 			f.rules( "add", {
 				required:true,
 				messages:{
@@ -44,23 +43,62 @@ var setupValidations = function(field){
 		
 		var data_type = f.attr("data-type-xml");
 		if(data_type && data_type=="int"){
-			console.log(fieldName+" is integer");
 			f.rules( "add", {
 				entero:true
-				,number:true
 				,messages:{
 					number: "Debe ser un valor num&eacute;ico v&aacute;lido"
 				}
 			});
 		}else if(data_type && data_type=="decimal"){
-			console.log(fieldName+" is float");
 			f.rules( "add", {
 				decimal:true
-				,number:true
 				,messages:{
 					number: "Debe ser un valor num&eacute;ico v&aacute;lido"
 				}
 			});
+		}
+		
+		var data_constraints = f.attr("data-constraint");
+		if(data_constraints){
+			var constraints = data_constraints.split("and");
+			for ( var i = 0; i < constraints.length; i++) {
+				var constraint = constraints[i];
+				constraint = constraint.trim();
+				console.log(constraint);
+				
+				if(constraint.indexOf("or")!=-1){/*check for ors and add to constraints*/
+					var sc = constraint.split("or");
+					console.log("encontré un or en "+fieldName,sc);
+				}
+				
+				/*process the constraint*/
+				if(constraint.indexOf(".<")!=-1){/*max*/
+					try {
+						var max = new Number(constraint.substring(2,constraint.length)); 
+						f.rules( "add", {
+							max: max
+							,messages:{
+								max: "Debe ser un valor menor a {0}"
+							}
+						});
+					} catch (e) {
+						log.error("Not a number",constraint.substring(2,constraint.length));
+					}
+				}
+				if(constraint.indexOf(".>")!=-1){/*min*/
+					try {
+						var min = new Number(constraint.substring(2,constraint.length)); 
+						f.rules( "add", {
+							min: min
+							,messages:{
+								min: "Debe ser un valor mayor a {0}"
+							}
+						});
+					} catch (e) {
+						log.error("Not a number",constraint.substring(2,constraint.length));
+					}
+				}
+			}
 		}
 	}
 };
@@ -68,7 +106,10 @@ var setupValidations = function(field){
 var setupValidationDefaults = function(){
 	$.validator.setDefaults({
 		debug: true,
-		success: "valid"
+		success: "valid",
+		submitHandler: function() {
+			alert("Formulario Enviado!");
+		}
 	});
 	
 	$.validator.addMethod("entero", 
@@ -81,7 +122,7 @@ var setupValidationDefaults = function(){
 	$.validator.addMethod("decimal", 
 		function(value, element) { 
 //			return this.optional(element) || /^\s*-?(\d+(\.\d{1,2})?|\.\d{1,2})\s*$/.test(value); 
-			return /^\s*-?(\d+(\.\d{2})?|\.\d{2})\s*$/.test(value); 
+			return /^\s*-?(\d+(\.\d{2}){1})\s*$/.test(value); 
 		}, 
 		"Debe especificar un n&uacute;mero decimal con dos cifras luego del punto");
 };
@@ -93,11 +134,7 @@ $(document).ready(function() {
 	
 	setupValidationDefaults();
 	
-	$(form).validate({
-		submitHandler: function() {
-			alert("Formulario Enviado!");
-		}
-	});
+	$(form).validate();
 	
 	var fields = $("[name]").not("fieldset");
 
