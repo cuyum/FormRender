@@ -33,7 +33,7 @@ var setupValidations = function(field){
 						var type = f.attr("type");
 						if(type=="radio" || type==undefined){
 							if(f.is("textarea")) return "Debe ingresar un valor";
-							return "Debe elegir una opción";
+							return "Debe elegir una opci&oacute;n";
 						}else{
 							return "El campo es requerido";
 						}
@@ -49,7 +49,6 @@ var setupValidations = function(field){
 				entero:true
 				,number:true
 				,messages:{
-					entero : "El valor debe ser entero",
 					number: "Debe ser un valor num&eacute;ico v&aacute;lido"
 				}
 			});
@@ -59,7 +58,6 @@ var setupValidations = function(field){
 				decimal:true
 				,number:true
 				,messages:{
-					decimal : "El valor debe ser decimal",
 					number: "Debe ser un valor num&eacute;ico v&aacute;lido"
 				}
 			});
@@ -67,10 +65,7 @@ var setupValidations = function(field){
 	}
 };
 
-var validator;
-
-$(document).ready(function() {
-	var form = document.forms[0];
+var setupValidationDefaults = function(){
 	$.validator.setDefaults({
 		debug: true,
 		success: "valid"
@@ -89,6 +84,14 @@ $(document).ready(function() {
 			return /^\s*-?(\d+(\.\d{2})?|\.\d{2})\s*$/.test(value); 
 		}, 
 		"Debe especificar un n&uacute;mero decimal con dos cifras luego del punto");
+};
+
+var validator;
+
+$(document).ready(function() {
+	var form = document.forms[0];
+	
+	setupValidationDefaults();
 	
 	$(form).validate({
 		submitHandler: function() {
