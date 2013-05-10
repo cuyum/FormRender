@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C.1.31 - Ingresos / abonos telefonia basica</h:title>
+    <model>
+      <instance>
+        <C1.31 id="C1.31">
+          <Enero>
+            <familia>0</familia>
+            <comercial>0</comercial>
+            <gobierno>0</gobierno>
+            <jubilados>0</jubilados>
+            <profesional>0</profesional>
+            <otros>0</otros>
+          </Enero>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.31>
+      </instance>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 12 dígitos" nodeset="/C1.31/Enero/familia" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 12 dígitos" nodeset="/C1.31/Enero/comercial" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 12 dígitos" nodeset="/C1.31/Enero/gobierno" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 12 dígitos" nodeset="/C1.31/Enero/jubilados" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 12 dígitos" nodeset="/C1.31/Enero/profesional" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 12 dígitos" nodeset="/C1.31/Enero/otros" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.31/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col4" ref="/C1.31/Enero">
+      <label>Enero</label>
+      <input ref="/C1.31/Enero/familia">
+        <label>Hogares:</label>
+      </input>
+      <input ref="/C1.31/Enero/comercial">
+        <label>Comercial:</label>
+      </input>
+      <input ref="/C1.31/Enero/gobierno">
+        <label>Gobierno:</label>
+      </input>
+      <input ref="/C1.31/Enero/jubilados">
+        <label>Jubilados:</label>
+      </input>
+      <input ref="/C1.31/Enero/profesional">
+        <label>Profesional:</label>
+      </input>
+      <input ref="/C1.31/Enero/otros">
+        <label>Otros:</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

@@ -25,6 +25,9 @@ public class Formulario implements Serializable
    @Version
    @Column(name = "version")
    private int version = 0;
+   
+   @Column
+   private String codigo;
 
    @Column
    private String nombre;
@@ -100,6 +103,14 @@ public class Formulario implements Serializable
       this.nombre = nombre;
    }
 
+   public String getCodigo() {
+	   return codigo;
+   }
+
+   public void setCodigo(String codigo) {
+	   this.codigo = codigo;
+   }
+
    public String getFormVersion()
    {
       return this.formVersion;
@@ -132,6 +143,8 @@ public class Formulario implements Serializable
       String result = getClass().getSimpleName() + " ";
       if (nombre != null && !nombre.trim().isEmpty())
          result += "nombre: " + nombre;
+      if (codigo != null && !codigo.trim().isEmpty())
+          result += "codigo: " + codigo;
       if (archivo != null && !archivo.trim().isEmpty())
           result += ", archivo: " + archivo;
       if (formVersion != null && !formVersion.trim().isEmpty())

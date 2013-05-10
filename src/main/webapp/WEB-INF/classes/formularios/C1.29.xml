@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.29 - Ingresos/totales telefonía local por provincia</h:title>
+    <model>
+      <instance>
+        <C1.29 id="C1.29">
+          <Enero>
+            <amba>0</amba>
+            <buenos_Aires>0</buenos_Aires>
+            <catamarca>0</catamarca>
+            <chaco>0</chaco>
+            <chubut>0</chubut>
+            <cordoba>0</cordoba>
+            <corrientes>0</corrientes>
+            <entre_rios>0</entre_rios>
+            <formosa>0</formosa>
+            <jujuy>0</jujuy>
+            <la_Pampa>0</la_Pampa>
+            <la_Rioja>0</la_Rioja>
+            <mendoza>0</mendoza>
+            <misiones>0</misiones>
+            <neuquen>0</neuquen>
+            <rio_Negro>0</rio_Negro>
+            <salta>0</salta>
+            <san_Juan>0</san_Juan>
+            <san_Luis>0</san_Luis>
+            <santa_Cruz>0</santa_Cruz>
+            <santa_Fe>0</santa_Fe>
+            <santiago_Estero>0</santiago_Estero>
+            <tierra_Fuego>0</tierra_Fuego>
+            <tucuman>0</tucuman>
+            <calculate/>
+            <calculate_test_output/>
+          </Enero>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.29>
+      </instance>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/amba" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/buenos_Aires" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/catamarca" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/chaco" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/chubut" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/cordoba" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/corrientes" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/entre_rios" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/formosa" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/jujuy" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/la_Pampa" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/la_Rioja" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/mendoza" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/misiones" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/neuquen" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/rio_Negro" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/salta" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/san_Juan" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/san_Luis" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/santa_Cruz" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/santa_Fe" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/santiago_Estero" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/tierra_Fuego" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 8 dígitos" nodeset="/C1.29/Enero/tucuman" required="true()" type="int"/>
+      <bind calculate=" /C1.29/Enero/amba + /C1.29/Enero/buenos_Aires + /C1.29/Enero/catamarca + /C1.29/Enero/chaco + /C1.29/Enero/chubut + /C1.29/Enero/cordoba + /C1.29/Enero/corrientes + /C1.29/Enero/entre_rios + /C1.29/Enero/formosa + /C1.29/Enero/jujuy + /C1.29/Enero/la_Pampa + /C1.29/Enero/la_Rioja + /C1.29/Enero/mendoza + /C1.29/Enero/misiones + /C1.29/Enero/neuquen + /C1.29/Enero/rio_Negro + /C1.29/Enero/salta + /C1.29/Enero/san_Juan + /C1.29/Enero/san_Luis + /C1.29/Enero/santa_Cruz + /C1.29/Enero/santa_Fe + /C1.29/Enero/santiago_Estero + /C1.29/Enero/tierra_Fuego + /C1.29/Enero/tucuman " nodeset="/C1.29/Enero/calculate" type="string"/>
+      <bind nodeset="/C1.29/Enero/calculate_test_output" readonly="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.29/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col6" ref="/C1.29/Enero">
+      <label>Enero</label>
+      <input ref="/C1.29/Enero/amba">
+        <label>CABA</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/buenos_Aires">
+        <label>Buenos Aires</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/catamarca">
+        <label>Catamarca</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/chaco">
+        <label>Chaco</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/chubut">
+        <label>Chubut</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/cordoba">
+        <label>Córdoba</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/corrientes">
+        <label>Corrientes</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/entre_rios">
+        <label>Entre Ríos</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/formosa">
+        <label>Formosa</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/jujuy">
+        <label>Jujuy</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/la_Pampa">
+        <label>La Pampa</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/la_Rioja">
+        <label>La Rioja</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/mendoza">
+        <label>Mendoza</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/misiones">
+        <label>Misiones</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/neuquen">
+        <label>Neuquén</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/rio_Negro">
+        <label>Río Negro</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/salta">
+        <label>Salta</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/san_Juan">
+        <label>San Juan</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/san_Luis">
+        <label>San Luis</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/santa_Cruz">
+        <label>Santa Cruz</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/santa_Fe">
+        <label>Santa Fe</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/santiago_Estero">
+        <label>Santiago del Estero</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/tierra_Fuego">
+        <label>Tierra del Fuego</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/tucuman">
+        <label>Tucumán</label>
+        <hint>En miles de pesos, 8 dígitos</hint>
+      </input>
+      <input ref="/C1.29/Enero/calculate_test_output">
+        <label>Total: <output value=" /C1.29/Enero/calculate "/></label></input>
+    </group>
+  </h:body>
+</h:html>

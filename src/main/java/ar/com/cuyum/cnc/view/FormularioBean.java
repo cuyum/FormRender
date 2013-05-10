@@ -210,24 +210,17 @@ private Long id;
 			   copiado = false;
 		   }
 		   
-		   if (procesar){
-			   File archivo = new File(destination+ System.getProperty("file.separator") + this.file.getFileName());
-			   if (archivo.exists()){
-				   msgArchivoSubida = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Carga de Archivo Fallida",
-						   "Ya existe un archivo con ese nombre: "+this.file.getFileName());
-				   copiado = false;
-			   } else {					   
-				   OutputStream out = new FileOutputStream(destination + this.file.getFileName());
-				   int read = 0;
-				   byte[] bytes = new byte[1024];
-				   while ((read = in.read(bytes)) != -1) {
-					   out.write(bytes, 0, read);
-				   }	     
-				   in.close();
-				   out.flush();
-				   out.close();	    
-			       copiado = true;
-			   }
+		   if (procesar){				   
+			   OutputStream out = new FileOutputStream(destination + this.file.getFileName());
+			   int read = 0;
+			   byte[] bytes = new byte[1024];
+			   while ((read = in.read(bytes)) != -1) {
+				   out.write(bytes, 0, read);
+			   }	     
+			   in.close();
+			   out.flush();
+			   out.close();	    
+		       copiado = true;
 		   }
 
 	   } catch (IOException e) {

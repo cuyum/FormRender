@@ -180,7 +180,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
                     <xsl:if test="//xf:submission">
                         <xsl:message>ERROR: Submissions element(s) not supported yet.</xsl:message>
                     </xsl:if>
-                    <input type="submit" value="submit"/>
+                    <input type="submit" value="Validar"/>
 	            </form>
 	            </body>
             </html>
