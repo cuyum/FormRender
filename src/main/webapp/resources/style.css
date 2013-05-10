@@ -177,7 +177,7 @@ fieldset {
 	margin: 0px
 }
 
-fieldset .col4 {
+fieldset.col4 {
 	border: 1px solid #ccc;
 	padding: 0px;
 	margin: 0px
@@ -314,22 +314,45 @@ fieldset .col2 label .error {
 	color: #B94A48;
 	font-size: 10px;
 	margin-left: 1px;
+	width: 100%;
 }
+
 
 fieldset .col3 label .error {
 	color: #B94A48;
 	font-size: 10px;
 	margin-left: 1px;
+	width: 100%;
 }
 
-fieldset .col4 label .error {
+fieldset.col4 label.error {
 	color: #B94A48;
 	font-size: 10px;
 	margin-left: 1px;
+	width: 100%;
 }
 
 fieldset .col6 label .error {
 	color: #B94A48;
 	font-size: 10px;
 	margin-left: 1px;
+	width: 100%;
+}
+
+.ui-tooltip {
+	padding: 5px;
+	position: absolute;
+	z-index: 9999;
+	border:1px solid #ccc;
+	max-width: 300px;
+	-webkit-box-shadow: 0 0 3px #aaa;
+	box-shadow: 0 0 3px #aaa;
+}
+
+body .ui-tooltip {
+	border-width: 1px;
+	
+	font-size:8px;
+	background-color:#ff;
+	color:#006cc9;
 }
