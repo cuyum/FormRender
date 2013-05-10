@@ -46,17 +46,21 @@ var setupValidations = function(field){
 		if(data_type && data_type=="int"){
 			console.log(fieldName+" is integer");
 			f.rules( "add", {
-				number:true
+				entero:true
+				,number:true
 				,messages:{
-					number : "El valor debe ser entero"
+					entero : "El valor debe ser entero",
+					number: "Debe ser un valor num&eacute;ico v&aacute;lido"
 				}
 			});
 		}else if(data_type && data_type=="decimal"){
 			console.log(fieldName+" is float");
 			f.rules( "add", {
-				number:true
+				decimal:true
+				,number:true
 				,messages:{
-					number : "El valor debe ser decimal"
+					decimal : "El valor debe ser decimal",
+					number: "Debe ser un valor num&eacute;ico v&aacute;lido"
 				}
 			});
 		}
@@ -82,7 +86,7 @@ $(document).ready(function() {
 	$.validator.addMethod("decimal", 
 		function(value, element) { 
 //			return this.optional(element) || /^\s*-?(\d+(\.\d{1,2})?|\.\d{1,2})\s*$/.test(value); 
-			return /^\s*-?(\d+(\.\d{1,2})?|\.\d{1,2})\s*$/.test(value); 
+			return /^\s*-?(\d+(\.\d{2})?|\.\d{2})\s*$/.test(value); 
 		}, 
 		"Debe especificar un n&uacute;mero decimal con dos cifras luego del punto");
 	
