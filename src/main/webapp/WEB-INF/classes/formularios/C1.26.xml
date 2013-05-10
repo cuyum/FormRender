@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.26 - Tarifas / planes</h:title>
+    <model>
+      <instance>
+        <C1.26 id="C1.26">
+          <planes>
+            <plan/>
+            <aplicacion/>
+            <segmento/>
+            <abono/>
+            <selec_opcion/>
+            <minutos/>
+            <precio/>
+            <observaciones/>
+          </planes>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.26>
+      </instance>
+      <bind nodeset="/C1.26/planes/plan" required="true()" type="string"/>
+      <bind nodeset="/C1.26/planes/aplicacion" required="true()" type="select1"/>
+      <bind nodeset="/C1.26/planes/segmento" required="true()" type="select1"/>
+      <bind constraint="regex(., '^(\d{1}\.)?(\d+\.?)+(,\d{2})') and .&lt;1000.00 and .&gt;0.00" jr:constraintMsg="Debe ingresar número de 3 dígitos y 2 decimales." nodeset="/C1.26/planes/abono" required="true()" type="decimal"/>
+      <bind nodeset="/C1.26/planes/selec_opcion" required="true()" type="select1"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000 and .&gt;0" jr:constraintMsg="Debe ingresar número entero de hasta 3 dígitos" nodeset="/C1.26/planes/minutos" relevant=" /C1.26/planes/selec_opcion ='limitado'" type="int"/>
+      <bind constraint="regex(., '^(\d{1}\.)?(\d+\.?)+(,\d{2})') and .&lt;1000.00 and .&gt;0.00" jr:constraintMsg="Debe ingresar número de 3 dígitos y 2 decimales." nodeset="/C1.26/planes/precio" required="true()" type="decimal"/>
+      <bind nodeset="/C1.26/planes/observaciones" required="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.26/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col4" ref="/C1.26/planes">
+      <label>Planes</label>
+      <input ref="/C1.26/planes/plan">
+        <label>Plan:</label>
+        <hint>Nombre del Plan, Producto o Promoción</hint>
+      </input>
+      <select1 appearance="minimal" ref="/C1.26/planes/aplicacion">
+        <label>Aplicación:</label>
+        <hint>Seleccione Opción</hint>
+        <item>
+          <label>Masiva</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>Por Adhesión</label>
+          <value>2</value>
+        </item>
+      </select1>
+      <select1 appearance="minimal" ref="/C1.26/planes/segmento">
+        <label>Segmento:</label>
+        <hint>Seleccione Segmento de Mercado</hint>
+        <item>
+          <label>Segmento 1</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>Segmento 2</label>
+          <value>2</value>
+        </item>
+        <item>
+          <label>Segmento 3</label>
+          <value>3</value>
+        </item>
+      </select1>
+      <input ref="/C1.26/planes/abono">
+        <label>Abono:</label>
+        <hint>Abono mensual en pesos</hint>
+      </input>
+      <select1 appearance="minimal" ref="/C1.26/planes/selec_opcion">
+        <label>Minutos:</label>
+        <hint>Seleccione Opción</hint>
+        <item>
+          <label>Ilimitado</label>
+          <value>ilimitado</value>
+        </item>
+        <item>
+          <label>Limitado</label>
+          <value>limitado</value>
+        </item>
+      </select1>
+      <input ref="/C1.26/planes/minutos">
+        <label>Especifique cantidad</label>
+        <hint>Tráfico incluído en Minutos</hint>
+      </input>
+      <input ref="/C1.26/planes/precio">
+        <label>Precio:</label>
+        <hint>Precio del minuto en pesos</hint>
+      </input>
+      <input appearance="multiline" ref="/C1.26/planes/observaciones">
+        <label>Observaciones:</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

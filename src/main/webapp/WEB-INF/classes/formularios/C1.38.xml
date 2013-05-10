@@ -9,7 +9,7 @@
             <value>Ingrese número entero</value>
           </text>
           <text id="/C1.38/mes:label">
-            <value>Mes</value>
+            <value>Enero</value>
           </text>
           <text id="/C1.38/mes/operadora:label">
             <value>Operadora</value>

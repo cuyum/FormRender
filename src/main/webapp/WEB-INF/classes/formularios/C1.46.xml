@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C.1.46 - Gastos en Personal</h:title>
+    <model>
+      <instance>
+        <C1.46 id="C1.46">
+          <Enero>
+            <gastos>0</gastos>
+            <cargas>0</cargas>
+            <terceros>0</terceros>
+            <otros>0</otros>
+            <calculate/>
+            <total/>
+          </Enero>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.46>
+      </instance>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C1.46/Enero/gastos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C1.46/Enero/cargas" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C1.46/Enero/terceros" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C1.46/Enero/otros" required="true()" type="int"/>
+      <bind calculate=" /C1.46/Enero/gastos + /C1.46/Enero/cargas + /C1.46/Enero/terceros + /C1.46/Enero/otros " nodeset="/C1.46/Enero/calculate" type="string"/>
+      <bind nodeset="/C1.46/Enero/total" readonly="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.46/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col3" ref="/C1.46/Enero">
+      <label>Enero</label>
+      <input ref="/C1.46/Enero/gastos">
+        <label>Gastos en Personal:</label>
+        <hint>Ingrese numero entero</hint>
+      </input>
+      <input ref="/C1.46/Enero/cargas">
+        <label>Cargas Soc. y otros costos laborales:</label>
+        <hint>Ingrese numero entero</hint>
+      </input>
+      <input ref="/C1.46/Enero/terceros">
+        <label>Terceros:</label>
+        <hint>Ingrese numero entero</hint>
+      </input>
+      <input ref="/C1.46/Enero/otros">
+        <label>Otros:</label>
+        <hint>Ingrese numero entero</hint>
+      </input>
+      <input ref="/C1.46/Enero/total">
+        <label>Total: $ <output value=" /C1.46/Enero/calculate "/></label></input>
+    </group>
+  </h:body>
+</h:html>

@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.43 - Ingresos interconexion a la red fija - local a vinculadas</h:title>
+    <model>
+      <instance>
+        <C1.43 id="C1.43">
+          <Enero>
+            <orterfijo>0</orterfijo>
+            <ortermovil>0</ortermovil>
+            <puertos>0</puertos>
+            <coubic>0</coubic>
+            <transito>0</transito>
+            <facilidades>0</facilidades>
+            <facturacion>0</facturacion>
+            <otros>0</otros>
+            <calculate1/>
+            <total/>
+          </Enero>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.43>
+      </instance>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/orterfijo" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/ortermovil" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/puertos" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/coubic" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/transito" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/facilidades" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/facturacion" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/otros" required="true()" type="int"/>
+      <bind calculate=" /C1.43/Enero/orterfijo + /C1.43/Enero/ortermovil + /C1.43/Enero/puertos + /C1.43/Enero/coubic + /C1.43/Enero/transito + /C1.43/Enero/facilidades + /C1.43/Enero/facturacion + /C1.43/Enero/otros " nodeset="/C1.43/Enero/calculate1" type="string"/>
+      <bind nodeset="/C1.43/Enero/total" readonly="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.43/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col3" ref="/C1.43/Enero">
+      <label>Enero</label>
+      <input ref="/C1.43/Enero/orterfijo">
+        <label>Origen y Terminacion Local Fijo:</label>
+        <hint>Miles de pesos 12 dígitos</hint>
+      </input>
+      <input ref="/C1.43/Enero/ortermovil">
+        <label>Origen y Terminacion Móvil:</label>
+        <hint>Miles de pesos 12 dígitos</hint>
+      </input>
+      <input ref="/C1.43/Enero/puertos">
+        <label>Puertos:</label>
+        <hint>Miles de pesos 12 dígitos</hint>
+      </input>
+      <input ref="/C1.43/Enero/coubic">
+        <label>Coubicacion:</label>
+        <hint>Miles de pesos 12 dígitos</hint>
+      </input>
+      <input ref="/C1.43/Enero/transito">
+        <label>Tránsito Local:</label>
+        <hint>Miles de pesos 12 dígitos</hint>
+      </input>
+      <input ref="/C1.43/Enero/facilidades">
+        <label>Otras Facilidades Esenciales:</label>
+        <hint>Miles de pesos 12 dígitos</hint>
+      </input>
+      <input ref="/C1.43/Enero/facturacion">
+        <label>Facturación y Cobranzas:</label>
+        <hint>Miles de pesos 12 dígitos</hint>
+      </input>
+      <input ref="/C1.43/Enero/otros">
+        <label>Otros:</label>
+        <hint>Miles de pesos 12 dígitos</hint>
+      </input>
+      <input ref="/C1.43/Enero/total">
+        <label>TOTAL: <output value=" /C1.43/Enero/calculate1 "/></label></input>
+    </group>
+  </h:body>
+</h:html>
