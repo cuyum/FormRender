@@ -373,6 +373,7 @@ private Long id;
       TypedQuery<Formulario> query = this.entityManager.createQuery(criteria
             .select(root).where(getSearchPredicates(root)));
       this.pageItems = query.getResultList();
+      
    }
 
    private Predicate[] getSearchPredicates(Root<Formulario> root)
@@ -381,18 +382,24 @@ private Long id;
       CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
       List<Predicate> predicatesList = new ArrayList<Predicate>();
 
+      String codigo = this.example.getCodigo();
+      if (codigo != null && !"".equals(codigo))
+      {
+         predicatesList.add(builder.like(root.<String> get("codigo"), '%' + codigo + '%'));         
+      }
+      
       String nombre = this.example.getNombre();
       if (nombre != null && !"".equals(nombre))
       {
-         predicatesList.add(builder.like(root.<String> get("nombre"), '%' + nombre + '%'));
+         predicatesList.add(builder.like(root.<String> get("nombre"), '%' + nombre + '%'));         
       }
-      String formVersion = this.example.getFormVersion();
-      if (formVersion != null && !"".equals(formVersion))
+      String archivo = this.example.getArchivo();
+      if (archivo != null && !"".equals(archivo))
       {
-         predicatesList.add(builder.like(root.<String> get("formVersion"), '%' + formVersion + '%'));
+         predicatesList.add(builder.like(root.<String> get("archivo"), '%' + archivo + '%'));
       }
 
-      return predicatesList.toArray(new Predicate[predicatesList.size()]);
+      return predicatesList.toArray(new Predicate[predicatesList.size()]); 
    }
 
    public List<Formulario> getPageItems()
@@ -415,8 +422,10 @@ private Long id;
 
       CriteriaQuery<Formulario> criteria = this.entityManager
             .getCriteriaBuilder().createQuery(Formulario.class);
+      Root<Formulario> root = criteria.from(Formulario.class);
       return this.entityManager.createQuery(
-            criteria.select(criteria.from(Formulario.class))).getResultList();
+            criteria.select(criteria.from(Formulario.class)).where(
+					getSearchPredicates(root))).getResultList();      
    }
 
    @Resource
@@ -508,11 +517,8 @@ private Long id;
 	    	if(xmlId==null){
 	    		xmlId = getId();
 	    	}
-	    	this.formulario = findById(xmlId);
-	    	
-//	    	InputStream xmlStream = ec.getResourceAsStream("/WEB-INF/classes/formularios/"+formulario.getArchivo());
-	    	////////////////
-	    	 
+	    	this.formulario = findById(xmlId);	    	
+    	 
 	 	    xmlStream = fileUtils.getInputStream(formulario);
 	    	ts.setRemoteTransformation(false);
 			String transformedHtml = ts.transform(xmlStream);

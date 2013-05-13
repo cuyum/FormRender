@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.22 - Tarifas / precio vigente</h:title>
+    <model>
+      <instance>
+        <C1.22 id="C1.22">
+          <instalacion_linea>
+            <familia_a/>
+            <comercial_a/>
+            <gobierno_a/>
+            <jubilados_a/>
+            <profesional_a/>
+            <otrasDetallar_a/>
+          </instalacion_linea>
+          <abono_mensual>
+            <familia_b/>
+            <comercial_b/>
+            <gobierno_b/>
+            <jubilados_b/>
+            <profesional_b/>
+            <otrasDetallar_b/>
+          </abono_mensual>
+          <abono_mensual_linea_trafico>
+            <familia_c/>
+            <comercial_c/>
+            <gobierno_c/>
+            <jubilados_c/>
+            <profesional_c/>
+            <otrasDetallar_c/>
+          </abono_mensual_linea_trafico>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.22>
+      </instance>
+      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/instalacion_linea/familia_a" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/instalacion_linea/comercial_a" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/instalacion_linea/gobierno_a" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/instalacion_linea/jubilados_a" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/instalacion_linea/profesional_a" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/instalacion_linea/otrasDetallar_a" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual/familia_b" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual/comercial_b" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual/gobierno_b" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual/jubilados_b" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual/profesional_b" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual/otrasDetallar_b" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual_linea_trafico/familia_c" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual_linea_trafico/comercial_c" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual_linea_trafico/gobierno_c" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual_linea_trafico/jubilados_c" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual_linea_trafico/profesional_c" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual_linea_trafico/otrasDetallar_c" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.22/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col6" ref="/C1.22/instalacion_linea">
+      <label>Instalación</label>
+      <input ref="/C1.22/instalacion_linea/familia_a">
+        <label>Hogares</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.22/instalacion_linea/comercial_a">
+        <label>Comercial</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.22/instalacion_linea/gobierno_a">
+        <label>Gobierno</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.22/instalacion_linea/jubilados_a">
+        <label>Jubilados</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.22/instalacion_linea/profesional_a">
+        <label>Profesional</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.22/instalacion_linea/otrasDetallar_a">
+        <label>Otros</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+    </group>
+    <group appearance="col6" ref="/C1.22/abono_mensual">
+      <label>Abono</label>
+      <input ref="/C1.22/abono_mensual/familia_b">
+        <label>Hogares</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.22/abono_mensual/comercial_b">
+        <label>Comercial</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.22/abono_mensual/gobierno_b">
+        <label>Gobierno</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.22/abono_mensual/jubilados_b">
+        <label>Jubilados</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.22/abono_mensual/profesional_b">
+        <label>Profesional</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.22/abono_mensual/otrasDetallar_b">
+        <label>Otros</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+    </group>
+    <group appearance="col6" ref="/C1.22/abono_mensual_linea_trafico">
+      <label>Abono Entrante</label>
+      <input ref="/C1.22/abono_mensual_linea_trafico/familia_c">
+        <label>Hogares</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.22/abono_mensual_linea_trafico/comercial_c">
+        <label>Comercial</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.22/abono_mensual_linea_trafico/gobierno_c">
+        <label>Gobierno</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.22/abono_mensual_linea_trafico/jubilados_c">
+        <label>Jubilados</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.22/abono_mensual_linea_trafico/profesional_c">
+        <label>Profesional</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.22/abono_mensual_linea_trafico/otrasDetallar_c">
+        <label>Otros</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

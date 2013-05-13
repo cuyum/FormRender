@@ -3,10 +3,8 @@
  */
 package ar.com.cuyum.cnc.service;
 
-import java.io.BufferedOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.net.URL;
 
@@ -36,7 +34,8 @@ public class TransformationService {
 
 	public transient Logger log = Logger.getLogger(TransformationService.class);
 
-	private static String XSL_FORM = "form.xsl"; 
+//	private static String XSL_FORM = "form.xsl"; 
+	private static String XSL_FORM = "formCnc.xsl"; 
 	private static String XSL_DATA = "data.xsl"; 
 	private static String XSL_HTML = "jrxfhtml.xsl"; 
 	

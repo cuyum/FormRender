@@ -51,14 +51,14 @@
 						<h:outputText/>						
 					</h:panelGrid>
 					<p:panel styleClass="buttons">
-						<p:commandLink value="Buscar" action="#{formularioBean.search}" styleClass="btn btn-primary"/>
+						<p:commandLink value="Buscar" action="#{formularioBean.search}" styleClass="btn btn-primary" update="formularioBeanPageItems"/>
 						<p:commandLink value="Nuevo" action="#{formularioBean.create}" styleClass="btn btn-primary"/>
 					</p:panel>
 				</p:panel>
 			</f:validateBean>
 			
 			<p:dataTable id="formularioBeanPageItems" value="#{formularioBean.pageItems}" var="_item" style="font-size:12px;" rows="10" 
-			paginator="true" paginatorPosition="bottom" emptyMessage="">
+			paginator="true" paginatorPosition="bottom" emptyMessage="No se encontraron resultados.">
 				<p:column headerText="Cod.">					
 					<h:link outcome="/formulario/view" styleClass="decoNone">
 						<f:param name="id" value="#{_item.id}"/>
@@ -83,7 +83,7 @@
 					</h:link>
 				</p:column>
 				<p:column headerText="Html">				
-					<h:link outcome="/formulario/display" value="Ver" styleClass="button" target="_blank">
+					<h:link outcome="/formulario/display" value="Ver" styleClass="button">
 						<f:param name="id" value="#{_item.id}"/>						
 					</h:link>				
 				</p:column>

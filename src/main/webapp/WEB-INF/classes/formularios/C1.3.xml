@@ -1,0 +1,819 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C.1.3 - Redes e Infraestructura</h:title>
+    <model>
+      <itext>
+        <translation default="true()" lang="Spanish">
+          <text id="/C1.3/datos/lugar/partido:label">
+            <value>Partido/Dpto</value>
+          </text>
+          <text id="/C1.3/datos/lugar1/provincia1:label">
+            <value>Provincia/Región</value>
+          </text>
+          <text id="static_instance-areas-11">
+            <value>BARRIO PARQUE SICARDI</value>
+          </text>
+          <text id="static_instance-areas-10">
+            <value>ABASTO</value>
+          </text>
+          <text id="static_instance-areas-13">
+            <value>LA PLATA</value>
+          </text>
+          <text id="static_instance-areas-12">
+            <value>BARTOLOME BAVIO</value>
+          </text>
+          <text id="static_instance-areas-14">
+            <value>LISANDRO OLMOS</value>
+          </text>
+          <text id="static_instance-provincias-0">
+            <value>Buenos Aires</value>
+          </text>
+          <text id="static_instance-provincias-1">
+            <value>Catamarca</value>
+          </text>
+          <text id="/C1.3/datos/lugar/localidad_otro:label">
+            <value>Por favor especifique</value>
+          </text>
+          <text id="/C1.3/datos/lugar/provincia/buenosAires:label">
+            <value>Buenos Aires</value>
+          </text>
+          <text id="/C1.3/datos/lugar/localidad:label">
+            <value>Localidad</value>
+          </text>
+          <text id="/C1.3/datos/lugar/provincia/catamarca:label">
+            <value>Catamarca</value>
+          </text>
+          <text id="static_instance-localidades-4">
+            <value>La Aurora (Est. La Niña)</value>
+          </text>
+          <text id="static_instance-localidades-5">
+            <value>Otros</value>
+          </text>
+          <text id="static_instance-localidades-6">
+            <value>16 de Julio</value>
+          </text>
+          <text id="static_instance-localidades-7">
+            <value>Ariel</value>
+          </text>
+          <text id="static_instance-localidades-0">
+            <value>Caseros</value>
+          </text>
+          <text id="static_instance-localidades-1">
+            <value>Churruca</value>
+          </text>
+          <text id="static_instance-localidades-2">
+            <value>Otros</value>
+          </text>
+          <text id="static_instance-localidades-3">
+            <value>Dudignac</value>
+          </text>
+          <text id="static_instance-localidades-8">
+            <value>Otros</value>
+          </text>
+          <text id="static_instance-localidades-9">
+            <value>17 de Agosto</value>
+          </text>
+          <text id="/C1.3/datos/medio_tendido/medio:label">
+            <value>Medio</value>
+          </text>
+          <text id="/C1.3/datos/medio_tendido/tendido:hint">
+            <value>Entero de hasta 6 dígitos y mayor a 0</value>
+          </text>
+          <text id="/C1.3/datos/equipamiento/equip_tec/4:label">
+            <value>IP</value>
+          </text>
+          <text id="/C1.3/datos/equipamiento/capaci_util:hint">
+            <value>Entero de hasta 6 digitos y mayor a 0</value>
+          </text>
+          <text id="/C1.3/nota:label">
+            <value>Información del Punto de Inicio del Enlace</value>
+          </text>
+          <text id="/C1.3/datos/lugar1/provincia1/buenosAires:label">
+            <value>Buenos Aires</value>
+          </text>
+          <text id="/C1.3/datos/equipamiento/equip_tec:hint">
+            <value>Seleccione Tecnología</value>
+          </text>
+          <text id="/C1.3/datos/equipamiento/equip_tec/2:label">
+            <value>DWDM</value>
+          </text>
+          <text id="/C1.3/datos/lugar/areas_local:label">
+            <value>Área Local</value>
+          </text>
+          <text id="static_instance-list-0">
+            <value>SDH</value>
+          </text>
+          <text id="static_instance-list-1">
+            <value>DWDM</value>
+          </text>
+          <text id="static_instance-list-2">
+            <value>PDH</value>
+          </text>
+          <text id="static_instance-list-3">
+            <value>IP</value>
+          </text>
+          <text id="static_instance-list-4">
+            <value>Otros</value>
+          </text>
+          <text id="/C1.3/datos/lugar1/partido1:label">
+            <value>Partido/Dpto</value>
+          </text>
+          <text id="static_instance-list3-0">
+            <value>AÉREO</value>
+          </text>
+          <text id="static_instance-list3-1">
+            <value>SUBTERRANEO</value>
+          </text>
+          <text id="static_instance-list3-2">
+            <value>Otros</value>
+          </text>
+          <text id="/C1.3/datos/lugar1/localidad_otro1:label">
+            <value>Por favor especifique</value>
+          </text>
+          <text id="/C1.3/datos/lugar:label">
+            <value>Lugar</value>
+          </text>
+          <text id="/C1.3/datos/lugar/provincia:label">
+            <value>Provincia/Región</value>
+          </text>
+          <text id="/C1.3/datos/equipamiento/capaci_util:label">
+            <value>Capacidad Utilizada</value>
+          </text>
+          <text id="/C1.3/datos/equipamiento/equip_tec_especifique:label">
+            <value>Por favor especifique</value>
+          </text>
+          <text id="/C1.3/datos/equipamiento/capaci_disp:hint">
+            <value>Entero de hasta 6 dígitos y mayor a 0</value>
+          </text>
+          <text id="static_instance-localidades-10">
+            <value>Azopardo</value>
+          </text>
+          <text id="/C1.3/datos/medio_tendido:label">
+            <value>Medio y Tendido</value>
+          </text>
+          <text id="/C1.3/datos/lugar/areas_local:hint">
+            <value>Seleccione Área Local</value>
+          </text>
+          <text id="/C1.3/datos/equipamiento/equip_tec/3:label">
+            <value>PDH</value>
+          </text>
+          <text id="static_instance-localidades-16">
+            <value>Antofalla</value>
+          </text>
+          <text id="static_instance-localidades-17">
+            <value>Otros</value>
+          </text>
+          <text id="static_instance-localidades-14">
+            <value>Otros</value>
+          </text>
+          <text id="static_instance-localidades-15">
+            <value>Antofagasta de la Sierra</value>
+          </text>
+          <text id="static_instance-localidades-12">
+            <value>Anillaco</value>
+          </text>
+          <text id="static_instance-localidades-13">
+            <value>Antinaco</value>
+          </text>
+          <text id="/C1.3/datos/equipamiento:label">
+            <value>Equipamiento</value>
+          </text>
+          <text id="static_instance-localidades-11">
+            <value>Otros</value>
+          </text>
+          <text id="static_instance-localidades-18">
+            <value>Apoyaco</value>
+          </text>
+          <text id="static_instance-localidades-19">
+            <value>Colana</value>
+          </text>
+          <text id="/C1.3/datos/equipamiento:hint">
+            <value>Entero de hasta 6 dígitos y mayor a 0</value>
+          </text>
+          <text id="/C1.3/datos/equipamiento/equip_tec/5:label">
+            <value>Otros</value>
+          </text>
+          <text id="/C1.3/datos/equipamiento/equip_tec:label">
+            <value>Tecnología</value>
+          </text>
+          <text id="/C1.3/datos/medio_tendido/medio:hint">
+            <value>Entero de hasta 6 dígitos y mayor a 0</value>
+          </text>
+          <text id="/C1.3/datos/equipamiento/capaci_disp:label">
+            <value>Capacidad Disponible</value>
+          </text>
+          <text id="/C1.3/datos/medio_tendido/tendido:label">
+            <value>Tendido</value>
+          </text>
+          <text id="static_instance-list2-1">
+            <value>MW</value>
+          </text>
+          <text id="static_instance-list2-0">
+            <value>FO</value>
+          </text>
+          <text id="static_instance-list2-2">
+            <value>Otros</value>
+          </text>
+          <text id="/C1.3/datos/lugar1:label">
+            <value>Lugar</value>
+          </text>
+          <text id="/C1.3/datos/lugar1/localidad1:label">
+            <value>Localidad</value>
+          </text>
+          <text id="static_instance-areas-9">
+            <value>VIRREY DEL PINO</value>
+          </text>
+          <text id="static_instance-areas-8">
+            <value>GONZALEZ CATAN</value>
+          </text>
+          <text id="static_instance-areas-5">
+            <value>PLOMMER</value>
+          </text>
+          <text id="static_instance-areas-4">
+            <value>MERLO (PROV.  BUENOS AIRES)</value>
+          </text>
+          <text id="static_instance-areas-7">
+            <value>VILLARS</value>
+          </text>
+          <text id="static_instance-areas-6">
+            <value>PONTEVEDRA</value>
+          </text>
+          <text id="static_instance-areas-1">
+            <value>LIBERTAD</value>
+          </text>
+          <text id="static_instance-areas-0">
+            <value>GENERAL LAS HERAS</value>
+          </text>
+          <text id="static_instance-areas-3">
+            <value>MARIANO ACOSTA</value>
+          </text>
+          <text id="static_instance-areas-2">
+            <value>MARCOS PAZ</value>
+          </text>
+          <text id="/C1.3/datos/equipamiento/equip_tec/1:label">
+            <value>SDH</value>
+          </text>
+          <text id="static_instance-partidos-6">
+            <value>Poman</value>
+          </text>
+          <text id="static_instance-partidos-7">
+            <value>Capital</value>
+          </text>
+          <text id="static_instance-partidos-4">
+            <value>Tinogasta</value>
+          </text>
+          <text id="static_instance-partidos-5">
+            <value>Antofagasta de la Sierra</value>
+          </text>
+          <text id="static_instance-partidos-2">
+            <value>Azul</value>
+          </text>
+          <text id="static_instance-partidos-3">
+            <value>Puan</value>
+          </text>
+          <text id="static_instance-partidos-0">
+            <value>Tres De Febrero</value>
+          </text>
+          <text id="static_instance-partidos-1">
+            <value>9 de Julio</value>
+          </text>
+          <text id="/C1.3/datos/lugar1/provincia1/catamarca:label">
+            <value>Catamarca</value>
+          </text>
+          <text id="static_instance-localidades-23">
+            <value>Otros</value>
+          </text>
+          <text id="static_instance-localidades-22">
+            <value>El Pantanillo</value>
+          </text>
+          <text id="static_instance-localidades-21">
+            <value>Barrio Bancario</value>
+          </text>
+          <text id="static_instance-localidades-20">
+            <value>Otros</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <C1.3 id="C1.3">
+          <nota/>
+          <datos jr:template="">
+            <lugar>
+              <provincia/>
+              <partido/>
+              <localidad/>
+              <localidad_otro/>
+              <areas_local/>
+            </lugar>
+            <equipamiento>
+              <equip_tec>1</equip_tec>
+              <equip_tec_especifique/>
+              <capaci_disp/>
+              <capaci_util/>
+            </equipamiento>
+            <medio_tendido>
+              <medio/>
+              <tendido/>
+            </medio_tendido>
+            <lugar1>
+              <provincia1/>
+              <partido1/>
+              <localidad1/>
+              <localidad_otro1/>
+            </lugar1>
+          </datos>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.3>
+      </instance>
+      <instance id="list">
+        <root>
+          <item>
+            <itextId>static_instance-list-0</itextId>
+            <name>1</name>
+          </item>
+          <item>
+            <itextId>static_instance-list-1</itextId>
+            <name>2</name>
+          </item>
+          <item>
+            <itextId>static_instance-list-2</itextId>
+            <name>3</name>
+          </item>
+          <item>
+            <itextId>static_instance-list-3</itextId>
+            <name>4</name>
+          </item>
+          <item>
+            <itextId>static_instance-list-4</itextId>
+            <name>5</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="list3">
+        <root>
+          <item>
+            <itextId>static_instance-list3-0</itextId>
+            <name>1</name>
+          </item>
+          <item>
+            <itextId>static_instance-list3-1</itextId>
+            <name>2</name>
+          </item>
+          <item>
+            <itextId>static_instance-list3-2</itextId>
+            <name>3</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="list2">
+        <root>
+          <item>
+            <itextId>static_instance-list2-0</itextId>
+            <name>1</name>
+          </item>
+          <item>
+            <itextId>static_instance-list2-1</itextId>
+            <name>2</name>
+          </item>
+          <item>
+            <itextId>static_instance-list2-2</itextId>
+            <name>3</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="partidos">
+        <root>
+          <item>
+            <itextId>static_instance-partidos-0</itextId>
+            <provincia>buenosAires</provincia>
+            <name>tresFebrero</name>
+          </item>
+          <item>
+            <itextId>static_instance-partidos-1</itextId>
+            <provincia>buenosAires</provincia>
+            <name>nueveJulio</name>
+          </item>
+          <item>
+            <itextId>static_instance-partidos-2</itextId>
+            <provincia>buenosAires</provincia>
+            <name>azul</name>
+          </item>
+          <item>
+            <itextId>static_instance-partidos-3</itextId>
+            <provincia>buenosAires</provincia>
+            <name>puan</name>
+          </item>
+          <item>
+            <itextId>static_instance-partidos-4</itextId>
+            <provincia>catamarca</provincia>
+            <name>tinogasta</name>
+          </item>
+          <item>
+            <itextId>static_instance-partidos-5</itextId>
+            <provincia>catamarca</provincia>
+            <name>antofagasta</name>
+          </item>
+          <item>
+            <itextId>static_instance-partidos-6</itextId>
+            <provincia>catamarca</provincia>
+            <name>poman</name>
+          </item>
+          <item>
+            <itextId>static_instance-partidos-7</itextId>
+            <provincia>catamarca</provincia>
+            <name>capital</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="localidades">
+        <root>
+          <item>
+            <itextId>static_instance-localidades-0</itextId>
+            <partido>tresFebrero</partido>
+            <provincia>buenosAires</provincia>
+            <name>caseros</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-1</itextId>
+            <partido>tresFebrero</partido>
+            <provincia>buenosAires</provincia>
+            <name>churruca</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-2</itextId>
+            <partido>tresFebrero</partido>
+            <provincia>buenosAires</provincia>
+            <name>otros1</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-3</itextId>
+            <partido>nueveJulio</partido>
+            <provincia>buenosAires</provincia>
+            <name>dudignac</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-4</itextId>
+            <partido>nueveJulio</partido>
+            <provincia>buenosAires</provincia>
+            <name>laAurora</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-5</itextId>
+            <partido>nueveJulio</partido>
+            <provincia>buenosAires</provincia>
+            <name>otros2</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-6</itextId>
+            <partido>azul</partido>
+            <provincia>buenosAires</provincia>
+            <name>dieciseisJulio</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-7</itextId>
+            <partido>azul</partido>
+            <provincia>buenosAires</provincia>
+            <name>ariel</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-8</itextId>
+            <partido>azul</partido>
+            <provincia>buenosAires</provincia>
+            <name>otros3</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-9</itextId>
+            <partido>puan</partido>
+            <provincia>buenosAires</provincia>
+            <name>diecisieteAgosto</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-10</itextId>
+            <partido>puan</partido>
+            <provincia>buenosAires</provincia>
+            <name>azopardo</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-11</itextId>
+            <partido>puan</partido>
+            <provincia>buenosAires</provincia>
+            <name>otros4</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-12</itextId>
+            <partido>tinogasta</partido>
+            <provincia>catamarca</provincia>
+            <name>anillaco</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-13</itextId>
+            <partido>tinogasta</partido>
+            <provincia>catamarca</provincia>
+            <name>antinaco</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-14</itextId>
+            <partido>tinogasta</partido>
+            <provincia>catamarca</provincia>
+            <name>otros5</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-15</itextId>
+            <partido>antofagasta</partido>
+            <provincia>catamarca</provincia>
+            <name>antofagasta</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-16</itextId>
+            <partido>antofagasta</partido>
+            <provincia>catamarca</provincia>
+            <name>antofalla</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-17</itextId>
+            <partido>antofagasta</partido>
+            <provincia>catamarca</provincia>
+            <name>otros6</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-18</itextId>
+            <partido>poman</partido>
+            <provincia>catamarca</provincia>
+            <name>apoyaco</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-19</itextId>
+            <partido>poman</partido>
+            <provincia>catamarca</provincia>
+            <name>colana</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-20</itextId>
+            <partido>poman</partido>
+            <provincia>catamarca</provincia>
+            <name>otros7</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-21</itextId>
+            <partido>capital</partido>
+            <provincia>catamarca</provincia>
+            <name>barrioBancario</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-22</itextId>
+            <partido>capital</partido>
+            <provincia>catamarca</provincia>
+            <name>elPantanillo</name>
+          </item>
+          <item>
+            <itextId>static_instance-localidades-23</itextId>
+            <partido>capital</partido>
+            <provincia>catamarca</provincia>
+            <name>otros8</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="provincias">
+        <root>
+          <item>
+            <itextId>static_instance-provincias-0</itextId>
+            <name>buenosAires</name>
+          </item>
+          <item>
+            <itextId>static_instance-provincias-1</itextId>
+            <name>catamarca</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="areas">
+        <root>
+          <item>
+            <itextId>static_instance-areas-0</itextId>
+            <provincia>buenosAires</provincia>
+            <name>GENERAL_LAS_HERAS</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-1</itextId>
+            <provincia>buenosAires</provincia>
+            <name>LIBERTAD</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-2</itextId>
+            <provincia>buenosAires</provincia>
+            <name>MARCOS_PAZ</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-3</itextId>
+            <provincia>buenosAires</provincia>
+            <name>MARIANO_ACOSTA</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-4</itextId>
+            <provincia>buenosAires</provincia>
+            <name>MERLO</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-5</itextId>
+            <provincia>buenosAires</provincia>
+            <name>PLOMMER</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-6</itextId>
+            <provincia>buenosAires</provincia>
+            <name>PONTEVEDRA</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-7</itextId>
+            <provincia>catamarca</provincia>
+            <name>VILLARS</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-8</itextId>
+            <provincia>catamarca</provincia>
+            <name>GONZALEZ_CATAN</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-9</itextId>
+            <provincia>catamarca</provincia>
+            <name>VIRREY_PINO</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-10</itextId>
+            <provincia>catamarca</provincia>
+            <name>ABASTO</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-11</itextId>
+            <provincia>catamarca</provincia>
+            <name>BARRIO_PARQUE_SICARDI</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-12</itextId>
+            <provincia>catamarca</provincia>
+            <name>BARTOLOME_BAVIO</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-13</itextId>
+            <provincia>catamarca</provincia>
+            <name>LA_PLATA</name>
+          </item>
+          <item>
+            <itextId>static_instance-areas-14</itextId>
+            <provincia>catamarca</provincia>
+            <name>LISANDRO_OLMOS</name>
+          </item>
+        </root>
+      </instance>
+      <bind nodeset="/C1.3/nota" readonly="true()" type="string"/>
+      <bind nodeset="/C1.3/datos/lugar/provincia" required="true()" type="select1"/>
+      <bind nodeset="/C1.3/datos/lugar/partido" required="true()" type="select1"/>
+      <bind nodeset="/C1.3/datos/lugar/localidad" required="true()" type="select1"/>
+      <bind nodeset="/C1.3/datos/lugar/localidad_otro" relevant=" /C1.3/datos/lugar/localidad ='otros1' or  /C1.3/datos/lugar/localidad ='otros2' or  /C1.3/datos/lugar/localidad ='otros3' or  /C1.3/datos/lugar/localidad ='otros4' or  /C1.3/datos/lugar/localidad ='otros5' or  /C1.3/datos/lugar/localidad ='otros6' or  /C1.3/datos/lugar/localidad ='otros7' or  /C1.3/datos/lugar/localidad ='otros8'" type="string"/>
+      <bind nodeset="/C1.3/datos/lugar/areas_local" required="true()" type="select1"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.3/datos/equipamiento"/>
+      <bind nodeset="/C1.3/datos/equipamiento/equip_tec" required="true()" type="select1"/>
+      <bind nodeset="/C1.3/datos/equipamiento/equip_tec_especifique" relevant=" /C1.3/datos/equipamiento/equip_tec ='5'" type="string"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.3/datos/equipamiento/capaci_disp" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000" jr:constraintMsg="Debe ingresar un numero entero hasta 6 digitos y mayor a 0" nodeset="/C1.3/datos/equipamiento/capaci_util" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.3/datos/medio_tendido/medio" required="true()" type="int"/>
+      <bind constraint="regex(., '[0-9]*') and .&lt;1000000" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.3/datos/medio_tendido/tendido" required="true()" type="int"/>
+      <bind nodeset="/C1.3/datos/lugar1/provincia1" required="true()" type="select1"/>
+      <bind nodeset="/C1.3/datos/lugar1/partido1" required="true()" type="select1"/>
+      <bind nodeset="/C1.3/datos/lugar1/localidad1" required="true()" type="select1"/>
+      <bind nodeset="/C1.3/datos/lugar1/localidad_otro1" relevant=" /C1.3/datos/lugar1/localidad1 ='otros1' or  /C1.3/datos/lugar1/localidad1 ='otros2' or  /C1.3/datos/lugar1/localidad1 ='otros3' or  /C1.3/datos/lugar1/localidad1 ='otros4' or  /C1.3/datos/lugar1/localidad1 ='otros5' or  /C1.3/datos/lugar1/localidad1 ='otros6' or  /C1.3/datos/lugar1/localidad1 ='otros7' or  /C1.3/datos/lugar1/localidad1 ='otros8'" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.3/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/C1.3/nota">
+      <label ref="jr:itext('/C1.3/nota:label')"/>
+    </input>
+    <group ref="/C1.3/datos">
+      <label></label>
+      <repeat nodeset="/C1.3/datos">
+        <group appearance="col4" ref="/C1.3/datos/lugar">
+          <label ref="jr:itext('/C1.3/datos/lugar:label')"/>
+          <select1 appearance="minimal" ref="/C1.3/datos/lugar/provincia">
+            <label ref="jr:itext('/C1.3/datos/lugar/provincia:label')"/>
+            <item>
+              <label ref="jr:itext('/C1.3/datos/lugar/provincia/buenosAires:label')"/>
+              <value>buenosAires</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/C1.3/datos/lugar/provincia/catamarca:label')"/>
+              <value>catamarca</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C1.3/datos/lugar/partido">
+            <label ref="jr:itext('/C1.3/datos/lugar/partido:label')"/>
+            <itemset nodeset="instance('partidos')/root/item[provincia= /C1.3/datos/lugar/provincia ]">
+              <value ref="name"/>
+              <label ref="jr:itext(itextId)"/>
+            </itemset>
+          </select1>
+          <select1 appearance="minimal" ref="/C1.3/datos/lugar/localidad">
+            <label ref="jr:itext('/C1.3/datos/lugar/localidad:label')"/>
+            <itemset nodeset="instance('localidades')/root/item[provincia= /C1.3/datos/lugar/provincia  and partido= /C1.3/datos/lugar/partido ]">
+              <value ref="name"/>
+              <label ref="jr:itext(itextId)"/>
+            </itemset>
+          </select1>
+          <input ref="/C1.3/datos/lugar/localidad_otro">
+            <label ref="jr:itext('/C1.3/datos/lugar/localidad_otro:label')"/>
+          </input>
+          <select1 appearance="minimal" ref="/C1.3/datos/lugar/areas_local">
+            <label ref="jr:itext('/C1.3/datos/lugar/areas_local:label')"/>
+            <hint ref="jr:itext('/C1.3/datos/lugar/areas_local:hint')"/>
+            <itemset nodeset="instance('areas')/root/item[provincia= /C1.3/datos/lugar/provincia ]">
+              <value ref="name"/>
+              <label ref="jr:itext(itextId)"/>
+            </itemset>
+          </select1>
+        </group>
+        <group appearance="col3" ref="/C1.3/datos/equipamiento">
+          <label ref="jr:itext('/C1.3/datos/equipamiento:label')"/>
+          <select1 appearance="minimal" ref="/C1.3/datos/equipamiento/equip_tec">
+            <label ref="jr:itext('/C1.3/datos/equipamiento/equip_tec:label')"/>
+            <hint ref="jr:itext('/C1.3/datos/equipamiento/equip_tec:hint')"/>
+            <item>
+              <label ref="jr:itext('/C1.3/datos/equipamiento/equip_tec/1:label')"/>
+              <value>1</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/C1.3/datos/equipamiento/equip_tec/2:label')"/>
+              <value>2</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/C1.3/datos/equipamiento/equip_tec/3:label')"/>
+              <value>3</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/C1.3/datos/equipamiento/equip_tec/4:label')"/>
+              <value>4</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/C1.3/datos/equipamiento/equip_tec/5:label')"/>
+              <value>5</value>
+            </item>
+          </select1>
+          <input ref="/C1.3/datos/equipamiento/equip_tec_especifique">
+            <label ref="jr:itext('/C1.3/datos/equipamiento/equip_tec_especifique:label')"/>
+          </input>
+          <input ref="/C1.3/datos/equipamiento/capaci_disp">
+            <label ref="jr:itext('/C1.3/datos/equipamiento/capaci_disp:label')"/>
+            <hint ref="jr:itext('/C1.3/datos/equipamiento/capaci_disp:hint')"/>
+          </input>
+          <input ref="/C1.3/datos/equipamiento/capaci_util">
+            <label ref="jr:itext('/C1.3/datos/equipamiento/capaci_util:label')"/>
+            <hint ref="jr:itext('/C1.3/datos/equipamiento/capaci_util:hint')"/>
+          </input>
+        </group>
+        <group appearance="col2" ref="/C1.3/datos/medio_tendido">
+          <label ref="jr:itext('/C1.3/datos/medio_tendido:label')"/>
+          <input ref="/C1.3/datos/medio_tendido/medio">
+            <label ref="jr:itext('/C1.3/datos/medio_tendido/medio:label')"/>
+            <hint ref="jr:itext('/C1.3/datos/medio_tendido/medio:hint')"/>
+          </input>
+          <input ref="/C1.3/datos/medio_tendido/tendido">
+            <label ref="jr:itext('/C1.3/datos/medio_tendido/tendido:label')"/>
+            <hint ref="jr:itext('/C1.3/datos/medio_tendido/tendido:hint')"/>
+          </input>
+        </group>
+        <group appearance="col3" ref="/C1.3/datos/lugar1">
+          <label ref="jr:itext('/C1.3/datos/lugar1:label')"/>
+          <select1 ref="/C1.3/datos/lugar1/provincia1">
+            <label ref="jr:itext('/C1.3/datos/lugar1/provincia1:label')"/>
+            <item>
+              <label ref="jr:itext('/C1.3/datos/lugar1/provincia1/buenosAires:label')"/>
+              <value>buenosAires</value>
+            </item>
+            <item>
+              <label ref="jr:itext('/C1.3/datos/lugar1/provincia1/catamarca:label')"/>
+              <value>catamarca</value>
+            </item>
+          </select1>
+          <select1 ref="/C1.3/datos/lugar1/partido1">
+            <label ref="jr:itext('/C1.3/datos/lugar1/partido1:label')"/>
+            <itemset nodeset="instance('partidos')/root/item[provincia= /C1.3/datos/lugar1/provincia1 ]">
+              <value ref="name"/>
+              <label ref="jr:itext(itextId)"/>
+            </itemset>
+          </select1>
+          <select1 ref="/C1.3/datos/lugar1/localidad1">
+            <label ref="jr:itext('/C1.3/datos/lugar1/localidad1:label')"/>
+            <itemset nodeset="instance('localidades')/root/item[provincia= /C1.3/datos/lugar1/provincia1  and partido= /C1.3/datos/lugar1/partido1 ]">
+              <value ref="name"/>
+              <label ref="jr:itext(itextId)"/>
+            </itemset>
+          </select1>
+          <input ref="/C1.3/datos/lugar1/localidad_otro1">
+            <label ref="jr:itext('/C1.3/datos/lugar1/localidad_otro1:label')"/>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>
