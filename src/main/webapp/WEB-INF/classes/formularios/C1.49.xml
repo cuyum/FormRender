@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.49 - Personal ocupado</h:title>
+    <model>
+      <instance>
+        <C1.49 id="C1.49">
+          <mes>
+            <hombres/>
+            <mujeres/>
+          </mes>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.49>
+      </instance>
+      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.49/mes/hombres" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.49/mes/mujeres" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.49/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col1" ref="/C1.49/mes">
+      <label>Mes</label>
+      <input ref="/C1.49/mes/hombres">
+        <label>Hombres</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.49/mes/mujeres">
+        <label>Mujeres</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

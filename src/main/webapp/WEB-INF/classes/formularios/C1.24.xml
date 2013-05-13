@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.24 - Tarifas / precio minuto servicios especiales</h:title>
+    <model>
+      <instance>
+        <C1.24 id="C1.24">
+          <numero_a>
+            <tarifa_110/>
+            <tarifa_113/>
+            <tarifa_osespecificar1/>
+          </numero_a>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.24>
+      </instance>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" nodeset="/C1.24/numero_a/tarifa_110" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" nodeset="/C1.24/numero_a/tarifa_113" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" nodeset="/C1.24/numero_a/tarifa_osespecificar1" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.24/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col3" ref="/C1.24/numero_a">
+      <label>Númeroa</label>
+      <input ref="/C1.24/numero_a/tarifa_110">
+        <label>110</label>
+        <hint>Ingrese Precio</hint>
+      </input>
+      <input ref="/C1.24/numero_a/tarifa_113">
+        <label>113</label>
+        <hint>Ingrese Precio</hint>
+      </input>
+      <input ref="/C1.24/numero_a/tarifa_osespecificar1">
+        <label>Otros</label>
+        <hint>Ingrese Precio</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

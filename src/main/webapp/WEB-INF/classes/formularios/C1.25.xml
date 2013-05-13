@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.25 - Tarifas / precio servicios adicionales</h:title>
+    <model>
+      <instance>
+        <C1.25 id="C1.25">
+          <servicios0>
+            <servicio1/>
+            <servicio19/>
+            <servicio20/>
+            <servicio5/>
+            <servicio4/>
+            <servicio6/>
+            <servicio7/>
+            <servicio8/>
+            <servicio21/>
+            <servicio10/>
+            <servicio11/>
+            <servicio12/>
+            <servicio13/>
+            <servicio14/>
+            <servicio15/>
+            <servicio16/>
+            <servicio17/>
+            <servicio18/>
+            <servicio2/>
+            <servicio3/>
+            <servicio9/>
+            <servicio28/>
+            <servicio29/>
+            <servicio24/>
+            <servicio25/>
+            <servicio26/>
+            <servicio27/>
+            <servicio22/>
+            <servicio23/>
+            <servicio30/>
+          </servicios0>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.25>
+      </instance>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio1" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio19" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio20" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio5" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio4" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio6" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio7" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio8" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio21" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio10" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio11" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio12" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio13" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio14" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio15" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio16" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio17" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio18" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio2" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio3" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio9" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio28" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio29" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio24" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio25" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio26" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio27" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio22" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio23" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.25/servicios0/servicio30" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.25/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col6" ref="/C1.25/servicios0">
+      <label>Servicios</label>
+      <input ref="/C1.25/servicios0/servicio1">
+        <label>Llamada en Conferencia</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio19">
+        <label>Bloqueo de Tráfico Local</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio20">
+        <label>Bloqueo de Tráfico LDN</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio5">
+        <label>Desvío por Ocupado</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio4">
+        <label>Desvío por Ocupado</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio6">
+        <label>Desvío por No contesta</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio7">
+        <label>Desvío por Cambio Dom.</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio8">
+        <label>Desvío por Baja</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio21">
+        <label>Bloqueo Tráfico LDI</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio10">
+        <label>Llamada sin Selección</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio11">
+        <label>Identificador de Llamadas</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio12">
+        <label>Restricción Caller</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio13">
+        <label>Facturación Detallada</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio14">
+        <label>No Figurar en Guía</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio15">
+        <label>Servicio Despertador</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio16">
+        <label>No Molestar</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio17">
+        <label>Cliente/Abonado Ausente</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio18">
+        <label>Numeración Abreviada</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio2">
+        <label>Señal de Llamada en Espera</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio3">
+        <label>Desvío Dir. Transf. Llamadas</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio9">
+        <label>Memo Llamada / Contestador</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio28">
+        <label>Amplificador para Radiodifusión</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio29">
+        <label>Timbre distintivo de Llamadas</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio24">
+        <label>Bloqueo de Llamadas Masivas</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio25">
+        <label>Servicio de Telectura</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio26">
+        <label>Servicio de Mant. Domicilio</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio27">
+        <label>Datos Inquilino Facturación</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio22">
+        <label>Bloqueo Modalidad</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio23">
+        <label>Bloqueo de Audiotexto</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+      <input ref="/C1.25/servicios0/servicio30">
+        <label>Otros Servicios</label>
+        <hint>Ingrese costo mensual</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

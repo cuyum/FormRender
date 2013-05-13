@@ -46,7 +46,10 @@
 		<div class="buttons">
 			<h:link value="Ver Todos" outcome="search" styleClass="btn btn-primary"/> 
 			<h:link value="Editar" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
-			<h:link value="Nuevo" outcome="create" styleClass="btn btn-primary"/>
+			<h:link value="Nuevo" outcome="create" styleClass="btn btn-primary"/>			
+			<h:link outcome="/formulario/display" value="Html" styleClass="btn btn-primary">
+				<f:param name="id" value="#{formularioBean.formulario.id}"/>						
+			</h:link>			
 		</div>
 	</ui:define>
 

@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.47 - Otros Gastos</h:title>
+    <model>
+      <instance>
+        <C1.47 id="C1.47">
+          <mes>
+            <i_d>0</i_d>
+            <imp>0</imp>
+            <am_bienes>0</am_bienes>
+            <am_intang>0</am_intang>
+            <publicidad>0</publicidad>
+            <costo_equipos>0</costo_equipos>
+            <otros_com>0</otros_com>
+            <otros_fin>0</otros_fin>
+            <otros_adm>0</otros_adm>
+            <calculate/>
+            <calculate_test_output/>
+          </mes>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.47>
+      </instance>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.47/mes/i_d" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.47/mes/imp" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.47/mes/am_bienes" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.47/mes/am_intang" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.47/mes/publicidad" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.47/mes/costo_equipos" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.47/mes/otros_com" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.47/mes/otros_fin" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.47/mes/otros_adm" type="int"/>
+      <bind calculate=" /C1.47/mes/i_d + /C1.47/mes/imp + /C1.47/mes/am_bienes + /C1.47/mes/am_intang + /C1.47/mes/publicidad + /C1.47/mes/costo_equipos + /C1.47/mes/otros_com + /C1.47/mes/otros_fin + /C1.47/mes/otros_adm " nodeset="/C1.47/mes/calculate" type="string"/>
+      <bind nodeset="/C1.47/mes/calculate_test_output" readonly="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.47/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col4" ref="/C1.47/mes">
+      <label>Mes</label>
+      <input ref="/C1.47/mes/i_d">
+        <label>I &amp; D:</label>
+        <hint>Ingrese numero entero</hint>
+      </input>
+      <input ref="/C1.47/mes/imp">
+        <label>lmp:</label>
+        <hint>Ingrese numero entero</hint>
+      </input>
+      <input ref="/C1.47/mes/am_bienes">
+        <label>Amortiz. Bienes:</label>
+        <hint>Ingrese numero entero</hint>
+      </input>
+      <input ref="/C1.47/mes/am_intang">
+        <label>Amortiz. Intangibles:</label>
+        <hint>Ingrese numero entero</hint>
+      </input>
+      <input ref="/C1.47/mes/publicidad">
+        <label>Publicidad:</label>
+        <hint>Ingrese numero entero</hint>
+      </input>
+      <input ref="/C1.47/mes/costo_equipos">
+        <label>Costo Equipos:</label>
+        <hint>Ingrese numero entero</hint>
+      </input>
+      <input ref="/C1.47/mes/otros_com">
+        <label>Otros Comercios:</label>
+        <hint>Ingrese numero entero</hint>
+      </input>
+      <input ref="/C1.47/mes/otros_fin">
+        <label>Otros Financieros:</label>
+        <hint>Ingrese numero entero</hint>
+      </input>
+      <input ref="/C1.47/mes/otros_adm">
+        <label>Otros administrativo:</label>
+        <hint>Ingrese numero entero</hint>
+      </input>
+      <input ref="/C1.47/mes/calculate_test_output">
+        <label>Total <output value=" /C1.47/mes/calculate "/></label></input>
+    </group>
+  </h:body>
+</h:html>
