@@ -523,7 +523,7 @@ private Long id;
 	    	ts.setRemoteTransformation(false);
 			String transformedHtml = ts.transform(xmlStream);
 			ec.responseReset(); // Some JSF component library or some Filter might have set some headers in the buffer beforehand. We want to get rid of them, else it may collide.
-//		    ec.setResponseContentType("text/html"); // Check http://www.iana.org/assignments/media-types for all types. Use if necessary ExternalContext#getMimeType() for auto-detection based on filename.
+		    ec.setResponseContentType("text/html"); // Check http://www.iana.org/assignments/media-types for all types. Use if necessary ExternalContext#getMimeType() for auto-detection based on filename.
 //		    ec.setResponseHeader("Content-Disposition", "attachment; filename=\""+formulario.getArchivo()+"\""); // The Save As popup magic is done here. You can give it any file name you want, this only won't work in MSIE, it will use current request URL as file name instead.
 		    OutputStream output = ec.getResponseOutputStream();
 			output.write(transformedHtml.getBytes());
