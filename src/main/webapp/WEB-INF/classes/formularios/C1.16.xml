@@ -1,38 +1,50 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario C1.17 - Calidad de servicio / facturacion</h:title>
+    <h:title>C1.16</h:title>
     <model>
       <instance>
-        <C1.17 id="C1.17">
+        <C1.16 id="C1.16">
           <mes>
             <provincia/>
             <partido/>
             <localidad/>
             <areas_local/>
-            <contratos_vigentes/>
-            <facturacion_papel/>
-            <facturacion_web/>
+            <TRP/>
+            <TRCP/>
+            <TRR/>
+            <ROAC/>
+            <RSCP/>
+            <TCF/>
+            <DPOSS/>
+            <TFRP/>
+            <DRF/>
           </mes>
           <meta>
             <instanceID/>
           </meta>
-        </C1.17>
+        </C1.16>
       </instance>
-      <bind jr:constraintMsg="true()" nodeset="/C1.17/mes/provincia" required="true()" type="select1"/>
-      <bind jr:constraintMsg="true()" nodeset="/C1.17/mes/partido" required="true()" type="select1"/>
-      <bind jr:constraintMsg="true()" nodeset="/C1.17/mes/localidad" required="true()" type="select1"/>
-      <bind nodeset="/C1.17/mes/areas_local" required="true()" type="select1"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.17/mes/contratos_vigentes" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.17/mes/facturacion_papel" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.17/mes/facturacion_web" required="true()" type="int"/>
-      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.17/meta/instanceID" readonly="true()" type="string"/>
+      <bind jr:constraintMsg="true()" nodeset="/C1.16/mes/provincia" required="true()" type="select1"/>
+      <bind jr:constraintMsg="true()" nodeset="/C1.16/mes/partido" required="true()" type="select1"/>
+      <bind jr:constraintMsg="true()" nodeset="/C1.16/mes/localidad" required="true()" type="select1"/>
+      <bind nodeset="/C1.16/mes/areas_local" required="true()" type="select1"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.16/mes/TRP" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.16/mes/TRCP" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.16/mes/TRR" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.16/mes/ROAC" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.16/mes/RSCP" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.16/mes/TCF" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.16/mes/DPOSS" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.16/mes/TFRP" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.16/mes/DRF" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.16/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4 well-white" ref="/C1.17/mes">
+    <group appearance="col4 well-white" ref="/C1.16/mes">
       <label>Enero</label>
-      <select1 appearance="minimal" ref="/C1.17/mes/provincia">
+      <select1 appearance="minimal" ref="/C1.16/mes/provincia">
         <label>Provincia</label>
         <hint>Seleccione Provincia</hint>
         <item>
@@ -44,8 +56,8 @@
           <value>catamarca</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.17/mes/partido">
-        <label>Partido</label>
+      <select1 appearance="minimal" ref="/C1.16/mes/partido">
+        <label>Partido / Departamento</label>
         <hint>Seleccione Partido</hint>
         <item>
           <label>Tres De Febrero</label>
@@ -80,7 +92,7 @@
           <value>capital</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.17/mes/localidad">
+      <select1 appearance="minimal" ref="/C1.16/mes/localidad">
         <label>Localidad</label>
         <hint>Seleccione Localidad</hint>
         <item>
@@ -180,7 +192,7 @@
           <value>otros8</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.17/mes/areas_local">
+      <select1 appearance="minimal" ref="/C1.16/mes/areas_local">
         <label>Área Local</label>
         <hint>Seleccione Área Local</hint>
         <item>
@@ -244,16 +256,40 @@
           <value>LISANDRO_OLMOS</value>
         </item>
       </select1>
-      <input ref="/C1.17/mes/contratos_vigentes">
-        <label>Contratos Vigente</label>
+      <input ref="/C1.16/mes/TRP">
+        <label>TRP</label>
         <hint>Ingrese número entero</hint>
       </input>
-      <input ref="/C1.17/mes/facturacion_papel">
-        <label>Facturación Papel</label>
+      <input ref="/C1.16/mes/TRCP">
+        <label>TRCP</label>
         <hint>Ingrese número entero</hint>
       </input>
-      <input ref="/C1.17/mes/facturacion_web">
-        <label>Facturación Web</label>
+      <input ref="/C1.16/mes/TRR">
+        <label>TRR</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.16/mes/ROAC">
+        <label>ROAC</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.16/mes/RSCP">
+        <label>RSCP</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.16/mes/TCF">
+        <label>TCF</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.16/mes/DPOSS">
+        <label>DPOSS</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.16/mes/TFRP">
+        <label>TFRP</label>
+        <hint>Ingrese número entero</hint>
+      </input>
+      <input ref="/C1.16/mes/DRF">
+        <label>DRF</label>
         <hint>Ingrese número entero</hint>
       </input>
     </group>

@@ -46,14 +46,14 @@ var setupValidations = function(field){
 			f.rules( "add", {
 				entero:true
 				,messages:{
-					number: "Debe ser un valor num&eacute;ico v&aacute;lido"
+					number: "Debe ser un valor num&eacute;rico v&aacute;lido"
 				}
 			});
 		}else if(data_type && data_type=="decimal"){
 			f.rules( "add", {
 				decimal:true
 				,messages:{
-					number: "Debe ser un valor num&eacute;ico v&aacute;lido"
+					number: "Debe ser un valor num&eacute;rico v&aacute;lido"
 				}
 			});
 		}

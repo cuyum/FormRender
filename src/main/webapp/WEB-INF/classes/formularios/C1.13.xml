@@ -1,38 +1,62 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario C1.17 - Calidad de servicio / facturacion</h:title>
+    <h:title>Formulario C1.13 - Tráfico V en minutos</h:title>
     <model>
       <instance>
-        <C1.17 id="C1.17">
+        <C1.13 id="C1.13">
           <mes>
             <provincia/>
             <partido/>
             <localidad/>
             <areas_local/>
-            <contratos_vigentes/>
-            <facturacion_papel/>
-            <facturacion_web/>
+            <l_l>
+              <hogar_1/>
+              <empresa_1/>
+              <gob_1/>
+              <otros_1/>
+            </l_l>
+            <l_ldn>
+              <hogar_2/>
+              <empresa_2/>
+              <gob_2/>
+              <otros_2/>
+            </l_ldn>
+            <l_ldi>
+              <hogar_3/>
+              <empresa_3/>
+              <gob_3/>
+              <otros_3/>
+            </l_ldi>
           </mes>
           <meta>
             <instanceID/>
           </meta>
-        </C1.17>
+        </C1.13>
       </instance>
-      <bind jr:constraintMsg="true()" nodeset="/C1.17/mes/provincia" required="true()" type="select1"/>
-      <bind jr:constraintMsg="true()" nodeset="/C1.17/mes/partido" required="true()" type="select1"/>
-      <bind jr:constraintMsg="true()" nodeset="/C1.17/mes/localidad" required="true()" type="select1"/>
-      <bind nodeset="/C1.17/mes/areas_local" required="true()" type="select1"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.17/mes/contratos_vigentes" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.17/mes/facturacion_papel" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.17/mes/facturacion_web" required="true()" type="int"/>
-      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.17/meta/instanceID" readonly="true()" type="string"/>
+      <bind constraint="true()" nodeset="/C1.13/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="true()" nodeset="/C1.13/mes/partido" required="true()" type="select1"/>
+      <bind constraint="true()" nodeset="/C1.13/mes/localidad" required="true()" type="select1"/>
+      <bind nodeset="/C1.13/mes/areas_local" required="true()" type="select1"/>
+      <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.13/mes/l_l/hogar_1" required="true()" type="int"/>
+      <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.13/mes/l_l/empresa_1" required="true()" type="int"/>
+      <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.13/mes/l_l/gob_1" required="true()" type="int"/>
+      <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.13/mes/l_l/otros_1" required="true()" type="int"/>
+      <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.13/mes/l_ldn/hogar_2" required="true()" type="int"/>
+      <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.13/mes/l_ldn/empresa_2" required="true()" type="int"/>
+      <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.13/mes/l_ldn/gob_2" required="true()" type="int"/>
+      <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.13/mes/l_ldn/otros_2" required="true()" type="int"/>
+      <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.13/mes/l_ldi/hogar_3" required="true()" type="int"/>
+      <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.13/mes/l_ldi/empresa_3" required="true()" type="int"/>
+      <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.13/mes/l_ldi/gob_3" required="true()" type="int"/>
+      <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.13/mes/l_ldi/otros_3" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.13/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4 well-white" ref="/C1.17/mes">
+    <group appearance="col4 well-white" ref="/C1.13/mes">
       <label>Enero</label>
-      <select1 appearance="minimal" ref="/C1.17/mes/provincia">
+      <select1 appearance="minimal" ref="/C1.13/mes/provincia">
         <label>Provincia</label>
         <hint>Seleccione Provincia</hint>
         <item>
@@ -44,8 +68,8 @@
           <value>catamarca</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.17/mes/partido">
-        <label>Partido</label>
+      <select1 appearance="minimal" ref="/C1.13/mes/partido">
+        <label>Partido / Departamento</label>
         <hint>Seleccione Partido</hint>
         <item>
           <label>Tres De Febrero</label>
@@ -80,7 +104,7 @@
           <value>capital</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.17/mes/localidad">
+      <select1 appearance="minimal" ref="/C1.13/mes/localidad">
         <label>Localidad</label>
         <hint>Seleccione Localidad</hint>
         <item>
@@ -180,7 +204,7 @@
           <value>otros8</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.17/mes/areas_local">
+      <select1 appearance="minimal" ref="/C1.13/mes/areas_local">
         <label>Área Local</label>
         <hint>Seleccione Área Local</hint>
         <item>
@@ -244,18 +268,63 @@
           <value>LISANDRO_OLMOS</value>
         </item>
       </select1>
-      <input ref="/C1.17/mes/contratos_vigentes">
-        <label>Contratos Vigente</label>
-        <hint>Ingrese número entero</hint>
-      </input>
-      <input ref="/C1.17/mes/facturacion_papel">
-        <label>Facturación Papel</label>
-        <hint>Ingrese número entero</hint>
-      </input>
-      <input ref="/C1.17/mes/facturacion_web">
-        <label>Facturación Web</label>
-        <hint>Ingrese número entero</hint>
-      </input>
+      <group appearance="col2 well-white" ref="/C1.13/mes/l_l">
+        <label>L-L</label>
+        <input ref="/C1.13/mes/l_l/hogar_1">
+          <label>Hogar</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+        <input ref="/C1.13/mes/l_l/empresa_1">
+          <label>Empresa</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+        <input ref="/C1.13/mes/l_l/gob_1">
+          <label>Gob</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+        <input ref="/C1.13/mes/l_l/otros_1">
+          <label>Otros</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/C1.13/mes/l_ldn">
+        <label>L-LDN</label>
+        <input ref="/C1.13/mes/l_ldn/hogar_2">
+          <label>Hogar</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+        <input ref="/C1.13/mes/l_ldn/empresa_2">
+          <label>Empresa</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+        <input ref="/C1.13/mes/l_ldn/gob_2">
+          <label>Gob</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+        <input ref="/C1.13/mes/l_ldn/otros_2">
+          <label>Otros</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/C1.13/mes/l_ldi">
+        <label>L-LDI</label>
+        <input ref="/C1.13/mes/l_ldi/hogar_3">
+          <label>Hogar</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+        <input ref="/C1.13/mes/l_ldi/empresa_3">
+          <label>Empresa</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+        <input ref="/C1.13/mes/l_ldi/gob_3">
+          <label>Gob</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+        <input ref="/C1.13/mes/l_ldi/otros_3">
+          <label>Otros</label>
+          <hint>Ingrese número entero</hint>
+        </input>
+      </group>
     </group>
   </h:body>
 </h:html>

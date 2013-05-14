@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.51 - Comercio exterior</h:title>
+    <model>
+      <instance>
+        <C1.51 id="C1.51">
+          <mes>
+            <exportaciones1>0</exportaciones1>
+            <importaciones1>0</importaciones1>
+            <exportaciones2>0</exportaciones2>
+            <importaciones2>0</importaciones2>
+            <importaciones3>0</importaciones3>
+            <importaciones4>0</importaciones4>
+            <regalias>0</regalias>
+          </mes>
+          <total>
+            <calculate1/>
+            <calculate2/>
+            <total1/>
+            <total2/>
+          </total>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.51>
+      </instance>
+      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 8 dígitos" nodeset="/C1.51/mes/exportaciones1" required="true()" type="int"/>
+      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de hasta 8 dígitos" nodeset="/C1.51/mes/importaciones1" required="true()" type="int"/>
+      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 8 dígitos" nodeset="/C1.51/mes/exportaciones2" required="true()" type="int"/>
+      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de hasta 8 dígitos" nodeset="/C1.51/mes/importaciones2" required="true()" type="int"/>
+      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 8 dígitos" nodeset="/C1.51/mes/importaciones3" required="true()" type="int"/>
+      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de hasta 8 dígitos" nodeset="/C1.51/mes/importaciones4" required="true()" type="int"/>
+      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de hasta 8 dígitos" nodeset="/C1.51/mes/regalias" type="int"/>
+      <bind calculate=" /C1.51/mes/exportaciones1 + /C1.51/mes/exportaciones2 " nodeset="/C1.51/total/calculate1" type="string"/>
+      <bind calculate=" /C1.51/mes/importaciones1 + /C1.51/mes/importaciones2 + /C1.51/mes/importaciones3 + /C1.51/mes/importaciones4 " nodeset="/C1.51/total/calculate2" type="string"/>
+      <bind nodeset="/C1.51/total/total1" readonly="true()" type="string"/>
+      <bind nodeset="/C1.51/total/total2" readonly="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.51/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col1" ref="/C1.51/mes">
+      <label>Mes</label>
+      <input ref="/C1.51/mes/exportaciones1">
+        <label>Telecomunicaciones Expo.:</label>
+        <hint>En miles de pesos de 8 dígitos</hint>
+      </input>
+      <input ref="/C1.51/mes/importaciones1">
+        <label>Telecomunicaciones Impo.:</label>
+        <hint>En miles de pesos de 8 dígitos</hint>
+      </input>
+      <input ref="/C1.51/mes/exportaciones2">
+        <label>Servicios Expo.:</label>
+        <hint>En miles de pesos de 8 dígitos</hint>
+      </input>
+      <input ref="/C1.51/mes/importaciones2">
+        <label>Servicios Impo.:</label>
+        <hint>En miles de pesos de 8 dígitos</hint>
+      </input>
+      <input ref="/C1.51/mes/importaciones3">
+        <label>Importaciones Bienes Capital</label>
+        <hint>En miles de pesos de 8 dígitos</hint>
+      </input>
+      <input ref="/C1.51/mes/importaciones4">
+        <label>Importaciones de Piezas</label>
+        <hint>En miles de pesos de 8 dígitos</hint>
+      </input>
+      <input ref="/C1.51/mes/regalias">
+        <label>Regalías</label>
+        <hint>En miles de pesos de 8 dígitos</hint>
+      </input>
+    </group>
+    <group appearance="col1" ref="/C1.51/total">
+      <label>Total</label>
+      <input ref="/C1.51/total/total1">
+        <label>Totales expo.: <output value=" /C1.51/total/calculate1 "/></label></input>
+      <input ref="/C1.51/total/total2">
+        <label>Totales impo.: <output value=" /C1.51/total/calculate2 "/></label></input>
+    </group>
+  </h:body>
+</h:html>

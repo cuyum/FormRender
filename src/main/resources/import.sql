@@ -1,20 +1,27 @@
-INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C.1.1','PRUEBA LISTAS EXTERNAS','0','C.1.1.xml', 0);
-
+-- INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C.1.1','PRUEBA LISTAS EXTERNAS','0','C.1.1.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.1','Areas de prestación de servicio','0','C1.1.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.2','Interconexión','0','C1.2.xml', 0);
-INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.3','Redes e infraestructura','0','C1.3.xml', 0);
+-- INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.3','Redes e infraestructura','0','C1.3.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.4','Accesos disponibles','0','C1.4.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.5','Accesos operativos','0','C1.5.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.6','Clientes operativos (modalidad de contratación)','0','C1.6.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.7','Clientes operativos (segmentación)','0','C1.7.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.8','Clientes operativos (abonos)','0','C1.8.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.9','Tráfico I (llamadas)','0','C1.9.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.10','Tráfico II (llamadas)','0','C1.10.xml', 0);
+
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.11','Tráfico III (minutos)','0','C1.11.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.12','Tráfico IV (minutos)','0','C1.12.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.13','Tráfico V (minutos)','0','C1.13.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.14','Tráfico hacia líneas móviles (minutos)','0','C1.14.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.15','Tráfico hacia líneas móviles (llamadas)','0','C1.15.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.16','Calidad de servicio/ratios','0','C1.16.xml', 0);
+
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.17','Calidad de servicio/facturación','0','C1.17.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.18','Calidad de servicio/reclamos','0','C1.18.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.19','Calidad de servicio/atención personalizada','0','C1.19.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.21','Calidad de servicio/atención web','0','C1.21.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.22','Tarifas/precio vigente','0','C1.22.xml', 0);
-
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.23','Tarifas/precio minuto de comunicacion telefonia fija','0','C1.23.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.24','Tarifas/precio minuto servicios especiales','0','C1.24.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.25','Tarifas/precio minuto servicios adicionales','0','C1.25.xml', 0);
@@ -30,7 +37,6 @@ INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.37','Ingresos/larga distancia nacional horario reducido','0','C1.37.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.38','Ingresos/larga distancia internacional horario normal','0','C1.38.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.39','Ingresos/larga distancia internacional horario reducido','0','C1.39.xml', 0);
-
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.40','Ingresos interconexión a la red fija - local a 3°','0','C1.40.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.41','Ingresos interconexión a la red fija - larga distancia nacional a 3°','0','C1.41.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.42','Ingresos interconexión a la red fija - internacional a 3°','0','C1.42.xml', 0);
@@ -41,5 +47,8 @@ INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.47','Otros gastos','0','C1.47.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.48','Costos interconexión','0','C1.48.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.49','Personal ocupado','0','C1.49.xml', 0);
-
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.50','Inversiones','0','C1.50.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.51','Comercio Exterior','0','C1.51.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.52','Rentas','0','C1.52.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.53','Finaciamiento su / subsidios','0','C1.53.xml', 0);
 
