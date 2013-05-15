@@ -98,7 +98,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
             	</script>
 			  	<script type="text/javascript" src="/FormRender/resources/js/transform.js">
             		<xsl:text>&#10;</xsl:text>
-            	</script>
+            	</script>            	
             </head>
             <body>
             	<div class="content">            	
@@ -192,8 +192,9 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
                     <fieldset>
 						<div class="well block">
 							<div>
-								<div class="form-actions align-left">								
-									<input type="submit" class="btn btn-success " value="Validar"/>
+								<div class="form-actions align-left">		
+									<input type="submit" class="btn " value="Guardar Borrador"/>						
+									<input type="submit" class="btn btn-success " value="Listo"/>
 								</div>
 							</div>
 						</div>
@@ -503,7 +504,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
                     <xsl:attribute name="data-items-path">
                         <xsl:value-of select="@nodeset"/>
                     </xsl:attribute>
-                    <xsl:value-of select="'...'"/>
+                    <xsl:value-of select="'Seleccione una opcion'"/>
                 </option>
             </xsl:otherwise>
         </xsl:choose>
@@ -630,7 +631,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
                 </xsl:call-template> 
                 <xsl:choose>
                     <xsl:when test="not(./xf:itemset)">
-                        <option value="">...</option>
+                        <option value="">Seleccione una opcion</option>
                         <xsl:for-each select="exsl:node-set($options)/option">
                             <xsl:copy-of select="."/>
                         </xsl:for-each>

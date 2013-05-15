@@ -1,7 +1,7 @@
 -- INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C.1.1','PRUEBA LISTAS EXTERNAS','0','C.1.1.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.1','Areas de prestación de servicio','0','C1.1.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.2','Interconexión','0','C1.2.xml', 0);
--- INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.3','Redes e infraestructura','0','C1.3.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.3','Redes e infraestructura','0','C1.3.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.4','Accesos disponibles','0','C1.4.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.5','Accesos operativos','0','C1.5.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.6','Clientes operativos (modalidad de contratación)','0','C1.6.xml', 0);
@@ -26,6 +26,7 @@ INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.24','Tarifas/precio minuto servicios especiales','0','C1.24.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.25','Tarifas/precio minuto servicios adicionales','0','C1.25.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.26','Tarifas/planes','0','C1.26.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.27','Tarifas/planes líneas restringidas','0','C1.27.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.29','Ingresos/totales telefonia local por provincia','0','C1.29.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.30','Ingresos/instalación de linea','0','C1.30.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.31','Ingresos/abono telefonía básica','0','C1.31.xml', 0);

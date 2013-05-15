@@ -3,157 +3,6 @@
   <h:head>
     <h:title>C1.14 - Tráfico hacia móviles (minutos)</h:title>
     <model>
-      <itext>
-        <translation lang="Spanish">
-          <text id="/C1.14/mes/areas_local/PONTEVEDRA:label">
-            <value>PONTEVEDRA</value>
-          </text>
-          <text id="/C1.14/mes/localidad/otros3:label">
-            <value>Otros</value>
-          </text>
-          <text id="/C1.14/mes/localidad/azopardo:label">
-            <value>Azopardo</value>
-          </text>
-          <text id="/C1.14/mes/partido/capital:label">
-            <value>Capital</value>
-          </text>
-          <text id="/C1.14/mes/localidad/antinaco:label">
-            <value>Antinaco</value>
-          </text>
-          <text id="/C1.14/mes/localidad/laAurora:label">
-            <value>La Aurora (Est. La Niña)</value>
-          </text>
-          <text id="/C1.14/mes/localidad/antofalla:label">
-            <value>Antofalla</value>
-          </text>
-          <text id="/C1.14/mes/localidad/barrioBancario:label">
-            <value>Barrio Bancario</value>
-          </text>
-          <text id="/C1.14/mes/areas_local/BARRIO_PARQUE_SICARDI:label">
-            <value>BARRIO PARQUE SICARDI</value>
-          </text>
-          <text id="/C1.14/mes/localidad/diecisieteAgosto:label">
-            <value>17 de Agosto</value>
-          </text>
-          <text id="/C1.14/mes/localidad/elPantanillo:label">
-            <value>El Pantanillo</value>
-          </text>
-          <text id="/C1.14/mes/areas_local/LA_PLATA:label">
-            <value>LA PLATA</value>
-          </text>
-          <text id="/C1.14/mes/provincia/catamarca:label">
-            <value>Catamarca</value>
-          </text>
-          <text id="/C1.14/mes/localidad/ariel:label">
-            <value>Ariel</value>
-          </text>
-          <text id="/C1.14/mes/areas_local/PLOMMER:label">
-            <value>PLOMMER</value>
-          </text>
-          <text id="/C1.14/mes/partido/tinogasta:label">
-            <value>Tinogasta</value>
-          </text>
-          <text id="/C1.14/mes/localidad/otros7:label">
-            <value>Otros</value>
-          </text>
-          <text id="/C1.14/mes/areas_local/GENERAL_LAS_HERAS:label">
-            <value>GENERAL LAS HERAS</value>
-          </text>
-          <text id="/C1.14/mes/localidad/otros8:label">
-            <value>Otros</value>
-          </text>
-          <text id="/C1.14/mes/partido/tresFebrero:label">
-            <value>Tres De Febrero</value>
-          </text>
-          <text id="/C1.14/mes/localidad/colana:label">
-            <value>Colana</value>
-          </text>
-          <text id="/C1.14/mes/localidad/caseros:label">
-            <value>Caseros</value>
-          </text>
-          <text id="/C1.14/mes/localidad/otros6:label">
-            <value>Otros</value>
-          </text>
-          <text id="/C1.14/mes/localidad/otros1:label">
-            <value>Otros</value>
-          </text>
-          <text id="/C1.14/mes/areas_local/BARTOLOME_BAVIO:label">
-            <value>BARTOLOME BAVIO</value>
-          </text>
-          <text id="/C1.14/mes/localidad/churruca:label">
-            <value>Churruca</value>
-          </text>
-          <text id="/C1.14/mes/partido/poman:label">
-            <value>Poman</value>
-          </text>
-          <text id="/C1.14/mes/areas_local/LISANDRO_OLMOS:label">
-            <value>LISANDRO OLMOS</value>
-          </text>
-          <text id="/C1.14/mes/localidad/otros5:label">
-            <value>Otros</value>
-          </text>
-          <text id="/C1.14/mes/localidad/dudignac:label">
-            <value>Dudignac</value>
-          </text>
-          <text id="/C1.14/mes/localidad/apoyaco:label">
-            <value>Apoyaco</value>
-          </text>
-          <text id="/C1.14/mes/areas_local/GONZALEZ_CATAN:label">
-            <value>GONZALEZ CATAN</value>
-          </text>
-          <text id="/C1.14/mes/areas_local/LIBERTAD:label">
-            <value>LIBERTAD</value>
-          </text>
-          <text id="/C1.14/mes/partido/azul:label">
-            <value>Azul</value>
-          </text>
-          <text id="/C1.14/mes/localidad/otros4:label">
-            <value>Otros</value>
-          </text>
-          <text id="/C1.14/mes/localidad/dieciseisJulio:label">
-            <value>16 de Julio</value>
-          </text>
-          <text id="/C1.14/mes/areas_local/MARCOS_PAZ:label">
-            <value>MARCOS PAZ</value>
-          </text>
-          <text id="/C1.14/mes/localidad/otros2:label">
-            <value>Otros</value>
-          </text>
-          <text id="/C1.14/mes/areas_local/VILLARS:label">
-            <value>VILLARS</value>
-          </text>
-          <text id="/C1.14/mes/partido/nueveJulio:label">
-            <value>9 de Julio</value>
-          </text>
-          <text id="/C1.14/mes/areas_local/MARIANO_ACOSTA:label">
-            <value>MARIANO ACOSTA</value>
-          </text>
-          <text id="/C1.14/mes/localidad/anillaco:label">
-            <value>Anillaco</value>
-          </text>
-          <text id="/C1.14/mes/partido/puan:label">
-            <value>Puan</value>
-          </text>
-          <text id="/C1.14/mes/localidad/antofagasta:label">
-            <value>Antofagasta de la Sierra</value>
-          </text>
-          <text id="/C1.14/mes/areas_local/VIRREY_PINO:label">
-            <value>VIRREY DEL PINO</value>
-          </text>
-          <text id="/C1.14/mes/areas_local/ABASTO:label">
-            <value>ABASTO</value>
-          </text>
-          <text id="/C1.14/mes/areas_local/MERLO:label">
-            <value>MERLO (PROV.  BUENOS AIRES)</value>
-          </text>
-          <text id="/C1.14/mes/partido/antofagasta:label">
-            <value>Antofagasta de la Sierra</value>
-          </text>
-          <text id="/C1.14/mes/provincia/buenosAires:label">
-            <value>Buenos Aires</value>
-          </text>
-        </translation>
-      </itext>
       <instance>
         <C1.14 id="C1.14">
           <mes>
@@ -179,10 +28,10 @@
           </meta>
         </C1.14>
       </instance>
-      <bind constraint="true()" nodeset="/C1.14/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="true()" nodeset="/C1.14/mes/partido" required="true()" type="select1"/>
-      <bind constraint="true()" nodeset="/C1.14/mes/localidad" required="true()" type="select1"/>
-      <bind nodeset="/C1.14/mes/areas_local" required="true()" type="select1"/>
+      <bind constraint="{u'default': u'url=/areas/provincias'}" nodeset="/C1.14/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="{u'default': u'url=/areas/partidos and depends=/C1.14/mes/provincia'}" nodeset="/C1.14/mes/partido" required="true()" type="select1"/>
+      <bind constraint="{u'default': u'url=/areas/localidades and depends=/C1.14/mes/partido'}" nodeset="/C1.14/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/areas/areas and depends=/C1.14/mes/localidad" nodeset="/C1.14/mes/areas_local" required="true()" type="select1"/>
       <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.14/mes/l_l/saliente_1" required="true()" type="int"/>
       <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.14/mes/l_l/operador_1" required="true()" type="int"/>
       <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.14/mes/l_ldn/saliente_2" required="true()" type="int"/>
@@ -199,212 +48,32 @@
         <label>Provincia</label>
         <hint>Seleccione Provincia</hint>
         <item>
-          <label ref="jr:itext('/C1.14/mes/provincia/buenosAires:label')"/>
-          <value>buenosAires</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/provincia/catamarca:label')"/>
-          <value>catamarca</value>
+          <label></label>
+          <value>id_provincia</value>
         </item>
       </select1>
       <select1 appearance="minimal" ref="/C1.14/mes/partido">
         <label>Partido / Departamento</label>
         <hint>Seleccione Partido</hint>
         <item>
-          <label ref="jr:itext('/C1.14/mes/partido/tresFebrero:label')"/>
-          <value>tresFebrero</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/partido/nueveJulio:label')"/>
-          <value>nueveJulio</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/partido/azul:label')"/>
-          <value>azul</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/partido/puan:label')"/>
-          <value>puan</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/partido/tinogasta:label')"/>
-          <value>tinogasta</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/partido/antofagasta:label')"/>
-          <value>antofagasta</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/partido/poman:label')"/>
-          <value>poman</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/partido/capital:label')"/>
-          <value>capital</value>
+          <label></label>
+          <value>id_dpto_partido</value>
         </item>
       </select1>
       <select1 appearance="minimal" ref="/C1.14/mes/localidad">
         <label>Localidad</label>
         <hint>Seleccione Localidad</hint>
         <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/caseros:label')"/>
-          <value>caseros</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/churruca:label')"/>
-          <value>churruca</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/otros1:label')"/>
-          <value>otros1</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/dudignac:label')"/>
-          <value>dudignac</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/laAurora:label')"/>
-          <value>laAurora</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/otros2:label')"/>
-          <value>otros2</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/dieciseisJulio:label')"/>
-          <value>dieciseisJulio</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/ariel:label')"/>
-          <value>ariel</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/otros3:label')"/>
-          <value>otros3</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/diecisieteAgosto:label')"/>
-          <value>diecisieteAgosto</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/azopardo:label')"/>
-          <value>azopardo</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/otros4:label')"/>
-          <value>otros4</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/anillaco:label')"/>
-          <value>anillaco</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/antinaco:label')"/>
-          <value>antinaco</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/otros5:label')"/>
-          <value>otros5</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/antofagasta:label')"/>
-          <value>antofagasta</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/antofalla:label')"/>
-          <value>antofalla</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/otros6:label')"/>
-          <value>otros6</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/apoyaco:label')"/>
-          <value>apoyaco</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/colana:label')"/>
-          <value>colana</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/otros7:label')"/>
-          <value>otros7</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/barrioBancario:label')"/>
-          <value>barrioBancario</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/elPantanillo:label')"/>
-          <value>elPantanillo</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/localidad/otros8:label')"/>
-          <value>otros8</value>
+          <label></label>
+          <value>id_localidad</value>
         </item>
       </select1>
       <select1 appearance="minimal" ref="/C1.14/mes/areas_local">
         <label>Área Local</label>
         <hint>Seleccione Área Local</hint>
         <item>
-          <label ref="jr:itext('/C1.14/mes/areas_local/GENERAL_LAS_HERAS:label')"/>
-          <value>GENERAL_LAS_HERAS</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/areas_local/LIBERTAD:label')"/>
-          <value>LIBERTAD</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/areas_local/MARCOS_PAZ:label')"/>
-          <value>MARCOS_PAZ</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/areas_local/MARIANO_ACOSTA:label')"/>
-          <value>MARIANO_ACOSTA</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/areas_local/MERLO:label')"/>
-          <value>MERLO</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/areas_local/PLOMMER:label')"/>
-          <value>PLOMMER</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/areas_local/PONTEVEDRA:label')"/>
-          <value>PONTEVEDRA</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/areas_local/VILLARS:label')"/>
-          <value>VILLARS</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/areas_local/GONZALEZ_CATAN:label')"/>
-          <value>GONZALEZ_CATAN</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/areas_local/VIRREY_PINO:label')"/>
-          <value>VIRREY_PINO</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/areas_local/ABASTO:label')"/>
-          <value>ABASTO</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/areas_local/BARRIO_PARQUE_SICARDI:label')"/>
-          <value>BARRIO_PARQUE_SICARDI</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/areas_local/BARTOLOME_BAVIO:label')"/>
-          <value>BARTOLOME_BAVIO</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/areas_local/LA_PLATA:label')"/>
-          <value>LA_PLATA</value>
-        </item>
-        <item>
-          <label ref="jr:itext('/C1.14/mes/areas_local/LISANDRO_OLMOS:label')"/>
-          <value>LISANDRO_OLMOS</value>
+          <label></label>
+          <value>id_area_local</value>
         </item>
       </select1>
       <group appearance="col2 well-white" ref="/C1.14/mes/l_l">

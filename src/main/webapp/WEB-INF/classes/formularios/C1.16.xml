@@ -25,10 +25,10 @@
           </meta>
         </C1.16>
       </instance>
-      <bind jr:constraintMsg="true()" nodeset="/C1.16/mes/provincia" required="true()" type="select1"/>
-      <bind jr:constraintMsg="true()" nodeset="/C1.16/mes/partido" required="true()" type="select1"/>
-      <bind jr:constraintMsg="true()" nodeset="/C1.16/mes/localidad" required="true()" type="select1"/>
-      <bind nodeset="/C1.16/mes/areas_local" required="true()" type="select1"/>
+      <bind constraint="url=/areas/provincias" jr:constraintMsg="true()" nodeset="/C1.16/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/areas/partidos and depends=/C1.16/mes/provincia" jr:constraintMsg="true()" nodeset="/C1.16/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=/areas/localidades and depends=/C1.16/mes/partido" jr:constraintMsg="true()" nodeset="/C1.16/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/areas/areas and depends=/C1.16/mes/localidad" nodeset="/C1.16/mes/areas_local" required="true()" type="select1"/>
       <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.16/mes/TRP" required="true()" type="int"/>
       <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.16/mes/TRCP" required="true()" type="int"/>
       <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.16/mes/TRR" required="true()" type="int"/>
@@ -48,212 +48,32 @@
         <label>Provincia</label>
         <hint>Seleccione Provincia</hint>
         <item>
-          <label>Buenos Aires</label>
-          <value>buenosAires</value>
-        </item>
-        <item>
-          <label>Catamarca</label>
-          <value>catamarca</value>
+          <label></label>
+          <value>id_provincia</value>
         </item>
       </select1>
       <select1 appearance="minimal" ref="/C1.16/mes/partido">
         <label>Partido / Departamento</label>
         <hint>Seleccione Partido</hint>
         <item>
-          <label>Tres De Febrero</label>
-          <value>tresFebrero</value>
-        </item>
-        <item>
-          <label>9 de Julio</label>
-          <value>nueveJulio</value>
-        </item>
-        <item>
-          <label>Azul</label>
-          <value>azul</value>
-        </item>
-        <item>
-          <label>Puan</label>
-          <value>puan</value>
-        </item>
-        <item>
-          <label>Tinogasta</label>
-          <value>tinogasta</value>
-        </item>
-        <item>
-          <label>Antofagasta de la Sierra</label>
-          <value>antofagasta</value>
-        </item>
-        <item>
-          <label>Poman</label>
-          <value>poman</value>
-        </item>
-        <item>
-          <label>Capital</label>
-          <value>capital</value>
+          <label></label>
+          <value>id_dpto_partido</value>
         </item>
       </select1>
       <select1 appearance="minimal" ref="/C1.16/mes/localidad">
         <label>Localidad</label>
         <hint>Seleccione Localidad</hint>
         <item>
-          <label>Caseros</label>
-          <value>caseros</value>
-        </item>
-        <item>
-          <label>Churruca</label>
-          <value>churruca</value>
-        </item>
-        <item>
-          <label>Otros</label>
-          <value>otros1</value>
-        </item>
-        <item>
-          <label>Dudignac</label>
-          <value>dudignac</value>
-        </item>
-        <item>
-          <label>La Aurora (Est. La Niña)</label>
-          <value>laAurora</value>
-        </item>
-        <item>
-          <label>Otros</label>
-          <value>otros2</value>
-        </item>
-        <item>
-          <label>16 de Julio</label>
-          <value>dieciseisJulio</value>
-        </item>
-        <item>
-          <label>Ariel</label>
-          <value>ariel</value>
-        </item>
-        <item>
-          <label>Otros</label>
-          <value>otros3</value>
-        </item>
-        <item>
-          <label>17 de Agosto</label>
-          <value>diecisieteAgosto</value>
-        </item>
-        <item>
-          <label>Azopardo</label>
-          <value>azopardo</value>
-        </item>
-        <item>
-          <label>Otros</label>
-          <value>otros4</value>
-        </item>
-        <item>
-          <label>Anillaco</label>
-          <value>anillaco</value>
-        </item>
-        <item>
-          <label>Antinaco</label>
-          <value>antinaco</value>
-        </item>
-        <item>
-          <label>Otros</label>
-          <value>otros5</value>
-        </item>
-        <item>
-          <label>Antofagasta de la Sierra</label>
-          <value>antofagasta</value>
-        </item>
-        <item>
-          <label>Antofalla</label>
-          <value>antofalla</value>
-        </item>
-        <item>
-          <label>Otros</label>
-          <value>otros6</value>
-        </item>
-        <item>
-          <label>Apoyaco</label>
-          <value>apoyaco</value>
-        </item>
-        <item>
-          <label>Colana</label>
-          <value>colana</value>
-        </item>
-        <item>
-          <label>Otros</label>
-          <value>otros7</value>
-        </item>
-        <item>
-          <label>Barrio Bancario</label>
-          <value>barrioBancario</value>
-        </item>
-        <item>
-          <label>El Pantanillo</label>
-          <value>elPantanillo</value>
-        </item>
-        <item>
-          <label>Otros</label>
-          <value>otros8</value>
+          <label></label>
+          <value>id_localidad</value>
         </item>
       </select1>
       <select1 appearance="minimal" ref="/C1.16/mes/areas_local">
         <label>Área Local</label>
         <hint>Seleccione Área Local</hint>
         <item>
-          <label>GENERAL LAS HERAS</label>
-          <value>GENERAL_LAS_HERAS</value>
-        </item>
-        <item>
-          <label>LIBERTAD</label>
-          <value>LIBERTAD</value>
-        </item>
-        <item>
-          <label>MARCOS PAZ</label>
-          <value>MARCOS_PAZ</value>
-        </item>
-        <item>
-          <label>MARIANO ACOSTA</label>
-          <value>MARIANO_ACOSTA</value>
-        </item>
-        <item>
-          <label>MERLO (PROV.  BUENOS AIRES)</label>
-          <value>MERLO</value>
-        </item>
-        <item>
-          <label>PLOMMER</label>
-          <value>PLOMMER</value>
-        </item>
-        <item>
-          <label>PONTEVEDRA</label>
-          <value>PONTEVEDRA</value>
-        </item>
-        <item>
-          <label>VILLARS</label>
-          <value>VILLARS</value>
-        </item>
-        <item>
-          <label>GONZALEZ CATAN</label>
-          <value>GONZALEZ_CATAN</value>
-        </item>
-        <item>
-          <label>VIRREY DEL PINO</label>
-          <value>VIRREY_PINO</value>
-        </item>
-        <item>
-          <label>ABASTO</label>
-          <value>ABASTO</value>
-        </item>
-        <item>
-          <label>BARRIO PARQUE SICARDI</label>
-          <value>BARRIO_PARQUE_SICARDI</value>
-        </item>
-        <item>
-          <label>BARTOLOME BAVIO</label>
-          <value>BARTOLOME_BAVIO</value>
-        </item>
-        <item>
-          <label>LA PLATA</label>
-          <value>LA_PLATA</value>
-        </item>
-        <item>
-          <label>LISANDRO OLMOS</label>
-          <value>LISANDRO_OLMOS</value>
+          <label></label>
+          <value>id_area_local</value>
         </item>
       </select1>
       <input ref="/C1.16/mes/TRP">
