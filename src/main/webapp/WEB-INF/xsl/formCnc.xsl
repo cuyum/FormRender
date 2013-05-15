@@ -80,7 +80,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
         		<xsl:message terminate="no">WARNING: Found binding(s) with relative (= bad!) nodeset attribute <!--on element: <xsl:value-of select="./@nodeset" />--> (form may work correctly if relative nodesets were used consistently throughout xml form in bindings as well as body, otherwise it will certainly be messed up). </xsl:message>
         	</xsl:if>
         </xsl:for-each>
-        <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
+        <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text> 
         <html>
             <head>
             	<meta charset="utf-8"/> 
@@ -202,11 +202,11 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 					<div class="separator-doubled"/>
 	            	<br/>
 	            	<br/>
-	            </form>	            
+	            </form>
+	            	            
 	            </div>
-	                      
 	            </body>
-            </html>
+            </html> 
         </xsl:template>
 
     <xsl:template match="h:head"/> <!--[not(self::xf:model/xf:bind[@jr:preload])]" />-->
@@ -642,7 +642,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
                     </xsl:otherwise>
                 </xsl:choose>
             </select>            
-            <span class="jr-option-translations" style="display:none;">
+            <!-- <span class="jr-option-translations" style="display:none;">
                 <xsl:if test="not(./xf:itemset) and $translated = 'true'">
                     <xsl:for-each select="exsl:node-set($options)/span">
                         <xsl:copy-of select="." />
@@ -650,10 +650,10 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
                 </xsl:if>
                 <xsl:text>
                 </xsl:text>
-            </span>
+            </span> 
             <xsl:if test="./xf:itemset">
                 <xsl:apply-templates select="xf:itemset" mode="labels"/>
-            </xsl:if>
+            </xsl:if>-->
         </label>
     </xsl:template>
     
@@ -713,17 +713,20 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
         <xsl:param name="binding"/>
         <xsl:param name="nodeset"/>
         <xsl:param name="type"/>
+        
         <xsl:variable name="xml-type">
             <xsl:call-template name="xml_type">
                 <xsl:with-param name="nodeset" select="$nodeset"/>
                 <!--<xsl:with-param name="binding" select="$binding"/>-->
             </xsl:call-template>
         </xsl:variable>
+        
         <xsl:variable name="html-input-type">
             <xsl:call-template name="html_type">
                 <xsl:with-param name="xml_type" select="$xml-type" />
             </xsl:call-template>
         </xsl:variable>
+        
         <xsl:choose>
             <xsl:when test="$type = 'select_multiple'">
                 <xsl:attribute name="multiple">multiple</xsl:attribute>
@@ -736,9 +739,11 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
                 </xsl:attribute>
             </xsl:otherwise>
         </xsl:choose>
+        
         <xsl:attribute name="name">
             <xsl:value-of select="$nodeset" />
         </xsl:attribute>
+        
         <xsl:if test="local-name() = 'item'">
             <xsl:attribute name="value">
                 <xsl:value-of select="./xf:value"/>
@@ -1051,59 +1056,69 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
         </xsl:for-each>
     </xsl:template>
 
-    <xsl:template name="strip_namespace">
-        <xsl:param name="string" />
+    <xsl:template name="nodeset_used">
         <xsl:choose>
-            <xsl:when test="contains($string, ':')" >
-                <!-- crude check, should be improved -->
-                <xsl:value-of select="substring-after($string, ':')" />
+            <!-- first the simplest case (for preload or calculated fields taken from bind elements) -->
+            <xsl:when test="local-name() = 'bind'">
+            	<!--<xsl:choose>-->
+            		<!-- if nodeset value is relative -->
+            		<!--<xsl:when test="not(substring(./@nodeset, 1, 1) = '/')">-->
+            			<!-- start with the top level element of the instance, e.g. /data/ -->
+            		<!--	<xsl:value-of select="concat('/', local-name(//xf:instance/child::*[1]), '/')" />
+            		</xsl:when>
+            		<xsl:otherwise />
+            	</xsl:choose>-->
+                <xsl:value-of select="./@nodeset"/>
             </xsl:when>
+            <!-- then for input elements -->
             <xsl:otherwise>
-                <xsl:value-of select="$string" />
+                <xsl:variable name="intermediate">
+                    <xsl:choose>
+                        <xsl:when test="local-name(..) = 'select1' or local-name(..) = 'select'">
+                            <xsl:call-template name="node-path-helper">
+                                <xsl:with-param name="input-node" select=".." />
+                            </xsl:call-template>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:call-template name="node-path-helper">
+                                <xsl:with-param name="input-node" select="." />
+                            </xsl:call-template>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
+                <!-- now strip anything preceding a // which occurs e.g. in widgets.xml-->
+                <!-- note that this goes only 1 level deep so is not reliable enough -->
+                <xsl:choose>
+                    <xsl:when test="contains($intermediate, '//')">
+                        <xsl:value-of select="concat('/', substring-after($intermediate, '//'))"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="$intermediate"/>
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
 
-    <xsl:template name="strip_namespace_media">
-        <xsl:param name="string" />
-        <xsl:variable name="stripped_string">
-            <xsl:call-template name="strip_namespace">
-                <xsl:with-param name="string" select="$string" />
-            </xsl:call-template>
+    <xsl:template name="nodeset_absolute">
+        <xsl:param name="nodeset_u"/>
+        <xsl:variable name="nodeset_a">
+            <xsl:choose>
+                <xsl:when test="not(substring($nodeset_u, 1, 1) = '/')">
+                    <xsl:value-of select="concat('/', local-name(/h:html/h:head/xf:model/xf:instance/child::*[1]), '/', $nodeset_u)"/>
+            <!--<xsl:message terminate="yes">ERROR: Could not determine absolute path/to/instance/node (terminated transformation), found: <xsl:value-of select="$nodeset" />.</xsl:message>-->
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="$nodeset_u" />
+                </xsl:otherwise>
+            </xsl:choose>
         </xsl:variable>
-        <xsl:choose>
-            <xsl:when test="starts-with($stripped_string, '//images/')">
-                <xsl:value-of select="substring-after($stripped_string, '//images/')"/>
-            </xsl:when>
-            <xsl:when test="starts-with($stripped_string, '//video/')">
-                <xsl:value-of select="substring-after($stripped_string, '//video/')"/>
-            </xsl:when>
-            <xsl:when test="starts-with($stripped_string, '//audio/')">
-                <xsl:value-of select="substring-after($stripped_string, '//audio/')"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:value-of select="$stripped_string"/>
-            </xsl:otherwise>
-        </xsl:choose>
+        <xsl:if test="not($nodeset_u = $nodeset_a)">
+            <!--<xsl:message>INFO: changed relative nodeset: <xsl:value-of select="$nodeset_u"/> to: <xsl:value-of select="$nodeset_a" /></xsl:message>-->
+        </xsl:if>
+        <xsl:value-of select="$nodeset_a"/>
     </xsl:template>
-
-    <xsl:template name="languages">
-        <xsl:for-each select="/h:html/h:head/xf:model/xf:itext/xf:translation" >
-            <option>
-                <xsl:attribute name="value">
-                    <xsl:value-of select="@lang"/>
-                </xsl:attribute>
-                <xsl:value-of select="@lang" />
-            </option>
-            <xsl:text> </xsl:text>
-        </xsl:for-each>
-    </xsl:template>
-
-    <!-- future support for itext node parameters -->
-    <xsl:template name="itext-helper">
-
-    </xsl:template>
-
+    
     <xsl:template name="node-path-helper">
         <xsl:param name="input-node"/>
         <xsl:choose>
@@ -1167,104 +1182,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
             </xsl:otherwise>-->
         </xsl:choose>
     </xsl:template>
-
-    <!--<xsl:template name="one-step-back">
-        <xsl:param name="path" />
-        <xsl:param name="node" />
-        <xsl:variable name="newpath">
-            <xsl:choose>
-                <xsl:when test="parent::xf:repeat/@nodeset">
-                    <xsl:value-of select="concat(ancestor::xf:repeat/@nodeset, '/', $path)" />
-                </xsl:when>
-                <xsl:when test="parent::xf:repeat/@ref">
-                    <xsl:value-of select="concat(ancestor::xf:repeat/@ref, '/', $path)" />
-                </xsl:when>
-                <xsl:when test="parent::xf:group/@nodeset">
-                    <xsl:value-of select="concat(ancestor::xf:group/@nodeset, '/', $path)" />
-                </xsl:when>
-                <xsl:when test="parent::xf:group/@ref">
-                    <xsl:value-of select="concat(ancestor::xf:group/@ref, '/', $path)" />
-                </xsl:when>
-                <xsl:otherwise>
-                    strictly speaking, if the parent group or repeat doesn't have a ref/nodeset, we should go
-                    one level higher. Not implemented here. 
-                    <xsl:message>ERROR: Could not determine context node for relative path.</xsl:message>
-                </xsl:otherwise>
-            <xsl:choose>
-        </xsl:variable>
-        <xsl:if test="not(substring($path, 1, 1) = '/') and not(parent::h:body)">
-            <xsl:call-template name="one-step-back" >
-                <xsl:with-param name="path" select="$newpath"/>
-                <xsl:with-param name="node" select="parent::*"/>
-            </xsl:call-template>
-        </xsl:if>
-        <xsl:value-of select="$newpath" />
-    </xsl:template>-->
     
-
-    <xsl:template name="nodeset_used">
-        <xsl:choose>
-            <!-- first the simplest case (for preload or calculated fields taken from bind elements) -->
-            <xsl:when test="local-name() = 'bind'">
-            	<!--<xsl:choose>-->
-            		<!-- if nodeset value is relative -->
-            		<!--<xsl:when test="not(substring(./@nodeset, 1, 1) = '/')">-->
-            			<!-- start with the top level element of the instance, e.g. /data/ -->
-            		<!--	<xsl:value-of select="concat('/', local-name(//xf:instance/child::*[1]), '/')" />
-            		</xsl:when>
-            		<xsl:otherwise />
-            	</xsl:choose>-->
-                <xsl:value-of select="./@nodeset"/>
-            </xsl:when>
-            <!-- then for input elements -->
-            <xsl:otherwise>
-                <xsl:variable name="intermediate">
-                    <xsl:choose>
-                        <xsl:when test="local-name(..) = 'select1' or local-name(..) = 'select'">
-                            <xsl:call-template name="node-path-helper">
-                                <xsl:with-param name="input-node" select=".." />
-                            </xsl:call-template>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:call-template name="node-path-helper">
-                                <xsl:with-param name="input-node" select="." />
-                            </xsl:call-template>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </xsl:variable>
-                <!-- now strip anything preceding a // which occurs e.g. in widgets.xml-->
-                <!-- note that this goes only 1 level deep so is not reliable enough -->
-                <xsl:choose>
-                    <xsl:when test="contains($intermediate, '//')">
-                        <xsl:value-of select="concat('/', substring-after($intermediate, '//'))"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:value-of select="$intermediate"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-
-    <xsl:template name="nodeset_absolute">
-        <xsl:param name="nodeset_u"/>
-        <xsl:variable name="nodeset_a">
-            <xsl:choose>
-                <xsl:when test="not(substring($nodeset_u, 1, 1) = '/')">
-                    <xsl:value-of select="concat('/', local-name(/h:html/h:head/xf:model/xf:instance/child::*[1]), '/', $nodeset_u)"/>
-            <!--<xsl:message terminate="yes">ERROR: Could not determine absolute path/to/instance/node (terminated transformation), found: <xsl:value-of select="$nodeset" />.</xsl:message>-->
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="$nodeset_u" />
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:variable>
-        <xsl:if test="not($nodeset_u = $nodeset_a)">
-            <!--<xsl:message>INFO: changed relative nodeset: <xsl:value-of select="$nodeset_u"/> to: <xsl:value-of select="$nodeset_a" /></xsl:message>-->
-        </xsl:if>
-        <xsl:value-of select="$nodeset_a"/>
-    </xsl:template>
-
     <xsl:template name="xml_type">
         <xsl:param name="nodeset" />
         <!--<xsl:param name="binding" />-->
@@ -1311,4 +1229,53 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+    
+    <xsl:template name="strip_namespace">
+        <xsl:param name="string" />
+        <xsl:choose>
+            <xsl:when test="contains($string, ':')" >
+                <!-- crude check, should be improved -->
+                <xsl:value-of select="substring-after($string, ':')" />
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$string" />
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
+    <xsl:template name="strip_namespace_media">
+        <xsl:param name="string" />
+        <xsl:variable name="stripped_string">
+            <xsl:call-template name="strip_namespace">
+                <xsl:with-param name="string" select="$string" />
+            </xsl:call-template>
+        </xsl:variable>
+        <xsl:choose>
+            <xsl:when test="starts-with($stripped_string, '//images/')">
+                <xsl:value-of select="substring-after($stripped_string, '//images/')"/>
+            </xsl:when>
+            <xsl:when test="starts-with($stripped_string, '//video/')">
+                <xsl:value-of select="substring-after($stripped_string, '//video/')"/>
+            </xsl:when>
+            <xsl:when test="starts-with($stripped_string, '//audio/')">
+                <xsl:value-of select="substring-after($stripped_string, '//audio/')"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$stripped_string"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
+    <xsl:template name="languages">
+        <xsl:for-each select="/h:html/h:head/xf:model/xf:itext/xf:translation" >
+            <option>
+                <xsl:attribute name="value">
+                    <xsl:value-of select="@lang"/>
+                </xsl:attribute>
+                <xsl:value-of select="@lang" />
+            </option>
+            <xsl:text> </xsl:text>
+        </xsl:for-each>
+    </xsl:template>
+    
 </xsl:stylesheet>

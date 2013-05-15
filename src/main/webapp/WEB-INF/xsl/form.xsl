@@ -98,7 +98,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 			  	<script type="text/javascript" src="/FormRender/resources/js/transform.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
-            </head>
+            </head> 
             <body>
 	            <form class="jr" autocomplete="off">
 	                <xsl:attribute name="id">
@@ -183,7 +183,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
                     <input type="submit" value="Validar"/>
 	            </form>
 	            </body>
-            </html>
+            </html> 
         </xsl:template>
 
     <xsl:template match="h:head"/> <!--[not(self::xf:model/xf:bind[@jr:preload])]" />-->
