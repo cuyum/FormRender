@@ -29,29 +29,29 @@
       <select1 appearance="minimal" ref="/C1.1/areas/provincia">
         <label>Provincia</label>
         <item>
-          <label></label>
-          <value>id_provincia</value>
+          <label>Seleccione una opcion</label>
+          <value>0</value>
         </item>
       </select1>
       <select1 appearance="minimal" ref="/C1.1/areas/partido">
-        <label>Partido/Dpto</label>
+        <label>Partido / Departamento</label>
         <item>
-          <label></label>
-          <value>id_dpto_partido</value>
+          <label>Seleccione una opcion</label>
+          <value>0</value>
         </item>
       </select1>
       <select1 appearance="minimal" ref="/C1.1/areas/localidad">
         <label>Localidad</label>
         <item>
-          <label></label>
-          <value>id_localidad</value>
+          <label>Seleccione una opcion</label>
+          <value>0</value>
         </item>
       </select1>
       <select1 appearance="minimal" ref="/C1.1/areas/area">
         <label>Area Local</label>
         <item>
-          <label></label>
-          <value>id_area_local</value>
+          <label>Seleccione una opcion</label>
+          <value>0</value>
         </item>
       </select1>
     </group>
