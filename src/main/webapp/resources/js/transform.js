@@ -168,7 +168,7 @@ var setupValidations = function(field){
 							  resetHierarchy(f);
 							  for ( var count = 0; count < data.result.length; count++) {
 								  var option = data.result[count];
-								  f.append('<option value='+ option.value + '>'+ option.label + '</option>');
+								  f.append('<option value='+ option.id + '>'+ option.nombre + '</option>');
 							  }
 						  }else{
 							  console.error("No se obtuvo una lista de elementos para agregar al campo "+ fieldName );
@@ -197,7 +197,7 @@ var setupValidations = function(field){
 						  }
 						  for ( var count = 0; count < data.result.length; count++) {
 							  var option = data.result[count];
-							  f.append('<option value='+ option.value + '>'+ option.label + '</option>');
+							  f.append('<option value='+ option.id + '>'+ option.nombre + '</option>');
 						  }
 					  }else{
 						  console.error("No se obtuvo una lista de elementos para agregar al campo "+ fieldName );
