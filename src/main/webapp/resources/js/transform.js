@@ -145,7 +145,6 @@ var setupValidations = function(field){
 					  },
 					  success : function(data, statusStr, xhr) {
 						  if(data.success){
-							  f.html("");
 							  for ( var count = 0; count < data.list.length; count++) {
 								  var option = data.list[count];
 								  f.append('<option value='+ option.value + '>'+ option.label + '</option>');
