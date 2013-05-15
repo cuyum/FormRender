@@ -499,6 +499,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
                     </input>
                 </label>
             </xsl:when>
+            <!-- 
             <xsl:otherwise>
                 <option class="itemset-template" value="">
                     <xsl:attribute name="data-items-path">
@@ -507,6 +508,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
                     <xsl:value-of select="'Seleccione una opcion'"/>
                 </option>
             </xsl:otherwise>
+             -->
         </xsl:choose>
     </xsl:template>
     

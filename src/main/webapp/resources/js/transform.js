@@ -145,8 +145,12 @@ var setupValidations = function(field){
 					  },
 					  success : function(data, statusStr, xhr) {
 						  if(data.success){
-							  if(f.is("select"))
-								  f.children(":first").remove();
+							  if(f.is("select")){
+								  var option = f.children(":first");
+								  if(option && option.val().trim()=="0"){
+									  option.remove();
+								  }
+							  }
 							  for ( var count = 0; count < data.list.length; count++) {
 								  var option = data.list[count];
 								  f.append('<option value='+ option.value + '>'+ option.label + '</option>');
@@ -169,8 +173,12 @@ var setupValidations = function(field){
 				  dataType: "json",
 				  success : function(data, statusStr, xhr) {
 					  if(data.success){
-						  if(f.is("select"))
-							  f.children(":first").remove();
+						  if(f.is("select")){
+							  var option = f.children(":first");
+							  if(option && option.val().trim()=="0"){
+								  option.remove();
+							  }
+						  }
 						  for ( var count = 0; count < data.list.length; count++) {
 							  var option = data.list[count];
 							  f.append('<option value='+ option.value + '>'+ option.label + '</option>');
