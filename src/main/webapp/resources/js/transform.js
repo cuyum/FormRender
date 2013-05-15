@@ -75,18 +75,22 @@ var setupValidations = function(field){
 			}
 			
 			if(constraint.indexOf(".<")!=-1){/*max*/
+				var number = constraint.substring(constraint.indexOf(".<")+2,constraint.length);
+				number = number.match(/\d*/gi)[0];
 				try {
-					var max = new Number(constraint.substring(2,constraint.length)); 
+					var max = new Number(number);
 					f.data("jr:constraint:max",max);
 				} catch (e) {
-					log.error("Not a number for max constraint",constraint.substring(2,constraint.length));
+					log.error("Not a number for max constraint",number);
 				}
 			}else if(constraint.indexOf(".>")!=-1){/*min*/
+				var number = constraint.substring(constraint.indexOf(".>")+2,constraint.length);
+				number = number.match(/\d*/gi)[0];
 				try {
-					var min = new Number(constraint.substring(2,constraint.length)); 
+					var min = new Number(number); 
 					f.data("jr:constraint:min",min);
 				} catch (e) {
-					log.error("Not a number for min constraint",constraint.substring(2,constraint.length));
+					log.error("Not a number for min constraint",number);
 				}
 			}else if(constraint.indexOf("depends=")!=-1){/*dependency*/
 				var dependency = constraint.substring(constraint.indexOf("depends=")+8);
@@ -106,20 +110,22 @@ var setupValidations = function(field){
 			f.rules( "add", {
 				max: max
 				,messages:{
-					max: "Debe ser un valor menor a {0}"
+					max: "Debe ser un valor menor a {0}",
+					number: "Debe ser un valor num&eacute;rico v&aacute;lido"
 				}
 			});
-		}
-		
+		}else
 		if(f.data("jr:constraint:min")!=undefined){
 			var min =  f.data("jr:constraint:min");
 			f.rules( "add", {
 				min: min
 				,messages:{
+					min: "Debe ser un valor mayor a {0}",
 					number: "Debe ser un valor num&eacute;rico v&aacute;lido"
 				}
 			});
-		}else if(data_type && data_type=="decimal"){
+		}else 
+		if(data_type && data_type=="decimal"){
 			f.rules( "add", {
 				decimal:true
 				,messages:{
