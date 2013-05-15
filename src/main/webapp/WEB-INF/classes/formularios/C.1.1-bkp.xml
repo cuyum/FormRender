@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>C.1.1 - ÁREAS DE PRESTACIÓN DE SERVICIO</h:title>
+    <model>
+      <itext>
+        <translation default="true()" lang="default">
+          <text id="static_instance-localidades-0">
+            <value>Localidad</value>
+          </text>
+          <text id="static_instance-provincias-0">
+            <value>provincias</value>
+          </text>
+          <text id="static_instance-partidos-0">
+            <value>partidos</value>
+          </text>
+          <text id="static_instance-areas-0">
+            <value>Area_local</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <C.1.1PRUEBA id="C_1_1">
+          <provincia/>
+          <partido/>
+          <localidad/>
+          <area/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C.1.1PRUEBA>
+      </instance>
+      <instance id="localidades">
+        <root>
+          <item>
+            <itextId>static_instance-localidades-0</itextId>
+            <location_url>http://c</location_url>
+            <name>id_localidad</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="partidos">
+        <root>
+          <item>
+            <itextId>static_instance-partidos-0</itextId>
+            <location_url>http://b</location_url>
+            <name>id_dpto_partido</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="provincias">
+        <root>
+          <item>
+            <itextId>static_instance-provincias-0</itextId>
+            <location_url>http://a</location_url>
+            <name>id_provincia</name>
+          </item>
+        </root>
+      </instance>
+      <instance id="areas">
+        <root>
+          <item>
+            <itextId>static_instance-areas-0</itextId>
+            <location_url>http://d</location_url>
+            <name>id_area_local</name>
+          </item>
+        </root>
+      </instance>
+      <bind jr:constraintMsg="true()" nodeset="/C.1.1PRUEBA/provincia" required="true()" type="select1"/>
+      <bind jr:constraintMsg="true()" nodeset="/C.1.1PRUEBA/partido" required="true()" type="select1"/>
+      <bind jr:constraintMsg="true()" nodeset="/C.1.1PRUEBA/localidad" required="true()" type="select1"/>
+      <bind jr:constraintMsg="true()" nodeset="/C.1.1PRUEBA/area" required="true()" type="select1"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C.1.1PRUEBA/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <select1 appearance="minimal" ref="/C.1.1PRUEBA/provincia">
+      <label>Provincia</label>
+      <item>
+        <label>provincias</label>
+        <value>id_provincia</value>
+      </item>
+    </select1>
+    <select1 appearance="minimal" ref="/C.1.1PRUEBA/partido">
+      <label>Partido/Dpto</label>
+      <itemset nodeset="instance('partidos')/root/item[provincia= /C.1.1PRUEBA/provincia ]">
+        <value ref="name"/>
+        <label ref="jr:itext(itextId)"/>
+      </itemset>
+    </select1>
+    <select1 appearance="minimal" ref="/C.1.1PRUEBA/localidad">
+      <label>Localidad</label>
+      <itemset nodeset="instance('localidades')/root/item[provincia= /C.1.1PRUEBA/provincia  and partido= /C.1.1PRUEBA/partido ]">
+        <value ref="name"/>
+        <label ref="jr:itext(itextId)"/>
+      </itemset>
+    </select1>
+    <select1 appearance="minimal" ref="/C.1.1PRUEBA/area">
+      <label>Area Local</label>
+      <itemset nodeset="instance('areas')/root/item[provincia= /C.1.1PRUEBA/provincia  and localidad= /C.1.1PRUEBA/localidad ]">
+        <value ref="name"/>
+        <label ref="jr:itext(itextId)"/>
+      </itemset>
+    </select1>
+  </h:body>
+</h:html>
