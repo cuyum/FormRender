@@ -178,7 +178,7 @@ var setupValidations = function(field){
 					  if(data.success){
 						  if(f.is("select")){
 							  var option = f.children("[value~='0']");
-							  f.append(option);
+							  field.html("").append(option);
 						  }
 						  for ( var count = 0; count < data.list.length; count++) {
 							  var option = data.list[count];
