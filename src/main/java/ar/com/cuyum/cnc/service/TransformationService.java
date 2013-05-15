@@ -3,6 +3,8 @@
  */
 package ar.com.cuyum.cnc.service;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringWriter;
@@ -15,6 +17,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
@@ -83,17 +86,30 @@ public class TransformationService {
 	/*=================VIA SAXON SERVICE===================*/
 	
 	private String transformHtml(InputStream xmlStream) throws Exception {
+		
 		// Create a transform factory instance.
 		TransformerFactory tfactory = TransformerFactory.newInstance();
-		StringWriter resultHtml = new StringWriter();
+		StringWriter resultForm = new StringWriter();
+//		StringWriter resultData = new StringWriter();
 		
 		// Create a transformer for the stylesheet.
-		Transformer transformer = tfactory.newTransformer(new StreamSource(new InputStreamReader(loadXsl(XSL_FORM),"UTF-8")));
-
-		// Transform the source XML to System.out.
-		transformer.transform(new StreamSource(new InputStreamReader(xmlStream),"UTF-8"),  new StreamResult(resultHtml));
+		Transformer transformerForm = tfactory.newTransformer(new StreamSource(new InputStreamReader(loadXsl(XSL_FORM),"UTF-8")));
 		
-		return resultHtml.toString();
+		// Create a transformer for the stylesheet.
+//		Transformer transformerData = tfactory.newTransformer(new StreamSource(new InputStreamReader(loadXsl(XSL_DATA),"UTF-8")));
+
+		// get the xml bytes
+		byte[] xmlBytes = IOUtils.toByteArray(xmlStream);
+		
+//		InputStream xmlStreamData = new ByteArrayInputStream(xmlBytes);
+		InputStream xmlStreamForm = new ByteArrayInputStream(xmlBytes);
+		
+		// Transform the source XML to System.out.
+//		transformerData.transform(new StreamSource(new InputStreamReader(xmlStreamData),"UTF-8"),  new StreamResult(resultData));
+		transformerForm.transform(new StreamSource(new InputStreamReader(xmlStreamForm),"UTF-8"),  new StreamResult(resultForm));
+		
+//		return "<root>"+resultData.toString()+resultForm.toString()+"</root>";
+		return resultForm.toString();
 	}
 	
 	private InputStream loadXsl(String xsl){

@@ -20,84 +20,160 @@ var setupHint = function(field){
 var setupValidations = function(field){
 	var f = $(field);
 	var form = $(document.forms[0]);
-	if(f.attr("required") != undefined){
-		var fieldName = f.attr("name");
-		
-		var isRequired = f.attr("required");
-		if(isRequired){
-			f.rules( "add", {
-				required:true,
-				messages:{
-					required : function(){
-						var type = f.attr("type");
-						if(type=="radio" || type==undefined){
-							if(f.is("textarea")) return "Debe ingresar un valor";
-							return "Debe elegir una opci&oacute;n";
-						}else{
-							return "El campo es requerido";
-						}
+	var fieldName = f.attr("name");
+	
+	var isRequired = f.attr("required");
+	if(isRequired){
+		f.rules( "add", {
+			required:true,
+			messages:{
+				required : function(){
+					var type = f.attr("type");
+					if(type=="radio" || type==undefined){
+						if(f.is("textarea")) return "Debe ingresar un valor";
+						return "Debe elegir una opci&oacute;n";
+					}else{
+						return "El campo es requerido";
 					}
+				}
+			}
+		});
+	}
+	
+	var data_type = f.attr("data-type-xml");
+	if(data_type && data_type=="int"){
+		f.rules( "add", {
+			entero:true
+			,messages:{
+				number: "Debe ser un valor num&eacute;rico v&aacute;lido"
+			}
+		});
+	}else if(data_type && data_type=="decimal"){
+		f.rules( "add", {
+			decimal:true
+			,messages:{
+				number: "Debe ser un valor num&eacute;rico v&aacute;lido"
+			}
+		});
+	}
+	
+	var data_constraints = f.attr("data-constraint");
+	if(data_constraints){
+		var constraintContainer = [];
+		var constraints = data_constraints.split(" and ");
+		/* Process constraints of field */
+		for ( var i = 0; i < constraints.length; i++) {
+			var constraint = constraints[i];
+			/*FIXME: refactor this or case scenario*/
+			if(constraint.indexOf(" or ")!=-1){/*check for 'ors' and 'ands' to constraints*/
+				var cc = constraint.split(" or ");
+				constraint = cc[0];
+				constraints[i] = constraint;
+				cc.reverse();
+				cc.pop();
+				constraints = constraints.concat(cc);
+			}
+			
+			if(constraint.indexOf(".<")!=-1){/*max*/
+				try {
+					var max = new Number(constraint.substring(2,constraint.length)); 
+					f.data("jr:constraint:max",max);
+				} catch (e) {
+					log.error("Not a number for max constraint",constraint.substring(2,constraint.length));
+				}
+			}else if(constraint.indexOf(".>")!=-1){/*min*/
+				try {
+					var min = new Number(constraint.substring(2,constraint.length)); 
+					f.data("jr:constraint:min",min);
+				} catch (e) {
+					log.error("Not a number for min constraint",constraint.substring(2,constraint.length));
+				}
+			}else if(constraint.indexOf("depends=")!=-1){/*dependency*/
+				var dependency = constraint.substring(constraint.indexOf("depends=")+8);
+				f.data("jr:constraint:depends",dependency);
+			}else if(constraint.indexOf("url=")!=-1){/*remote combo data*/
+				var url = constraint.substring(constraint.indexOf("url=")+4);
+				f.data("jr:constraint:remote",url);
+			}
+			constraintContainer.push(constraint);
+		}
+		
+		f.data("jr:constraints",constraintContainer);
+		
+		/* Add constraint rules in validation framework */
+		if(f.data("jr:constraint:max")!=undefined){
+			var max =  f.data("jr:constraint:max");
+			f.rules( "add", {
+				max: max
+				,messages:{
+					max: "Debe ser un valor menor a {0}"
 				}
 			});
 		}
 		
-		var data_type = f.attr("data-type-xml");
-		if(data_type && data_type=="int"){
+		if(f.data("jr:constraint:min")!=undefined){
+			var min =  f.data("jr:constraint:min");
 			f.rules( "add", {
-				entero:true
+				min: min
 				,messages:{
-					number: "Debe ser un valor num&eacute;ico v&aacute;lido"
-				}
-			});
-		}else if(data_type && data_type=="decimal"){
-			f.rules( "add", {
-				decimal:true
-				,messages:{
-					number: "Debe ser un valor num&eacute;ico v&aacute;lido"
+					min: "Debe ser un valor mayor a {0}"
 				}
 			});
 		}
 		
-		var data_constraints = f.attr("data-constraint");
-		if(data_constraints){
-			var constraints = data_constraints.split("and");
-			for ( var i = 0; i < constraints.length; i++) {
-				var constraint = constraints[i];
-				constraint = constraint.trim();
-				console.log(constraint);
+		if(f.data("jr:constraint:remote")!=undefined){
+			var url = f.data("jr:constraint:remote");
+			
+			if(f.data("jr:constraint:depends")!=undefined){
+				var ancestor = $("[name~='"+f.data("jr:constraint:depends")+"']");
+				console.log("Se encontró dependencia para el campo "+fieldName);
 				
-				if(constraint.indexOf("or")!=-1){/*check for ors and add to constraints*/
-					var sc = constraint.split("or");
-					console.log("encontré un or en "+fieldName,sc);
-				}
+				ancestor.on("change",function(){
+					$.ajax({
+					  url: "/FormRender/rest"+url,
+					  type: "GET",
+					  dataType: "json",
+					  data:{
+						  fkey:ancestor.val()
+					  },
+					  success : function(data, statusStr, xhr) {
+						  if(data.success){
+							  f.html("");
+							  for ( var count = 0; count < data.list.length; count++) {
+								  var option = data.list[count];
+								  f.append('<option value='+ option.value + '>'+ option.label + '</option>');
+							  }
+						  }else{
+							  console.error("No se obtuvo una lista de elementos para agregar al campo "+ fieldName );
+						  }
+						},
+					  error:function(xhr,statusStr,errorStr){
+						  console.error("Error tratando de recuperar valores para "+ fieldName);
+					  }
+					});
+				});
 				
-				/*process the constraint*/
-				if(constraint.indexOf(".<")!=-1){/*max*/
-					try {
-						var max = new Number(constraint.substring(2,constraint.length)); 
-						f.rules( "add", {
-							max: max
-							,messages:{
-								max: "Debe ser un valor menor a {0}"
-							}
-						});
-					} catch (e) {
-						log.error("Not a number",constraint.substring(2,constraint.length));
-					}
-				}
-				if(constraint.indexOf(".>")!=-1){/*min*/
-					try {
-						var min = new Number(constraint.substring(2,constraint.length)); 
-						f.rules( "add", {
-							min: min
-							,messages:{
-								min: "Debe ser un valor mayor a {0}"
-							}
-						});
-					} catch (e) {
-						log.error("Not a number",constraint.substring(2,constraint.length));
-					}
-				}
+				console.log(ancestor);
+			}else{
+				$.ajax({
+				  url: "/FormRender/rest"+url,
+				  type: "GET",
+				  dataType: "json",
+				  success : function(data, statusStr, xhr) {
+					  if(data.success){
+						  f.html("");
+						  for ( var count = 0; count < data.list.length; count++) {
+							  var option = data.list[count];
+							  f.append('<option value='+ option.value + '>'+ option.label + '</option>');
+						  }
+					  }else{
+						  console.error("No se obtuvo una lista de elementos para agregar al campo "+ fieldName );
+					  }
+					},
+				  error:function(xhr,statusStr,errorStr){
+					  console.error("Error tratando de recuperar valores para "+ fieldName);
+				  }
+				});
 			}
 		}
 	}
