@@ -58,7 +58,7 @@ public class AreasRest {
 		
 		List<Map<String,String>> p = new ArrayList<Map<String,String>>();
 		
-		if(fkey!=null && !fkey.isEmpty())
+		if(fkey!=null && !fkey.isEmpty() && !fkey.equalsIgnoreCase("0") )
 		for (Map<String, String> partido : partidos) {
 			if(partido.get("fkey").equals(fkey))
 				p.add(partido);
@@ -83,7 +83,7 @@ public class AreasRest {
 		
 		List<Map<String,String>> l = new ArrayList<Map<String,String>>();
 		
-		if(fkey!=null && !fkey.isEmpty())
+		if(fkey!=null && !fkey.isEmpty() && !fkey.equalsIgnoreCase("0"))
 		for (Map<String, String> localidad : localidades) {
 			if(localidad.get("fkey").equals(fkey))
 				l.add(localidad);
@@ -108,7 +108,7 @@ public class AreasRest {
 		
 		List<Map<String,String>> a = new ArrayList<Map<String,String>>();
 		
-		if(fkey!=null && !fkey.isEmpty())
+		if(fkey!=null && !fkey.isEmpty() && !fkey.equalsIgnoreCase("0"))
 		for (Map<String, String> area : areas) {
 			if(area.get("fkey").equals(fkey))
 				a.add(area);
