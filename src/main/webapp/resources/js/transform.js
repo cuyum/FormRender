@@ -134,7 +134,7 @@ var setupValidations = function(field){
 			if(f.data("jr:constraint:depends")!=undefined){
 				var ancestor = $("[name~='"+f.data("jr:constraint:depends")+"']");
 				console.log("Se encontró dependencia para el campo "+fieldName);
-				
+				ancestor.data("dependant",f);
 				ancestor.on("change",function(){
 					$.ajax({
 					  url: "/FormRender/rest"+url,
@@ -144,13 +144,18 @@ var setupValidations = function(field){
 						  fkey:ancestor.val()
 					  },
 					  success : function(data, statusStr, xhr) {
-						  if(data.success){
-							  if(f.is("select")){
-								  var option = f.children(":first");
-								  if(option && option.val().trim()=="0"){
-									  option.remove();
-								  }
+						  var resetHierarchy = function(field){
+							  if(field.is("select")){
+								  var option = field.children("[value~='0']");
+								  field.html("").append(option);
 							  }
+							  var dependant = field.data("dependant");
+							  if(dependant)
+								  resetHierarchy(dependant);
+						  };
+						  
+						  if(data.success){
+							  resetHierarchy(f);
 							  for ( var count = 0; count < data.list.length; count++) {
 								  var option = data.list[count];
 								  f.append('<option value='+ option.value + '>'+ option.label + '</option>');
@@ -164,8 +169,6 @@ var setupValidations = function(field){
 					  }
 					});
 				});
-				
-				console.log(ancestor);
 			}else{
 				$.ajax({
 				  url: "/FormRender/rest"+url,
@@ -174,10 +177,8 @@ var setupValidations = function(field){
 				  success : function(data, statusStr, xhr) {
 					  if(data.success){
 						  if(f.is("select")){
-							  var option = f.children(":first");
-							  if(option && option.val().trim()=="0"){
-								  option.remove();
-							  }
+							  var option = f.children("[value~='0']");
+							  f.append(option);
 						  }
 						  for ( var count = 0; count < data.list.length; count++) {
 							  var option = data.list[count];
