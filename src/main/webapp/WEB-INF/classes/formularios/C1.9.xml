@@ -28,10 +28,10 @@
           </meta>
         </C1.9>
       </instance>
-      <bind constraint="url=/areas/provincias" nodeset="/C1.9/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/areas/partidos and depends=/C1.9/mes/provincia" nodeset="/C1.9/mes/partido" required="true()" type="select1"/>
-      <bind constraint="url=/areas/localidades and depends=/C1.9/mes/partido" nodeset="/C1.9/mes/localidad" required="true()" type="select1"/>
-      <bind constraint="url=/areas/areas and depends=/C1.9/mes/localidad" nodeset="/C1.9/mes/areas_local" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.9/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.9/mes/provincia" nodeset="/C1.9/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.9/mes/partido" nodeset="/C1.9/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.9/mes/localidad" nodeset="/C1.9/mes/areas_local" required="true()" type="select1"/>
       <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.9/mes/l_l/e_e1" required="true()" type="int"/>
       <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.9/mes/l_l/s_s1" required="true()" type="int"/>
       <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.9/mes/l_ldn/e_e2" required="true()" type="int"/>

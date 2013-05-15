@@ -10,7 +10,6 @@
             <aplicacion/>
             <segmento/>
             <abono/>
-            <selec_opcion/>
             <minutos/>
             <precio/>
             <observaciones/>
@@ -24,15 +23,14 @@
       <bind nodeset="/C1.26/planes/aplicacion" required="true()" type="select1"/>
       <bind nodeset="/C1.26/planes/segmento" required="true()" type="select1"/>
       <bind constraint=".&lt;1000.00 and .&gt;0.00" jr:constraintMsg="Debe ingresar número de 3 dígitos y 2 decimales." nodeset="/C1.26/planes/abono" required="true()" type="decimal"/>
-      <bind nodeset="/C1.26/planes/selec_opcion" required="true()" type="select1"/>
-      <bind constraint=".&lt;1000 and .&gt;0" jr:constraintMsg="Debe ingresar número entero de hasta 3 dígitos" nodeset="/C1.26/planes/minutos" relevant=" /C1.26/planes/selec_opcion ='limitado'" type="int"/>
+      <bind nodeset="/C1.26/planes/minutos" required="true()" type="int"/>
       <bind constraint=".&lt;1000.00 and .&gt;0.00" jr:constraintMsg="Debe ingresar número de 3 dígitos y 2 decimales." nodeset="/C1.26/planes/precio" required="true()" type="decimal"/>
       <bind nodeset="/C1.26/planes/observaciones" required="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.26/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4" ref="/C1.26/planes">
+    <group appearance="col4 well-white" ref="/C1.26/planes">
       <label>Planes</label>
       <input ref="/C1.26/planes/plan">
         <label>Plan:</label>
@@ -41,6 +39,10 @@
       <select1 appearance="minimal" ref="/C1.26/planes/aplicacion">
         <label>Aplicación:</label>
         <hint>Seleccione Opción</hint>
+        <item>
+          <label>Seleccione opcion</label>
+          <value>0</value>
+        </item>
         <item>
           <label>Masiva</label>
           <value>1</value>
@@ -53,6 +55,10 @@
       <select1 appearance="minimal" ref="/C1.26/planes/segmento">
         <label>Segmento:</label>
         <hint>Seleccione Segmento de Mercado</hint>
+        <item>
+          <label>Seleccione opcion</label>
+          <value>0</value>
+        </item>
         <item>
           <label>Segmento 1</label>
           <value>1</value>
@@ -70,21 +76,9 @@
         <label>Abono:</label>
         <hint>Abono mensual en pesos</hint>
       </input>
-      <select1 appearance="minimal" ref="/C1.26/planes/selec_opcion">
-        <label>Minutos:</label>
-        <hint>Seleccione Opción</hint>
-        <item>
-          <label>Ilimitado</label>
-          <value>ilimitado</value>
-        </item>
-        <item>
-          <label>Limitado</label>
-          <value>limitado</value>
-        </item>
-      </select1>
       <input ref="/C1.26/planes/minutos">
-        <label>Especifique cantidad</label>
-        <hint>Tráfico incluído en Minutos</hint>
+        <label>Minutos:</label>
+        <hint>Especifique cantidad de minutos o ilimitado</hint>
       </input>
       <input ref="/C1.26/planes/precio">
         <label>Precio:</label>

@@ -20,8 +20,8 @@
     </model>
   </h:head>
   <h:body>
-    <group appearance="col1" ref="/C1.49/mes">
-      <label>Mes</label>
+    <group appearance="col1 well-white" ref="/C1.49/mes">
+      <label>Enero</label>
       <input ref="/C1.49/mes/hombres">
         <label>Hombres</label>
         <hint>Ingrese número entero</hint>

@@ -38,8 +38,8 @@
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4" ref="/C1.47/mes">
-      <label>Mes</label>
+    <group appearance="col4 well-white" ref="/C1.47/mes">
+      <label>Enero</label>
       <input ref="/C1.47/mes/i_d">
         <label>I &amp; D:</label>
         <hint>Ingrese numero entero</hint>
@@ -49,7 +49,7 @@
         <hint>Ingrese numero entero</hint>
       </input>
       <input ref="/C1.47/mes/am_bienes">
-        <label>Amortiz. Bienes:</label>
+        <label>Amortización Bienes de uso:</label>
         <hint>Ingrese numero entero</hint>
       </input>
       <input ref="/C1.47/mes/am_intang">

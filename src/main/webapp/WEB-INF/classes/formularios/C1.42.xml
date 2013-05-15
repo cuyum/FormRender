@@ -30,8 +30,8 @@
     </model>
   </h:head>
   <h:body>
-    <group appearance="col3" ref="/C1.42/mes">
-      <label>Mes</label>
+    <group appearance="col3 well-white" ref="/C1.42/mes">
+      <label>Enero</label>
       <input ref="/C1.42/mes/internacional1">
         <label>Arriendos Circuitos LDI</label>
         <hint>Miles de pesos 12 dígitos</hint>
@@ -53,7 +53,7 @@
         <hint>Miles de pesos 12 dígitos</hint>
       </input>
       <input ref="/C1.42/mes/internacional6">
-        <label>Total $ <output value=" /C1.42/mes/calculate3 "/></label></input>
+        <label>Total <output value=" /C1.42/mes/calculate3 "/></label></input>
     </group>
   </h:body>
 </h:html>

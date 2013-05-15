@@ -3,31 +3,6 @@
   <h:head>
     <h:title>Formulario C1.39 - Ingresos / larga distancia internacional horario reducido</h:title>
     <model>
-      <itext>
-        <translation default="true()" lang="Spanish">
-          <text id="/C1.39/mes/otros:hint">
-            <value>Ingrese número entero</value>
-          </text>
-          <text id="/C1.39/mes/otros:label">
-            <value>Otros</value>
-          </text>
-          <text id="/C1.39/mes/ddi:hint">
-            <value>Ingrese número entero</value>
-          </text>
-          <text id="/C1.39/mes:label">
-            <value>Mes</value>
-          </text>
-          <text id="/C1.39/mes/operadora:hint">
-            <value>Ingrese número entero</value>
-          </text>
-          <text id="/C1.39/mes/operadora:label">
-            <value>Operadora</value>
-          </text>
-          <text id="/C1.39/mes/ddi:label">
-            <value>DDI</value>
-          </text>
-        </translation>
-      </itext>
       <instance>
         <C1.39 id="C1.39">
           <mes>
@@ -40,26 +15,26 @@
           </meta>
         </C1.39>
       </instance>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.39/mes/ddi" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.39/mes/operadora" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.39/mes/otros" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.39/mes/ddi" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.39/mes/operadora" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.39/mes/otros" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.39/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col3" ref="/C1.39/mes">
-      <label ref="jr:itext('/C1.39/mes:label')"/>
+    <group appearance="col3 well-white" ref="/C1.39/mes">
+      <label>Enero</label>
       <input ref="/C1.39/mes/ddi">
-        <label ref="jr:itext('/C1.39/mes/ddi:label')"/>
-        <hint ref="jr:itext('/C1.39/mes/ddi:hint')"/>
+        <label>DDI</label>
+        <hint>Ingrese número entero</hint>
       </input>
       <input ref="/C1.39/mes/operadora">
-        <label ref="jr:itext('/C1.39/mes/operadora:label')"/>
-        <hint ref="jr:itext('/C1.39/mes/operadora:hint')"/>
+        <label>Operadora</label>
+        <hint>Ingrese número entero</hint>
       </input>
       <input ref="/C1.39/mes/otros">
-        <label ref="jr:itext('/C1.39/mes/otros:label')"/>
-        <hint ref="jr:itext('/C1.39/mes/otros:hint')"/>
+        <label>Otros</label>
+        <hint>Ingrese número entero</hint>
       </input>
     </group>
   </h:body>

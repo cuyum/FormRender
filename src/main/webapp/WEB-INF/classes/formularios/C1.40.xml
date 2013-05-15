@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario C.1.40 - Ingresos interconexion a la red fija - Local 3</h:title>
+    <h:title>Formulario C1.40 - Ingresos interconexion a la red fija - Local 3</h:title>
     <model>
       <instance>
         <C1.40 id="C1.40">
@@ -36,8 +36,8 @@
     </model>
   </h:head>
   <h:body>
-    <group appearance="col3" ref="/C1.40/mes">
-      <label>Mes</label>
+    <group appearance="col3 well-white" ref="/C1.40/mes">
+      <label>Enero</label>
       <input ref="/C1.40/mes/local1">
         <label>Origen y Terminacion Local Fijo</label>
         <hint>Miles de pesos 12 dígitos</hint>

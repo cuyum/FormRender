@@ -37,10 +37,10 @@
           </meta>
         </C1.3>
       </instance>
-      <bind constraint="url=/areas/provincias" nodeset="/C1.3/lugar/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/areas/partidos and depends=/C1.3/lugar/provincia" nodeset="/C1.3/lugar/partido" required="true()" type="select1"/>
-      <bind constraint="url=/areas/localidades and depends=/C1.3/lugar/partido" nodeset="/C1.3/lugar/localidad" required="true()" type="select1"/>
-      <bind constraint="url=/areas/areas and depends=/C1.3/lugar/localidad" nodeset="/C1.3/lugar/areas_local" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.3/lugar/provincia" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.3/lugar/provincia" nodeset="/C1.3/lugar/partido" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.3/lugar/partido" nodeset="/C1.3/lugar/localidad" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.3/lugar/localidad" nodeset="/C1.3/lugar/areas_local" required="true()" type="select1"/>
       <bind nodeset="/C1.3/equipamiento/spinner" required="true()" type="select1"/>
       <bind constraint=".&lt;10.000.000,00 and .&gt;0.00" jr:constraintMsg="Debe ingresar número de hasta 7 dígitos y 2 decimales." nodeset="/C1.3/equipamiento/my_int1" required="true()" type="decimal"/>
       <bind constraint=".&lt;10.000.000,00 and .&gt;0.00" jr:constraintMsg="Debe ingresar número de hasta 7 dígitos y 2 decimales." nodeset="/C1.3/equipamiento/my_int2" required="true()" type="decimal"/>
@@ -99,6 +99,10 @@
         <label>Tecnología</label>
         <hint>Seleccione Tecnología</hint>
         <item>
+          <label>Seleccione opcion</label>
+          <value>0</value>
+        </item>
+        <item>
           <label>SDH</label>
           <value>a</value>
         </item>
@@ -134,6 +138,10 @@
         <label>Tecnología</label>
         <hint>Seleccione Tecnología</hint>
         <item>
+          <label>Seleccione opcion</label>
+          <value>0</value>
+        </item>
+        <item>
           <label>FO</label>
           <value>1</value>
         </item>
@@ -160,6 +168,10 @@
       <select1 appearance="minimal" ref="/C1.3/tendido/spinner1">
         <label>Tipo</label>
         <hint>Seleccione Tipo</hint>
+        <item>
+          <label>Seleccione opcion</label>
+          <value>0</value>
+        </item>
         <item>
           <label>AÉREO</label>
           <value>1</value>

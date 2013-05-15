@@ -22,21 +22,21 @@
           </meta>
         </C1.43>
       </instance>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/orterfijo" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/ortermovil" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/puertos" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/coubic" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/transito" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/facilidades" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/facturacion" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/otros" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/orterfijo" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/ortermovil" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/puertos" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/coubic" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/transito" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/facilidades" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/facturacion" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/otros" required="true()" type="int"/>
       <bind calculate=" /C1.43/Enero/orterfijo + /C1.43/Enero/ortermovil + /C1.43/Enero/puertos + /C1.43/Enero/coubic + /C1.43/Enero/transito + /C1.43/Enero/facilidades + /C1.43/Enero/facturacion + /C1.43/Enero/otros " nodeset="/C1.43/Enero/calculate1" type="string"/>
       <bind nodeset="/C1.43/Enero/total" readonly="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.43/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col3" ref="/C1.43/Enero">
+    <group appearance="col3 well-white" ref="/C1.43/Enero">
       <label>Enero</label>
       <input ref="/C1.43/Enero/orterfijo">
         <label>Origen y Terminacion Local Fijo:</label>
@@ -71,7 +71,7 @@
         <hint>Miles de pesos 12 dígitos</hint>
       </input>
       <input ref="/C1.43/Enero/total">
-        <label>TOTAL: <output value=" /C1.43/Enero/calculate1 "/></label></input>
+        <label>Total: <output value=" /C1.43/Enero/calculate1 "/></label></input>
     </group>
   </h:body>
 </h:html>

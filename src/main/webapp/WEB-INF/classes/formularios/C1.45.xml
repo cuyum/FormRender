@@ -30,7 +30,7 @@
     </model>
   </h:head>
   <h:body>
-    <group appearance="col3" ref="/C1.45/mes">
+    <group appearance="col3 well-white" ref="/C1.45/mes">
       <label>Mes</label>
       <input ref="/C1.45/mes/internacional1">
         <label>Arriendos Circuitos LDI</label>

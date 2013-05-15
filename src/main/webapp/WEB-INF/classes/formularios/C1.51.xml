@@ -13,13 +13,13 @@
             <importaciones3>0</importaciones3>
             <importaciones4>0</importaciones4>
             <regalias>0</regalias>
+            <total>
+              <calculate1/>
+              <calculate2/>
+              <total1/>
+              <total2/>
+            </total>
           </mes>
-          <total>
-            <calculate1/>
-            <calculate2/>
-            <total1/>
-            <total2/>
-          </total>
           <meta>
             <instanceID/>
           </meta>
@@ -32,16 +32,16 @@
       <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 8 dígitos" nodeset="/C1.51/mes/importaciones3" required="true()" type="int"/>
       <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de hasta 8 dígitos" nodeset="/C1.51/mes/importaciones4" required="true()" type="int"/>
       <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de hasta 8 dígitos" nodeset="/C1.51/mes/regalias" type="int"/>
-      <bind calculate=" /C1.51/mes/exportaciones1 + /C1.51/mes/exportaciones2 " nodeset="/C1.51/total/calculate1" type="string"/>
-      <bind calculate=" /C1.51/mes/importaciones1 + /C1.51/mes/importaciones2 + /C1.51/mes/importaciones3 + /C1.51/mes/importaciones4 " nodeset="/C1.51/total/calculate2" type="string"/>
-      <bind nodeset="/C1.51/total/total1" readonly="true()" type="string"/>
-      <bind nodeset="/C1.51/total/total2" readonly="true()" type="string"/>
+      <bind calculate=" /C1.51/mes/exportaciones1 + /C1.51/mes/exportaciones2 " nodeset="/C1.51/mes/total/calculate1" type="string"/>
+      <bind calculate=" /C1.51/mes/importaciones1 + /C1.51/mes/importaciones2 + /C1.51/mes/importaciones3 + /C1.51/mes/importaciones4 " nodeset="/C1.51/mes/total/calculate2" type="string"/>
+      <bind nodeset="/C1.51/mes/total/total1" readonly="true()" type="string"/>
+      <bind nodeset="/C1.51/mes/total/total2" readonly="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.51/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col1" ref="/C1.51/mes">
-      <label>Mes</label>
+    <group appearance="col4 well-white" ref="/C1.51/mes">
+      <label>Enero</label>
       <input ref="/C1.51/mes/exportaciones1">
         <label>Telecomunicaciones Expo.:</label>
         <hint>En miles de pesos de 8 dígitos</hint>
@@ -70,13 +70,13 @@
         <label>Regalías</label>
         <hint>En miles de pesos de 8 dígitos</hint>
       </input>
-    </group>
-    <group appearance="col1" ref="/C1.51/total">
-      <label>Total</label>
-      <input ref="/C1.51/total/total1">
-        <label>Totales expo.: <output value=" /C1.51/total/calculate1 "/></label></input>
-      <input ref="/C1.51/total/total2">
-        <label>Totales impo.: <output value=" /C1.51/total/calculate2 "/></label></input>
+      <group appearance="col1 well-white" ref="/C1.51/mes/total">
+        <label>Total</label>
+        <input ref="/C1.51/mes/total/total1">
+          <label>Totales expo.: <output value=" /C1.51/mes/total/calculate1 "/></label></input>
+        <input ref="/C1.51/mes/total/total2">
+          <label>Totales impo.: <output value=" /C1.51/mes/total/calculate2 "/></label></input>
+      </group>
     </group>
   </h:body>
 </h:html>

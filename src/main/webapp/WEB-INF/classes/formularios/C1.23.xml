@@ -3,16 +3,6 @@
   <h:head>
     <h:title>Formulario C1.23 - Tarifa/precio minuto de comunicación telefonía fija</h:title>
     <model>
-      <itext>
-        <translation default="true()" lang="default">
-          <text id="/C1.23/minuto_mlu_pos/minuto_mlu_pos_detail:label">
-            <value>Pospago</value>
-          </text>
-          <text id="/C1.23/minuto_mlu_pos/minuto_mlu_pre_detail:label">
-            <value>grid widget</value>
-          </text>
-        </translation>
-      </itext>
       <instance>
         <C1.23 id="C1.23">
           <minuto_mlu_pos>
@@ -279,7 +269,7 @@
     <group appearance="col1 well-white" ref="/C1.23/minuto_mlu_pos">
       <label>Minuto Local/Urbano</label>
       <group appearance="col2" ref="/C1.23/minuto_mlu_pos/minuto_mlu_pos_detail">
-        <label ref="jr:itext('/C1.23/minuto_mlu_pos/minuto_mlu_pos_detail:label')"/>
+        <label>Pospago</label>
         <input ref="/C1.23/minuto_mlu_pos/minuto_mlu_pos_detail/hr_mlu_pos">
           <label>HR</label>
         </input>
@@ -288,7 +278,7 @@
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.23/minuto_mlu_pos/minuto_mlu_pre_detail">
-        <label ref="jr:itext('/C1.23/minuto_mlu_pos/minuto_mlu_pre_detail:label')"/>
+        <label>Prepago</label>
         <input ref="/C1.23/minuto_mlu_pos/minuto_mlu_pre_detail/hr_mlu_pre">
           <label>HR</label>
         </input>

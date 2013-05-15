@@ -8,11 +8,10 @@ INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.7','Clientes operativos (segmentación)','0','C1.7.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.8','Clientes operativos (abonos)','0','C1.8.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.9','Tráfico I (llamadas)','0','C1.9.xml', 0);
-INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.10','Tráfico II (llamadas)','0','C1.10.xml', 0);
-
-INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.11','Tráfico III (minutos)','0','C1.11.xml', 0);
-INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.12','Tráfico IV (minutos)','0','C1.12.xml', 0);
-INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.13','Tráfico V (minutos)','0','C1.13.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.10','Tráfico III (llamadas)','0','C1.10.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.11','Tráfico I (minutos)','0','C1.11.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.12','Tráfico II (minutos)','0','C1.12.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.13','Tráfico III (minutos)','0','C1.13.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.14','Tráfico hacia líneas móviles (minutos)','0','C1.14.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.15','Tráfico hacia líneas móviles (llamadas)','0','C1.15.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.16','Calidad de servicio/ratios','0','C1.16.xml', 0);
@@ -20,6 +19,7 @@ INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.17','Calidad de servicio/facturación','0','C1.17.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.18','Calidad de servicio/reclamos','0','C1.18.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.19','Calidad de servicio/atención personalizada','0','C1.19.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.20','Calidad de servicio/atención telefónica','0','C1.20.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.21','Calidad de servicio/atención web','0','C1.21.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.22','Tarifas/precio vigente','0','C1.22.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.23','Tarifas/precio minuto de comunicacion telefonia fija','0','C1.23.xml', 0);
@@ -27,6 +27,7 @@ INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.25','Tarifas/precio minuto servicios adicionales','0','C1.25.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.26','Tarifas/planes','0','C1.26.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.27','Tarifas/planes líneas restringidas','0','C1.27.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.28','Ingresos','0','C1.28.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.29','Ingresos/totales telefonia local por provincia','0','C1.29.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.30','Ingresos/instalación de linea','0','C1.30.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.31','Ingresos/abono telefonía básica','0','C1.31.xml', 0);

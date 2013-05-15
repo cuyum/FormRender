@@ -26,8 +26,8 @@
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4" ref="/C1.44/mes">
-      <label>Mes</label>
+    <group appearance="col4 well-white" ref="/C1.44/mes">
+      <label>Enero</label>
       <input ref="/C1.44/mes/nacional1">
         <label>Arriendo de Circuitos LDN</label>
         <hint>Miles de pesos 12 dígitos</hint>
