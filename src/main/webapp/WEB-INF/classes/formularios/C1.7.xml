@@ -20,9 +20,9 @@
           </meta>
         </C1.7>
       </instance>
-      <bind constraint="url=/areas/provincias" jr:constraintMsg="true()" nodeset="/C1.7/mes/provincia3" required="true()" type="select1"/>
-      <bind constraint="url=/areas/partidos and depends=/C1.7/mes/provincia" jr:constraintMsg="true()" nodeset="/C1.7/mes/partido3" required="true()" type="select1"/>
-      <bind constraint="url=/areas/localidades and depends=/C1.7/mes/partido" jr:constraintMsg="true()" nodeset="/C1.7/mes/localidad3" required="true()" type="select1"/>
+      <bind constraint="url=/areas/provincias" nodeset="/C1.7/mes/provincia3" required="true()" type="select1"/>
+      <bind constraint="url=/areas/partidos and depends=/C1.7/mes/provincia" nodeset="/C1.7/mes/partido3" required="true()" type="select1"/>
+      <bind constraint="url=/areas/localidades and depends=/C1.7/mes/partido" nodeset="/C1.7/mes/localidad3" required="true()" type="select1"/>
       <bind constraint="url=/areas/areas and depends=/C1.7/mes/localidad" nodeset="/C1.7/mes/areas_local3" required="true()" type="select1"/>
       <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.7/mes/hogares" required="true()" type="int"/>
       <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.7/mes/comercial" required="true()" type="int"/>
@@ -38,32 +38,32 @@
         <label>Provincia</label>
         <hint>Seleccione Provincia</hint>
         <item>
-          <label></label>
-          <value>id_provincia</value>
+          <label>Seleccione una opcion</label>
+          <value>0</value>
         </item>
       </select1>
       <select1 appearance="minimal" ref="/C1.7/mes/partido3">
         <label>Partido / Departamento</label>
         <hint>Seleccione Partido</hint>
         <item>
-          <label></label>
-          <value>id_dpto_partido</value>
+          <label>Seleccione una opcion</label>
+          <value>0</value>
         </item>
       </select1>
       <select1 appearance="minimal" ref="/C1.7/mes/localidad3">
         <label>Localidad</label>
         <hint>Seleccione Localidad</hint>
         <item>
-          <label></label>
-          <value>id_localidad</value>
+          <label>Seleccione una opcion</label>
+          <value>0</value>
         </item>
       </select1>
       <select1 appearance="minimal" ref="/C1.7/mes/areas_local3">
         <label>Área Local</label>
         <hint>Seleccione Área Local</hint>
         <item>
-          <label></label>
-          <value>id_area_local</value>
+          <label>Seleccione una opcion</label>
+          <value>0</value>
         </item>
       </select1>
       <input ref="/C1.7/mes/hogares">
