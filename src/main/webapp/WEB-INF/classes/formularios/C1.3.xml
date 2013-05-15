@@ -37,9 +37,9 @@
           </meta>
         </C1.3>
       </instance>
-      <bind constraint="url=/areas/provincias" jr:constraintMsg="true()" nodeset="/C1.3/lugar/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/areas/partidos and depends=/C1.3/lugar/provincia" jr:constraintMsg="true()" nodeset="/C1.3/lugar/partido" required="true()" type="select1"/>
-      <bind constraint="url=/areas/localidades and depends=/C1.3/lugar/partido" jr:constraintMsg="true()" nodeset="/C1.3/lugar/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/areas/provincias" nodeset="/C1.3/lugar/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/areas/partidos and depends=/C1.3/lugar/provincia" nodeset="/C1.3/lugar/partido" required="true()" type="select1"/>
+      <bind constraint="url=/areas/localidades and depends=/C1.3/lugar/partido" nodeset="/C1.3/lugar/localidad" required="true()" type="select1"/>
       <bind constraint="url=/areas/areas and depends=/C1.3/lugar/localidad" nodeset="/C1.3/lugar/areas_local" required="true()" type="select1"/>
       <bind nodeset="/C1.3/equipamiento/spinner" required="true()" type="select1"/>
       <bind constraint=".&lt;10.000.000,00 and .&gt;0.00" jr:constraintMsg="Debe ingresar número de hasta 7 dígitos y 2 decimales." nodeset="/C1.3/equipamiento/my_int1" required="true()" type="decimal"/>
@@ -64,32 +64,32 @@
         <label>Provincia</label>
         <hint>Seleccione Provincia</hint>
         <item>
-          <label></label>
-          <value>id_provincia</value>
+          <label>Seleccione una opcion</label>
+          <value>0</value>
         </item>
       </select1>
       <select1 appearance="minimal" ref="/C1.3/lugar/partido">
         <label>Partido / Departamento</label>
         <hint>Seleccione Partido</hint>
         <item>
-          <label></label>
-          <value>id_dpto_partido</value>
+          <label>Seleccione una opcion</label>
+          <value>0</value>
         </item>
       </select1>
       <select1 appearance="minimal" ref="/C1.3/lugar/localidad">
         <label>Localidad</label>
         <hint>Seleccione Localidad</hint>
         <item>
-          <label></label>
-          <value>id_localidad</value>
+          <label>Seleccione una opcion</label>
+          <value>0</value>
         </item>
       </select1>
       <select1 appearance="minimal" ref="/C1.3/lugar/areas_local">
         <label>Área Local</label>
         <hint>Seleccione Área Local</hint>
         <item>
-          <label></label>
-          <value>id_area_local</value>
+          <label>Seleccione una opcion</label>
+          <value>0</value>
         </item>
       </select1>
     </group>
@@ -188,32 +188,32 @@
         <label>Provincia</label>
         <hint>Seleccione Provincia</hint>
         <item>
-          <label></label>
-          <value>id_provincia</value>
+          <label>Seleccione una opcion</label>
+          <value>0</value>
         </item>
       </select1>
       <select1 appearance="minimal" ref="/C1.3/lugar1/partido1">
         <label>Partido / Departamento</label>
         <hint>Seleccione Partido</hint>
         <item>
-          <label></label>
-          <value>id_dpto_partido</value>
+          <label>Seleccione una opcion</label>
+          <value>0</value>
         </item>
       </select1>
       <select1 appearance="minimal" ref="/C1.3/lugar1/localidad1">
         <label>Localidad</label>
         <hint>Seleccione Localidad</hint>
         <item>
-          <label></label>
-          <value>id_localidad</value>
+          <label>Seleccione una opcion</label>
+          <value>0</value>
         </item>
       </select1>
       <select1 appearance="minimal" ref="/C1.3/lugar1/areas_local1">
         <label>Área Local</label>
         <hint>Seleccione Área Local</hint>
         <item>
-          <label></label>
-          <value>id_area_local</value>
+          <label>Seleccione una opcion</label>
+          <value>0</value>
         </item>
       </select1>
     </group>
