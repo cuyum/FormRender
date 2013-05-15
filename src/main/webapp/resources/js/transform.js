@@ -104,6 +104,15 @@ var setupValidations = function(field){
 		
 		f.data("jr:constraints",constraintContainer);
 		
+		if(data_type && data_type=="decimal"){
+			f.rules( "add", {
+				decimal:true
+				,messages:{
+					number: "Debe ser un valor num&eacute;rico v&aacute;lido"
+				}
+			});
+		}
+		
 		/* Add constraint rules in validation framework */
 		if(f.data("jr:constraint:max")!=undefined){
 			var max =  f.data("jr:constraint:max");
@@ -114,21 +123,14 @@ var setupValidations = function(field){
 					number: "Debe ser un valor num&eacute;rico v&aacute;lido"
 				}
 			});
-		}else
+		}
+		
 		if(f.data("jr:constraint:min")!=undefined){
 			var min =  f.data("jr:constraint:min");
 			f.rules( "add", {
 				min: min
 				,messages:{
 					min: "Debe ser un valor mayor a {0}",
-					number: "Debe ser un valor num&eacute;rico v&aacute;lido"
-				}
-			});
-		}else 
-		if(data_type && data_type=="decimal"){
-			f.rules( "add", {
-				decimal:true
-				,messages:{
 					number: "Debe ser un valor num&eacute;rico v&aacute;lido"
 				}
 			});
@@ -152,14 +154,15 @@ var setupValidations = function(field){
 					  success : function(data, statusStr, xhr) {
 						  var resetHierarchy = function(field){
 							  if(field.is("select")){
-								  var option = field.children("[value~='0']");
-								  field.html("").append(option);
+								  var option0 = field.children("option[value~='0']");
+								  var option = field.children("option[value~='']");
+								  var op = option0.length>0?option0:option;
+								  field.html("").append(op.val(""));
 							  }
 							  var dependant = field.data("dependant");
 							  if(dependant)
 								  resetHierarchy(dependant);
 						  };
-						  
 						  if(data.success){
 							  resetHierarchy(f);
 							  for ( var count = 0; count < data.list.length; count++) {
@@ -183,8 +186,10 @@ var setupValidations = function(field){
 				  success : function(data, statusStr, xhr) {
 					  if(data.success){
 						  if(f.is("select")){
-							  var option = f.children("[value~='0']");
-							  f.html("").append(option);
+							  var option0 = f.children("option[value~='0']");
+							  var option = f.children("option[value~='']");
+							  var op = option0.length>0?option0:option;
+							  f.html("").append(op.val(""));
 						  }
 						  for ( var count = 0; count < data.list.length; count++) {
 							  var option = data.list[count];
