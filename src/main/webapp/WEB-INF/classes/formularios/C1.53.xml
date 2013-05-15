@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.53 - Financiamiento su /subsidios</h:title>
+    <model>
+      <instance>
+        <C1.53 id="C1.53">
+          <financ>
+            <financiamiento>0</financiamiento>
+            <subsidios1>0</subsidios1>
+            <subsidios2>0</subsidios2>
+            <subsidios3>0</subsidios3>
+          </financ>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.53>
+      </instance>
+      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 8 dígitos" nodeset="/C1.53/financ/financiamiento" required="true()" type="int"/>
+      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de hasta 8 dígitos" nodeset="/C1.53/financ/subsidios1" required="true()" type="int"/>
+      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 8 dígitos" nodeset="/C1.53/financ/subsidios2" required="true()" type="int"/>
+      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 8 dígitos" nodeset="/C1.53/financ/subsidios3" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.53/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col4" ref="/C1.53/financ">
+      <label>Financiamiento</label>
+      <input ref="/C1.53/financ/financiamiento">
+        <label>Financiamiento con SU</label>
+        <hint>Valores a ingresar numéricos en miles de pesos de 8 dígitos</hint>
+      </input>
+      <input ref="/C1.53/financ/subsidios1">
+        <label>Subsidios tasa de Interés</label>
+        <hint>Valores a ingresar numéricos en miles de pesos de 8 dígitos</hint>
+      </input>
+      <input ref="/C1.53/financ/subsidios2">
+        <label>Subsidios Impositivos</label>
+        <hint>Valores a ingresar numéricos en miles de pesos de 8 dígitos</hint>
+      </input>
+      <input ref="/C1.53/financ/subsidios3">
+        <label>Otros Subsisdios</label>
+        <hint>Valores a ingresar numéricos en miles de pesos de 8 dígitos</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

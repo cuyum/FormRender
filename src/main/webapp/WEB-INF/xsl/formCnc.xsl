@@ -83,9 +83,10 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
         <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text> 
         <html>
             <head>
-            	<meta charset="utf-8"/>            	
+            	<meta charset="utf-8"/> 
+            	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />           	
             	<link rel="stylesheet" href="/FormRender/resources/css/main.css"/>
-            	<link rel="stylesheet" href="/FormRender/resources/css/style.css"/>
+            	<link rel="stylesheet" href="/FormRender/resources/css/style.css"/>            	
 			  	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>

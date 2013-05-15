@@ -56,7 +56,7 @@
     </model>
   </h:head>
   <h:body>
-    <group appearance="col6" ref="/C1.22/instalacion_linea">
+    <group appearance="col6 well-white" ref="/C1.22/instalacion_linea">
       <label>Instalación</label>
       <input ref="/C1.22/instalacion_linea/familia_a">
         <label>Hogares</label>
@@ -83,7 +83,7 @@
         <hint>Ingrese número entero</hint>
       </input>
     </group>
-    <group appearance="col6" ref="/C1.22/abono_mensual">
+    <group appearance="col6 well-white" ref="/C1.22/abono_mensual">
       <label>Abono</label>
       <input ref="/C1.22/abono_mensual/familia_b">
         <label>Hogares</label>
@@ -110,7 +110,7 @@
         <hint>Ingrese número entero</hint>
       </input>
     </group>
-    <group appearance="col6" ref="/C1.22/abono_mensual_linea_trafico">
+    <group appearance="col6 well-white" ref="/C1.22/abono_mensual_linea_trafico">
       <label>Abono Entrante</label>
       <input ref="/C1.22/abono_mensual_linea_trafico/familia_c">
         <label>Hogares</label>

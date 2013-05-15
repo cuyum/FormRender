@@ -1,40 +1,60 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario C1.17 - Calidad de servicio / facturacion</h:title>
+    <h:title>Formulario C1.20 - Calidad de servicio / atencion telefónica</h:title>
     <model>
+      <itext>
+        <translation lang="Spanish">
+          <text id="/C1.20/mes/partido3:hint">
+            <value>Seleccione Partido</value>
+          </text>
+          <text id="/C1.20/mes/provincia3:hint">
+            <value>Seleccione Provincia</value>
+          </text>
+          <text id="/C1.20/mes/personal:hint">
+            <value>Ingrese número entero</value>
+          </text>
+          <text id="/C1.20/mes/espera_prom:hint">
+            <value>Ingrese número entero</value>
+          </text>
+          <text id="/C1.20/mes/areas_local3:hint">
+            <value>Seleccione Área Local</value>
+          </text>
+          <text id="/C1.20/mes/localidad3:hint">
+            <value>Seleccione Localidad</value>
+          </text>
+        </translation>
+      </itext>
       <instance>
-        <C1.17 id="C1.17">
+        <C1.20 id="C1.20">
           <mes>
-            <provincia/>
-            <partido/>
-            <localidad/>
-            <areas_local/>
-            <contratos_vigentes/>
-            <facturacion_papel/>
-            <facturacion_web/>
+            <provincia3/>
+            <partido3/>
+            <localidad3/>
+            <areas_local3/>
+            <personal/>
+            <espera_prom/>
           </mes>
           <meta>
             <instanceID/>
           </meta>
-        </C1.17>
+        </C1.20>
       </instance>
-      <bind jr:constraintMsg="true()" nodeset="/C1.17/mes/provincia" required="true()" type="select1"/>
-      <bind jr:constraintMsg="true()" nodeset="/C1.17/mes/partido" required="true()" type="select1"/>
-      <bind jr:constraintMsg="true()" nodeset="/C1.17/mes/localidad" required="true()" type="select1"/>
-      <bind nodeset="/C1.17/mes/areas_local" required="true()" type="select1"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.17/mes/contratos_vigentes" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.17/mes/facturacion_papel" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.17/mes/facturacion_web" required="true()" type="int"/>
-      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.17/meta/instanceID" readonly="true()" type="string"/>
+      <bind jr:constraintMsg="true()" nodeset="/C1.20/mes/provincia3" required="true()" type="select1"/>
+      <bind jr:constraintMsg="true()" nodeset="/C1.20/mes/partido3" required="true()" type="select1"/>
+      <bind jr:constraintMsg="true()" nodeset="/C1.20/mes/localidad3" required="true()" type="select1"/>
+      <bind nodeset="/C1.20/mes/areas_local3" required="true()" type="select1"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.20/mes/personal" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.20/mes/espera_prom" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.20/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4 well-white" ref="/C1.17/mes">
+    <group appearance="col4 well-white" ref="/C1.20/mes">
       <label>Enero</label>
-      <select1 appearance="minimal" ref="/C1.17/mes/provincia">
+      <select1 appearance="minimal" ref="/C1.20/mes/provincia3">
         <label>Provincia</label>
-        <hint>Seleccione Provincia</hint>
+        <hint ref="jr:itext('/C1.20/mes/provincia3:hint')"/>
         <item>
           <label>Buenos Aires</label>
           <value>buenosAires</value>
@@ -44,9 +64,9 @@
           <value>catamarca</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.17/mes/partido">
+      <select1 appearance="minimal" ref="/C1.20/mes/partido3">
         <label>Partido</label>
-        <hint>Seleccione Partido</hint>
+        <hint ref="jr:itext('/C1.20/mes/partido3:hint')"/>
         <item>
           <label>Tres De Febrero</label>
           <value>tresFebrero</value>
@@ -80,9 +100,9 @@
           <value>capital</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.17/mes/localidad">
+      <select1 appearance="minimal" ref="/C1.20/mes/localidad3">
         <label>Localidad</label>
-        <hint>Seleccione Localidad</hint>
+        <hint ref="jr:itext('/C1.20/mes/localidad3:hint')"/>
         <item>
           <label>Caseros</label>
           <value>caseros</value>
@@ -180,9 +200,9 @@
           <value>otros8</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.17/mes/areas_local">
+      <select1 appearance="minimal" ref="/C1.20/mes/areas_local3">
         <label>Área Local</label>
-        <hint>Seleccione Área Local</hint>
+        <hint ref="jr:itext('/C1.20/mes/areas_local3:hint')"/>
         <item>
           <label>GENERAL LAS HERAS</label>
           <value>GENERAL_LAS_HERAS</value>
@@ -244,17 +264,13 @@
           <value>LISANDRO_OLMOS</value>
         </item>
       </select1>
-      <input ref="/C1.17/mes/contratos_vigentes">
-        <label>Contratos Vigente</label>
-        <hint>Ingrese número entero</hint>
+      <input ref="/C1.20/mes/personal">
+        <label>Personal</label>
+        <hint ref="jr:itext('/C1.20/mes/personal:hint')"/>
       </input>
-      <input ref="/C1.17/mes/facturacion_papel">
-        <label>Facturación Papel</label>
-        <hint>Ingrese número entero</hint>
-      </input>
-      <input ref="/C1.17/mes/facturacion_web">
-        <label>Facturación Web</label>
-        <hint>Ingrese número entero</hint>
+      <input ref="/C1.20/mes/espera_prom">
+        <label>Espera Promedio</label>
+        <hint ref="jr:itext('/C1.20/mes/espera_prom:hint')"/>
       </input>
     </group>
   </h:body>

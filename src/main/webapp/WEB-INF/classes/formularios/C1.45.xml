@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.45 - Ingresos interconexion a la red fija - LDI a vinculadas</h:title>
+    <model>
+      <instance>
+        <C1.45 id="C1.45">
+          <mes>
+            <internacional1>0</internacional1>
+            <internacional2>0</internacional2>
+            <internacional3>0</internacional3>
+            <internacional4>0</internacional4>
+            <internacional5>0</internacional5>
+            <calculate3/>
+            <internacional6/>
+          </mes>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.45>
+      </instance>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.45/mes/internacional1" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.45/mes/internacional2" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.45/mes/internacional3" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.45/mes/internacional4" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.45/mes/internacional5" required="true()" type="int"/>
+      <bind calculate=" /C1.45/mes/internacional1 + /C1.45/mes/internacional2 + /C1.45/mes/internacional3 + /C1.45/mes/internacional4 + /C1.45/mes/internacional5 " nodeset="/C1.45/mes/calculate3" type="string"/>
+      <bind nodeset="/C1.45/mes/internacional6" readonly="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.45/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col3" ref="/C1.45/mes">
+      <label>Mes</label>
+      <input ref="/C1.45/mes/internacional1">
+        <label>Arriendos Circuitos LDI</label>
+        <hint>Miles de pesos 12 dígitos</hint>
+      </input>
+      <input ref="/C1.45/mes/internacional2">
+        <label>Tráfico LDI</label>
+        <hint>Miles de pesos 12 dígitos</hint>
+      </input>
+      <input ref="/C1.45/mes/internacional3">
+        <label>Corresponsales de Entrada</label>
+        <hint>Miles de pesos 12 dígitos</hint>
+      </input>
+      <input ref="/C1.45/mes/internacional4">
+        <label>Corresponsales de Salida</label>
+        <hint>Miles de pesos 12 dígitos</hint>
+      </input>
+      <input ref="/C1.45/mes/internacional5">
+        <label>Total Neto de Corresp. de Salida</label>
+        <hint>Miles de pesos 12 dígitos</hint>
+      </input>
+      <input ref="/C1.45/mes/internacional6">
+        <label>Total <output value=" /C1.45/mes/calculate3 "/></label></input>
+    </group>
+  </h:body>
+</h:html>

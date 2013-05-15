@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.44 - Ingresos interconexion a la red fija - LDN a vinculadas</h:title>
+    <model>
+      <instance>
+        <C1.44 id="C1.44">
+          <mes>
+            <nacional1>0</nacional1>
+            <nacional2>0</nacional2>
+            <nacional3>0</nacional3>
+            <calculate2/>
+            <nacional4/>
+          </mes>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.44>
+      </instance>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.44/mes/nacional1" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.44/mes/nacional2" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.44/mes/nacional3" required="true()" type="int"/>
+      <bind calculate=" /C1.44/mes/nacional1 + /C1.44/mes/nacional2 + /C1.44/mes/nacional3 " nodeset="/C1.44/mes/calculate2" type="string"/>
+      <bind nodeset="/C1.44/mes/nacional4" readonly="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.44/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col4" ref="/C1.44/mes">
+      <label>Mes</label>
+      <input ref="/C1.44/mes/nacional1">
+        <label>Arriendo de Circuitos LDN</label>
+        <hint>Miles de pesos 12 dígitos</hint>
+      </input>
+      <input ref="/C1.44/mes/nacional2">
+        <label>Transporte LDN</label>
+        <hint>Miles de pesos 12 dígitos</hint>
+      </input>
+      <input ref="/C1.44/mes/nacional3">
+        <label>Otros</label>
+        <hint>Miles de pesos 12 dígitos</hint>
+      </input>
+      <input ref="/C1.44/mes/nacional4">
+        <label>Total <output value=" /C1.44/mes/calculate2 "/></label></input>
+    </group>
+  </h:body>
+</h:html>

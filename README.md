@@ -3,7 +3,7 @@ FormRender
 
 Permite el Ingreso de Formularios en archivos .xml que contienen su especificacion (tipos de datos, requeridos o no, etc).
 
-Transformación xml => html.
+Transformaciï¿½n xml => html.
 
 1.Objetivo del documento 
 -------------------------
@@ -54,7 +54,7 @@ Crear base de datos BD formrender
 
 A continuacion se especifica el datasource que debe ser usado, en este caso para una BD Postgres.
 
-Agregar al archivo <jboss-as-7.1.0.Final>\standalone\configuration\standalone.xml en la sección <datasources> 
+Agregar al archivo <jboss-as-7.1.0.Final>\standalone\configuration\standalone.xml en la secciï¿½n <datasources> 
 la siguiente entrada, especificando usuario y password correspondiente:
 
 	...
@@ -83,7 +83,7 @@ la siguiente entrada, especificando usuario y password correspondiente:
 
 2.1) Al levantarse el JBoss, se generaran las tablas correspondientes.
 
-Para desplegar una aplicacion nueva, desde cero, el persistence.xml deberá estar en modo create, 
+Para desplegar una aplicacion nueva, desde cero, el persistence.xml deberï¿½ estar en modo create, 
 
 teniendo presente que en cada arranque esta configuracion elimina los datos que esten cargados.
 
@@ -104,7 +104,12 @@ Hace la carga inicial y creacion de tablas automaticamente.
    
 2) Configurar path destino de los archivos de especificacion de formularios (.xml)  en archivo de propiedades
 
-	FormRender\src\main\resources\formrender.properties
+	FormRender\src\main\resources\formrender.properties	
+	
+	Propiedad:xmlForms.destination
+	
+	Ej
+	xmlForms.destination=/var/cnc
 
 2) Situarse en la raiz del directorio del codigo y ejecutar 
 	$>mvn clean package
@@ -119,6 +124,6 @@ Hace la carga inicial y creacion de tablas automaticamente.
 	
 	http://<localhost:8080>/FormRender/
 	
-	La página de inicio muestra un listado de los formularios que se presentaron de muestra para esta entrega
+	La pï¿½gina de inicio muestra un listado de los formularios que se presentaron de muestra para esta entrega
 	xml y html (columnas URL y XML respectivamente). Haciendo click en cada uno de ellos se pueden visualizar.
 	

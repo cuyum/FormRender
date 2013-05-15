@@ -116,7 +116,14 @@ var setupValidations = function(field){
 			f.rules( "add", {
 				min: min
 				,messages:{
-					min: "Debe ser un valor mayor a {0}"
+					number: "Debe ser un valor num&eacute;rico v&aacute;lido"
+				}
+			});
+		}else if(data_type && data_type=="decimal"){
+			f.rules( "add", {
+				decimal:true
+				,messages:{
+					number: "Debe ser un valor num&eacute;rico v&aacute;lido"
 				}
 			});
 		}
