@@ -227,7 +227,7 @@ var setupValidationDefaults = function(){
 	$.validator.addMethod("decimal", 
 		function(value, element) { 
 //			return this.optional(element) || /^\s*-?(\d+(\.\d{1,2})?|\.\d{1,2})\s*$/.test(value); 
-			return /^\s*-?(\d+(\.\d{2}){1})\s*$/.test(value); 
+			return /^\s*-?(\d+(\.\d{2}){0,1})\s*$/.test(value); 
 		}, 
 		"Debe especificar un n&uacute;mero decimal con dos cifras luego del punto");
 };
