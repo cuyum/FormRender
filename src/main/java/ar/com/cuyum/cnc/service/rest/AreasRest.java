@@ -40,7 +40,7 @@ public class AreasRest {
 		
 		/*stub response*/
 		Map<String,Object> responseMap = new HashMap<String, Object>();
-		responseMap.put("list", provincias);
+		responseMap.put("result", provincias);
 		responseMap.put("success", true);
 		
 		/*in form of json*/
@@ -66,7 +66,7 @@ public class AreasRest {
 		
 		/*stub response*/
 		Map<String,Object> responseMap = new HashMap<String, Object>();
-		responseMap.put("list", p);
+		responseMap.put("result", p);
 		responseMap.put("success", true);
 		
 		/*in form of json*/
@@ -91,7 +91,7 @@ public class AreasRest {
 		
 		/*stub response*/
 		Map<String,Object> responseMap = new HashMap<String, Object>();
-		responseMap.put("list", l);
+		responseMap.put("result", l);
 		responseMap.put("success", true);
 		
 		/*in form of json*/
@@ -116,7 +116,7 @@ public class AreasRest {
 		
 		/*stub response*/
 		Map<String,Object> responseMap = new HashMap<String, Object>();
-		responseMap.put("list", a);
+		responseMap.put("result", a);
 		responseMap.put("success", true);
 		
 		/*in form of json*/

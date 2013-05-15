@@ -145,11 +145,12 @@ var setupValidations = function(field){
 				ancestor.data("dependant",f);
 				ancestor.on("change",function(){
 					$.ajax({
-					  url: "/FormRender/rest"+url,
-					  type: "GET",
+					  url: "/FormRender/rest/service/relay",
+					  type: "POST",
 					  dataType: "json",
 					  data:{
-						  fkey:ancestor.val()
+						  fkey:ancestor.val(),
+						  remoteUrl:url
 					  },
 					  success : function(data, statusStr, xhr) {
 						  var resetHierarchy = function(field){
@@ -165,9 +166,9 @@ var setupValidations = function(field){
 						  };
 						  if(data.success){
 							  resetHierarchy(f);
-							  for ( var count = 0; count < data.list.length; count++) {
-								  var option = data.list[count];
-								  f.append('<option value='+ option.value + '>'+ option.label + '</option>');
+							  for ( var count = 0; count < data.result.length; count++) {
+								  var option = data.result[count];
+								  f.append('<option value='+ option.id + '>'+ option.nombre + '</option>');
 							  }
 						  }else{
 							  console.error("No se obtuvo una lista de elementos para agregar al campo "+ fieldName );
@@ -180,9 +181,12 @@ var setupValidations = function(field){
 				});
 			}else{
 				$.ajax({
-				  url: "/FormRender/rest"+url,
-				  type: "GET",
+				  url: "/FormRender/rest/service/relay",
+				  type: "POST",
 				  dataType: "json",
+				  data:{
+					remoteUrl:url  
+				  },
 				  success : function(data, statusStr, xhr) {
 					  if(data.success){
 						  if(f.is("select")){
@@ -191,9 +195,9 @@ var setupValidations = function(field){
 							  var op = option0.length>0?option0:option;
 							  f.html("").append(op.val(""));
 						  }
-						  for ( var count = 0; count < data.list.length; count++) {
-							  var option = data.list[count];
-							  f.append('<option value='+ option.value + '>'+ option.label + '</option>');
+						  for ( var count = 0; count < data.result.length; count++) {
+							  var option = data.result[count];
+							  f.append('<option value='+ option.id + '>'+ option.nombre + '</option>');
 						  }
 					  }else{
 						  console.error("No se obtuvo una lista de elementos para agregar al campo "+ fieldName );
