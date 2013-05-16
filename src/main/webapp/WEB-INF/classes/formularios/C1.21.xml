@@ -6,31 +6,31 @@
       <instance>
         <C1.21 id="C1.21">
           <mes>
-            <provincia4/>
-            <partido4/>
-            <localidad4/>
-            <areas_local4/>
-            <personal1/>
-            <espera_prom1/>
+            <provincia/>
+            <partido/>
+            <localidad/>
+            <areas_local/>
+            <personal/>
+            <espera_prom/>
           </mes>
           <meta>
             <instanceID/>
           </meta>
         </C1.21>
       </instance>
-      <bind constraint="url=/areas/provincias" nodeset="/C1.21/mes/provincia4" required="true()" type="select1"/>
-      <bind constraint="url=/areas/partidos and depends=/C1.21/mes/provincia" nodeset="/C1.21/mes/partido4" required="true()" type="select1"/>
-      <bind constraint="url=/areas/localidades and depends=/C1.21/mes/partido" nodeset="/C1.21/mes/localidad4" required="true()" type="select1"/>
-      <bind constraint="url=/areas/areas and depends=/C1.21/mes/localidad" nodeset="/C1.21/mes/areas_local4" required="true()" type="select1"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.21/mes/personal1" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.21/mes/espera_prom1" required="true()" type="int"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.21/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.21/mes/provincia" nodeset="/C1.21/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.21/mes/partido" nodeset="/C1.21/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.21/mes/localidad" nodeset="/C1.21/mes/areas_local" required="true()" type="select1"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.21/mes/personal" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.21/mes/espera_prom" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.21/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
     <group appearance="col4 well-white" ref="/C1.21/mes">
       <label>Enero</label>
-      <select1 appearance="minimal" ref="/C1.21/mes/provincia4">
+      <select1 appearance="minimal" ref="/C1.21/mes/provincia">
         <label>Provincia</label>
         <hint>Seleccione Provincia</hint>
         <item>
@@ -38,7 +38,7 @@
           <value>0</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.21/mes/partido4">
+      <select1 appearance="minimal" ref="/C1.21/mes/partido">
         <label>Partido</label>
         <hint>Seleccione Partido</hint>
         <item>
@@ -46,7 +46,7 @@
           <value>0</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.21/mes/localidad4">
+      <select1 appearance="minimal" ref="/C1.21/mes/localidad">
         <label>Localidad</label>
         <hint>Seleccione Localidad</hint>
         <item>
@@ -54,7 +54,7 @@
           <value>0</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.21/mes/areas_local4">
+      <select1 appearance="minimal" ref="/C1.21/mes/areas_local">
         <label>Área Local</label>
         <hint>Seleccione Área Local</hint>
         <item>
@@ -62,11 +62,11 @@
           <value>0</value>
         </item>
       </select1>
-      <input ref="/C1.21/mes/personal1">
+      <input ref="/C1.21/mes/personal">
         <label>Personal</label>
         <hint>Ingrese número entero</hint>
       </input>
-      <input ref="/C1.21/mes/espera_prom1">
+      <input ref="/C1.21/mes/espera_prom">
         <label>Espera Promedio</label>
         <hint>Ingrese número entero</hint>
       </input>

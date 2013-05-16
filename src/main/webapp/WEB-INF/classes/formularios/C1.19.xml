@@ -6,10 +6,10 @@
       <instance>
         <C1.19 id="C1.19">
           <mes>
-            <provincia2/>
-            <partido2/>
-            <localidad2/>
-            <areas_local2/>
+            <provincia/>
+            <partido/>
+            <localidad/>
+            <areas_local/>
             <centro_at/>
             <personal/>
             <espera_prom/>
@@ -19,10 +19,10 @@
           </meta>
         </C1.19>
       </instance>
-      <bind constraint="url=/areas/provincias" nodeset="/C1.19/mes/provincia2" required="true()" type="select1"/>
-      <bind constraint="url=/areas/partidos and depends=/C1.19/mes/provincia" nodeset="/C1.19/mes/partido2" required="true()" type="select1"/>
-      <bind constraint="url=/areas/localidades and depends=/C1.19/mes/partido" nodeset="/C1.19/mes/localidad2" required="true()" type="select1"/>
-      <bind constraint="url=/areas/areas and depends=/C1.19/mes/localidad" nodeset="/C1.19/mes/areas_local2" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.19/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.19/mes/provincia" nodeset="/C1.19/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.19/mes/partido" nodeset="/C1.19/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.19/mes/localidad" nodeset="/C1.19/mes/areas_local" required="true()" type="select1"/>
       <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.19/mes/centro_at" required="true()" type="int"/>
       <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.19/mes/personal" required="true()" type="int"/>
       <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.19/mes/espera_prom" required="true()" type="int"/>
@@ -32,7 +32,7 @@
   <h:body>
     <group appearance="col4 well-white" ref="/C1.19/mes">
       <label>Enero</label>
-      <select1 appearance="minimal" ref="/C1.19/mes/provincia2">
+      <select1 appearance="minimal" ref="/C1.19/mes/provincia">
         <label>Provincia</label>
         <hint>Seleccione Provincia</hint>
         <item>
@@ -40,7 +40,7 @@
           <value>0</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.19/mes/partido2">
+      <select1 appearance="minimal" ref="/C1.19/mes/partido">
         <label>Partido</label>
         <hint>Seleccione Partido</hint>
         <item>
@@ -48,7 +48,7 @@
           <value>0</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.19/mes/localidad2">
+      <select1 appearance="minimal" ref="/C1.19/mes/localidad">
         <label>Localidad</label>
         <hint>Seleccione Localidad</hint>
         <item>
@@ -56,7 +56,7 @@
           <value>0</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.19/mes/areas_local2">
+      <select1 appearance="minimal" ref="/C1.19/mes/areas_local">
         <label>Área Local</label>
         <hint>Seleccione Área Local</hint>
         <item>

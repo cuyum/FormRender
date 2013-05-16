@@ -1,4 +1,3 @@
--- INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C.1.1','PRUEBA LISTAS EXTERNAS','0','C.1.1.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.1','Areas de prestación de servicio','0','C1.1.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.2','Interconexión','0','C1.2.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.3','Redes e infraestructura','0','C1.3.xml', 0);

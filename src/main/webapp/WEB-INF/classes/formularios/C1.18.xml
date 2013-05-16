@@ -6,33 +6,33 @@
       <instance>
         <C1.18 id="C1.18">
           <mes>
-            <provincia1/>
-            <partido1/>
-            <localidad1/>
-            <areas_local1/>
-            <facturacion1/>
-            <averias1/>
-            <otros_1/>
+            <provincia/>
+            <partido/>
+            <localidad/>
+            <areas_local/>
+            <facturacion/>
+            <averias/>
+            <otros/>
           </mes>
           <meta>
             <instanceID/>
           </meta>
         </C1.18>
       </instance>
-      <bind constraint="url=/areas/provincias" nodeset="/C1.18/mes/provincia1" required="true()" type="select1"/>
-      <bind constraint="url=/areas/partidos and depends=/C1.18/mes/provincia" nodeset="/C1.18/mes/partido1" required="true()" type="select1"/>
-      <bind constraint="url=/areas/localidades and depends=/C1.18/mes/partido" nodeset="/C1.18/mes/localidad1" required="true()" type="select1"/>
-      <bind constraint="url=/areas/areas and depends=/C1.18/mes/localidad" nodeset="/C1.18/mes/areas_local1" required="true()" type="select1"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.18/mes/facturacion1" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.18/mes/averias1" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.18/mes/otros_1" required="true()" type="int"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.18/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.18/mes/provincia" nodeset="/C1.18/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.18/mes/partido" nodeset="/C1.18/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.18/mes/localidad" nodeset="/C1.18/mes/areas_local" required="true()" type="select1"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.18/mes/facturacion" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.18/mes/averias" required="true()" type="int"/>
+      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.18/mes/otros" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.18/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
     <group appearance="col4 well-white" ref="/C1.18/mes">
       <label>Enero</label>
-      <select1 appearance="minimal" ref="/C1.18/mes/provincia1">
+      <select1 appearance="minimal" ref="/C1.18/mes/provincia">
         <label>Provincia</label>
         <hint>Seleccione Provincia</hint>
         <item>
@@ -40,7 +40,7 @@
           <value>0</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.18/mes/partido1">
+      <select1 appearance="minimal" ref="/C1.18/mes/partido">
         <label>Partido</label>
         <hint>Seleccione Partido</hint>
         <item>
@@ -48,7 +48,7 @@
           <value>0</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.18/mes/localidad1">
+      <select1 appearance="minimal" ref="/C1.18/mes/localidad">
         <label>Localidad</label>
         <hint>Seleccione Localidad</hint>
         <item>
@@ -56,7 +56,7 @@
           <value>0</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.18/mes/areas_local1">
+      <select1 appearance="minimal" ref="/C1.18/mes/areas_local">
         <label>Área Local</label>
         <hint>Seleccione Área Local</hint>
         <item>
@@ -64,15 +64,15 @@
           <value>0</value>
         </item>
       </select1>
-      <input ref="/C1.18/mes/facturacion1">
+      <input ref="/C1.18/mes/facturacion">
         <label>Facturación</label>
         <hint>Ingrese número entero</hint>
       </input>
-      <input ref="/C1.18/mes/averias1">
+      <input ref="/C1.18/mes/averias">
         <label>Averias</label>
         <hint>Ingrese número entero</hint>
       </input>
-      <input ref="/C1.18/mes/otros_1">
+      <input ref="/C1.18/mes/otros">
         <label>Otros</label>
         <hint>Ingrese número entero</hint>
       </input>
