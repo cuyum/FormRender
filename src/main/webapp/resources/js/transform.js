@@ -98,7 +98,7 @@ var setupValidations = function(field){
 			}else if(constraint.indexOf("url=")!=-1){/*remote combo data*/
 				var url = constraint.substring(constraint.indexOf("url=")+4);
 				f.data("jr:constraint:remote",url);
-			}else if(constraint.indexOf("type=cuit")!=-1){/*remote combo data*/
+			}else if(constraint.indexOf("cuit")!=-1){/*remote combo data*/
 				constraint.substring(constraint.indexOf("cuit")+9);
 				f.data("jr:constraint:cuit","valid");
 			}else if(constraint.indexOf("mask=")!=-1){/*remote combo data*/
