@@ -99,8 +99,8 @@ var setupValidations = function(field){
 				var url = constraint.substring(constraint.indexOf("url=")+4);
 				f.data("jr:constraint:remote",url);
 			}else if(constraint.indexOf("type=cuit")!=-1){/*remote combo data*/
-				constraint.substring(constraint.indexOf("type=cuit")+11);
-				f.data("jr:constraint:cuit","^[0-9]{2}[0-9]{8}[0-9]$");
+				constraint.substring(constraint.indexOf("cuit")+9);
+				f.data("jr:constraint:cuit","valid");
 			}else if(constraint.indexOf("mask=")!=-1){/*remote combo data*/
 				var mask = constraint.substring(constraint.indexOf("mask=")+5);
 				f.data("jr:constraint:mask",mask);
@@ -145,6 +145,12 @@ var setupValidations = function(field){
 		if(f.data("jr:constraint:mask")!=undefined){
 			var mask =  f.data("jr:constraint:mask");
 			f.mask(mask);
+		}
+		
+		if(f.data("jr:constraint:cuit")!=undefined){
+			f.rules( "add", {
+				cuit: true
+			});
 		}
 		
 		if(f.data("jr:constraint:remote")!=undefined){
@@ -245,6 +251,23 @@ var setupValidationDefaults = function(){
 			return /^\s*-?(\d+(\.\d{2}){0,1})\s*$/.test(value); 
 		}, 
 		"Debe especificar un n&uacute;mero decimal con dos cifras luego del punto");
+	
+	$.validator.addMethod("cuit",
+		function(value,element){
+		    inputString = value.toString();
+		    if (inputString.length == 11) {
+		        var Caracters_1_2 = inputString.charAt(0) + inputString.charAt(1);
+		        if (Caracters_1_2 == "20" || Caracters_1_2 == "23" || Caracters_1_2 == "24" || Caracters_1_2 == "27" || Caracters_1_2 == "30" || Caracters_1_2 == "33" || Caracters_1_2 == "34") {
+		            var Count = inputString.charAt(0) * 5 + inputString.charAt(1) * 4 + inputString.charAt(2) * 3 + inputString.charAt(3) * 2 + inputString.charAt(4) * 7 + inputString.charAt(5) * 6 + inputString.charAt(6) * 5 + inputString.charAt(7) * 4 + inputString.charAt(8) * 3 + inputString.charAt(9) * 2 + inputString.charAt(10) * 1;
+		            Division = Count / 11;
+		            if (Division == Math.floor(Division)) {
+		                return true;
+		            }
+		        }
+		    }
+		    return false;
+		}
+	,"Debe especificar un cuit v&aacute;lido");
 };
 
 var validator;
