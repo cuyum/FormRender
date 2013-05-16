@@ -95,7 +95,7 @@ var setupValidations = function(field){
 			}else if(constraint.indexOf("depends=")!=-1){/*dependency*/
 				var dependency = constraint.substring(constraint.indexOf("depends=")+8);
 				f.data("jr:constraint:depends",dependency);
-			}else if(constraint.indexOf(" url=")!=-1){/*remote combo data*/
+			}else if(constraint.indexOf("url=")!=-1){/*remote combo data*/
 				var url = constraint.substring(constraint.indexOf("url=")+4);
 				f.data("jr:constraint:remote",url);
 			}else if(constraint.indexOf("type=cuit")!=-1){/*remote combo data*/
