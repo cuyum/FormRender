@@ -40,7 +40,7 @@
           </meta>
         </C1.48>
       </instance>
-      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="11 dígitos sin guiones ni espacios" nodeset="/C1.48/mes/red_movil/prove1" required="true()" type="int"/>
+      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit and mask=99999999999" jr:constraintMsg="11 dígitos sin guiones ni espacios" nodeset="/C1.48/mes/red_movil/prove1" required="true()" type="int"/>
       <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número de hasta 6 dígitos" nodeset="/C1.48/mes/red_movil/costo1" required="true()" type="int"/>
       <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="11 dígitos sin guiones ni espacios" nodeset="/C1.48/mes/red_movil/prove2" required="true()" type="int"/>
       <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número de hasta 6 dígitos" nodeset="/C1.48/mes/red_movil/costo2" required="true()" type="int"/>

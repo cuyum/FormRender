@@ -93,6 +93,9 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 			  	<script type="text/javascript" src="/FormRender/resources/js/jquery.validate.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
+			  	<script type="text/javascript" src="/FormRender/resources/js/jquery.maskedinput.min.js">
+            		<xsl:text>&#10;</xsl:text>
+            	</script>
 			  	 <script src="/FormRender/resources/js/jquery-ui.min.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
@@ -1217,7 +1220,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
             <xsl:when test="$xml_type = 'time'">time</xsl:when>
             <xsl:when
                 test="$xml_type = 'decimal' or $xml_type = 'float' or $xml_type = 'double' or $xml_type = 'int' or $xml_type = 'integer'"
-                >number</xsl:when>
+                >text</xsl:when>
             <xsl:when test="$xml_type = 'string'">text</xsl:when>
             <!-- temporary -->
             <xsl:when test="$xml_type = 'barcode' or $xml_type = 'geopoint'" >
