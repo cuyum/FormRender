@@ -19,13 +19,13 @@
           </meta>
         </C1.28>
       </instance>
-      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 8 dígitos" nodeset="/C1.28/mes/stl" required="true()" type="int"/>
-      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 8 dígitos" nodeset="/C1.28/mes/ldn" required="true()" type="int"/>
-      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 8 dígitos" nodeset="/C1.28/mes/ldi" required="true()" type="int"/>
-      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 8 dígitos" nodeset="/C1.28/mes/lineas" required="true()" type="int"/>
-      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 8 dígitos" nodeset="/C1.28/mes/otros" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.28/mes/stl" required="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.28/mes/ldn" required="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.28/mes/ldi" required="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.28/mes/lineas" required="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.28/mes/otros" required="true()" type="string"/>
       <bind calculate=" /C1.28/mes/stl + /C1.28/mes/ldn + /C1.28/mes/ldi + /C1.28/mes/lineas + /C1.28/mes/otros " nodeset="/C1.28/mes/calculate1" type="string"/>
-      <bind nodeset="/C1.28/mes/total" readonly="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999" nodeset="/C1.28/mes/total" readonly="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.28/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -34,26 +34,27 @@
       <label>Enero</label>
       <input ref="/C1.28/mes/stl">
         <label>STL</label>
-        <hint>8 dígitos</hint>
+        <hint>STL [en miles de pesos]</hint>
       </input>
       <input ref="/C1.28/mes/ldn">
         <label>LDN</label>
-        <hint>8 dígitos</hint>
+        <hint>LDN [en miles de pesos]</hint>
       </input>
       <input ref="/C1.28/mes/ldi">
         <label>LDI</label>
-        <hint>8 dígitos</hint>
+        <hint>LDI [en miles de pesos]</hint>
       </input>
       <input ref="/C1.28/mes/lineas">
         <label>Líneas Dierctas</label>
-        <hint>8 dígitos</hint>
+        <hint>Líneas Dierctas [en miles de pesos]</hint>
       </input>
       <input ref="/C1.28/mes/otros">
         <label>Otros</label>
-        <hint>8 dígitos</hint>
+        <hint>Otros [en miles de pesos]</hint>
       </input>
       <input ref="/C1.28/mes/total">
-        <label>Total <output value=" /C1.28/mes/calculate1 "/></label></input>
+        <label>Total <output value=" /C1.28/mes/calculate1 "/></label><hint>Total [en miles de pesos]</hint>
+      </input>
     </group>
   </h:body>
 </h:html>

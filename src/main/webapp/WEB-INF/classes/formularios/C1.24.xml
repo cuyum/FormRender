@@ -5,36 +5,36 @@
     <model>
       <instance>
         <C1.24 id="C1.24">
-          <numero_a>
+          <numero>
             <tarifa_110/>
             <tarifa_113/>
             <tarifa_osespecificar1/>
-          </numero_a>
+          </numero>
           <meta>
             <instanceID/>
           </meta>
         </C1.24>
       </instance>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" nodeset="/C1.24/numero_a/tarifa_110" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" nodeset="/C1.24/numero_a/tarifa_113" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" nodeset="/C1.24/numero_a/tarifa_osespecificar1" required="true()" type="int"/>
+      <bind constraint="mask=999.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C1.24/numero/tarifa_110" required="true()" type="string"/>
+      <bind constraint="mask=999.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C1.24/numero/tarifa_113" required="true()" type="string"/>
+      <bind constraint="mask=999.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C1.24/numero/tarifa_osespecificar1" required="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.24/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col3" ref="/C1.24/numero_a">
-      <label>Númeroa</label>
-      <input ref="/C1.24/numero_a/tarifa_110">
+    <group appearance="col3 well-white" ref="/C1.24/numero">
+      <label>Número</label>
+      <input ref="/C1.24/numero/tarifa_110">
         <label>110</label>
-        <hint>Ingrese Precio</hint>
+        <hint>Precio</hint>
       </input>
-      <input ref="/C1.24/numero_a/tarifa_113">
+      <input ref="/C1.24/numero/tarifa_113">
         <label>113</label>
-        <hint>Ingrese Precio</hint>
+        <hint>Precio</hint>
       </input>
-      <input ref="/C1.24/numero_a/tarifa_osespecificar1">
+      <input ref="/C1.24/numero/tarifa_osespecificar1">
         <label>Otros</label>
-        <hint>Ingrese Precio</hint>
+        <hint>Precio</hint>
       </input>
     </group>
   </h:body>
