@@ -40,6 +40,53 @@ var setupValidations = function(field){
 		});
 	}
 	
+	var data_relevant = f.attr("data-relevant");
+	if(data_relevant && data_relevant.trim().length>0){
+		var el = null;
+		if(f.is("input[type~='text']")){
+			el = f.parent();
+		}else if(f.is("input[type~='radio']") || f.is("input[type~='checkbox']")){
+			el = f.closest("fieldset");
+		}
+		
+		if(el!=null)el.hide();
+		
+		if(data_relevant.indexOf("=")>=0){
+			/* " /C1.1/areas/area =9999" */
+			var data = data_relevant.split("=");
+			var ancestor = $("[name~='"+data[0].trim()+"']");
+			if(ancestor && ancestor.is("select")){
+				var value = data[1];
+				ancestor.on("change",{
+					ancestor:ancestor,
+					element:el,
+					value:value
+				},function(event){
+					if(event.data.ancestor.val()==event.data.value){
+						event.data.element.show();
+					}else{
+						event.data.element.hide();
+					}
+				});
+			}
+		}else if(data_relevant.indexOf("selected(")>=0){
+			var data = data_relevant.replace("selected(","");
+			data = data.replace(")","");
+			data = data.split(",");
+			var ancestor = $("[name~='"+data[0].trim()+"']");
+			var value = data[1].trim()=="'yes'";
+			if(ancestor && (ancestor.is("input[type~='checkbox']") || ancestor.is("input[type~='radio']")) && value){
+				ancestor.on("click",{
+					ancestor:ancestor,
+					element:el,
+					value:value
+				},function(event){
+					el.show();
+				});
+			}
+		}
+	}
+	
 	var data_type = f.attr("data-type-xml");
 	if(data_type && data_type=="int"){
 		f.rules( "add", {
@@ -153,12 +200,37 @@ var setupValidations = function(field){
 			});
 		}
 		
-		if(f.data("jr:constraint:remote")!=undefined){
+		if(f.data("jr:constraint:depends")!=undefined && f.is("input")){
+			var ancestor = $("[name~='"+f.data("jr:constraint:depends")+"']");
+			if(ancestor.is("select")){
+				ancestor.data("dependant",f);
+				f.hide();
+				ancestor.on("change",
+				{
+					dependant : f,
+					ancestor : ancestor
+				},
+				function(event){
+					var name = event.data.dependant.attr("name");
+					console.log("rawName",name);
+					var slashIndex = name.lastIndexOf("/");
+					var cleanName = name.substring(slashIndex+1);
+					console.log("cleanName",cleanName);
+					if(event.data.ancestor.val()==cleanName){
+						event.data.dependant.show();
+					}else{
+						event.data.dependant.hide();
+					}
+				});
+				
+			}
+		}
+		
+		if(f.data("jr:constraint:remote")!=undefined && f.is("select")){
 			var url = f.data("jr:constraint:remote");
 			
 			if(f.data("jr:constraint:depends")!=undefined){
 				var ancestor = $("[name~='"+f.data("jr:constraint:depends")+"']");
-				console.log("Se encontró dependencia para el campo "+fieldName);
 				ancestor.data("dependant",f);
 				ancestor.on("change",function(){
 					$.ajax({
@@ -176,6 +248,8 @@ var setupValidations = function(field){
 								  var option = field.children("option[value~='']");
 								  var op = option0.length>0?option0:option;
 								  field.html("").append(op.val(""));
+							  }else{
+								  field.hide();
 							  }
 							  var dependant = field.data("dependant");
 							  if(dependant)
