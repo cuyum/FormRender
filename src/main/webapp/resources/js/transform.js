@@ -19,7 +19,6 @@ var setupHint = function(field){
 
 var setupValidations = function(field){
 	var f = $(field);
-	var form = $(document.forms[0]);
 	var fieldName = f.attr("name");
 	
 	var isRequired = f.attr("required");
@@ -40,6 +39,72 @@ var setupValidations = function(field){
 		});
 	}
 	
+	var data_calculate = f.attr("data-calculate");
+	if(data_calculate && data_calculate.trim().length>0){
+		if(data_calculate.indexOf("concat(")==-1){
+			var a = f.attr("name").lastIndexOf("/");
+			var b = f.attr("name").substring(0,a+1);
+			var totalField = $("input[name~='"+b+"calculate_test_output']");
+			
+			if(totalField){
+				totalField.data("updateTotal",function(sumFields,substractFields){
+					var total = 0;
+					for ( var i = 0; i < sumFields.length; i++) {
+						var field = $("input[name~='"+sumFields[i]+"']");
+						if(!field)	return "Error: "+sumFields[i]+" inexistent";
+						var n = new Number(field.val());
+						if(isNaN(n))
+							console.error("Value of field "+sumFields[i] +" is not a number");
+						else
+							total = total + n;
+					}
+					
+					for ( var i = 0; i < substractFields.length; i++) {
+						var field = $("input[name~='"+substractFields[i]+"']");
+						if(!field) return "Error: "+substractFields[i]+" inexistent";
+						var n = new Number(field.val());
+						if(isNaN(n))
+							console.error("Value of field "+substractFields[i] +" is not a number");
+						else
+							total = total + n;
+					}
+					return total;
+				});
+				
+				var calculatedFields = data_calculate.split(" + ");
+				var sum = new Array();
+				var substract = new Array();
+				for ( var i = 0; i < calculatedFields.length; i++) {
+					var field = calculatedFields[i].trim();
+					field = field.split(" - ");
+					sum.push(field[0]);
+					if(field.length>1){
+						for ( var j = 1; j < field.length; j++) {
+							substract.push(field[j]);
+						}
+					}
+				}
+				var fields = new Array();
+				fields = fields.concat(sum,substract);
+				for ( var i = 0; i < fields.length; i++) {
+					var field = $("input[name~='"+fields[i]+"']");
+					if(field){
+						field.on("change",{
+							sumFields:sum,
+							substractFields:substract,
+							totalField:totalField
+						},function(event){
+							var totalField = event.data.totalField;
+							var sumFields = event.data.sumFields;
+							var substractFields = event.data.substractFields;
+							totalField.val(totalField.data("updateTotal")(sumFields,substractFields));
+						});
+					}
+				}
+			}
+		}
+	}
+	
 	var data_relevant = f.attr("data-relevant");
 	if(data_relevant && data_relevant.trim().length>0){
 		var el = null;
@@ -52,7 +117,6 @@ var setupValidations = function(field){
 		if(el!=null)el.hide();
 		
 		if(data_relevant.indexOf("=")>=0){
-			/* " /C1.1/areas/area =9999" */
 			var data = data_relevant.split("=");
 			var ancestor = $("[name~='"+data[0].trim()+"']");
 			if(ancestor && ancestor.is("select")){
