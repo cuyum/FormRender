@@ -23,9 +23,9 @@
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.19/mes/provincia" nodeset="/C1.19/mes/partido" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.19/mes/partido" nodeset="/C1.19/mes/localidad" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.19/mes/localidad" nodeset="/C1.19/mes/areas_local" required="true()" type="select1"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.19/mes/centro_at" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.19/mes/personal" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 6 dígitos y mayor a 0" nodeset="/C1.19/mes/espera_prom" required="true()" type="int"/>
+      <bind constraint="mask=999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.19/mes/centro_at" required="true()" type="string"/>
+      <bind constraint="mask=999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.19/mes/personal" required="true()" type="string"/>
+      <bind constraint="mask=999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.19/mes/espera_prom" required="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.19/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -34,15 +34,15 @@
       <label>Enero</label>
       <select1 appearance="minimal" ref="/C1.19/mes/provincia">
         <label>Provincia</label>
-        <hint>Seleccione Provincia</hint>
+        <hint>Provincia</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
         </item>
       </select1>
       <select1 appearance="minimal" ref="/C1.19/mes/partido">
-        <label>Partido</label>
-        <hint>Seleccione Partido</hint>
+        <label>Partido / Departamento</label>
+        <hint>Partido/Departamento</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -50,7 +50,7 @@
       </select1>
       <select1 appearance="minimal" ref="/C1.19/mes/localidad">
         <label>Localidad</label>
-        <hint>Seleccione Localidad</hint>
+        <hint>Localidad</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -58,7 +58,7 @@
       </select1>
       <select1 appearance="minimal" ref="/C1.19/mes/areas_local">
         <label>Área Local</label>
-        <hint>Seleccione Área Local</hint>
+        <hint>Área Local</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -66,15 +66,15 @@
       </select1>
       <input ref="/C1.19/mes/centro_at">
         <label>Centros de Atención</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Centros de Atención</hint>
       </input>
       <input ref="/C1.19/mes/personal">
         <label>Personal</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Personal</hint>
       </input>
       <input ref="/C1.19/mes/espera_prom">
         <label>Espera Promedio</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Espera Promedio [minutos]</hint>
       </input>
     </group>
   </h:body>

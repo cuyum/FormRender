@@ -11,16 +11,16 @@
             <localidad/>
             <areas_local/>
             <l_l>
-              <hn_1/>
-              <hr_1/>
+              <l_hn/>
+              <l_hr/>
             </l_l>
             <l_ldn>
-              <hn_2/>
-              <hr_2/>
+              <ldn_hn/>
+              <ldn_hr/>
             </l_ldn>
             <l_ldi>
-              <hn_3/>
-              <hr_3/>
+              <ldi_hn/>
+              <ldi_hr/>
             </l_ldi>
           </mes>
           <meta>
@@ -32,12 +32,12 @@
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.11/mes/provincia" nodeset="/C1.12/mes/partido" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.11/mes/partido" nodeset="/C1.12/mes/localidad" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.11/mes/localidad" nodeset="/C1.12/mes/areas_local" required="true()" type="select1"/>
-      <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.12/mes/l_l/hn_1" required="true()" type="int"/>
-      <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.12/mes/l_l/hr_1" required="true()" type="int"/>
-      <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.12/mes/l_ldn/hn_2" required="true()" type="int"/>
-      <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.12/mes/l_ldn/hr_2" required="true()" type="int"/>
-      <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.12/mes/l_ldi/hn_3" required="true()" type="int"/>
-      <bind constraint="{u'default': u'.&lt;1000000 and .&gt;0'}" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.12/mes/l_ldi/hr_3" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_l/l_hn" required="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_l/l_hr" required="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_ldn/ldn_hn" required="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_ldn/ldn_hr" required="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_ldi/ldi_hn" required="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_ldi/ldi_hr" required="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.12/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -46,7 +46,7 @@
       <label>Enero</label>
       <select1 appearance="minimal" ref="/C1.12/mes/provincia">
         <label>Provincia</label>
-        <hint>Seleccione Provincia</hint>
+        <hint>Provincia</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -54,7 +54,7 @@
       </select1>
       <select1 appearance="minimal" ref="/C1.12/mes/partido">
         <label>Partido / Departamento</label>
-        <hint>Seleccione Partido</hint>
+        <hint>Partido/Departamento</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -62,7 +62,7 @@
       </select1>
       <select1 appearance="minimal" ref="/C1.12/mes/localidad">
         <label>Localidad</label>
-        <hint>Seleccione Localidad</hint>
+        <hint>Localidad</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -70,7 +70,7 @@
       </select1>
       <select1 appearance="minimal" ref="/C1.12/mes/areas_local">
         <label>Área Local</label>
-        <hint>Seleccione Área Local</hint>
+        <hint>Área Local</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -78,35 +78,35 @@
       </select1>
       <group appearance="col2 well-white" ref="/C1.12/mes/l_l">
         <label>L-L</label>
-        <input ref="/C1.12/mes/l_l/hn_1">
+        <input ref="/C1.12/mes/l_l/l_hn">
           <label>HN</label>
-          <hint>Ingrese número entero</hint>
+          <hint>HN [en miles]</hint>
         </input>
-        <input ref="/C1.12/mes/l_l/hr_1">
+        <input ref="/C1.12/mes/l_l/l_hr">
           <label>HR</label>
-          <hint>Ingrese número entero</hint>
+          <hint>HR [en miles]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.12/mes/l_ldn">
         <label>L-LDN</label>
-        <input ref="/C1.12/mes/l_ldn/hn_2">
+        <input ref="/C1.12/mes/l_ldn/ldn_hn">
           <label>HN</label>
-          <hint>Ingrese número entero</hint>
+          <hint>HN [en miles]</hint>
         </input>
-        <input ref="/C1.12/mes/l_ldn/hr_2">
+        <input ref="/C1.12/mes/l_ldn/ldn_hr">
           <label>HR</label>
-          <hint>Ingrese número entero</hint>
+          <hint>HR [en miles]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.12/mes/l_ldi">
         <label>L-LDI</label>
-        <input ref="/C1.12/mes/l_ldi/hn_3">
+        <input ref="/C1.12/mes/l_ldi/ldi_hn">
           <label>HN</label>
-          <hint>Ingrese número entero</hint>
+          <hint>HN [en miles]</hint>
         </input>
-        <input ref="/C1.12/mes/l_ldi/hr_3">
+        <input ref="/C1.12/mes/l_ldi/ldi_hr">
           <label>HR</label>
-          <hint>Ingrese número entero</hint>
+          <hint>HR [en miles]</hint>
         </input>
       </group>
     </group>

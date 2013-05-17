@@ -23,8 +23,8 @@
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.2/interconexion/provincia" nodeset="/C1.2/interconexion/partido" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.2/interconexion/partido" nodeset="/C1.2/interconexion/localidad" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.2/interconexion/localidad" nodeset="/C1.2/interconexion/areas_local" required="true()" type="select1"/>
-      <bind constraint="(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="11 dígitos sin guiones ni espacios" nodeset="/C1.2/interconexion/prestador" required="true()" type="select1"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.2/interconexion/capacidad" required="true()" type="int"/>
+      <bind constraint="(., '^[0-9]{2}[0-9]{8}[0-9]$') and cuit" jr:constraintMsg="Datos no válidos" nodeset="/C1.2/interconexion/prestador" required="true()" type="select1"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.2/interconexion/capacidad" required="true()" type="string"/>
       <bind nodeset="/C1.2/interconexion/unidad" type="select1"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.2/meta/instanceID" readonly="true()" type="string"/>
     </model>
@@ -34,7 +34,7 @@
       <label>Interconexión</label>
       <select1 appearance="minimal" ref="/C1.2/interconexion/provincia">
         <label>Provincia</label>
-        <hint>Seleccione Provincia</hint>
+        <hint>Provincia</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -42,7 +42,7 @@
       </select1>
       <select1 appearance="minimal" ref="/C1.2/interconexion/partido">
         <label>Partido / Departamento</label>
-        <hint>Seleccione Partido</hint>
+        <hint>Partido/Departamento</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -50,7 +50,7 @@
       </select1>
       <select1 appearance="minimal" ref="/C1.2/interconexion/localidad">
         <label>Localidad</label>
-        <hint>Seleccione Localidad</hint>
+        <hint>Localidad</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -58,7 +58,7 @@
       </select1>
       <select1 appearance="minimal" ref="/C1.2/interconexion/areas_local">
         <label>Área Local</label>
-        <hint>Seleccione Área Local</hint>
+        <hint>Área Local</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -66,7 +66,7 @@
       </select1>
       <select1 appearance="minimal" ref="/C1.2/interconexion/prestador">
         <label>Prestador</label>
-        <hint>11 dígitos sin guiones ni espacios</hint>
+        <hint>Prestador</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -86,7 +86,7 @@
       </select1>
       <input ref="/C1.2/interconexion/capacidad">
         <label>Capacidad</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Capacidad</hint>
       </input>
       <select1 appearance="minimal" ref="/C1.2/interconexion/unidad">
         <hint>Unidad</hint>

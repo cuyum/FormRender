@@ -42,18 +42,18 @@
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.3/lugar/partido" nodeset="/C1.3/lugar/localidad" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.3/lugar/localidad" nodeset="/C1.3/lugar/areas_local" required="true()" type="select1"/>
       <bind nodeset="/C1.3/equipamiento/spinner" required="true()" type="select1"/>
-      <bind constraint=".&lt;10.000.000,00 and .&gt;0.00" jr:constraintMsg="Debe ingresar número de hasta 7 dígitos y 2 decimales." nodeset="/C1.3/equipamiento/my_int1" required="true()" type="decimal"/>
-      <bind constraint=".&lt;10.000.000,00 and .&gt;0.00" jr:constraintMsg="Debe ingresar número de hasta 7 dígitos y 2 decimales." nodeset="/C1.3/equipamiento/my_int2" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/equipamiento/my_int1" required="true()" type="string"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/equipamiento/my_int2" required="true()" type="string"/>
       <bind nodeset="/C1.3/medio/spinner" required="true()" type="select1"/>
-      <bind constraint=".&lt;100.000 and .&gt;0.00" jr:constraintMsg="Debe ingresar número de hasta 5 dígitos y 2 decimales." nodeset="/C1.3/medio/my_int1" required="true()" type="int"/>
-      <bind constraint=".&lt;100.000 and .&gt;0.00" jr:constraintMsg="Debe ingresar número de hasta 5 dígitos y 2 decimales." nodeset="/C1.3/medio/my_int2" required="true()" type="int"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/medio/my_int1" required="true()" type="string"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/medio/my_int2" required="true()" type="string"/>
       <bind nodeset="/C1.3/tendido/spinner1" required="true()" type="select1"/>
-      <bind constraint=".&lt;1000 and .&gt;0.00" jr:constraintMsg="Debe ingresar un número entero de hasta 3 dígitos" nodeset="/C1.3/tendido/my_int1" required="true()" type="int"/>
-      <bind constraint=".&lt;1000 and .&gt;0.00" jr:constraintMsg="Debe ingresar un número entero de hasta 3 dígitos" nodeset="/C1.3/tendido/my_int2" required="true()" type="int"/>
-      <bind jr:constraintMsg="true()" nodeset="/C1.3/lugar1/provincia1" required="true()" type="select1"/>
-      <bind jr:constraintMsg="true()" nodeset="/C1.3/lugar1/partido1" required="true()" type="select1"/>
-      <bind jr:constraintMsg="true()" nodeset="/C1.3/lugar1/localidad1" required="true()" type="select1"/>
-      <bind nodeset="/C1.3/lugar1/areas_local1" required="true()" type="select1"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/tendido/my_int1" required="true()" type="string"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/tendido/my_int2" required="true()" type="string"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.3/lugar1/provincia1" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.3/lugar1/provincia1" nodeset="/C1.3/lugar1/partido1" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.3/lugar1/partido1" nodeset="/C1.3/lugar1/localidad1" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.3/lugar1/localidad1" nodeset="/C1.3/lugar1/areas_local1" required="true()" type="select1"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.3/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -62,7 +62,7 @@
       <label>Lugar</label>
       <select1 appearance="minimal" ref="/C1.3/lugar/provincia">
         <label>Provincia</label>
-        <hint>Seleccione Provincia</hint>
+        <hint>Provincia</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -70,7 +70,7 @@
       </select1>
       <select1 appearance="minimal" ref="/C1.3/lugar/partido">
         <label>Partido / Departamento</label>
-        <hint>Seleccione Partido</hint>
+        <hint>Partido/Departamento</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -78,7 +78,7 @@
       </select1>
       <select1 appearance="minimal" ref="/C1.3/lugar/localidad">
         <label>Localidad</label>
-        <hint>Seleccione Localidad</hint>
+        <hint>Localidad</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -86,7 +86,7 @@
       </select1>
       <select1 appearance="minimal" ref="/C1.3/lugar/areas_local">
         <label>Área Local</label>
-        <hint>Seleccione Área Local</hint>
+        <hint>Área Local</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -97,7 +97,7 @@
       <label>Equipamiento</label>
       <select1 appearance="minimal" ref="/C1.3/equipamiento/spinner">
         <label>Tecnología</label>
-        <hint>Seleccione Tecnología</hint>
+        <hint>Tecnología</hint>
         <item>
           <label>Seleccione opcion</label>
           <value>0</value>
@@ -125,18 +125,18 @@
       </select1>
       <input ref="/C1.3/equipamiento/my_int1">
         <label>Capacidad Disponible</label>
-        <hint>9999999,99 [Mbps / xxE1]</hint>
+        <hint>Capacidad Disponible</hint>
       </input>
       <input ref="/C1.3/equipamiento/my_int2">
         <label>Capacidad Utilizada</label>
-        <hint>9999999,99 [Mbps / xxE1]</hint>
+        <hint>Capacidad Utilizada</hint>
       </input>
     </group>
     <group appearance="col3 well_white" ref="/C1.3/medio">
       <label>Medio</label>
       <select1 appearance="minimal" ref="/C1.3/medio/spinner">
-        <label>Tecnología</label>
-        <hint>Seleccione Tecnología</hint>
+        <label>Tipo</label>
+        <hint>Tipo</hint>
         <item>
           <label>Seleccione opcion</label>
           <value>0</value>
@@ -156,18 +156,18 @@
       </select1>
       <input ref="/C1.3/medio/my_int1">
         <label>Capacidad Disponible</label>
-        <hint>99.999 [cantidad de pelos]</hint>
+        <hint>Capacidad Disponible</hint>
       </input>
       <input ref="/C1.3/medio/my_int2">
         <label>Capacidad Utilizada</label>
-        <hint>99.999 [cantidad de pelos]</hint>
+        <hint>Capacidad Utilizada</hint>
       </input>
     </group>
     <group appearance="col3 well_white" ref="/C1.3/tendido">
       <label>Tendido</label>
       <select1 appearance="minimal" ref="/C1.3/tendido/spinner1">
         <label>Tipo</label>
-        <hint>Seleccione Tipo</hint>
+        <hint>Tipo</hint>
         <item>
           <label>Seleccione opcion</label>
           <value>0</value>
@@ -187,18 +187,18 @@
       </select1>
       <input ref="/C1.3/tendido/my_int1">
         <label>Capacidad Disponible</label>
-        <hint>999 [cantidad de ductos]</hint>
+        <hint>Capacidad Disponible</hint>
       </input>
       <input ref="/C1.3/tendido/my_int2">
         <label>Capacidad Utilizada</label>
-        <hint>999 [cantidad de ductos]</hint>
+        <hint>Capacidad Utilizada</hint>
       </input>
     </group>
     <group appearance="col4 well_white" ref="/C1.3/lugar1">
       <label>Lugar</label>
       <select1 appearance="minimal" ref="/C1.3/lugar1/provincia1">
         <label>Provincia</label>
-        <hint>Seleccione Provincia</hint>
+        <hint>Provincia</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -206,7 +206,7 @@
       </select1>
       <select1 appearance="minimal" ref="/C1.3/lugar1/partido1">
         <label>Partido / Departamento</label>
-        <hint>Seleccione Partido</hint>
+        <hint>Partido/Departamento</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -214,7 +214,7 @@
       </select1>
       <select1 appearance="minimal" ref="/C1.3/lugar1/localidad1">
         <label>Localidad</label>
-        <hint>Seleccione Localidad</hint>
+        <hint>Localidad</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -222,7 +222,7 @@
       </select1>
       <select1 appearance="minimal" ref="/C1.3/lugar1/areas_local1">
         <label>Área Local</label>
-        <hint>Seleccione Área Local</hint>
+        <hint>Área Local</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>

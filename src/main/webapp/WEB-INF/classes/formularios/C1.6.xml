@@ -6,61 +6,61 @@
       <instance>
         <C1.6 id="C1.6">
           <mes>
-            <provincia2/>
-            <partido2/>
-            <localidad2/>
-            <areas_local2/>
+            <provincia/>
+            <partido/>
+            <localidad/>
+            <areas_local/>
             <clientes/>
-            <prepago1/>
-            <pospago1/>
-            <mixto1/>
+            <prepago/>
+            <pospago/>
+            <mixto/>
           </mes>
           <meta>
             <instanceID/>
           </meta>
         </C1.6>
       </instance>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.6/mes/provincia2" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.6/mes/provincia" nodeset="/C1.6/mes/partido2" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.6/mes/partido" nodeset="/C1.6/mes/localidad2" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.6/mes/localidad" nodeset="/C1.6/mes/areas_local2" required="true()" type="select1"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.6/mes/clientes" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.6/mes/prepago1" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.6/mes/pospago1" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.6/mes/mixto1" required="true()" type="int"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.6/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.6/mes/provincia" nodeset="/C1.6/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.6/mes/partido" nodeset="/C1.6/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.6/mes/localidad" nodeset="/C1.6/mes/areas_local" required="true()" type="select1"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.6/mes/clientes" required="true()" type="string"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.6/mes/prepago" required="true()" type="string"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.6/mes/pospago" required="true()" type="string"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.6/mes/mixto" required="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.6/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
     <group appearance="col4 well-white" ref="/C1.6/mes">
       <label>Enero</label>
-      <select1 appearance="minimal" ref="/C1.6/mes/provincia2">
+      <select1 appearance="minimal" ref="/C1.6/mes/provincia">
         <label>Provincia</label>
-        <hint>Seleccione Provincia</hint>
+        <hint>Provincia</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.6/mes/partido2">
+      <select1 appearance="minimal" ref="/C1.6/mes/partido">
         <label>Partido / Departamento</label>
-        <hint>Seleccione Partido</hint>
+        <hint>Partido/Departamento</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.6/mes/localidad2">
+      <select1 appearance="minimal" ref="/C1.6/mes/localidad">
         <label>Localidad</label>
-        <hint>Seleccione Localidad</hint>
+        <hint>Localidad</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.6/mes/areas_local2">
+      <select1 appearance="minimal" ref="/C1.6/mes/areas_local">
         <label>Área Local</label>
-        <hint>Seleccione Área Local</hint>
+        <hint>Área Local</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -68,19 +68,19 @@
       </select1>
       <input ref="/C1.6/mes/clientes">
         <label>Clientes</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Clientes</hint>
       </input>
-      <input ref="/C1.6/mes/prepago1">
+      <input ref="/C1.6/mes/prepago">
         <label>Prepago</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Prepago</hint>
       </input>
-      <input ref="/C1.6/mes/pospago1">
+      <input ref="/C1.6/mes/pospago">
         <label>Pospago</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Pospago</hint>
       </input>
-      <input ref="/C1.6/mes/mixto1">
+      <input ref="/C1.6/mes/mixto">
         <label>Mixto</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Mixto</hint>
       </input>
     </group>
   </h:body>
