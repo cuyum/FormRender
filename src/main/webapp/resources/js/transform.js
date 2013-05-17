@@ -66,7 +66,7 @@ var setupValidations = function(field){
 						if(isNaN(n))
 							console.error("Value of field "+substractFields[i] +" is not a number");
 						else
-							total = total + n;
+							total = total - n;
 					}
 					return total;
 				});
