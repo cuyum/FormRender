@@ -184,29 +184,55 @@ var setupValidations = function(field){
 				cc.pop();
 				constraints = constraints.concat(cc);
 			}
-			
-			if(constraint.indexOf(".<")!=-1){/*max*/
-				var number = constraint.substring(constraint.indexOf(".<")+2,constraint.length);
+			/*max constraint*/
+			if(constraint.indexOf(".<=")!=-1){
+				var number = constraint.substring(constraint.indexOf(".<=")+3,constraint.length);
 				number = number.match(/\d*/gi)[0];
 				var max = new Number(number);
-				if(!isNaN(max)) f.data("jr:constraint:lower",max);
+				if(!isNaN(max)) f.data("jr:constraint:max",max);
+				else log.error("Not a number for max constraint",number);
+			}else
+			/*min constraint*/
+			if(constraint.indexOf(".>=")!=-1){
+				var number = constraint.substring(constraint.indexOf(".>=")+3,constraint.length);
+				number = number.match(/\d*/gi)[0];
+				var min = new Number(number); 
+				if(!isNaN(min))	f.data("jr:constraint:min",min);
+				else log.error("Not a number for min constraint",number);
+			}else 
+			/*lower constraint*/
+			if(constraint.indexOf(".<")!=-1){
+				var number = constraint.substring(constraint.indexOf(".<")+2,constraint.length);
+				number = number.match(/\d*/gi)[0];
+				var lower = new Number(number);
+				if(!isNaN(lower)) f.data("jr:constraint:lower",lower);
 				else console.error("Not a number for max constraint",number);
-			}else if(constraint.indexOf(".>")!=-1){/*min*/
+			}else 
+			/*higher constraint*/
+			if(constraint.indexOf(".>")!=-1){
 				var number = constraint.substring(constraint.indexOf(".>")+2,constraint.length);
 				number = number.match(/\d*/gi)[0];
-				var min = new Number(number);
-				if(!isNaN(min))	f.data("jr:constraint:higher",min);
+				var higher = new Number(number);
+				if(!isNaN(higher))	f.data("jr:constraint:higher",higher);
 				else console.error("Not a number for min constraint",number);
-			}else if(constraint.indexOf("depends=")!=-1){/*dependency*/
+			}else
+			/*dependency constraint*/
+			if(constraint.indexOf("depends=")!=-1){
 				var dependency = constraint.substring(constraint.indexOf("depends=")+8);
 				f.data("jr:constraint:depends",dependency);
-			}else if(constraint.indexOf("url=")!=-1){/*remote combo data*/
+			}else 
+			/*remote list constraint*/
+			if(constraint.indexOf("url=")!=-1){
 				var url = constraint.substring(constraint.indexOf("url=")+4);
 				f.data("jr:constraint:remote",url);
-			}else if(constraint.indexOf("cuit")!=-1){/*remote combo data*/
+			}else 
+			/*cuit type constraint*/
+			if(constraint.indexOf("cuit")!=-1){
 				constraint.substring(constraint.indexOf("cuit")+9);
 				f.data("jr:constraint:cuit","valid");
-			}else if(constraint.indexOf("mask=")!=-1){/*remote combo data*/
+			}else 
+			/*mask constraint*/
+			if(constraint.indexOf("mask=")!=-1){
 				var mask = constraint.substring(constraint.indexOf("mask=")+5);
 				f.data("jr:constraint:mask",mask);
 			}
@@ -240,6 +266,28 @@ var setupValidations = function(field){
 			f.rules( "add", {
 				higher: min
 				,messages:{
+					number: "Debe ser un valor num&eacute;rico v&aacute;lido"
+				}
+			});
+		}
+		
+		if(f.data("jr:constraint:max")!=undefined){
+			var max =  f.data("jr:constraint:max");
+			f.rules( "add", {
+				max: max
+				,messages:{
+					max: "Debe ser un valor menor o igual que {0}",
+					number: "Debe ser un valor num&eacute;rico v&aacute;lido"
+				}
+			});
+		}
+		
+		if(f.data("jr:constraint:min")!=undefined){
+			var min =  f.data("jr:constraint:min");
+			f.rules( "add", {
+				min: min
+				,messages:{
+					min: "Debe ser un valor mayor o igual que {0}",
 					number: "Debe ser un valor num&eacute;rico v&aacute;lido"
 				}
 			});
