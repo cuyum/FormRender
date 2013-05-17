@@ -188,21 +188,15 @@ var setupValidations = function(field){
 			if(constraint.indexOf(".<")!=-1){/*max*/
 				var number = constraint.substring(constraint.indexOf(".<")+2,constraint.length);
 				number = number.match(/\d*/gi)[0];
-				try {
-					var max = new Number(number);
-					f.data("jr:constraint:max",max);
-				} catch (e) {
-					log.error("Not a number for max constraint",number);
-				}
+				var max = new Number(number);
+				if(!isNaN(max)) f.data("jr:constraint:lower",max);
+				else console.error("Not a number for max constraint",number);
 			}else if(constraint.indexOf(".>")!=-1){/*min*/
 				var number = constraint.substring(constraint.indexOf(".>")+2,constraint.length);
 				number = number.match(/\d*/gi)[0];
-				try {
-					var min = new Number(number); 
-					f.data("jr:constraint:min",min);
-				} catch (e) {
-					log.error("Not a number for min constraint",number);
-				}
+				var min = new Number(number);
+				if(!isNaN(min))	f.data("jr:constraint:higher",min);
+				else console.error("Not a number for min constraint",number);
 			}else if(constraint.indexOf("depends=")!=-1){/*dependency*/
 				var dependency = constraint.substring(constraint.indexOf("depends=")+8);
 				f.data("jr:constraint:depends",dependency);
@@ -231,23 +225,21 @@ var setupValidations = function(field){
 		}
 		
 		/* Add constraint rules in validation framework */
-		if(f.data("jr:constraint:max")!=undefined){
-			var max =  f.data("jr:constraint:max");
+		if(f.data("jr:constraint:lower")!=undefined){
+			var max =  f.data("jr:constraint:lower");
 			f.rules( "add", {
-				max: max
+				lower: max
 				,messages:{
-					max: "Debe ser un valor menor a {0}",
 					number: "Debe ser un valor num&eacute;rico v&aacute;lido"
 				}
 			});
 		}
 		
-		if(f.data("jr:constraint:min")!=undefined){
-			var min =  f.data("jr:constraint:min");
+		if(f.data("jr:constraint:higher")!=undefined){
+			var min =  f.data("jr:constraint:higher");
 			f.rules( "add", {
-				min: min
+				higher: min
 				,messages:{
-					min: "Debe ser un valor mayor a {0}",
 					number: "Debe ser un valor num&eacute;rico v&aacute;lido"
 				}
 			});
@@ -389,6 +381,18 @@ var setupValidationDefaults = function(){
 			return /^\s*-?(\d+(\.\d{2}){0,1})\s*$/.test(value); 
 		}, 
 		"Debe especificar un n&uacute;mero decimal con dos cifras luego del punto");
+	
+	$.validator.addMethod("higher", 
+			function(value, element, param) { 
+				return value > param;
+			}, 
+			"Debe especificar un n&uacute;mero mayor que {0} ");
+	
+	$.validator.addMethod("lower", 
+			function(value, element, param) { 
+				return value < param;
+			}, 
+			"Debe especificar un n&uacute;mero menor que {0} ");
 	
 	$.validator.addMethod("cuit",
 		function(value,element){
