@@ -99,6 +99,9 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 			  	 <script src="/FormRender/resources/js/jquery-ui.min.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
+			  	<script type="text/javascript" src="/FormRender/resources/js/cncValidations.js">
+            		<xsl:text>&#10;</xsl:text>
+            	</script>            	
 			  	<script type="text/javascript" src="/FormRender/resources/js/transform.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>            	
@@ -753,24 +756,34 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
                 <xsl:value-of select="./xf:value"/>
             </xsl:attribute>
         </xsl:if>
+        
         <xsl:if test="($binding/@required = 'true()') and (not(local-name() = 'bind'))">
             <xsl:attribute name="required">required</xsl:attribute>
         </xsl:if>
+        
         <xsl:if test="$binding/@constraint">
             <xsl:attribute name="data-constraint">
                 <xsl:value-of select="$binding/@constraint" />
             </xsl:attribute>
+            <xsl:if test="$binding/@jr:constraintMsg">
+	            <xsl:attribute name="data-constraint-msg">
+	                <xsl:value-of select="$binding/@jr:constraintMsg" />
+	            </xsl:attribute>
+	        </xsl:if>
         </xsl:if>
+        
         <xsl:if test="$binding/@relevant">
             <xsl:attribute name="data-relevant">
                 <xsl:value-of select="$binding/@relevant"/>
             </xsl:attribute>
         </xsl:if>
+        
         <xsl:if test="$binding/@calculate">
             <xsl:attribute name="data-calculate">
                 <xsl:value-of select="$binding/@calculate" />
             </xsl:attribute>
         </xsl:if>
+        
         <xsl:if test="$binding/@jr:preload">
             <xsl:choose>
                 <xsl:when test="not( $binding/@jr:preload = 'patient' )" >
@@ -786,15 +799,19 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:if>
+        
         <xsl:attribute name="data-type-xml">
             <xsl:value-of select="$xml-type"/>
         </xsl:attribute>
+        
         <xsl:if test="$xml-type = 'decimal'">
             <xsl:attribute name="step">any</xsl:attribute>
         </xsl:if>
+        
         <xsl:if test="$binding/@readonly = 'true()' and not($html-input-type = 'hidden')" >
             <xsl:attribute name="readonly">readonly</xsl:attribute>
         </xsl:if>
+        
         <xsl:if test="$html-input-type = 'file'">
             <xsl:if test="@mediatype">
                 <xsl:attribute name="accept">
