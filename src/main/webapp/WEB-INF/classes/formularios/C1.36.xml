@@ -3,75 +3,44 @@
   <h:head>
     <h:title>Formulario C1.36 - Ingresos / larga distancia nacional horario normal</h:title>
     <model>
-      <itext>
-        <translation default="true()" lang="Spanish">
-          <text id="/C1.36/mes/clave1:hint">
-            <value>Ingrese número entero</value>
-          </text>
-          <text id="/C1.36/mes/clave2_3:hint">
-            <value>Ingrese número entero</value>
-          </text>
-          <text id="/C1.36/mes/clave2_3:label">
-            <value>Clave 2 y 3</value>
-          </text>
-          <text id="/C1.36/mes/clave6_12:hint">
-            <value>Ingrese número entero</value>
-          </text>
-          <text id="/C1.36/mes/clave4_5:hint">
-            <value>Ingrese número entero</value>
-          </text>
-          <text id="/C1.36/mes/clave6_12:label">
-            <value>Clave 6 a 12</value>
-          </text>
-          <text id="/C1.36/mes/clave4_5:label">
-            <value>Clave 4 y 5</value>
-          </text>
-          <text id="/C1.36/mes:label">
-            <value>Mes</value>
-          </text>
-          <text id="/C1.36/mes/clave1:label">
-            <value>Clave 1</value>
-          </text>
-        </translation>
-      </itext>
       <instance>
         <C1.36 id="C1.36">
           <mes>
-            <clave1>0</clave1>
-            <clave2_3>0</clave2_3>
-            <clave4_5>0</clave4_5>
-            <clave6_12>0</clave6_12>
+            <clave1/>
+            <clave2_3/>
+            <clave4_5/>
+            <clave6_12/>
           </mes>
           <meta>
             <instanceID/>
           </meta>
         </C1.36>
       </instance>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.36/mes/clave1" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.36/mes/clave2_3" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.36/mes/clave4_5" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.36/mes/clave6_12" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.36/mes/clave1" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.36/mes/clave2_3" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.36/mes/clave4_5" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.36/mes/clave6_12" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.36/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4" ref="/C1.36/mes">
-      <label ref="jr:itext('/C1.36/mes:label')"/>
+    <group appearance="col4 well-white" ref="/C1.36/mes">
+      <label>Enero</label>
       <input ref="/C1.36/mes/clave1">
-        <label ref="jr:itext('/C1.36/mes/clave1:label')"/>
-        <hint ref="jr:itext('/C1.36/mes/clave1:hint')"/>
+        <label>Clave 1</label>
+        <hint>Clave 1 [en miles de pesos]</hint>
       </input>
       <input ref="/C1.36/mes/clave2_3">
-        <label ref="jr:itext('/C1.36/mes/clave2_3:label')"/>
-        <hint ref="jr:itext('/C1.36/mes/clave2_3:hint')"/>
+        <label>Clave 2 y 3</label>
+        <hint>Clave 2 y 3 [en miles de pesos]</hint>
       </input>
       <input ref="/C1.36/mes/clave4_5">
-        <label ref="jr:itext('/C1.36/mes/clave4_5:label')"/>
-        <hint ref="jr:itext('/C1.36/mes/clave4_5:hint')"/>
+        <label>Clave 4 y 5</label>
+        <hint>Clave 4 y 5 [en miles de pesos]</hint>
       </input>
       <input ref="/C1.36/mes/clave6_12">
-        <label ref="jr:itext('/C1.36/mes/clave6_12:label')"/>
-        <hint ref="jr:itext('/C1.36/mes/clave6_12:hint')"/>
+        <label>Clave 6 a 12</label>
+        <hint>Clave 6 a 12 [en miles de pesos]</hint>
       </input>
     </group>
   </h:body>

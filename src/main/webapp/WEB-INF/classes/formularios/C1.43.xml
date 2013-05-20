@@ -22,16 +22,16 @@
           </meta>
         </C1.43>
       </instance>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/orterfijo" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/ortermovil" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/puertos" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/coubic" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/transito" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/facilidades" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/facturacion" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.43/Enero/otros" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/Enero/orterfijo" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/Enero/ortermovil" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/Enero/puertos" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/Enero/coubic" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/Enero/transito" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/Enero/facilidades" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/Enero/facturacion" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/Enero/otros" required="true()" type="int"/>
       <bind calculate=" /C1.43/Enero/orterfijo + /C1.43/Enero/ortermovil + /C1.43/Enero/puertos + /C1.43/Enero/coubic + /C1.43/Enero/transito + /C1.43/Enero/facilidades + /C1.43/Enero/facturacion + /C1.43/Enero/otros " nodeset="/C1.43/Enero/calculate1" type="string"/>
-      <bind nodeset="/C1.43/Enero/total" readonly="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/Enero/total" readonly="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.43/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -40,38 +40,39 @@
       <label>Enero</label>
       <input ref="/C1.43/Enero/orterfijo">
         <label>Origen y Terminacion Local Fijo:</label>
-        <hint>Miles de pesos 12 dígitos</hint>
+        <hint>Origen y Terminacion Local Fijo [en miles de pesos]</hint>
       </input>
       <input ref="/C1.43/Enero/ortermovil">
         <label>Origen y Terminacion Móvil:</label>
-        <hint>Miles de pesos 12 dígitos</hint>
+        <hint>Origen y Terminacion Móvil [en miles de pesos]</hint>
       </input>
       <input ref="/C1.43/Enero/puertos">
         <label>Puertos:</label>
-        <hint>Miles de pesos 12 dígitos</hint>
+        <hint>Puertos [en miles de pesos]</hint>
       </input>
       <input ref="/C1.43/Enero/coubic">
         <label>Coubicacion:</label>
-        <hint>Miles de pesos 12 dígitos</hint>
+        <hint>Coubicacion [en miles de pesos]</hint>
       </input>
       <input ref="/C1.43/Enero/transito">
         <label>Tránsito Local:</label>
-        <hint>Miles de pesos 12 dígitos</hint>
+        <hint>Tránsito Local [en miles de pesos]</hint>
       </input>
       <input ref="/C1.43/Enero/facilidades">
         <label>Otras Facilidades Esenciales:</label>
-        <hint>Miles de pesos 12 dígitos</hint>
+        <hint>Otras Facilidades Esenciales [en miles de pesos]</hint>
       </input>
       <input ref="/C1.43/Enero/facturacion">
         <label>Facturación y Cobranzas:</label>
-        <hint>Miles de pesos 12 dígitos</hint>
+        <hint>Facturación y Cobranzas [en miles de pesos]</hint>
       </input>
       <input ref="/C1.43/Enero/otros">
         <label>Otros:</label>
-        <hint>Miles de pesos 12 dígitos</hint>
+        <hint>Otros [en miles de pesos]</hint>
       </input>
       <input ref="/C1.43/Enero/total">
-        <label>Total: <output value=" /C1.43/Enero/calculate1 "/></label></input>
+        <label>Total: <output value=" /C1.43/Enero/calculate1 "/></label><hint>Total [en miles de pesos]</hint>
+      </input>
     </group>
   </h:body>
 </h:html>

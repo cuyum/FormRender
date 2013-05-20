@@ -32,12 +32,12 @@
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.12/mes/provincia" nodeset="/C1.11/mes/partido" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.12/mes/partido" nodeset="/C1.11/mes/localidad" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.12/mes/localidad" nodeset="/C1.11/mes/areas_local" required="true()" type="select1"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.11/mes/l_l/l_entrante" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.11/mes/l_l/l_saliente" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.11/mes/l_ldn/ldn_entrante" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.11/mes/l_ldn/ldn_saliente" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.11/mes/l_ldi/ldi_entrante" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.11/mes/l_ldi/ldi_saliente" required="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.11/mes/l_l/l_entrante" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.11/mes/l_l/l_saliente" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.11/mes/l_ldn/ldn_entrante" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.11/mes/l_ldn/ldn_saliente" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.11/mes/l_ldi/ldi_entrante" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.11/mes/l_ldi/ldi_saliente" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.11/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -80,33 +80,33 @@
         <label>L-L</label>
         <input ref="/C1.11/mes/l_l/l_entrante">
           <label>Entrantes</label>
-          <hint>E [en miles]</hint>
+          <hint>Entrante [en miles]</hint>
         </input>
         <input ref="/C1.11/mes/l_l/l_saliente">
           <label>Salientes</label>
-          <hint>S [en miles]</hint>
+          <hint>Saliente [en miles]</hint>
         </input>
       </group>
       <group appearance="col2 well_white" ref="/C1.11/mes/l_ldn">
         <label>L-LDN</label>
         <input ref="/C1.11/mes/l_ldn/ldn_entrante">
           <label>Entrantes</label>
-          <hint>E [en miles]</hint>
+          <hint>Entrante [en miles]</hint>
         </input>
         <input ref="/C1.11/mes/l_ldn/ldn_saliente">
           <label>Salientes</label>
-          <hint>S [en miles]</hint>
+          <hint>Saliente [en miles]</hint>
         </input>
       </group>
       <group appearance="col2 well_white" ref="/C1.11/mes/l_ldi">
         <label>L-LDI</label>
         <input ref="/C1.11/mes/l_ldi/ldi_entrante">
           <label>Entrantes</label>
-          <hint>E [en miles]</hint>
+          <hint>Entrante [en miles]</hint>
         </input>
         <input ref="/C1.11/mes/l_ldi/ldi_saliente">
           <label>Salientes</label>
-          <hint>S [en miles]</hint>
+          <hint>Saliente [en miles]</hint>
         </input>
       </group>
     </group>

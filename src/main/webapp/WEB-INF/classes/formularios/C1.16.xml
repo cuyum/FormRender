@@ -29,15 +29,15 @@
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.16/mes/provincia" nodeset="/C1.16/mes/partido" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.16/mes/partido" nodeset="/C1.16/mes/localidad" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.16/mes/localidad" nodeset="/C1.16/mes/areas_local" required="true()" type="select1"/>
-      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/trp" required="true()" type="string"/>
-      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/trcp" required="true()" type="string"/>
-      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/trr" required="true()" type="string"/>
-      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/roac" required="true()" type="string"/>
-      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/rscp" required="true()" type="string"/>
-      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/tcf" required="true()" type="string"/>
-      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/dposs" required="true()" type="string"/>
-      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/tfrp" required="true()" type="string"/>
-      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/drf" required="true()" type="string"/>
+      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/trp" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/trcp" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/trr" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/roac" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/rscp" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/tcf" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/dposs" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/tfrp" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/drf" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.16/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

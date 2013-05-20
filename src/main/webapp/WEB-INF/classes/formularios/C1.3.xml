@@ -12,19 +12,19 @@
             <areas_local/>
           </lugar>
           <equipamiento>
-            <spinner/>
-            <my_int1>0.00</my_int1>
-            <my_int2/>
+            <equipamiento_tecn/>
+            <equipamiento_cap_disp>0.00</equipamiento_cap_disp>
+            <equipamiento_cap_util/>
           </equipamiento>
           <medio>
-            <spinner/>
-            <my_int1/>
-            <my_int2/>
+            <medio_tipo/>
+            <medio_cap_disp/>
+            <medio_cap_util/>
           </medio>
           <tendido>
-            <spinner1/>
-            <my_int1/>
-            <my_int2/>
+            <tendido_tipo/>
+            <tendido_cap_disp/>
+            <tendido_cap_util/>
           </tendido>
           <lugar1>
             <provincia1/>
@@ -41,15 +41,15 @@
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.3/lugar/provincia" nodeset="/C1.3/lugar/partido" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.3/lugar/partido" nodeset="/C1.3/lugar/localidad" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.3/lugar/localidad" nodeset="/C1.3/lugar/areas_local" required="true()" type="select1"/>
-      <bind nodeset="/C1.3/equipamiento/spinner" required="true()" type="select1"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/equipamiento/my_int1" required="true()" type="string"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/equipamiento/my_int2" required="true()" type="string"/>
-      <bind nodeset="/C1.3/medio/spinner" required="true()" type="select1"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/medio/my_int1" required="true()" type="string"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/medio/my_int2" required="true()" type="string"/>
-      <bind nodeset="/C1.3/tendido/spinner1" required="true()" type="select1"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/tendido/my_int1" required="true()" type="string"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/tendido/my_int2" required="true()" type="string"/>
+      <bind nodeset="/C1.3/equipamiento/equipamiento_tecn" required="true()" type="select1"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/equipamiento/equipamiento_cap_disp" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/equipamiento/equipamiento_cap_util" required="true()" type="decimal"/>
+      <bind nodeset="/C1.3/medio/medio_tipo" required="true()" type="select1"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/medio/medio_cap_disp" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/medio/medio_cap_util" required="true()" type="decimal"/>
+      <bind nodeset="/C1.3/tendido/tendido_tipo" required="true()" type="select1"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/tendido/tendido_cap_disp" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/tendido/tendido_cap_util" required="true()" type="decimal"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.3/lugar1/provincia1" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.3/lugar1/provincia1" nodeset="/C1.3/lugar1/partido1" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.3/lugar1/partido1" nodeset="/C1.3/lugar1/localidad1" required="true()" type="select1"/>
@@ -95,7 +95,7 @@
     </group>
     <group appearance="col3 well_white" ref="/C1.3/equipamiento">
       <label>Equipamiento</label>
-      <select1 appearance="minimal" ref="/C1.3/equipamiento/spinner">
+      <select1 appearance="minimal" ref="/C1.3/equipamiento/equipamiento_tecn">
         <label>Tecnología</label>
         <hint>Tecnología</hint>
         <item>
@@ -123,18 +123,18 @@
           <value>e</value>
         </item>
       </select1>
-      <input ref="/C1.3/equipamiento/my_int1">
+      <input ref="/C1.3/equipamiento/equipamiento_cap_disp">
         <label>Capacidad Disponible</label>
-        <hint>Capacidad Disponible</hint>
+        <hint>Capacidad Disponible [Mbps / xxE1]</hint>
       </input>
-      <input ref="/C1.3/equipamiento/my_int2">
+      <input ref="/C1.3/equipamiento/equipamiento_cap_util">
         <label>Capacidad Utilizada</label>
-        <hint>Capacidad Utilizada</hint>
+        <hint>Capacidad Utilizada [Mbps / xxE1]</hint>
       </input>
     </group>
     <group appearance="col3 well_white" ref="/C1.3/medio">
       <label>Medio</label>
-      <select1 appearance="minimal" ref="/C1.3/medio/spinner">
+      <select1 appearance="minimal" ref="/C1.3/medio/medio_tipo">
         <label>Tipo</label>
         <hint>Tipo</hint>
         <item>
@@ -154,18 +154,18 @@
           <value>3</value>
         </item>
       </select1>
-      <input ref="/C1.3/medio/my_int1">
+      <input ref="/C1.3/medio/medio_cap_disp">
         <label>Capacidad Disponible</label>
-        <hint>Capacidad Disponible</hint>
+        <hint>Capacidad Disponible [Mbps / xxE1]</hint>
       </input>
-      <input ref="/C1.3/medio/my_int2">
+      <input ref="/C1.3/medio/medio_cap_util">
         <label>Capacidad Utilizada</label>
-        <hint>Capacidad Utilizada</hint>
+        <hint>Capacidad Utilizada [Mbps / xxE1]</hint>
       </input>
     </group>
     <group appearance="col3 well_white" ref="/C1.3/tendido">
       <label>Tendido</label>
-      <select1 appearance="minimal" ref="/C1.3/tendido/spinner1">
+      <select1 appearance="minimal" ref="/C1.3/tendido/tendido_tipo">
         <label>Tipo</label>
         <hint>Tipo</hint>
         <item>
@@ -185,13 +185,13 @@
           <value>3</value>
         </item>
       </select1>
-      <input ref="/C1.3/tendido/my_int1">
+      <input ref="/C1.3/tendido/tendido_cap_disp">
         <label>Capacidad Disponible</label>
-        <hint>Capacidad Disponible</hint>
+        <hint>Capacidad Disponible [Mbps / xxE1]</hint>
       </input>
-      <input ref="/C1.3/tendido/my_int2">
+      <input ref="/C1.3/tendido/tendido_cap_util">
         <label>Capacidad Utilizada</label>
-        <hint>Capacidad Utilizada</hint>
+        <hint>Capacidad Utilizada [Mbps / xxE1]</hint>
       </input>
     </group>
     <group appearance="col4 well_white" ref="/C1.3/lugar1">

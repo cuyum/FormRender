@@ -25,17 +25,17 @@
           </meta>
         </C1.51>
       </instance>
-      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 8 dígitos" nodeset="/C1.51/mes/exportaciones1" required="true()" type="int"/>
-      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de hasta 8 dígitos" nodeset="/C1.51/mes/importaciones1" required="true()" type="int"/>
-      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 8 dígitos" nodeset="/C1.51/mes/exportaciones2" required="true()" type="int"/>
-      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de hasta 8 dígitos" nodeset="/C1.51/mes/importaciones2" required="true()" type="int"/>
-      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 8 dígitos" nodeset="/C1.51/mes/importaciones3" required="true()" type="int"/>
-      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de hasta 8 dígitos" nodeset="/C1.51/mes/importaciones4" required="true()" type="int"/>
-      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de hasta 8 dígitos" nodeset="/C1.51/mes/regalias" type="int"/>
+      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/exportaciones1" required="true()" type="int"/>
+      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/importaciones1" required="true()" type="int"/>
+      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/exportaciones2" required="true()" type="int"/>
+      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/importaciones2" required="true()" type="int"/>
+      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/importaciones3" required="true()" type="int"/>
+      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/importaciones4" required="true()" type="int"/>
+      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/regalias" type="int"/>
       <bind calculate=" /C1.51/mes/exportaciones1 + /C1.51/mes/exportaciones2 " nodeset="/C1.51/mes/total/calculate1" type="string"/>
       <bind calculate=" /C1.51/mes/importaciones1 + /C1.51/mes/importaciones2 + /C1.51/mes/importaciones3 + /C1.51/mes/importaciones4 " nodeset="/C1.51/mes/total/calculate2" type="string"/>
-      <bind nodeset="/C1.51/mes/total/total1" readonly="true()" type="string"/>
-      <bind nodeset="/C1.51/mes/total/total2" readonly="true()" type="string"/>
+      <bind constraint="mask= 999.999.999.999" nodeset="/C1.51/mes/total/total1" readonly="true()" type="string"/>
+      <bind constraint="mask= 999.999.999.999" nodeset="/C1.51/mes/total/total2" readonly="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.51/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -44,38 +44,40 @@
       <label>Enero</label>
       <input ref="/C1.51/mes/exportaciones1">
         <label>Telecomunicaciones Expo.:</label>
-        <hint>En miles de pesos de 8 dígitos</hint>
+        <hint>Expo [en miles de pesos]</hint>
       </input>
       <input ref="/C1.51/mes/importaciones1">
         <label>Telecomunicaciones Impo.:</label>
-        <hint>En miles de pesos de 8 dígitos</hint>
+        <hint>Impo [en miles de pesos]</hint>
       </input>
       <input ref="/C1.51/mes/exportaciones2">
         <label>Servicios Expo.:</label>
-        <hint>En miles de pesos de 8 dígitos</hint>
+        <hint>Expo [en miles de pesos]</hint>
       </input>
       <input ref="/C1.51/mes/importaciones2">
         <label>Servicios Impo.:</label>
-        <hint>En miles de pesos de 8 dígitos</hint>
+        <hint>Impo [en miles de pesos]</hint>
       </input>
       <input ref="/C1.51/mes/importaciones3">
-        <label>Importaciones Bienes Capital</label>
-        <hint>En miles de pesos de 8 dígitos</hint>
+        <label>Importaciones Bienes Capital:</label>
+        <hint>Importaciones de Bienes de Capital [en miles de pesos]</hint>
       </input>
       <input ref="/C1.51/mes/importaciones4">
-        <label>Importaciones de Piezas</label>
-        <hint>En miles de pesos de 8 dígitos</hint>
+        <label>Importaciones de Piezas:</label>
+        <hint>Importaciones de Piezas [en miles de pesos]</hint>
       </input>
       <input ref="/C1.51/mes/regalias">
-        <label>Regalías</label>
-        <hint>En miles de pesos de 8 dígitos</hint>
+        <label>Regalías:</label>
+        <hint>Regalías [en miles de pesos]</hint>
       </input>
       <group appearance="col1 well-white" ref="/C1.51/mes/total">
         <label>Total</label>
         <input ref="/C1.51/mes/total/total1">
-          <label>Totales expo.: <output value=" /C1.51/mes/total/calculate1 "/></label></input>
+          <label>Totales expo.: <output value=" /C1.51/mes/total/calculate1 "/></label><hint>Expo [en miles de pesos]</hint>
+        </input>
         <input ref="/C1.51/mes/total/total2">
-          <label>Totales impo.: <output value=" /C1.51/mes/total/calculate2 "/></label></input>
+          <label>Totales impo.: <output value=" /C1.51/mes/total/calculate2 "/></label><hint>Impo [en miles de pesos]</hint>
+        </input>
       </group>
     </group>
   </h:body>

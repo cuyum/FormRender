@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario C1.21 - Calidad de servicio / atencion web</h:title>
+    <h:title>Formulario C1.21 - Calidad de servicio / atención web</h:title>
     <model>
       <instance>
         <C1.21 id="C1.21">
@@ -22,8 +22,8 @@
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.21/mes/provincia" nodeset="/C1.21/mes/partido" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.21/mes/partido" nodeset="/C1.21/mes/localidad" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.21/mes/localidad" nodeset="/C1.21/mes/areas_local" required="true()" type="select1"/>
-      <bind constraint="mask=999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.21/mes/personal" required="true()" type="string"/>
-      <bind constraint="mask=999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.21/mes/espera_prom" required="true()" type="string"/>
+      <bind constraint="mask=999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.21/mes/personal" required="true()" type="int"/>
+      <bind constraint="mask=999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.21/mes/espera_prom" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.21/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

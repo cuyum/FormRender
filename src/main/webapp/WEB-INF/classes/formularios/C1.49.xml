@@ -14,8 +14,8 @@
           </meta>
         </C1.49>
       </instance>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.49/mes/hombres" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 6 dígitos y mayor a 0" nodeset="/C1.49/mes/mujeres" required="true()" type="int"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.49/mes/hombres" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.49/mes/mujeres" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.49/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -24,11 +24,11 @@
       <label>Enero</label>
       <input ref="/C1.49/mes/hombres">
         <label>Hombres</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Hombres</hint>
       </input>
       <input ref="/C1.49/mes/mujeres">
         <label>Mujeres</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Mujeres</hint>
       </input>
     </group>
   </h:body>

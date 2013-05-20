@@ -1,52 +1,58 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario C.1.31 - Ingresos / abonos telefonia basica</h:title>
+    <h:title>Formulario C1.31 - Ingresos / abonos telefonia básica</h:title>
     <model>
       <instance>
         <C1.31 id="C1.31">
-          <Enero>
+          <mes>
             <familia>0</familia>
             <comercial>0</comercial>
             <gobierno>0</gobierno>
             <jubilados>0</jubilados>
             <profesional>0</profesional>
             <otros>0</otros>
-          </Enero>
+          </mes>
           <meta>
             <instanceID/>
           </meta>
         </C1.31>
       </instance>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 12 dígitos" nodeset="/C1.31/Enero/familia" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 12 dígitos" nodeset="/C1.31/Enero/comercial" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 12 dígitos" nodeset="/C1.31/Enero/gobierno" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 12 dígitos" nodeset="/C1.31/Enero/jubilados" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 12 dígitos" nodeset="/C1.31/Enero/profesional" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 12 dígitos" nodeset="/C1.31/Enero/otros" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.31/mes/familia" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.31/mes/comercial" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.31/mes/gobierno" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.31/mes/jubilados" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.31/mes/profesional" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.31/mes/otros" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.31/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4" ref="/C1.31/Enero">
+    <group appearance="col4 well-white" ref="/C1.31/mes">
       <label>Enero</label>
-      <input ref="/C1.31/Enero/familia">
+      <input ref="/C1.31/mes/familia">
         <label>Hogares:</label>
+        <hint>Hogares [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.31/Enero/comercial">
+      <input ref="/C1.31/mes/comercial">
         <label>Comercial:</label>
+        <hint>Comercial [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.31/Enero/gobierno">
+      <input ref="/C1.31/mes/gobierno">
         <label>Gobierno:</label>
+        <hint>Gobierno [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.31/Enero/jubilados">
+      <input ref="/C1.31/mes/jubilados">
         <label>Jubilados:</label>
+        <hint>Jubilados [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.31/Enero/profesional">
+      <input ref="/C1.31/mes/profesional">
         <label>Profesional:</label>
+        <hint>Profesional [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.31/Enero/otros">
+      <input ref="/C1.31/mes/otros">
         <label>Otros:</label>
+        <hint>Otros [en miles de pesos]</hint>
       </input>
     </group>
   </h:body>

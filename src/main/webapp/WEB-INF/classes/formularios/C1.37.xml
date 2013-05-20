@@ -16,10 +16,10 @@
           </meta>
         </C1.37>
       </instance>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.37/mes/clave1" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.37/mes/clave2_3" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.37/mes/clave4_5" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.37/mes/clave6_12" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.37/mes/clave1" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.37/mes/clave2_3" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.37/mes/clave4_5" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.37/mes/clave6_12" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.37/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -28,19 +28,19 @@
       <label>Enero</label>
       <input ref="/C1.37/mes/clave1">
         <label>Clave 1</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Clave 1 [en miles de pesos]</hint>
       </input>
       <input ref="/C1.37/mes/clave2_3">
         <label>Clave 2 y 3</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Clave 2 y 3 [en miles de pesos]</hint>
       </input>
       <input ref="/C1.37/mes/clave4_5">
         <label>Clave 4 y 5</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Clave 4 y 5 [en miles de pesos]</hint>
       </input>
       <input ref="/C1.37/mes/clave6_12">
         <label>Clave 6 a 12</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Clave 6 a 12 [en miles de pesos]</hint>
       </input>
     </group>
   </h:body>

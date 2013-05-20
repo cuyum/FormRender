@@ -23,17 +23,17 @@
           </meta>
         </C1.47>
       </instance>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.47/mes/i_d" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.47/mes/imp" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.47/mes/am_bienes" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.47/mes/am_intang" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.47/mes/publicidad" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.47/mes/costo_equipos" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.47/mes/otros_com" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.47/mes/otros_fin" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero hasta 12 dígitos y mayor a 0" nodeset="/C1.47/mes/otros_adm" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/mes/i_d" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/mes/imp" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/mes/am_bienes" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/mes/am_intang" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/mes/publicidad" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/mes/costo_equipos" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/mes/otros_com" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/mes/otros_fin" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/mes/otros_adm" type="int"/>
       <bind calculate=" /C1.47/mes/i_d + /C1.47/mes/imp + /C1.47/mes/am_bienes + /C1.47/mes/am_intang + /C1.47/mes/publicidad + /C1.47/mes/costo_equipos + /C1.47/mes/otros_com + /C1.47/mes/otros_fin + /C1.47/mes/otros_adm " nodeset="/C1.47/mes/calculate" type="string"/>
-      <bind nodeset="/C1.47/mes/calculate_test_output" readonly="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/mes/calculate_test_output" readonly="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.47/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -42,42 +42,43 @@
       <label>Enero</label>
       <input ref="/C1.47/mes/i_d">
         <label>I &amp; D:</label>
-        <hint>Ingrese numero entero</hint>
+        <hint>I &amp; D [en miles de pesos]</hint>
       </input>
       <input ref="/C1.47/mes/imp">
         <label>lmp:</label>
-        <hint>Ingrese numero entero</hint>
+        <hint>lmp [en miles de pesos]</hint>
       </input>
       <input ref="/C1.47/mes/am_bienes">
-        <label>Amortización Bienes de uso:</label>
-        <hint>Ingrese numero entero</hint>
+        <label>Amortización de Bienes de Uso:</label>
+        <hint>Amortiz. de Bienes de uso [en miles de pesos]</hint>
       </input>
       <input ref="/C1.47/mes/am_intang">
         <label>Amortiz. Intangibles:</label>
-        <hint>Ingrese numero entero</hint>
+        <hint>Amortización de Intangibles [en miles de pesos]</hint>
       </input>
       <input ref="/C1.47/mes/publicidad">
         <label>Publicidad:</label>
-        <hint>Ingrese numero entero</hint>
+        <hint>Publicidad [en miles de pesos]</hint>
       </input>
       <input ref="/C1.47/mes/costo_equipos">
         <label>Costo Equipos:</label>
-        <hint>Ingrese numero entero</hint>
+        <hint>Costo Equipos [en miles de pesos]</hint>
       </input>
       <input ref="/C1.47/mes/otros_com">
-        <label>Otros Comercios:</label>
-        <hint>Ingrese numero entero</hint>
+        <label>Otros Comerciales:</label>
+        <hint>Otros Comerciales [en miles de pesos]</hint>
       </input>
       <input ref="/C1.47/mes/otros_fin">
         <label>Otros Financieros:</label>
-        <hint>Ingrese numero entero</hint>
+        <hint>Otros Financieros [en miles de pesos]</hint>
       </input>
       <input ref="/C1.47/mes/otros_adm">
-        <label>Otros administrativo:</label>
-        <hint>Ingrese numero entero</hint>
+        <label>Otros Administrativos:</label>
+        <hint>Otros Administrativos [en miles de pesos]</hint>
       </input>
       <input ref="/C1.47/mes/calculate_test_output">
-        <label>Total <output value=" /C1.47/mes/calculate "/></label></input>
+        <label>Total <output value=" /C1.47/mes/calculate "/></label><hint>Total [en miles de pesos]</hint>
+      </input>
     </group>
   </h:body>
 </h:html>

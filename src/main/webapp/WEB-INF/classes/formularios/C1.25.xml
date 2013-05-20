@@ -42,36 +42,36 @@
           </meta>
         </C1.25>
       </instance>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio1" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio19" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio20" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio5" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio4" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio6" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio7" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio8" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio21" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio10" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio11" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio12" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio13" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio14" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio15" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio16" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio17" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio18" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio2" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio3" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio9" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio28" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio29" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio24" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio25" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio26" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio27" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio22" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio23" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio30" required="true()" type="string"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio1" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio19" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio20" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio5" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio4" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio6" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio7" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio8" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio21" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio10" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio11" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio12" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio13" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio14" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio15" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio16" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio17" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio18" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio2" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio3" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio9" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio28" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio29" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio24" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio25" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio26" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio27" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio22" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio23" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio30" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.25/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

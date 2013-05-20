@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario C.1.35 - Ingresos / trafico horario reducido</h:title>
+    <h:title>Formulario C.1.35 - Ingresos / tráfico horario reducido</h:title>
     <model>
       <instance>
         <C1.35 id="C1.35">
@@ -18,41 +18,41 @@
           </meta>
         </C1.35>
       </instance>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 12 dígitos" nodeset="/C1.35/Enero/familia" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 12 dígitos" nodeset="/C1.35/Enero/comercial" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 12 dígitos" nodeset="/C1.35/Enero/gobierno" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 12 dígitos" nodeset="/C1.35/Enero/jubilados" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 12 dígitos" nodeset="/C1.35/Enero/profesional" required="true()" type="int"/>
-      <bind constraint="regex(., '[0-9]*') and .&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de 12 dígitos" nodeset="/C1.35/Enero/otros" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.35/Enero/familia" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.35/Enero/comercial" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.35/Enero/gobierno" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.35/Enero/jubilados" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.35/Enero/profesional" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.35/Enero/otros" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.35/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4" ref="/C1.35/Enero">
+    <group appearance="col4 well-white" ref="/C1.35/Enero">
       <label>Enero</label>
       <input ref="/C1.35/Enero/familia">
         <label>Hogares:</label>
-        <hint>Ingrese número entero con 11 digitos sin guión</hint>
+        <hint>Hogares</hint>
       </input>
       <input ref="/C1.35/Enero/comercial">
         <label>Comercial:</label>
-        <hint>Ingrese número entero con 11 digitos sin guión</hint>
+        <hint>Comercial</hint>
       </input>
       <input ref="/C1.35/Enero/gobierno">
         <label>Gobierno:</label>
-        <hint>Ingrese número entero con 11 digitos sin guión</hint>
+        <hint>Gobierno</hint>
       </input>
       <input ref="/C1.35/Enero/jubilados">
         <label>Jubilados:</label>
-        <hint>Ingrese número entero con 11 digitos sin guión</hint>
+        <hint>Jubilados</hint>
       </input>
       <input ref="/C1.35/Enero/profesional">
         <label>Profesional:</label>
-        <hint>Ingrese número entero con 11 digitos sin guión</hint>
+        <hint>Profesional</hint>
       </input>
       <input ref="/C1.35/Enero/otros">
         <label>Otros:</label>
-        <hint>Ingrese número entero con 11 digitos sin guión</hint>
+        <hint>Otros</hint>
       </input>
     </group>
   </h:body>

@@ -34,24 +34,24 @@
           </meta>
         </C1.22>
       </instance>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_familia" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_comercial" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_gobierno" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_jubilados" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_profesional" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_otros" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_familia" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_comercial" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_gobierno" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_jubilados" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_profesional" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_otros" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_familia" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_comercial" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_gobierno" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_jubilados" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_profesional" required="true()" type="string"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_otros" required="true()" type="string"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_familia" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_comercial" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_gobierno" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_jubilados" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_profesional" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_otros" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_familia" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_comercial" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_gobierno" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_jubilados" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_profesional" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_otros" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_familia" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_comercial" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_gobierno" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_jubilados" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_profesional" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_otros" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.22/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

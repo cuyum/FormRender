@@ -16,31 +16,31 @@
           </meta>
         </C1.53>
       </instance>
-      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 8 dígitos" nodeset="/C1.53/financ/financiamiento" required="true()" type="int"/>
-      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de hasta 8 dígitos" nodeset="/C1.53/financ/subsidios1" required="true()" type="int"/>
-      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 8 dígitos" nodeset="/C1.53/financ/subsidios2" required="true()" type="int"/>
-      <bind constraint=".&lt;100000000 and .&gt;0" jr:constraintMsg="Debe ingresar un número entero de hasta 8 dígitos" nodeset="/C1.53/financ/subsidios3" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.53/financ/financiamiento" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.53/financ/subsidios1" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.53/financ/subsidios2" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.53/financ/subsidios3" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.53/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4" ref="/C1.53/financ">
+    <group appearance="col4 well-white" ref="/C1.53/financ">
       <label>Financiamiento</label>
       <input ref="/C1.53/financ/financiamiento">
         <label>Financiamiento con SU</label>
-        <hint>Valores a ingresar numéricos en miles de pesos de 8 dígitos</hint>
+        <hint>Financiamiento con SU [en miles de pesos]</hint>
       </input>
       <input ref="/C1.53/financ/subsidios1">
         <label>Subsidios tasa de Interés</label>
-        <hint>Valores a ingresar numéricos en miles de pesos de 8 dígitos</hint>
+        <hint>Subsidios tasa de Interés [en miles de pesos]</hint>
       </input>
       <input ref="/C1.53/financ/subsidios2">
         <label>Subsidios Impositivos</label>
-        <hint>Valores a ingresar numéricos en miles de pesos de 8 dígitos</hint>
+        <hint>Subsidios Impositivos [en miles de pesos]</hint>
       </input>
       <input ref="/C1.53/financ/subsidios3">
         <label>Otros Subsisdios</label>
-        <hint>Valores a ingresar numéricos en miles de pesos de 8 dígitos</hint>
+        <hint>Otros Subsisdios [en miles de pesos]</hint>
       </input>
     </group>
   </h:body>

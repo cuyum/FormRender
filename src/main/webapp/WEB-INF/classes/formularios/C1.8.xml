@@ -10,9 +10,9 @@
             <partido/>
             <localidad/>
             <areas_local/>
-            <abono_1/>
-            <abono_2/>
-            <abono_3/>
+            <abono_local/>
+            <abono_ldn/>
+            <abono_ldi/>
             <suscrip_serv_adic/>
           </mes>
           <meta>
@@ -24,9 +24,9 @@
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.8/mes/provincia" nodeset="/C1.8/mes/partido" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.8/mes/partido" nodeset="/C1.8/mes/localidad" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.8/mes/localidad" nodeset="/C1.8/mes/areas_local" required="true()" type="select1"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/mes/abono_1" required="true()" type="string"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/mes/abono_2" required="true()" type="string"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/mes/abono_3" required="true()" type="string"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/mes/abono_local" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/mes/abono_ldn" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/mes/abono_ldi" required="true()" type="int"/>
       <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/mes/suscrip_serv_adic" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.8/meta/instanceID" readonly="true()" type="string"/>
     </model>
@@ -66,15 +66,15 @@
           <value>0</value>
         </item>
       </select1>
-      <input ref="/C1.8/mes/abono_1">
+      <input ref="/C1.8/mes/abono_local">
         <label>Abono Local</label>
         <hint>Abono Local</hint>
       </input>
-      <input ref="/C1.8/mes/abono_2">
+      <input ref="/C1.8/mes/abono_ldn">
         <label>Abono LDN / LDI</label>
         <hint>Abono LDN / LDI</hint>
       </input>
-      <input ref="/C1.8/mes/abono_3">
+      <input ref="/C1.8/mes/abono_ldi">
         <label>Abono LDI</label>
         <hint>Abono LDI</hint>
       </input>

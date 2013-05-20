@@ -6,42 +6,43 @@
       <instance>
         <C1.41 id="C1.41">
           <mes>
-            <nacional1>0</nacional1>
-            <nacional2>0</nacional2>
-            <nacional3>0</nacional3>
+            <arriendo>0</arriendo>
+            <transporte>0</transporte>
+            <otros>0</otros>
             <calculate2/>
-            <nacional4/>
+            <total/>
           </mes>
           <meta>
             <instanceID/>
           </meta>
         </C1.41>
       </instance>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.41/mes/nacional1" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.41/mes/nacional2" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero de 12 dígitos" nodeset="/C1.41/mes/nacional3" required="true()" type="int"/>
-      <bind calculate=" /C1.41/mes/nacional1 + /C1.41/mes/nacional2 + /C1.41/mes/nacional3 " nodeset="/C1.41/mes/calculate2" type="string"/>
-      <bind nodeset="/C1.41/mes/nacional4" readonly="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.41/mes/arriendo" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.41/mes/transporte" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.41/mes/otros" required="true()" type="int"/>
+      <bind calculate=" /C1.41/mes/arriendo + /C1.41/mes/transporte + /C1.41/mes/otros " nodeset="/C1.41/mes/calculate2" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.41/mes/total" readonly="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.41/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
     <group appearance="Col4 well-white" ref="/C1.41/mes">
       <label>Enero</label>
-      <input ref="/C1.41/mes/nacional1">
+      <input ref="/C1.41/mes/arriendo">
         <label>Arriendo de Circuitos LDN</label>
-        <hint>Miles de pesos 12 dígitos</hint>
+        <hint>Arriendo de Circuitos LDN [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.41/mes/nacional2">
+      <input ref="/C1.41/mes/transporte">
         <label>Transporte LDN</label>
-        <hint>Miles de pesos 12 dígitos</hint>
+        <hint>Transporte LDN [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.41/mes/nacional3">
+      <input ref="/C1.41/mes/otros">
         <label>Otros</label>
-        <hint>Miles de pesos 12 dígitos</hint>
+        <hint>Otros [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.41/mes/nacional4">
-        <label>Total <output value=" /C1.41/mes/calculate2 "/></label></input>
+      <input ref="/C1.41/mes/total">
+        <label>Total <output value=" /C1.41/mes/calculate2 "/></label><hint>Total [en miles de pesos]</hint>
+      </input>
     </group>
   </h:body>
 </h:html>

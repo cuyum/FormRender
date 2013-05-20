@@ -32,12 +32,12 @@
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.11/mes/provincia" nodeset="/C1.12/mes/partido" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.11/mes/partido" nodeset="/C1.12/mes/localidad" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.11/mes/localidad" nodeset="/C1.12/mes/areas_local" required="true()" type="select1"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_l/l_hn" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_l/l_hr" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_ldn/ldn_hn" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_ldn/ldn_hr" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_ldi/ldi_hn" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_ldi/ldi_hr" required="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_l/l_hn" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_l/l_hr" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_ldn/ldn_hn" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_ldn/ldn_hr" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_ldi/ldi_hn" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_ldi/ldi_hr" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.12/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

@@ -18,12 +18,12 @@
           </meta>
         </C1.30>
       </instance>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.30/mes/familia" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.30/mes/comercial" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.30/mes/gobierno" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.30/mes/jubilados" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.30/mes/profesional" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.30/mes/otros" required="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.30/mes/familia" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.30/mes/comercial" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.30/mes/gobierno" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.30/mes/jubilados" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.30/mes/profesional" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.30/mes/otros" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.30/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

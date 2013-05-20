@@ -5,49 +5,50 @@
     <model>
       <instance>
         <C1.46 id="C1.46">
-          <Enero>
+          <mes>
             <gastos>0</gastos>
             <cargas>0</cargas>
             <terceros>0</terceros>
             <otros>0</otros>
             <calculate/>
             <total/>
-          </Enero>
+          </mes>
           <meta>
             <instanceID/>
           </meta>
         </C1.46>
       </instance>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C1.46/Enero/gastos" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C1.46/Enero/cargas" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C1.46/Enero/terceros" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000000000 and .&gt;0" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C1.46/Enero/otros" required="true()" type="int"/>
-      <bind calculate=" /C1.46/Enero/gastos + /C1.46/Enero/cargas + /C1.46/Enero/terceros + /C1.46/Enero/otros " nodeset="/C1.46/Enero/calculate" type="string"/>
-      <bind nodeset="/C1.46/Enero/total" readonly="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/mes/gastos" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/mes/cargas" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/mes/terceros" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/mes/otros" required="true()" type="int"/>
+      <bind calculate=" /C1.46/mes/gastos + /C1.46/mes/cargas + /C1.46/mes/terceros + /C1.46/mes/otros " nodeset="/C1.46/mes/calculate" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/mes/total" readonly="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.46/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col3 well-white" ref="/C1.46/Enero">
+    <group appearance="col3 well-white" ref="/C1.46/mes">
       <label>Enero</label>
-      <input ref="/C1.46/Enero/gastos">
+      <input ref="/C1.46/mes/gastos">
         <label>Gastos en Personal:</label>
-        <hint>Ingrese numero entero</hint>
+        <hint>Gastos en Personal [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.46/Enero/cargas">
+      <input ref="/C1.46/mes/cargas">
         <label>Cargas Soc. y otros costos laborales:</label>
-        <hint>Ingrese numero entero</hint>
+        <hint>CS y Otros [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.46/Enero/terceros">
+      <input ref="/C1.46/mes/terceros">
         <label>Materiales y trabajo de terceros:</label>
-        <hint>Ingrese numero entero</hint>
+        <hint>Terceros [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.46/Enero/otros">
+      <input ref="/C1.46/mes/otros">
         <label>Otros:</label>
-        <hint>Ingrese numero entero</hint>
+        <hint>Otros [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.46/Enero/total">
-        <label>Total: <output value=" /C1.46/Enero/calculate "/></label></input>
+      <input ref="/C1.46/mes/total">
+        <label>Total: <output value=" /C1.46/mes/calculate "/></label><hint>Total [en miles de pesos]</hint>
+      </input>
     </group>
   </h:body>
 </h:html>
