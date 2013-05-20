@@ -13,7 +13,9 @@ var setupValidations = function(field){
 						if(f.is("textarea")) return "Debe ingresar un valor";
 						return "Debe elegir una opci&oacute;n";
 					}else{
-						return "El campo es requerido";
+						var cMsg = f.attr("data-constraint-msg");
+						if(cMsg) return cMsg;
+						else return "El campo es requerido";
 					}
 				}
 			}
@@ -23,9 +25,8 @@ var setupValidations = function(field){
 	var data_calculate = f.attr("data-calculate");
 	if(data_calculate && data_calculate.trim().length>0){
 		if(data_calculate.indexOf("concat(")==-1){
-			var a = fieldName.lastIndexOf("/")+1;
-			var b = fieldName.substring(0,a);
-			var totalField = $("span.jr-output[data-value~='"+fieldName+"']").closest("label").children("input"); 
+			var totalFieldSpan = $("span.jr-output[data-value~='"+fieldName+"']");
+			var totalField = totalFieldSpan.closest("label").children("input"); 
 			
 			if(totalField){
 				totalField.data("updateTotal",function(sumFields,substractFields){
@@ -277,6 +278,7 @@ var setupValidations = function(field){
 		
 		if(f.data("jr:constraint:mask")!=undefined){
 			var mask =  f.data("jr:constraint:mask");
+			/*tratar de procesar los espacio*/
 			f.mask(mask);
 		}
 		
@@ -298,10 +300,8 @@ var setupValidations = function(field){
 				},
 				function(event){
 					var name = event.data.dependant.attr("name");
-					console.log("rawName",name);
 					var slashIndex = name.lastIndexOf("/");
 					var cleanName = name.substring(slashIndex+1);
-					console.log("cleanName",cleanName);
 					if(event.data.ancestor.val()==cleanName){
 						event.data.dependant.show();
 					}else{
