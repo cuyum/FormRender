@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario C1.1 - Áreas de prestación se servicios</h:title>
+    <h:title>Formulario C1.1 - Áreas de prestación de servicios</h:title>
     <model>
       <instance>
         <C1.1 id="C1.1">
@@ -28,6 +28,7 @@
       <label>Áreas de prestación</label>
       <select1 appearance="minimal" ref="/C1.1/areas/provincia">
         <label>Provincia</label>
+        <hint>Provincia</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -35,6 +36,7 @@
       </select1>
       <select1 appearance="minimal" ref="/C1.1/areas/partido">
         <label>Partido / Departamento</label>
+        <hint>Partido/Departamento</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -42,6 +44,7 @@
       </select1>
       <select1 appearance="minimal" ref="/C1.1/areas/localidad">
         <label>Localidad</label>
+        <hint>Localidad</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>
@@ -49,6 +52,7 @@
       </select1>
       <select1 appearance="minimal" ref="/C1.1/areas/area">
         <label>Area Local</label>
+        <hint>Área Local</hint>
         <item>
           <label>Seleccione una opcion</label>
           <value>0</value>

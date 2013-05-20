@@ -5,136 +5,136 @@
     <model>
       <instance>
         <C1.22 id="C1.22">
-          <instalacion_linea>
-            <familia_a/>
-            <comercial_a/>
-            <gobierno_a/>
-            <jubilados_a/>
-            <profesional_a/>
-            <otrasDetallar_a/>
-          </instalacion_linea>
-          <abono_mensual>
-            <familia_b/>
-            <comercial_b/>
-            <gobierno_b/>
-            <jubilados_b/>
-            <profesional_b/>
-            <otrasDetallar_b/>
-          </abono_mensual>
-          <abono_mensual_linea_trafico>
-            <familia_c/>
-            <comercial_c/>
-            <gobierno_c/>
-            <jubilados_c/>
-            <profesional_c/>
-            <otrasDetallar_c/>
-          </abono_mensual_linea_trafico>
+          <instalacion>
+            <instalacion_familia/>
+            <instalacion_comercial/>
+            <instalacion_gobierno/>
+            <instalacion_jubilados/>
+            <instalacion_profesional/>
+            <instalacion_otros/>
+          </instalacion>
+          <abono>
+            <abono_familia/>
+            <abono_comercial/>
+            <abono_gobierno/>
+            <abono_jubilados/>
+            <abono_profesional/>
+            <abono_otros/>
+          </abono>
+          <abono_entrante>
+            <entrante_familia/>
+            <entrante_comercial/>
+            <entrante_gobierno/>
+            <entrante_jubilados/>
+            <entrante_profesional/>
+            <entrante_otros/>
+          </abono_entrante>
           <meta>
             <instanceID/>
           </meta>
         </C1.22>
       </instance>
-      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/instalacion_linea/familia_a" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/instalacion_linea/comercial_a" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/instalacion_linea/gobierno_a" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/instalacion_linea/jubilados_a" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/instalacion_linea/profesional_a" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/instalacion_linea/otrasDetallar_a" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual/familia_b" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual/comercial_b" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual/gobierno_b" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual/jubilados_b" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual/profesional_b" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual/otrasDetallar_b" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual_linea_trafico/familia_c" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual_linea_trafico/comercial_c" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual_linea_trafico/gobierno_c" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual_linea_trafico/jubilados_c" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual_linea_trafico/profesional_c" required="true()" type="int"/>
-      <bind constraint=".&lt;1000000 and .&gt;0" nodeset="/C1.22/abono_mensual_linea_trafico/otrasDetallar_c" required="true()" type="int"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_familia" required="true()" type="string"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_comercial" required="true()" type="string"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_gobierno" required="true()" type="string"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_jubilados" required="true()" type="string"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_profesional" required="true()" type="string"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_otros" required="true()" type="string"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_familia" required="true()" type="string"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_comercial" required="true()" type="string"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_gobierno" required="true()" type="string"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_jubilados" required="true()" type="string"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_profesional" required="true()" type="string"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_otros" required="true()" type="string"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_familia" required="true()" type="string"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_comercial" required="true()" type="string"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_gobierno" required="true()" type="string"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_jubilados" required="true()" type="string"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_profesional" required="true()" type="string"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_otros" required="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.22/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col6 well-white" ref="/C1.22/instalacion_linea">
+    <group appearance="col6 well-white" ref="/C1.22/instalacion">
       <label>Instalación</label>
-      <input ref="/C1.22/instalacion_linea/familia_a">
+      <input ref="/C1.22/instalacion/instalacion_familia">
         <label>Hogares</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Hogares [en pesos]</hint>
       </input>
-      <input ref="/C1.22/instalacion_linea/comercial_a">
+      <input ref="/C1.22/instalacion/instalacion_comercial">
         <label>Comercial</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Comercial [en pesos]</hint>
       </input>
-      <input ref="/C1.22/instalacion_linea/gobierno_a">
+      <input ref="/C1.22/instalacion/instalacion_gobierno">
         <label>Gobierno</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Gobierno [en pesos]</hint>
       </input>
-      <input ref="/C1.22/instalacion_linea/jubilados_a">
+      <input ref="/C1.22/instalacion/instalacion_jubilados">
         <label>Jubilados</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Jubilados [en pesos]</hint>
       </input>
-      <input ref="/C1.22/instalacion_linea/profesional_a">
+      <input ref="/C1.22/instalacion/instalacion_profesional">
         <label>Profesional</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Profesional [en pesos]</hint>
       </input>
-      <input ref="/C1.22/instalacion_linea/otrasDetallar_a">
+      <input ref="/C1.22/instalacion/instalacion_otros">
         <label>Otros</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Otros [en pesos]</hint>
       </input>
     </group>
-    <group appearance="col6 well-white" ref="/C1.22/abono_mensual">
+    <group appearance="col6 well-white" ref="/C1.22/abono">
       <label>Abono</label>
-      <input ref="/C1.22/abono_mensual/familia_b">
+      <input ref="/C1.22/abono/abono_familia">
         <label>Hogares</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Hogares [en pesos]</hint>
       </input>
-      <input ref="/C1.22/abono_mensual/comercial_b">
+      <input ref="/C1.22/abono/abono_comercial">
         <label>Comercial</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Comercial [en pesos]</hint>
       </input>
-      <input ref="/C1.22/abono_mensual/gobierno_b">
+      <input ref="/C1.22/abono/abono_gobierno">
         <label>Gobierno</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Gobierno [en pesos]</hint>
       </input>
-      <input ref="/C1.22/abono_mensual/jubilados_b">
+      <input ref="/C1.22/abono/abono_jubilados">
         <label>Jubilados</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Jubilados [en pesos]</hint>
       </input>
-      <input ref="/C1.22/abono_mensual/profesional_b">
+      <input ref="/C1.22/abono/abono_profesional">
         <label>Profesional</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Profesional [en pesos]</hint>
       </input>
-      <input ref="/C1.22/abono_mensual/otrasDetallar_b">
+      <input ref="/C1.22/abono/abono_otros">
         <label>Otros</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Otros [en pesos]</hint>
       </input>
     </group>
-    <group appearance="col6 well-white" ref="/C1.22/abono_mensual_linea_trafico">
+    <group appearance="col6 well-white" ref="/C1.22/abono_entrante">
       <label>Abono Entrante</label>
-      <input ref="/C1.22/abono_mensual_linea_trafico/familia_c">
+      <input ref="/C1.22/abono_entrante/entrante_familia">
         <label>Hogares</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Hogares [en pesos]</hint>
       </input>
-      <input ref="/C1.22/abono_mensual_linea_trafico/comercial_c">
+      <input ref="/C1.22/abono_entrante/entrante_comercial">
         <label>Comercial</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Comercial [en pesos]</hint>
       </input>
-      <input ref="/C1.22/abono_mensual_linea_trafico/gobierno_c">
+      <input ref="/C1.22/abono_entrante/entrante_gobierno">
         <label>Gobierno</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Gobierno [en pesos]</hint>
       </input>
-      <input ref="/C1.22/abono_mensual_linea_trafico/jubilados_c">
+      <input ref="/C1.22/abono_entrante/entrante_jubilados">
         <label>Jubilados</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Jubilados [en pesos]</hint>
       </input>
-      <input ref="/C1.22/abono_mensual_linea_trafico/profesional_c">
+      <input ref="/C1.22/abono_entrante/entrante_profesional">
         <label>Profesional</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Profesional [en pesos]</hint>
       </input>
-      <input ref="/C1.22/abono_mensual_linea_trafico/otrasDetallar_c">
+      <input ref="/C1.22/abono_entrante/entrante_otros">
         <label>Otros</label>
-        <hint>Ingrese número entero</hint>
+        <hint>Otros [en pesos]</hint>
       </input>
     </group>
   </h:body>

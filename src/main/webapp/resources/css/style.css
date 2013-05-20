@@ -11,7 +11,7 @@ textarea,input[type="text"],input[type="password"],input[type="datetime"],input[
 	border-radius: 3px;
 	display: inline-block;
 	color: rgba(0, 0, 0, 1);
-	width: 90%;
+	width: 97%;
 	text-indent:5px;
 }
 
@@ -273,6 +273,7 @@ fieldset.col4 {
 	-webkit-border-radius: 5px;
       -moz-border-radius: 5px;
            border-radius: 5px;
+           margin-bottom:10px;
 }
 
 fieldset.col6 {
@@ -282,6 +283,7 @@ fieldset.col6 {
 	-webkit-border-radius: 5px;
       -moz-border-radius: 5px;
            border-radius: 5px;
+           margin-bottom:10px;
 }
 
 .col6 {
@@ -353,6 +355,7 @@ fieldset.col3 {
 	-webkit-border-radius: 5px;
       -moz-border-radius: 5px;
            border-radius: 5px;
+           margin-bottom:10px;
 }
 
 .col3 label {
@@ -370,13 +373,14 @@ fieldset.col2 {
 	border: 1px solid #ccc;
 	padding: 0px;
 	margin: 0 0 10px 5px;
-	width: 47%;
+	width: 48%;
 	float: left;
 	margin-left: 10px;
 	margin-bottom: 10px;
 	-webkit-border-radius: 5px;
       -moz-border-radius: 5px;
            border-radius: 5px;
+           margin-bottom:10px;
 }
 
 fieldset .col2 label {
@@ -405,6 +409,7 @@ fieldset.col1 {
 	-webkit-border-radius: 5px;
       -moz-border-radius: 5px;
            border-radius: 5px;
+           margin-bottom:10px;
 }
 
 .col1 label {
