@@ -51,14 +51,15 @@
           </input>
           <input ref="/C1.28/meses/mes/lineas">
             <label>Líneas Directas</label>
-            <hint>Líneas Dierctas [en miles de pesos]</hint>
+            <hint>Líneas Directas [en miles de pesos]</hint>
           </input>
           <input ref="/C1.28/meses/mes/otros">
             <label>Otros</label>
             <hint>Otros [en miles de pesos]</hint>
           </input>
           <input ref="/C1.28/meses/mes/total">
-            <label>Total <output value=" /C1.28/meses/mes/calculate1 "/></label><hint>Total [en miles de pesos]</hint>
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
           </input>
         </group>
       </repeat>

@@ -9,7 +9,6 @@
             <tarifa_110/>
             <tarifa_113/>
             <otros/>
-            <otros1/>
           </precio>
           <meta>
             <instanceID/>
@@ -18,8 +17,7 @@
       </instance>
       <bind constraint="mask=999.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C1.24/precio/tarifa_110" required="true()" type="decimal"/>
       <bind constraint="mask=999.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C1.24/precio/tarifa_113" required="true()" type="decimal"/>
-      <bind nodeset="/C1.24/precio/otros" required="true()" type="string"/>
-      <bind constraint="mask=999.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C1.24/precio/otros1" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C1.24/precio/otros" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.24/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -35,9 +33,6 @@
         <hint>Precio [en pesos]</hint>
       </input>
       <input ref="/C1.24/precio/otros">
-        <label>Otros</label>
-      </input>
-      <input ref="/C1.24/precio/otros1">
         <label>Otros</label>
         <hint>Precio [en pesos]</hint>
       </input>
