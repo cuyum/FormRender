@@ -26,11 +26,11 @@
       <label>Número</label>
       <input ref="/C1.24/numero/tarifa_110">
         <label>110</label>
-        <hint>Precio</hint>
+        <hint>Precio [en pesos]</hint>
       </input>
       <input ref="/C1.24/numero/tarifa_113">
         <label>113</label>
-        <hint>Precio</hint>
+        <hint>Precio [en pesos]</hint>
       </input>
       <input ref="/C1.24/numero/tarifa_osespecificar1">
         <label>Otros</label>

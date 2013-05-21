@@ -70,7 +70,7 @@
         <label>Costo interconexión a red móvil</label>
         <input ref="/C1.48/mes/red_movil/prove1">
           <label>Proveedor</label>
-          <hint>Prove 1</hint>
+          <hint>Proveedor 1</hint>
         </input>
         <input ref="/C1.48/mes/red_movil/costo1">
           <label>Costo</label>
@@ -78,7 +78,7 @@
         </input>
         <input ref="/C1.48/mes/red_movil/prove2">
           <label>Proveedor</label>
-          <hint>Prove 2</hint>
+          <hint>Proveedor 2</hint>
         </input>
         <input ref="/C1.48/mes/red_movil/costo2">
           <label>Costo</label>
@@ -86,7 +86,7 @@
         </input>
         <input ref="/C1.48/mes/red_movil/prove3">
           <label>Proveedor</label>
-          <hint>Prove 3</hint>
+          <hint>Proveedor 3</hint>
         </input>
         <input ref="/C1.48/mes/red_movil/costo3">
           <label>Costo</label>
@@ -94,7 +94,7 @@
         </input>
         <input ref="/C1.48/mes/red_movil/prove_otros">
           <label>Proveedor Otros</label>
-          <hint>Prove Otros</hint>
+          <hint>Proveedor Otros</hint>
         </input>
         <input ref="/C1.48/mes/red_movil/costo_otros">
           <label>Costo Otros</label>
@@ -105,7 +105,7 @@
         <label>Costo interconexión a red fija</label>
         <input ref="/C1.48/mes/red_fija/prove1_1">
           <label>Proveedor</label>
-          <hint>Prove 1</hint>
+          <hint>Proveedor 1</hint>
         </input>
         <input ref="/C1.48/mes/red_fija/costo1_1">
           <label>Costo</label>
@@ -113,7 +113,7 @@
         </input>
         <input ref="/C1.48/mes/red_fija/prove2_1">
           <label>Proveedor</label>
-          <hint>Prove 2</hint>
+          <hint>Proveedor 2</hint>
         </input>
         <input ref="/C1.48/mes/red_fija/costo2_1">
           <label>Costo</label>
@@ -121,7 +121,7 @@
         </input>
         <input ref="/C1.48/mes/red_fija/prove_otros_1">
           <label>Proveedor</label>
-          <hint>Prove 3</hint>
+          <hint>Proveedor 3</hint>
         </input>
         <input ref="/C1.48/mes/red_fija/costo_otros_1">
           <label>Costo</label>
@@ -129,7 +129,7 @@
         </input>
         <input ref="/C1.48/mes/red_fija/mantenimiento">
           <label>Proveedor Otros</label>
-          <hint>Prove Otros</hint>
+          <hint>Proveedor Otros</hint>
         </input>
         <input ref="/C1.48/mes/red_fija/red_movil_otros">
           <label>Costo Otros</label>
