@@ -13,9 +13,7 @@ var setupValidations = function(field){
 						if(f.is("textarea")) return "Debe ingresar un valor";
 						return "Debe elegir una opci&oacute;n";
 					}else{
-						var cMsg = f.attr("data-constraint-msg");
-						if(cMsg) return cMsg;
-						else return "El campo es requerido";
+						return "El campo es requerido";
 					}
 				}
 			}
@@ -155,6 +153,7 @@ var setupValidations = function(field){
 	if(data_constraints){
 		var constraintContainer = [];
 		var constraints = data_constraints.split(" and ");
+		var constraintMsg = f.attr("data-constraint-msg");
 		/* Process constraints of field */
 		for ( var i = 0; i < constraints.length; i++) {
 			var constraint = constraints[i];
@@ -228,7 +227,18 @@ var setupValidations = function(field){
 			f.rules( "add", {
 				decimal:true
 				,messages:{
-					number: "Debe ser un valor num&eacute;rico v&aacute;lido"
+					decimal: constraintMsg || "Debe ser un valor con decimales",
+					number: constraintMsg || "Debe ser un valor num&eacute;rico v&aacute;lido"
+				}
+			});
+		}
+		
+		if(data_type && data_type=="int"){
+			f.rules( "add", {
+				entero:true
+				,messages:{
+					entero: constraintMsg || "Debe ser un valor entero",
+					number: constraintMsg || "Debe ser un valor num&eacute;rico v&aacute;lido"
 				}
 			});
 		}
@@ -239,7 +249,7 @@ var setupValidations = function(field){
 			f.rules( "add", {
 				lower: max
 				,messages:{
-					number: "Debe ser un valor num&eacute;rico v&aacute;lido"
+					number: constraintMsg || "Debe ser un valor num&eacute;rico v&aacute;lido"
 				}
 			});
 		}
@@ -249,7 +259,7 @@ var setupValidations = function(field){
 			f.rules( "add", {
 				higher: min
 				,messages:{
-					number: "Debe ser un valor num&eacute;rico v&aacute;lido"
+					number: constraintMsg || "Debe ser un valor num&eacute;rico v&aacute;lido"
 				}
 			});
 		}
@@ -259,8 +269,8 @@ var setupValidations = function(field){
 			f.rules( "add", {
 				max: max
 				,messages:{
-					max: "Debe ser un valor menor o igual que {0}",
-					number: "Debe ser un valor num&eacute;rico v&aacute;lido"
+					max: constraintMsg || "Debe ser un valor menor o igual que {0}",
+					number: constraintMsg || "Debe ser un valor num&eacute;rico v&aacute;lido"
 				}
 			});
 		}
@@ -270,8 +280,8 @@ var setupValidations = function(field){
 			f.rules( "add", {
 				min: min
 				,messages:{
-					min: "Debe ser un valor mayor o igual que {0}",
-					number: "Debe ser un valor num&eacute;rico v&aacute;lido"
+					min: constraintMsg || "Debe ser un valor mayor o igual que {0}",
+					number: constraintMsg || "Debe ser un valor num&eacute;rico v&aacute;lido"
 				}
 			});
 		}
@@ -284,7 +294,10 @@ var setupValidations = function(field){
 		
 		if(f.data("jr:constraint:cuit")!=undefined){
 			f.rules( "add", {
-				cuit: true
+				cuit: true,
+				messages :{
+					cuit:constraintMsg || "Debe ser un cuit v\u00e1lido"
+				}
 			});
 		}
 		
@@ -399,16 +412,16 @@ var setupValidationDefaults = function(){
 	});
 	
 	$.validator.addMethod("entero", 
-		function(value, element) { 
+		function(value, element) {
 //			return this.optional(element) || /^(-)?[0-9]*$/.test(value); 
-			return /^(-)?[0-9]*$/.test(value); 
+			return /^-?(?!0)(?:\d+|\d{1,3}(?:\.\d{3})+)$/.test(value); 
 		}, 
 		"Debe especificar un n&uacute;mero entero");
 	
 	$.validator.addMethod("decimal", 
 		function(value, element) { 
 //			return this.optional(element) || /^\s*-?(\d+(\.\d{1,2})?|\.\d{1,2})\s*$/.test(value); 
-			return /^\s*-?(\d+(\.\d{2}){0,1})\s*$/.test(value); 
+			return /^-?(?!0)(?:\d+\,\d{1,3}|\d{1,3}(?:\.\d{3})+\,\d{1,3})$/.test(value); 
 		}, 
 		"Debe especificar un n&uacute;mero decimal con dos cifras luego del punto");
 	
