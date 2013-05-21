@@ -5,196 +5,196 @@
     <model>
       <instance>
         <C1.25 id="C1.25">
-          <servicios0>
-            <servicio1/>
-            <servicio19/>
-            <servicio20/>
-            <servicio5/>
-            <servicio4/>
-            <servicio6/>
-            <servicio7/>
-            <servicio8/>
-            <servicio21/>
-            <servicio10/>
-            <servicio11/>
-            <servicio12/>
-            <servicio13/>
-            <servicio14/>
-            <servicio15/>
-            <servicio16/>
-            <servicio17/>
-            <servicio18/>
-            <servicio2/>
-            <servicio3/>
-            <servicio9/>
-            <servicio28/>
-            <servicio29/>
-            <servicio24/>
-            <servicio25/>
-            <servicio26/>
-            <servicio27/>
-            <servicio22/>
-            <servicio23/>
-            <servicio30/>
-          </servicios0>
+          <servicios>
+            <s_llamada_conf/>
+            <s_bloqueo_local/>
+            <s_bloqueo_ldn/>
+            <s_desvio_ocupado1/>
+            <s_desvio_ocupado2/>
+            <s_desvio_no/>
+            <s_desvio_cambio/>
+            <s_desvio_baja/>
+            <s_bloqueo_ldi/>
+            <s_llamada_selec/>
+            <s_identificador/>
+            <s_restriccion/>
+            <s_facturacion/>
+            <s_no_figurar/>
+            <s_despertador/>
+            <s_no_molestar/>
+            <s_cliente/>
+            <s_numeracion_abrev/>
+            <s_senal_llamada/>
+            <s_desvio_dir/>
+            <s_memo_llamada/>
+            <s_amplificador/>
+            <s_timbre/>
+            <s_bloqueo_llamadas/>
+            <s_telectura/>
+            <s_mant_domicilio/>
+            <s_datos/>
+            <s_bloqueo_modalidad/>
+            <s_bloqueo_audiotexto/>
+            <s_otros/>
+          </servicios>
           <meta>
             <instanceID/>
           </meta>
         </C1.25>
       </instance>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio1" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio19" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio20" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio5" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio4" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio6" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio7" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio8" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio21" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio10" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio11" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio12" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio13" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio14" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio15" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio16" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio17" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio18" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio2" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio3" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio9" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio28" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio29" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio24" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio25" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio26" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio27" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio22" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio23" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios0/servicio30" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_llamada_conf" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_local" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_ldn" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_ocupado1" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_ocupado2" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_no" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_cambio" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_baja" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_ldi" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_llamada_selec" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_identificador" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_restriccion" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_facturacion" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_no_figurar" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_despertador" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_no_molestar" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_cliente" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_numeracion_abrev" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_senal_llamada" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_dir" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_memo_llamada" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_amplificador" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_timbre" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_llamadas" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_telectura" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_mant_domicilio" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_datos" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_modalidad" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_audiotexto" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_otros" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.25/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col6 well-white" ref="/C1.25/servicios0">
+    <group appearance="col6 well-white" ref="/C1.25/servicios">
       <label>Servicios</label>
-      <input ref="/C1.25/servicios0/servicio1">
+      <input ref="/C1.25/servicios/s_llamada_conf">
         <label>Llamada en Conferencia</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio19">
+      <input ref="/C1.25/servicios/s_bloqueo_local">
         <label>Bloqueo de Tráfico Local</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio20">
+      <input ref="/C1.25/servicios/s_bloqueo_ldn">
         <label>Bloqueo de Tráfico LDN</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio5">
+      <input ref="/C1.25/servicios/s_desvio_ocupado1">
         <label>Desvío por Ocupado</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio4">
+      <input ref="/C1.25/servicios/s_desvio_ocupado2">
         <label>Desvío por Ocupado</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio6">
+      <input ref="/C1.25/servicios/s_desvio_no">
         <label>Desvío por No contesta</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio7">
+      <input ref="/C1.25/servicios/s_desvio_cambio">
         <label>Desvío por Cambio Dom.</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio8">
+      <input ref="/C1.25/servicios/s_desvio_baja">
         <label>Desvío por Baja</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio21">
+      <input ref="/C1.25/servicios/s_bloqueo_ldi">
         <label>Bloqueo Tráfico LDI</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio10">
+      <input ref="/C1.25/servicios/s_llamada_selec">
         <label>Llamada sin Selección</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio11">
+      <input ref="/C1.25/servicios/s_identificador">
         <label>Identificador de Llamadas</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio12">
+      <input ref="/C1.25/servicios/s_restriccion">
         <label>Restricción Caller</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio13">
+      <input ref="/C1.25/servicios/s_facturacion">
         <label>Facturación Detallada</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio14">
+      <input ref="/C1.25/servicios/s_no_figurar">
         <label>No Figurar en Guía</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio15">
+      <input ref="/C1.25/servicios/s_despertador">
         <label>Servicio Despertador</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio16">
+      <input ref="/C1.25/servicios/s_no_molestar">
         <label>No Molestar</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio17">
+      <input ref="/C1.25/servicios/s_cliente">
         <label>Cliente/Abonado Ausente</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio18">
+      <input ref="/C1.25/servicios/s_numeracion_abrev">
         <label>Numeración Abreviada</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio2">
+      <input ref="/C1.25/servicios/s_senal_llamada">
         <label>Señal de Llamada en Espera</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio3">
+      <input ref="/C1.25/servicios/s_desvio_dir">
         <label>Desvío Dir. Transf. Llamadas</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio9">
+      <input ref="/C1.25/servicios/s_memo_llamada">
         <label>Memo Llamada / Contestador</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio28">
+      <input ref="/C1.25/servicios/s_amplificador">
         <label>Amplificador para Radiodifusión</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio29">
+      <input ref="/C1.25/servicios/s_timbre">
         <label>Timbre distintivo de Llamadas</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio24">
+      <input ref="/C1.25/servicios/s_bloqueo_llamadas">
         <label>Bloqueo de Llamadas Masivas</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio25">
+      <input ref="/C1.25/servicios/s_telectura">
         <label>Servicio de Telectura</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio26">
+      <input ref="/C1.25/servicios/s_mant_domicilio">
         <label>Servicio de Mant. Domicilio</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio27">
+      <input ref="/C1.25/servicios/s_datos">
         <label>Datos Inquilino Facturación</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio22">
+      <input ref="/C1.25/servicios/s_bloqueo_modalidad">
         <label>Bloqueo Modalidad</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio23">
+      <input ref="/C1.25/servicios/s_bloqueo_audiotexto">
         <label>Bloqueo de Audiotexto</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios0/servicio30">
+      <input ref="/C1.25/servicios/s_otros">
         <label>Otros Servicios</label>
         <hint>Mensual [en pesos]</hint>
       </input>

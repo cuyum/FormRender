@@ -44,11 +44,11 @@
           <value>0</value>
         </item>
         <item>
-          <label>Masiva</label>
+          <label>MASIVA</label>
           <value>1</value>
         </item>
         <item>
-          <label>Por Adhesión</label>
+          <label>POR ADHESION</label>
           <value>2</value>
         </item>
       </select1>
@@ -60,16 +60,28 @@
           <value>0</value>
         </item>
         <item>
-          <label>Segmento 1</label>
+          <label>HOGARES</label>
           <value>1</value>
         </item>
         <item>
-          <label>Segmento 2</label>
+          <label>COMERCIAL</label>
           <value>2</value>
         </item>
         <item>
-          <label>Segmento 3</label>
+          <label>JUBILADOS</label>
           <value>3</value>
+        </item>
+        <item>
+          <label>GOBIERNO</label>
+          <value>4</value>
+        </item>
+        <item>
+          <label>PROFESIONALES</label>
+          <value>5</value>
+        </item>
+        <item>
+          <label>OTROS</label>
+          <value>5</value>
         </item>
       </select1>
       <input ref="/C1.27/planes/abono_mensual">

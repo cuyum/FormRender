@@ -44,11 +44,11 @@
           <value>0</value>
         </item>
         <item>
-          <label>Masiva</label>
+          <label>MASIVA</label>
           <value>1</value>
         </item>
         <item>
-          <label>Por Adhesión</label>
+          <label>POR ADHESION</label>
           <value>2</value>
         </item>
       </select1>
