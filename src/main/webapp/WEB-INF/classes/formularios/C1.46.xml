@@ -6,10 +6,10 @@
       <instance>
         <C1.46 id="C1.46">
           <mes>
-            <gastos>0</gastos>
-            <cargas>0</cargas>
-            <terceros>0</terceros>
-            <otros>0</otros>
+            <gastos/>
+            <cargas/>
+            <terceros/>
+            <otros/>
             <calculate/>
             <total/>
           </mes>

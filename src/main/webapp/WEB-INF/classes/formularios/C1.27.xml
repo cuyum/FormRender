@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario C1.27 - Tarifas / planes lineas restringidas</h:title>
+    <h:title>Formulario C1.27 - Tarifas / planes líneas restringidas</h:title>
     <model>
       <instance>
         <C1.27 id="C1.27">
           <planes>
-            <my_string/>
-            <periodo/>
-            <segmento_mercado/>
-            <abono_mensual/>
+            <plan/>
+            <aplicacion/>
+            <segmento/>
+            <abono/>
             <minutos/>
             <precio/>
             <observacion/>
@@ -19,10 +19,10 @@
           </meta>
         </C1.27>
       </instance>
-      <bind nodeset="/C1.27/planes/my_string" required="true()" type="string"/>
-      <bind nodeset="/C1.27/planes/periodo" required="true()" type="select1"/>
-      <bind nodeset="/C1.27/planes/segmento_mercado" required="true()" type="select1"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.27/planes/abono_mensual" required="true()" type="decimal"/>
+      <bind nodeset="/C1.27/planes/plan" required="true()" type="string"/>
+      <bind nodeset="/C1.27/planes/aplicacion" required="true()" type="select1"/>
+      <bind nodeset="/C1.27/planes/segmento" required="true()" type="select1"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.27/planes/abono" required="true()" type="decimal"/>
       <bind constraint="mask=999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.27/planes/minutos" required="true()" type="int"/>
       <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.27/planes/precio" required="true()" type="decimal"/>
       <bind nodeset="/C1.27/planes/observacion" required="true()" type="string"/>
@@ -32,11 +32,11 @@
   <h:body>
     <group appearance="col4 well-white" ref="/C1.27/planes">
       <label>Planes</label>
-      <input ref="/C1.27/planes/my_string">
+      <input ref="/C1.27/planes/plan">
         <label>Plan</label>
         <hint>Plan</hint>
       </input>
-      <select1 appearance="minimal" ref="/C1.27/planes/periodo">
+      <select1 appearance="minimal" ref="/C1.27/planes/aplicacion">
         <label>Aplicación</label>
         <hint>Aplicación</hint>
         <item>
@@ -52,7 +52,7 @@
           <value>2</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.27/planes/segmento_mercado">
+      <select1 appearance="minimal" ref="/C1.27/planes/segmento">
         <label>Segmento</label>
         <hint>Segmento</hint>
         <item>
@@ -84,7 +84,7 @@
           <value>5</value>
         </item>
       </select1>
-      <input ref="/C1.27/planes/abono_mensual">
+      <input ref="/C1.27/planes/abono">
         <label>Abono</label>
         <hint>Abono [en pesos]</hint>
       </input>

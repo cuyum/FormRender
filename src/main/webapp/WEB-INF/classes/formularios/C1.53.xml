@@ -6,10 +6,10 @@
       <instance>
         <C1.53 id="C1.53">
           <financ>
-            <financiamiento>0</financiamiento>
-            <subsidios1>0</subsidios1>
-            <subsidios2>0</subsidios2>
-            <subsidios3>0</subsidios3>
+            <financiamiento/>
+            <subsidios_tasa/>
+            <subsidios_impos/>
+            <subsidios_otros/>
           </financ>
           <meta>
             <instanceID/>
@@ -17,9 +17,9 @@
         </C1.53>
       </instance>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.53/financ/financiamiento" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.53/financ/subsidios1" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.53/financ/subsidios2" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.53/financ/subsidios3" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.53/financ/subsidios_tasa" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.53/financ/subsidios_impos" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.53/financ/subsidios_otros" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.53/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -30,15 +30,15 @@
         <label>Financiamiento con SU</label>
         <hint>Financiamiento con SU [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.53/financ/subsidios1">
+      <input ref="/C1.53/financ/subsidios_tasa">
         <label>Subsidios tasa de Interés</label>
         <hint>Subsidios tasa de Interés [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.53/financ/subsidios2">
+      <input ref="/C1.53/financ/subsidios_impos">
         <label>Subsidios Impositivos</label>
         <hint>Subsidios Impositivos [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.53/financ/subsidios3">
+      <input ref="/C1.53/financ/subsidios_otros">
         <label>Otros Subsisdios</label>
         <hint>Otros Subsisdios [en miles de pesos]</hint>
       </input>

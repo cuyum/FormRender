@@ -6,19 +6,19 @@
       <instance>
         <C1.35 id="C1.35">
           <Enero>
-            <familia>0</familia>
-            <comercial>0</comercial>
-            <gobierno>0</gobierno>
-            <jubilados>0</jubilados>
-            <profesional>0</profesional>
-            <otros>0</otros>
+            <hogares/>
+            <comercial/>
+            <gobierno/>
+            <jubilados/>
+            <profesional/>
+            <otros/>
           </Enero>
           <meta>
             <instanceID/>
           </meta>
         </C1.35>
       </instance>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.35/Enero/familia" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.35/Enero/hogares" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.35/Enero/comercial" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.35/Enero/gobierno" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.35/Enero/jubilados" required="true()" type="int"/>
@@ -30,7 +30,7 @@
   <h:body>
     <group appearance="col4 well-white" ref="/C1.35/Enero">
       <label>Enero</label>
-      <input ref="/C1.35/Enero/familia">
+      <input ref="/C1.35/Enero/hogares">
         <label>Hogares:</label>
         <hint>Hogares</hint>
       </input>

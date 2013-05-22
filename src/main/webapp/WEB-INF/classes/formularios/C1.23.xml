@@ -271,23 +271,23 @@
       <group appearance="col2" ref="/C1.23/minuto_mlu_pos/minuto_mlu_pos_detail">
         <label>Pospago</label>
         <input ref="/C1.23/minuto_mlu_pos/minuto_mlu_pos_detail/hr_mlu_pos">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_mlu_pos/minuto_mlu_pos_detail/hn_mlu_pos">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.23/minuto_mlu_pos/minuto_mlu_pre_detail">
         <label>Prepago</label>
         <input ref="/C1.23/minuto_mlu_pos/minuto_mlu_pre_detail/hr_mlu_pre">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_mlu_pos/minuto_mlu_pre_detail/hn_mlu_pre">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
     </group>
@@ -296,23 +296,23 @@
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldn_pos_1/minuto_ldn_pos_1_detail">
         <label>Pospago</label>
         <input ref="/C1.23/minuto_ldn_pos_1/minuto_ldn_pos_1_detail/hr_ldn1_pos">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldn_pos_1/minuto_ldn_pos_1_detail/hn_ldn1_pos">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldn_pos_1/minuto_ldn_pre_1_detail">
         <label>Prepago</label>
         <input ref="/C1.23/minuto_ldn_pos_1/minuto_ldn_pre_1_detail/hr_ldn1_pre">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldn_pos_1/minuto_ldn_pre_1_detail/hn_ldn1_pre">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
     </group>
@@ -321,23 +321,23 @@
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldn_pos_2/minuto_ldn_pos_2_detail">
         <label>Pospago</label>
         <input ref="/C1.23/minuto_ldn_pos_2/minuto_ldn_pos_2_detail/hr_ldn2_pos">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldn_pos_2/minuto_ldn_pos_2_detail/hn_ldn6_pos">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldn_pos_2/minuto_ldn_pre_2_detail">
         <label>Prepago</label>
         <input ref="/C1.23/minuto_ldn_pos_2/minuto_ldn_pre_2_detail/hr_ldn2_pre">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldn_pos_2/minuto_ldn_pre_2_detail/hn_ldn2_pre">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
     </group>
@@ -346,23 +346,23 @@
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldn_pos_3/minuto_ldn_pos_3_detail">
         <label>Pospago</label>
         <input ref="/C1.23/minuto_ldn_pos_3/minuto_ldn_pos_3_detail/hr_ldn3_pos">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldn_pos_3/minuto_ldn_pos_3_detail/hn_ldn3_pos">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldn_pos_3/minuto_ldn_pre_3_detail">
         <label>Prepago</label>
         <input ref="/C1.23/minuto_ldn_pos_3/minuto_ldn_pre_3_detail/hr_ldn3_pre">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldn_pos_3/minuto_ldn_pre_3_detail/hn_ldn3_pre">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
     </group>
@@ -371,23 +371,23 @@
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldn_pos_4/minuto_ldn_pos_4_detail">
         <label>Pospago</label>
         <input ref="/C1.23/minuto_ldn_pos_4/minuto_ldn_pos_4_detail/hr_ldn4_pos">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldn_pos_4/minuto_ldn_pos_4_detail/hn_ldn4_pos">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldn_pos_4/minuto_ldn_pre_4_detail">
         <label>Prepago</label>
         <input ref="/C1.23/minuto_ldn_pos_4/minuto_ldn_pre_4_detail/hr_ldn4_pre">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldn_pos_4/minuto_ldn_pre_4_detail/hn_ldn4_pre">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
     </group>
@@ -396,23 +396,23 @@
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldn_pos_5/minuto_ldn_pos_5_detail">
         <label>Pospago</label>
         <input ref="/C1.23/minuto_ldn_pos_5/minuto_ldn_pos_5_detail/hr_ldn5_pos">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldn_pos_5/minuto_ldn_pos_5_detail/hn_ldn4_pos">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldn_pos_5/minuto_ldn_pre_5_detail">
         <label>Prepago</label>
         <input ref="/C1.23/minuto_ldn_pos_5/minuto_ldn_pre_5_detail/hr_ldn5_pre">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldn_pos_5/minuto_ldn_pre_5_detail/hn_ldn5_pre">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
     </group>
@@ -421,23 +421,23 @@
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldn_pos_6/minuto_ldn_pos_6_detail">
         <label>Pospago</label>
         <input ref="/C1.23/minuto_ldn_pos_6/minuto_ldn_pos_6_detail/hr_ldn6_pos">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldn_pos_6/minuto_ldn_pos_6_detail/hn_ldn6_pos">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldn_pos_6/minuto_ldn_pre_6_detail">
         <label>Prepago</label>
         <input ref="/C1.23/minuto_ldn_pos_6/minuto_ldn_pre_6_detail/hr_ldn6_pre">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldn_pos_6/minuto_ldn_pre_6_detail/hn_ldn6_pre">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
     </group>
@@ -446,23 +446,23 @@
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pos_FR_detail">
         <label>Pospago</label>
         <input ref="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pos_FR_detail/hr_ldi_FR_pos">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pos_FR_detail/hn_ldi_FR_pos">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pre_FR_detail">
         <label>Prepago</label>
         <input ref="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pre_FR_detail/hr_ldi_FR_pre">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldi_pos_FR/minuto_ldi_pre_FR_detail/hn_ldi_FR_pre">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
     </group>
@@ -471,23 +471,23 @@
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail">
         <label>Pospago</label>
         <input ref="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail/hr_ldi_AS_pos">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pos_AS_detail/hn_ldi_AS_pos">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail">
         <label>Prepago</label>
         <input ref="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail/hr_ldi_AS_pre">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldi_pos_AS/minuto_ldi_pre_AS_detail/hn_ldi_AS_pre">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
     </group>
@@ -496,23 +496,23 @@
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail">
         <label>Pospago</label>
         <input ref="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail/hr_ldi_AC_pos">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pos_AC_detail/hn_ldi_AC_pos">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail">
         <label>Prepago</label>
         <input ref="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail/hr_ldi_AC_pre">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldi_pos_AC/minuto_ldi_pre_AC_detail/hn_ldi_AC_pre">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
     </group>
@@ -521,23 +521,23 @@
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail">
         <label>Pospago</label>
         <input ref="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail/hr_ldi_AN_pos">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pos_AN_detail/hn_ldi_AN_pos">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail">
         <label>Prepago</label>
         <input ref="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail/hr_ldi_AN_pre">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldi_pos_AN/minuto_ldi_pre_AN_detail/hn_ldi_AN_pre">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
     </group>
@@ -546,23 +546,23 @@
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail">
         <label>Pospago</label>
         <input ref="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail/hr_ldi_EU_pos">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pos_EU_detail/hn_ldi_EU_pos">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail">
         <label>Prepago</label>
         <input ref="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail/hr_ldi_EU_pre">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldi_pos_EU/minuto_ldi_pre_EU_detail/hn_ldi_EU_pre">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
     </group>
@@ -571,23 +571,23 @@
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail">
         <label>Pospago</label>
         <input ref="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail/hr_ldi_AFR_pos">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pos_AFR_detail/hn_ldi_AFR_pos">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail">
         <label>Prepago</label>
         <input ref="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail/hr_ldi_AFR_pre">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldi_pos_AFR/minuto_ldi_pre_AFR_detail/hn_ldi_AFR_pre">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
     </group>
@@ -596,23 +596,23 @@
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail">
         <label>Pospago</label>
         <input ref="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail/hr_ldi_ASI_pos">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pos_ASI_detail/hn_ldi_ASI_pos">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail">
         <label>Prepago</label>
         <input ref="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail/hr_ldi_ASI_pre">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldi_pos_ASI/minuto_ldi_pre_ASI_detail/hn_ldi_ASI_pre">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
     </group>
@@ -621,23 +621,23 @@
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail">
         <label>Pospago</label>
         <input ref="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail/hr_ldi_OCE_pos">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pos_OCE_detail/hn_ldi_OCE_pos">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail">
         <label>Prepago</label>
         <input ref="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail/hr_ldi_OCE_pre">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_ldi_pos_OCE/minuto_ldi_pre_OCE_detail/hn_ldi_OCE_pre">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
     </group>
@@ -646,23 +646,23 @@
       <group appearance="col2 well-white" ref="/C1.23/minuto_revertida_pos_local/minuto_revertida_pos_local_detail">
         <label>Pospago</label>
         <input ref="/C1.23/minuto_revertida_pos_local/minuto_revertida_pos_local_detail/hr_revertida_local_pos">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_revertida_pos_local/minuto_revertida_pos_local_detail/hn_revertida_local_pos">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.23/minuto_revertida_pos_local/minuto_revertida_pre_local_detail">
         <label>Prepago</label>
         <input ref="/C1.23/minuto_revertida_pos_local/minuto_revertida_pre_local_detail/hr_revertida_local_pre">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_revertida_pos_local/minuto_revertida_pre_local_detail/hn_revertida_local_pre">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
     </group>
@@ -671,23 +671,23 @@
       <group appearance="col2 well-white" ref="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail">
         <label>Pospago</label>
         <input ref="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail/hr_revertida_ldn_pos">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pos_ldn_detail/hn_revertida_ldn_pos">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail">
         <label>Prepago</label>
         <input ref="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail/hr_revertida_ldn_pre">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_revertida_pos_ldn/minuto_revertida_pre_ldn_detail/hn_revertida_ldn_pre">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
     </group>
@@ -696,23 +696,23 @@
       <group appearance="col2 well-white" ref="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail">
         <label>Pospago</label>
         <input ref="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail/hr_revertida_ldi_pos">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pos_ldi_detail/hn_revertida_ldi_pos">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail">
         <label>Prepago</label>
         <input ref="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail/hr_revertida_ldi_pre">
-          <label>HR</label>
-          <hint>HR [en pesos]</hint>
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
         </input>
         <input ref="/C1.23/minuto_revertida_pos_ldi/minuto_revertida_pre_ldi_detail/hn_revertida_ldi_pre">
-          <label>HN</label>
-          <hint>HN [en pesos]</hint>
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
         </input>
       </group>
     </group>

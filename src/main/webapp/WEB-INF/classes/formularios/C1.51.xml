@@ -6,13 +6,13 @@
       <instance>
         <C1.51 id="C1.51">
           <mes>
-            <exportaciones1>0</exportaciones1>
-            <importaciones1>0</importaciones1>
-            <exportaciones2>0</exportaciones2>
-            <importaciones2>0</importaciones2>
-            <importaciones3>0</importaciones3>
-            <importaciones4>0</importaciones4>
-            <regalias>0</regalias>
+            <tele_expo/>
+            <tele_impo/>
+            <serv_expo/>
+            <serv_impo/>
+            <impo_bienes/>
+            <impo_piezas/>
+            <regalias/>
             <total>
               <calculate1/>
               <calculate2/>
@@ -25,15 +25,15 @@
           </meta>
         </C1.51>
       </instance>
-      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/exportaciones1" required="true()" type="int"/>
-      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/importaciones1" required="true()" type="int"/>
-      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/exportaciones2" required="true()" type="int"/>
-      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/importaciones2" required="true()" type="int"/>
-      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/importaciones3" required="true()" type="int"/>
-      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/importaciones4" required="true()" type="int"/>
+      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/tele_expo" required="true()" type="int"/>
+      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/tele_impo" required="true()" type="int"/>
+      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/serv_expo" required="true()" type="int"/>
+      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/serv_impo" required="true()" type="int"/>
+      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/impo_bienes" required="true()" type="int"/>
+      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/impo_piezas" required="true()" type="int"/>
       <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/regalias" type="int"/>
-      <bind calculate=" /C1.51/mes/exportaciones1 + /C1.51/mes/exportaciones2 " nodeset="/C1.51/mes/total/calculate1" type="string"/>
-      <bind calculate=" /C1.51/mes/importaciones1 + /C1.51/mes/importaciones2 + /C1.51/mes/importaciones3 + /C1.51/mes/importaciones4 " nodeset="/C1.51/mes/total/calculate2" type="string"/>
+      <bind calculate=" /C1.51/mes/tele_expo + /C1.51/mes/serv_expo " nodeset="/C1.51/mes/total/calculate1" type="string"/>
+      <bind calculate=" /C1.51/mes/tele_impo + /C1.51/mes/serv_impo + /C1.51/mes/impo_bienes + /C1.51/mes/impo_piezas " nodeset="/C1.51/mes/total/calculate2" type="string"/>
       <bind constraint="mask= 999.999.999.999" nodeset="/C1.51/mes/total/total1" readonly="true()" type="string"/>
       <bind constraint="mask= 999.999.999.999" nodeset="/C1.51/mes/total/total2" readonly="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.51/meta/instanceID" readonly="true()" type="string"/>
@@ -42,27 +42,27 @@
   <h:body>
     <group appearance="col4 well-white" ref="/C1.51/mes">
       <label>Enero</label>
-      <input ref="/C1.51/mes/exportaciones1">
+      <input ref="/C1.51/mes/tele_expo">
         <label>Telecomunicaciones Expo.:</label>
         <hint>Expo [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.51/mes/importaciones1">
+      <input ref="/C1.51/mes/tele_impo">
         <label>Telecomunicaciones Impo.:</label>
         <hint>Impo [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.51/mes/exportaciones2">
+      <input ref="/C1.51/mes/serv_expo">
         <label>Servicios Expo.:</label>
         <hint>Expo [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.51/mes/importaciones2">
+      <input ref="/C1.51/mes/serv_impo">
         <label>Servicios Impo.:</label>
         <hint>Impo [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.51/mes/importaciones3">
+      <input ref="/C1.51/mes/impo_bienes">
         <label>Importaciones Bienes Capital:</label>
         <hint>Importaciones de Bienes de Capital [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.51/mes/importaciones4">
+      <input ref="/C1.51/mes/impo_piezas">
         <label>Importaciones de Piezas:</label>
         <hint>Importaciones de Piezas [en miles de pesos]</hint>
       </input>

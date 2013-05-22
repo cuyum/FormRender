@@ -6,11 +6,11 @@
       <instance>
         <C1.45 id="C1.45">
           <mes>
-            <arriendos>0</arriendos>
-            <trafico>0</trafico>
-            <corresponsales_entrada>0</corresponsales_entrada>
-            <corresponsales_salida>0</corresponsales_salida>
-            <total_neto>0</total_neto>
+            <arriendos/>
+            <trafico/>
+            <corresponsales_entrada/>
+            <corresponsales_salida/>
+            <total_neto/>
             <calculate3/>
             <total/>
           </mes>

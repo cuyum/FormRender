@@ -6,8 +6,8 @@
       <instance>
         <C1.52 id="C1.52">
           <rentas>
-            <remision>0</remision>
-            <distribucion>0</distribucion>
+            <remision/>
+            <distribucion/>
           </rentas>
           <meta>
             <instanceID/>

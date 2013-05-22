@@ -7,40 +7,40 @@
         <C1.50 id="C1.50">
           <mes>
             <redes_de_acceso>
-              <acceso_fijo>0</acceso_fijo>
-              <acceso_movil>0</acceso_movil>
+              <acceso_fijo/>
+              <acceso_movil/>
             </redes_de_acceso>
             <transporte>
-              <transporte_optico>0</transporte_optico>
-              <transporte_cobre>0</transporte_cobre>
-              <transporte_radioelectrico_radioenlaces>0</transporte_radioelectrico_radioenlaces>
-              <transporte_radioelectrico_satelital>0</transporte_radioelectrico_satelital>
+              <transporte_optico/>
+              <transporte_cobre/>
+              <transporte_radioelectrico_radioenlaces/>
+              <transporte_radioelectrico_satelital/>
             </transporte>
             <obra_civil>
-              <equipamiento_asociado_redes>0</equipamiento_asociado_redes>
-              <obra_civil_redes_inalambricas>0</obra_civil_redes_inalambricas>
-              <obra_civil_redes_acceso>0</obra_civil_redes_acceso>
-              <obra_civil_plantel_exterior>0</obra_civil_plantel_exterior>
+              <equipamiento_asociado_redes/>
+              <obra_civil_redes_inalambricas/>
+              <obra_civil_redes_acceso/>
+              <obra_civil_plantel_exterior/>
             </obra_civil>
             <equipamiento>
-              <equipamiento_redes>0</equipamiento_redes>
-              <equipamiento_instalaciones>0</equipamiento_instalaciones>
+              <equipamiento_redes/>
+              <equipamiento_instalaciones/>
             </equipamiento>
             <software>
-              <software_administrar_red>0</software_administrar_red>
-              <software_monitoreo_control>0</software_monitoreo_control>
-              <software_mantenimiento>0</software_mantenimiento>
-              <software_nodo>0</software_nodo>
+              <software_administrar_red/>
+              <software_monitoreo_control/>
+              <software_mantenimiento/>
+              <software_nodo/>
             </software>
             <licencias>
-              <licencias_software>0</licencias_software>
-              <licencias_hardware>0</licencias_hardware>
-              <licencias_regulatorias>0</licencias_regulatorias>
+              <licencias_software/>
+              <licencias_hardware/>
+              <licencias_regulatorias/>
             </licencias>
-            <infraestructura_administrativa_comercial>0</infraestructura_administrativa_comercial>
-            <desarrollo_su>0</desarrollo_su>
-            <otros_otros>0</otros_otros>
-            <total_total>0</total_total>
+            <infraestructura_administrativa_comercial/>
+            <desarrollo_su/>
+            <otros_otros/>
+            <total_total/>
           </mes>
           <meta>
             <instanceID/>

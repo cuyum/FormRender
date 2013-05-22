@@ -6,15 +6,15 @@
       <instance>
         <C1.47 id="C1.47">
           <mes>
-            <i_d>0</i_d>
-            <imp>0</imp>
-            <am_bienes>0</am_bienes>
-            <am_intang>0</am_intang>
-            <publicidad>0</publicidad>
-            <costo_equipos>0</costo_equipos>
-            <otros_com>0</otros_com>
-            <otros_fin>0</otros_fin>
-            <otros_adm>0</otros_adm>
+            <i_d/>
+            <imp/>
+            <am_bienes/>
+            <am_intang/>
+            <publicidad/>
+            <costo_equipos/>
+            <otros_com/>
+            <otros_fin/>
+            <otros_adm/>
             <calculate/>
             <calculate_test_output/>
           </mes>

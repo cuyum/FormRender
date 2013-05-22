@@ -6,19 +6,19 @@
       <instance>
         <C1.32 id="C1.32">
           <mes>
-            <familia>0</familia>
-            <comercial>0</comercial>
-            <gobierno>0</gobierno>
-            <jubilados>0</jubilados>
-            <profesional>0</profesional>
-            <otros>0</otros>
+            <hogares/>
+            <comercial/>
+            <gobierno/>
+            <jubilados/>
+            <profesional/>
+            <otros/>
           </mes>
           <meta>
             <instanceID/>
           </meta>
         </C1.32>
       </instance>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.32/mes/familia" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.32/mes/hogares" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.32/mes/comercial" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.32/mes/gobierno" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.32/mes/jubilados" required="true()" type="int"/>
@@ -30,7 +30,7 @@
   <h:body>
     <group appearance="col4 well-white" ref="/C1.32/mes">
       <label>Enero</label>
-      <input ref="/C1.32/mes/familia">
+      <input ref="/C1.32/mes/hogares">
         <label>Hogares:</label>
         <hint>Hogares [en miles de pesos]</hint>
       </input>

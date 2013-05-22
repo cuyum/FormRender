@@ -227,15 +227,15 @@ h4 small {
 
 select {
 	width: 90%;
-	background: #fcfcfc;
-	background: -moz-linear-gradient(top, #fcfcfc 0%, #f4f4f4 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fcfcfc),
-		color-stop(100%, #f4f4f4));
-	background: -webkit-linear-gradient(top, #fcfcfc 0%, #f4f4f4 100%);
-	background: -o-linear-gradient(top, #fcfcfc 0%, #f4f4f4 100%);
-	background: -ms-linear-gradient(top, #fcfcfc 0%, #f4f4f4 100%);
-	background: linear-gradient(top, #fcfcfc 0%, #f4f4f4 100%);
-	border: 1px solid #d5d5d5;
+	background-image: -webkit-linear-gradient(top, rgba(255,255,255,1) 15%,rgba(217,217,217,1) 73%, rgba(230,230,230,1) 66%,rgba(255,255,255,1) 100%);
+   background-image:    -moz-linear-gradient(top, rgba(255,255,255,1) 15%,rgba(217,217,217,1) 73%, rgba(230,230,230,1) 66%,rgba(255,255,255,1) 100%);
+   background-image:     -ms-linear-gradient(top, rgba(255,255,255,1) 15%,rgba(217,217,217,1) 73%, rgba(230,230,230,1) 66%,rgba(255,255,255,1) 100%);
+   background-image:      -o-linear-gradient(top, rgba(255,255,255,1) 15%,rgba(217,217,217,1) 73%, rgba(230,230,230,1) 66%,rgba(255,255,255,1) 100%);
+   background-image:         linear-gradient(top, rgba(255,255,255,1) 15%,rgba(217,217,217,1) 73%, rgba(230,230,230,1) 66%,rgba(255,255,255,1) 100%);
+   border: solid 1px #cccccc;
+   -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+           border-radius: 4px;
 	line-height: 24px;
 	height: 24px;
 	box-sizing: content-box;
@@ -258,6 +258,8 @@ select {
 	font-size: 12px;
 	position: relative;
 	overflow: hidden;
+	color:#5F5F5F;
+
 }
 
 fieldset {
@@ -292,10 +294,11 @@ fieldset.col6 {
 }
 
 .col6 label {
-	width: 15.6%;
+	width: 17.6%;
 	float: left;
 	padding-bottom: 8px;
 	margin-left:10px;
+	height:56px;
 }
 
 .col6 input {
@@ -316,7 +319,7 @@ fieldset.col6 {
 	color: #5F5F5F;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
-	line-height: 22px;
+	height:56px;
 }
 
 .col4 fieldset,h4 {
@@ -367,7 +370,7 @@ fieldset.col3 {
 	color: #5F5F5F;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
-	line-height: 22px;
+	height:56px;
 }
 
 fieldset.col2 {
@@ -392,7 +395,7 @@ fieldset .col2 label {
 	color: #5F5F5F;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
-	line-height: 22px;
+	height:56px;
 }
 
 .col1 {
@@ -421,7 +424,7 @@ fieldset.col1 {
 	color: #5F5F5F;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
-	line-height: 22px;
+	height:56px;
 }
 
 .col1 label .error {
@@ -429,6 +432,10 @@ fieldset.col1 {
 	font-size: 10px;
 	margin-left: 1px;
 	width: 100%;
+	line-height: 12px;
+    margin-left: 1px;
+    padding-bottom: 0;
+    line-height: 12px;
 	
 }
 
@@ -438,6 +445,9 @@ fieldset .col2 label .error {
 	margin-left: 1px;
 	width: 100%;
 	padding-bottom: 0px;
+	line-height: 12px;
+    margin-left: 1px;
+    padding-bottom: 0;
 	
 }
 
@@ -447,12 +457,18 @@ fieldset .col3 label.error {
 	font-size: 10px;
 	margin-left: 1px;
 	width: 100%;
+	line-height: 12px;
+    margin-left: 1px;
+    padding-bottom: 0;
 }
 .col3 label.error {
 	color: #B94A48;
 	font-size: 10px;
 	margin-left: 1px;
 	width: 100%;
+	line-height: 12px;
+    margin-left: 1px;
+    padding-bottom: 0;
 }
 
 fieldset .col4 label.error {
@@ -463,6 +479,9 @@ fieldset .col4 label.error {
     margin: 0;
     padding: 0;
     width: 100%;
+   
+    margin-left: 1px;
+    padding-bottom: 0;
 }
 .col4 label.error {
 	color: #B94A48;
@@ -472,6 +491,9 @@ fieldset .col4 label.error {
     margin: 0;
     padding: 0;
     width: 100%;
+    line-height: 12px;
+    margin-left: 1px;
+    padding-bottom: 0;
 }
 
 fieldset .col6 label .error {
@@ -480,12 +502,17 @@ fieldset .col6 label .error {
 	margin-left: 1px;
 	width: 100%;
 	line-height: 7px;
+	line-height: 12px;
+    margin-left: 1px;
+    padding-bottom: 0;
 }
 .col6 label.error {
 	color: #B94A48;
 	font-size: 10px;
 	margin-left: 1px;
 	width: 100%;
+    margin-left: 1px;
+    padding-bottom: 0;
 }
 
 
@@ -508,7 +535,4 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
     border-color: none;
     box-shadow: none;
 }
-.jr-hint{
-width:100%;}
-.active{
-width:100%;}
+

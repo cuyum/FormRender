@@ -6,14 +6,14 @@
       <instance>
         <C1.43 id="C1.43">
           <Enero>
-            <orterfijo>0</orterfijo>
-            <ortermovil>0</ortermovil>
-            <puertos>0</puertos>
-            <coubic>0</coubic>
-            <transito>0</transito>
-            <facilidades>0</facilidades>
-            <facturacion>0</facturacion>
-            <otros>0</otros>
+            <orterfijo/>
+            <ortermovil/>
+            <puertos/>
+            <coubic/>
+            <transito/>
+            <facilidades/>
+            <facturacion/>
+            <otros/>
             <calculate1/>
             <total/>
           </Enero>

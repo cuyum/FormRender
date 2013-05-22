@@ -6,14 +6,14 @@
       <instance>
         <C1.40 id="C1.40">
           <mes>
-            <terminacion_fijo>0</terminacion_fijo>
-            <terminacion_movil>0</terminacion_movil>
-            <puertos>0</puertos>
-            <coubicacion>0</coubicacion>
-            <transito>0</transito>
-            <otras>0</otras>
-            <facturacion>0</facturacion>
-            <otros>0</otros>
+            <terminacion_fijo/>
+            <terminacion_movil/>
+            <puertos/>
+            <coubicacion/>
+            <transito/>
+            <otras/>
+            <facturacion/>
+            <otros/>
             <calculate1/>
             <total/>
           </mes>

@@ -6,9 +6,9 @@
       <instance>
         <C1.44 id="C1.44">
           <mes>
-            <arriendo>0</arriendo>
-            <transporte>0</transporte>
-            <otros>0</otros>
+            <arriendo/>
+            <transporte/>
+            <otros/>
             <calculate2/>
             <total/>
           </mes>

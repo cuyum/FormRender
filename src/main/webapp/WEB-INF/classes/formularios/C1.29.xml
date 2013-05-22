@@ -6,30 +6,30 @@
       <instance>
         <C1.29 id="C1.29">
           <mes>
-            <caba>0</caba>
-            <buenos_Aires>0</buenos_Aires>
-            <catamarca>0</catamarca>
-            <chaco>0</chaco>
-            <chubut>0</chubut>
-            <cordoba>0</cordoba>
-            <corrientes>0</corrientes>
-            <entre_rios>0</entre_rios>
-            <formosa>0</formosa>
-            <jujuy>0</jujuy>
-            <la_Pampa>0</la_Pampa>
-            <la_Rioja>0</la_Rioja>
-            <mendoza>0</mendoza>
-            <misiones>0</misiones>
-            <neuquen>0</neuquen>
-            <rio_Negro>0</rio_Negro>
-            <salta>0</salta>
-            <san_Juan>0</san_Juan>
-            <san_Luis>0</san_Luis>
-            <santa_Cruz>0</santa_Cruz>
-            <santa_Fe>0</santa_Fe>
-            <santiago_Estero>0</santiago_Estero>
-            <tierra_Fuego>0</tierra_Fuego>
-            <tucuman>0</tucuman>
+            <caba/>
+            <buenos_Aires/>
+            <catamarca/>
+            <chaco/>
+            <chubut/>
+            <cordoba/>
+            <corrientes/>
+            <entre_rios/>
+            <formosa/>
+            <jujuy/>
+            <la_Pampa/>
+            <la_Rioja/>
+            <mendoza/>
+            <misiones/>
+            <neuquen/>
+            <rio_Negro/>
+            <salta/>
+            <san_Juan/>
+            <san_Luis/>
+            <santa_Cruz/>
+            <santa_Fe/>
+            <santiago_Estero/>
+            <tierra_Fuego/>
+            <tucuman/>
           </mes>
           <meta>
             <instanceID/>

@@ -69,19 +69,19 @@
         <hint>Prestador</hint>
         <item>
           <label>Seleccione una opcion</label>
-          <value>2333337452</value>
+          <value>23222274524</value>
         </item>
         <item>
           <label>Prestador1</label>
-          <value>2333337452</value>
+          <value>23222274524</value>
         </item>
         <item>
           <label>Prestador2</label>
-          <value>2333337452</value>
+          <value>23222274524</value>
         </item>
         <item>
           <label>Prestador3</label>
-          <value>2333337452</value>
+          <value>23222274524</value>
         </item>
       </select1>
       <input ref="/C1.2/interconexion/capacidad">
@@ -89,6 +89,7 @@
         <hint>Capacidad [Mbps / xxE1]</hint>
       </input>
       <select1 appearance="minimal" ref="/C1.2/interconexion/unidad">
+        <label>Unidad</label>
         <hint>Unidad</hint>
         <item>
           <label>Seleccione una opcion</label>
