@@ -90,6 +90,15 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 			  	<script type="text/javascript" src="/FormRender/resources/js/jquery-1.9.1.min.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
+            	<script type="text/javascript" src="/FormRender/resources/js/jquery-sdk-1.4.min.js">
+            		<xsl:text>&#10;</xsl:text>
+            	</script>
+            	<script type="text/javascript" src="/FormRender/resources/js/jquery-sdk.i18n.min.js">
+            		<xsl:text>&#10;</xsl:text>
+            	</script>
+            	<script type="text/javascript" src="/FormRender/resources/js/jquery-sdk.i18n-locale_es-AR.js">
+            		<xsl:text>&#10;</xsl:text>
+            	</script>
 			  	<script type="text/javascript" src="/FormRender/resources/js/jquery.validate.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
@@ -99,6 +108,9 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 			  	 <script src="/FormRender/resources/js/jquery-ui.min.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
+            	<script type="text/javascript" src="/FormRender/resources/js/cncJsFunctions.js">
+            		<xsl:text>&#10;</xsl:text>
+            	</script>     
 			  	<script type="text/javascript" src="/FormRender/resources/js/cncValidations.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>            	

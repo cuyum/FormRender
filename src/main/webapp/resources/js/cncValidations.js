@@ -24,8 +24,8 @@ var setupValidations = function(field){
 	if(data_calculate && data_calculate.trim().length>0){
 		if(data_calculate.indexOf("concat(")==-1){
 			var totalFieldSpan = $("span.jr-output[data-value~='"+fieldName+"']");
-			var totalField = totalFieldSpan.closest("label").children("input"); 
-			
+			var totalField = totalFieldSpan.closest("label").find("input"); 
+			console.log("totalField",fieldName,totalField);
 			if(totalField){
 				totalField.data("updateTotal",function(sumFields,substractFields){
 					var total = 0;
@@ -33,8 +33,12 @@ var setupValidations = function(field){
 						var field = $("input[name~='"+sumFields[i]+"']");
 						if(!field)	return "Error: "+sumFields[i]+" inexistent";
 						var n = new Number(field.val());
-						if(isNaN(n))
-							console.error("Value of field "+sumFields[i] +" is not a number");
+						if(isNaN(n)){
+							var parsedNumber = cncToNumber(field.val());
+							if(parsedNumber && !isNaN(parsedNumber)){
+								total = total+parsedNumber;
+							}
+						}
 						else
 							total = total + n;
 					}
@@ -48,7 +52,7 @@ var setupValidations = function(field){
 						else
 							total = total - n;
 					}
-					return total;
+					return cncFromNumber(total);
 				});
 				
 				var calculatedFields = data_calculate.split(" + ");
