@@ -9,7 +9,7 @@
             <provincia/>
             <partido/>
             <localidad/>
-            <areas_local/>
+            <area/>
             <centro_at/>
             <personal/>
             <espera_prom/>
@@ -22,7 +22,7 @@
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.19/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.19/mes/provincia" nodeset="/C1.19/mes/partido" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.19/mes/partido" nodeset="/C1.19/mes/localidad" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.19/mes/localidad" nodeset="/C1.19/mes/areas_local" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.19/mes/localidad" nodeset="/C1.19/mes/area" required="true()" type="select1"/>
       <bind constraint="mask=999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.19/mes/centro_at" required="true()" type="int"/>
       <bind constraint="mask=999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.19/mes/personal" required="true()" type="int"/>
       <bind constraint="mask=999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.19/mes/espera_prom" required="true()" type="int"/>
@@ -56,7 +56,7 @@
           <value>0</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.19/mes/areas_local">
+      <select1 appearance="minimal" ref="/C1.19/mes/area">
         <label>Área Local</label>
         <hint>Área Local</hint>
         <item>

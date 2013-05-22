@@ -9,11 +9,11 @@
             <provincia/>
             <partido/>
             <localidad/>
-            <areas_local/>
+            <area/>
           </lugar>
           <equipamiento>
             <equipamiento_tecn/>
-            <equipamiento_cap_disp>0.00</equipamiento_cap_disp>
+            <equipamiento_cap_disp/>
             <equipamiento_cap_util/>
           </equipamiento>
           <medio>
@@ -30,7 +30,7 @@
             <provincia1/>
             <partido1/>
             <localidad1/>
-            <areas_local1/>
+            <area1/>
           </lugar1>
           <meta>
             <instanceID/>
@@ -40,7 +40,7 @@
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.3/lugar/provincia" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.3/lugar/provincia" nodeset="/C1.3/lugar/partido" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.3/lugar/partido" nodeset="/C1.3/lugar/localidad" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.3/lugar/localidad" nodeset="/C1.3/lugar/areas_local" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.3/lugar/localidad" nodeset="/C1.3/lugar/area" required="true()" type="select1"/>
       <bind nodeset="/C1.3/equipamiento/equipamiento_tecn" required="true()" type="select1"/>
       <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/equipamiento/equipamiento_cap_disp" required="true()" type="decimal"/>
       <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/equipamiento/equipamiento_cap_util" required="true()" type="decimal"/>
@@ -53,12 +53,12 @@
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.3/lugar1/provincia1" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.3/lugar1/provincia1" nodeset="/C1.3/lugar1/partido1" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.3/lugar1/partido1" nodeset="/C1.3/lugar1/localidad1" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.3/lugar1/localidad1" nodeset="/C1.3/lugar1/areas_local1" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.3/lugar1/localidad1" nodeset="/C1.3/lugar1/area1" required="true()" type="select1"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.3/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4 well_white" ref="/C1.3/lugar">
+    <group appearance="col4 well-white" ref="/C1.3/lugar">
       <label>Lugar</label>
       <select1 appearance="minimal" ref="/C1.3/lugar/provincia">
         <label>Provincia</label>
@@ -84,7 +84,7 @@
           <value>0</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.3/lugar/areas_local">
+      <select1 appearance="minimal" ref="/C1.3/lugar/area">
         <label>Área Local</label>
         <hint>Área Local</hint>
         <item>
@@ -93,7 +93,7 @@
         </item>
       </select1>
     </group>
-    <group appearance="col3 well_white" ref="/C1.3/equipamiento">
+    <group appearance="col3 well-white" ref="/C1.3/equipamiento">
       <label>Equipamiento</label>
       <select1 appearance="minimal" ref="/C1.3/equipamiento/equipamiento_tecn">
         <label>Tecnología</label>
@@ -132,7 +132,7 @@
         <hint>Capacidad Utilizada [Mbps / xxE1]</hint>
       </input>
     </group>
-    <group appearance="col3 well_white" ref="/C1.3/medio">
+    <group appearance="col3 well-white" ref="/C1.3/medio">
       <label>Medio</label>
       <select1 appearance="minimal" ref="/C1.3/medio/medio_tipo">
         <label>Tipo</label>
@@ -163,7 +163,7 @@
         <hint>Capacidad Utilizada [Mbps / xxE1]</hint>
       </input>
     </group>
-    <group appearance="col3 well_white" ref="/C1.3/tendido">
+    <group appearance="col3 well-white" ref="/C1.3/tendido">
       <label>Tendido</label>
       <select1 appearance="minimal" ref="/C1.3/tendido/tendido_tipo">
         <label>Tipo</label>
@@ -194,7 +194,7 @@
         <hint>Capacidad Utilizada [Mbps / xxE1]</hint>
       </input>
     </group>
-    <group appearance="col4 well_white" ref="/C1.3/lugar1">
+    <group appearance="col4 well-white" ref="/C1.3/lugar1">
       <label>Lugar</label>
       <select1 appearance="minimal" ref="/C1.3/lugar1/provincia1">
         <label>Provincia</label>
@@ -220,7 +220,7 @@
           <value>0</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.3/lugar1/areas_local1">
+      <select1 appearance="minimal" ref="/C1.3/lugar1/area1">
         <label>Área Local</label>
         <hint>Área Local</hint>
         <item>

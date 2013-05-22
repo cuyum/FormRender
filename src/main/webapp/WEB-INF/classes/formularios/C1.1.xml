@@ -24,7 +24,7 @@
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4 whell-white" ref="/C1.1/areas">
+    <group appearance="col4 well-white" ref="/C1.1/areas">
       <label>Áreas de prestación</label>
       <select1 appearance="minimal" ref="/C1.1/areas/provincia">
         <label>Provincia</label>
