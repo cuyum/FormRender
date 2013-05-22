@@ -4,6 +4,10 @@ var setupValidations = function(field){
 	
 	var isRequired = f.attr("required");
 	if(isRequired){
+		if(f.is("select")){
+			var option = f.children("option[value~='0']");
+			option.val("");
+		}
 		f.rules( "add", {
 			required:true,
 			messages:{
