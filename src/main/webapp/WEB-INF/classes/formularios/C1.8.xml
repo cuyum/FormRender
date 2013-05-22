@@ -9,7 +9,9 @@
             <provincia/>
             <partido/>
             <localidad/>
-            <areas_local/>
+            <localidad_otro/>
+            <area/>
+            <area_otro/>
             <abono_local/>
             <abono_ldn/>
             <abono_ldi/>
@@ -23,7 +25,9 @@
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.8/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.8/mes/provincia" nodeset="/C1.8/mes/partido" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.8/mes/partido" nodeset="/C1.8/mes/localidad" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.8/mes/localidad" nodeset="/C1.8/mes/areas_local" required="true()" type="select1"/>
+      <bind nodeset="/C1.8/mes/localidad_otro" relevant=" /C1.8/mes/localidad =9999" type="string"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.8/mes/localidad" nodeset="/C1.8/mes/area" required="true()" type="select1"/>
+      <bind nodeset="/C1.8/mes/area_otro" relevant=" /C1.8/mes/area =9999" type="string"/>
       <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/mes/abono_local" required="true()" type="int"/>
       <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/mes/abono_ldn" required="true()" type="int"/>
       <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/mes/abono_ldi" required="true()" type="int"/>
@@ -58,7 +62,10 @@
           <value>0</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.8/mes/areas_local">
+      <input ref="/C1.8/mes/localidad_otro">
+        <label>Especifique</label>
+      </input>
+      <select1 appearance="minimal" ref="/C1.8/mes/area">
         <label>Área Local</label>
         <hint>Área Local</hint>
         <item>
@@ -66,6 +73,9 @@
           <value>0</value>
         </item>
       </select1>
+      <input ref="/C1.8/mes/area_otro">
+        <label>Especifique</label>
+      </input>
       <input ref="/C1.8/mes/abono_local">
         <label>Abono Local</label>
         <hint>Abono Local</hint>

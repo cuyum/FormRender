@@ -9,7 +9,7 @@
             <provincia/>
             <partido/>
             <localidad/>
-            <areas_local/>
+            <area/>
             <l_l>
               <l_entrante/>
               <l_saliente/>
@@ -31,7 +31,7 @@
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.11/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.12/mes/provincia" nodeset="/C1.11/mes/partido" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.12/mes/partido" nodeset="/C1.11/mes/localidad" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.12/mes/localidad" nodeset="/C1.11/mes/areas_local" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.12/mes/localidad" nodeset="/C1.11/mes/area" required="true()" type="select1"/>
       <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.11/mes/l_l/l_entrante" required="true()" type="decimal"/>
       <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.11/mes/l_l/l_saliente" required="true()" type="decimal"/>
       <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.11/mes/l_ldn/ldn_entrante" required="true()" type="decimal"/>
@@ -42,7 +42,7 @@
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4 well_white" ref="/C1.11/mes">
+    <group appearance="col4 well-white" ref="/C1.11/mes">
       <label>Enero</label>
       <select1 appearance="minimal" ref="/C1.11/mes/provincia">
         <label>Provincia</label>
@@ -68,7 +68,7 @@
           <value>0</value>
         </item>
       </select1>
-      <select1 appearance="minimal" ref="/C1.11/mes/areas_local">
+      <select1 appearance="minimal" ref="/C1.11/mes/area">
         <label>Área Local</label>
         <hint>Área Local</hint>
         <item>
@@ -76,7 +76,7 @@
           <value>0</value>
         </item>
       </select1>
-      <group appearance="col2 well_white" ref="/C1.11/mes/l_l">
+      <group appearance="col2 well-white" ref="/C1.11/mes/l_l">
         <label>L-L</label>
         <input ref="/C1.11/mes/l_l/l_entrante">
           <label>Entrantes</label>
@@ -87,7 +87,7 @@
           <hint>Saliente [en miles]</hint>
         </input>
       </group>
-      <group appearance="col2 well_white" ref="/C1.11/mes/l_ldn">
+      <group appearance="col2 well-white" ref="/C1.11/mes/l_ldn">
         <label>L-LDN</label>
         <input ref="/C1.11/mes/l_ldn/ldn_entrante">
           <label>Entrantes</label>
@@ -98,7 +98,7 @@
           <hint>Saliente [en miles]</hint>
         </input>
       </group>
-      <group appearance="col2 well_white" ref="/C1.11/mes/l_ldi">
+      <group appearance="col2 well-white" ref="/C1.11/mes/l_ldi">
         <label>L-LDI</label>
         <input ref="/C1.11/mes/l_ldi/ldi_entrante">
           <label>Entrantes</label>
