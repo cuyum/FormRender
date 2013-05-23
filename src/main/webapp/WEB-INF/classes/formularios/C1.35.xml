@@ -32,27 +32,27 @@
       <label>Enero</label>
       <input ref="/C1.35/Enero/hogares">
         <label>Hogares:</label>
-        <hint>Hogares</hint>
+        <hint>Hogares [en miles de pesos]</hint>
       </input>
       <input ref="/C1.35/Enero/comercial">
         <label>Comercial:</label>
-        <hint>Comercial</hint>
+        <hint>Comercial [en miles de pesos]</hint>
       </input>
       <input ref="/C1.35/Enero/gobierno">
         <label>Gobierno:</label>
-        <hint>Gobierno</hint>
+        <hint>Gobierno [en miles de pesos]</hint>
       </input>
       <input ref="/C1.35/Enero/jubilados">
         <label>Jubilados:</label>
-        <hint>Jubilados</hint>
+        <hint>Jubilados [en miles de pesos]</hint>
       </input>
       <input ref="/C1.35/Enero/profesional">
         <label>Profesional:</label>
-        <hint>Profesional</hint>
+        <hint>Profesional [en miles de pesos]</hint>
       </input>
       <input ref="/C1.35/Enero/otros">
         <label>Otros:</label>
-        <hint>Otros</hint>
+        <hint>Otros [en miles de pesos]</hint>
       </input>
     </group>
   </h:body>

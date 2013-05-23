@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario C1.43 - Ingresos interconexion a la red fija - local a vinculadas</h:title>
+    <h:title>Formulario C1.43 - Ingresos interconexión a la red fija - local a vinculadas</h:title>
     <model>
       <instance>
         <C1.43 id="C1.43">
@@ -39,20 +39,20 @@
     <group appearance="col3 well-white" ref="/C1.43/Enero">
       <label>Enero</label>
       <input ref="/C1.43/Enero/orterfijo">
-        <label>Origen y Terminacion Local Fijo:</label>
-        <hint>Origen y Terminacion Local Fijo [en miles de pesos]</hint>
+        <label>Origen y Terminación Local Fijo:</label>
+        <hint>Origen y Terminación Local Fijo [en miles de pesos]</hint>
       </input>
       <input ref="/C1.43/Enero/ortermovil">
-        <label>Origen y Terminacion Móvil:</label>
-        <hint>Origen y Terminacion Móvil [en miles de pesos]</hint>
+        <label>Origen y Terminación Móvil:</label>
+        <hint>Origen y Terminación Móvil [en miles de pesos]</hint>
       </input>
       <input ref="/C1.43/Enero/puertos">
         <label>Puertos:</label>
         <hint>Puertos [en miles de pesos]</hint>
       </input>
       <input ref="/C1.43/Enero/coubic">
-        <label>Coubicacion:</label>
-        <hint>Coubicacion [en miles de pesos]</hint>
+        <label>Coubicación:</label>
+        <hint>Coubicación [en miles de pesos]</hint>
       </input>
       <input ref="/C1.43/Enero/transito">
         <label>Tránsito Local:</label>

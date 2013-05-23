@@ -25,17 +25,17 @@
           </meta>
         </C1.51>
       </instance>
-      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/tele_expo" required="true()" type="int"/>
-      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/tele_impo" required="true()" type="int"/>
-      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/serv_expo" required="true()" type="int"/>
-      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/serv_impo" required="true()" type="int"/>
-      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/impo_bienes" required="true()" type="int"/>
-      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/impo_piezas" required="true()" type="int"/>
-      <bind constraint="mask= 999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/regalias" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/tele_expo" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/tele_impo" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/serv_expo" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/serv_impo" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/impo_bienes" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/impo_piezas" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/mes/regalias" type="int"/>
       <bind calculate=" /C1.51/mes/tele_expo + /C1.51/mes/serv_expo " nodeset="/C1.51/mes/total/calculate1" type="string"/>
       <bind calculate=" /C1.51/mes/tele_impo + /C1.51/mes/serv_impo + /C1.51/mes/impo_bienes + /C1.51/mes/impo_piezas " nodeset="/C1.51/mes/total/calculate2" type="string"/>
-      <bind constraint="mask= 999.999.999.999" nodeset="/C1.51/mes/total/total1" readonly="true()" type="string"/>
-      <bind constraint="mask= 999.999.999.999" nodeset="/C1.51/mes/total/total2" readonly="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999" nodeset="/C1.51/mes/total/total1" readonly="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999" nodeset="/C1.51/mes/total/total2" readonly="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.51/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
