@@ -5,74 +5,81 @@
     <model>
       <instance>
         <C1.40 id="C1.40">
-          <mes>
-            <terminacion_fijo/>
-            <terminacion_movil/>
-            <puertos/>
-            <coubicacion/>
-            <transito/>
-            <otras/>
-            <facturacion/>
-            <otros/>
-            <calculate1/>
-            <total/>
-          </mes>
+          <meses jr:template="">
+            <mes>
+              <terminacion_fijo/>
+              <terminacion_movil/>
+              <puertos/>
+              <coubicacion/>
+              <transito/>
+              <otras/>
+              <facturacion/>
+              <otros/>
+              <calculate1/>
+              <total/>
+            </mes>
+          </meses>
           <meta>
             <instanceID/>
           </meta>
         </C1.40>
       </instance>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/mes/terminacion_fijo" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/mes/terminacion_movil" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/mes/puertos" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/mes/coubicacion" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/mes/transito" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/mes/otras" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/mes/facturacion" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/mes/otros" required="true()" type="int"/>
-      <bind calculate=" /C1.40/mes/terminacion_fijo + /C1.40/mes/terminacion_movil + /C1.40/mes/puertos + /C1.40/mes/coubicacion + /C1.40/mes/transito + /C1.40/mes/otras + /C1.40/mes/facturacion + /C1.40/mes/otros " nodeset="/C1.40/mes/calculate1" type="string"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/mes/total" readonly="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/meses/mes/terminacion_fijo" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/meses/mes/terminacion_movil" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/meses/mes/puertos" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/meses/mes/coubicacion" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/meses/mes/transito" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/meses/mes/otras" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/meses/mes/facturacion" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/meses/mes/otros" required="true()" type="int"/>
+      <bind calculate=" /C1.40/meses/mes/terminacion_fijo + /C1.40/meses/mes/terminacion_movil + /C1.40/meses/mes/puertos + /C1.40/meses/mes/coubicacion + /C1.40/meses/mes/transito + /C1.40/meses/mes/otras + /C1.40/meses/mes/facturacion + /C1.40/meses/mes/otros " nodeset="/C1.40/meses/mes/calculate1" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/meses/mes/total" readonly="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.40/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col3 well-white" ref="/C1.40/mes">
-      <label>Enero</label>
-      <input ref="/C1.40/mes/terminacion_fijo">
-        <label>Origen y Terminación Local Fijo</label>
-        <hint>Origen y Terminación Local Fijo [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.40/mes/terminacion_movil">
-        <label>Origen y Terminación Móvil</label>
-        <hint>Origen y Terminación Móvil [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.40/mes/puertos">
-        <label>Puertos</label>
-        <hint>Puertos [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.40/mes/coubicacion">
-        <label>Coubicación</label>
-        <hint>Coubicación [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.40/mes/transito">
-        <label>Tránsito Local</label>
-        <hint>Tránsito Local [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.40/mes/otras">
-        <label>Otras Facilidades Esenciales</label>
-        <hint>Otras Facilidades Esenciales [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.40/mes/facturacion">
-        <label>Facturación y Cobranzas</label>
-        <hint>Facturación y Cobranzas [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.40/mes/otros">
-        <label>Otros</label>
-        <hint>Otros [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.40/mes/total">
-        <label>Total <output value=" /C1.40/mes/calculate1 "/></label><hint>Total [en miles de pesos]</hint>
-      </input>
+    <group ref="/C1.40/meses">
+      <label></label>
+      <repeat nodeset="/C1.40/meses">
+        <group appearance="col3 well-white" ref="/C1.40/meses/mes">
+          <label>{title}</label>
+          <input ref="/C1.40/meses/mes/terminacion_fijo">
+            <label>Origen y Terminación Local Fijo</label>
+            <hint>Origen y Terminación Local Fijo [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.40/meses/mes/terminacion_movil">
+            <label>Origen y Terminación Móvil</label>
+            <hint>Origen y Terminación Móvil [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.40/meses/mes/puertos">
+            <label>Puertos</label>
+            <hint>Puertos [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.40/meses/mes/coubicacion">
+            <label>Coubicación</label>
+            <hint>Coubicación [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.40/meses/mes/transito">
+            <label>Tránsito Local</label>
+            <hint>Tránsito Local [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.40/meses/mes/otras">
+            <label>Otras Facilidades Esenciales</label>
+            <hint>Otras Facilidades Esenciales [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.40/meses/mes/facturacion">
+            <label>Facturación y Cobranzas</label>
+            <hint>Facturación y Cobranzas [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.40/meses/mes/otros">
+            <label>Otros</label>
+            <hint>Otros [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.40/meses/mes/total">
+            <label>Total <output value=" /C1.40/meses/mes/calculate1 "/></label><hint>Total [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
     </group>
   </h:body>
 </h:html>

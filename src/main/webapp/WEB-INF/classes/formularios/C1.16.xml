@@ -5,113 +5,120 @@
     <model>
       <instance>
         <C1.16 id="C1.16">
-          <mes>
-            <provincia/>
-            <partido/>
-            <localidad/>
-            <area/>
-            <trp/>
-            <trcp/>
-            <trr/>
-            <roac/>
-            <rscp/>
-            <tcf/>
-            <dposs/>
-            <tfrp/>
-            <drf/>
-          </mes>
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <partido/>
+              <localidad/>
+              <area/>
+              <trp/>
+              <trcp/>
+              <trr/>
+              <roac/>
+              <rscp/>
+              <tcf/>
+              <dposs/>
+              <tfrp/>
+              <drf/>
+            </mes>
+          </meses>
           <meta>
             <instanceID/>
           </meta>
         </C1.16>
       </instance>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.16/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.16/mes/provincia" nodeset="/C1.16/mes/partido" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.16/mes/partido" nodeset="/C1.16/mes/localidad" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.16/mes/localidad" nodeset="/C1.16/mes/area" required="true()" type="select1"/>
-      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/trp" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/trcp" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/trr" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/roac" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/rscp" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/tcf" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/dposs" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/tfrp" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/mes/drf" required="true()" type="decimal"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.16/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.16/mes/provincia" nodeset="/C1.16/meses/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.16/mes/partido" nodeset="/C1.16/meses/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.16/mes/localidad" nodeset="/C1.16/meses/mes/area" required="true()" type="select1"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/meses/mes/trp" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/meses/mes/trcp" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/meses/mes/trr" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/meses/mes/roac" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/meses/mes/rscp" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/meses/mes/tcf" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/meses/mes/dposs" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/meses/mes/tfrp" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.16/meses/mes/drf" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.16/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4 well-white" ref="/C1.16/mes">
-      <label>Enero</label>
-      <select1 appearance="minimal" ref="/C1.16/mes/provincia">
-        <label>Provincia</label>
-        <hint>Provincia</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <select1 appearance="minimal" ref="/C1.16/mes/partido">
-        <label>Partido / Departamento</label>
-        <hint>Partido/Departamento</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <select1 appearance="minimal" ref="/C1.16/mes/localidad">
-        <label>Localidad</label>
-        <hint>Localidad</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <select1 appearance="minimal" ref="/C1.16/mes/area">
-        <label>Área Local</label>
-        <hint>Área Local</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <input ref="/C1.16/mes/trp">
-        <label>TRP</label>
-        <hint>TRP [%]</hint>
-      </input>
-      <input ref="/C1.16/mes/trcp">
-        <label>TRCP</label>
-        <hint>TRCP [%]</hint>
-      </input>
-      <input ref="/C1.16/mes/trr">
-        <label>TRR</label>
-        <hint>TRR [%]</hint>
-      </input>
-      <input ref="/C1.16/mes/roac">
-        <label>ROAC</label>
-        <hint>ROAC [%]</hint>
-      </input>
-      <input ref="/C1.16/mes/rscp">
-        <label>RSCP</label>
-        <hint>RSCP [%]</hint>
-      </input>
-      <input ref="/C1.16/mes/tcf">
-        <label>TCF</label>
-        <hint>TCF [%]</hint>
-      </input>
-      <input ref="/C1.16/mes/dposs">
-        <label>DPOSS</label>
-        <hint>DPOSS [%]</hint>
-      </input>
-      <input ref="/C1.16/mes/tfrp">
-        <label>TFRP</label>
-        <hint>TFRP [%]</hint>
-      </input>
-      <input ref="/C1.16/mes/drf">
-        <label>DRF</label>
-        <hint>DRF [%]</hint>
-      </input>
+    <group ref="/C1.16/meses">
+      <label></label>
+      <repeat nodeset="/C1.16/meses">
+        <group appearance="col4 well-white" ref="/C1.16/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/C1.16/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C1.16/meses/mes/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C1.16/meses/mes/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C1.16/meses/mes/area">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <input ref="/C1.16/meses/mes/trp">
+            <label>TRP</label>
+            <hint>TRP [%]</hint>
+          </input>
+          <input ref="/C1.16/meses/mes/trcp">
+            <label>TRCP</label>
+            <hint>TRCP [%]</hint>
+          </input>
+          <input ref="/C1.16/meses/mes/trr">
+            <label>TRR</label>
+            <hint>TRR [%]</hint>
+          </input>
+          <input ref="/C1.16/meses/mes/roac">
+            <label>ROAC</label>
+            <hint>ROAC [%]</hint>
+          </input>
+          <input ref="/C1.16/meses/mes/rscp">
+            <label>RSCP</label>
+            <hint>RSCP [%]</hint>
+          </input>
+          <input ref="/C1.16/meses/mes/tcf">
+            <label>TCF</label>
+            <hint>TCF [%]</hint>
+          </input>
+          <input ref="/C1.16/meses/mes/dposs">
+            <label>DPOSS</label>
+            <hint>DPOSS [%]</hint>
+          </input>
+          <input ref="/C1.16/meses/mes/tfrp">
+            <label>TFRP</label>
+            <hint>TFRP [%]</hint>
+          </input>
+          <input ref="/C1.16/meses/mes/drf">
+            <label>DRF</label>
+            <hint>DRF [%]</hint>
+          </input>
+        </group>
+      </repeat>
     </group>
   </h:body>
 </h:html>

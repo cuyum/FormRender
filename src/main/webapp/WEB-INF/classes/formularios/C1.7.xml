@@ -5,83 +5,90 @@
     <model>
       <instance>
         <C1.7 id="C1.7">
-          <mes>
-            <provincia/>
-            <partido/>
-            <localidad/>
-            <area/>
-            <hogares/>
-            <comercial/>
-            <gobierno/>
-            <otros/>
-          </mes>
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <partido/>
+              <localidad/>
+              <area/>
+              <hogares/>
+              <comercial/>
+              <gobierno/>
+              <otros/>
+            </mes>
+          </meses>
           <meta>
             <instanceID/>
           </meta>
         </C1.7>
       </instance>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.7/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.7/mes/provincia" nodeset="/C1.7/mes/partido" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.7/mes/partido" nodeset="/C1.7/mes/localidad" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.7/mes/localidad" nodeset="/C1.7/mes/area" required="true()" type="select1"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.7/mes/hogares" required="true()" type="int"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.7/mes/comercial" required="true()" type="int"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.7/mes/gobierno" required="true()" type="int"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.7/mes/otros" required="true()" type="int"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.7/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.7/mes/provincia" nodeset="/C1.7/meses/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.7/mes/partido" nodeset="/C1.7/meses/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.7/mes/localidad" nodeset="/C1.7/meses/mes/area" required="true()" type="select1"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.7/meses/mes/hogares" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.7/meses/mes/comercial" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.7/meses/mes/gobierno" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.7/meses/mes/otros" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.7/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4 well-white" ref="/C1.7/mes">
-      <label>Enero</label>
-      <select1 appearance="minimal" ref="/C1.7/mes/provincia">
-        <label>Provincia</label>
-        <hint>Seleccione Provincia</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <select1 appearance="minimal" ref="/C1.7/mes/partido">
-        <label>Partido/Departamento</label>
-        <hint>Seleccione Partido</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <select1 appearance="minimal" ref="/C1.7/mes/localidad">
-        <label>Localidad</label>
-        <hint>Seleccione Localidad</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <select1 appearance="minimal" ref="/C1.7/mes/area">
-        <label>Área Local</label>
-        <hint>Seleccione Área Local</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <input ref="/C1.7/mes/hogares">
-        <label>Hogares</label>
-        <hint>Hogares</hint>
-      </input>
-      <input ref="/C1.7/mes/comercial">
-        <label>Comercial</label>
-        <hint>Comercial</hint>
-      </input>
-      <input ref="/C1.7/mes/gobierno">
-        <label>Gobierno</label>
-        <hint>Gobierno</hint>
-      </input>
-      <input ref="/C1.7/mes/otros">
-        <label>Otros</label>
-        <hint>Otros</hint>
-      </input>
+    <group ref="/C1.7/meses">
+      <label></label>
+      <repeat nodeset="/C1.7/meses">
+        <group appearance="col4 well-white" ref="/C1.7/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/C1.7/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Seleccione Provincia</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C1.7/meses/mes/partido">
+            <label>Partido/Departamento</label>
+            <hint>Seleccione Partido</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C1.7/meses/mes/localidad">
+            <label>Localidad</label>
+            <hint>Seleccione Localidad</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C1.7/meses/mes/area">
+            <label>Área Local</label>
+            <hint>Seleccione Área Local</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <input ref="/C1.7/meses/mes/hogares">
+            <label>Hogares</label>
+            <hint>Hogares</hint>
+          </input>
+          <input ref="/C1.7/meses/mes/comercial">
+            <label>Comercial</label>
+            <hint>Comercial</hint>
+          </input>
+          <input ref="/C1.7/meses/mes/gobierno">
+            <label>Gobierno</label>
+            <hint>Gobierno</hint>
+          </input>
+          <input ref="/C1.7/meses/mes/otros">
+            <label>Otros</label>
+            <hint>Otros</hint>
+          </input>
+        </group>
+      </repeat>
     </group>
   </h:body>
 </h:html>

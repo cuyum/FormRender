@@ -5,93 +5,100 @@
     <model>
       <instance>
         <C1.8 id="C1.8">
-          <mes>
-            <provincia/>
-            <partido/>
-            <localidad/>
-            <localidad_otro/>
-            <area/>
-            <area_otro/>
-            <abono_local/>
-            <abono_ldn/>
-            <abono_ldi/>
-            <suscrip_serv_adic/>
-          </mes>
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <partido/>
+              <localidad/>
+              <localidad_otro/>
+              <area/>
+              <area_otro/>
+              <abono_local/>
+              <abono_ldn/>
+              <abono_ldi/>
+              <suscrip_serv_adic/>
+            </mes>
+          </meses>
           <meta>
             <instanceID/>
           </meta>
         </C1.8>
       </instance>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.8/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.8/mes/provincia" nodeset="/C1.8/mes/partido" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.8/mes/partido" nodeset="/C1.8/mes/localidad" required="true()" type="select1"/>
-      <bind nodeset="/C1.8/mes/localidad_otro" relevant=" /C1.8/mes/localidad =9999" type="string"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.8/mes/localidad" nodeset="/C1.8/mes/area" required="true()" type="select1"/>
-      <bind nodeset="/C1.8/mes/area_otro" relevant=" /C1.8/mes/area =9999" type="string"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/mes/abono_local" required="true()" type="int"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/mes/abono_ldn" required="true()" type="int"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/mes/abono_ldi" required="true()" type="int"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/mes/suscrip_serv_adic" required="true()" type="int"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.8/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.8/mes/provincia" nodeset="/C1.8/meses/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.8/mes/partido" nodeset="/C1.8/meses/mes/localidad" required="true()" type="select1"/>
+      <bind nodeset="/C1.8/meses/mes/localidad_otro" relevant=" /C1.8/meses/mes/localidad =9999" type="string"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.8/mes/localidad" nodeset="/C1.8/meses/mes/area" required="true()" type="select1"/>
+      <bind nodeset="/C1.8/meses/mes/area_otro" relevant=" /C1.8/meses/mes/area =9999" type="string"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/meses/mes/abono_local" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/meses/mes/abono_ldn" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/meses/mes/abono_ldi" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/meses/mes/suscrip_serv_adic" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.8/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4 well-white" ref="/C1.8/mes">
-      <label>Enero</label>
-      <select1 appearance="minimal" ref="/C1.8/mes/provincia">
-        <label>Provincia</label>
-        <hint>Provincia</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <select1 appearance="minimal" ref="/C1.8/mes/partido">
-        <label>Partido / Departamento</label>
-        <hint>Partido/Departamento</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <select1 appearance="minimal" ref="/C1.8/mes/localidad">
-        <label>Localidad</label>
-        <hint>Localidad</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <input ref="/C1.8/mes/localidad_otro">
-        <label>Especifique</label>
-      </input>
-      <select1 appearance="minimal" ref="/C1.8/mes/area">
-        <label>Área Local</label>
-        <hint>Área Local</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <input ref="/C1.8/mes/area_otro">
-        <label>Especifique</label>
-      </input>
-      <input ref="/C1.8/mes/abono_local">
-        <label>Abono Local</label>
-        <hint>Abono Local</hint>
-      </input>
-      <input ref="/C1.8/mes/abono_ldn">
-        <label>Abono LDN / LDI</label>
-        <hint>Abono LDN / LDI</hint>
-      </input>
-      <input ref="/C1.8/mes/abono_ldi">
-        <label>Abono LDI</label>
-        <hint>Abono LDI</hint>
-      </input>
-      <input ref="/C1.8/mes/suscrip_serv_adic">
-        <label>Suscripción Servicios Adicionales</label>
-        <hint>Suscrip. Serv. Adic.</hint>
-      </input>
+    <group ref="/C1.8/meses">
+      <label></label>
+      <repeat nodeset="/C1.8/meses">
+        <group appearance="col4 well-white" ref="/C1.8/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/C1.8/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C1.8/meses/mes/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C1.8/meses/mes/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <input ref="/C1.8/meses/mes/localidad_otro">
+            <label>Especifique</label>
+          </input>
+          <select1 appearance="minimal" ref="/C1.8/meses/mes/area">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <input ref="/C1.8/meses/mes/area_otro">
+            <label>Especifique</label>
+          </input>
+          <input ref="/C1.8/meses/mes/abono_local">
+            <label>Abono Local</label>
+            <hint>Abono Local</hint>
+          </input>
+          <input ref="/C1.8/meses/mes/abono_ldn">
+            <label>Abono LDN / LDI</label>
+            <hint>Abono LDN / LDI</hint>
+          </input>
+          <input ref="/C1.8/meses/mes/abono_ldi">
+            <label>Abono LDI</label>
+            <hint>Abono LDI</hint>
+          </input>
+          <input ref="/C1.8/meses/mes/suscrip_serv_adic">
+            <label>Suscripción Servicios Adicionales</label>
+            <hint>Suscrip. Serv. Adic.</hint>
+          </input>
+        </group>
+      </repeat>
     </group>
   </h:body>
 </h:html>

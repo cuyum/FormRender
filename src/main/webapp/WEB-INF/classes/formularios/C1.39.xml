@@ -5,37 +5,44 @@
     <model>
       <instance>
         <C1.39 id="C1.39">
-          <mes>
-            <ddi/>
-            <operadora/>
-            <otros/>
-          </mes>
+          <meses jr:template="">
+            <mes>
+              <ddi/>
+              <operadora/>
+              <otros/>
+            </mes>
+          </meses>
           <meta>
             <instanceID/>
           </meta>
         </C1.39>
       </instance>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.39/mes/ddi" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.39/mes/operadora" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.39/mes/otros" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.39/meses/mes/ddi" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.39/meses/mes/operadora" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.39/meses/mes/otros" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.39/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col3 well-white" ref="/C1.39/mes">
-      <label>Enero</label>
-      <input ref="/C1.39/mes/ddi">
-        <label>DDI</label>
-        <hint>DDI [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.39/mes/operadora">
-        <label>Operadora</label>
-        <hint>Operadora [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.39/mes/otros">
-        <label>Otros</label>
-        <hint>Otros [en miles de pesos]</hint>
-      </input>
+    <group ref="/C1.39/meses">
+      <label></label>
+      <repeat nodeset="/C1.39/meses">
+        <group appearance="col3 well-white" ref="/C1.39/meses/mes">
+          <label>{title}</label>
+          <input ref="/C1.39/meses/mes/ddi">
+            <label>DDI</label>
+            <hint>DDI [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.39/meses/mes/operadora">
+            <label>Operadora</label>
+            <hint>Operadora [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.39/meses/mes/otros">
+            <label>Otros</label>
+            <hint>Otros [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
     </group>
   </h:body>
 </h:html>

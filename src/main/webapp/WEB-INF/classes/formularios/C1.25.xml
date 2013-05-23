@@ -42,36 +42,36 @@
           </meta>
         </C1.25>
       </instance>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_llamada_conf" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_local" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_ldn" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_ocupado1" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_ocupado2" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_no" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_cambio" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_baja" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_ldi" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_llamada_selec" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_identificador" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_restriccion" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_facturacion" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_no_figurar" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_despertador" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_no_molestar" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_cliente" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_numeracion_abrev" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_senal_llamada" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_dir" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_memo_llamada" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_amplificador" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_timbre" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_llamadas" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_telectura" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_mant_domicilio" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_datos" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_modalidad" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_audiotexto" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,00" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_otros" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_llamada_conf" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_local" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_ldn" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_ocupado1" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_ocupado2" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_no" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_cambio" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_baja" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_ldi" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_llamada_selec" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_identificador" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_restriccion" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_facturacion" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_no_figurar" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_despertador" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_no_molestar" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_cliente" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_numeracion_abrev" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_senal_llamada" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_dir" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_memo_llamada" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_amplificador" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_timbre" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_llamadas" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_telectura" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_mant_domicilio" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_datos" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_modalidad" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_audiotexto" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_otros" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.25/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
