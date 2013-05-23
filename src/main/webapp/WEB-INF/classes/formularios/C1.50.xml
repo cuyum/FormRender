@@ -17,29 +17,30 @@
               <transporte_radioelectrico_satelital/>
             </transporte>
             <obra_civil>
-              <equipamiento_asociado_redes/>
-              <obra_civil_redes_inalambricas/>
-              <obra_civil_redes_acceso/>
-              <obra_civil_plantel_exterior/>
+              <ocivil_transporte/>
+              <ocivil_inalambricas/>
+              <ocivil_acceso/>
+              <ocivil_plantel/>
             </obra_civil>
             <equipamiento>
-              <equipamiento_redes/>
-              <equipamiento_instalaciones/>
+              <e_redes/>
+              <e_instalaciones/>
             </equipamiento>
             <software>
-              <software_administrar_red/>
-              <software_monitoreo_control/>
-              <software_mantenimiento/>
-              <software_nodo/>
+              <s_administracion/>
+              <s_monitoreo/>
+              <s_mantenimiento/>
+              <s_nodo/>
             </software>
             <licencias>
-              <licencias_software/>
-              <licencias_hardware/>
-              <licencias_regulatorias/>
+              <l_software/>
+              <l_hardware/>
+              <l_regulatorias/>
             </licencias>
-            <infraestructura_administrativa_comercial/>
-            <desarrollo_su/>
+            <infraestructura/>
+            <desarrollo/>
             <otros_otros/>
+            <calculate1/>
             <total_total/>
           </mes>
           <meta>
@@ -53,22 +54,23 @@
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/transporte/transporte_cobre" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/transporte/transporte_radioelectrico_radioenlaces" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/transporte/transporte_radioelectrico_satelital" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/obra_civil/equipamiento_asociado_redes" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/obra_civil/obra_civil_redes_inalambricas" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/obra_civil/obra_civil_redes_acceso" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/obra_civil/obra_civil_plantel_exterior" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/equipamiento/equipamiento_redes" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/equipamiento/equipamiento_instalaciones" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/software/software_administrar_red" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/software/software_monitoreo_control" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/software/software_mantenimiento" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/software/software_nodo" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/licencias/licencias_software" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/licencias/licencias_hardware" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C1.50/mes/licencias/licencias_regulatorias" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/infraestructura_administrativa_comercial" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/desarrollo_su" required="true()" type="int"/>
-      <bind nodeset="/C1.50/mes/otros_otros" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/obra_civil/ocivil_transporte" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/obra_civil/ocivil_inalambricas" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/obra_civil/ocivil_acceso" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/obra_civil/ocivil_plantel" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/equipamiento/e_redes" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/equipamiento/e_instalaciones" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/software/s_administracion" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/software/s_monitoreo" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/software/s_mantenimiento" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/software/s_nodo" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/licencias/l_software" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/licencias/l_hardware" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C1.50/mes/licencias/l_regulatorias" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/infraestructura" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/desarrollo" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/mes/otros_otros" required="true()" type="int"/>
+      <bind calculate=" /C1.50/mes/redes_de_acceso/acceso_fijo + /C1.50/mes/redes_de_acceso/acceso_movil + /C1.50/mes/transporte/transporte_optico + /C1.50/mes/transporte/transporte_cobre + /C1.50/mes/transporte/transporte_radioelectrico_radioenlaces + /C1.50/mes/transporte/transporte_radioelectrico_satelital + /C1.50/mes/obra_civil/ocivil_transporte + /C1.50/mes/obra_civil/ocivil_inalambricas + /C1.50/mes/obra_civil/ocivil_acceso + /C1.50/mes/obra_civil/ocivil_plantel + /C1.50/mes/equipamiento/e_redes + /C1.50/mes/equipamiento/e_instalaciones + /C1.50/mes/software/s_administracion + /C1.50/mes/software/s_monitoreo + /C1.50/mes/software/s_mantenimiento + /C1.50/mes/software/s_nodo + /C1.50/mes/licencias/l_software + /C1.50/mes/licencias/l_hardware + /C1.50/mes/licencias/l_regulatorias + /C1.50/mes/infraestructura + /C1.50/mes/desarrollo + /C1.50/mes/otros_otros " nodeset="/C1.50/mes/calculate1" type="string"/>
       <bind nodeset="/C1.50/mes/total_total" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.50/meta/instanceID" readonly="true()" type="string"/>
     </model>
@@ -76,7 +78,7 @@
   <h:body>
     <group appearance="col1 well-white" ref="/C1.50/mes">
       <label>Enero</label>
-      <group ref="/C1.50/mes/redes_de_acceso">
+      <group appearance="col1 well-white" ref="/C1.50/mes/redes_de_acceso">
         <label>Redes de Acceso</label>
         <input ref="/C1.50/mes/redes_de_acceso/acceso_fijo">
           <label>Fijo:</label>
@@ -108,82 +110,82 @@
       </group>
       <group appearance="col2 well-white" ref="/C1.50/mes/obra_civil">
         <label>Obra Civil</label>
-        <input ref="/C1.50/mes/obra_civil/equipamiento_asociado_redes">
+        <input ref="/C1.50/mes/obra_civil/ocivil_transporte">
           <label>Redes de Transporte:</label>
           <hint>Obra Civil. Redes de Transporte [en miles de pesos]</hint>
         </input>
-        <input ref="/C1.50/mes/obra_civil/obra_civil_redes_inalambricas">
+        <input ref="/C1.50/mes/obra_civil/ocivil_inalambricas">
           <label>Redes Inalámbricas:</label>
           <hint>Obra Civil. Redes Inalámbricas [en miles de pesos]</hint>
         </input>
-        <input ref="/C1.50/mes/obra_civil/obra_civil_redes_acceso">
+        <input ref="/C1.50/mes/obra_civil/ocivil_acceso">
           <label>Redes de Acceso:</label>
           <hint>Obra Civil. Redes de Acceso [en miles de pesos]</hint>
         </input>
-        <input ref="/C1.50/mes/obra_civil/obra_civil_plantel_exterior">
+        <input ref="/C1.50/mes/obra_civil/ocivil_plantel">
           <label>Plantel Exterior:</label>
           <hint>Obra Civil. Plantel Exterior [en miles de pesos]</hint>
         </input>
       </group>
-      <group appearance="well-white" ref="/C1.50/mes/equipamiento">
+      <group appearance="col1 well-white" ref="/C1.50/mes/equipamiento">
         <label>Equipamiento</label>
-        <input ref="/C1.50/mes/equipamiento/equipamiento_redes">
+        <input ref="/C1.50/mes/equipamiento/e_redes">
           <label>Redes de Transporte Acceso fijo y móvil:</label>
           <hint>Equipamiento asociado a las redes de transporte y acceso fijo y móvil [en miles de pesos]</hint>
         </input>
-        <input ref="/C1.50/mes/equipamiento/equipamiento_instalaciones">
+        <input ref="/C1.50/mes/equipamiento/e_instalaciones">
           <label>Instalaciones de los Clientes</label>
           <hint>Equipamiento en Instalaciones de los Clientes [en miles de pesos]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.50/mes/software">
         <label>Software</label>
-        <input ref="/C1.50/mes/software/software_administrar_red">
+        <input ref="/C1.50/mes/software/s_administracion">
           <label>Administración la Red:</label>
           <hint>Software para administracion de red [en miles de pesos]</hint>
         </input>
-        <input ref="/C1.50/mes/software/software_monitoreo_control">
+        <input ref="/C1.50/mes/software/s_monitoreo">
           <label>Monitoreo y Control:</label>
           <hint>Software para Monitoreo y control [en miles de pesos]</hint>
         </input>
-        <input ref="/C1.50/mes/software/software_mantenimiento">
+        <input ref="/C1.50/mes/software/s_mantenimiento">
           <label>Mantenimiento:</label>
           <hint>Software para mantenimiento [en miles de pesos]</hint>
         </input>
-        <input ref="/C1.50/mes/software/software_nodo">
+        <input ref="/C1.50/mes/software/s_nodo">
           <label>Nodo o Datacenter de Alojamiento:</label>
-          <hint>Software para NODO O DATACENTER DE ALOJAMIENTO [en miles de pesos]</hint>
+          <hint>Software para Nodo o Datacenter de Alojamiento [en miles de pesos]</hint>
         </input>
       </group>
       <group appearance="col2 well-white" ref="/C1.50/mes/licencias">
         <label>Licencias</label>
-        <input ref="/C1.50/mes/licencias/licencias_software">
+        <input ref="/C1.50/mes/licencias/l_software">
           <label>Software:</label>
           <hint>Licencias Software [en miles de pesos]</hint>
         </input>
-        <input ref="/C1.50/mes/licencias/licencias_hardware">
+        <input ref="/C1.50/mes/licencias/l_hardware">
           <label>Hardware:</label>
           <hint>Licencias Hardware [en miles de pesos]</hint>
         </input>
-        <input ref="/C1.50/mes/licencias/licencias_regulatorias">
+        <input ref="/C1.50/mes/licencias/l_regulatorias">
           <label>Regulatorias:</label>
           <hint>Licencias Regulatorias [en miles de pesos]</hint>
         </input>
       </group>
-      <input ref="/C1.50/mes/infraestructura_administrativa_comercial">
+      <input ref="/C1.50/mes/infraestructura">
         <label>Infraestructura Administrativa/Comercial:</label>
         <hint>Infraestructura administrativa/comercial [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.50/mes/desarrollo_su">
+      <input ref="/C1.50/mes/desarrollo">
         <label>Desarrollo del Servicio Universal:</label>
         <hint>Desarrollo del Servicio Universal, conf Pto 10.1 f) Anexo I Dtoo. 764/2000 [en miles de pesos]</hint>
       </input>
       <input ref="/C1.50/mes/otros_otros">
         <label>Otros</label>
+        <hint>Otros</hint>
       </input>
       <input ref="/C1.50/mes/total_total">
-        <label>Total</label>
-      </input>
+        <label>Total <output value=" /C1.50/mes/calculate1 "/></label></input>
     </group>
   </h:body>
 </h:html>
