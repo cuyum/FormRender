@@ -1,4 +1,4 @@
-if (typeof console == "undefined") {console = {log: function(){}};}
+if (typeof console == "undefined") {console = {log:function(){}, warn:function(){}, info:function(){}, error:function(){}};}
 if (typeof window.console.debug == "undefined") {console.debug = console.log;}
 
 var cncToNumber = function(value){
