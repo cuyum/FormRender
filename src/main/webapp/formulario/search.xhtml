@@ -82,17 +82,21 @@
 						<f:param name="id" value="#{_item.id}"/>								
 					</h:link>
 				</p:column>
-				<p:column headerText="Html">				
-					<h:link outcome="/formulario/display" value="Ver" styleClass="button">
-						<f:param name="id" value="#{_item.id}"/>						
+				<p:column headerText="Html">									
+					<h:link outcome="/formulario/display" value="Ver" styleClass="button" rendered="#{_item.codigo eq 'C1.1' or _item.codigo eq 'C1.2' or _item.codigo eq 'C1.3' 
+						or _item.codigo eq 'C1.22' or _item.codigo eq 'C1.23' or _item.codigo eq 'C1.24' 
+						or _item.codigo eq 'C1.25' or _item.codigo eq 'C1.52' or _item.codigo eq 'C1.53'}">
+						<f:param name="id" value="#{_item.id}"/>	 
+					</h:link>
+					<h:link outcome="/formulario/display" value="Ver" styleClass="button" rendered="#{_item.codigo ne 'C1.1' and _item.codigo ne 'C1.2' and _item.codigo ne 'C1.3' and _item.codigo ne 'C1.22' and _item.codigo ne 'C1.23' 
+						and _item.codigo ne 'C1.24' and _item.codigo ne 'C1.25' and _item.codigo ne 'C1.52' and _item.codigo ne 'C1.53'}">
+						<f:param name="id" value="#{_item.id}"/>
+						<f:param name="title" value="Enero,Febrero,Marzo"/>	
+						<f:param name="repeat" value="3"/>		 
 					</h:link>				
 				</p:column>
-			</p:dataTable>
-			
-			
-			
+			</p:dataTable>			
 		</h:form>
-			
 	</ui:define>
 
 </ui:composition>
