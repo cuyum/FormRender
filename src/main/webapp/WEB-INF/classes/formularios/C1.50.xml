@@ -74,7 +74,7 @@
     </model>
   </h:head>
   <h:body>
-    <group appearance="col2 well-white" ref="/C1.50/mes">
+    <group appearance="col1 well-white" ref="/C1.50/mes">
       <label>Enero</label>
       <group ref="/C1.50/mes/redes_de_acceso">
         <label>Redes de Acceso</label>

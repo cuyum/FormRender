@@ -31,7 +31,7 @@
     <group appearance="col3 well-white" ref="/C1.46/mes">
       <label>Enero</label>
       <input ref="/C1.46/mes/gastos">
-        <label>Gastos en Personal:</label>
+        <label>Gastos en Personal (remuneraciones):</label>
         <hint>Gastos en Personal [en miles de pesos]</hint>
       </input>
       <input ref="/C1.46/mes/cargas">
