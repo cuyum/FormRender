@@ -84,6 +84,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
         <html>
             <head>
             	<meta charset="utf-8"/> 
+            	<meta http-equiv="X-UA-Compatible" content="IE=9"/>
             	<link rel="stylesheet" href="/FormRender/resources/css/jquery-ui.css" />           	
             	<link rel="stylesheet" href="/FormRender/resources/css/main.css"/>
             	<link rel="stylesheet" href="/FormRender/resources/css/style.css"/>            	
