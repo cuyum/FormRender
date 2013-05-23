@@ -1,3 +1,6 @@
+if (typeof console == "undefined") {console = {log: function(){}};}
+if (typeof window.console.debug == "undefined") {console.debug = console.log;}
+
 var cncToNumber = function(value){
 	if(value && isNaN(value) && value.trim().length>0){
 		var number = $.i18n.parseNumber( value ,{region:'es-AR'});
