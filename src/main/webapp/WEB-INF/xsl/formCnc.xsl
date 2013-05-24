@@ -112,7 +112,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
             	<script type="text/javascript" src="/FormRender/resources/js/cncJsFunctions.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>     
-			  	<script type="text/javascript" src="/FormRender/resources/js/cncValidations.js">
+			  	<script type="text/javascript" src="/FormRender/resources/js/cncFieldValidations.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>            	
 			  	<script type="text/javascript" src="/FormRender/resources/js/transform.js">
@@ -212,7 +212,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 						<div class="well block">
 							<div>
 								<div class="form-actions align-left">		
-									<input type="submit" class="btn " value="Guardar Borrador"/>						
+									<input type="button" class="btn " value="Guardar Borrador" onclick="javascript:alert('Borrador guardado.')"/>						
 									<input type="submit" class="btn btn-success " value="Listo"/>
 								</div>
 							</div>
