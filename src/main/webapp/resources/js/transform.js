@@ -1,29 +1,3 @@
-var setupHint = function(field, fieldset){
-	var hint = $(field).siblings("[class^='jr-hint']");
-	if(hint){
-		var fieldName = $(field).attr("name");
-		/*tooltipo selector*/
-		var itemSelector;
-		if(fieldset){
-			itemSelector = "fieldset[name~='"+fieldset.name+"'] [name~='"+fieldName+"']";
-		}else{
-			itemSelector = "[name~='"+fieldName+"']";
-		}
-		
-		//FIXME: arreglar para radios y textareas
-//		var fieldType = $(field).attr("type");
-//		if(fieldType != "undefined" && fieldType == "radio"){
-//			itemSelector = "[data-itext-id~='"+fieldName+":label']";
-//		}
-		$(field).tooltip({
-			content:hint.text(),
-			 items: itemSelector
-		});
-	}
-};
-
-var validator;
-
 $(document).ready(function() {
 	var form = document.forms[0];
 	
@@ -91,7 +65,6 @@ $(document).ready(function() {
 			var fieldset = fieldsets[i];
 			for ( var j = 0; j < fieldset.fields.length; j++) {
 				var field = fieldset.fields[j];
-				setupHint(field,fieldset);
 				setupValidations(field,fieldset);
 			}
 		}
@@ -108,7 +81,6 @@ $(document).ready(function() {
 		 */
 		for ( var i = 0; i < fields.length; i++) {
 			var field = fields[i];
-			setupHint(field);
 			setupValidations(field);
 		}
 	}

@@ -22,8 +22,28 @@ var validationRequired = function(field){
 	}
 };
 
+var setupHint = function(field){
+	var hint = field.siblings("[class^='jr-hint']");
+	if(hint){
+		var fieldName = field.attr("name");
+		/*tooltipo selector*/
+		itemSelector = "[name~='"+fieldName+"']";
+		
+		//FIXME: arreglar para radios y textareas
+//		var fieldType = $(field).attr("type");
+//		if(fieldType != "undefined" && fieldType == "radio"){
+//			itemSelector = "[data-itext-id~='"+fieldName+":label']";
+//		}
+		$(field).tooltip({
+			content:hint.text(),
+			 items: itemSelector
+		});
+	}
+};
+
 var setupCalculate = function(field,fieldset){
 	var fieldName = field.attr("name");
+	console.log(fieldName);
 	var data_calculate = field.attr("data-calculate");
 	if(data_calculate && data_calculate.trim().length>0){
 		console.log(fieldName,"calculate",field);
@@ -444,6 +464,7 @@ var setupValidations = function(f,fieldset){
 	
 	
 	/*Aditional field logic*/
+	setupHint(field);
 	setupCalculate(field,fieldset);
 	setupMask(field);
 	setupDependency(field,fieldset);
