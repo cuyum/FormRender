@@ -41,7 +41,7 @@
     <group ref="/C1.40/meses">
       <label></label>
       <repeat nodeset="/C1.40/meses">
-        <group appearance="col3 well-white" ref="/C1.40/meses/mes">
+        <group appearance="col3 well-white variable" ref="/C1.40/meses/mes">
           <label>{title}</label>
           <input ref="/C1.40/meses/mes/terminacion_fijo">
             <label>Origen y Terminación Local Fijo</label>

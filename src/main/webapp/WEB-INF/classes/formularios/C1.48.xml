@@ -69,7 +69,7 @@
     <group ref="/C1.48/meses">
       <label></label>
       <repeat nodeset="/C1.48/meses">
-        <group appearance="col1 well-white" ref="/C1.48/meses/mes">
+        <group appearance="col1 well-white variable" ref="/C1.48/meses/mes">
           <label>{title}</label>
           <group appearance="col2 well-white" ref="/C1.48/meses/mes/red_movil">
             <label>Costo interconexión a red móvil</label>

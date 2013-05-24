@@ -81,7 +81,7 @@
     <group ref="/C1.50/meses">
       <label></label>
       <repeat nodeset="/C1.50/meses">
-        <group appearance="col1 well-white" ref="/C1.50/meses/mes">
+        <group appearance="col1 well-white variable" ref="/C1.50/meses/mes">
           <label>{title}</label>
           <group appearance="col1 well-white" ref="/C1.50/meses/mes/redes_de_acceso">
             <label>Redes de Acceso</label>
