@@ -35,7 +35,7 @@
     <group ref="/C1.45/meses">
       <label></label>
       <repeat nodeset="/C1.45/meses">
-        <group appearance="col3 well-white" ref="/C1.45/meses/mes">
+        <group appearance="col3 well-white variable" ref="/C1.45/meses/mes">
           <label>{title}</label>
           <input ref="/C1.45/meses/mes/arriendos">
             <label>Arriendos Circuitos LDI</label>

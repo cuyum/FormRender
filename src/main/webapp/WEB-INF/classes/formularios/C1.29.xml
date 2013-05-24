@@ -69,7 +69,7 @@
     <group ref="/C1.29/meses">
       <label></label>
       <repeat nodeset="/C1.29/meses">
-        <group appearance="col6 well-white" ref="/C1.29/meses/mes">
+        <group appearance="col6 well-white variable" ref="/C1.29/meses/mes">
           <label>{title}</label>
           <input ref="/C1.29/meses/mes/caba">
             <label>CABA</label>

@@ -29,7 +29,7 @@
     <group ref="/C1.37/meses">
       <label></label>
       <repeat nodeset="/C1.37/meses">
-        <group appearance="col4 well-white" ref="/C1.37/meses/mes">
+        <group appearance="col4 well-white variable" ref="/C1.37/meses/mes">
           <label>{title}</label>
           <input ref="/C1.37/meses/mes/clave1">
             <label>Clave 1</label>
