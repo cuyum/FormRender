@@ -158,11 +158,11 @@ var setupRelevantData = function(field, fieldset){
 		/*-------HIDE FIELD FOR RELEVANT DEPENDENCY-------*/
 		var el = null;
 		if(field.is("input[type~='text']")){
-			el = field.attr("disabled","disabled");
+			el = field.parent();
 		}else if(field.is("input[type~='radio']") || field.is("input[type~='checkbox']")){
-			el = field.attr("disabled","disabled");
+			el = field.closest("fieldset");
 		}else if(field.is("select")){
-			el = field.attr("disabled","disabled");
+			el = field.parent();
 		}else{
 			console.warn("no se pudo encontrar el dom parent de "+field.attr("name")+" para esconder el campo" );
 		}
@@ -270,7 +270,7 @@ var setupRemoteData = function(field,fieldset){
 			
 			ancestor.on("change",function(){
 				if(!$("#unblockable").is("span"))
-					$.blockUI({message:"Cargando datos remotos..<br>Espere por favor..."});
+					$.blockUI({message:"Cargando datos remotos..<br>Espere por favor...",css:{opacity:.3}});
 				$.ajax({
 				  url: "/FormRender/rest/service/relay",
 				  type: "POST",
@@ -322,7 +322,7 @@ var setupRemoteData = function(field,fieldset){
 			});
 		}else{
 			if(!$("#unblockable").is("span"))
-				$.blockUI({message:"Cargando datos remotos..<br>Espere por favor..."});
+				$.blockUI({message:"Cargando datos remotos..<br>Espere por favor...",css:{opacity:.3}});
 			$.ajax({
 			  url: "/FormRender/rest/service/relay",
 			  type: "POST",
@@ -604,12 +604,10 @@ var addVisualizationLogic = function(field){
 			}
 			if(show){
 //				console.log("should show");
-//				field.parent().show();
-				field.attr('disabled', 'disabled');
+				field.parent().show();
 			}else{
 //				console.log("should not show");
-//				field.parent().hide();
-				field.removeAttr('disabled');
+				field.parent().hide();
 			}
 		}
 		
