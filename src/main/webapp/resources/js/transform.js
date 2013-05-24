@@ -16,10 +16,12 @@ $(document).ready(function() {
 	var repeat =$("fieldset.jr-repeat") ;
 	var repeatCount = getURLParameter("repeat");
 	
+	
+	
 	if(repeat.length>0 && repeatCount>0){
 		var fs = $("fieldset.jr-repeat");
 		var pfs = fs.parent();
-		
+		var calculatedItems = $("fieldset[name~='"+pfs.attr("name")+"']").siblings("#jr-calculated-items").find("[name]");
 		/* iteracion normal, siguientes instancias de repeats */
 		for ( var i = 0; i < repeatCount; i++) {
 			var fieldset = {};
@@ -39,7 +41,6 @@ $(document).ready(function() {
 				if(rvName && rvName.trim()!="" && rvName.indexOf("{")!=-1){
 					rvName = rvName.replace("{","").replace("}","");
 					var varVal = getURLParameter(rvName);
-					console.log(varVal);
 					if(varVal!=null && varVal!=undefined){
 						rv.text(varVal.split(",")[i]);
 					} 
@@ -54,6 +55,7 @@ $(document).ready(function() {
 			var repeatFields = fsRepeat.find("[name]").not("fieldset");
 			fieldset.fields = repeatFields;
 			fieldsets.push(fieldset);
+			
 		}
 		fs.remove();
 		
@@ -67,7 +69,11 @@ $(document).ready(function() {
 				var field = fieldset.fields[j];
 				setupValidations(field,fieldset);
 			}
+			for ( var j = 0; j < calculatedItems.length; j++) {
+				setupCalculate(calculatedItems[j],fieldset);
+			}
 		}
+		
 		
 	}else{
 		$(form).validate();

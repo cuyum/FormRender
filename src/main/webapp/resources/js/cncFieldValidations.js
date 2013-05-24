@@ -42,21 +42,19 @@ var setupHint = function(field){
 };
 
 var setupCalculate = function(field,fieldset){
+	field = $(field);
 	var fieldName = field.attr("name");
-	console.log(fieldName);
 	var data_calculate = field.attr("data-calculate");
 	if(data_calculate && data_calculate.trim().length>0){
-		console.log(fieldName,"calculate",field);
 		if(data_calculate.indexOf("concat(")==-1){
 			
 			var totalFieldSpanSelector = "span.jr-output[data-value~='"+fieldName+"']";
-			if(fieldset.instance!=undefined){
-				totalFieldSpanSelector = "span.jr-output[data-value~='"+fieldName+"_"+fieldset.instance+"']";
-			}
-			
 			var totalFieldSpan = $(totalFieldSpanSelector);
-			var totalField = totalFieldSpan.closest("label").find("input"); 
 			
+			if(fieldset.instance!=undefined){
+				totalFieldSpan = fieldset.dom.find(totalFieldSpanSelector);
+			}
+			var totalField = totalFieldSpan.closest("label").find("input"); 
 			if(totalField){
 				var updateTotal = function(sumFields,substractFields,fieldsetInstance){
 					var total = 0;
@@ -124,9 +122,8 @@ var setupCalculate = function(field,fieldset){
 					}
 					
 					var cfield = $(cfieldSelector);
-					
 					if(cfield){
-						field.on("change",{
+						cfield.on("change",{
 							sumFields:sum,
 							substractFields:substract,
 							totalField:totalField,
@@ -135,8 +132,8 @@ var setupCalculate = function(field,fieldset){
 							var totalField = event.data.totalField;
 							var sumFields = event.data.sumFields;
 							var substractFields = event.data.substractFields;
-							var fieldsetName = event.data.fieldsetName;
-							var totalVal = totalField.data("updateTotal")(sumFields,substractFields,fieldsetName);
+							var fieldsetInstance = event.data.fieldsetInstance;
+							var totalVal = totalField.data("updateTotal")(sumFields,substractFields,fieldsetInstance);
 							totalField.val(totalVal);
 						});
 					}
