@@ -30,7 +30,7 @@ $(document).ready(function() {
 			fsRepeat.attr("name",fieldset.name);
 			
 			/*identificacion de variable de repeticion*/
-			fieldset.titleSpan = fsRepeat.find("fieldset > h4 > span.jr-label");
+			fieldset.titleSpan = fsRepeat.find("fieldset[class~='variable'] > h4 > span.jr-label");
 			if(fieldset.titleSpan){/*tiene title variable*/
 				var titleVar = fieldset.titleSpan.text();
 				if(titleVar.indexOf("{")!=-1 && titleVar.indexOf("}")!=-1){/*es variable*/
@@ -83,18 +83,20 @@ $(document).ready(function() {
 		
 	}else{
 		$(FormRender.form).validate();
+		var fieldset = {};
 		
 		console.info("No se encuentra el fieldset.jr-repeat");
 		/*busqueda global de campos*/
-		FormRender.fieldset.fields = $("[name]").not("fieldset");
+		fieldset.fields = $("[name]").not("fieldset");
 		/*
 		 * si van a venir las instancias de repeticiones tengo que tenerlas en cuenta
 		 * e iterarlas antes de iterar los campos
 		 */
-		for ( var i = 0; i < FormRender.fieldset.fields.length; i++) {
-			var field = FormRender.fieldset.fields[i];
+		for ( var i = 0; i < fieldset.fields.length; i++) {
+			var field = fieldset.fields[i];
 			setupValidations(field);
 		}
+		FormRender.fieldsets.push(fieldset);
 	}
 	
 });

@@ -84,16 +84,49 @@ var FormRender = new function(){
 		setupEditClck: function(){
 			$("input[type~='button'][repeat-action='edit']").click(function(evt){
 				var rowIndex =  FormRender.grid.element.dataTable().fnGetPosition($(evt.target).closest('tr').get(0));
-				var data = FormRender.grid.getRowData(rowIndex);
-				var ri = data[data.length-1];
+				var od = FormRender.grid.getRowData(rowIndex);
+				var data = [];
+				data = data.concat(od);
+				var ri = od[od.length-1];
 				data.shift();
 				data.pop();
 				console.log(data);
 				console.log("instancia:"+ri);
 				var fields = FormRender.fieldsets[ri].fields;
+				
+
+				function loopWithDelay(i, fields) {
+					var delayTime = 1500;
+					var field = $(fields[i]);
+					if (!field.is("select")) {
+						delayTime = 0;
+					}
+					setTimeout(function() {
+						console.log("setting field "
+								+ field.attr("name")
+								+ " with value of " + data[i]);
+						field.val(data[i]);
+						field.trigger("change");
+
+						i++;
+						if (i < fields.length) {
+							loopWithDelay(i, fields, delayTime);
+						}
+					}, delayTime);
+				}
+				
+				loopWithDelay(0,fields);
+				
+//				for ( var i = 0; i < fields.length; i++) {
+//					var field = $(fields[i]);
+//					console.log("setting field "+field.attr("name")+" with value of "+data[i]);
+//					field.val(data[i]);
+//					field.trigger("change").delay(1000).delay(1);
+//				};
 				for ( var i = 0; i < fields.length; i++) {
-					$(fields[i]).val(data[i]);
-				};
+					var field = $(fields[i]);
+					field.data("renderLogic")(field);
+				}
 				FormRender.grid.editing = rowIndex;
 			});
 		},
@@ -122,12 +155,18 @@ var FormRender = new function(){
 				}
 			}
 			reg.push(fieldset.instance);
-			FormRender.form.reset();
 			if(commit){
+				console.log(reg);
+				FormRender.form.reset();
+				for ( var i = 0; i < fieldset.fields.length; i++) {
+					var af = $(fieldset.fields[i]);
+					af.data("renderLogic")(af);
+				}
 				if(this.editing==-1){
 					this.element.dataTable().fnAddData(reg);
 				}else{
 					this.element.dataTable().fnUpdate(reg, this.editing);
+					this.editing = -1;
 				}
 				this.setupEditClck();
 			}
