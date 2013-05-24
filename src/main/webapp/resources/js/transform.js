@@ -2,6 +2,10 @@ $(document).ready(function() {
 	FormRender.form = document.forms[0];
 	setupValidationDefaults();
 	
+	/*Setup Version*/
+	var versionElement = $("#version");
+	var versionValue = getURLParameter("version");
+	if(versionElement && versionValue) versionElement.text("Versi\u00F3n: "+versionValue);
 	/*
 	 * Para repeat se necesitará duplicar todo lo que se encuentre dentro del fieldset.jr-repeat
 	 * actualmente se está pasando un listado de campos al setup de validaciones y se están buscando 
@@ -13,6 +17,7 @@ $(document).ready(function() {
 	var fs = $("fieldset.jr-repeat");
 	FormRender.repeatCount = getURLParameter("repeat");
 	FormRender.renderGrid = fs.hasClass("grilla");
+	
 	
 	if(fs.length>0 && FormRender.repeatCount>0){
 		var pfs = fs.parent();
@@ -96,7 +101,7 @@ $(document).ready(function() {
 			var field = fieldset.fields[i];
 			setupValidations(field);
 		}
-		FormRender.fieldsets.push(fieldset);
+//		FormRender.fieldsets.push(fieldset);
 	}
 	
 });

@@ -157,13 +157,9 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
                             </xsl:otherwise>
                         </xsl:choose>
 	                </h5>
-	                <ul class="icons">
-						<li>
-						<a href="#">						
-						<span>Versión:1.0</span>						
-						</a>
-						</li>
-					</ul>
+	                <ul class="icons"><li><a href="#">
+	                	<span id="version"></span>
+	                </a></li></ul>
 	                </div>
                             
 		            
