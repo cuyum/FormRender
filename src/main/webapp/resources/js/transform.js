@@ -35,7 +35,8 @@ $(document).ready(function() {
 			fieldset.name = repeatName;
 			
 			/*identificacion de variable de repeticion*/
-			var rv = fsRepeat.find("fieldset[class~='variable'] h4 span");
+			var rv = fsRepeat.find("fieldset[class~='variable'] > h4 > span");
+			console.log(rv);
 			if(rv){
 				var rvName = rv.text();
 				if(rvName && rvName.trim()!="" && rvName.indexOf("{")!=-1){
