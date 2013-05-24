@@ -158,11 +158,11 @@ var setupRelevantData = function(field, fieldset){
 		/*-------HIDE FIELD FOR RELEVANT DEPENDENCY-------*/
 		var el = null;
 		if(field.is("input[type~='text']")){
-			el = field.parent();
+			el = field.attr("disabled","disabled");
 		}else if(field.is("input[type~='radio']") || field.is("input[type~='checkbox']")){
-			el = field.closest("fieldset");
+			el = field.attr("disabled","disabled");
 		}else if(field.is("select")){
-			el = field.parent();
+			el = field.attr("disabled","disabled");
 		}else{
 			console.warn("no se pudo encontrar el dom parent de "+field.attr("name")+" para esconder el campo" );
 		}
