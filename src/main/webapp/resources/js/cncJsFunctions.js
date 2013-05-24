@@ -109,9 +109,12 @@ var FormRender = new function(){
 				console.log("instancia:"+ri);
 				var fields = FormRender.fieldsets[ri].fields;
 				
-
+				$.blockUI({message:"Cargando datos remotos..<br>Espere por favor..."});
+				var unblock = $("<span id='unblockable'/>");
+				unblock.appendTo("body");
+				
 				function loopWithDelay(i, fields) {
-					var delayTime = 1500;
+					var delayTime = 1000;
 					var field = $(fields[i]);
 					if (!field.is("select")) {
 						delayTime = 0;
@@ -126,18 +129,16 @@ var FormRender = new function(){
 						i++;
 						if (i < fields.length) {
 							loopWithDelay(i, fields, delayTime);
+						}else{
+							$("#unblockable").remove();
+							$.unblockUI();
 						}
 					}, delayTime);
 				}
 				
 				loopWithDelay(0,fields);
 				
-//				for ( var i = 0; i < fields.length; i++) {
-//					var field = $(fields[i]);
-//					console.log("setting field "+field.attr("name")+" with value of "+data[i]);
-//					field.val(data[i]);
-//					field.trigger("change").delay(1000).delay(1);
-//				};
+				
 				for ( var i = 0; i < fields.length; i++) {
 					var field = $(fields[i]);
 					field.data("renderLogic")(field);

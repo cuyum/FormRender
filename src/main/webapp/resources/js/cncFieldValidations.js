@@ -358,6 +358,8 @@ var setupRemoteData = function(field,fieldset){
 			FormRender.addDependant(ancestor,field);
 			
 			ancestor.on("change",function(){
+				if(!$("#unblockable").is("span"))
+					$.blockUI({message:"Cargando datos remotos..<br>Espere por favor..."});
 				$.ajax({
 				  url: "/FormRender/rest/service/relay",
 				  type: "POST",
@@ -399,13 +401,17 @@ var setupRemoteData = function(field,fieldset){
 					  }else{
 						  console.error("No se obtuvo una lista de elementos para agregar al campo "+ fieldName );
 					  }
+					  if(!$("#unblockable").is("span")) $.unblockUI();
 					},
 				  error:function(xhr,statusStr,errorStr){
+					  $.unblockUI();
 					  console.error("Error tratando de recuperar valores para "+ fieldName);
 				  }
 				});
 			});
 		}else{
+			if(!$("#unblockable").is("span"))
+				$.blockUI({message:"Cargando datos remotos..<br>Espere por favor..."});
 			$.ajax({
 			  url: "/FormRender/rest/service/relay",
 			  type: "POST",
@@ -426,8 +432,10 @@ var setupRemoteData = function(field,fieldset){
 				  }else{
 					  console.error("No se obtuvo una lista de elementos para agregar al campo "+ fieldName );
 				  }
+				  if(!$("#unblockable").is("span")) $.unblockUI();
 				},
 			  error:function(xhr,statusStr,errorStr){
+				  $.unblockUI();
 				  console.error("Error tratando de recuperar valores para "+ fieldName);
 			  }
 			});
