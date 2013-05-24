@@ -462,7 +462,6 @@ var setupValidations = function(f,fieldset){
 	validationMax(field);
 	validationCuit(field);
 	
-	
 	/*Aditional field logic*/
 	setupHint(field);
 	setupCalculate(field,fieldset);
@@ -484,14 +483,14 @@ var setupValidationDefaults = function(){
 	$.validator.addMethod("entero", 
 		function(value, element) {
 //			return this.optional(element) || /^(-)?[0-9]*$/.test(value); 
-			return /^-?(?!0)(?:\d+|\d{1,3}(?:\.\d{3})+)$/.test(value); 
+			return /^-?(?:\d+|\d{1,3}(?:\.\d{3})+)$/.test(value); 
 		}, 
 		"Debe especificar un n&uacute;mero entero");
 	
 	$.validator.addMethod("decimal", 
 		function(value, element) { 
 //			return this.optional(element) || /^\s*-?(\d+(\.\d{1,2})?|\.\d{1,2})\s*$/.test(value); 
-			return /^-?(?!0)(?:\d+\,\d{1,3}|\d{1,3}(?:\.\d{3})+\,\d{1,3})$/.test(value); 
+			return /^-?(?:\d+\,\d{1,3}|\d{1,3}(?:\.\d{3})+\,\d{1,3})$/.test(value); 
 		}, 
 		"Debe especificar un n&uacute;mero decimal con dos cifras luego del punto");
 	
