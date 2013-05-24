@@ -191,7 +191,6 @@ var setupRelevantData = function(field, fieldset){
 		/*add each dependency detail to field and mark tutor field*/
 		for ( var i = 0; i < rfields.length; i++) {
 			var rfield = rfields[i];
-			var relevants = field.data("relevants");
 			var data = undefined;
 			if(rfield.indexOf("=")!=-1){
 				data = rfield.split("=");
@@ -213,94 +212,6 @@ var setupRelevantData = function(field, fieldset){
 				FormRender.flagPerformRelevantCheck(ancestor);
 			}
 		}
-		
-		/*
-		if(rfield.indexOf("=")>=0){
-			var data = rfield.split("=");
-			var ancestorSelector = "[name~='"+data[0].trim()+"']";;
-			if(fieldset.instance!=undefined){
-				ancestorSelector = "[name~='"+data[0].trim()+"_"+fieldset.instance+"']";
-			}
-			
-			var ancestor = $(ancestorSelector);
-			if(ancestor && ancestor.is("select")){
-				var dependants = ancestor.data("dependant");
-				if(dependants){
-					dependants.push(field);
-				}else{
-					dependants = [field];
-				}
-				ancestor.data("dependant",dependants);
-				
-				var value = data[1];
-				var relevantInfo = {ancestor:ancestor,value:value};
-				var relevants = field.data("relevants");
-				if(relevants){
-					var push=true;
-					for(var j = 0;j<relevants.length;j++){
-					}
-					if(push)relevants.push(relevantInfo);
-				}else{
-					relevants = [relevantInfo];
-				}
-				field.data("relevants",relevants);
-				
-//				console.log("elemento "+field.attr("name")+" dependiente de "+ancestor.attr("name"));
-				
-				ancestor.on("change",{
-					ancestor:ancestor,
-					field:field,
-					value:value
-				},function(event){
-					var ancestorValue = event.data.ancestor.val();
-					var actualValue = event.data.value;
-					var field = event.data.field;
-					
-					console.log(ancestorValue +" = "+actualValue);
-					console.log(field);
-					
-					var show
-					
-					if(ancestorValue==actualValue){
-						field.parent().show();
-					}else{
-						field.parent().hide();
-					}
-				});
-			}else{
-				console.warn("field "+field.attr("name")+" has a non select dependency");
-			}
-		}else if(rfield.indexOf("selected(")>=0){
-			var data = rfield.replace("selected(","");
-			data = data.replace(")","");
-			data = data.split(",");
-			
-			var ancestorSelector = "[name~='"+data[0].trim()+"']";;
-			if(fieldset.instance!=undefined){
-				ancestorSelector = "[name~='"+data[0].trim()+"_"+fieldset.instance+"']";
-			}
-			var ancestor = $(ancestorSelector);
-			
-//			var ancestor = $("[name~='"+data[0].trim()+"']");
-			var value = data[1].trim()=="'yes'";
-			if(ancestor && (ancestor.is("input[type~='checkbox']") || ancestor.is("input[type~='radio']")) && value){
-				var dependants = ancestor.data("dependant");
-				if(dependants){
-					dependants.push(field);
-				}else{
-					dependants = [field];
-				}
-				ancestor.data("dependant",dependants);
-				ancestor.on("click",{
-					ancestor:ancestor,
-					element:el,
-					value:value
-				},function(event){
-					event.data.element.show();
-				});
-			}
-		}
-		*/
 	}
 };
 
@@ -693,10 +604,12 @@ var addVisualizationLogic = function(field){
 			}
 			if(show){
 //				console.log("should show");
-				field.parent().show();
+//				field.parent().show();
+				field.attr('disabled', 'disabled');
 			}else{
 //				console.log("should not show");
-				field.parent().hide();
+//				field.parent().hide();
+				field.removeAttr('disabled');
 			}
 		}
 		

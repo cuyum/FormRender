@@ -103,7 +103,7 @@ var FormRender = new function(){
 				var data = [];
 				data = data.concat(od);
 				var ri = od[od.length-1];
-				data.shift();
+				if(FormRender.repeatCount && FormRender.repeatCount>1) data.shift();
 				data.pop();
 				console.log(data);
 				console.log("instancia:"+ri);
@@ -153,7 +153,8 @@ var FormRender = new function(){
 		},
 		addRow : function(fieldsetInstance){
 			var fieldset = FormRender.fieldsets[fieldsetInstance];
-			var reg = [fieldset.title];
+			var reg = [];
+			if(FormRender.repeatCount && FormRender.repeatCount>1) reg.push(fieldset.title);
 			var commit = true; 
 			for ( var i = 0; i < fieldset.fields.length; i++) {
 				var field =$(fieldset.fields[i]);
@@ -193,8 +194,8 @@ var FormRender = new function(){
 			gridFieldset.appendTo(pfs);
 			$('<h4></h4>').append("<span>Resultados</span>").appendTo(gridFieldset);
 			$('<div class="table-overflow"></div>').append(this.element).appendTo(gridFieldset);
-			
-			this.headers.push({"sTitle":"Formulario"});
+			if(FormRender.repeatCount && FormRender.repeatCount>1)
+				this.headers.push({"sTitle":" "});
 			for ( var i = 0 ; i<FormRender.fieldsets[0].fields.length;i++) {
 				var header = $(FormRender.fieldsets[0].fields[i]).siblings("span.jr-label");
 				this.headers.push({ "sTitle": header.text() });
