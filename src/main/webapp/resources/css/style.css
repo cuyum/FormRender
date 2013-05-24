@@ -406,9 +406,9 @@ fieldset.col1 {
 	border: 1px solid #ccc;
 	padding: 0px;
 	margin: 0px;
-	width: 97%;
-	float: left;
-	margin-left: 10px;
+	width: 100%;
+
+	margin-left: 0px;
 	margin-bottom: 10px;
 	-webkit-border-radius: 5px;
       -moz-border-radius: 5px;
