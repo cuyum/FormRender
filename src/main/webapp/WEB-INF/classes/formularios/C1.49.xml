@@ -5,31 +5,38 @@
     <model>
       <instance>
         <C1.49 id="C1.49">
-          <mes>
-            <hombres/>
-            <mujeres/>
-          </mes>
+          <meses jr:template="">
+            <mes>
+              <hombres/>
+              <mujeres/>
+            </mes>
+          </meses>
           <meta>
             <instanceID/>
           </meta>
         </C1.49>
       </instance>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.49/mes/hombres" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.49/mes/mujeres" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.49/meses/mes/hombres" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.49/meses/mes/mujeres" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.49/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col1 well-white" ref="/C1.49/mes">
-      <label>Enero</label>
-      <input ref="/C1.49/mes/hombres">
-        <label>Hombres</label>
-        <hint>Hombres</hint>
-      </input>
-      <input ref="/C1.49/mes/mujeres">
-        <label>Mujeres</label>
-        <hint>Mujeres</hint>
-      </input>
+    <group ref="/C1.49/meses">
+      <label></label>
+      <repeat nodeset="/C1.49/meses">
+        <group appearance="col1 well-white" ref="/C1.49/meses/mes">
+          <label>{title}</label>
+          <input ref="/C1.49/meses/mes/hombres">
+            <label>Hombres</label>
+            <hint>Hombres</hint>
+          </input>
+          <input ref="/C1.49/meses/mes/mujeres">
+            <label>Mujeres</label>
+            <hint>Mujeres</hint>
+          </input>
+        </group>
+      </repeat>
     </group>
   </h:body>
 </h:html>

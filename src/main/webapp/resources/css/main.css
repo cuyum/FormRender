@@ -20,6 +20,7 @@
 @import "elfinder.css";
 @import "fancybox.css";
 @import "ui_custom.css";
+@import "main.css";
 
 /*===== Basic reset =====*/
 
@@ -49,7 +50,10 @@ input::-moz-focus-inner { border:0; padding:0 }
 /*===== General styles =====*/
 
 html { height: 100%; }
-body { font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 22px; color: #5f5f5f; min-height: 100%; position: relative; background: url(../images/backgrounds/body_bg.png) repeat-y 0 0; }
+body { font-family: Arial, Helvetica, sans-serif;
+font-size: 12px; line-height: 22px; color: #5f5f5f;
+min-height: 100%; position: relative;
+ }
 .clean-body { background: none; }
 
 
@@ -57,7 +61,7 @@ html,
 .navigation > li > ul > li.current > a, 
 .navigation > li > ul > li.current > a:hover,
 .separator-doubled:after
-{ background: url(../images/backgrounds/html_bg.png); }
+{  }
 
 
 .align-right { text-align: right; }
@@ -486,11 +490,14 @@ display: block; text-align: right; padding: 10px 12px 12px 12px; }
 .block { margin-top: 30px; }
 .wrapper { padding-bottom: 25px; position: relative; clear: both; }
 .top-wrapper { padding: 0 25px 0 0px; }
-.content { margin: 0 25px 0 245px; }
+.content { margin: 0 25px 0 0px; }
 .subtitle { font-weight: bold; display: block; }
 .subtitle code { margin-left: 6px; font-weight: normal; }
 
-
+.page-header {
+    border-bottom: 1px solid #CCCCCC;
+    padding-top: 20px;
+}
 
 /*===== Middle navigation =====*/
 

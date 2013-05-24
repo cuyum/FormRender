@@ -5,44 +5,51 @@
     <model>
       <instance>
         <C1.44 id="C1.44">
-          <mes>
-            <arriendo/>
-            <transporte/>
-            <otros/>
-            <calculate2/>
-            <total/>
-          </mes>
+          <meses jr:template="">
+            <mes>
+              <arriendo/>
+              <transporte/>
+              <otros/>
+              <calculate2/>
+              <total/>
+            </mes>
+          </meses>
           <meta>
             <instanceID/>
           </meta>
         </C1.44>
       </instance>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.44/mes/arriendo" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.44/mes/transporte" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.44/mes/otros" required="true()" type="int"/>
-      <bind calculate=" /C1.44/mes/arriendo + /C1.44/mes/transporte + /C1.44/mes/otros " nodeset="/C1.44/mes/calculate2" type="string"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.44/mes/total" readonly="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.44/meses/mes/arriendo" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.44/meses/mes/transporte" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.44/meses/mes/otros" required="true()" type="int"/>
+      <bind calculate=" /C1.44/meses/mes/arriendo + /C1.44/meses/mes/transporte + /C1.44/meses/mes/otros " nodeset="/C1.44/meses/mes/calculate2" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.44/meses/mes/total" readonly="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.44/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4 well-white" ref="/C1.44/mes">
-      <label>Enero</label>
-      <input ref="/C1.44/mes/arriendo">
-        <label>Arriendo de Circuitos LDN</label>
-        <hint>Arriendo de Circuitos LDN [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.44/mes/transporte">
-        <label>Transporte LDN</label>
-        <hint>Transporte LDN [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.44/mes/otros">
-        <label>Otros</label>
-        <hint>Otros [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.44/mes/total">
-        <label>Total <output value=" /C1.44/mes/calculate2 "/></label><hint>Total [en miles de pesos]</hint>
-      </input>
+    <group ref="/C1.44/meses">
+      <label></label>
+      <repeat nodeset="/C1.44/meses">
+        <group appearance="col4 well-white" ref="/C1.44/meses/mes">
+          <label>{title}</label>
+          <input ref="/C1.44/meses/mes/arriendo">
+            <label>Arriendo de Circuitos LDN</label>
+            <hint>Arriendo de Circuitos LDN [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.44/meses/mes/transporte">
+            <label>Transporte LDN</label>
+            <hint>Transporte LDN [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.44/meses/mes/otros">
+            <label>Otros</label>
+            <hint>Otros [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.44/meses/mes/total">
+            <label>Total <output value=" /C1.44/meses/mes/calculate2 "/></label><hint>Total [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
     </group>
   </h:body>
 </h:html>

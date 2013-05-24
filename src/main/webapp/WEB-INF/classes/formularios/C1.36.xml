@@ -5,43 +5,50 @@
     <model>
       <instance>
         <C1.36 id="C1.36">
-          <mes>
-            <clave1/>
-            <clave2_3/>
-            <clave4_5/>
-            <clave6_12/>
-          </mes>
+          <meses jr:template="">
+            <mes>
+              <clave1/>
+              <clave2_3/>
+              <clave4_5/>
+              <clave6_12/>
+            </mes>
+          </meses>
           <meta>
             <instanceID/>
           </meta>
         </C1.36>
       </instance>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.36/mes/clave1" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.36/mes/clave2_3" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.36/mes/clave4_5" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.36/mes/clave6_12" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.36/meses/mes/clave1" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.36/meses/mes/clave2_3" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.36/meses/mes/clave4_5" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.36/meses/mes/clave6_12" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.36/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4 well-white" ref="/C1.36/mes">
-      <label>Enero</label>
-      <input ref="/C1.36/mes/clave1">
-        <label>Clave 1</label>
-        <hint>Clave 1 [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.36/mes/clave2_3">
-        <label>Clave 2 y 3</label>
-        <hint>Clave 2 y 3 [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.36/mes/clave4_5">
-        <label>Clave 4 y 5</label>
-        <hint>Clave 4 y 5 [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.36/mes/clave6_12">
-        <label>Clave 6 a 12</label>
-        <hint>Clave 6 a 12 [en miles de pesos]</hint>
-      </input>
+    <group ref="/C1.36/meses">
+      <label></label>
+      <repeat nodeset="/C1.36/meses">
+        <group appearance="col4 well-white" ref="/C1.36/meses/mes">
+          <label>{title}</label>
+          <input ref="/C1.36/meses/mes/clave1">
+            <label>Clave 1</label>
+            <hint>Clave 1 [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.36/meses/mes/clave2_3">
+            <label>Clave 2 y 3</label>
+            <hint>Clave 2 y 3 [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.36/meses/mes/clave4_5">
+            <label>Clave 4 y 5</label>
+            <hint>Clave 4 y 5 [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.36/meses/mes/clave6_12">
+            <label>Clave 6 a 12</label>
+            <hint>Clave 6 a 12 [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
     </group>
   </h:body>
 </h:html>

@@ -5,77 +5,84 @@
     <model>
       <instance>
         <C1.17 id="C1.17">
-          <mes>
-            <provincia/>
-            <partido/>
-            <localidad/>
-            <area/>
-            <contratos_vigentes/>
-            <facturacion_papel/>
-            <facturacion_web/>
-          </mes>
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <partido/>
+              <localidad/>
+              <area/>
+              <contratos_vigentes/>
+              <facturacion_papel/>
+              <facturacion_web/>
+            </mes>
+          </meses>
           <meta>
             <instanceID/>
           </meta>
         </C1.17>
       </instance>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.17/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.17/mes/provincia" nodeset="/C1.17/mes/partido" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.17/mes/partido" nodeset="/C1.17/mes/localidad" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.17/mes/localidad" nodeset="/C1.17/mes/area" required="true()" type="select1"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.17/mes/contratos_vigentes" required="true()" type="int"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.17/mes/facturacion_papel" required="true()" type="int"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.17/mes/facturacion_web" required="true()" type="int"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.17/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.17/mes/provincia" nodeset="/C1.17/meses/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.17/mes/partido" nodeset="/C1.17/meses/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.17/mes/localidad" nodeset="/C1.17/meses/mes/area" required="true()" type="select1"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.17/meses/mes/contratos_vigentes" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.17/meses/mes/facturacion_papel" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.17/meses/mes/facturacion_web" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.17/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4 well-white" ref="/C1.17/mes">
-      <label>Enero</label>
-      <select1 appearance="minimal" ref="/C1.17/mes/provincia">
-        <label>Provincia</label>
-        <hint>Provincia</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <select1 appearance="minimal" ref="/C1.17/mes/partido">
-        <label>Partido/Departamento</label>
-        <hint>Partido/Departamento</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <select1 appearance="minimal" ref="/C1.17/mes/localidad">
-        <label>Localidad</label>
-        <hint>Localidad</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <select1 appearance="minimal" ref="/C1.17/mes/area">
-        <label>Área Local</label>
-        <hint>Área Local</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <input ref="/C1.17/mes/contratos_vigentes">
-        <label>Contratos Vigente</label>
-        <hint>Contratos Vigente</hint>
-      </input>
-      <input ref="/C1.17/mes/facturacion_papel">
-        <label>Facturación Papel</label>
-        <hint>Facturación Papel</hint>
-      </input>
-      <input ref="/C1.17/mes/facturacion_web">
-        <label>Facturación Web</label>
-        <hint>Facturación Web</hint>
-      </input>
+    <group ref="/C1.17/meses">
+      <label></label>
+      <repeat nodeset="/C1.17/meses">
+        <group appearance="col4 well-white" ref="/C1.17/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/C1.17/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C1.17/meses/mes/partido">
+            <label>Partido/Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C1.17/meses/mes/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C1.17/meses/mes/area">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <input ref="/C1.17/meses/mes/contratos_vigentes">
+            <label>Contratos Vigente</label>
+            <hint>Contratos Vigente</hint>
+          </input>
+          <input ref="/C1.17/meses/mes/facturacion_papel">
+            <label>Facturación Papel</label>
+            <hint>Facturación Papel</hint>
+          </input>
+          <input ref="/C1.17/meses/mes/facturacion_web">
+            <label>Facturación Web</label>
+            <hint>Facturación Web</hint>
+          </input>
+        </group>
+      </repeat>
     </group>
   </h:body>
 </h:html>

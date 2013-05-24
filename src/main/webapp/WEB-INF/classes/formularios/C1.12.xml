@@ -5,110 +5,117 @@
     <model>
       <instance>
         <C1.12 id="C1.12">
-          <mes>
-            <provincia/>
-            <partido/>
-            <localidad/>
-            <area/>
-            <l_l>
-              <l_hn/>
-              <l_hr/>
-            </l_l>
-            <l_ldn>
-              <ldn_hn/>
-              <ldn_hr/>
-            </l_ldn>
-            <l_ldi>
-              <ldi_hn/>
-              <ldi_hr/>
-            </l_ldi>
-          </mes>
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <partido/>
+              <localidad/>
+              <area/>
+              <l_l>
+                <l_hn/>
+                <l_hr/>
+              </l_l>
+              <l_ldn>
+                <ldn_hn/>
+                <ldn_hr/>
+              </l_ldn>
+              <l_ldi>
+                <ldi_hn/>
+                <ldi_hr/>
+              </l_ldi>
+            </mes>
+          </meses>
           <meta>
             <instanceID/>
           </meta>
         </C1.12>
       </instance>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.12/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.11/mes/provincia" nodeset="/C1.12/mes/partido" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.11/mes/partido" nodeset="/C1.12/mes/localidad" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.11/mes/localidad" nodeset="/C1.12/mes/area" required="true()" type="select1"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_l/l_hn" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_l/l_hr" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_ldn/ldn_hn" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_ldn/ldn_hr" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_ldi/ldi_hn" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/mes/l_ldi/ldi_hr" required="true()" type="decimal"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.12/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.11/mes/provincia" nodeset="/C1.12/meses/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.11/mes/partido" nodeset="/C1.12/meses/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.11/mes/localidad" nodeset="/C1.12/meses/mes/area" required="true()" type="select1"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/meses/mes/l_l/l_hn" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/meses/mes/l_l/l_hr" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/meses/mes/l_ldn/ldn_hn" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/meses/mes/l_ldn/ldn_hr" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/meses/mes/l_ldi/ldi_hn" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/meses/mes/l_ldi/ldi_hr" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.12/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4 well-white" ref="/C1.12/mes">
-      <label>Enero</label>
-      <select1 appearance="minimal" ref="/C1.12/mes/provincia">
-        <label>Provincia</label>
-        <hint>Provincia</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <select1 appearance="minimal" ref="/C1.12/mes/partido">
-        <label>Partido / Departamento</label>
-        <hint>Partido/Departamento</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <select1 appearance="minimal" ref="/C1.12/mes/localidad">
-        <label>Localidad</label>
-        <hint>Localidad</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <select1 appearance="minimal" ref="/C1.12/mes/area">
-        <label>Área Local</label>
-        <hint>Área Local</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <group appearance="col2 well-white" ref="/C1.12/mes/l_l">
-        <label>L-L</label>
-        <input ref="/C1.12/mes/l_l/l_hn">
-          <label>HN</label>
-          <hint>HN [en miles]</hint>
-        </input>
-        <input ref="/C1.12/mes/l_l/l_hr">
-          <label>HR</label>
-          <hint>HR [en miles]</hint>
-        </input>
-      </group>
-      <group appearance="col2 well-white" ref="/C1.12/mes/l_ldn">
-        <label>L-LDN</label>
-        <input ref="/C1.12/mes/l_ldn/ldn_hn">
-          <label>HN</label>
-          <hint>HN [en miles]</hint>
-        </input>
-        <input ref="/C1.12/mes/l_ldn/ldn_hr">
-          <label>HR</label>
-          <hint>HR [en miles]</hint>
-        </input>
-      </group>
-      <group appearance="col2 well-white" ref="/C1.12/mes/l_ldi">
-        <label>L-LDI</label>
-        <input ref="/C1.12/mes/l_ldi/ldi_hn">
-          <label>HN</label>
-          <hint>HN [en miles]</hint>
-        </input>
-        <input ref="/C1.12/mes/l_ldi/ldi_hr">
-          <label>HR</label>
-          <hint>HR [en miles]</hint>
-        </input>
-      </group>
+    <group ref="/C1.12/meses">
+      <label></label>
+      <repeat nodeset="/C1.12/meses">
+        <group appearance="col4 well-white" ref="/C1.12/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/C1.12/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C1.12/meses/mes/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C1.12/meses/mes/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C1.12/meses/mes/area">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <group appearance="col2 well-white" ref="/C1.12/meses/mes/l_l">
+            <label>L-L</label>
+            <input ref="/C1.12/meses/mes/l_l/l_hn">
+              <label>HN</label>
+              <hint>HN [en miles]</hint>
+            </input>
+            <input ref="/C1.12/meses/mes/l_l/l_hr">
+              <label>HR</label>
+              <hint>HR [en miles]</hint>
+            </input>
+          </group>
+          <group appearance="col2 well-white" ref="/C1.12/meses/mes/l_ldn">
+            <label>L-LDN</label>
+            <input ref="/C1.12/meses/mes/l_ldn/ldn_hn">
+              <label>HN</label>
+              <hint>HN [en miles]</hint>
+            </input>
+            <input ref="/C1.12/meses/mes/l_ldn/ldn_hr">
+              <label>HR</label>
+              <hint>HR [en miles]</hint>
+            </input>
+          </group>
+          <group appearance="col2 well-white" ref="/C1.12/meses/mes/l_ldi">
+            <label>L-LDI</label>
+            <input ref="/C1.12/meses/mes/l_ldi/ldi_hn">
+              <label>HN</label>
+              <hint>HN [en miles]</hint>
+            </input>
+            <input ref="/C1.12/meses/mes/l_ldi/ldi_hr">
+              <label>HR</label>
+              <hint>HR [en miles]</hint>
+            </input>
+          </group>
+        </group>
+      </repeat>
     </group>
   </h:body>
 </h:html>

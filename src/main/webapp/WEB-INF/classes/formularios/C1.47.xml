@@ -5,80 +5,87 @@
     <model>
       <instance>
         <C1.47 id="C1.47">
-          <mes>
-            <i_d/>
-            <imp/>
-            <am_bienes/>
-            <am_intang/>
-            <publicidad/>
-            <costo_equipos/>
-            <otros_com/>
-            <otros_fin/>
-            <otros_adm/>
-            <calculate/>
-            <calculate_test_output/>
-          </mes>
+          <meses jr:template="">
+            <mes>
+              <i_d/>
+              <imp/>
+              <am_bienes/>
+              <am_intang/>
+              <publicidad/>
+              <costo_equipos/>
+              <otros_com/>
+              <otros_fin/>
+              <otros_adm/>
+              <calculate/>
+              <calculate_test_output/>
+            </mes>
+          </meses>
           <meta>
             <instanceID/>
           </meta>
         </C1.47>
       </instance>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/mes/i_d" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/mes/imp" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/mes/am_bienes" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/mes/am_intang" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/mes/publicidad" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/mes/costo_equipos" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/mes/otros_com" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/mes/otros_fin" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/mes/otros_adm" type="int"/>
-      <bind calculate=" /C1.47/mes/i_d + /C1.47/mes/imp + /C1.47/mes/am_bienes + /C1.47/mes/am_intang + /C1.47/mes/publicidad + /C1.47/mes/costo_equipos + /C1.47/mes/otros_com + /C1.47/mes/otros_fin + /C1.47/mes/otros_adm " nodeset="/C1.47/mes/calculate" type="string"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/mes/calculate_test_output" readonly="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/meses/mes/i_d" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/meses/mes/imp" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/meses/mes/am_bienes" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/meses/mes/am_intang" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/meses/mes/publicidad" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/meses/mes/costo_equipos" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/meses/mes/otros_com" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/meses/mes/otros_fin" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/meses/mes/otros_adm" type="int"/>
+      <bind calculate=" /C1.47/meses/mes/i_d + /C1.47/meses/mes/imp + /C1.47/meses/mes/am_bienes + /C1.47/meses/mes/am_intang + /C1.47/meses/mes/publicidad + /C1.47/meses/mes/costo_equipos + /C1.47/meses/mes/otros_com + /C1.47/meses/mes/otros_fin + /C1.47/meses/mes/otros_adm " nodeset="/C1.47/meses/mes/calculate" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.47/meses/mes/calculate_test_output" readonly="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.47/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4 well-white" ref="/C1.47/mes">
-      <label>Enero</label>
-      <input ref="/C1.47/mes/i_d">
-        <label>I &amp; D:</label>
-        <hint>I &amp; D [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.47/mes/imp">
-        <label>lmp:</label>
-        <hint>lmp [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.47/mes/am_bienes">
-        <label>Amortización de Bienes de Uso:</label>
-        <hint>Amortiz. de Bienes de uso [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.47/mes/am_intang">
-        <label>Amortiz. Intangibles:</label>
-        <hint>Amortización de Intangibles [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.47/mes/publicidad">
-        <label>Publicidad:</label>
-        <hint>Publicidad [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.47/mes/costo_equipos">
-        <label>Costo Equipos:</label>
-        <hint>Costo Equipos [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.47/mes/otros_com">
-        <label>Otros Comerciales:</label>
-        <hint>Otros Comerciales [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.47/mes/otros_fin">
-        <label>Otros Financieros:</label>
-        <hint>Otros Financieros [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.47/mes/otros_adm">
-        <label>Otros Administrativos:</label>
-        <hint>Otros Administrativos [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.47/mes/calculate_test_output">
-        <label>Total <output value=" /C1.47/mes/calculate "/></label><hint>Total [en miles de pesos]</hint>
-      </input>
+    <group ref="/C1.47/meses">
+      <label></label>
+      <repeat nodeset="/C1.47/meses">
+        <group appearance="col4 well-white" ref="/C1.47/meses/mes">
+          <label>{title}</label>
+          <input ref="/C1.47/meses/mes/i_d">
+            <label>I &amp; D:</label>
+            <hint>I &amp; D [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.47/meses/mes/imp">
+            <label>lmp:</label>
+            <hint>lmp [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.47/meses/mes/am_bienes">
+            <label>Amortización de Bienes de Uso:</label>
+            <hint>Amortiz. de Bienes de uso [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.47/meses/mes/am_intang">
+            <label>Amortiz. Intangibles:</label>
+            <hint>Amortización de Intangibles [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.47/meses/mes/publicidad">
+            <label>Publicidad:</label>
+            <hint>Publicidad [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.47/meses/mes/costo_equipos">
+            <label>Costo Equipos:</label>
+            <hint>Costo Equipos [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.47/meses/mes/otros_com">
+            <label>Otros Comerciales:</label>
+            <hint>Otros Comerciales [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.47/meses/mes/otros_fin">
+            <label>Otros Financieros:</label>
+            <hint>Otros Financieros [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.47/meses/mes/otros_adm">
+            <label>Otros Administrativos:</label>
+            <hint>Otros Administrativos [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.47/meses/mes/calculate_test_output">
+            <label>Total <output value=" /C1.47/meses/mes/calculate "/></label><hint>Total [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
     </group>
   </h:body>
 </h:html>

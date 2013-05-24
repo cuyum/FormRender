@@ -5,55 +5,62 @@
     <model>
       <instance>
         <C1.31 id="C1.31">
-          <mes>
-            <hogares/>
-            <comercial/>
-            <gobierno/>
-            <jubilados/>
-            <profesional/>
-            <otros/>
-          </mes>
+          <meses jr:template="">
+            <mes>
+              <hogares/>
+              <comercial/>
+              <gobierno/>
+              <jubilados/>
+              <profesional/>
+              <otros/>
+            </mes>
+          </meses>
           <meta>
             <instanceID/>
           </meta>
         </C1.31>
       </instance>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.31/mes/hogares" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.31/mes/comercial" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.31/mes/gobierno" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.31/mes/jubilados" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.31/mes/profesional" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.31/mes/otros" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.31/meses/mes/hogares" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.31/meses/mes/comercial" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.31/meses/mes/gobierno" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.31/meses/mes/jubilados" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.31/meses/mes/profesional" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.31/meses/mes/otros" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.31/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4 well-white" ref="/C1.31/mes">
-      <label>Enero</label>
-      <input ref="/C1.31/mes/hogares">
-        <label>Hogares:</label>
-        <hint>Hogares [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.31/mes/comercial">
-        <label>Comercial:</label>
-        <hint>Comercial [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.31/mes/gobierno">
-        <label>Gobierno:</label>
-        <hint>Gobierno [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.31/mes/jubilados">
-        <label>Jubilados:</label>
-        <hint>Jubilados [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.31/mes/profesional">
-        <label>Profesional:</label>
-        <hint>Profesional [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.31/mes/otros">
-        <label>Otros:</label>
-        <hint>Otros [en miles de pesos]</hint>
-      </input>
+    <group ref="/C1.31/meses">
+      <label></label>
+      <repeat nodeset="/C1.31/meses">
+        <group appearance="col4 well-white" ref="/C1.31/meses/mes">
+          <label>{title}</label>
+          <input ref="/C1.31/meses/mes/hogares">
+            <label>Hogares:</label>
+            <hint>Hogares [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.31/meses/mes/comercial">
+            <label>Comercial:</label>
+            <hint>Comercial [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.31/meses/mes/gobierno">
+            <label>Gobierno:</label>
+            <hint>Gobierno [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.31/meses/mes/jubilados">
+            <label>Jubilados:</label>
+            <hint>Jubilados [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.31/meses/mes/profesional">
+            <label>Profesional:</label>
+            <hint>Profesional [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.31/meses/mes/otros">
+            <label>Otros:</label>
+            <hint>Otros [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
     </group>
   </h:body>
 </h:html>

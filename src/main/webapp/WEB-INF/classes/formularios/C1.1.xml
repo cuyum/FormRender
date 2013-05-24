@@ -51,7 +51,7 @@
         </item>
       </select1>
       <select1 appearance="minimal" ref="/C1.1/areas/area">
-        <label>Area Local</label>
+        <label>Área Local</label>
         <hint>Área Local</hint>
         <item>
           <label>Seleccione una opcion</label>

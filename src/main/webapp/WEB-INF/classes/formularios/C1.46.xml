@@ -5,50 +5,57 @@
     <model>
       <instance>
         <C1.46 id="C1.46">
-          <mes>
-            <gastos/>
-            <cargas/>
-            <terceros/>
-            <otros/>
-            <calculate/>
-            <total/>
-          </mes>
+          <meses jr:template="">
+            <mes>
+              <gastos/>
+              <cargas/>
+              <terceros/>
+              <otros/>
+              <calculate/>
+              <total/>
+            </mes>
+          </meses>
           <meta>
             <instanceID/>
           </meta>
         </C1.46>
       </instance>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/mes/gastos" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/mes/cargas" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/mes/terceros" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/mes/otros" required="true()" type="int"/>
-      <bind calculate=" /C1.46/mes/gastos + /C1.46/mes/cargas + /C1.46/mes/terceros + /C1.46/mes/otros " nodeset="/C1.46/mes/calculate" type="string"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/mes/total" readonly="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/meses/mes/gastos" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/meses/mes/cargas" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/meses/mes/terceros" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/meses/mes/otros" required="true()" type="int"/>
+      <bind calculate=" /C1.46/meses/mes/gastos + /C1.46/meses/mes/cargas + /C1.46/meses/mes/terceros + /C1.46/meses/mes/otros " nodeset="/C1.46/meses/mes/calculate" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/meses/mes/total" readonly="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.46/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col3 well-white" ref="/C1.46/mes">
-      <label>Enero</label>
-      <input ref="/C1.46/mes/gastos">
-        <label>Gastos en Personal:</label>
-        <hint>Gastos en Personal [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.46/mes/cargas">
-        <label>Cargas Soc. y otros costos laborales:</label>
-        <hint>CS y Otros [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.46/mes/terceros">
-        <label>Materiales y trabajo de terceros:</label>
-        <hint>Terceros [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.46/mes/otros">
-        <label>Otros:</label>
-        <hint>Otros [en miles de pesos]</hint>
-      </input>
-      <input ref="/C1.46/mes/total">
-        <label>Total: <output value=" /C1.46/mes/calculate "/></label><hint>Total [en miles de pesos]</hint>
-      </input>
+    <group ref="/C1.46/meses">
+      <label></label>
+      <repeat nodeset="/C1.46/meses">
+        <group appearance="col3 well-white" ref="/C1.46/meses/mes">
+          <label>{title}</label>
+          <input ref="/C1.46/meses/mes/gastos">
+            <label>Gastos en Personal (remuneraciones):</label>
+            <hint>Gastos en Personal [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.46/meses/mes/cargas">
+            <label>Cargas Soc. y otros costos laborales:</label>
+            <hint>CS y Otros [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.46/meses/mes/terceros">
+            <label>Materiales y trabajo de terceros:</label>
+            <hint>Terceros [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.46/meses/mes/otros">
+            <label>Otros:</label>
+            <hint>Otros [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.46/meses/mes/total">
+            <label>Total: <output value=" /C1.46/meses/mes/calculate "/></label><hint>Total [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
     </group>
   </h:body>
 </h:html>

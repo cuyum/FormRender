@@ -218,9 +218,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 							</div>
 						</div>
 					</fieldset>
-					<div class="separator-doubled"/>
-	            	<br/>
-	            	<br/>
+					<div class="separator-doubled"/>	            	
 	            </form>
 	            	            
 	            </div>
