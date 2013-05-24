@@ -25,10 +25,10 @@
         </C1.8>
       </instance>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.8/meses/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.8/mes/provincia" nodeset="/C1.8/meses/mes/partido" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.8/mes/partido" nodeset="/C1.8/meses/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.8/meses/mes/provincia" nodeset="/C1.8/meses/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.8/meses/mes/partido" nodeset="/C1.8/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/C1.8/meses/mes/localidad_otro" relevant=" /C1.8/meses/mes/localidad =9999" type="string"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.8/mes/localidad" nodeset="/C1.8/meses/mes/area" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.8/meses/mes/localidad" nodeset="/C1.8/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/C1.8/meses/mes/area_otro" relevant=" /C1.8/meses/mes/area =9999" type="string"/>
       <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/meses/mes/abono_local" required="true()" type="int"/>
       <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/meses/mes/abono_ldn" required="true()" type="int"/>
@@ -41,7 +41,7 @@
     <group ref="/C1.8/meses">
       <label></label>
       <repeat nodeset="/C1.8/meses">
-        <group appearance="col4 well-white" ref="/C1.8/meses/mes">
+        <group appearance="col4 well-white variable" ref="/C1.8/meses/mes">
           <label>{title}</label>
           <select1 appearance="minimal" ref="/C1.8/meses/mes/provincia">
             <label>Provincia</label>
