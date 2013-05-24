@@ -101,7 +101,7 @@
           </select1>
           <input ref="/C1.2/inter/interconexion/capacidad">
             <label>Capacidad</label>
-            <hint>Capacidad [Mbps / xxE1]</hint>
+            <hint>Capacidad [Mbps / n*E1]</hint>
           </input>
           <select1 appearance="minimal" ref="/C1.2/inter/interconexion/unidad">
             <label>Unidad</label>
@@ -116,7 +116,7 @@
             </item>
             <item>
               <label>n*E1</label>
-              <value>xxe1</value>
+              <value>n*E1</value>
             </item>
           </select1>
         </group>

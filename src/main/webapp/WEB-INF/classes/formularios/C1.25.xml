@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario C1.25 - Servicios Adicionales</h:title>
+    <h:title>Formulario C1.25 - Tarifas / Precio servicios adicionales</h:title>
     <model>
       <instance>
         <C1.25 id="C1.25">
@@ -10,7 +10,6 @@
             <s_bloqueo_local/>
             <s_bloqueo_ldn/>
             <s_desvio_ocupado1/>
-            <s_desvio_ocupado2/>
             <s_desvio_no/>
             <s_desvio_cambio/>
             <s_desvio_baja/>
@@ -36,7 +35,6 @@
             <s_bloqueo_modalidad/>
             <s_bloqueo_audiotexto/>
             <s_otros/>
-            <s_otros1/>
           </servicios>
           <meta>
             <instanceID/>
@@ -47,7 +45,6 @@
       <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_local" required="true()" type="decimal"/>
       <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_ldn" required="true()" type="decimal"/>
       <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_ocupado1" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_ocupado2" required="true()" type="decimal"/>
       <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_no" required="true()" type="decimal"/>
       <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_cambio" required="true()" type="decimal"/>
       <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_baja" required="true()" type="decimal"/>
@@ -72,13 +69,12 @@
       <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_datos" required="true()" type="decimal"/>
       <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_modalidad" required="true()" type="decimal"/>
       <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_audiotexto" required="true()" type="decimal"/>
-      <bind nodeset="/C1.25/servicios/s_otros" required="true()" type="string"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_otros1" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_otros" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.25/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col6 well-white" ref="/C1.25/servicios">
+    <group appearance="col4 well-white" ref="/C1.25/servicios">
       <label>Servicios</label>
       <input ref="/C1.25/servicios/s_llamada_conf">
         <label>Llamada en Conferencia</label>
@@ -93,10 +89,6 @@
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_desvio_ocupado1">
-        <label>Desvío por Ocupado</label>
-        <hint>Mensual [en pesos]</hint>
-      </input>
-      <input ref="/C1.25/servicios/s_desvio_ocupado2">
         <label>Desvío por Ocupado</label>
         <hint>Mensual [en pesos]</hint>
       </input>
@@ -145,7 +137,7 @@
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_cliente">
-        <label>Cliente/Abonado Ausente</label>
+        <label>Cliente / Abonado Ausente</label>
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_numeracion_abrev">
@@ -197,10 +189,7 @@
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_otros">
-        <label>Otros Servicios: Especificar</label>
-      </input>
-      <input ref="/C1.25/servicios/s_otros1">
-        <label>Otros Servicios: Especificar</label>
+        <label>Otros Servicios / Especificar</label>
         <hint>Mensual [en pesos]</hint>
       </input>
     </group>

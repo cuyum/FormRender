@@ -58,7 +58,8 @@
             <hint>Total Neto de Corresponsales de Salida [en miles de pesos]</hint>
           </input>
           <input ref="/C1.45/meses/mes/total">
-            <label>Total <output value=" /C1.45/meses/mes/calculate3 "/></label><hint>Total [en miles de pesos]</hint>
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
           </input>
         </group>
       </repeat>

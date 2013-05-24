@@ -76,7 +76,8 @@
             <hint>Otros [en miles de pesos]</hint>
           </input>
           <input ref="/C1.43/meses/Enero/total">
-            <label>Total: <output value=" /C1.43/meses/Enero/calculate1 "/></label><hint>Total [en miles de pesos]</hint>
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
           </input>
         </group>
       </repeat>

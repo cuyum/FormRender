@@ -83,12 +83,12 @@
 					</h:link>
 				</p:column>
 				<p:column headerText="Html">								
-					<h:link outcome="/formulario/display" value="Ver" styleClass="button" rendered="#{_item.codigo eq 'C1.1' or _item.codigo eq 'C1.2' or _item.codigo eq 'C1.3'}">
+					<h:link outcome="/formulario/display" value="Ver" styleClass="button" rendered="#{_item.codigo eq 'C1.1' or _item.codigo eq 'C1.2' or _item.codigo eq 'C1.3' or _item.codigo eq 'C1.26' or _item.codigo eq 'C1.27'}">
 						<f:param name="id" value="#{_item.id}"/>																	
 						<f:param name="repeat" value="1"/>
 						<f:param name="version" value="#{_item.formVersion}"/>	 
 					</h:link>
-					<h:link outcome="/formulario/display" value="Ver" styleClass="button" rendered="#{_item.codigo ne 'C1.1' and _item.codigo ne 'C1.2' and _item.codigo ne 'C1.3'}">
+					<h:link outcome="/formulario/display" value="Ver" styleClass="button" rendered="#{_item.codigo ne 'C1.1' and _item.codigo ne 'C1.2' and _item.codigo ne 'C1.3' and _item.codigo ne 'C1.26' and _item.codigo ne 'C1.27'}">
 						<f:param name="id" value="#{_item.id}"/>
 						<f:param name="title" value="Enero,Febrero,Marzo"/>	
 						<f:param name="repeat" value="3"/>	

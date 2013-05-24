@@ -172,7 +172,8 @@
             <hint>Tucumán [en miles de pesos]</hint>
           </input>
           <input ref="/C1.29/meses/mes/total">
-            <label>Total <output value=" /C1.29/meses/mes/calculate "/></label><hint>Total [en miles de pesos]</hint>
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
           </input>
         </group>
       </repeat>
