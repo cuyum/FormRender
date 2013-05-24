@@ -1,4 +1,13 @@
-if (typeof console == "undefined") {console = {log:function(){}, warn:function(){}, info:function(){}, error:function(){}};}
+if (typeof console == "undefined") {
+	console = {
+		log:function(){}, 
+		warn:function(){}, 
+		info:function(){},
+		error:function(){},
+		group:function(){},
+		groupEnd:function(){}
+	};
+}
 if (typeof window.console.debug == "undefined") {console.debug = console.log;}
 
 var FormRender = new function(){
