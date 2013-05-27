@@ -482,26 +482,28 @@ var setupValidationDefaults = function(){
 //			return this.optional(element) || /^(-)?[0-9]*$/.test(value); 
 			return /^-?(?:\d+|\d{1,3}(?:\.\d{3})+)$/.test(value); 
 		}, 
-		"Debe especificar un n&uacute;mero entero");
+		"N&uacute;mero no v&aacute;lido");
+//		"Debe especificar un n&uacute;mero entero");
 	
 	$.validator.addMethod("decimal", 
 		function(value, element) { 
 //			return this.optional(element) || /^\s*-?(\d+(\.\d{1,2})?|\.\d{1,2})\s*$/.test(value); 
 			return /^-?(?:\d+\,\d{1,3}|\d{1,3}(?:\.\d{3})+\,\d{1,3})$/.test(value); 
 		}, 
-		"Debe especificar un n&uacute;mero decimal con dos cifras luego del punto");
+		"N&uacute;mero no v&aacute;lido");
+//		"Debe especificar un n&uacute;mero decimal con dos cifras luego del punto");
 	
 	$.validator.addMethod("higher", 
 			function(value, element, param) { 
 				return value > param;
 			}, 
-			"Debe especificar un n&uacute;mero mayor que {0} ");
+			"Debe ser mayor que {0} ");
 	
 	$.validator.addMethod("lower", 
 			function(value, element, param) { 
 				return value < param;
 			}, 
-			"Debe especificar un n&uacute;mero menor que {0} ");
+			"Debe ser menor que {0} ");
 	
 	$.validator.addMethod("cuit",
 		function(value,element){
@@ -518,5 +520,5 @@ var setupValidationDefaults = function(){
 		    }
 		    return false;
 		}
-	,"Debe especificar un cuit v&aacute;lido");
+	,"Cuit no v&aacute;lido");
 };

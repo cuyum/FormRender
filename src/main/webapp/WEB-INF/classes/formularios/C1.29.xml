@@ -31,6 +31,8 @@
               <santiago_Estero/>
               <tierra_Fuego/>
               <tucuman/>
+              <calculate/>
+              <total/>
             </mes>
           </meses>
           <meta>
@@ -62,6 +64,8 @@
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.29/meses/mes/santiago_Estero" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.29/meses/mes/tierra_Fuego" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.29/meses/mes/tucuman" required="true()" type="int"/>
+      <bind calculate=" /C1.29/meses/mes/caba + /C1.29/meses/mes/buenos_Aires + /C1.29/meses/mes/catamarca + /C1.29/meses/mes/chaco + /C1.29/meses/mes/chubut + /C1.29/meses/mes/cordoba + /C1.29/meses/mes/corrientes + /C1.29/meses/mes/entre_rios + /C1.29/meses/mes/formosa + /C1.29/meses/mes/jujuy + /C1.29/meses/mes/la_Pampa + /C1.29/meses/mes/la_Rioja + /C1.29/meses/mes/mendoza + /C1.29/meses/mes/misiones + /C1.29/meses/mes/neuquen + /C1.29/meses/mes/rio_Negro + /C1.29/meses/mes/salta + /C1.29/meses/mes/san_Juan + /C1.29/meses/mes/san_Luis + /C1.29/meses/mes/santa_Cruz + /C1.29/meses/mes/santa_Fe + /C1.29/meses/mes/santiago_Estero + /C1.29/meses/mes/tierra_Fuego + /C1.29/meses/mes/tucuman " nodeset="/C1.29/meses/mes/calculate" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.29/meses/mes/total" readonly="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.29/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -166,6 +170,9 @@
           <input ref="/C1.29/meses/mes/tucuman">
             <label>Tucumán</label>
             <hint>Tucumán [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.29/meses/mes/total">
+            <label>Total <output value=" /C1.29/meses/mes/calculate "/></label><hint>Total [en miles de pesos]</hint>
           </input>
         </group>
       </repeat>
