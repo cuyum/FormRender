@@ -11,7 +11,7 @@ var validationRequired = function(field){
 				required : function(){
 					var type = field.attr("type");
 					if(type=="radio" || type==undefined){
-						if(field.is("textarea")) return "Debe ingresar un valor";
+						if(field.is("textarea")) return "El campo es requerido";
 						return "Debe elegir una opci&oacute;n";
 					}else{
 						return "El campo es requerido";
