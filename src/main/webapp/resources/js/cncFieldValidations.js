@@ -152,6 +152,70 @@ var setupMask = function(field){
 
 };
 
+var setupRelevantData = function(field, fieldset){
+	var data_relevant = field.attr("data-relevant");
+	if(data_relevant && data_relevant.trim().length>0){
+		var el = null;
+		if(field.is("input[type~='text']")){
+			el = field.parent();
+		}else if(field.is("input[type~='radio']") || field.is("input[type~='checkbox']")){
+			el = field.closest("fieldset");
+		}
+
+		if(el!=null)el.hide();
+
+		if(data_relevant.indexOf("=")>=0){
+			/* " /C1.1/areas/area =9999" */
+			var data = data_relevant.split("=");
+			var ancestorSelector = "[name~='"+data[0].trim()+"']";;
+			if(fieldset.instance!=undefined){
+				ancestorSelector = "[name~='"+data[0].trim()+"_"+fieldset.instance+"']";
+			}
+			
+			var ancestor = $(ancestorSelector);
+			if(ancestor && ancestor.is("select")){
+				ancestor.data("dependant",field);
+				var value = data[1];
+				ancestor.on("change",{
+					ancestor:ancestor,
+					element:el,
+					value:value
+				},function(event){
+					if(event.data.ancestor.val()==event.data.value){
+						event.data.element.show();
+					}else{
+						event.data.element.hide();
+					}
+				});
+			}
+		}else if(data_relevant.indexOf("selected(")>=0){
+			var data = data_relevant.replace("selected(","");
+			data = data.replace(")","");
+			data = data.split(",");
+			
+			var ancestorSelector = "[name~='"+data[0].trim()+"']";;
+			if(fieldset.instance!=undefined){
+				ancestorSelector = "[name~='"+data[0].trim()+"_"+fieldset.instance+"']";
+			}
+			var ancestor = $(ancestorSelector);
+			
+//			var ancestor = $("[name~='"+data[0].trim()+"']");
+			var value = data[1].trim()=="'yes'";
+			if(ancestor && (ancestor.is("input[type~='checkbox']") || ancestor.is("input[type~='radio']")) && value){
+				ancestor.data("dependant",field);
+				ancestor.on("click",{
+					ancestor:ancestor,
+					element:el,
+					value:value
+				},function(event){
+					event.data.element.show();
+				});
+			}
+		}
+	}
+};
+
+
 var setupDependency = function(field, fieldset){
 	
 	if(field.data("jr:constraint:depends")!=undefined && field.is("input")){
@@ -218,14 +282,24 @@ var setupRemoteData = function(field,fieldset){
 							  var option = field.children("option[value='']");
 							  field.html("").append(option.attr("value",""));
 						  }else{
-							  field.hide();
+							  console.log("encontró un field dependiente NOT select");
+							  if(field.is("input[type='text']")){
+								  el = field.parent();
+							  }else if(field.is("input[type='radio']") || field.is("input[type='checkbox']")){
+								  el = field.closest("fieldset");
+							  }
+							  if(el)el.hide();
 						  }
 						  var dependant = field.data("dependant");
-						  if(dependant)
+						  if(dependant){
+							  console.info(dependant);
 							  resetHierarchy(dependant);
+						  }
 					  };
 					  if(data.success){
+						  console.group("resetHierarchy");
 						  resetHierarchy(field);
+						  console.groupEnd();
 						  for ( var count = 0; count < data.result.length; count++) {
 							  var option = data.result[count];
 							  field.append('<option value='+ option.id + '>'+ option.nombre + '</option>');
@@ -439,37 +513,6 @@ var validationCuit = function(field){
 	}
 };
 
-var setupValidations = function(f,fieldset){
-	var field = $(f);
-	if(fieldset){
-		var instanceFieldName = field.attr("name")+"_"+fieldset.instance;
-		field.attr("name",instanceFieldName);
-	}else{
-		fieldset = {instance:undefined,fields:undefined,name:undefined,dom:undefined};
-	}
-	
-	/*Data constraints*/
-	setupDataConstraints(field);
-
-	/*Validations*/
-	validationRequired(field);
-	validationDecimal(field);
-	validationInteger(field);
-	validationLower(field);
-	validationHigher(field);
-	validationMin(field);
-	validationMax(field);
-	validationCuit(field);
-	
-	/*Aditional field logic*/
-	setupHint(field);
-	setupCalculate(field,fieldset);
-	setupMask(field);
-	setupDependency(field,fieldset);
-	setupRemoteData(field,fieldset);
-	
-};
-
 var setupValidationDefaults = function(){
 	$.validator.setDefaults({
 		debug: true,
@@ -523,4 +566,36 @@ var setupValidationDefaults = function(){
 		    return false;
 		}
 	,"Cuit no v&aacute;lido");
+};
+
+var setupValidations = function(f,fieldset){
+	var field = $(f);
+	if(fieldset){
+		var instanceFieldName = field.attr("name")+"_"+fieldset.instance;
+		field.attr("name",instanceFieldName);
+	}else{
+		fieldset = {instance:undefined,fields:undefined,name:undefined,dom:undefined};
+	}
+	
+	/*Data constraints*/
+	setupDataConstraints(field);
+	
+	/*Validations*/
+	validationRequired(field);
+	validationDecimal(field);
+	validationInteger(field);
+	validationLower(field);
+	validationHigher(field);
+	validationMin(field);
+	validationMax(field);
+	validationCuit(field);
+	
+	/*Aditional field logic*/
+	setupHint(field);
+	setupCalculate(field,fieldset);
+	setupMask(field);
+	setupRelevantData(field,fieldset);
+	setupDependency(field,fieldset);
+	setupRemoteData(field,fieldset);
+	
 };
