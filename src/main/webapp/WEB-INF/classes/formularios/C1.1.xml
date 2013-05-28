@@ -9,7 +9,9 @@
             <provincia/>
             <partido/>
             <localidad/>
+            <localidad_otro/>
             <area/>
+            <area_otro/>
           </areas>
           <meta>
             <instanceID/>
@@ -19,7 +21,9 @@
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.1/areas/provincia" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.1/areas/provincia" nodeset="/C1.1/areas/partido" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.1/areas/partido" nodeset="/C1.1/areas/localidad" required="true()" type="select1"/>
+      <bind nodeset="/C1.1/areas/localidad_otro" relevant=" /C1.1/areas/localidad =9999" type="string"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.1/areas/localidad" nodeset="/C1.1/areas/area" required="true()" type="select1"/>
+      <bind nodeset="/C1.1/areas/area_otro" relevant=" /C1.1/areas/area =9999" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.1/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -50,6 +54,9 @@
           <value>0</value>
         </item>
       </select1>
+      <input ref="/C1.1/areas/localidad_otro">
+        <label>Especifique</label>
+      </input>
       <select1 appearance="minimal" ref="/C1.1/areas/area">
         <label>Área Local</label>
         <hint>Área Local</hint>
@@ -58,6 +65,9 @@
           <value>0</value>
         </item>
       </select1>
+      <input ref="/C1.1/areas/area_otro">
+        <label>Especifique</label>
+      </input>
     </group>
   </h:body>
 </h:html>
