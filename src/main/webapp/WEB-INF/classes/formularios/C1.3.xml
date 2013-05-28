@@ -14,23 +14,23 @@
             <area_otro/>
           </lugar>
           <equipamiento>
-            <equipamiento_tecn/>
+            <tecnologia/>
             <equipamiento_tecn_otro/>
             <equipamiento_cap_disp/>
             <equipamiento_cap_util/>
           </equipamiento>
-          <medio>
-            <medio_tipo/>
+          <tipomedio>
+            <medio/>
             <medio_tipo_otro/>
             <medio_cap_disp/>
             <medio_cap_util/>
-          </medio>
-          <tendido>
-            <tendido_tipo/>
+          </tipomedio>
+          <tipotendido>
+            <tendido/>
             <tendido_tipo_otro/>
             <tendido_cap_disp/>
             <tendido_cap_util/>
-          </tendido>
+          </tipotendido>
           <lugar1>
             <provincia1/>
             <partido1/>
@@ -47,27 +47,27 @@
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.3/lugar/provincia" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.3/lugar/provincia" nodeset="/C1.3/lugar/partido" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.3/lugar/partido" nodeset="/C1.3/lugar/localidad" required="true()" type="select1"/>
-      <bind nodeset="/C1.3/lugar/localidad_otro" relevant=" /C1.3/lugar/localidad =9999" type="string"/>
+      <bind nodeset="/C1.3/lugar/localidad_otro" relevant=" /C1.3/lugar/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.3/lugar/localidad" nodeset="/C1.3/lugar/area" required="true()" type="select1"/>
-      <bind nodeset="/C1.3/lugar/area_otro" relevant=" /C1.3/lugar/area =9999" type="string"/>
-      <bind nodeset="/C1.3/equipamiento/equipamiento_tecn" required="true()" type="select1"/>
-      <bind nodeset="/C1.3/equipamiento/equipamiento_tecn_otro" relevant=" /C1.3/equipamiento/equipamiento_tecn =Otros" type="string"/>
+      <bind nodeset="/C1.3/lugar/area_otro" relevant=" /C1.3/lugar/area =9999" required="true()" type="string"/>
+      <bind nodeset="/C1.3/equipamiento/tecnologia" required="true()" type="select1"/>
+      <bind nodeset="/C1.3/equipamiento/equipamiento_tecn_otro" relevant=" /C1.3/equipamiento/tecnologia =Otros" required="true()" type="string"/>
       <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/equipamiento/equipamiento_cap_disp" required="true()" type="decimal"/>
       <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/equipamiento/equipamiento_cap_util" required="true()" type="decimal"/>
-      <bind nodeset="/C1.3/medio/medio_tipo" required="true()" type="select1"/>
-      <bind nodeset="/C1.3/medio/medio_tipo_otro" relevant=" /C1.3/medio/medio_tipo =Otros" type="string"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/medio/medio_cap_disp" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/medio/medio_cap_util" required="true()" type="decimal"/>
-      <bind nodeset="/C1.3/tendido/tendido_tipo" required="true()" type="select1"/>
-      <bind nodeset="/C1.3/tendido/tendido_tipo_otro" relevant=" /C1.3/tendido/tendido_tipo =Otros" type="string"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/tendido/tendido_cap_disp" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/tendido/tendido_cap_util" required="true()" type="decimal"/>
+      <bind nodeset="/C1.3/tipomedio/medio" required="true()" type="select1"/>
+      <bind nodeset="/C1.3/tipomedio/medio_tipo_otro" relevant=" /C1.3/tipomedio/medio =Otros" required="true()" type="string"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/tipomedio/medio_cap_disp" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/tipomedio/medio_cap_util" required="true()" type="decimal"/>
+      <bind nodeset="/C1.3/tipotendido/tendido" required="true()" type="select1"/>
+      <bind nodeset="/C1.3/tipotendido/tendido_tipo_otro" relevant=" /C1.3/tipotendido/tendido =Otros" required="true()" type="string"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/tipotendido/tendido_cap_disp" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/tipotendido/tendido_cap_util" required="true()" type="decimal"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.3/lugar1/provincia1" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.3/lugar1/provincia1" nodeset="/C1.3/lugar1/partido1" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.3/lugar1/partido1" nodeset="/C1.3/lugar1/localidad1" required="true()" type="select1"/>
-      <bind nodeset="/C1.3/lugar1/localidad1_otro" relevant=" /C1.3/lugar1/localidad1 =9999" type="string"/>
+      <bind nodeset="/C1.3/lugar1/localidad1_otro" relevant=" /C1.3/lugar1/localidad1 =9999" required="true()" type="string"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.3/lugar1/localidad1" nodeset="/C1.3/lugar1/area1" required="true()" type="select1"/>
-      <bind nodeset="/C1.3/lugar1/area1_otro" relevant=" /C1.3/lugar1/area1 =9999" type="string"/>
+      <bind nodeset="/C1.3/lugar1/area1_otro" relevant=" /C1.3/lugar1/area1 =9999" required="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.3/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -99,7 +99,7 @@
         </item>
       </select1>
       <input ref="/C1.3/lugar/localidad_otro">
-        <label>Especifique</label>
+        <label>Especifique:</label>
       </input>
       <select1 appearance="minimal" ref="/C1.3/lugar/area">
         <label>Área Local</label>
@@ -110,12 +110,12 @@
         </item>
       </select1>
       <input ref="/C1.3/lugar/area_otro">
-        <label>Especifique</label>
+        <label>Especifique:</label>
       </input>
     </group>
     <group appearance="col3 well-white" ref="/C1.3/equipamiento">
       <label>Equipamiento</label>
-      <select1 appearance="minimal" ref="/C1.3/equipamiento/equipamiento_tecn">
+      <select1 appearance="minimal" ref="/C1.3/equipamiento/tecnologia">
         <label>Tecnología</label>
         <hint>Tecnología</hint>
         <item>
@@ -144,7 +144,7 @@
         </item>
       </select1>
       <input ref="/C1.3/equipamiento/equipamiento_tecn_otro">
-        <label>Especifique</label>
+        <label>Especifique:</label>
       </input>
       <input ref="/C1.3/equipamiento/equipamiento_cap_disp">
         <label>Capacidad Disponible</label>
@@ -155,9 +155,9 @@
         <hint>Capacidad Utilizada [Mbps / xxE1]</hint>
       </input>
     </group>
-    <group appearance="col3 well-white" ref="/C1.3/medio">
+    <group appearance="col3 well-white" ref="/C1.3/tipomedio">
       <label>Medio</label>
-      <select1 appearance="minimal" ref="/C1.3/medio/medio_tipo">
+      <select1 appearance="minimal" ref="/C1.3/tipomedio/medio">
         <label>Tipo</label>
         <hint>Tipo</hint>
         <item>
@@ -177,21 +177,21 @@
           <value>Otros</value>
         </item>
       </select1>
-      <input ref="/C1.3/medio/medio_tipo_otro">
-        <label>Especifique</label>
+      <input ref="/C1.3/tipomedio/medio_tipo_otro">
+        <label>Especifique:</label>
       </input>
-      <input ref="/C1.3/medio/medio_cap_disp">
+      <input ref="/C1.3/tipomedio/medio_cap_disp">
         <label>Capacidad Disponible</label>
         <hint>Capacidad Disponible [Mbps / xxE1]</hint>
       </input>
-      <input ref="/C1.3/medio/medio_cap_util">
+      <input ref="/C1.3/tipomedio/medio_cap_util">
         <label>Capacidad Utilizada</label>
         <hint>Capacidad Utilizada [Mbps / xxE1]</hint>
       </input>
     </group>
-    <group appearance="col3 well-white" ref="/C1.3/tendido">
+    <group appearance="col3 well-white" ref="/C1.3/tipotendido">
       <label>Tendido</label>
-      <select1 appearance="minimal" ref="/C1.3/tendido/tendido_tipo">
+      <select1 appearance="minimal" ref="/C1.3/tipotendido/tendido">
         <label>Tipo</label>
         <hint>Tipo</hint>
         <item>
@@ -211,14 +211,14 @@
           <value>Otros</value>
         </item>
       </select1>
-      <input ref="/C1.3/tendido/tendido_tipo_otro">
-        <label>Especifique</label>
+      <input ref="/C1.3/tipotendido/tendido_tipo_otro">
+        <label>Especifique:</label>
       </input>
-      <input ref="/C1.3/tendido/tendido_cap_disp">
+      <input ref="/C1.3/tipotendido/tendido_cap_disp">
         <label>Capacidad Disponible</label>
         <hint>Capacidad Disponible [Mbps / xxE1]</hint>
       </input>
-      <input ref="/C1.3/tendido/tendido_cap_util">
+      <input ref="/C1.3/tipotendido/tendido_cap_util">
         <label>Capacidad Utilizada</label>
         <hint>Capacidad Utilizada [Mbps / xxE1]</hint>
       </input>
@@ -250,7 +250,7 @@
         </item>
       </select1>
       <input ref="/C1.3/lugar1/localidad1_otro">
-        <label>Especifique</label>
+        <label>Especifique:</label>
       </input>
       <select1 appearance="minimal" ref="/C1.3/lugar1/area1">
         <label>Área Local</label>
@@ -261,7 +261,7 @@
         </item>
       </select1>
       <input ref="/C1.3/lugar1/area1_otro">
-        <label>Especifique</label>
+        <label>Especifique:</label>
       </input>
     </group>
   </h:body>

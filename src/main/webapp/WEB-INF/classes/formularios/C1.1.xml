@@ -21,9 +21,9 @@
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.1/areas/provincia" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.1/areas/provincia" nodeset="/C1.1/areas/partido" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.1/areas/partido" nodeset="/C1.1/areas/localidad" required="true()" type="select1"/>
-      <bind nodeset="/C1.1/areas/localidad_otro" relevant=" /C1.1/areas/localidad =9999" type="string"/>
+      <bind nodeset="/C1.1/areas/localidad_otro" relevant=" /C1.1/areas/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.1/areas/localidad" nodeset="/C1.1/areas/area" required="true()" type="select1"/>
-      <bind nodeset="/C1.1/areas/area_otro" relevant=" /C1.1/areas/area =9999" type="string"/>
+      <bind nodeset="/C1.1/areas/area_otro" relevant=" /C1.1/areas/area =9999" required="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.1/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

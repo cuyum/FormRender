@@ -24,9 +24,9 @@
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.2/interconexion/provincia" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.2/interconexion/provincia" nodeset="/C1.2/interconexion/partido" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.2/interconexion/partido" nodeset="/C1.2/interconexion/localidad" required="true()" type="select1"/>
-      <bind nodeset="/C1.2/interconexion/localidad_otro" relevant=" /C1.2/interconexion/localidad =9999" type="string"/>
+      <bind nodeset="/C1.2/interconexion/localidad_otro" relevant=" /C1.2/interconexion/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.2/interconexion/localidad" nodeset="/C1.2/interconexion/area" required="true()" type="select1"/>
-      <bind nodeset="/C1.2/interconexion/area_otro" relevant=" /C1.2/interconexion/area =9999" type="string"/>
+      <bind nodeset="/C1.2/interconexion/area_otro" relevant=" /C1.2/interconexion/area =9999" required="true()" type="string"/>
       <bind constraint="(., '^[0-9]{2}[0-9]{8}[0-9]$') and cuit" jr:constraintMsg="Datos no válidos" nodeset="/C1.2/interconexion/prestador" required="true()" type="select1"/>
       <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.2/interconexion/capacidad" required="true()" type="decimal"/>
       <bind nodeset="/C1.2/interconexion/unidad" required="true()" type="select1"/>

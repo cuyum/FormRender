@@ -23,7 +23,7 @@
       <bind nodeset="/C1.26/planes/plan" required="true()" type="string"/>
       <bind nodeset="/C1.26/planes/aplicacion" required="true()" type="select1"/>
       <bind nodeset="/C1.26/planes/segmento" required="true()" type="select1"/>
-      <bind nodeset="/C1.26/planes/segmento_otro" relevant=" /C1.26/planes/segmento =OTROS" type="string"/>
+      <bind nodeset="/C1.26/planes/segmento_otro" relevant=" /C1.26/planes/segmento =OTROS" required="true()" type="string"/>
       <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.26/planes/abono" required="true()" type="decimal"/>
       <bind constraint="mask=999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.26/planes/minutos" required="true()" type="int"/>
       <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.26/planes/precio" required="true()" type="decimal"/>
@@ -47,11 +47,11 @@
         </item>
         <item>
           <label>MASIVA</label>
-          <value>1</value>
+          <value>MASIVA</value>
         </item>
         <item>
           <label>POR ADHESION</label>
-          <value>2</value>
+          <value>POR_ADHESION</value>
         </item>
       </select1>
       <select1 appearance="minimal" ref="/C1.26/planes/segmento">
