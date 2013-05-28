@@ -184,6 +184,8 @@ var setupDependency = function(field, fieldset){
 					event.data.dependant.hide();
 				}
 			});
+		}else{
+			console.warning("Dependency of "+field.data("jr:constraint:depends")+" found but not field with such name could be retrieved");
 		}
 	}
 };
