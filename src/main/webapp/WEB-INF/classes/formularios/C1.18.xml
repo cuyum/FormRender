@@ -74,8 +74,8 @@
             <hint>Facturación</hint>
           </input>
           <input ref="/C1.18/meses/mes/averias">
-            <label>Averias</label>
-            <hint>Averias</hint>
+            <label>Averías</label>
+            <hint>Averías</hint>
           </input>
           <input ref="/C1.18/meses/mes/otros">
             <label>Otros</label>

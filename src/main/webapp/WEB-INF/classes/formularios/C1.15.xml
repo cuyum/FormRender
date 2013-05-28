@@ -35,11 +35,11 @@
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.15/meses/mes/partido" nodeset="/C1.15/meses/mes/localidad" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.15/meses/mes/localidad" nodeset="/C1.15/meses/mes/area" required="true()" type="select1"/>
       <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.15/meses/mes/l_l/l_saliente" required="true()" type="decimal"/>
-      <bind jr:constraintMsg="Datos no válidos" nodeset="/C1.15/meses/mes/l_l/l_operador" required="true()" type="decimal"/>
+      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/l_l/l_operador" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.15/meses/mes/l_ldn/ldn_saliente" required="true()" type="decimal"/>
-      <bind jr:constraintMsg="Datos no válidos" nodeset="/C1.15/meses/mes/l_ldn/ldn_operador" required="true()" type="decimal"/>
+      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/l_ldn/ldn_operador" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.15/meses/mes/l_ldi/ldi_saliente" required="true()" type="decimal"/>
-      <bind jr:constraintMsg="Datos no válidos" nodeset="/C1.15/meses/mes/l_ldi/ldi_operador" required="true()" type="decimal"/>
+      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/l_ldi/ldi_operador" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.15/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

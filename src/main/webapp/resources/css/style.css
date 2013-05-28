@@ -1648,8 +1648,10 @@ textarea,input[type="text"],input[type="password"],input[type="datetime"],input[
 	color: rgba(0, 0, 0, 1);
 	width: 97%;
 	text-indent:5px;
-}
 
+}
+textarea{height:25px;}
+textarea:focus{height:25px;}
 input[type="text"],input[type="password"],input[type="datetime"],input[type="datetime-local"],input[type="date"],input[type="month"],input[type="time"],input[type="week"],input[type="number"],input[type="email"],input[type="url"],input[type="search"],input[type="tel"],input[type="color"]
 	{
 	height: 25px;
@@ -1932,7 +1934,7 @@ fieldset.col6 {
 }
 
 .col6 label {
-	width: 17.6%;
+	width: 18.9%;
 	float: left;
 	padding-bottom: 8px;
 	margin-left:10px;
@@ -2045,10 +2047,9 @@ fieldset.col1 {
 	border: 1px solid #ccc;
 	padding: 0px;
 	margin: 0px;
-	width: 100%;
-
-	margin-left: 0px;
-	margin-bottom: 10px;
+	margin: 10px 0 10px 8px;
+    padding: 0;
+    width: 98%;
 	-webkit-border-radius: 5px;
       -moz-border-radius: 5px;
            border-radius: 5px;

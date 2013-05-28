@@ -68,12 +68,12 @@
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/meses/mes/software/s_nodo" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/meses/mes/licencias/l_software" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/meses/mes/licencias/l_hardware" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Debe ingresar un numero entero hasta 12 digitos y mayor a 0" nodeset="/C1.50/meses/mes/licencias/l_regulatorias" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/meses/mes/licencias/l_regulatorias" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/meses/mes/infraestructura" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/meses/mes/desarrollo" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/meses/mes/otros_otros" required="true()" type="int"/>
       <bind calculate=" /C1.50/meses/mes/redes_de_acceso/acceso_fijo + /C1.50/meses/mes/redes_de_acceso/acceso_movil + /C1.50/meses/mes/transporte/transporte_optico + /C1.50/meses/mes/transporte/transporte_cobre + /C1.50/meses/mes/transporte/transporte_radioelectrico_radioenlaces + /C1.50/meses/mes/transporte/transporte_radioelectrico_satelital + /C1.50/meses/mes/obra_civil/ocivil_transporte + /C1.50/meses/mes/obra_civil/ocivil_inalambricas + /C1.50/meses/mes/obra_civil/ocivil_acceso + /C1.50/meses/mes/obra_civil/ocivil_plantel + /C1.50/meses/mes/equipamiento/e_redes + /C1.50/meses/mes/equipamiento/e_instalaciones + /C1.50/meses/mes/software/s_administracion + /C1.50/meses/mes/software/s_monitoreo + /C1.50/meses/mes/software/s_mantenimiento + /C1.50/meses/mes/software/s_nodo + /C1.50/meses/mes/licencias/l_software + /C1.50/meses/mes/licencias/l_hardware + /C1.50/meses/mes/licencias/l_regulatorias + /C1.50/meses/mes/infraestructura + /C1.50/meses/mes/desarrollo + /C1.50/meses/mes/otros_otros " nodeset="/C1.50/meses/mes/calculate1" type="string"/>
-      <bind nodeset="/C1.50/meses/mes/total_total" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.50/meses/mes/total_total" readonly="true()" required="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.50/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -187,10 +187,11 @@
           </input>
           <input ref="/C1.50/meses/mes/otros_otros">
             <label>Otros</label>
-            <hint>Otros</hint>
+            <hint>Otros [en miles de pesos]</hint>
           </input>
           <input ref="/C1.50/meses/mes/total_total">
-            <label>Total <output value=" /C1.50/meses/mes/calculate1 "/></label></input>
+            <label>Total <output value=" /C1.50/meses/mes/calculate1 "/></label><hint>Total [en miles de pesos]</hint>
+          </input>
         </group>
       </repeat>
     </group>

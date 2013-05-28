@@ -98,7 +98,7 @@
       </input>
       <input appearance="multiline" ref="/C1.27/planes/observacion">
         <label>Observaciones</label>
-        <hint>Obs.</hint>
+        <hint>Observaciones</hint>
       </input>
     </group>
   </h:body>
