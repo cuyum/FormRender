@@ -5,115 +5,122 @@
     <model>
       <instance>
         <C1.2 id="C1.2">
-          <interconexion>
-            <provincia/>
-            <partido/>
-            <localidad/>
-            <localidad_otro/>
-            <area/>
-            <area_otro/>
-            <prestador/>
-            <capacidad/>
-            <unidad/>
-          </interconexion>
+          <inter jr:template="">
+            <interconexion>
+              <provincia/>
+              <partido/>
+              <localidad/>
+              <localidad_otro/>
+              <area/>
+              <area_otro/>
+              <prestador/>
+              <capacidad/>
+              <unidad/>
+            </interconexion>
+          </inter>
           <meta>
             <instanceID/>
           </meta>
         </C1.2>
       </instance>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.2/interconexion/provincia" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.2/interconexion/provincia" nodeset="/C1.2/interconexion/partido" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.2/interconexion/partido" nodeset="/C1.2/interconexion/localidad" required="true()" type="select1"/>
-      <bind nodeset="/C1.2/interconexion/localidad_otro" relevant=" /C1.2/interconexion/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.2/interconexion/localidad" nodeset="/C1.2/interconexion/area" required="true()" type="select1"/>
-      <bind nodeset="/C1.2/interconexion/area_otro" relevant=" /C1.2/interconexion/area =9999" required="true()" type="string"/>
-      <bind constraint="(., '^[0-9]{2}[0-9]{8}[0-9]$') and cuit" jr:constraintMsg="Datos no válidos" nodeset="/C1.2/interconexion/prestador" required="true()" type="select1"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.2/interconexion/capacidad" required="true()" type="decimal"/>
-      <bind nodeset="/C1.2/interconexion/unidad" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.2/inter/interconexion/provincia" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.2/inter/interconexion/provincia" nodeset="/C1.2/inter/interconexion/partido" required="true()" type="select1"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.2/inter/interconexion/partido" nodeset="/C1.2/inter/interconexion/localidad" required="true()" type="select1"/>
+      <bind nodeset="/C1.2/inter/interconexion/localidad_otro" relevant=" /C1.2/inter/interconexion/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.2/inter/interconexion/localidad" nodeset="/C1.2/inter/interconexion/area" required="true()" type="select1"/>
+      <bind nodeset="/C1.2/inter/interconexion/area_otro" relevant=" /C1.2/inter/interconexion/area =9999" required="true()" type="string"/>
+      <bind constraint="(., '^[0-9]{2}[0-9]{8}[0-9]$') and cuit" jr:constraintMsg="Datos no válidos" nodeset="/C1.2/inter/interconexion/prestador" required="true()" type="select1"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.2/inter/interconexion/capacidad" required="true()" type="decimal"/>
+      <bind nodeset="/C1.2/inter/interconexion/unidad" required="true()" type="select1"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.2/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4 well-white" ref="/C1.2/interconexion">
-      <label>Interconexión</label>
-      <select1 appearance="minimal" ref="/C1.2/interconexion/provincia">
-        <label>Provincia</label>
-        <hint>Provincia</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <select1 appearance="minimal" ref="/C1.2/interconexion/partido">
-        <label>Partido / Departamento</label>
-        <hint>Partido/Departamento</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <select1 appearance="minimal" ref="/C1.2/interconexion/localidad">
-        <label>Localidad</label>
-        <hint>Localidad</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <input ref="/C1.2/interconexion/localidad_otro">
-        <label>Especifique</label>
-      </input>
-      <select1 appearance="minimal" ref="/C1.2/interconexion/area">
-        <label>Área Local</label>
-        <hint>Área Local</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-      </select1>
-      <input ref="/C1.2/interconexion/area_otro">
-        <label>Especifique</label>
-      </input>
-      <select1 appearance="minimal" ref="/C1.2/interconexion/prestador">
-        <label>Prestador</label>
-        <hint>Prestador</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-        <item>
-          <label>Prestador1</label>
-          <value>23222274524</value>
-        </item>
-        <item>
-          <label>Prestador2</label>
-          <value>23222274524</value>
-        </item>
-        <item>
-          <label>Prestador3</label>
-          <value>23222274524</value>
-        </item>
-      </select1>
-      <input ref="/C1.2/interconexion/capacidad">
-        <label>Capacidad</label>
-        <hint>Capacidad [Mbps / xxE1]</hint>
-      </input>
-      <select1 appearance="minimal" ref="/C1.2/interconexion/unidad">
-        <label>Unidad</label>
-        <hint>Unidad</hint>
-        <item>
-          <label>Seleccione una opcion</label>
-          <value>0</value>
-        </item>
-        <item>
-          <label>Mbps</label>
-          <value>mbps</value>
-        </item>
-        <item>
-          <label>n*E1</label>
-          <value>xxe1</value>
-        </item>
-      </select1>
+    <group ref="/C1.2/inter">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/C1.2/inter">
+        <group appearance="col4 well-white" ref="/C1.2/inter/interconexion">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/C1.2/inter/interconexion/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C1.2/inter/interconexion/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C1.2/inter/interconexion/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <input ref="/C1.2/inter/interconexion/localidad_otro">
+            <label>Especifique</label>
+          </input>
+          <select1 appearance="minimal" ref="/C1.2/inter/interconexion/area">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+          </select1>
+          <input ref="/C1.2/inter/interconexion/area_otro">
+            <label>Especifique</label>
+          </input>
+          <select1 appearance="minimal" ref="/C1.2/inter/interconexion/prestador">
+            <label>Prestador</label>
+            <hint>Prestador</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+            <item>
+              <label>Prestador1</label>
+              <value>23222274524</value>
+            </item>
+            <item>
+              <label>Prestador2</label>
+              <value>23222274524</value>
+            </item>
+            <item>
+              <label>Prestador3</label>
+              <value>23222274524</value>
+            </item>
+          </select1>
+          <input ref="/C1.2/inter/interconexion/capacidad">
+            <label>Capacidad</label>
+            <hint>Capacidad [Mbps / xxE1]</hint>
+          </input>
+          <select1 appearance="minimal" ref="/C1.2/inter/interconexion/unidad">
+            <label>Unidad</label>
+            <hint>Unidad</hint>
+            <item>
+              <label>Seleccione una opcion</label>
+              <value>0</value>
+            </item>
+            <item>
+              <label>Mbps</label>
+              <value>mbps</value>
+            </item>
+            <item>
+              <label>n*E1</label>
+              <value>xxe1</value>
+            </item>
+          </select1>
+        </group>
+      </repeat>
     </group>
   </h:body>
 </h:html>

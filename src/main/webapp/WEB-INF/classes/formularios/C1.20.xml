@@ -36,7 +36,7 @@
   <h:body>
     <group ref="/C1.20/meses">
       <label></label>
-      <repeat nodeset="/C1.20/meses">
+      <repeat appearance="grilla" nodeset="/C1.20/meses">
         <group appearance="col4 well-white variable" ref="/C1.20/meses/mes">
           <label>{title}</label>
           <select1 appearance="minimal" ref="/C1.20/meses/mes/provincia">
