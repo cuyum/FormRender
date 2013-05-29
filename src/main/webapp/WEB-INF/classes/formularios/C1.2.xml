@@ -40,7 +40,7 @@
       <label></label>
       <repeat appearance="grilla" nodeset="/C1.2/inter">
         <group appearance="col4 well-white" ref="/C1.2/inter/interconexion">
-          <label>{title}</label>
+          <label>Interconexión</label>
           <select1 appearance="minimal" ref="/C1.2/inter/interconexion/provincia">
             <label>Provincia</label>
             <hint>Provincia</hint>

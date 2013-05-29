@@ -34,7 +34,7 @@
       <label></label>
       <repeat appearance="grilla" nodeset="/C1.1/areasprest">
         <group appearance="col4 well-white" ref="/C1.1/areasprest/areas">
-          <label>{title}</label>
+          <label>Áreas de prestación</label>
           <select1 appearance="minimal" ref="/C1.1/areasprest/areas/provincia">
             <label>Provincia</label>
             <hint>Provincia</hint>

@@ -39,8 +39,8 @@
         <hint>Subsidios Impositivos [en miles de pesos]</hint>
       </input>
       <input ref="/C1.53/financ/subsidios_otros">
-        <label>Otros Subsisdios</label>
-        <hint>Otros Subsisdios [en miles de pesos]</hint>
+        <label>Otros Subsidios</label>
+        <hint>Otros Subsidios [en miles de pesos]</hint>
       </input>
     </group>
   </h:body>

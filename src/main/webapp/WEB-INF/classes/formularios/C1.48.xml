@@ -142,7 +142,6 @@
             </input>
           </group>
           <group appearance="col2 well-white" ref="/C1.48/meses/mes/otros">
-            <label>Otros</label>
             <input ref="/C1.48/meses/mes/otros/mantenimiento">
               <label>Mantenimiento</label>
               <hint>Mantenimiento de Redes [en miles de pesos]</hint>
@@ -153,7 +152,6 @@
             </input>
           </group>
           <group appearance="col2 well-white" ref="/C1.48/meses/mes/total1">
-            <label>Total</label>
             <input ref="/C1.48/meses/mes/total1/total_red">
               <label>Total <output value=" /C1.48/meses/mes/total1/calculate1 "/></label><hint>Total [en miles de pesos]</hint>
             </input>
