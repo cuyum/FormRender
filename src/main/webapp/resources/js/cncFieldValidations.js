@@ -574,7 +574,8 @@ var setupValidations = function(f,fieldset){
 		var instanceFieldName = field.attr("name")+"_"+fieldset.instance;
 		field.attr("name",instanceFieldName);
 	}else{
-		fieldset = {instance:undefined,fields:undefined,name:undefined,dom:undefined};
+//		fieldset = {instance:undefined,fields:undefined,name:undefined,dom:undefined};
+		fieldset = {instance:undefined};
 	}
 	
 	/*Data constraints*/

@@ -2050,9 +2050,7 @@ fieldset.col1 {
 	border: 1px solid #ccc;
 	padding: 0px;
 	margin: 0px;
-	margin: 10px 0 10px 8px;
-    padding: 0;
-    width: 98%;
+    width: 100%;
 	-webkit-border-radius: 5px;
       -moz-border-radius: 5px;
            border-radius: 5px;

@@ -109,6 +109,9 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 			  	 <script src="/FormRender/resources/js/jquery-ui.min.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
+			  	 <script src="/FormRender/resources/js/jquery.dataTables.min.js">
+            		<xsl:text>&#10;</xsl:text>
+            	</script>
             	<script type="text/javascript" src="/FormRender/resources/js/cncJsFunctions.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>     
@@ -346,7 +349,8 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
             <xsl:apply-templates select="*[not(self::xf:label or self::xf:hint)]"/>
             <xsl:text>
             </xsl:text>
-        </fieldset><xsl:comment>end of repeat fieldset with name <xsl:value-of select="@nodeset" /> </xsl:comment>
+        </fieldset>
+        <xsl:comment>end of repeat fieldset with name <xsl:value-of select="@nodeset" /> </xsl:comment>
     </xsl:template>
 
     <xsl:template name="appearance">
@@ -871,9 +875,14 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
             <xsl:if test="local-name() = 'constraintMsg'">
                 <xsl:value-of select="string('jr-constraint-msg')" />
             </xsl:if>
-            <xsl:if test="local-name() = 'hint'">
-                <xsl:value-of select="string('jr-hint')" />
-            </xsl:if>
+             <xsl:choose>
+	            <xsl:when test="local-name() = 'hint'">
+	                <xsl:value-of select="string('jr-hint')" />
+	            </xsl:when>
+	            <xsl:otherwise>
+	            	<xsl:value-of select="string('jr-label')" />
+	            </xsl:otherwise>
+            </xsl:choose>
             
         </xsl:variable>
         <xsl:choose>
