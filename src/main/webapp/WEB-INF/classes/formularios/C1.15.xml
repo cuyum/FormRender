@@ -13,18 +13,16 @@
               <localidad_otro/>
               <area/>
               <area_otro/>
-              <l_l>
-                <l_saliente/>
-                <l_operador/>
-              </l_l>
-              <l_ldn>
-                <ldn_saliente/>
-                <ldn_operador/>
-              </l_ldn>
-              <l_ldi>
-                <ldi_saliente/>
-                <ldi_operador/>
-              </l_ldi>
+              <salientes>
+                <salientes1/>
+                <operador1/>
+                <salientes2/>
+                <operador2/>
+                <salientes3/>
+                <operador3/>
+                <salientes4/>
+                <operador4/>
+              </salientes>
             </mes>
           </meses>
           <meta>
@@ -38,12 +36,14 @@
       <bind nodeset="/C1.15/meses/mes/localidad_otro" relevant=" /C1.15/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.15/meses/mes/localidad" nodeset="/C1.15/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/C1.15/meses/mes/area_otro" relevant=" /C1.15/meses/mes/area =9999" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.15/meses/mes/l_l/l_saliente" required="true()" type="decimal"/>
-      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/l_l/l_operador" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.15/meses/mes/l_ldn/ldn_saliente" required="true()" type="decimal"/>
-      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/l_ldn/ldn_operador" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.15/meses/mes/l_ldi/ldi_saliente" required="true()" type="decimal"/>
-      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/l_ldi/ldi_operador" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.15/meses/mes/salientes/salientes1" required="true()" type="decimal"/>
+      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/salientes/operador1" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.15/meses/mes/salientes/salientes2" required="true()" type="decimal"/>
+      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/salientes/operador2" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.15/meses/mes/salientes/salientes3" required="true()" type="decimal"/>
+      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/salientes/operador3" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.15/meses/mes/salientes/salientes4" required="true()" type="decimal"/>
+      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/salientes/operador4" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.15/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -91,37 +91,38 @@
           <input ref="/C1.15/meses/mes/area_otro">
             <label>Especifique</label>
           </input>
-          <group appearance="col2 well-white" ref="/C1.15/meses/mes/l_l">
-            <label>L-L</label>
-            <input ref="/C1.15/meses/mes/l_l/l_saliente">
-              <label>Saliente</label>
-              <hint>Saliente [en miles]</hint>
+          <group appearance="col2 well-white" ref="/C1.15/meses/mes/salientes">
+            <input ref="/C1.15/meses/mes/salientes/salientes1">
+              <label>Salientes</label>
+              <hint>Salientes [en miles]</hint>
             </input>
-            <input ref="/C1.15/meses/mes/l_l/l_operador">
-              <label>Operador</label>
-              <hint>Operador</hint>
+            <input ref="/C1.15/meses/mes/salientes/operador1">
+              <label>Operador 1</label>
+              <hint>Operador 1</hint>
             </input>
-          </group>
-          <group appearance="col2 well-white" ref="/C1.15/meses/mes/l_ldn">
-            <label>L-LDN</label>
-            <input ref="/C1.15/meses/mes/l_ldn/ldn_saliente">
-              <label>Saliente</label>
-              <hint>Saliente [en miles]</hint>
+            <input ref="/C1.15/meses/mes/salientes/salientes2">
+              <label>Salientes</label>
+              <hint>Salientes [en miles]</hint>
             </input>
-            <input ref="/C1.15/meses/mes/l_ldn/ldn_operador">
-              <label>Operador</label>
-              <hint>Operador</hint>
+            <input ref="/C1.15/meses/mes/salientes/operador2">
+              <label>Operador 2</label>
+              <hint>Operador 2</hint>
             </input>
-          </group>
-          <group appearance="col2 well-white" ref="/C1.15/meses/mes/l_ldi">
-            <label>L-LDI</label>
-            <input ref="/C1.15/meses/mes/l_ldi/ldi_saliente">
-              <label>Saliente</label>
-              <hint>Saliente [en miles]</hint>
+            <input ref="/C1.15/meses/mes/salientes/salientes3">
+              <label>Salientes</label>
+              <hint>Salientes [en miles]</hint>
             </input>
-            <input ref="/C1.15/meses/mes/l_ldi/ldi_operador">
-              <label>Operador</label>
-              <hint>Operador</hint>
+            <input ref="/C1.15/meses/mes/salientes/operador3">
+              <label>Operador 3</label>
+              <hint>Operador 3</hint>
+            </input>
+            <input ref="/C1.15/meses/mes/salientes/salientes4">
+              <label>Salientes</label>
+              <hint>Salientes [en miles]</hint>
+            </input>
+            <input ref="/C1.15/meses/mes/salientes/operador4">
+              <label>Operador Otros</label>
+              <hint>Operador Otros</hint>
             </input>
           </group>
         </group>

@@ -58,12 +58,12 @@
       <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/puntos/equipamiento/equipamiento_cap_util" required="true()" type="decimal"/>
       <bind nodeset="/C1.3/puntos/tipomedio/medio" required="true()" type="select1"/>
       <bind nodeset="/C1.3/puntos/tipomedio/medio_tipo_otro" relevant=" /C1.3/puntos/tipomedio/medio =Otros" required="true()" type="string"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/puntos/tipomedio/medio_cap_disp" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/puntos/tipomedio/medio_cap_util" required="true()" type="decimal"/>
-      <bind nodeset="/C1.3/puntos/tipotendido/tendido" required="true()" type="select1"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/puntos/tipomedio/medio_cap_disp" relevant=" /C1.3/puntos/tipomedio/medio =FO" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/puntos/tipomedio/medio_cap_util" relevant=" /C1.3/puntos/tipomedio/medio =FO" required="true()" type="decimal"/>
+      <bind nodeset="/C1.3/puntos/tipotendido/tendido" relevant=" /C1.3/puntos/tipomedio/medio =FO or  /C1.3/puntos/tipomedio/medio =Otros" required="true()" type="select1"/>
       <bind nodeset="/C1.3/puntos/tipotendido/tendido_tipo_otro" relevant=" /C1.3/puntos/tipotendido/tendido =Otros" required="true()" type="string"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/puntos/tipotendido/tendido_cap_disp" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/puntos/tipotendido/tendido_cap_util" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/puntos/tipotendido/tendido_cap_disp" relevant=" /C1.3/puntos/tipomedio/medio =FO" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.3/puntos/tipotendido/tendido_cap_util" relevant=" /C1.3/puntos/tipomedio/medio =FO" required="true()" type="decimal"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.3/puntos/lugar1/provincia1" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.3/puntos/lugar1/provincia1" nodeset="/C1.3/puntos/lugar1/partido1" required="true()" type="select1"/>
       <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.3/puntos/lugar1/partido1" nodeset="/C1.3/puntos/lugar1/localidad1" required="true()" type="select1"/>
