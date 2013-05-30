@@ -120,7 +120,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
             	</script>            	
 			  	<script type="text/javascript" src="/FormRender/resources/js/transform.js">
             		<xsl:text>&#10;</xsl:text>
-            	</script>            	
+            	</script>            	          	       	
             </head>
             <body>
             	<div class="content">            	
@@ -157,6 +157,13 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
                             </xsl:otherwise>
                         </xsl:choose>
 	                </h5>
+	                <ul class="icons">
+						<li>
+						<a href="#">						
+						<span>Versión:1.0</span>						
+						</a>
+						</li>
+					</ul>
 	                </div>
                             
 		            
@@ -220,10 +227,9 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 								</div>
 							</div>
 						</div>
-					</fieldset>
-					<div class="separator-doubled"/>	            	
+					</fieldset>					            	
 	            </form>
-	            	            
+	            <div class="separator-doubled"/>  
 	            </div>
 	            </body>
             </html> 
