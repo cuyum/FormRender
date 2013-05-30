@@ -10,16 +10,15 @@ $(document).ready(function() {
 	 * suministrado. 
 	 */
 	
-	FormRender.fieldsets = [];
 	var fs = $("fieldset.jr-repeat");
-	var repeatCount = getURLParameter("repeat");
+	FormRender.repeatCount = getURLParameter("repeat");
 	FormRender.renderGrid = fs.hasClass("grilla");
 	
-	if(fs.length>0 && repeatCount>0){
+	if(fs.length>0 && FormRender.repeatCount>0){
 		var pfs = fs.parent();
 		var calculatedItems = $("fieldset[name~='"+pfs.attr("name")+"']").siblings("#jr-calculated-items").find("[name]");
 		/* iteracion normal, siguientes instancias de repeats */
-		for ( var i = 0; i < repeatCount; i++) {
+		for ( var i = 0; i < FormRender.repeatCount; i++) {
 			var fieldset = {};
 			var fsRepeat = fs.clone();
 			fieldset.instance = i;
@@ -31,16 +30,22 @@ $(document).ready(function() {
 			fsRepeat.attr("name",fieldset.name);
 			
 			/*identificacion de variable de repeticion*/
-			fieldset.titleSpan = fsRepeat.find("fieldset[class~='variable'] > h4 > span.jr-label");
-			if(fieldset.titleSpan){
+			fieldset.titleSpan = fsRepeat.find("fieldset > h4 > span.jr-label");
+			if(fieldset.titleSpan){/*tiene title variable*/
 				var titleVar = fieldset.titleSpan.text();
-				if(titleVar && titleVar.trim()!="" && titleVar.indexOf("{")!=-1){
-					titleVar = titleVar.replace("{","").replace("}","");
-					var titleVal = getURLParameter(titleVar);
-					if(titleVal!=null && titleVal!=undefined){
-						fieldset.titleSpan.text(titleVal.split(",")[i]);
-						fieldset.title = titleVal.split(",")[i];
-					} 
+				if(titleVar.indexOf("{")!=-1 && titleVar.indexOf("}")!=-1){/*es variable*/
+					titleVar = titleVar.replace("{","").replace("}","")+"";
+					if(titleVar && titleVar.trim()!=""){
+						var titleVal = getURLParameter(titleVar);
+						if(titleVal!=null && titleVal!=undefined){
+							fieldset.titleSpan.text(titleVal.split(",")[i]);
+							fieldset.title = titleVal.split(",")[i];
+						} 
+					}else{
+						console.warn(titleVar+" is provided as variable for group title but no such GET parameter found");
+					}
+				}else{/*viene directo*/
+					fieldset.title = titleVar;
 				}
 			}
 			
@@ -59,39 +64,7 @@ $(document).ready(function() {
 		$(FormRender.form).validate();
 		
 		if(FormRender.renderGrid){
-			FormRender.grid = {};
-			FormRender.grid.headers = [];
-			FormRender.grid.data = [];
-			FormRender.grid.element = $('<table id="repeat-grid" class="table table-striped"></table>');
-			var gridFieldset = $('<fieldset class="jr-group well-white col1"></fieldset>');
-			$("fieldset[repeat-instance]").append('<input type="button" class="btn" value="Agregar" repeat-action="add"/>');
-			gridFieldset.appendTo(pfs);
-			$('<h4></h4>').append("<span>Grilla</span>").appendTo(gridFieldset);
-			$('<div class="table-overflow"></div>').append(FormRender.grid.element).appendTo(gridFieldset);
-			
-			FormRender.grid.headers.push({"sTitle":"Formulario"});
-			for ( var i = 0 ; i<FormRender.fieldsets[0].fields.length;i++) {
-				var header = $(FormRender.fieldsets[0].fields[i]).siblings("span.jr-label");
-				FormRender.grid.headers.push({ "sTitle": header.text() });
-			}
-			$("input[type~='button'][repeat-action~='add']").click(function(evt){
-				FormRender.addToGrid($(evt.target).parent().attr("repeat-instance"));
-			});
-			FormRender.grid.element.dataTable({
-				"bJQueryUI": false,
-				"bAutoWidth": false,
-				"sScrollX": "100%",
-				"sScrollXInner": "100%",
-			    "bScrollCollapse": true,
-				"sPaginationType": "full_numbers",
-				"sDom": '<"datatable-header"fl>t<"datatable-footer"ip>',
-				"oLanguage": {
-					"sLengthMenu": "<span>Filas _MENU_</span>"
-				},
-				"aaData": FormRender.grid.data,
-		        "aoColumns": FormRender.grid.headers
-		    });
-			
+			FormRender.grid.render(pfs);
 		}
 		
 		/*for each repeat instance*/
