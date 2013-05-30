@@ -155,18 +155,68 @@ var setupMask = function(field){
 var setupRelevantData = function(field, fieldset){
 	var data_relevant = field.attr("data-relevant");
 	if(data_relevant && data_relevant.trim().length>0){
+		/*-------HIDE FIELD FOR RELEVANT DEPENDENCY-------*/
 		var el = null;
 		if(field.is("input[type~='text']")){
 			el = field.parent();
 		}else if(field.is("input[type~='radio']") || field.is("input[type~='checkbox']")){
 			el = field.closest("fieldset");
+		}else if(field.is("select")){
+			el = field.parent();
+		}else{
+			console.warn("no se pudo encontrar el dom parent de "+field.attr("name")+" para esconder el campo" );
 		}
 
 		if(el!=null)el.hide();
-
-		if(data_relevant.indexOf("=")>=0){
-			/* " /C1.1/areas/area =9999" */
-			var data = data_relevant.split("=");
+		
+		/*------SETUP RELEVANT DEPENDENCY CHECK--------*/
+		/*split all dependencies*/
+		var relevantFields = data_relevant.split(" or ");
+		var or = new Array();
+		var and = new Array();
+		for ( var i = 0; i < relevantFields.length; i++) {
+			var rfield = relevantFields[i].trim();
+			rfield = rfield.split(" and ");
+			or.push(rfield[0]);
+			if(rfield.length>1){
+				for ( var j = 1; j < rfield.length; j++) {
+					and.push(rfield[j]);
+				}
+			}
+		}
+		var rfields = new Array();
+		rfields = rfields.concat(or,and);
+//		console.log(field.attr("name")+" has ",rfields);
+		
+		/*add each dependency detail to field and mark tutor field*/
+		for ( var i = 0; i < rfields.length; i++) {
+			var rfield = rfields[i];
+			var relevants = field.data("relevants");
+			var data = undefined;
+			if(rfield.indexOf("=")!=-1){
+				data = rfield.split("=");
+			}else if(rfield.indexOf("selected(")>=0){
+				data = rfield.replace("selected(","");
+				data = data.replace(")","");
+				data = data.split(",");
+			}else{
+				console.error("Relevant data could not be parsed");
+				data = [undefined];
+			}
+			
+			var ancestor = FormRender.getField(data[0],fieldset);
+			if(ancestor){ /*relate fields*/
+				FormRender.addDependant(ancestor,field);
+				/*add condition of visualization to field*/
+				var relevant = {tutor:ancestor,value:data[1]};
+				FormRender.addRelevant(field,relevant); 
+				FormRender.flagPerformRelevantCheck(ancestor);
+			}
+		}
+		
+		/*
+		if(rfield.indexOf("=")>=0){
+			var data = rfield.split("=");
 			var ancestorSelector = "[name~='"+data[0].trim()+"']";;
 			if(fieldset.instance!=undefined){
 				ancestorSelector = "[name~='"+data[0].trim()+"_"+fieldset.instance+"']";
@@ -174,22 +224,54 @@ var setupRelevantData = function(field, fieldset){
 			
 			var ancestor = $(ancestorSelector);
 			if(ancestor && ancestor.is("select")){
-				ancestor.data("dependant",field);
+				var dependants = ancestor.data("dependant");
+				if(dependants){
+					dependants.push(field);
+				}else{
+					dependants = [field];
+				}
+				ancestor.data("dependant",dependants);
+				
 				var value = data[1];
+				var relevantInfo = {ancestor:ancestor,value:value};
+				var relevants = field.data("relevants");
+				if(relevants){
+					var push=true;
+					for(var j = 0;j<relevants.length;j++){
+					}
+					if(push)relevants.push(relevantInfo);
+				}else{
+					relevants = [relevantInfo];
+				}
+				field.data("relevants",relevants);
+				
+//				console.log("elemento "+field.attr("name")+" dependiente de "+ancestor.attr("name"));
+				
 				ancestor.on("change",{
 					ancestor:ancestor,
-					element:el,
+					field:field,
 					value:value
 				},function(event){
-					if(event.data.ancestor.val()==event.data.value){
-						event.data.element.show();
+					var ancestorValue = event.data.ancestor.val();
+					var actualValue = event.data.value;
+					var field = event.data.field;
+					
+					console.log(ancestorValue +" = "+actualValue);
+					console.log(field);
+					
+					var show
+					
+					if(ancestorValue==actualValue){
+						field.parent().show();
 					}else{
-						event.data.element.hide();
+						field.parent().hide();
 					}
 				});
+			}else{
+				console.warn("field "+field.attr("name")+" has a non select dependency");
 			}
-		}else if(data_relevant.indexOf("selected(")>=0){
-			var data = data_relevant.replace("selected(","");
+		}else if(rfield.indexOf("selected(")>=0){
+			var data = rfield.replace("selected(","");
 			data = data.replace(")","");
 			data = data.split(",");
 			
@@ -202,7 +284,13 @@ var setupRelevantData = function(field, fieldset){
 //			var ancestor = $("[name~='"+data[0].trim()+"']");
 			var value = data[1].trim()=="'yes'";
 			if(ancestor && (ancestor.is("input[type~='checkbox']") || ancestor.is("input[type~='radio']")) && value){
-				ancestor.data("dependant",field);
+				var dependants = ancestor.data("dependant");
+				if(dependants){
+					dependants.push(field);
+				}else{
+					dependants = [field];
+				}
+				ancestor.data("dependant",dependants);
 				ancestor.on("click",{
 					ancestor:ancestor,
 					element:el,
@@ -212,6 +300,7 @@ var setupRelevantData = function(field, fieldset){
 				});
 			}
 		}
+		*/
 	}
 };
 
@@ -229,7 +318,7 @@ var setupDependency = function(field, fieldset){
 		var ancestor = $(ancestorSelector);
 		
 		if(ancestor.is("select")){/*solo funciona con selects hasta ahora*/
-			ancestor.data("dependant",field);
+			FormRender.addDependant(ancestor,field);
 			if(field.is("input"))
 				field.hide();
 			
@@ -266,7 +355,8 @@ var setupRemoteData = function(field,fieldset){
 			}
 			var ancestor = $(ancestorSelector);
 			
-			ancestor.data("dependant",field);
+			FormRender.addDependant(ancestor,field);
+			
 			ancestor.on("change",function(){
 				$.ajax({
 				  url: "/FormRender/rest/service/relay",
@@ -277,28 +367,30 @@ var setupRemoteData = function(field,fieldset){
 					  remoteUrl:url
 				  },
 				  success : function(data, statusStr, xhr) {
-					  var resetHierarchy = function(field){
-						  if(field.is("select")){
-							  var option = field.children("option[value='']");
-							  field.html("").append(option.attr("value",""));
-						  }else{
-							  console.log("encontró un field dependiente NOT select");
-							  if(field.is("input[type='text']")){
-								  el = field.parent();
-							  }else if(field.is("input[type='radio']") || field.is("input[type='checkbox']")){
-								  el = field.closest("fieldset");
+					  var resetHierarchy = function(fields){
+						  for ( var i = 0; i < fields.length; i++) {
+							  var field = fields[i];
+							  if(field.is("select")){
+								  var option = field.children("option[value='']");
+								  field.html("").append(option.attr("value",""));
+							  }else{
+								  if(field.is("input[type='text']")){
+									  el = field.parent();
+									  field.val("");
+								  }else if(field.is("input[type='radio']") || field.is("input[type='checkbox']")){
+									  el = field.closest("fieldset");
+								  }
+								  if(el)el.hide();
 							  }
-							  if(el)el.hide();
-						  }
-						  var dependant = field.data("dependant");
-						  if(dependant){
-							  console.info(dependant);
-							  resetHierarchy(dependant);
+							  var dependants = field.data("dependant");
+							  if(dependants){
+								  resetHierarchy(dependants);
+							  }
 						  }
 					  };
 					  if(data.success){
 						  console.group("resetHierarchy");
-						  resetHierarchy(field);
+						  resetHierarchy([field]);
 						  console.groupEnd();
 						  for ( var count = 0; count < data.result.length; count++) {
 							  var option = data.result[count];
@@ -568,18 +660,55 @@ var setupValidationDefaults = function(){
 	,"Cuit no v&aacute;lido");
 };
 
+var addVisualizationLogic = function(field){
+	var renderLogic = function(field){
+//		console.group("RENDER LOGIC FOR "+field.attr("name"));
+		var relevants = field.data("relevants");
+		var show = false;
+		if(relevants){
+			for ( var i = 0; i < relevants.length; i++) {
+				var relevant = relevants[i];
+				if(typeof relevant.value == "string"){
+					if(relevant.tutor.val()==relevant.value){
+						show=true;
+					}
+				}else if (typeof relevant.value == "object"){
+					for ( var j = 0; j < relevant.value.length; j++) {
+						if(relevant.tutor.val()==relevant.value[j]){
+							show=true;
+							break;
+						}
+					}
+				}else{
+					console.error("Value for relevant field cannot be recognized");
+				}
+			}
+		}
+		if(show){
+//			console.log("should show");
+			field.parent().show();
+		}else{
+//			console.log("should not show");
+			field.parent().hide();
+		}
+//		console.groupEnd();
+	};
+	field.data("renderLogic",renderLogic);
+	
+};
+
 var setupValidations = function(f,fieldset){
 	var field = $(f);
 	if(fieldset){
 		var instanceFieldName = field.attr("name")+"_"+fieldset.instance;
 		field.attr("name",instanceFieldName);
 	}else{
-//		fieldset = {instance:undefined,fields:undefined,name:undefined,dom:undefined};
 		fieldset = {instance:undefined};
 	}
 	
 	/*Data constraints*/
 	setupDataConstraints(field);
+	addVisualizationLogic(field);
 	
 	/*Validations*/
 	validationRequired(field);

@@ -878,12 +878,15 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 
     <xsl:template match="xf:label | xf:hint | xf:bind/@jr:constraintMsg">
         <xsl:variable name="class">
-            <xsl:if test="local-name() = 'constraintMsg'">
-                <xsl:value-of select="string('jr-constraint-msg')" />
-            </xsl:if>
+<!--             <xsl:if test="local-name() = 'constraintMsg'"> -->
+<!--                 <xsl:value-of select="string('jr-constraint-msg')" /> -->
+<!--             </xsl:if> -->
              <xsl:choose>
 	            <xsl:when test="local-name() = 'hint'">
 	                <xsl:value-of select="string('jr-hint')" />
+	            </xsl:when>
+	            <xsl:when test="local-name() = 'constraintMsg'">
+	                <xsl:value-of select="string('jr-constraint-msg')" />
 	            </xsl:when>
 	            <xsl:otherwise>
 	            	<xsl:value-of select="string('jr-label')" />
