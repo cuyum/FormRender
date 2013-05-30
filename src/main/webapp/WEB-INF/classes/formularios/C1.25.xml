@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario C1.25 - Tarifas / precio servicios adicionales</h:title>
+    <h:title>Formulario C1.25 - Servicios Adicionales</h:title>
     <model>
       <instance>
         <C1.25 id="C1.25">
@@ -36,6 +36,7 @@
             <s_bloqueo_modalidad/>
             <s_bloqueo_audiotexto/>
             <s_otros/>
+            <s_otros1/>
           </servicios>
           <meta>
             <instanceID/>
@@ -71,7 +72,8 @@
       <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_datos" required="true()" type="decimal"/>
       <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_modalidad" required="true()" type="decimal"/>
       <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_audiotexto" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_otros" required="true()" type="decimal"/>
+      <bind nodeset="/C1.25/servicios/s_otros" required="true()" type="string"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_otros1" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.25/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -103,7 +105,7 @@
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_desvio_cambio">
-        <label>Desvío por Cambio Dom.</label>
+        <label>Desvío por Cambio de Domicilio</label>
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_desvio_baja">
@@ -111,7 +113,7 @@
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_bloqueo_ldi">
-        <label>Bloqueo Tráfico LDI</label>
+        <label>Bloqueo de Tráfico LDI</label>
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_llamada_selec">
@@ -119,7 +121,7 @@
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_identificador">
-        <label>Identificador de Llamadas</label>
+        <label>Identificador de llamadas (Caller ID)</label>
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_restriccion">
@@ -127,15 +129,15 @@
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_facturacion">
-        <label>Facturación Detallada</label>
+        <label>Facturación detallada</label>
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_no_figurar">
-        <label>No Figurar en Guía</label>
+        <label>No figurar / Publicar en guía</label>
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_despertador">
-        <label>Servicio Despertador</label>
+        <label>Servicio de Despertador (cronoalarma)</label>
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_no_molestar">
@@ -155,7 +157,7 @@
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_desvio_dir">
-        <label>Desvío Dir. Transf. Llamadas</label>
+        <label>Desvío Directo / Transferencia de Llamadas</label>
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_memo_llamada">
@@ -167,7 +169,7 @@
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_timbre">
-        <label>Timbre distintivo de Llamadas</label>
+        <label>Timbre distintivo de Llamadas (Multiring)</label>
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_bloqueo_llamadas">
@@ -175,19 +177,19 @@
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_telectura">
-        <label>Servicio de Telectura</label>
+        <label>Servicio de Telelectura</label>
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_mant_domicilio">
-        <label>Servicio de Mant. Domicilio</label>
+        <label>Servicio de Mantenimiento Domiciliario</label>
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_datos">
-        <label>Datos Inquilino Facturación</label>
+        <label>Datos del Inquilino en la facturación</label>
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_bloqueo_modalidad">
-        <label>Bloqueo Modalidad</label>
+        <label>Bloqueo modalidad abonado llamante paga (CPP)</label>
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_bloqueo_audiotexto">
@@ -195,7 +197,10 @@
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_otros">
-        <label>Otros Servicios</label>
+        <label>Otros Servicios: Especificar</label>
+      </input>
+      <input ref="/C1.25/servicios/s_otros1">
+        <label>Otros Servicios: Especificar</label>
         <hint>Mensual [en pesos]</hint>
       </input>
     </group>

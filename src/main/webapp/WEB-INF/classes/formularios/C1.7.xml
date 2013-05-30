@@ -47,7 +47,7 @@
             <label>Provincia</label>
             <hint>Seleccione Provincia</hint>
             <item>
-              <label>Seleccione una opcion</label>
+              <label>Seleccione una opción</label>
               <value>0</value>
             </item>
           </select1>
@@ -55,7 +55,7 @@
             <label>Partido/Departamento</label>
             <hint>Seleccione Partido</hint>
             <item>
-              <label>Seleccione una opcion</label>
+              <label>Seleccione una opción</label>
               <value>0</value>
             </item>
           </select1>
@@ -63,23 +63,23 @@
             <label>Localidad</label>
             <hint>Seleccione Localidad</hint>
             <item>
-              <label>Seleccione una opcion</label>
+              <label>Seleccione una opción</label>
               <value>0</value>
             </item>
           </select1>
           <input ref="/C1.7/meses/mes/localidad_otro">
-            <label>Especifique</label>
+            <label>Localidad Otros</label>
           </input>
           <select1 appearance="minimal" ref="/C1.7/meses/mes/area">
             <label>Área Local</label>
             <hint>Seleccione Área Local</hint>
             <item>
-              <label>Seleccione una opcion</label>
+              <label>Seleccione una opción</label>
               <value>0</value>
             </item>
           </select1>
           <input ref="/C1.7/meses/mes/area_otro">
-            <label>Especifique</label>
+            <label>Área Otros</label>
           </input>
           <input ref="/C1.7/meses/mes/hogares">
             <label>Hogares</label>

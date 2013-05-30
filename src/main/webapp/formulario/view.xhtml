@@ -45,12 +45,14 @@
 			<h:link value="Nuevo" outcome="create" styleClass="btn btn-primary"/>	
 			<h:link outcome="/formulario/display" value="Ver Html" styleClass="btn btn-primary" rendered="#{formularioBean.formulario.codigo eq 'C1.1' or formularioBean.formulario.codigo eq 'C1.2' or formularioBean.formulario.codigo eq 'C1.3'}">
 				<f:param name="id" value="#{formularioBean.formulario.id}"/>																	
-				<f:param name="repeat" value="1"/>	 
+				<f:param name="repeat" value="1"/>
+				<f:param name="version" value="#{formularioBean.formulario.formVersion}"/>	 
 			</h:link>
 			<h:link outcome="/formulario/display" value="Ver Html" styleClass="btn btn-primary" rendered="#{formularioBean.formulario.codigo ne 'C1.1' and formularioBean.formulario.codigo ne 'C1.2' and formularioBean.formulario.codigo ne 'C1.3'}">
 				<f:param name="id" value="#{formularioBean.formulario.id}"/>
 				<f:param name="title" value="Enero,Febrero,Marzo"/>	
-				<f:param name="repeat" value="3"/>		 
+				<f:param name="repeat" value="3"/>	
+				<f:param name="version" value="#{formularioBean.formulario.formVersion}"/> 
 			</h:link>
 		</div>
 	</ui:define>

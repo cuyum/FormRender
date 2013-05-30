@@ -1932,7 +1932,7 @@ a.thumbnail:hover { border-color: #0088cc; -webkit-box-shadow: 0 1px 3px #dddddd
 /* # Wells
 ================================================== */
 
-[class^="well"], [class*=" well"] { background: #fdfdfd; border: 1px solid #ddd; position: relative; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -ms-box-sizing: border-box; }
+[class^="well"], [class*=" well"] {border: 1px solid #ddd; position: relative; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -ms-box-sizing: border-box; }
 [class^="well"] blockquote, [class*=" well"] blockquote { border-color: rgba(0, 0, 0, 0.15); }
 [class^="well"] .navbar .navbar-inner, [class*=" well"] .navbar .navbar-inner { border: none; border-bottom: 1px solid #ddd; }
 [class^="well"] .navbar-inverse .navbar-inner, [class*=" well"] .navbar-inverse .navbar-inner { margin: -1px -1px 0 -1px; box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; }

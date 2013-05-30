@@ -23,7 +23,7 @@
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.41/meses/mes/transporte" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.41/meses/mes/otros" required="true()" type="int"/>
       <bind calculate=" /C1.41/meses/mes/arriendo + /C1.41/meses/mes/transporte + /C1.41/meses/mes/otros " nodeset="/C1.41/meses/mes/calculate2" type="string"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.41/meses/mes/total" readonly="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.41/meses/mes/total" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.41/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
