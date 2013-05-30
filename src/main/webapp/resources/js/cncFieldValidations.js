@@ -683,14 +683,15 @@ var addVisualizationLogic = function(field){
 					console.error("Value for relevant field cannot be recognized");
 				}
 			}
+			if(show){
+//				console.log("should show");
+				field.parent().show();
+			}else{
+//				console.log("should not show");
+				field.parent().hide();
+			}
 		}
-		if(show){
-//			console.log("should show");
-			field.parent().show();
-		}else{
-//			console.log("should not show");
-			field.parent().hide();
-		}
+		
 //		console.groupEnd();
 	};
 	field.data("renderLogic",renderLogic);
