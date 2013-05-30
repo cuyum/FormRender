@@ -83,7 +83,7 @@
             <label>Provincia</label>
             <hint>Provincia</hint>
             <item>
-              <label>Seleccione una opcion</label>
+              <label>Seleccione una opción</label>
               <value>0</value>
             </item>
           </select1>
@@ -91,7 +91,7 @@
             <label>Partido / Departamento</label>
             <hint>Partido/Departamento</hint>
             <item>
-              <label>Seleccione una opcion</label>
+              <label>Seleccione una opción</label>
               <value>0</value>
             </item>
           </select1>
@@ -99,23 +99,23 @@
             <label>Localidad</label>
             <hint>Localidad</hint>
             <item>
-              <label>Seleccione una opcion</label>
+              <label>Seleccione una opción</label>
               <value>0</value>
             </item>
           </select1>
           <input ref="/C1.3/puntos/lugar/localidad_otro">
-            <label>Especifique:</label>
+            <label>Localidad Otros</label>
           </input>
           <select1 appearance="minimal" ref="/C1.3/puntos/lugar/area">
             <label>Área Local</label>
             <hint>Área Local</hint>
             <item>
-              <label>Seleccione una opcion</label>
+              <label>Seleccione una opción</label>
               <value>0</value>
             </item>
           </select1>
           <input ref="/C1.3/puntos/lugar/area_otro">
-            <label>Especifique:</label>
+            <label>Área Otros</label>
           </input>
         </group>
         <group appearance="col3 well-white" ref="/C1.3/puntos/equipamiento">
@@ -124,7 +124,7 @@
             <label>Tecnología</label>
             <hint>Tecnología</hint>
             <item>
-              <label>Seleccione opcion</label>
+              <label>Seleccione una opción</label>
               <value>0</value>
             </item>
             <item>
@@ -149,7 +149,7 @@
             </item>
           </select1>
           <input ref="/C1.3/puntos/equipamiento/equipamiento_tecn_otro">
-            <label>Especifique:</label>
+            <label>Tec. Otros</label>
           </input>
           <input ref="/C1.3/puntos/equipamiento/equipamiento_cap_disp">
             <label>Capacidad Disponible</label>
@@ -166,7 +166,7 @@
             <label>Tipo</label>
             <hint>Tipo</hint>
             <item>
-              <label>Seleccione opcion</label>
+              <label>Seleccione una opción</label>
               <value>0</value>
             </item>
             <item>
@@ -183,7 +183,7 @@
             </item>
           </select1>
           <input ref="/C1.3/puntos/tipomedio/medio_tipo_otro">
-            <label>Especifique:</label>
+            <label>Tipo Otros</label>
           </input>
           <input ref="/C1.3/puntos/tipomedio/medio_cap_disp">
             <label>Capacidad Disponible</label>
@@ -200,7 +200,7 @@
             <label>Tipo</label>
             <hint>Tipo</hint>
             <item>
-              <label>Seleccione opcion</label>
+              <label>Seleccione una opción</label>
               <value>0</value>
             </item>
             <item>
@@ -217,7 +217,7 @@
             </item>
           </select1>
           <input ref="/C1.3/puntos/tipotendido/tendido_tipo_otro">
-            <label>Especifique:</label>
+            <label>Tipo Otros</label>
           </input>
           <input ref="/C1.3/puntos/tipotendido/tendido_cap_disp">
             <label>Capacidad Disponible</label>
@@ -234,7 +234,7 @@
             <label>Provincia</label>
             <hint>Provincia</hint>
             <item>
-              <label>Seleccione una opcion</label>
+              <label>Seleccione una opción</label>
               <value>0</value>
             </item>
           </select1>
@@ -242,7 +242,7 @@
             <label>Partido / Departamento</label>
             <hint>Partido/Departamento</hint>
             <item>
-              <label>Seleccione una opcion</label>
+              <label>Seleccione una opción</label>
               <value>0</value>
             </item>
           </select1>
@@ -250,23 +250,23 @@
             <label>Localidad</label>
             <hint>Localidad</hint>
             <item>
-              <label>Seleccione una opcion</label>
+              <label>Seleccione una opción</label>
               <value>0</value>
             </item>
           </select1>
           <input ref="/C1.3/puntos/lugar1/localidad1_otro">
-            <label>Especifique:</label>
+            <label>Localidad Otros</label>
           </input>
           <select1 appearance="minimal" ref="/C1.3/puntos/lugar1/area1">
             <label>Área Local</label>
             <hint>Área Local</hint>
             <item>
-              <label>Seleccione una opcion</label>
+              <label>Seleccione una opción</label>
               <value>0</value>
             </item>
           </select1>
           <input ref="/C1.3/puntos/lugar1/area1_otro">
-            <label>Especifique:</label>
+            <label>Área Otros</label>
           </input>
         </group>
       </repeat>

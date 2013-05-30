@@ -1,38 +1,43 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario C1.24 - Tarifas / precio minuto servicios especiales</h:title>
+    <h:title>Formulario C1.24 - Tarifas / Precio minuto servicios especiales</h:title>
     <model>
       <instance>
         <C1.24 id="C1.24">
-          <numero>
+          <precio>
             <tarifa_110/>
             <tarifa_113/>
             <otros/>
-          </numero>
+            <otros1/>
+          </precio>
           <meta>
             <instanceID/>
           </meta>
         </C1.24>
       </instance>
-      <bind constraint="mask=999.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C1.24/numero/tarifa_110" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C1.24/numero/tarifa_113" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C1.24/numero/otros" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C1.24/precio/tarifa_110" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C1.24/precio/tarifa_113" required="true()" type="decimal"/>
+      <bind nodeset="/C1.24/precio/otros" required="true()" type="string"/>
+      <bind constraint="mask=999.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C1.24/precio/otros1" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.24/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col3 well-white" ref="/C1.24/numero">
-      <label>Número</label>
-      <input ref="/C1.24/numero/tarifa_110">
+    <group appearance="col3 well-white" ref="/C1.24/precio">
+      <label>Precio</label>
+      <input ref="/C1.24/precio/tarifa_110">
         <label>110</label>
         <hint>Precio [en pesos]</hint>
       </input>
-      <input ref="/C1.24/numero/tarifa_113">
+      <input ref="/C1.24/precio/tarifa_113">
         <label>113</label>
         <hint>Precio [en pesos]</hint>
       </input>
-      <input ref="/C1.24/numero/otros">
+      <input ref="/C1.24/precio/otros">
+        <label>Otros</label>
+      </input>
+      <input ref="/C1.24/precio/otros1">
         <label>Otros</label>
         <hint>Precio [en pesos]</hint>
       </input>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario C1.16 - Calidad del servicio / ratios</h:title>
+    <h:title>Formulario C1.16 - Calidad del servicio / Ratios</h:title>
     <model>
       <instance>
         <C1.16 id="C1.16">
@@ -57,7 +57,7 @@
             <label>Provincia</label>
             <hint>Provincia</hint>
             <item>
-              <label>Seleccione una opcion</label>
+              <label>Seleccione una opción</label>
               <value>0</value>
             </item>
           </select1>
@@ -65,7 +65,7 @@
             <label>Partido / Departamento</label>
             <hint>Partido/Departamento</hint>
             <item>
-              <label>Seleccione una opcion</label>
+              <label>Seleccione una opción</label>
               <value>0</value>
             </item>
           </select1>
@@ -73,23 +73,23 @@
             <label>Localidad</label>
             <hint>Localidad</hint>
             <item>
-              <label>Seleccione una opcion</label>
+              <label>Seleccione una opción</label>
               <value>0</value>
             </item>
           </select1>
           <input ref="/C1.16/meses/mes/localidad_otro">
-            <label>Especifique</label>
+            <label>Localidad Otros</label>
           </input>
           <select1 appearance="minimal" ref="/C1.16/meses/mes/area">
             <label>Área Local</label>
             <hint>Área Local</hint>
             <item>
-              <label>Seleccione una opcion</label>
+              <label>Seleccione una opción</label>
               <value>0</value>
             </item>
           </select1>
           <input ref="/C1.16/meses/mes/area_otro">
-            <label>Especifique</label>
+            <label>Área Otros</label>
           </input>
           <input ref="/C1.16/meses/mes/trp">
             <label>TRP</label>

@@ -36,8 +36,8 @@
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/regalias" required="true()" type="int"/>
       <bind calculate=" /C1.51/meses/mes/tele_expo + /C1.51/meses/mes/serv_expo " nodeset="/C1.51/meses/mes/total/calculate1" type="string"/>
       <bind calculate=" /C1.51/meses/mes/tele_impo + /C1.51/meses/mes/serv_impo + /C1.51/meses/mes/impo_bienes + /C1.51/meses/mes/impo_piezas " nodeset="/C1.51/meses/mes/total/calculate2" type="string"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/total/total1" readonly="true()" type="string"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/total/total2" readonly="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/total/total1" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/total/total2" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.51/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
