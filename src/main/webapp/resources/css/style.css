@@ -2292,5 +2292,7 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
     box-shadow: none;
 }
 
-
+label + fieldset {
+    clear:both;
+}
 

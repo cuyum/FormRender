@@ -153,7 +153,8 @@
           </group>
           <group appearance="col2 well-white" ref="/C1.48/meses/mes/total1">
             <input ref="/C1.48/meses/mes/total1/total_red">
-              <label>Total <output value=" /C1.48/meses/mes/total1/calculate1 "/></label><hint>Total [en miles de pesos]</hint>
+              <label>Total</label>
+              <hint>Total [en miles de pesos]</hint>
             </input>
           </group>
         </group>

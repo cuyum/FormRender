@@ -48,39 +48,41 @@
         <group appearance="col4 well-white variable" ref="/C1.51/meses/mes">
           <label>{title}</label>
           <input ref="/C1.51/meses/mes/tele_expo">
-            <label>Telecomunicaciones Expo.:</label>
+            <label>Telecomunicaciones Expo.</label>
             <hint>Expo [en miles de pesos]</hint>
           </input>
           <input ref="/C1.51/meses/mes/tele_impo">
-            <label>Telecomunicaciones Impo.:</label>
+            <label>Telecomunicaciones Impo.</label>
             <hint>Impo [en miles de pesos]</hint>
           </input>
           <input ref="/C1.51/meses/mes/serv_expo">
-            <label>Servicios Expo.:</label>
+            <label>Servicios Expo.</label>
             <hint>Expo [en miles de pesos]</hint>
           </input>
           <input ref="/C1.51/meses/mes/serv_impo">
-            <label>Servicios Impo.:</label>
+            <label>Servicios Impo.</label>
             <hint>Impo [en miles de pesos]</hint>
           </input>
           <input ref="/C1.51/meses/mes/impo_bienes">
-            <label>Importaciones Bienes Capital:</label>
+            <label>Importaciones Bienes Capital</label>
             <hint>Importaciones de Bienes de Capital [en miles de pesos]</hint>
           </input>
           <input ref="/C1.51/meses/mes/impo_piezas">
-            <label>Importaciones de Piezas:</label>
+            <label>Importaciones de Piezas</label>
             <hint>Importaciones de Piezas [en miles de pesos]</hint>
           </input>
           <input ref="/C1.51/meses/mes/regalias">
-            <label>Regalías:</label>
+            <label>Regalías</label>
             <hint>Regalías [en miles de pesos]</hint>
           </input>
           <group appearance="col4 well-white" ref="/C1.51/meses/mes/total">
             <input ref="/C1.51/meses/mes/total/total1">
-              <label>Totales expo.: <output value=" /C1.51/meses/mes/total/calculate1 "/></label><hint>Expo [en miles de pesos]</hint>
+              <label>Totales expo.</label>
+              <hint>Expo [en miles de pesos]</hint>
             </input>
             <input ref="/C1.51/meses/mes/total/total2">
-              <label>Totales impo.: <output value=" /C1.51/meses/mes/total/calculate2 "/></label><hint>Impo [en miles de pesos]</hint>
+              <label>Totales impo.</label>
+              <hint>Impo [en miles de pesos]</hint>
             </input>
           </group>
         </group>

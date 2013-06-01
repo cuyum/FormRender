@@ -54,7 +54,7 @@
             <hint>Corresponsales de Salida [en miles de pesos]</hint>
           </input>
           <input ref="/C1.45/meses/mes/total_neto">
-            <label>Total Neto de Corresp. de Salida</label>
+            <label>Total Neto de Corresponsales de Salida</label>
             <hint>Total Neto de Corresponsales de Salida [en miles de pesos]</hint>
           </input>
           <input ref="/C1.45/meses/mes/total">

@@ -46,43 +46,44 @@
         <group appearance="col4 well-white variable" ref="/C1.47/meses/mes">
           <label>{title}</label>
           <input ref="/C1.47/meses/mes/i_d">
-            <label>I &amp; D:</label>
+            <label>I &amp; D</label>
             <hint>I &amp; D [en miles de pesos]</hint>
           </input>
           <input ref="/C1.47/meses/mes/imp">
-            <label>lmp:</label>
+            <label>lmp.</label>
             <hint>lmp [en miles de pesos]</hint>
           </input>
           <input ref="/C1.47/meses/mes/am_bienes">
-            <label>Amortización de Bienes de Uso:</label>
+            <label>Amortización de Bienes de Uso</label>
             <hint>Amortiz. de Bienes de uso [en miles de pesos]</hint>
           </input>
           <input ref="/C1.47/meses/mes/am_intang">
-            <label>Amortiz. Intangibles:</label>
+            <label>Amortiz. Intangibles</label>
             <hint>Amortización de Intangibles [en miles de pesos]</hint>
           </input>
           <input ref="/C1.47/meses/mes/publicidad">
-            <label>Publicidad:</label>
+            <label>Publicidad</label>
             <hint>Publicidad [en miles de pesos]</hint>
           </input>
           <input ref="/C1.47/meses/mes/costo_equipos">
-            <label>Costo Equipos:</label>
+            <label>Costo Equipos</label>
             <hint>Costo Equipos [en miles de pesos]</hint>
           </input>
           <input ref="/C1.47/meses/mes/otros_com">
-            <label>Otros Comerciales:</label>
+            <label>Otros Comerciales</label>
             <hint>Otros Comerciales [en miles de pesos]</hint>
           </input>
           <input ref="/C1.47/meses/mes/otros_fin">
-            <label>Otros Financieros:</label>
+            <label>Otros Financieros</label>
             <hint>Otros Financieros [en miles de pesos]</hint>
           </input>
           <input ref="/C1.47/meses/mes/otros_adm">
-            <label>Otros Administrativos:</label>
+            <label>Otros Administrativos</label>
             <hint>Otros Administrativos [en miles de pesos]</hint>
           </input>
           <input ref="/C1.47/meses/mes/calculate_test_output">
-            <label>Total <output value=" /C1.47/meses/mes/calculate "/></label><hint>Total [en miles de pesos]</hint>
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
           </input>
         </group>
       </repeat>

@@ -117,7 +117,7 @@
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_restriccion">
-        <label>Restricción Caller</label>
+        <label>Restricción Caller ID permanente</label>
         <hint>Mensual [en pesos]</hint>
       </input>
       <input ref="/C1.25/servicios/s_facturacion">

@@ -36,23 +36,24 @@
         <group appearance="col3 well-white variable" ref="/C1.46/meses/mes">
           <label>{title}</label>
           <input ref="/C1.46/meses/mes/gastos">
-            <label>Gastos en Personal (remuneraciones):</label>
+            <label>Gastos en Personal (remuneraciones)</label>
             <hint>Gastos en Personal [en miles de pesos]</hint>
           </input>
           <input ref="/C1.46/meses/mes/cargas">
-            <label>Cargas Soc. y otros costos laborales:</label>
+            <label>Cargas Soc. y otros costos laborales</label>
             <hint>CS y Otros [en miles de pesos]</hint>
           </input>
           <input ref="/C1.46/meses/mes/terceros">
-            <label>Materiales y trabajo de terceros:</label>
+            <label>Materiales y trabajo de terceros</label>
             <hint>Terceros [en miles de pesos]</hint>
           </input>
           <input ref="/C1.46/meses/mes/otros">
-            <label>Otros:</label>
+            <label>Otros</label>
             <hint>Otros [en miles de pesos]</hint>
           </input>
           <input ref="/C1.46/meses/mes/total">
-            <label>Total: <output value=" /C1.46/meses/mes/calculate "/></label><hint>Total [en miles de pesos]</hint>
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
           </input>
         </group>
       </repeat>

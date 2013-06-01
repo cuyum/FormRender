@@ -36,27 +36,27 @@
         <group appearance="col4 well-white variable" ref="/C1.34/meses/mes">
           <label>{title}</label>
           <input ref="/C1.34/meses/mes/hogares">
-            <label>Hogares:</label>
+            <label>Hogares</label>
             <hint>Hogares [en miles de pesos]</hint>
           </input>
           <input ref="/C1.34/meses/mes/comercial">
-            <label>Comercial:</label>
+            <label>Comercial</label>
             <hint>Comercial [en miles de pesos]</hint>
           </input>
           <input ref="/C1.34/meses/mes/gobierno">
-            <label>Gobierno:</label>
+            <label>Gobierno</label>
             <hint>Gobierno [en miles de pesos]</hint>
           </input>
           <input ref="/C1.34/meses/mes/jubilados">
-            <label>Jubilados:</label>
+            <label>Jubilados</label>
             <hint>Jubilados [en miles de pesos]</hint>
           </input>
           <input ref="/C1.34/meses/mes/profesional">
-            <label>Profesional:</label>
+            <label>Profesional</label>
             <hint>Profesional [en miles de pesos]</hint>
           </input>
           <input ref="/C1.34/meses/mes/otros">
-            <label>Otros:</label>
+            <label>Otros</label>
             <hint>Otros [en miles de pesos]</hint>
           </input>
         </group>

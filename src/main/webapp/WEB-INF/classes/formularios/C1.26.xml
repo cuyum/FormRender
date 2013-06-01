@@ -40,11 +40,11 @@
         <group appearance="col4 well-white" ref="/C1.26/plan_plan/planes">
           <label>Planes</label>
           <input ref="/C1.26/plan_plan/planes/plan">
-            <label>Plan:</label>
+            <label>Plan</label>
             <hint>Plan</hint>
           </input>
           <select1 appearance="minimal" ref="/C1.26/plan_plan/planes/aplicacion">
-            <label>Aplicación:</label>
+            <label>Aplicación</label>
             <hint>Aplicación</hint>
             <item>
               <label>Seleccione opción</label>
@@ -60,7 +60,7 @@
             </item>
           </select1>
           <select1 appearance="minimal" ref="/C1.26/plan_plan/planes/segmento">
-            <label>Segmento:</label>
+            <label>Segmento</label>
             <hint>Segmento</hint>
             <item>
               <label>Seleccione opción</label>
@@ -95,19 +95,19 @@
             <label>Seg. Otros</label>
           </input>
           <input ref="/C1.26/plan_plan/planes/abono">
-            <label>Abono:</label>
+            <label>Abono</label>
             <hint>Abono [en pesos]</hint>
           </input>
           <input ref="/C1.26/plan_plan/planes/minutos">
-            <label>Minutos:</label>
+            <label>Minutos</label>
             <hint>Minutos</hint>
           </input>
           <input ref="/C1.26/plan_plan/planes/precio">
-            <label>Precio:</label>
+            <label>Precio</label>
             <hint>Precio [en pesos]</hint>
           </input>
           <input appearance="multiline" ref="/C1.26/plan_plan/planes/observaciones">
-            <label>Observaciones:</label>
+            <label>Observaciones</label>
             <hint>Observaciones</hint>
           </input>
         </group>

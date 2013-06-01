@@ -44,35 +44,35 @@
         <group appearance="col3 well-white variable" ref="/C1.43/meses/Enero">
           <label>{title}</label>
           <input ref="/C1.43/meses/Enero/orterfijo">
-            <label>Origen y Terminación Local Fijo:</label>
+            <label>Origen y Terminación Local Fijo</label>
             <hint>Origen y Terminación Local Fijo [en miles de pesos]</hint>
           </input>
           <input ref="/C1.43/meses/Enero/ortermovil">
-            <label>Origen y Terminación Móvil:</label>
+            <label>Origen y Terminación Móvil</label>
             <hint>Origen y Terminación Móvil [en miles de pesos]</hint>
           </input>
           <input ref="/C1.43/meses/Enero/puertos">
-            <label>Puertos:</label>
+            <label>Puertos</label>
             <hint>Puertos [en miles de pesos]</hint>
           </input>
           <input ref="/C1.43/meses/Enero/coubic">
-            <label>Coubicación:</label>
+            <label>Coubicación</label>
             <hint>Coubicación [en miles de pesos]</hint>
           </input>
           <input ref="/C1.43/meses/Enero/transito">
-            <label>Tránsito Local:</label>
+            <label>Tránsito Local</label>
             <hint>Tránsito Local [en miles de pesos]</hint>
           </input>
           <input ref="/C1.43/meses/Enero/facilidades">
-            <label>Otras Facilidades Esenciales:</label>
+            <label>Otras Facilidades Esenciales</label>
             <hint>Otras Facilidades Esenciales [en miles de pesos]</hint>
           </input>
           <input ref="/C1.43/meses/Enero/facturacion">
-            <label>Facturación y Cobranzas:</label>
+            <label>Facturación y Cobranzas</label>
             <hint>Facturación y Cobranzas [en miles de pesos]</hint>
           </input>
           <input ref="/C1.43/meses/Enero/otros">
-            <label>Otros:</label>
+            <label>Otros</label>
             <hint>Otros [en miles de pesos]</hint>
           </input>
           <input ref="/C1.43/meses/Enero/total">

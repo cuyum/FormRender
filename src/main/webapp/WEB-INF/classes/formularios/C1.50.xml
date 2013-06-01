@@ -86,56 +86,56 @@
           <group appearance="col1 well-white" ref="/C1.50/meses/mes/redes_de_acceso">
             <label>Redes de Acceso</label>
             <input ref="/C1.50/meses/mes/redes_de_acceso/acceso_fijo">
-              <label>Fijo:</label>
+              <label>Fijo</label>
               <hint>Acceso Fijo [en miles de pesos]</hint>
             </input>
             <input ref="/C1.50/meses/mes/redes_de_acceso/acceso_movil">
-              <label>Móvil:</label>
+              <label>Móvil</label>
               <hint>Acceso Móvil [en miles de pesos]</hint>
             </input>
           </group>
           <group appearance="col2 well-white" ref="/C1.50/meses/mes/transporte">
             <label>Transporte</label>
             <input ref="/C1.50/meses/mes/transporte/transporte_optico">
-              <label>Óptico:</label>
+              <label>Óptico</label>
               <hint>Transporte Óptico [en miles de pesos]</hint>
             </input>
             <input ref="/C1.50/meses/mes/transporte/transporte_cobre">
-              <label>Cobre:</label>
+              <label>Cobre</label>
               <hint>Transporte Cobre [en miles de pesos]</hint>
             </input>
             <input ref="/C1.50/meses/mes/transporte/transporte_radioelectrico_radioenlaces">
-              <label>Radioeléctrico Radioenlaces:</label>
+              <label>Radioeléctrico Radioenlaces</label>
               <hint>Transporte Radioeléctrico. Radioenlaces [en miles de pesos]</hint>
             </input>
             <input ref="/C1.50/meses/mes/transporte/transporte_radioelectrico_satelital">
-              <label>Radioeléctrico Satelital:</label>
+              <label>Radioeléctrico Satelital</label>
               <hint>Transporte Radioeléctrico. Satelital [en miles de pesos]</hint>
             </input>
           </group>
           <group appearance="col2 well-white" ref="/C1.50/meses/mes/obra_civil">
             <label>Obra Civil</label>
             <input ref="/C1.50/meses/mes/obra_civil/ocivil_transporte">
-              <label>Redes de Transporte:</label>
+              <label>Redes de Transporte</label>
               <hint>Obra Civil. Redes de Transporte [en miles de pesos]</hint>
             </input>
             <input ref="/C1.50/meses/mes/obra_civil/ocivil_inalambricas">
-              <label>Redes Inalámbricas:</label>
+              <label>Redes Inalámbricas</label>
               <hint>Obra Civil. Redes Inalámbricas [en miles de pesos]</hint>
             </input>
             <input ref="/C1.50/meses/mes/obra_civil/ocivil_acceso">
-              <label>Redes de Acceso:</label>
+              <label>Redes de Acceso</label>
               <hint>Obra Civil. Redes de Acceso [en miles de pesos]</hint>
             </input>
             <input ref="/C1.50/meses/mes/obra_civil/ocivil_plantel">
-              <label>Plantel Exterior:</label>
+              <label>Plantel Exterior</label>
               <hint>Obra Civil. Plantel Exterior [en miles de pesos]</hint>
             </input>
           </group>
           <group appearance="col1 well-white" ref="/C1.50/meses/mes/equipamiento">
             <label>Equipamiento</label>
             <input ref="/C1.50/meses/mes/equipamiento/e_redes">
-              <label>Redes de Transporte Acceso fijo y móvil:</label>
+              <label>Redes de Transporte Acceso fijo y móvil</label>
               <hint>Equipamiento asociado a las redes de transporte y acceso fijo y móvil [en miles de pesos]</hint>
             </input>
             <input ref="/C1.50/meses/mes/equipamiento/e_instalaciones">
@@ -146,43 +146,43 @@
           <group appearance="col2 well-white" ref="/C1.50/meses/mes/software">
             <label>Software</label>
             <input ref="/C1.50/meses/mes/software/s_administracion">
-              <label>Administración la Red:</label>
-              <hint>Software para administracion de red [en miles de pesos]</hint>
+              <label>Administración la Red</label>
+              <hint>Software para administración de red [en miles de pesos]</hint>
             </input>
             <input ref="/C1.50/meses/mes/software/s_monitoreo">
-              <label>Monitoreo y Control:</label>
+              <label>Monitoreo y Control</label>
               <hint>Software para Monitoreo y control [en miles de pesos]</hint>
             </input>
             <input ref="/C1.50/meses/mes/software/s_mantenimiento">
-              <label>Mantenimiento:</label>
+              <label>Mantenimiento</label>
               <hint>Software para mantenimiento [en miles de pesos]</hint>
             </input>
             <input ref="/C1.50/meses/mes/software/s_nodo">
-              <label>Nodo o Datacenter de Alojamiento:</label>
+              <label>Nodo o Datacenter de Alojamiento</label>
               <hint>Software para Nodo o Datacenter de Alojamiento [en miles de pesos]</hint>
             </input>
           </group>
           <group appearance="col2 well-white" ref="/C1.50/meses/mes/licencias">
             <label>Licencias</label>
             <input ref="/C1.50/meses/mes/licencias/l_software">
-              <label>Software:</label>
+              <label>Software</label>
               <hint>Licencias Software [en miles de pesos]</hint>
             </input>
             <input ref="/C1.50/meses/mes/licencias/l_hardware">
-              <label>Hardware:</label>
+              <label>Hardware</label>
               <hint>Licencias Hardware [en miles de pesos]</hint>
             </input>
             <input ref="/C1.50/meses/mes/licencias/l_regulatorias">
-              <label>Regulatorias:</label>
+              <label>Regulatorias</label>
               <hint>Licencias Regulatorias [en miles de pesos]</hint>
             </input>
           </group>
           <input ref="/C1.50/meses/mes/infraestructura">
-            <label>Infraestructura Administrativa/Comercial:</label>
+            <label>Infraestructura Administrativa/Comercial</label>
             <hint>Infraestructura administrativa/comercial [en miles de pesos]</hint>
           </input>
           <input ref="/C1.50/meses/mes/desarrollo">
-            <label>Desarrollo del Servicio Universal:</label>
+            <label>Desarrollo del Servicio Universal</label>
             <hint>Desarrollo del Servicio Universal, conf Pto 10.1 f) Anexo I Dtoo. 764/2000 [en miles de pesos]</hint>
           </input>
           <input ref="/C1.50/meses/mes/otros_otros">
@@ -190,7 +190,8 @@
             <hint>Otros [en miles de pesos]</hint>
           </input>
           <input ref="/C1.50/meses/mes/total_total">
-            <label>Total <output value=" /C1.50/meses/mes/calculate1 "/></label><hint>Total [en miles de pesos]</hint>
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
           </input>
         </group>
       </repeat>

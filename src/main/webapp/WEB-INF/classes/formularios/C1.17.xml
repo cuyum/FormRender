@@ -50,7 +50,7 @@
             </item>
           </select1>
           <select1 appearance="minimal" ref="/C1.17/meses/mes/partido">
-            <label>Partido/Departamento</label>
+            <label>Partido / Departamento</label>
             <hint>Partido/Departamento</hint>
             <item>
               <label>Seleccione una opción</label>
