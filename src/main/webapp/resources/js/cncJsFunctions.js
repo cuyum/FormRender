@@ -109,7 +109,7 @@ var FormRender = new function(){
 				console.log("instancia:"+ri);
 				var fields = FormRender.fieldsets[ri].fields;
 				
-				$.blockUI({message:"Cargando datos remotos..<br>Espere por favor...",css:{opacity:.3}});
+				$.blockUI({message:"Cargando...<br>Espere por favor...",css:{opacity:.3}});
 				var unblock = $("<span id='unblockable'/>");
 				unblock.appendTo("body");
 				
@@ -214,7 +214,7 @@ var FormRender = new function(){
 				"bAutoWidth": false,
 				"sScrollX": "100%",
 				"sScrollXInner": "100%",
-			    "bScrollCollapse": true,
+			    "bScrollCollapse": true,			    
 				"sPaginationType": "full_numbers",
 				"sDom": '<"datatable-header"fl>t<"datatable-footer"ip>',
 				"oLanguage": {

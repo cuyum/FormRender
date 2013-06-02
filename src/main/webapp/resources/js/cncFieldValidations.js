@@ -270,7 +270,7 @@ var setupRemoteData = function(field,fieldset){
 			
 			ancestor.on("change",function(){
 				if(!$("#unblockable").is("span"))
-					$.blockUI({message:"Cargando datos remotos..<br>Espere por favor...",css:{opacity:.3}});
+					$.blockUI({message:"Cargando...<br>Espere por favor...",css:{opacity:.3}});
 				$.ajax({
 				  url: "/FormRender/rest/service/relay",
 				  type: "POST",
@@ -322,7 +322,7 @@ var setupRemoteData = function(field,fieldset){
 			});
 		}else{
 			if(!$("#unblockable").is("span"))
-				$.blockUI({message:"Cargando datos remotos..<br>Espere por favor...",css:{opacity:.3}});
+				$.blockUI({message:"Cargando...<br>Espere por favor...",css:{opacity:.3}});
 			$.ajax({
 			  url: "/FormRender/rest/service/relay",
 			  type: "POST",
