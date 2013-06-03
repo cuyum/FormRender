@@ -297,7 +297,6 @@ var FormRender = new function(){
 			}
 			reg.push(fieldset.instance);
 			if(commit){
-				console.log(reg);
 				FormRender.form.reset();
 				for ( var i = 0; i < fieldset.fields.length; i++) {
 					var af = $(fieldset.fields[i]);
@@ -346,6 +345,7 @@ var FormRender = new function(){
 					"sZeroRecords":"Ning&uacute;n registro resultante",
 					"sLengthMenu": "<span>Filas _MENU_</span>",
 					"sEmptyTable": "No hay datos",
+					"sInfoFiltered": "(filtrado de _MAX_ registros)",
 					"sInfoEmpty": "No hay registros cargados",
 					"sInfo": "Mostrando _START_ a _END_, de _TOTAL_ registros",
 					"oPaginate": {
