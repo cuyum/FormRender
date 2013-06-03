@@ -1,5 +1,7 @@
 $(document).ready(function() {
 	FormRender.form = document.forms[0];
+	// override these in your code to change the default behavior and style 
+	
 	setupValidationDefaults();
 	
 	/*Setup Version*/
