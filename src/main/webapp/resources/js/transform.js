@@ -21,6 +21,7 @@ $(document).ready(function() {
 	FormRender.renderGrid = fs.hasClass("grilla");
 	
 	
+	/*building Form.fieldsets*/
 	if(fs.length>0 && FormRender.repeatCount>0){
 		var pfs = fs.parent();
 		var calculatedItems = $("fieldset[name~='"+pfs.attr("name")+"']").siblings("#jr-calculated-items").find("[name]");
@@ -54,6 +55,8 @@ $(document).ready(function() {
 				}else{/*viene directo*/
 					fieldset.title = titleVar;
 				}
+			}else{
+				console.warn("No se ha encontrado namespace de titulo variable en markup");
 			}
 			
 			/* agregado de campos a grupo padre */

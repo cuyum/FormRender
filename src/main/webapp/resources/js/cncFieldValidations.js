@@ -317,7 +317,7 @@ var setupRemoteData = function(field,fieldset){
 							  field.append("<option value='"+ option.id + "'>"+ option.nombre + "</option>");
 						  }
 					  }else{
-						  console.error("No se obtuvo una lista de elementos para agregar al campo "+ fieldName );
+						  console.warn("No se obtuvo una lista de elementos para agregar al campo "+ fieldName );
 					  }
 					  if(!$("#unblockable").is("span")) $.unblockUI();
 					},
@@ -342,6 +342,7 @@ var setupRemoteData = function(field,fieldset){
 					  if(field.is("select")){
 						  var option = field.children("option[value='-1']");
 						  field.html("");
+						  console.log("option 'select':",option);
 						  option.appendTo(field);
 						  for ( var count = 0; count < data.result.length; count++) {
 							  var option = data.result[count];
@@ -349,7 +350,7 @@ var setupRemoteData = function(field,fieldset){
 						  }
 					  }
 				  }else{
-					  console.error("No se obtuvo una lista de elementos para agregar al campo "+ fieldName );
+					  console.warn("No se obtuvo una lista de elementos para agregar al campo "+ fieldName );
 				  }
 				  if(!$("#unblockable").is("span")) $.unblockUI();
 				},

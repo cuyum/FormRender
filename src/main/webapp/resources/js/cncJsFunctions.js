@@ -194,6 +194,17 @@ var FormRender = new function(){
 		}
 		return ancestor;
 	};
+	this.getCleanFieldName = function(fullName,fieldsetInstance){
+		if(fieldsetInstance && !isNaN(fieldsetInstance)){
+			fullName = fullName.replace("_"+fieldsetInstance,"");
+		}
+		if(fullName && fullName.trim()!=""){
+			var idx = fullName.lastIndexOf("/");
+			var cleanName = fullName.substring(idx+1);
+			return cleanName;
+		}
+		return "";
+	};
 	this.flagPerformRelevantCheck = function(ancestor){
 		if(ancestor && ancestor.is("select")){
 			var isChecking = ancestor.data("isCheckingRelevants");
@@ -216,6 +227,12 @@ var FormRender = new function(){
 		editing : -1,
 		headers : [],
 		data : [],
+		model:{
+			fields:[],
+			values:[],
+			formulario:"",
+			instance:-1
+		},
 		element : $('<table id="repeat-grid" class="table table-striped"></table>'),
 		getRowData : function(rowIndex){
 			return this.element.dataTable().fnGetData(rowIndex);
@@ -223,15 +240,11 @@ var FormRender = new function(){
 		setupEditClck: function(){
 			$("input[type~='button'][repeat-action='edit']").click(function(evt){
 				var rowIndex =  FormRender.grid.element.dataTable().fnGetPosition($(evt.target).closest('tr').get(0));
-				var od = FormRender.grid.getRowData(rowIndex);
-				var data = [];
-				data = data.concat(od);
-				var ri = od[od.length-1];
-				if(FormRender.repeatCount && FormRender.repeatCount>1) data.shift();
-				data.pop();
-				console.log(data);
-				console.log("instancia:"+ri);
-				var fields = FormRender.fieldsets[ri].fields;
+				var record = FormRender.grid.getRowData(rowIndex);
+				console.log(record);
+//				if(FormRender.repeatCount && FormRender.repeatCount>1) data.shift();
+//				data.pop();
+				var fields = FormRender.fieldsets[record.instance].fields;
 				
 				$.blockUI({message:"Cargando...<br>Espere por favor...",css:{opacity:.3}});
 				var unblock = $("<span id='unblockable'/>");
@@ -246,8 +259,8 @@ var FormRender = new function(){
 					setTimeout(function() {
 						console.log("setting field "
 								+ field.attr("name")
-								+ " with value of " + data[i]);
-						field.val(data[i]);
+								+ " with value of " + record.values[i]);
+						field.val(record.values[i]);
 						field.trigger("change");
 
 						i++;
@@ -277,25 +290,37 @@ var FormRender = new function(){
 		},
 		addRow : function(fieldsetInstance){
 			var fieldset = FormRender.fieldsets[fieldsetInstance];
-			var reg = [];
-			if(FormRender.repeatCount && FormRender.repeatCount>1) reg.push(fieldset.title);
+			
+			var record = $.extend({},this.model);
+			
+			if(FormRender.repeatCount && FormRender.repeatCount>1) 	record.formulario = fieldset.title;
 			var commit = true; 
 			for ( var i = 0; i < fieldset.fields.length; i++) {
 				var field =$(fieldset.fields[i]);
-				var value = field.val();
+				var attribute = FormRender.getCleanFieldName(field.attr("name"),fieldsetInstance);
+				record.fields.push(field.attr("name"));
 				if(field.is(":visible")){
+					var value = field.val();
 					if(value!=undefined && value!=null && $(FormRender.form).validate().element(field)){
-						reg.push(field.val());
+						if(field.is("select")){
+							var o = field.children("option:selected");
+							record[attribute] = {label:o.text(),value:value};
+							
+						}else{
+							record[attribute] = value;
+						}
+						record.values.push(value);
 					} else {
-						console.warn("Field: "+field.attr("name")+" has no value");
 						commit = false;
 						break;
 					}
 				}else{
-					reg.push(" ");
+					record[attribute] = " ";
+					record.values.push(" ");
 				}
 			}
-			reg.push(fieldset.instance);
+			record.instance = fieldset.instance;
+			console.log("commit",commit,record);
 			if(commit){
 				FormRender.form.reset();
 				for ( var i = 0; i < fieldset.fields.length; i++) {
@@ -303,7 +328,7 @@ var FormRender = new function(){
 					af.data("renderLogic")(af);
 				}
 				if(this.editing==-1){
-					this.element.dataTable().fnAddData(reg);
+					this.element.dataTable().fnAddData(record,true);
 				}else{
 					this.element.dataTable().fnUpdate(reg, this.editing);
 					this.editing = -1;
@@ -311,6 +336,9 @@ var FormRender = new function(){
 				this.setupEditClck();
 			}
 		},
+		/**
+		 * Call grid render function after building Form.fieldsets with repeat parent fieldset 
+		 */
 		render : function(pfs){
 			var gridFieldset = $('<fieldset class="jr-group well-white col1"></fieldset>');
 			$("fieldset[repeat-instance]").append('<input type="button" class="btn" value="Agregar" repeat-action="add"/>');
@@ -318,15 +346,29 @@ var FormRender = new function(){
 			$('<h4></h4>').append("<span>Resultados</span>").appendTo(gridFieldset);
 			$('<div class="table-overflow"></div>').append(this.element).appendTo(gridFieldset);
 			if(FormRender.repeatCount && FormRender.repeatCount>1)
-				this.headers.push({"sTitle":" "});
+				this.headers.push({"sTitle":" ","mData":"formulario"});
 			for ( var i = 0 ; i<FormRender.fieldsets[0].fields.length;i++) {
-				var header = $(FormRender.fieldsets[0].fields[i]).siblings("span.jr-label");
-				this.headers.push({ "sTitle": header.text() });
+				var f = $(FormRender.fieldsets[0].fields[i]);
+				var attribute = FormRender.getCleanFieldName(f.attr("name"));
+				this.model[attribute] = null;
+				var header = f.siblings("span.jr-label");
+				if(f.is("select")){
+					this.model[attribute] = {label:null,value:null};
+					this.headers.push({ 
+						"sTitle": header.text(),
+						"mData" : ""+attribute+".label"
+					});
+				}else{
+					this.headers.push({ 
+						"sTitle": header.text(),
+						"mData": ""+attribute
+					});
+				}
 			}
 			this.headers.push({
 				"sTitle":"Acciones", 
 				"bSearchable": false, 
-				"mRender": function ( data, type, full ) {
+				"mData": function ( data, type, full ) {
 					return '<input type="button" repeat-action="edit" class="btn" value="Editar"/>';
 				}
 	        });
@@ -341,7 +383,7 @@ var FormRender = new function(){
 				"sPaginationType": "full_numbers",
 				"sDom": '<"datatable-header"fl>t<"datatable-footer"ip>',
 				"oLanguage": {
-					"sSearch":"Buscar",
+					"sSearch":"Buscar:",
 					"sZeroRecords":"Ning&uacute;n registro resultante",
 					"sLengthMenu": "<span>Filas _MENU_</span>",
 					"sEmptyTable": "No hay datos",
