@@ -2,8 +2,8 @@ var validationRequired = function(field){
 	var isRequired = field.attr("required");
 	if(isRequired){
 		if(field.is("select")){
-			var option = field.children("option[value='0']");
-			option.attr("value","");
+//			var option = field.children("option[value='0']");
+//			option.attr("value","");
 		}
 		field.rules( "add", {
 			required:true,
@@ -270,7 +270,7 @@ var setupRemoteData = function(field,fieldset){
 			
 			ancestor.on("change",function(){
 				if(!$("#unblockable").is("span"))
-					$.blockUI({message:"Cargando...<br>Espere por favor...",css:{opacity:.3}});
+					$.blockUI({message:"Cargando...<br>Espere por favor..."});
 				$.ajax({
 				  url: "/FormRender/rest/service/relay",
 				  type: "POST",
@@ -284,8 +284,9 @@ var setupRemoteData = function(field,fieldset){
 						  for ( var i = 0; i < fields.length; i++) {
 							  var field = fields[i];
 							  if(field.is("select")){
-								  var option = field.children("option[value='']");
-								  field.html("").append(option.attr("value",""));
+								  var option = field.children("option[value='-1']");
+								  console.log("option 'select':",option);
+								  field.html("").append(option);
 							  }else{
 								  if(field.is("input[type='text']")){
 									  el = field.parent();
@@ -322,7 +323,7 @@ var setupRemoteData = function(field,fieldset){
 			});
 		}else{
 			if(!$("#unblockable").is("span"))
-				$.blockUI({message:"Cargando...<br>Espere por favor...",css:{opacity:.3}});
+				$.blockUI({message:"Cargando...<br>Espere por favor..."});
 			$.ajax({
 			  url: "/FormRender/rest/service/relay",
 			  type: "POST",
@@ -333,12 +334,12 @@ var setupRemoteData = function(field,fieldset){
 			  success : function(data, statusStr, xhr) {
 				  if(data.success){
 					  if(field.is("select")){
-						  var option = field.children("option[value='']");
-						  field.html("").append(option.attr("value",""));
-					  }
-					  for ( var count = 0; count < data.result.length; count++) {
-						  var option = data.result[count];
-						  field.append('<option value='+ option.id + '>'+ option.nombre + '</option>');
+						  var option = field.children("option[value='-1']");
+						  field.html("").append(option);
+						  for ( var count = 0; count < data.result.length; count++) {
+							  var option = data.result[count];
+							  field.append('<option value='+ option.id + '>'+ option.nombre +'</option>');
+						  }
 					  }
 				  }else{
 					  console.error("No se obtuvo una lista de elementos para agregar al campo "+ fieldName );
