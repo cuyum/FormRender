@@ -2271,7 +2271,7 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
 }
 .dataTables_filter label {
     height: 20px;
-    width: 234px;
+    width: 240px;
 }.dataTables_filter input[type="text"]{
 	    background: none repeat scroll 0 0 #F9F9F9;
 	    border: 1px solid #D7D7D7;
