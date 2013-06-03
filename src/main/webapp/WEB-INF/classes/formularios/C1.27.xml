@@ -48,7 +48,7 @@
             <hint>Aplicación</hint>
             <item>
               <label>Seleccione opción</label>
-              <value>0</value>
+              <value>-1</value>
             </item>
             <item>
               <label>MASIVA</label>
@@ -64,7 +64,7 @@
             <hint>Segmento</hint>
             <item>
               <label>Seleccione opción</label>
-              <value>0</value>
+              <value>-1</value>
             </item>
             <item>
               <label>HOGARES</label>

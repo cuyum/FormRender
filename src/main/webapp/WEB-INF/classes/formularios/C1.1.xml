@@ -40,7 +40,7 @@
             <hint>Provincia</hint>
             <item>
               <label>Seleccione una opción</label>
-              <value>0</value>
+              <value>-1</value>
             </item>
           </select1>
           <select1 appearance="minimal" ref="/C1.1/areasprest/areas/partido">
@@ -48,7 +48,7 @@
             <hint>Partido/Departamento</hint>
             <item>
               <label>Seleccione una opción</label>
-              <value>0</value>
+              <value>-1</value>
             </item>
           </select1>
           <select1 appearance="minimal" ref="/C1.1/areasprest/areas/localidad">
@@ -56,7 +56,7 @@
             <hint>Localidad</hint>
             <item>
               <label>Seleccione una opción</label>
-              <value>0</value>
+              <value>-1</value>
             </item>
           </select1>
           <input ref="/C1.1/areasprest/areas/localidad_otro">
@@ -67,7 +67,7 @@
             <hint>Área Local</hint>
             <item>
               <label>Seleccione una opción</label>
-              <value>0</value>
+              <value>-1</value>
             </item>
           </select1>
           <input ref="/C1.1/areasprest/areas/area_otro">
