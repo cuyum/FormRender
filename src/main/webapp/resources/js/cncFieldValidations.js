@@ -1,10 +1,6 @@
 var validationRequired = function(field){
 	var isRequired = field.attr("required");
 	if(isRequired){
-		if(field.is("select")){
-//			var option = field.children("option[value='0']");
-//			option.attr("value","");
-		}
 		field.rules( "add", {
 			required:true,
 			messages:{
@@ -19,6 +15,15 @@ var validationRequired = function(field){
 				}
 			}
 		});
+		if(field.is("select")){
+			field.rules( "select_required", {
+				messages:{
+					select_required : function(){
+						return "El campo es requerido";
+					}
+				}
+			});
+		}
 	}
 };
 
@@ -285,8 +290,9 @@ var setupRemoteData = function(field,fieldset){
 							  var field = fields[i];
 							  if(field.is("select")){
 								  var option = field.children("option[value='-1']");
+								  field.html("");
 								  console.log("option 'select':",option);
-								  field.html("").append(option);
+								  option.appendTo(field);
 							  }else{
 								  if(field.is("input[type='text']")){
 									  el = field.parent();
@@ -308,7 +314,7 @@ var setupRemoteData = function(field,fieldset){
 						  console.groupEnd();
 						  for ( var count = 0; count < data.result.length; count++) {
 							  var option = data.result[count];
-							  field.append('<option value='+ option.id + '>'+ option.nombre + '</option>');
+							  field.append("<option value='"+ option.id + "'>"+ option.nombre + "</option>");
 						  }
 					  }else{
 						  console.error("No se obtuvo una lista de elementos para agregar al campo "+ fieldName );
@@ -335,10 +341,11 @@ var setupRemoteData = function(field,fieldset){
 				  if(data.success){
 					  if(field.is("select")){
 						  var option = field.children("option[value='-1']");
-						  field.html("").append(option);
+						  field.html("");
+						  option.appendTo(field);
 						  for ( var count = 0; count < data.result.length; count++) {
 							  var option = data.result[count];
-							  field.append('<option value='+ option.id + '>'+ option.nombre +'</option>');
+							  field.append("<option value='"+ option.id + "'>"+ option.nombre +"</option>");
 						  }
 					  }
 				  }else{
@@ -551,16 +558,38 @@ var setupValidationDefaults = function(){
 //		"Debe especificar un n&uacute;mero decimal con dos cifras luego del punto");
 	
 	$.validator.addMethod("higher", 
-			function(value, element, param) { 
-				return value > param;
-			}, 
-			"Debe ser mayor que {0} ");
+		function(value, element, param) { 
+			return value > param;
+		}, 
+		"Debe ser mayor que {0} ");
 	
 	$.validator.addMethod("lower", 
-			function(value, element, param) { 
-				return value < param;
-			}, 
-			"Debe ser menor que {0} ");
+		function(value, element, param) { 
+			return value < param;
+		}, 
+		"Debe ser menor que {0} ");
+	$.validator.addMethod("required", 
+		function(value, element, param) { 
+			// check if dependency is met
+			if ( !this.depend(param, element) ) {
+				return "dependency-mismatch";
+			}
+			if ( element.nodeName.toLowerCase() === "select" ) {
+				// could be an array for select-multiple or a string, both are fine this way
+				var val = $(element).val();
+				var numVal = new Number(val);
+				if(!isNaN(numVal)){
+					return numVal > -1;
+				}else{
+					return val && val.length > 0;
+				}
+			}
+			if ( this.checkable(element) ) {
+				return this.getLength(value, element) > 0;
+			}
+			return $.trim(value).length > 0;
+		}, 
+		"Debe elegir una opci&oacute;n");
 	
 	$.validator.addMethod("cuit",
 		function(value,element){

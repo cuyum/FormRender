@@ -124,9 +124,6 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 			  	<script type="text/javascript" src="/FormRender/resources/js/transform.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>  
-            	<script type="text/javascript" src="/FormRender/resources/js/custom.js">
-            		<xsl:text>&#10;</xsl:text>
-            	</script>          	          	       	
             </head>
             <body>
             	<div class="content">            	
