@@ -319,3 +319,22 @@ ALTER TABLE ONLY maestro_areas_locales ALTER COLUMN id_area_local SET DEFAULT ne
 ALTER TABLE ONLY maestro_areas_locales ALTER COLUMN indic_inter SET DEFAULT nextval('maestro_areas_locales_indic_inter_seq'::regclass);
 ALTER TABLE ONLY maestro_areas_locales ALTER COLUMN id_area_local_access SET DEFAULT nextval('maestro_areas_locales_id_area_local_access_seq'::regclass);
 ALTER TABLE ONLY maestro_provincias ALTER COLUMN id_prov SET DEFAULT nextval('maestro_provincias_id_prov_seq'::regclass);
+
+-- Table: prestadores
+
+-- DROP TABLE prestadores;
+
+CREATE TABLE prestadores
+(
+  id_bp bigserial NOT NULL,
+  rs_ap_nom character varying(255),
+  tipo_idf character varying(4),
+  idf character varying(11),
+  estado integer,
+  CONSTRAINT prestadores_pkey PRIMARY KEY (id_bp)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE prestadores
+  OWNER TO postgres;

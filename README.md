@@ -108,22 +108,33 @@ Hace la carga inicial y creacion de tablas automaticamente.
 	
 	Propiedad:xmlForms.destination
 	
-	Ej
-	xmlForms.destination=/var/cnc
+	Ej.	xmlForms.destination=/var/cnc
+	
+3) Configurar ip/port server de donde se tomarán listas externas tales como geográficas y prestadores en archivo de 
+	propiedades.
+	
+	FormRender\src\main\resources\formrender.properties	
+	
+	Propiedades:
+	
+	list.remote.host y list.remote.port
+	
+	Ej.	list.remote.host=http://54.232.16.128
+	list.remote.port=8080
 
-2) Situarse en la raiz del directorio del codigo y ejecutar 
+4) Situarse en la raiz del directorio del codigo y ejecutar 
 	$>mvn clean package
 	Esto genera un archivo war en "FormRender/target/FormRender.war"
 	
-3) Deployar el archivo "FormRender.war" generado, para ello
+5) Deployar el archivo "FormRender.war" generado, para ello
    en JBoss 7.1.0 copiar el archivo al directorio <jboss-as-7.1.0.Final>\standalone\deployments
    
-4) Iniciar el server (standalone.bat en windows o standalone.sh unix)
+6) Iniciar el server (standalone.bat en windows o standalone.sh unix)
    
-5) Acceder desde un browser a la direccion. Ej
+7) Acceder desde un browser a la direccion. Ej
 	
 	http://<localhost:8080>/FormRender/
 	
-	La p�gina de inicio muestra un listado de los formularios que se presentaron de muestra para esta entrega
+	La página de inicio muestra un listado de los formularios que se presentaron de muestra para esta entrega
 	xml y html (columnas URL y XML respectivamente). Haciendo click en cada uno de ellos se pueden visualizar.
 	

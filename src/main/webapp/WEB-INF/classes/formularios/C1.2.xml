@@ -29,7 +29,7 @@
       <bind nodeset="/C1.2/inter/interconexion/localidad_otro" relevant=" /C1.2/inter/interconexion/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C1.2/inter/interconexion/localidad" nodeset="/C1.2/inter/interconexion/area" required="true()" type="select1"/>
       <bind nodeset="/C1.2/inter/interconexion/area_otro" relevant=" /C1.2/inter/interconexion/area =9999" required="true()" type="string"/>
-      <bind constraint="(., '^[0-9]{2}[0-9]{8}[0-9]$') and cuit" jr:constraintMsg="Datos no válidos" nodeset="/C1.2/inter/interconexion/prestador" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="Datos no válidos" nodeset="/C1.2/inter/interconexion/prestador" required="true()" type="select1"/>
       <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.2/inter/interconexion/capacidad" required="true()" type="decimal"/>
       <bind nodeset="/C1.2/inter/interconexion/unidad" required="true()" type="select1"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.2/meta/instanceID" readonly="true()" type="string"/>
@@ -85,18 +85,6 @@
             <item>
               <label>Seleccione una opción</label>
               <value>-1</value>
-            </item>
-            <item>
-              <label>Prestador1</label>
-              <value>23222274524</value>
-            </item>
-            <item>
-              <label>Prestador2</label>
-              <value>23222274524</value>
-            </item>
-            <item>
-              <label>Prestador3</label>
-              <value>23222274524</value>
             </item>
           </select1>
           <input ref="/C1.2/inter/interconexion/capacidad">
