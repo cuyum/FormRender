@@ -38,11 +38,11 @@
           </meta>
         </C1.13>
       </instance>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/C1.13/meses/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/C1.13/meses/mes/provincia" nodeset="/C1.13/meses/mes/partido" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/C1.13/meses/mes/partido" nodeset="/C1.13/meses/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/C1.13/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/C1.13/meses/mes/provincia" nodeset="/C1.13/meses/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/C1.13/meses/mes/partido" nodeset="/C1.13/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/C1.13/meses/mes/localidad_otro" relevant=" /C1.13/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/areas and depends=/C1.13/meses/mes/localidad" nodeset="/C1.13/meses/mes/area" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C1.13/meses/mes/localidad" nodeset="/C1.13/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/C1.13/meses/mes/area_otro" relevant=" /C1.13/meses/mes/area =9999" required="true()" type="string"/>
       <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/l_l/l_hogar" required="true()" type="decimal"/>
       <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/l_l/l_empresa" required="true()" type="decimal"/>
