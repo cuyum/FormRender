@@ -290,7 +290,7 @@ var setupRemoteData = function(field,fieldset){
 							  if(field.is("select")){
 								  var option = field.children("option[value='-1']").clone();
 								  field.empty();
-								  option.appendTo(field);
+								  field.append(option);
 							  }else{
 								  if(field.is("input[type='text']")){
 									  el = field.closest("label");
@@ -311,9 +311,13 @@ var setupRemoteData = function(field,fieldset){
 						  resetHierarchy([field]);
 //						  console.groupEnd();
 						  for ( var count = 0; count < data.result.length; count++) {
-							  var option = data.result[count];
-							  $("<option value='"+ option.id + "'>"+ option.nombre + "</option>").appendTo(field);
+							  var o = data.result[count];
+							  var option = $("<option></option>");
+							  option.attr("value",o.id);
+							  option.text(o.nombre);
+							  field.append(option);
 						  }
+						  if($.browser.msie) field.hide().show();
 					  }else{
 						  console.warn("No se obtuvo una lista de elementos para agregar al campo "+ fieldName );
 					  }
@@ -342,8 +346,11 @@ var setupRemoteData = function(field,fieldset){
 						  field.empty();
 						  option.appendTo(field);
 						  for ( var count = 0; count < data.result.length; count++) {
-							  var option = data.result[count];
-							  $("<option value='"+ option.id + "'>"+ option.nombre +"</option>").appendTo(field);
+							  var o = data.result[count];
+							  var option = $("<option></option>");
+							  option.attr("value",o.id);
+							  option.text(o.nombre);
+							  field.append(option);
 						  }
 					  }
 				  }else{

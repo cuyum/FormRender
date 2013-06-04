@@ -309,7 +309,10 @@ var FormRender = new function(){
 						break;
 					}
 				}else{
-					record[attribute] = " ";
+					if(field.is("select"))
+						record[attribute] = {label:" "};
+					else
+						record[attribute] = " ";
 					record.values.push(" ");
 				}
 			}
