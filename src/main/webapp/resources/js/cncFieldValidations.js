@@ -154,7 +154,6 @@ var setupMask = function(field){
 		/*tratar de procesar los espacio*/
 		field.mask(mask);
 	}
-
 };
 
 var setupRelevantData = function(field, fieldset){
@@ -290,14 +289,14 @@ var setupRemoteData = function(field,fieldset){
 							  var field = fields[i];
 							  if(field.is("select")){
 								  var option = field.children("option[value='-1']").clone();
-								  field.html("");
+								  field.empty();
 								  option.appendTo(field);
 							  }else{
 								  if(field.is("input[type='text']")){
-									  el = field.parent();
+									  el = field.closest("label");
 									  field.val("");
 								  }else if(field.is("input[type='radio']") || field.is("input[type='checkbox']")){
-									  el = field.closest("fieldset");
+									  el = field.closest("fieldset").closest("label");
 								  }
 								  if(el)el.hide();
 							  }
@@ -313,7 +312,7 @@ var setupRemoteData = function(field,fieldset){
 //						  console.groupEnd();
 						  for ( var count = 0; count < data.result.length; count++) {
 							  var option = data.result[count];
-							  field.append("<option value='"+ option.id + "'>"+ option.nombre + "</option>");
+							  $("<option value='"+ option.id + "'>"+ option.nombre + "</option>").appendTo(field);
 						  }
 					  }else{
 						  console.warn("No se obtuvo una lista de elementos para agregar al campo "+ fieldName );
@@ -340,11 +339,11 @@ var setupRemoteData = function(field,fieldset){
 				  if(data.success){
 					  if(field.is("select")){
 						  var option = field.children("option[value='-1']").clone();
-						  field.html("");
+						  field.empty();
 						  option.appendTo(field);
 						  for ( var count = 0; count < data.result.length; count++) {
 							  var option = data.result[count];
-							  field.append("<option value='"+ option.id + "'>"+ option.nombre +"</option>");
+							  $("<option value='"+ option.id + "'>"+ option.nombre +"</option>").appendTo(field);
 						  }
 					  }
 				  }else{

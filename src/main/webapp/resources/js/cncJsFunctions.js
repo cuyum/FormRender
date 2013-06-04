@@ -287,7 +287,7 @@ var FormRender = new function(){
 			var fieldset = FormRender.fieldsets[fieldsetInstance];
 			
 			var record = $.extend(true,{},this.model);
-			
+			console.log(record);
 			if(FormRender.repeatCount && FormRender.repeatCount>1) 	record.formulario = fieldset.title;
 			var commit = true; 
 			for ( var i = 0; i < fieldset.fields.length; i++) {
@@ -323,7 +323,7 @@ var FormRender = new function(){
 				if(this.editing==-1){
 					this.element.dataTable().fnAddData(record,true);
 				}else{
-					this.element.dataTable().fnUpdate(reg, this.editing);
+					this.element.dataTable().fnUpdate(record, this.editing);
 					this.editing = -1;
 				}
 				this.setupEditClck();
