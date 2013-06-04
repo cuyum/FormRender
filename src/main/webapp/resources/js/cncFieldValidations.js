@@ -163,11 +163,11 @@ var setupRelevantData = function(field, fieldset){
 		/*-------HIDE FIELD FOR RELEVANT DEPENDENCY-------*/
 		var el = null;
 		if(field.is("input[type~='text']")){
-			el = field.parent();
+			el = field.closest("label");
 		}else if(field.is("input[type~='radio']") || field.is("input[type~='checkbox']")){
-			el = field.closest("fieldset");
+			el = field.closest("fieldset").closest("label");
 		}else if(field.is("select")){
-			el = field.parent();
+			el = field.closest("label");
 		}else{
 			console.warn("no se pudo encontrar el dom parent de "+field.attr("name")+" para esconder el campo" );
 		}
@@ -248,9 +248,9 @@ var setupDependency = function(field, fieldset){
 				var slashIndex = name.lastIndexOf("/");
 				var cleanName = name.substring(slashIndex+1);
 				if(event.data.ancestor.val()==cleanName){
-					event.data.dependant.show();
+					event.data.dependant.closest("label").show();
 				}else{
-					event.data.dependant.hide();
+					event.data.dependant.closest("label").hide();
 				}
 			});
 		}else{
@@ -633,10 +633,10 @@ var addVisualizationLogic = function(field){
 			}
 			if(show){
 //				console.log("should show");
-				field.parent().show();
+				field.closest("label").show();
 			}else{
 //				console.log("should not show");
-				field.parent().hide();
+				field.closest("label").hide();
 			}
 		}
 		
