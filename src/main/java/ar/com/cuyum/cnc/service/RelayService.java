@@ -30,7 +30,6 @@ import org.apache.log4j.Logger;
 public class RelayService {
 
 	public transient Logger log = Logger.getLogger(RelayService.class);
-
 	
 	private HttpClient client = new DefaultHttpClient();
 	

@@ -38,4 +38,8 @@ public class FormRenderProperties extends Properties {
 	public String getDestinationXml(){
 		return this.getProperty("xmlForms.destination");
 	}
+	
+	public String getRemoteListHost(){
+		return this.getProperty("list.remote.host")+":"+this.getProperty("list.remote.port");
+	}
 }

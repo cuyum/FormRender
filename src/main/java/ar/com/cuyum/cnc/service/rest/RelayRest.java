@@ -18,6 +18,7 @@ import org.primefaces.json.JSONException;
 import org.primefaces.json.JSONObject;
 
 import ar.com.cuyum.cnc.service.RelayService;
+import ar.com.cuyum.cnc.utils.FormRenderProperties;
 
 /**
  * @author Jorge Morando
@@ -32,6 +33,9 @@ public class RelayRest {
 	@Inject
 	private RelayService relay;
 	
+	@Inject
+	private FormRenderProperties frp;
+	
 	@POST
 	@Path("/relay")
 	@Produces("application/json")
@@ -40,7 +44,7 @@ public class RelayRest {
 		
 		JSONObject response;
 		try {
-			URL url = new URL(remoteUrl);
+			URL url = new URL(frp.getRemoteListHost()+remoteUrl);
 			String remoteResponse = relay.request(url, fkey);
 			response = new JSONObject(remoteResponse);
 			return response.toString();
