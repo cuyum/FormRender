@@ -289,9 +289,8 @@ var setupRemoteData = function(field,fieldset){
 						  for ( var i = 0; i < fields.length; i++) {
 							  var field = fields[i];
 							  if(field.is("select")){
-								  var option = field.children("option[value='-1']");
+								  var option = field.children("option[value='-1']").clone();
 								  field.html("");
-								  console.log("option 'select':",option);
 								  option.appendTo(field);
 							  }else{
 								  if(field.is("input[type='text']")){
@@ -309,9 +308,9 @@ var setupRemoteData = function(field,fieldset){
 						  }
 					  };
 					  if(data.success){
-						  console.group("resetHierarchy");
+//						  console.group("resetHierarchy");
 						  resetHierarchy([field]);
-						  console.groupEnd();
+//						  console.groupEnd();
 						  for ( var count = 0; count < data.result.length; count++) {
 							  var option = data.result[count];
 							  field.append("<option value='"+ option.id + "'>"+ option.nombre + "</option>");
@@ -340,9 +339,8 @@ var setupRemoteData = function(field,fieldset){
 			  success : function(data, statusStr, xhr) {
 				  if(data.success){
 					  if(field.is("select")){
-						  var option = field.children("option[value='-1']");
+						  var option = field.children("option[value='-1']").clone();
 						  field.html("");
-						  console.log("option 'select':",option);
 						  option.appendTo(field);
 						  for ( var count = 0; count < data.result.length; count++) {
 							  var option = data.result[count];

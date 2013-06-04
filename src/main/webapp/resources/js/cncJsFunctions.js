@@ -238,15 +238,13 @@ var FormRender = new function(){
 			return this.element.dataTable().fnGetData(rowIndex);
 		},
 		setupEditClck: function(){
+			$("input[type~='button'][repeat-action='edit']").unbind("click");
 			$("input[type~='button'][repeat-action='edit']").click(function(evt){
 				var rowIndex =  FormRender.grid.element.dataTable().fnGetPosition($(evt.target).closest('tr').get(0));
 				var record = FormRender.grid.getRowData(rowIndex);
-				console.log(record);
-//				if(FormRender.repeatCount && FormRender.repeatCount>1) data.shift();
-//				data.pop();
 				var fields = FormRender.fieldsets[record.instance].fields;
 				
-				$.blockUI({message:"Cargando...<br>Espere por favor...",css:{opacity:.3}});
+				$.blockUI({message:"Cargando...<br>Espere por favor..."});
 				var unblock = $("<span id='unblockable'/>");
 				unblock.appendTo("body");
 				
@@ -257,9 +255,6 @@ var FormRender = new function(){
 						delayTime = 0;
 					}
 					setTimeout(function() {
-						console.log("setting field "
-								+ field.attr("name")
-								+ " with value of " + record.values[i]);
 						field.val(record.values[i]);
 						field.trigger("change");
 
@@ -291,7 +286,7 @@ var FormRender = new function(){
 		addRow : function(fieldsetInstance){
 			var fieldset = FormRender.fieldsets[fieldsetInstance];
 			
-			var record = $.extend({},this.model);
+			var record = $.extend(true,{},this.model);
 			
 			if(FormRender.repeatCount && FormRender.repeatCount>1) 	record.formulario = fieldset.title;
 			var commit = true; 
@@ -305,7 +300,6 @@ var FormRender = new function(){
 						if(field.is("select")){
 							var o = field.children("option:selected");
 							record[attribute] = {label:o.text(),value:value};
-							
 						}else{
 							record[attribute] = value;
 						}
@@ -320,7 +314,6 @@ var FormRender = new function(){
 				}
 			}
 			record.instance = fieldset.instance;
-			console.log("commit",commit,record);
 			if(commit){
 				FormRender.form.reset();
 				for ( var i = 0; i < fieldset.fields.length; i++) {
