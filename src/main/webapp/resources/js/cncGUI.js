@@ -58,10 +58,16 @@ var gui = new function(){
 		
 		if(submit && thisForm.attr("submit-url")){
 			$.ajax({
-				type: thisForm.attr("submit-method")=="UPDATE"?"UPDATE":"POST",
-				contentType : 'application/json; charset=utf-8',
-				url: (thisForm.attr("submit-url-base")==undefined?"":thisForm.attr("submit-url-base")) + thisForm.attr("submit-url"),
-				data: JSON.stringify(message)
+				type: "POST",
+				contentType : "application/x-www-form-urlencoded; charset=utf-8",
+				url: "/FormRender/rest/service/submit",
+				data: {"submit_data":JSON.stringify(message),"url": thisForm.attr("submit-url"),"method":thisForm.attr("submit-method")},
+				success:function(data, statusStr, xhr){
+					console.log(data);
+				},
+				error:function(xhr,statusStr,errorStr){
+					console.error("Error en submit:"+statusStr);
+				}
 			});
 		}else{
 			if(submit)

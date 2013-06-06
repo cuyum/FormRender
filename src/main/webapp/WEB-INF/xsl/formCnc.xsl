@@ -139,9 +139,6 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 						<xsl:attribute name="submit-url">
 							 <xsl:value-of select="h:html/h:head/xf:model/xf:submission/@action"/>
 						</xsl:attribute>
-						<xsl:attribute name="submit-url-base">
-							 <xsl:value-of select="'__submit-url-base__'"/>
-						</xsl:attribute>
 					</xsl:if>
 	            	<xsl:if test="h:html/h:head/xf:model/xf:submission/@method">            
 					<xsl:attribute name="submit-method">

@@ -325,7 +325,7 @@ var setupRemoteData = function(field,fieldset){
 					},
 				  error:function(xhr,statusStr,errorStr){
 					  $.unblockUI();
-					  console.error("Error tratando de recuperar valores para "+ fieldName);
+					  console.error("Error tratando de recuperar valores para "+ fieldName+". "+statusStr);
 				  }
 				});
 			});
@@ -360,7 +360,7 @@ var setupRemoteData = function(field,fieldset){
 				},
 			  error:function(xhr,statusStr,errorStr){
 				  $.unblockUI();
-				  console.error("Error tratando de recuperar valores para "+ fieldName);
+				  console.error("Error tratando de recuperar valores para "+ fieldName+". "+statusStr);
 			  }
 			});
 		}

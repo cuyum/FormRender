@@ -13,6 +13,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
+import org.apache.http.MethodNotSupportedException;
 import org.apache.log4j.Logger;
 import org.primefaces.json.JSONException;
 import org.primefaces.json.JSONObject;
@@ -49,6 +50,43 @@ public class RelayRest {
 			response = new JSONObject(remoteResponse);
 			return response.toString();
 			
+		}catch (MalformedURLException e){
+			String msg = "No se pudo generar la petici&oacute;n con relay service ya que la URL suministrada es inv&aacute;lida";
+			log.error(msg,e);
+			return "{\"success\":false,\"msg\": \""+msg+"\"}";
+		} catch (JSONException e) {
+			String msg = "No se pudo generar la respuesta json en relay service ya que el servicio ha respondido en un objeto JSON inv&aacute;lido";
+			log.error(msg,e);
+			return "{\"success\":false,\"msg\": \""+msg+"\"}";
+		}
+	}
+	
+	@POST
+	@Path("/submit")
+	@Produces("application/json")
+	public String submit(
+			@FormParam("submit_data") String submit_data, 
+			@FormParam("url") String submit_url,
+			@FormParam("method") String submit_method) {
+		
+		JSONObject response;
+		try {
+			URL url = new URL(frp.getRemoteSubmissionHost()+submit_url);
+			
+			if(submit_method==null)
+				throw new MethodNotSupportedException("No Method was declared");
+
+			if(submit_method.equalsIgnoreCase("post") || submit_method.equalsIgnoreCase("put")){
+				String remoteResponse = relay.submit(url, submit_data, submit_method);
+				response = new JSONObject(remoteResponse);
+				return response.toString();
+			}else{
+				throw new MethodNotSupportedException("Method \""+submit_method+"\" is not supported for data submission");
+			}
+		}catch (MethodNotSupportedException e){
+			String msg = "No se pudo generar la petici&oacute;n con relay service ya que el m&eacute;todo no es soportado";
+			log.error(msg,e);
+			return "{\"success\":false,\"msg\": \""+msg+"\",\"exception\": \""+e.getMessage()+"\"}";
 		}catch (MalformedURLException e){
 			String msg = "No se pudo generar la petici&oacute;n con relay service ya que la URL suministrada es inv&aacute;lida";
 			log.error(msg,e);
