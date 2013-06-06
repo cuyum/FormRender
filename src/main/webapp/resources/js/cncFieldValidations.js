@@ -207,13 +207,13 @@ var setupRelevantData = function(field, fieldset){
 				data = [undefined];
 			}
 			
-			var ancestor = FormRender.getField(data[0],fieldset);
+			var ancestor = gui.getField(data[0],fieldset);
 			if(ancestor){ /*relate fields*/
-				FormRender.addDependant(ancestor,field);
+				gui.addDependant(ancestor,field);
 				/*add condition of visualization to field*/
 				var relevant = {tutor:ancestor,value:data[1]};
-				FormRender.addRelevant(field,relevant); 
-				FormRender.flagPerformRelevantCheck(ancestor);
+				gui.addRelevant(field,relevant); 
+				gui.flagPerformRelevantCheck(ancestor);
 			}
 		}
 	}
@@ -233,7 +233,7 @@ var setupDependency = function(field, fieldset){
 		var ancestor = $(ancestorSelector);
 		
 		if(ancestor.is("select")){/*solo funciona con selects hasta ahora*/
-			FormRender.addDependant(ancestor,field);
+			gui.addDependant(ancestor,field);
 			if(field.is("input"))
 				field.hide();
 			
@@ -270,7 +270,7 @@ var setupRemoteData = function(field,fieldset){
 			}
 			var ancestor = $(ancestorSelector);
 			
-			FormRender.addDependant(ancestor,field);
+			gui.addDependant(ancestor,field);
 			
 			ancestor.on("change",function(){
 				if(!$("#unblockable").is("span"))
@@ -537,13 +537,49 @@ var validationCuit = function(field){
 	}
 };
 
-var setupValidationDefaults = function(){
-	$.validator.setDefaults({
-		debug: true,
-		success: "valid",
-		submitHandler: function() {
-			alert("Formulario guardado.");
+var addVisualizationLogic = function(field){
+	var renderLogic = function(field){
+//		console.group("RENDER LOGIC FOR "+field.attr("name"));
+		var relevants = field.data("relevants");
+		var show = false;
+		if(relevants){
+			for ( var i = 0; i < relevants.length; i++) {
+				var relevant = relevants[i];
+				if(typeof relevant.value == "string"){
+					if(relevant.tutor.val()==relevant.value){
+						show=true;
+					}
+				}else if (typeof relevant.value == "object"){
+					for ( var j = 0; j < relevant.value.length; j++) {
+						if(relevant.tutor.val()==relevant.value[j]){
+							show=true;
+							break;
+						}
+					}
+				}else{
+					console.error("Value for relevant field cannot be recognized");
+				}
+			}
+			if(show){
+//				console.log("should show");
+				field.closest("label").show();
+			}else{
+//				console.log("should not show");
+				field.closest("label").hide();
+			}
 		}
+		
+//		console.groupEnd();
+	};
+	field.data("renderLogic",renderLogic);
+	
+};
+
+var setupValidationDefaults = function(){
+	$("input[type='button'][action='submit']").click(gui.submissionHandler);
+	$.validator.setDefaults({
+		debug: false,
+		success: "valid"
 	});
 	
 	$.validator.addMethod("entero", 
@@ -612,44 +648,6 @@ var setupValidationDefaults = function(){
 		    return false;
 		}
 	,"Cuit no v&aacute;lido");
-};
-
-var addVisualizationLogic = function(field){
-	var renderLogic = function(field){
-//		console.group("RENDER LOGIC FOR "+field.attr("name"));
-		var relevants = field.data("relevants");
-		var show = false;
-		if(relevants){
-			for ( var i = 0; i < relevants.length; i++) {
-				var relevant = relevants[i];
-				if(typeof relevant.value == "string"){
-					if(relevant.tutor.val()==relevant.value){
-						show=true;
-					}
-				}else if (typeof relevant.value == "object"){
-					for ( var j = 0; j < relevant.value.length; j++) {
-						if(relevant.tutor.val()==relevant.value[j]){
-							show=true;
-							break;
-						}
-					}
-				}else{
-					console.error("Value for relevant field cannot be recognized");
-				}
-			}
-			if(show){
-//				console.log("should show");
-				field.closest("label").show();
-			}else{
-//				console.log("should not show");
-				field.closest("label").hide();
-			}
-		}
-		
-//		console.groupEnd();
-	};
-	field.data("renderLogic",renderLogic);
-	
 };
 
 var setupValidations = function(f,fieldset){

@@ -61,7 +61,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
             </xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
-
+    
     <xsl:template match="/">
     	<xsl:if test="not(function-available('exsl:node-set'))">
             <xsl:message terminate="yes">FATAL ERROR: exsl:node-set function is not available in this XSLT processor</xsl:message>
@@ -115,7 +115,13 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 			  	 <script src="/FormRender/resources/js/jquery.dataTables.min.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
-            	<script type="text/javascript" src="/FormRender/resources/js/cncJsFunctions.js">
+            	<script type="text/javascript" src="/FormRender/resources/js/JSON.js">
+            		<xsl:text>&#10;</xsl:text>
+            	</script>     
+            	<script type="text/javascript" src="/FormRender/resources/js/cncDefaults.js">
+            		<xsl:text>&#10;</xsl:text>
+            	</script>     
+            	<script type="text/javascript" src="/FormRender/resources/js/cncGUI.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>     
 			  	<script type="text/javascript" src="/FormRender/resources/js/cncFieldValidations.js">
@@ -128,8 +134,20 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
             <body>
             	<div class="content">            	
 	            
-	            <form class="jr" autocomplete="off">	            
-					
+	            <form class="jr" autocomplete="off">	
+            		<xsl:if test="h:html/h:head/xf:model/xf:submission/@action">            	
+						<xsl:attribute name="submit-url">
+							 <xsl:value-of select="h:html/h:head/xf:model/xf:submission/@action"/>
+						</xsl:attribute>
+						<xsl:attribute name="submit-url-base">
+							 <xsl:value-of select="'__submit-url-base__'"/>
+						</xsl:attribute>
+					</xsl:if>
+	            	<xsl:if test="h:html/h:head/xf:model/xf:submission/@method">            
+					<xsl:attribute name="submit-method">
+						 <xsl:value-of select="h:html/h:head/xf:model/xf:submission/@method"/>
+					</xsl:attribute>
+					</xsl:if>
 	                <xsl:attribute name="id">
                         <xsl:choose>
                             <xsl:when test="/h:html/h:head/xf:model/xf:instance[1]/child::node()/@id">
@@ -222,7 +240,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 							<div>
 								<div class="form-actions align-left">		
 									<input type="button" class="btn " value="Guardar Borrador" onclick="javascript:alert('Borrador guardado.')"/>						
-									<input type="submit" class="btn btn-success " value="Listo"/>
+									<input type="button" class="btn btn-success " value="Listo" action="submit"/>
 								</div>
 							</div>
 						</div>

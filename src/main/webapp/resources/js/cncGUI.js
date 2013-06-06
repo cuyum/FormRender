@@ -1,148 +1,75 @@
-jQuery.browser = {};
-jQuery.browser.mozilla = /mozilla/.test(navigator.userAgent.toLowerCase()) && !/webkit/.test(navigator.userAgent.toLowerCase());
-jQuery.browser.webkit = /webkit/.test(navigator.userAgent.toLowerCase());
-jQuery.browser.opera = /opera/.test(navigator.userAgent.toLowerCase());
-jQuery.browser.msie = /msie/.test(navigator.userAgent.toLowerCase());
-
-$.blockUI.defaults = { 
-    title: null,        // title string; only used when theme == true 
-    draggable: true,    // only used when theme == true (requires jquery-ui.js to be loaded) 
- 
-    theme: false, // set to true to use with jQuery UI themes 
- 
-    // styles for the message when blocking; if you wish to disable 
-    // these and use an external stylesheet then do this in your code: 
-    // $.blockUI.defaults.css = {}; 
-    css: { 
-	    width: '20%', 
-        top: '40%', 
-        left: '35%', 
-        margin: 0,
-        border: 'none', 
-        padding: '15px',
-        textAlign: 'center', 
-        backgroundColor: '#000', 
-        '-webkit-border-radius': '10px', 
-        '-moz-border-radius': '10px', 
-        opacity: .6,
-        cursor: 'wait', 
-        color: '#fff' 
-    },
- 
-    // minimal style set used when themes are used 
-    themedCSS: { 
-        width:  '30%', 
-        top:    '40%', 
-        left:   '35%' 
-    }, 
- 
-    // styles for the overlay 
-    overlayCSS:  { 
-        backgroundColor: '#fff', 
-        opacity:         0.7, 
-        cursor:          'wait' 
-    }, 
- 
-    // style to replace wait cursor before unblocking to correct issue 
-    // of lingering wait cursor 
-    cursorReset: 'default', 
- 
-    // styles applied when using $.growlUI 
-    growlCSS: { 
-        width:    '350px', 
-        top:      '10px', 
-        left:     '', 
-        right:    '10px', 
-        border:   'none', 
-        padding:  '5px', 
-        opacity:   0.6, 
-        cursor:    null, 
-        color:    '#fff', 
-        backgroundColor: '#000', 
-        '-webkit-border-radius': '10px', 
-        '-moz-border-radius':    '10px' 
-    }, 
-     
-    // IE issues: 'about:blank' fails on HTTPS and javascript:false is s-l-o-w 
-    // (hat tip to Jorge H. N. de Vasconcelos) 
-    iframeSrc: /^https/i.test(window.location.href || '') ? 'javascript:false' : 'about:blank', 
- 
-    // force usage of iframe in non-IE browsers (handy for blocking applets) 
-    forceIframe: false, 
- 
-    // z-index for the blocking overlay 
-    baseZ: 1000, 
- 
-    // set these to true to have the message automatically centered 
-    centerX: true, // <-- only effects element blocking (page block controlled via css above) 
-    centerY: true, 
- 
-    // allow body element to be stetched in ie6; this makes blocking look better 
-    // on "short" pages.  disable if you wish to prevent changes to the body height 
-    allowBodyStretch: true, 
- 
-    // enable if you want key and mouse events to be disabled for content that is blocked 
-    bindEvents: true, 
- 
-    // be default blockUI will supress tab navigation from leaving blocking content 
-    // (if bindEvents is true) 
-    constrainTabKey: true, 
- 
-    // fadeIn time in millis; set to 0 to disable fadeIn on block 
-    fadeIn:  200, 
- 
-    // fadeOut time in millis; set to 0 to disable fadeOut on unblock 
-    fadeOut:  400, 
- 
-    // time in millis to wait before auto-unblocking; set to 0 to disable auto-unblock 
-    timeout: 0, 
- 
-    // disable if you don't want to show the overlay 
-    showOverlay: true, 
- 
-    // if true, focus will be placed in the first available input field when 
-    // page blocking 
-    focusInput: true, 
- 
-    // suppresses the use of overlay styles on FF/Linux (due to performance issues with opacity) 
-    // no longer needed in 2012 
-    // applyPlatformOpacityRules: true, 
- 
-    // callback method invoked when fadeIn has completed and blocking message is visible 
-    onBlock: null, 
- 
-    // callback method invoked when unblocking has completed; the callback is 
-    // passed the element that has been unblocked (which is the window object for page 
-    // blocks) and the options that were passed to the unblock call: 
-    //   onUnblock(element, options) 
-    onUnblock: null, 
- 
-    // don't ask; if you really must know: http://groups.google.com/group/jquery-en/browse_thread/thread/36640a8730503595/2f6a79a77a78e493#2f6a79a77a78e493 
-    quirksmodeOffsetHack: 4, 
- 
-    // class name of the message block 
-    blockMsgClass: 'blockMsg', 
- 
-    // if it is already blocked, then ignore it (don't unblock and reblock) 
-    ignoreIfBlocked: false 
-}; 
-
-if (jQuery.browser.msie) {
-	console = {
-		log:function(){}, 
-		warn:function(){}, 
-		info:function(){},
-		error:function(){},
-		group:function(){},
-		debug:function(){},
-		groupEnd:function(){}
-	};
-}
-if (typeof window.console.debug == "undefined") {console.debug = console.log;}
-
-var FormRender = new function(){
+/*Singleton GUI logic*/
+var gui = new function(){
 	this.fieldsets = [];
 	this.repeatCount = undefined;
+	this.renderGrid = false;
+	this.getURLParameter = function(name) {
+	    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+	};
+	this.submissionHandler = function(clickEvent){
+		var thisForm = $(gui.form);
+		var message = {header:{}, payload:{formulario:{"id":thisForm.attr("id"),data:[]}}};
+		var submit = false;
+		if(gui.renderGrid){
+			console.log("Retrieving Grid data list");
+			var dl = gui.grid.element.dataTable().fnGetData();
+			if(dl.length>0){
+				var dataList = [];
+				for ( var i = 0; i < dl.length; i++) {
+					var data = dl[i];
+					if(data["instance"]!=undefined)
+						delete data["instance"];
+					if(data["values"] != undefined)
+						delete data["values"];
+					if(data["fields"] != undefined)
+						delete data["fields"];
+					if(gui.repeatCount && gui.repeatCount<=1){
+						if(data["item"] != undefined)
+						delete data["item"];
+					}
+					dataList.push(data);
+				}
+				message.payload.formulario.data = dataList;
+				submit=true;
+			} else {
+				console.warn("No data in grid");
+				thisForm.valid();
+			}
+		}else{
+			console.log("Traversing DOM");
+			if(thisForm.valid()){
+				console.info("Form is valid");
+				var data = [];
+				for ( var i = 0; i < gui.fieldsets.length; i++) {
+					console.log(gui.fieldsets[i].fields.length +" fields");
+					var kvpair = {};
+					for ( var j = 0; j < gui.fieldsets[i].fields.length; j++) {
+						var field = $(gui.fieldsets[i].fields[j]);
+						var key = gui.getCleanFieldName(field.attr("name"));
+						var val = field.val();
+						kvpair[key] = val;
+					}
+					data.push(kvpair);
+				}
+				message.payload.formulario.data = data;
+				submit=true;
+			}
+		}
+		
+		if(submit && thisForm.attr("submit-url")){
+			$.ajax({
+				type: thisForm.attr("submit-method")=="UPDATE"?"UPDATE":"POST",
+				contentType : 'application/json; charset=utf-8',
+				url: (thisForm.attr("submit-url-base")==undefined?"":thisForm.attr("submit-url-base")) + thisForm.attr("submit-url"),
+				data: JSON.stringify(message)
+			});
+		}else{
+			if(submit)
+				console.error("No se encuentra daclarada la URL de submission");
+			else
+				console.error("No se ha podido llevar a cabo la submision de datos");
+		}
+	};
 	this.addRelevant = function(field,relevant){
 		if(field && relevant){
 			var relevants = field.data("relevants");
@@ -230,7 +157,7 @@ var FormRender = new function(){
 		model:{
 			fields:[],
 			values:[],
-			formulario:"",
+			item:"",
 			instance:-1
 		},
 		element : $('<table id="repeat-grid" class="table table-striped"></table>'),
@@ -240,9 +167,9 @@ var FormRender = new function(){
 		setupEditClck: function(){
 			$("input[type~='button'][repeat-action='edit']").unbind("click");
 			$("input[type~='button'][repeat-action='edit']").click(function(evt){
-				var rowIndex =  FormRender.grid.element.dataTable().fnGetPosition($(evt.target).closest('tr').get(0));
-				var record = FormRender.grid.getRowData(rowIndex);
-				var fields = FormRender.fieldsets[record.instance].fields;
+				var rowIndex =  gui.grid.element.dataTable().fnGetPosition($(evt.target).closest('tr').get(0));
+				var record = gui.grid.getRowData(rowIndex);
+				var fields = gui.fieldsets[record.instance].fields;
 				
 				$.blockUI({message:"Cargando...<br>Espere por favor..."});
 				var unblock = $("<span id='unblockable'/>");
@@ -275,28 +202,28 @@ var FormRender = new function(){
 					var field = $(fields[i]);
 					field.data("renderLogic")(field);
 				}
-				FormRender.grid.editing = rowIndex;
+				gui.grid.editing = rowIndex;
 			});
 		},
 		setupAddClick: function(){
 			$("input[type~='button'][repeat-action='add']").click(this,function(evt){
-				FormRender.grid.addRow($(evt.target).parent().attr("repeat-instance"));
+				gui.grid.addRow($(evt.target).parent().attr("repeat-instance"));
 			});
 		},
 		addRow : function(fieldsetInstance){
-			var fieldset = FormRender.fieldsets[fieldsetInstance];
+			var fieldset = gui.fieldsets[fieldsetInstance];
 			
 			var record = $.extend(true,{},this.model);
 			console.log(record);
-			if(FormRender.repeatCount && FormRender.repeatCount>1) 	record.formulario = fieldset.title;
+			if(gui.repeatCount && gui.repeatCount>1) 	record.item = fieldset.title;
 			var commit = true; 
 			for ( var i = 0; i < fieldset.fields.length; i++) {
 				var field =$(fieldset.fields[i]);
-				var attribute = FormRender.getCleanFieldName(field.attr("name"),fieldsetInstance);
+				var attribute = gui.getCleanFieldName(field.attr("name"),fieldsetInstance);
 				record.fields.push(field.attr("name"));
 				if(field.is(":visible")){
 					var value = field.val();
-					if(value!=undefined && value!=null && $(FormRender.form).validate().element(field)){
+					if(value!=undefined && value!=null && $(gui.form).validate().element(field)){
 						if(field.is("select")){
 							var o = field.children("option:selected");
 							record[attribute] = {label:o.text(),value:value};
@@ -318,7 +245,7 @@ var FormRender = new function(){
 			}
 			record.instance = fieldset.instance;
 			if(commit){
-				FormRender.form.reset();
+				gui.form.reset();
 				for ( var i = 0; i < fieldset.fields.length; i++) {
 					var af = $(fieldset.fields[i]);
 					af.data("renderLogic")(af);
@@ -341,11 +268,11 @@ var FormRender = new function(){
 			gridFieldset.appendTo(pfs);
 			$('<h4></h4>').append("<span>Resultados</span>").appendTo(gridFieldset);
 			$('<div class="table-overflow"></div>').append(this.element).appendTo(gridFieldset);
-			if(FormRender.repeatCount && FormRender.repeatCount>1)
-				this.headers.push({"sTitle":" ","mData":"formulario"});
-			for ( var i = 0 ; i<FormRender.fieldsets[0].fields.length;i++) {
-				var f = $(FormRender.fieldsets[0].fields[i]);
-				var attribute = FormRender.getCleanFieldName(f.attr("name"));
+			if(gui.repeatCount && gui.repeatCount>1)
+				this.headers.push({"sTitle":" ","mData":"item"});
+			for ( var i = 0 ; i<gui.fieldsets[0].fields.length;i++) {
+				var f = $(gui.fieldsets[0].fields[i]);
+				var attribute = gui.getCleanFieldName(f.attr("name"));
 				this.model[attribute] = null;
 				var header = f.siblings("span.jr-label");
 				if(f.is("select")){
@@ -393,8 +320,8 @@ var FormRender = new function(){
 				        "sPrevious" : "Anterior"
 				     }
 				},
-				"aaData": FormRender.grid.data,
-		        "aoColumns": FormRender.grid.headers
+				"aaData": gui.grid.data,
+		        "aoColumns": gui.grid.headers
 		    });
 		}
 	};
@@ -433,8 +360,3 @@ var cncFromNumber = function(value,decimals){
 		return value;
 	}
 };
-
-var getURLParameter = function(name) {
-    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
-};
-

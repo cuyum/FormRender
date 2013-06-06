@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario C1.1 - Áreas de prestación de servicios</h:title>
     <model>
+      <submission action="/remote_relative_url" method="GET" />
       <instance>
         <C1.1 id="C1.1">
           <areasprest jr:template="">

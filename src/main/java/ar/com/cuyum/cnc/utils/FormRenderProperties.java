@@ -42,4 +42,10 @@ public class FormRenderProperties extends Properties {
 	public String getRemoteListHost(){
 		return this.getProperty("list.remote.host")+":"+this.getProperty("list.remote.port");
 	}
+	
+	public String getRemoteSubmissionHost(){
+		String rsh = this.getProperty("submit.remote.host")+":"+this.getProperty("submit.remote.port");
+		log.info(rsh);
+		return rsh;
+	}
 }

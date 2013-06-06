@@ -1,12 +1,12 @@
 $(document).ready(function() {
-	FormRender.form = document.forms[0];
+	gui.form = document.forms[0];
 	// override these in your code to change the default behavior and style 
 	
 	setupValidationDefaults();
 	
 	/*Setup Version*/
 	var versionElement = $("#version");
-	var versionValue = getURLParameter("version");
+	var versionValue = gui.getURLParameter("version");
 	if(versionElement && versionValue) versionElement.text("Versi\u00F3n: "+versionValue);
 	/*
 	 * Para repeat se necesitará duplicar todo lo que se encuentre dentro del fieldset.jr-repeat
@@ -17,16 +17,15 @@ $(document).ready(function() {
 	 */
 	
 	var fs = $("fieldset.jr-repeat");
-	FormRender.repeatCount = getURLParameter("repeat");
-	FormRender.renderGrid = fs.hasClass("grilla");
-	
+	gui.repeatCount = gui.getURLParameter("repeat");
+	gui.renderGrid = fs.hasClass("grilla");
 	
 	/*building Form.fieldsets*/
-	if(fs.length>0 && FormRender.repeatCount>0){
+	if(fs.length>0 && gui.repeatCount>0){
 		var pfs = fs.parent();
 		var calculatedItems = $("fieldset[name~='"+pfs.attr("name")+"']").siblings("#jr-calculated-items").find("[name]");
 		/* iteracion normal, siguientes instancias de repeats */
-		for ( var i = 0; i < FormRender.repeatCount; i++) {
+		for ( var i = 0; i < gui.repeatCount; i++) {
 			var fieldset = {};
 			var fsRepeat = fs.clone();
 			fieldset.instance = i;
@@ -44,7 +43,7 @@ $(document).ready(function() {
 				if(titleVar.indexOf("{")!=-1 && titleVar.indexOf("}")!=-1){/*es variable*/
 					titleVar = titleVar.replace("{","").replace("}","")+"";
 					if(titleVar && titleVar.trim()!=""){
-						var titleVal = getURLParameter(titleVar);
+						var titleVal = gui.getURLParameter(titleVar);
 						if(titleVal!=null && titleVal!=undefined){
 							fieldset.titleSpan.text(titleVal.split(",")[i]);
 							fieldset.title = titleVal.split(",")[i];
@@ -66,22 +65,22 @@ $(document).ready(function() {
 			/* agregado al listado de campos para logica de validacion */
 			var repeatFields = fsRepeat.find("[name]").not("fieldset");
 			fieldset.fields = repeatFields;
-			FormRender.fieldsets.push(fieldset);
+			gui.fieldsets.push(fieldset);
 			
 		}
 		
 		fs.remove();
-		$(FormRender.form).validate();
+		$(gui.form).validate();
 		
-		if(FormRender.renderGrid){
-			FormRender.grid.render(pfs);
+		if(gui.renderGrid){
+			gui.grid.render(pfs);
 		}
 		
 		/*for each repeat instance*/
-		for ( var i = 0; i < FormRender.fieldsets.length; i++) {
+		for ( var i = 0; i < gui.fieldsets.length; i++) {
 			/*for each field in instance*/
 			
-			var fieldset = FormRender.fieldsets[i];
+			var fieldset = gui.fieldsets[i];
 			for ( var j = 0; j < fieldset.fields.length; j++) {
 				var field = fieldset.fields[j];
 				setupValidations(field,fieldset);
@@ -91,13 +90,15 @@ $(document).ready(function() {
 			}
 		}
 		
+	}else if(fs.length>0 && gui.repeatCount==0){
+		console.info("Se encuentra repeat infinito");
 	}else{
-		$(FormRender.form).validate();
+		$(gui.form).validate();
 		var fieldset = {};
 		
 		console.info("No se encuentra el fieldset.jr-repeat");
 		/*busqueda global de campos*/
-		fieldset.fields = $("[name]").not("fieldset");
+		fieldset.fields = $("[name]").not("fieldset").not(":hidden");
 		/*
 		 * si van a venir las instancias de repeticiones tengo que tenerlas en cuenta
 		 * e iterarlas antes de iterar los campos
@@ -106,7 +107,7 @@ $(document).ready(function() {
 			var field = fieldset.fields[i];
 			setupValidations(field);
 		}
-//		FormRender.fieldsets.push(fieldset);
+		gui.fieldsets.push(fieldset);
 	}
 	
 });
