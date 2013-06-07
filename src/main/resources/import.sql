@@ -56,7 +56,7 @@ INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('
 -- ANEXO D --
 
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.1','Áreas de prestación de servicios','D1.001-V001-MAY13','D1.1.xml', 0);
-INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.2','Interconexión','D.002-V001-MAY13','D1.2.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.2','Interconexión','D1.002-V001-MAY13','D1.2.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.3','Redes e Infraestructura','D1.003-V001-MAY13','D1.3.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.4','Accesos','D1.004-V001-MAY13','D1.4.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.5','Clientes','D1.005-V001-MAY13','D1.5.xml', 0);
@@ -69,7 +69,7 @@ INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.12','Tráfico hacia Redes fijas I (minutos)','D1.012-V001-MAY13','D1.12.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.13','Tráfico hacia Redes fijas II (llamadas)','D1.013-V001-MAY13','D1.13.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.14','Trafico hacia Redes móviles I (minutos)','D1.014-V001-MAY13','D1.14.xml', 0);
-INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.15','Tráfico hacia Redes móviles II (llamadas) ','D1.015-V001-MAY13','D1.15.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.15','Tráfico hacia Redes móviles II (llamadas)','D1.015-V001-MAY13','D1.15.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.16','Tráfico de datos','D1.016-V001-MAY13','D1.16.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.17','Roaming (minutos)','D1.017-V001-MAY13','D1.17.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.18','Interconexión (minutos)','D1.018-V001-MAY13','D1.18.xml', 0);

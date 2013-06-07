@@ -21,9 +21,9 @@
           </meta>
         </D1.2>
       </instance>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/provincias" nodeset="/D1.2/inter/interconexion/provincia" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/partidos and depends=/D1.2/inter/interconexion/provincia" nodeset="/D1.2/inter/interconexion/partido" required="true()" type="select1"/>
-      <bind constraint="url=http://54.232.16.128:8080/localizacion/rest/localizaciones/localidades and depends=/D1.2/inter/interconexion/partido" nodeset="/D1.2/inter/interconexion/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/D1.2/inter/interconexion/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/D1.2/inter/interconexion/provincia" nodeset="/D1.2/inter/interconexion/partido" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/D1.2/inter/interconexion/partido" nodeset="/D1.2/inter/interconexion/localidad" required="true()" type="select1"/>
       <bind nodeset="/D1.2/inter/interconexion/localidad_otro" relevant=" /D1.2/inter/interconexion/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" nodeset="/D1.2/inter/interconexion/prestador" required="true()" type="select1"/>
       <bind constraint="mask=9.999.999,99" nodeset="/D1.2/inter/interconexion/capacidad" required="true()" type="decimal"/>

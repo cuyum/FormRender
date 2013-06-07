@@ -72,8 +72,8 @@
       <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/mms/mmsOff" required="true()" type="int"/>
       <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/datos/datosOn" required="true()" type="int"/>
       <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/datos/datosOff" required="true()" type="int"/>
-      <bind nodeset="/D1.27/tarifasPlanes/otrosImp/otros/otrosOtros" required="true()" type="int"/>
-      <bind nodeset="/D1.27/tarifasPlanes/otrosImp/impuestos/porcentaje" required="true()" type="int"/>
+      <bind nodeset="/D1.27/tarifasPlanes/otrosImp/otros/otrosOtros" required="true()" type="string"/>
+      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/otrosImp/impuestos/porcentaje" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.27/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

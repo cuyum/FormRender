@@ -30,10 +30,10 @@
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/D1.19/meses/mes/provincia" nodeset="/D1.19/meses/mes/partido" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/D1.19/meses/mes/partido" nodeset="/D1.19/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/D1.19/meses/mes/localidad_otro" relevant=" /D1.19/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint="mask=999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.19/meses/mes/sms/smsOn" required="true()" type="int"/>
-      <bind constraint="mask=999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.19/meses/mes/sms/smsOf" required="true()" type="int"/>
-      <bind constraint="mask=999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.19/meses/mes/mms/mmsOn" required="true()" type="int"/>
-      <bind constraint="mask=999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.19/meses/mes/mms/mmsOf" required="true()" type="int"/>
+      <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.19/meses/mes/sms/smsOn" required="true()" type="int"/>
+      <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.19/meses/mes/sms/smsOf" required="true()" type="int"/>
+      <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.19/meses/mes/mms/mmsOn" required="true()" type="int"/>
+      <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.19/meses/mes/mms/mmsOf" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.19/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

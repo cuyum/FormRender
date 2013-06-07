@@ -2294,4 +2294,6 @@ label + fieldset {
     clear:both;
 }
 
+/*
 th, td { white-space: nowrap; }
+*/
