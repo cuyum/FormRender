@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario D1.27 - Tarifas / Planes pospago - mixto</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.27 id="D1.27">
           <tarifasPlanes jr:template="">

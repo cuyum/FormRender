@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario D1.22 - Calidad de servicio / Reclamos</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.22 id="D1.22">
           <meses jr:template="">

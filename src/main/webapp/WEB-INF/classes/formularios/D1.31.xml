@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario D1.31 - Tarifas / Planes internet móvil</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.31 id="D1.31">
           <caracteristicas>

@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario D1.26 - Tasas generales</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.26 id="D1.26">
           <meses jr:template="">

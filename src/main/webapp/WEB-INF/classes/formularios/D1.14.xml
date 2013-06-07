@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario D1.14 - Tráfico hacia Redes móviles I (minutos)</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.14 id="D1.14">
           <meses jr:template="">
@@ -12,15 +13,15 @@
               <localidad/>
               <localidad_otro/>
               <l_l>
-                <l_salientes/>
+                <l_saliente/>
                 <l_operador/>
               </l_l>
               <l_ldn>
-                <ldn_salientes/>
+                <ldn_saliente/>
                 <ldn_operador/>
               </l_ldn>
               <l_ldi>
-                <ldi_salientes/>
+                <ldi_saliente/>
                 <ldi_operador/>
               </l_ldi>
             </mes>
@@ -34,11 +35,11 @@
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/D1.14/meses/mes/provincia" nodeset="/D1.14/meses/mes/partido" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/D1.14/meses/mes/partido" nodeset="/D1.14/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/D1.14/meses/mes/localidad_otro" relevant=" /D1.14/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.14/meses/mes/l_l/l_salientes" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.14/meses/mes/l_l/l_saliente" required="true()" type="int"/>
       <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.14/meses/mes/l_l/l_operador" required="true()" type="select1"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.14/meses/mes/l_ldn/ldn_salientes" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.14/meses/mes/l_ldn/ldn_saliente" required="true()" type="int"/>
       <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.14/meses/mes/l_ldn/ldn_operador" required="true()" type="select1"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.14/meses/mes/l_ldi/ldi_salientes" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.14/meses/mes/l_ldi/ldi_saliente" required="true()" type="int"/>
       <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.14/meses/mes/l_ldi/ldi_operador" required="true()" type="select1"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.14/meta/instanceID" readonly="true()" type="string"/>
     </model>
@@ -79,7 +80,7 @@
           </input>
           <group appearance="col2 well-white" ref="/D1.14/meses/mes/l_l">
             <label>L-L</label>
-            <input ref="/D1.14/meses/mes/l_l/l_salientes">
+            <input ref="/D1.14/meses/mes/l_l/l_saliente">
               <label>Saliente</label>
               <hint>Saliente [en miles]</hint>
             </input>
@@ -106,7 +107,7 @@
           </group>
           <group appearance="col2 well-white" ref="/D1.14/meses/mes/l_ldn">
             <label>L-LDN</label>
-            <input ref="/D1.14/meses/mes/l_ldn/ldn_salientes">
+            <input ref="/D1.14/meses/mes/l_ldn/ldn_saliente">
               <label>Saliente</label>
               <hint>Saliente [en miles]</hint>
             </input>
@@ -133,7 +134,7 @@
           </group>
           <group appearance="col2 well-white" ref="/D1.14/meses/mes/l_ldi">
             <label>L-LDI</label>
-            <input ref="/D1.14/meses/mes/l_ldi/ldi_salientes">
+            <input ref="/D1.14/meses/mes/l_ldi/ldi_saliente">
               <label>Saliente</label>
               <hint>Saliente [en miles]</hint>
             </input>

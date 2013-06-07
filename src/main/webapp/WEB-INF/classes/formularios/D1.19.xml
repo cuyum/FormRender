@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario D1.19 - Mensajes</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.19 id="D1.19">
           <meses jr:template="">

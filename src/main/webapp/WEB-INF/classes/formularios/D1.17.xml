@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario D1.17 - Raoming (minutos)</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.17 id="D1.17">
           <roaming>

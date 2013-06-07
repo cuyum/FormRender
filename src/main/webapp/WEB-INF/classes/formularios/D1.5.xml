@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario D1.5 - Clientes</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.5 id="D1.5">
           <meses jr:template="">

@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario D1.8 - Tráfico III (minutos)</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.8 id="D1.8">
           <meses jr:template="">

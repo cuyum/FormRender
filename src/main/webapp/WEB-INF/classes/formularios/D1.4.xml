@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario D1.4 - Accesos</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.4 id="D1.4">
           <meses jr:template="">

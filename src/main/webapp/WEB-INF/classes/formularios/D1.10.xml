@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario D1.10 - Tráfico V (llamadas)</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.10 id="D1.10">
           <meses jr:template="">

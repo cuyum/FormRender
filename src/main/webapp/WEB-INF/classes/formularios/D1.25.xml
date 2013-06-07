@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario D1.25 - Calidad de servicio / Atención web</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.25 id="D1.25">
           <meses jr:template="">

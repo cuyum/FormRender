@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario D1.15 - Tráfico hacia Redes móviles II (llamadas)</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.15 id="D1.15">
           <meses jr:template="">
