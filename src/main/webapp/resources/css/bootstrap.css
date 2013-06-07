@@ -478,7 +478,7 @@ a.label:hover, a.badge:hover { color: #ffffff; text-decoration: none; cursor: po
 
 table { max-width: 100%; background-color: transparent; border-collapse: collapse; border-spacing: 0; }
 .table { width: 100%; }
-.table th, .table td { padding: 8px 12px; line-height: 20px; vertical-align: middle; border-top: 1px solid #e2e2e2; }
+.table th, .table td { padding: 8px 12px; line-height: 20px; vertical-align: middle; border-top: 1px solid #e2e2e2; padding: 8px 7px;}
 .table td { background: #fefefe; }
 .table th { font-weight: bold; text-align: left; }
 .table thead th { background-color: #f8f8f8; }
