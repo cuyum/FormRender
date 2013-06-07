@@ -61,8 +61,13 @@ var gui = new function(){
 				type: "POST",
 				contentType : "application/x-www-form-urlencoded; charset=utf-8",
 				url: "/FormRender/rest/service/submit",
-				data: {"submit_data":JSON.stringify(message),"url": thisForm.attr("submit-url"),"method":thisForm.attr("submit-method")},
+				data: {"submit_data":JSON.stringify(message),"url": thisForm.attr("submit-url")},
 				success:function(data, statusStr, xhr){
+					if(data.result.type == "SUCESS"){
+						alert("Formulario guardado ("+data.result.type.id+").");
+					}else{
+						alert("Ha ocurrido un error en el servidor de persistencia");
+					}
 					console.log(data);
 				},
 				error:function(xhr,statusStr,errorStr){
