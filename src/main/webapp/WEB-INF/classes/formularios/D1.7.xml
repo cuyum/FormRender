@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario D1.7 - Tráfico II (minutos)</h:title>
+    <model>
+      <instance>
+        <D1.7 id="D1.7">
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <partido/>
+              <localidad/>
+              <localidad_otro/>
+              <l_l>
+                <l_hp/>
+                <l_hnp/>
+              </l_l>
+              <l_ldn>
+                <ldn_hp/>
+                <ldn_hnp/>
+              </l_ldn>
+              <l_ldi>
+                <ldi_hp/>
+                <ldi_hnp/>
+              </l_ldi>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </D1.7>
+      </instance>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/D1.7/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/D1.7/meses/mes/provincia" nodeset="/D1.7/meses/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/D1.7/meses/mes/partido" nodeset="/D1.7/meses/mes/localidad" required="true()" type="select1"/>
+      <bind nodeset="/D1.7/meses/mes/localidad_otro" relevant=" /D1.7/meses/mes/localidad =9999" required="true()" type="string"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.7/meses/mes/l_l/l_hp" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.7/meses/mes/l_l/l_hnp" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.7/meses/mes/l_ldn/ldn_hp" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.7/meses/mes/l_ldn/ldn_hnp" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.7/meses/mes/l_ldi/ldi_hp" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.7/meses/mes/l_ldi/ldi_hnp" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/D1.7/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/D1.7/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/D1.7/meses">
+        <group appearance="col3 well-white variable" ref="/D1.7/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/D1.7/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/D1.7/meses/mes/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/D1.7/meses/mes/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/D1.7/meses/mes/localidad_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+          <group appearance="col2 well-white" ref="/D1.7/meses/mes/l_l">
+            <label>L-L</label>
+            <input ref="/D1.7/meses/mes/l_l/l_hp">
+              <label>HP</label>
+              <hint>HP [en miles]</hint>
+            </input>
+            <input ref="/D1.7/meses/mes/l_l/l_hnp">
+              <label>HNP</label>
+              <hint>HNP [en miles]</hint>
+            </input>
+          </group>
+          <group appearance="col2 well-white" ref="/D1.7/meses/mes/l_ldn">
+            <label>L-LDN</label>
+            <input ref="/D1.7/meses/mes/l_ldn/ldn_hp">
+              <label>HP</label>
+              <hint>HP [en miles]</hint>
+            </input>
+            <input ref="/D1.7/meses/mes/l_ldn/ldn_hnp">
+              <label>HNP</label>
+              <hint>HNP [en miles]</hint>
+            </input>
+          </group>
+          <group appearance="col2 well-white" ref="/D1.7/meses/mes/l_ldi">
+            <label>L-LDI</label>
+            <input ref="/D1.7/meses/mes/l_ldi/ldi_hp">
+              <label>HP</label>
+              <hint>HP [en miles]</hint>
+            </input>
+            <input ref="/D1.7/meses/mes/l_ldi/ldi_hnp">
+              <label>HNP</label>
+              <hint>HNP [en miles]</hint>
+            </input>
+          </group>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

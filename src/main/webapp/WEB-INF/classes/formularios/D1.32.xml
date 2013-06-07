@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario D1.32 - Tarifas / Servicios adicionales</h:title>
+    <model>
+      <instance>
+        <D1.32 id="D1.32">
+          <servicios>
+            <transferencia/>
+            <espera/>
+            <tripartita/>
+            <entrante/>
+            <contestador/>
+            <multipartita/>
+            <noticias/>
+            <texto/>
+            <datos/>
+            <sms/>
+            <numero/>
+            <ddi/>
+            <detallada/>
+            <detalladaUnica/>
+            <otros1/>
+            <otros2/>
+            <otros3/>
+          </servicios>
+          <meta>
+            <instanceID/>
+          </meta>
+        </D1.32>
+      </instance>
+      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.32/servicios/transferencia" required="true()" type="decimal"/>
+      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.32/servicios/espera" required="true()" type="decimal"/>
+      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.32/servicios/tripartita" required="true()" type="decimal"/>
+      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.32/servicios/entrante" required="true()" type="decimal"/>
+      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.32/servicios/contestador" required="true()" type="decimal"/>
+      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.32/servicios/multipartita" required="true()" type="decimal"/>
+      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.32/servicios/noticias" required="true()" type="decimal"/>
+      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.32/servicios/texto" required="true()" type="decimal"/>
+      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.32/servicios/datos" required="true()" type="decimal"/>
+      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.32/servicios/sms" required="true()" type="decimal"/>
+      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.32/servicios/numero" required="true()" type="decimal"/>
+      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.32/servicios/ddi" required="true()" type="decimal"/>
+      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.32/servicios/detallada" required="true()" type="decimal"/>
+      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.32/servicios/detalladaUnica" required="true()" type="decimal"/>
+      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.32/servicios/otros1" required="true()" type="decimal"/>
+      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.32/servicios/otros2" required="true()" type="decimal"/>
+      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.32/servicios/otros3" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/D1.32/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col6 well-white" ref="/D1.32/servicios">
+      <label>Servicios</label>
+      <input ref="/D1.32/servicios/transferencia">
+        <label>Transferencia de Llamada</label>
+        <hint>Transferencia de Llamada</hint>
+      </input>
+      <input ref="/D1.32/servicios/espera">
+        <label>Llamada en Espera</label>
+        <hint>Llamada en Espera</hint>
+      </input>
+      <input ref="/D1.32/servicios/tripartita">
+        <label>Conferencia Tripartita</label>
+        <hint>Conferencia Tripartita</hint>
+      </input>
+      <input ref="/D1.32/servicios/entrante">
+        <label>ID Llamada Entrante</label>
+        <hint>ID Llamada Entrante</hint>
+      </input>
+      <input ref="/D1.32/servicios/contestador">
+        <label>Contestador</label>
+        <hint>Contestador</hint>
+      </input>
+      <input ref="/D1.32/servicios/multipartita">
+        <label>Conferencia Multipartita</label>
+        <hint>Conferencia Multipartita</hint>
+      </input>
+      <input ref="/D1.32/servicios/noticias">
+        <label>Servicio de Información de Noticias</label>
+        <hint>Servicio de Información de Noticias</hint>
+      </input>
+      <input ref="/D1.32/servicios/texto">
+        <label>Mensajería de Texto</label>
+        <hint>Mensajería de Texto</hint>
+      </input>
+      <input ref="/D1.32/servicios/datos">
+        <label>Mensajería de Datos</label>
+        <hint>Mensajería de Datos</hint>
+      </input>
+      <input ref="/D1.32/servicios/sms">
+        <label>Envío de SMS a Fijo</label>
+        <hint>Envío de SMS a Fijo</hint>
+      </input>
+      <input ref="/D1.32/servicios/numero">
+        <label>Restricción de Envío de Número</label>
+        <hint>Restricción de Envío de Número</hint>
+      </input>
+      <input ref="/D1.32/servicios/ddi">
+        <label>Restricción DDI/DDN</label>
+        <hint>Restricción DDI/DDN</hint>
+      </input>
+      <input ref="/D1.32/servicios/detallada">
+        <label>Facturación Detallada</label>
+        <hint>Facturación Detallada</hint>
+      </input>
+      <input ref="/D1.32/servicios/detalladaUnica">
+        <label>Facturación Detallada por única vez</label>
+        <hint>Facturación Detallada por única vez</hint>
+      </input>
+      <input ref="/D1.32/servicios/otros1">
+        <label>Otros servicios: Especificar</label>
+        <hint>Otros servicios: Especificar</hint>
+      </input>
+      <input ref="/D1.32/servicios/otros2">
+        <label>Otros servicios: Especificar</label>
+        <hint>Otros servicios: Especificar</hint>
+      </input>
+      <input ref="/D1.32/servicios/otros3">
+        <label>Otros servicios: Especificar</label>
+        <hint>Otros servicios: Especificar</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

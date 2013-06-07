@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario D1.33 - Ingresos prestación de servicios / Abonos telefonía móvil</h:title>
+    <model>
+      <instance>
+        <D1.33 id="D1.33">
+          <meses jr:template="">
+            <mes>
+              <conexion/>
+              <pospagos/>
+              <mixtos/>
+              <abonos/>
+              <gastos/>
+              <seguros/>
+              <reconexion/>
+              <otros/>
+              <total/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </D1.33>
+      </instance>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/conexion" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/pospagos" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/mixtos" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/abonos" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/gastos" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/seguros" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/reconexion" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/otros" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/total" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/D1.33/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/D1.33/meses">
+      <label></label>
+      <repeat nodeset="/D1.33/meses">
+        <group appearance="col4 well-white variable" ref="/D1.33/meses/mes">
+          <label>{title}</label>
+          <input ref="/D1.33/meses/mes/conexion">
+            <label>Cargos de Conexión</label>
+            <hint>Cargos de Conexión [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.33/meses/mes/pospagos">
+            <label>Abonos Pospagos</label>
+            <hint>Abonos Pospagos [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.33/meses/mes/mixtos">
+            <label>Abonos Mixtos</label>
+            <hint>Abonos Mixtos [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.33/meses/mes/abonos">
+            <label>Otros Abonos / Servicios</label>
+            <hint>Otros Abonos / Servicios [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.33/meses/mes/gastos">
+            <label>Gastos Administrativos</label>
+            <hint>Gastos Administrativos [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.33/meses/mes/seguros">
+            <label>Seguros</label>
+            <hint>Seguros [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.33/meses/mes/reconexion">
+            <label>Cargos de Reconexión / Rehabilitación</label>
+            <hint>Cargos de Reconexión / Rehabilitación [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.33/meses/mes/otros">
+            <label>Otros</label>
+            <hint>Otros [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.33/meses/mes/total">
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

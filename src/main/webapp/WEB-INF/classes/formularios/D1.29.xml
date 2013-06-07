@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario D1.29 - Tarifas / Roaming - LDN</h:title>
+    <model>
+      <instance>
+        <D1.29 id="D1.29">
+          <hasta110>
+            <roaming1>
+              <roamingPre1/>
+              <roamingPos1/>
+            </roaming1>
+            <ldn1>
+              <ldnPre1/>
+              <ldnPos1/>
+            </ldn1>
+          </hasta110>
+          <de110_240>
+            <roaming2>
+              <roamingPre2/>
+              <roamingPos2/>
+            </roaming2>
+            <ldn2>
+              <ldnPre2/>
+              <ldnPos2/>
+            </ldn2>
+          </de110_240>
+          <mas240>
+            <roaming3>
+              <roamingPre3/>
+              <roamingPos3/>
+            </roaming3>
+            <ldn3>
+              <ldnPre3/>
+              <ldnPos3/>
+            </ldn3>
+          </mas240>
+          <meta>
+            <instanceID/>
+          </meta>
+        </D1.29>
+      </instance>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.29/hasta110/roaming1/roamingPre1" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.29/hasta110/roaming1/roamingPos1" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.29/hasta110/ldn1/ldnPre1" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.29/hasta110/ldn1/ldnPos1" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.29/de110_240/roaming2/roamingPre2" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.29/de110_240/roaming2/roamingPos2" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.29/de110_240/ldn2/ldnPre2" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.29/de110_240/ldn2/ldnPos2" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.29/mas240/roaming3/roamingPre3" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.29/mas240/roaming3/roamingPos3" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.29/mas240/ldn3/ldnPre3" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.29/mas240/ldn3/ldnPos3" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/D1.29/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col1 well-white" ref="/D1.29/hasta110">
+      <label>Hasta 110km</label>
+      <group appearance="col2 well-white" ref="/D1.29/hasta110/roaming1">
+        <label>Roaming LDN precio</label>
+        <input ref="/D1.29/hasta110/roaming1/roamingPre1">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/D1.29/hasta110/roaming1/roamingPos1">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/D1.29/hasta110/ldn1">
+        <label>LDN precio minuto</label>
+        <input ref="/D1.29/hasta110/ldn1/ldnPre1">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/D1.29/hasta110/ldn1/ldnPos1">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/D1.29/de110_240">
+      <label>De 110 km a 240 km</label>
+      <group appearance="col2 well-white" ref="/D1.29/de110_240/roaming2">
+        <label>Roaming LDN precio</label>
+        <input ref="/D1.29/de110_240/roaming2/roamingPre2">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/D1.29/de110_240/roaming2/roamingPos2">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/D1.29/de110_240/ldn2">
+        <label>LDN precio minuto</label>
+        <input ref="/D1.29/de110_240/ldn2/ldnPre2">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/D1.29/de110_240/ldn2/ldnPos2">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/D1.29/mas240">
+      <label>Más de 240 km</label>
+      <group appearance="col2 well-white" ref="/D1.29/mas240/roaming3">
+        <label>Roaming LDN precio</label>
+        <input ref="/D1.29/mas240/roaming3/roamingPre3">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/D1.29/mas240/roaming3/roamingPos3">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/D1.29/mas240/ldn3">
+        <label>LDN precio minuto</label>
+        <input ref="/D1.29/mas240/ldn3/ldnPre3">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/D1.29/mas240/ldn3/ldnPos3">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+    </group>
+  </h:body>
+</h:html>

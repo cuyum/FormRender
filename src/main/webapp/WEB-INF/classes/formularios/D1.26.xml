@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario D1.26 - Tasas generales</h:title>
+    <model>
+      <instance>
+        <D1.26 id="D1.26">
+          <meses jr:template="">
+            <mes>
+              <cargoActivacion/>
+              <cargoReconexion/>
+              <tasaMora/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </D1.26>
+      </instance>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.26/meses/mes/cargoActivacion" required="true()" type="int"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.26/meses/mes/cargoReconexion" required="true()" type="int"/>
+      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.26/meses/mes/tasaMora" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/D1.26/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/D1.26/meses">
+      <label></label>
+      <repeat nodeset="/D1.26/meses">
+        <group appearance="col3 well-white variable" ref="/D1.26/meses/mes">
+          <label>{title}</label>
+          <input ref="/D1.26/meses/mes/cargoActivacion">
+            <label>Cargo de Activación</label>
+            <hint>Cargo de Activación</hint>
+          </input>
+          <input ref="/D1.26/meses/mes/cargoReconexion">
+            <label>Cargo de Reconexión</label>
+            <hint>Cargo de Reconexión</hint>
+          </input>
+          <input ref="/D1.26/meses/mes/tasaMora">
+            <label>Tasa por Mora</label>
+            <hint>Tasa por Mora</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

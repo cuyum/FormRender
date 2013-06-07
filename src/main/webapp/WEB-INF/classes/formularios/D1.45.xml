@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.45 - Financiamiento SU / Subsidios</h:title>
+    <model>
+      <instance>
+        <D1.45 id="C1.45">
+          <financ>
+            <financiamiento/>
+            <subsidios_tasa/>
+            <subsidios_impos/>
+            <subsidios_otros/>
+          </financ>
+          <meta>
+            <instanceID/>
+          </meta>
+        </D1.45>
+      </instance>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.45/financ/financiamiento" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.45/financ/subsidios_tasa" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.45/financ/subsidios_impos" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.45/financ/subsidios_otros" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/D1.45/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col4 well-white" ref="/D1.45/financ">
+      <label>Financiamiento</label>
+      <input ref="/D1.45/financ/financiamiento">
+        <label>Financiamiento con SU</label>
+        <hint>Financiamiento con SU [en miles de pesos]</hint>
+      </input>
+      <input ref="/D1.45/financ/subsidios_tasa">
+        <label>Subsidios tasa de Interés</label>
+        <hint>Subsidios tasa de Interés [en miles de pesos]</hint>
+      </input>
+      <input ref="/D1.45/financ/subsidios_impos">
+        <label>Subsidios Impositivos</label>
+        <hint>Subsidios Impositivos [en miles de pesos]</hint>
+      </input>
+      <input ref="/D1.45/financ/subsidios_otros">
+        <label>Otros Subsidios</label>
+        <hint>Otros Subsidios [en miles de pesos]</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>
