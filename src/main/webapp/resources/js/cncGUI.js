@@ -65,10 +65,12 @@ var gui = new function(){
 				success:function(data, statusStr, xhr){
 					if(data.result.type == "SUCESS"){
 						alert("Formulario guardado ("+data.result.type.id+").");
+					}else if(data.result.type == "ERROR"){
+						alert("Ha ocurrido un error en el servidor de persistencia<br/>"+data.result.msg1);
 					}else{
-						alert("Ha ocurrido un error en el servidor de persistencia");
+						alert("Ha ocurrido un error no indicado en el servidor de persistencia");
 					}
-					console.log(data);
+//					console.log(data);
 				},
 				error:function(xhr,statusStr,errorStr){
 					console.error("Error en submit:"+statusStr);
@@ -280,7 +282,7 @@ var gui = new function(){
 			$('<h4></h4>').append("<span>Resultados</span>").appendTo(gridFieldset);
 			$('<div class="table-overflow"></div>').append(this.element).appendTo(gridFieldset);
 			if(gui.repeatCount && gui.repeatCount>1)
-				this.headers.push({"sTitle":" ","mData":"item"});
+				this.headers.push({"sTitle":"Meses","mData":"item"});
 			for ( var i = 0 ; i<gui.fieldsets[0].fields.length;i++) {
 				var f = $(gui.fieldsets[0].fields[i]);
 				var attribute = gui.getCleanFieldName(f.attr("name"));
