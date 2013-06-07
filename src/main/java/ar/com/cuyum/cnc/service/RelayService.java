@@ -37,16 +37,16 @@ public class RelayService {
 	
 	/*================ POINT OF ENTRANCE =================*/
 	
-	public String submit(URL remoteUrl, String data, String submit_method){
-		return performSubmission(remoteUrl,data,submit_method);
+	public String submit(URL remoteUrl, String data){
+		return performSubmission(remoteUrl,data);
 	}
 	
 	public String request(URL remoteUrl, String fkey){
 		return performRequest(remoteUrl,fkey);
 	}
 	
-	private String performSubmission(URL url,String data, String submit_method){
-		HttpPost request = buildSubmission(url,submit_method,data);
+	private String performSubmission(URL url,String data){
+		HttpPost request = buildSubmission(url,data);
 		HttpResponse rawResponse = execute(request);
 		String responseStr = processResponse(rawResponse);
 		return responseStr;
@@ -61,7 +61,7 @@ public class RelayService {
 	
 	/*=============== HTTP REQUEST======================*/
 	
-	private final HttpPost buildSubmission(URL url,String Method,String data) {
+	private final HttpPost buildSubmission(URL url,String data) {
 		HttpPost method = null;
 		try {
 			method = new HttpPost(url.toURI());

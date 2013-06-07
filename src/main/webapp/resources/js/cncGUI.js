@@ -61,7 +61,7 @@ var gui = new function(){
 				type: "POST",
 				contentType : "application/x-www-form-urlencoded; charset=utf-8",
 				url: "/FormRender/rest/service/submit",
-				data: {"submit_data":JSON.stringify(message),"url": thisForm.attr("submit-url"),"method":thisForm.attr("submit-method")},
+				data: {"submit_data":JSON.stringify(message),"url": thisForm.attr("submit-url")},
 				success:function(data, statusStr, xhr){
 					console.log(data);
 				},
