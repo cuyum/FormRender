@@ -10,24 +10,24 @@
             <caracteristicas>
               <plan/>
               <recarga/>
-              <serviciosAdic/>
+              <serviciosAdicionales/>
             </caracteristicas>
             <precios>
               <minuto>
-                <minutoOn/>
-                <minutoOff/>
+                <minutoOnNet/>
+                <minutoOffNet/>
               </minuto>
               <sms>
-                <smsOn/>
-                <smsOff/>
+                <smsOnNet/>
+                <smsOffNet/>
               </sms>
               <mms>
-                <mmsOn/>
-                <mmsOff/>
+                <mmsOnNet/>
+                <mmsOffNet/>
               </mms>
               <datos>
-                <datosOn/>
-                <datosOff/>
+                <datosOnNet/>
+                <datosOffNet/>
               </datos>
             </precios>
             <vigencia>
@@ -37,9 +37,9 @@
               <cuentaActiva/>
             </vigencia>
             <otrosImp>
-              <otros>
-                <otrosOtros/>
-              </otros>
+              <grupoOtros>
+                <otros/>
+              </grupoOtros>
               <impuestos>
                 <porcentaje/>
               </impuestos>
@@ -52,20 +52,20 @@
       </instance>
       <bind nodeset="/D1.28/tarifasPlanes/caracteristicas/plan" required="true()" type="string"/>
       <bind nodeset="/D1.28/tarifasPlanes/caracteristicas/recarga" required="true()" type="select1"/>
-      <bind nodeset="/D1.28/tarifasPlanes/caracteristicas/serviciosAdic" required="true()" type="string"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/minuto/minutoOn" required="true()" type="int"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/minuto/minutoOff" required="true()" type="int"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/sms/smsOn" required="true()" type="int"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/sms/smsOff" required="true()" type="int"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/mms/mmsOn" required="true()" type="int"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/mms/mmsOff" required="true()" type="int"/>
-      <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/datos/datosOn" required="true()" type="int"/>
-      <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/datos/datosOff" required="true()" type="int"/>
+      <bind nodeset="/D1.28/tarifasPlanes/caracteristicas/serviciosAdicionales" required="true()" type="string"/>
+      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/minuto/minutoOnNet" required="true()" type="int"/>
+      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/minuto/minutoOffNet" required="true()" type="int"/>
+      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/sms/smsOnNet" required="true()" type="int"/>
+      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/sms/smsOffNet" required="true()" type="int"/>
+      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/mms/mmsOnNet" required="true()" type="int"/>
+      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/mms/mmsOffNet" required="true()" type="int"/>
+      <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/datos/datosOnNet" required="true()" type="int"/>
+      <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/datos/datosOffNet" required="true()" type="int"/>
       <bind constraint="mask=999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/vigencia/credito" required="true()" type="int"/>
       <bind constraint="mask=999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/vigencia/sms" required="true()" type="int"/>
       <bind constraint="mask=999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/vigencia/recarga" required="true()" type="int"/>
       <bind constraint="mask=999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/vigencia/cuentaActiva" required="true()" type="int"/>
-      <bind nodeset="/D1.28/tarifasPlanes/otrosImp/otros/otrosOtros" required="true()" type="string"/>
+      <bind nodeset="/D1.28/tarifasPlanes/otrosImp/grupoOtros/otros" required="true()" type="string"/>
       <bind constraint="mask=999,99" nodeset="/D1.28/tarifasPlanes/otrosImp/impuestos/porcentaje" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.28/meta/instanceID" readonly="true()" type="string"/>
     </model>
@@ -100,7 +100,7 @@
               <value>opcion3</value>
             </item>
           </select1>
-          <input ref="/D1.28/tarifasPlanes/caracteristicas/serviciosAdic">
+          <input ref="/D1.28/tarifasPlanes/caracteristicas/serviciosAdicionales">
             <label>Servicios Adicionales Incluidos</label>
             <hint>Servicios Adicionales Incluidos</hint>
           </input>
@@ -109,44 +109,44 @@
           <label>Precios</label>
           <group appearance="col2 well-white" ref="/D1.28/tarifasPlanes/precios/minuto">
             <label>Minuto Local</label>
-            <input ref="/D1.28/tarifasPlanes/precios/minuto/minutoOn">
+            <input ref="/D1.28/tarifasPlanes/precios/minuto/minutoOnNet">
               <label>ON NET</label>
               <hint>ON NET</hint>
             </input>
-            <input ref="/D1.28/tarifasPlanes/precios/minuto/minutoOff">
+            <input ref="/D1.28/tarifasPlanes/precios/minuto/minutoOffNet">
               <label>OFF NET</label>
               <hint>OFF NET</hint>
             </input>
           </group>
           <group appearance="col2 well-white" ref="/D1.28/tarifasPlanes/precios/sms">
             <label>SMS</label>
-            <input ref="/D1.28/tarifasPlanes/precios/sms/smsOn">
+            <input ref="/D1.28/tarifasPlanes/precios/sms/smsOnNet">
               <label>ON NET</label>
               <hint>ON NET</hint>
             </input>
-            <input ref="/D1.28/tarifasPlanes/precios/sms/smsOff">
+            <input ref="/D1.28/tarifasPlanes/precios/sms/smsOffNet">
               <label>OFF NET</label>
               <hint>OFF NET</hint>
             </input>
           </group>
           <group appearance="col2 well-white" ref="/D1.28/tarifasPlanes/precios/mms">
             <label>MMS</label>
-            <input ref="/D1.28/tarifasPlanes/precios/mms/mmsOn">
+            <input ref="/D1.28/tarifasPlanes/precios/mms/mmsOnNet">
               <label>ON NET</label>
               <hint>ON NET</hint>
             </input>
-            <input ref="/D1.28/tarifasPlanes/precios/mms/mmsOff">
+            <input ref="/D1.28/tarifasPlanes/precios/mms/mmsOffNet">
               <label>OFF NET</label>
               <hint>OFF NET</hint>
             </input>
           </group>
           <group appearance="col2 well-white" ref="/D1.28/tarifasPlanes/precios/datos">
             <label>Datos</label>
-            <input ref="/D1.28/tarifasPlanes/precios/datos/datosOn">
+            <input ref="/D1.28/tarifasPlanes/precios/datos/datosOnNet">
               <label>ON NET</label>
               <hint>ON NET</hint>
             </input>
-            <input ref="/D1.28/tarifasPlanes/precios/datos/datosOff">
+            <input ref="/D1.28/tarifasPlanes/precios/datos/datosOffNet">
               <label>OFF NET</label>
               <hint>OFF NET</hint>
             </input>
@@ -172,9 +172,9 @@
           </input>
         </group>
         <group appearance="col1 well-white" ref="/D1.28/tarifasPlanes/otrosImp">
-          <group appearance="col2 well-white" ref="/D1.28/tarifasPlanes/otrosImp/otros">
+          <group appearance="col2 well-white" ref="/D1.28/tarifasPlanes/otrosImp/grupoOtros">
             <label>Otros</label>
-            <input ref="/D1.28/tarifasPlanes/otrosImp/otros/otrosOtros">
+            <input ref="/D1.28/tarifasPlanes/otrosImp/grupoOtros/otros">
               <label>Otros</label>
               <hint>Otros</hint>
             </input>

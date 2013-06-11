@@ -13,16 +13,16 @@
               <localidad/>
               <localidad_otro/>
               <prepago>
-                <prepago_hp/>
-                <prepago_hnp/>
+                <prepagoHp/>
+                <prepagoHnp/>
               </prepago>
               <pospago>
-                <pospago_hp/>
-                <pospago_hnp/>
+                <pospagoHp/>
+                <pospagoHnp/>
               </pospago>
               <mixto>
-                <mixto_hp/>
-                <mixto_hnp/>
+                <mixtoHp/>
+                <mixtoHnp/>
               </mixto>
             </mes>
           </meses>
@@ -35,12 +35,12 @@
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/D1.9/meses/mes/provincia" nodeset="/D1.9/meses/mes/partido" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/D1.9/meses/mes/partido" nodeset="/D1.9/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/D1.9/meses/mes/localidad_otro" relevant=" /D1.9/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.9/meses/mes/prepago/prepago_hp" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.9/meses/mes/prepago/prepago_hnp" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.9/meses/mes/pospago/pospago_hp" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.9/meses/mes/pospago/pospago_hnp" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.9/meses/mes/mixto/mixto_hp" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.9/meses/mes/mixto/mixto_hnp" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.9/meses/mes/prepago/prepagoHp" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.9/meses/mes/prepago/prepagoHnp" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.9/meses/mes/pospago/pospagoHp" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.9/meses/mes/pospago/pospagoHnp" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.9/meses/mes/mixto/mixtoHp" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.9/meses/mes/mixto/mixtoHnp" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.9/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -80,33 +80,33 @@
           </input>
           <group appearance="col2 well-white" ref="/D1.9/meses/mes/prepago">
             <label>Prepago</label>
-            <input ref="/D1.9/meses/mes/prepago/prepago_hp">
+            <input ref="/D1.9/meses/mes/prepago/prepagoHp">
               <label>HP</label>
               <hint>HP [en miles]</hint>
             </input>
-            <input ref="/D1.9/meses/mes/prepago/prepago_hnp">
+            <input ref="/D1.9/meses/mes/prepago/prepagoHnp">
               <label>HNP</label>
               <hint>HNP [en miles]</hint>
             </input>
           </group>
           <group appearance="col2 well-white" ref="/D1.9/meses/mes/pospago">
             <label>Pospago</label>
-            <input ref="/D1.9/meses/mes/pospago/pospago_hp">
+            <input ref="/D1.9/meses/mes/pospago/pospagoHp">
               <label>HP</label>
               <hint>HP [en miles]</hint>
             </input>
-            <input ref="/D1.9/meses/mes/pospago/pospago_hnp">
+            <input ref="/D1.9/meses/mes/pospago/pospagoHnp">
               <label>HNP</label>
               <hint>HNP [en miles]</hint>
             </input>
           </group>
           <group appearance="col2 well-white" ref="/D1.9/meses/mes/mixto">
             <label>Mixto</label>
-            <input ref="/D1.9/meses/mes/mixto/mixto_hp">
+            <input ref="/D1.9/meses/mes/mixto/mixtoHp">
               <label>HP</label>
               <hint>HP [en miles]</hint>
             </input>
-            <input ref="/D1.9/meses/mes/mixto/mixto_hnp">
+            <input ref="/D1.9/meses/mes/mixto/mixtoHnp">
               <label>HNP</label>
               <hint>HNP [en miles]</hint>
             </input>

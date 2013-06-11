@@ -15,21 +15,21 @@
             </lugar>
             <equipamiento>
               <tecnologia/>
-              <equipamiento_tecn_otro/>
-              <equipamiento_cap_disp/>
-              <equipamiento_cap_util/>
+              <tecnologia_otro/>
+              <equipCapacidadDisp/>
+              <equipCapacidadUtilizada/>
             </equipamiento>
             <tipomedio>
               <medio/>
-              <medio_tipo_otro/>
-              <medio_cap_disp/>
-              <medio_cap_util/>
+              <medio_otro/>
+              <medioCapacidadDisp/>
+              <medioCapacidadUtilizada/>
             </tipomedio>
             <tipotendido>
               <tendido/>
-              <tendido_tipo_otro/>
-              <tendido_cap_disp/>
-              <tendido_cap_util/>
+              <tendido_otro/>
+              <tendidoCapacidadDisp/>
+              <tendidoCapacidadUtilizada/>
             </tipotendido>
             <lugar1>
               <provincia1/>
@@ -48,18 +48,18 @@
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/D1.3/puntos/lugar/partido" nodeset="/D1.3/puntos/lugar/localidad" required="true()" type="select1"/>
       <bind nodeset="/D1.3/puntos/lugar/localidad_otro" relevant=" /D1.3/puntos/lugar/localidad =9999" required="true()" type="string"/>
       <bind nodeset="/D1.3/puntos/equipamiento/tecnologia" required="true()" type="select1"/>
-      <bind nodeset="/D1.3/puntos/equipamiento/equipamiento_tecn_otro" relevant=" /D1.3/puntos/equipamiento/tecnologia =Otros" required="true()" type="string"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.3/puntos/equipamiento/equipamiento_cap_disp" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.3/puntos/equipamiento/equipamiento_cap_util" required="true()" type="decimal"/>
+      <bind nodeset="/D1.3/puntos/equipamiento/tecnologia_otro" relevant=" /D1.3/puntos/equipamiento/tecnologia =Otros" required="true()" type="string"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.3/puntos/equipamiento/equipCapacidadDisp" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.3/puntos/equipamiento/equipCapacidadUtilizada" required="true()" type="decimal"/>
       <bind nodeset="/D1.3/puntos/tipomedio/medio" required="true()" type="select1"/>
-      <bind nodeset="/D1.3/puntos/tipomedio/medio_tipo_otro" relevant=" /D1.3/puntos/tipomedio/medio =Otros" required="true()" type="string"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.3/puntos/tipomedio/medio_cap_disp" relevant=" /D1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.3/puntos/tipomedio/medio_cap_util" relevant=" /D1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
+      <bind nodeset="/D1.3/puntos/tipomedio/medio_otro" relevant=" /D1.3/puntos/tipomedio/medio =Otros" required="true()" type="string"/>
+      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.3/puntos/tipomedio/medioCapacidadDisp" relevant=" /D1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
+      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.3/puntos/tipomedio/medioCapacidadUtilizada" relevant=" /D1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
       <bind nodeset="/D1.3/puntos/tipotendido" relevant=" /D1.3/puntos/tipomedio/medio =FO or  /D1.3/puntos/tipomedio/medio =Otros"/>
       <bind nodeset="/D1.3/puntos/tipotendido/tendido" relevant=" /D1.3/puntos/tipomedio/medio =FO or  /D1.3/puntos/tipomedio/medio =Otros" required="true()" type="select1"/>
-      <bind nodeset="/D1.3/puntos/tipotendido/tendido_tipo_otro" relevant=" /D1.3/puntos/tipotendido/tendido =Otros" required="true()" type="string"/>
-      <bind constraint="mask=999" jr:constraintMsg="Datos no válidos" nodeset="/D1.3/puntos/tipotendido/tendido_cap_disp" relevant=" /D1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
-      <bind constraint="mask=999" jr:constraintMsg="Datos no válidos" nodeset="/D1.3/puntos/tipotendido/tendido_cap_util" relevant=" /D1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
+      <bind nodeset="/D1.3/puntos/tipotendido/tendido_otro" relevant=" /D1.3/puntos/tipotendido/tendido =Otros" required="true()" type="string"/>
+      <bind constraint="mask=999" jr:constraintMsg="Datos no válidos" nodeset="/D1.3/puntos/tipotendido/tendidoCapacidadDisp" relevant=" /D1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
+      <bind constraint="mask=999" jr:constraintMsg="Datos no válidos" nodeset="/D1.3/puntos/tipotendido/tendidoCapacidadUtilizada" relevant=" /D1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/D1.3/puntos/lugar1/provincia1" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/D1.3/puntos/lugar1/provincia1" nodeset="/D1.3/puntos/lugar1/partido1" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/D1.3/puntos/lugar1/partido1" nodeset="/D1.3/puntos/lugar1/localidad1" required="true()" type="select1"/>
@@ -132,14 +132,14 @@
               <value>Otros</value>
             </item>
           </select1>
-          <input ref="/D1.3/puntos/equipamiento/equipamiento_tecn_otro">
+          <input ref="/D1.3/puntos/equipamiento/tecnologia_otro">
             <label>Tec. Otros</label>
           </input>
-          <input ref="/D1.3/puntos/equipamiento/equipamiento_cap_disp">
+          <input ref="/D1.3/puntos/equipamiento/equipCapacidadDisp">
             <label>Capacidad Disponible</label>
             <hint>Capacidad Disponible [Mbps / xxE1]</hint>
           </input>
-          <input ref="/D1.3/puntos/equipamiento/equipamiento_cap_util">
+          <input ref="/D1.3/puntos/equipamiento/equipCapacidadUtilizada">
             <label>Capacidad Utilizada</label>
             <hint>Capacidad Utilizada [Mbps / xxE1]</hint>
           </input>
@@ -166,14 +166,14 @@
               <value>Otros</value>
             </item>
           </select1>
-          <input ref="/D1.3/puntos/tipomedio/medio_tipo_otro">
+          <input ref="/D1.3/puntos/tipomedio/medio_otro">
             <label>Tipo Otros</label>
           </input>
-          <input ref="/D1.3/puntos/tipomedio/medio_cap_disp">
+          <input ref="/D1.3/puntos/tipomedio/medioCapacidadDisp">
             <label>Capacidad Disponible</label>
             <hint>Capacidad Disponible [cantidad de pelos]</hint>
           </input>
-          <input ref="/D1.3/puntos/tipomedio/medio_cap_util">
+          <input ref="/D1.3/puntos/tipomedio/medioCapacidadUtilizada">
             <label>Capacidad Utilizada</label>
             <hint>Capacidad Utilizada [cantidad de pelos]</hint>
           </input>
@@ -200,14 +200,14 @@
               <value>Otros</value>
             </item>
           </select1>
-          <input ref="/D1.3/puntos/tipotendido/tendido_tipo_otro">
+          <input ref="/D1.3/puntos/tipotendido/tendido_otro">
             <label>Tipo Otros</label>
           </input>
-          <input ref="/D1.3/puntos/tipotendido/tendido_cap_disp">
+          <input ref="/D1.3/puntos/tipotendido/tendidoCapacidadDisp">
             <label>Capacidad Disponible</label>
             <hint>Capacidad Disponible [cantidad de ductos]</hint>
           </input>
-          <input ref="/D1.3/puntos/tipotendido/tendido_cap_util">
+          <input ref="/D1.3/puntos/tipotendido/tendidoCapacidadUtilizada">
             <label>Capacidad Utilizada</label>
             <hint>Capacidad Utilizada [cantidad de ductos]</hint>
           </input>

@@ -8,7 +8,7 @@
         <D1.31 id="D1.31">
           <caracteristicas>
             <plan/>
-            <modalid/>
+            <modalidad/>
           </caracteristicas>
           <abonoDatos>
             <abonoRecarga>
@@ -28,9 +28,9 @@
             <impuestos>
               <impuestosPorc/>
             </impuestos>
-            <observaciones>
-              <obs/>
-            </observaciones>
+            <obs>
+              <observaciones/>
+            </obs>
           </impOtros>
           <meta>
             <instanceID/>
@@ -38,7 +38,7 @@
         </D1.31>
       </instance>
       <bind nodeset="/D1.31/caracteristicas/plan" required="true()" type="string"/>
-      <bind nodeset="/D1.31/caracteristicas/modalid" required="true()" type="select1"/>
+      <bind nodeset="/D1.31/caracteristicas/modalidad" required="true()" type="select1"/>
       <bind nodeset="/D1.31/abonoDatos/abonoRecarga/abono" required="true()" type="string"/>
       <bind nodeset="/D1.31/abonoDatos/datos/datosIncuidos" required="true()" type="string"/>
       <bind nodeset="/D1.31/precios/kb" required="true()" type="string"/>
@@ -46,7 +46,7 @@
       <bind nodeset="/D1.31/precios/sms" required="true()" type="string"/>
       <bind nodeset="/D1.31/precios/minuto" required="true()" type="string"/>
       <bind nodeset="/D1.31/impOtros/impuestos/impuestosPorc" required="true()" type="string"/>
-      <bind nodeset="/D1.31/impOtros/observaciones/obs" required="true()" type="string"/>
+      <bind nodeset="/D1.31/impOtros/obs/observaciones" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.31/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -57,7 +57,7 @@
         <label>Nombre del Plan</label>
         <hint>Nombre del Plan</hint>
       </input>
-      <select1 appearance="minimal" ref="/D1.31/caracteristicas/modalid">
+      <select1 appearance="minimal" ref="/D1.31/caracteristicas/modalidad">
         <label>Modalidad</label>
         <hint>Modalidad</hint>
         <item>
@@ -121,9 +121,9 @@
           <hint>% impuestos</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/D1.31/impOtros/observaciones">
+      <group appearance="col2 well-white" ref="/D1.31/impOtros/obs">
         <label>Observaciones</label>
-        <input appearance="multiline" ref="/D1.31/impOtros/observaciones/obs">
+        <input appearance="multiline" ref="/D1.31/impOtros/obs/observaciones">
           <label>Observaciones</label>
           <hint>Observaciones</hint>
         </input>

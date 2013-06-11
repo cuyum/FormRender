@@ -12,18 +12,18 @@
               <partido/>
               <localidad/>
               <localidad_otro/>
-              <l_l>
-                <l_e/>
-                <l_s/>
-              </l_l>
-              <l_ldn>
-                <ldn_e/>
-                <ldn_s/>
-              </l_ldn>
-              <l_ldi>
-                <ldi_e/>
-                <ldi_s/>
-              </l_ldi>
+              <ll>
+                <llEntrante/>
+                <llSaliente/>
+              </ll>
+              <lldn>
+                <lldnEntrante/>
+                <lldnSaliente/>
+              </lldn>
+              <lldi>
+                <lldiEntrante/>
+                <lldiSaliente/>
+              </lldi>
             </mes>
           </meses>
           <meta>
@@ -35,12 +35,12 @@
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/D1.6/meses/mes/provincia" nodeset="/D1.6/meses/mes/partido" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/D1.6/meses/mes/partido" nodeset="/D1.6/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/D1.6/meses/mes/localidad_otro" relevant=" /D1.6/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.6/meses/mes/l_l/l_e" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.6/meses/mes/l_l/l_s" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.6/meses/mes/l_ldn/ldn_e" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.6/meses/mes/l_ldn/ldn_s" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.6/meses/mes/l_ldi/ldi_e" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.6/meses/mes/l_ldi/ldi_s" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.6/meses/mes/ll/llEntrante" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.6/meses/mes/ll/llSaliente" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.6/meses/mes/lldn/lldnEntrante" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.6/meses/mes/lldn/lldnSaliente" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.6/meses/mes/lldi/lldiEntrante" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.6/meses/mes/lldi/lldiSaliente" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.6/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -78,35 +78,35 @@
             <label>Localidad Otros</label>
             <hint>Localidad Otros</hint>
           </input>
-          <group appearance="col2 well-white" ref="/D1.6/meses/mes/l_l">
+          <group appearance="col2 well-white" ref="/D1.6/meses/mes/ll">
             <label>L-L</label>
-            <input ref="/D1.6/meses/mes/l_l/l_e">
+            <input ref="/D1.6/meses/mes/ll/llEntrante">
               <label>Entrante</label>
               <hint>Entrante [en miles]</hint>
             </input>
-            <input ref="/D1.6/meses/mes/l_l/l_s">
+            <input ref="/D1.6/meses/mes/ll/llSaliente">
               <label>Saliente</label>
               <hint>Saliente [en miles]</hint>
             </input>
           </group>
-          <group appearance="col2 well-white" ref="/D1.6/meses/mes/l_ldn">
+          <group appearance="col2 well-white" ref="/D1.6/meses/mes/lldn">
             <label>L-LDN</label>
-            <input ref="/D1.6/meses/mes/l_ldn/ldn_e">
+            <input ref="/D1.6/meses/mes/lldn/lldnEntrante">
               <label>Entrante</label>
               <hint>Entrante [en miles]</hint>
             </input>
-            <input ref="/D1.6/meses/mes/l_ldn/ldn_s">
+            <input ref="/D1.6/meses/mes/lldn/lldnSaliente">
               <label>Saliente</label>
               <hint>Saliente [en miles]</hint>
             </input>
           </group>
-          <group appearance="col2 well-white" ref="/D1.6/meses/mes/l_ldi">
+          <group appearance="col2 well-white" ref="/D1.6/meses/mes/lldi">
             <label>L-LDI</label>
-            <input ref="/D1.6/meses/mes/l_ldi/ldi_e">
+            <input ref="/D1.6/meses/mes/lldi/lldiEntrante">
               <label>Entrante</label>
               <hint>Entrante [en miles]</hint>
             </input>
-            <input ref="/D1.6/meses/mes/l_ldi/ldi_s">
+            <input ref="/D1.6/meses/mes/lldi/lldiSaliente">
               <label>Saliente</label>
               <hint>Saliente [en miles]</hint>
             </input>

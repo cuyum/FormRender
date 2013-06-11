@@ -12,9 +12,9 @@
               <partido/>
               <localidad/>
               <localidad_otro/>
-              <contratos_vigentes/>
-              <facturacion_papel/>
-              <facturacion_web/>
+              <contratosVigentes/>
+              <facturacionPapel/>
+              <facturacionWeb/>
             </mes>
           </meses>
           <meta>
@@ -26,9 +26,9 @@
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/D1.21/meses/mes/provincia" nodeset="/D1.21/meses/mes/partido" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/D1.21/meses/mes/partido" nodeset="/D1.21/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/D1.21/meses/mes/localidad_otro" relevant=" /D1.21/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.21/meses/mes/contratos_vigentes" required="true()" type="int"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.21/meses/mes/facturacion_papel" required="true()" type="int"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.21/meses/mes/facturacion_web" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.21/meses/mes/contratosVigentes" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.21/meses/mes/facturacionPapel" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.21/meses/mes/facturacionWeb" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.21/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -66,15 +66,15 @@
             <label>Localidad Otros</label>
             <hint>Localidad Otros</hint>
           </input>
-          <input ref="/D1.21/meses/mes/contratos_vigentes">
+          <input ref="/D1.21/meses/mes/contratosVigentes">
             <label>Contratos Vigentes</label>
             <hint>Contratos Vigentes</hint>
           </input>
-          <input ref="/D1.21/meses/mes/facturacion_papel">
+          <input ref="/D1.21/meses/mes/facturacionPapel">
             <label>Facturación Papel</label>
             <hint>Facturación Papel</hint>
           </input>
-          <input ref="/D1.21/meses/mes/facturacion_web">
+          <input ref="/D1.21/meses/mes/facturacionWeb">
             <label>Facturación Web</label>
             <hint>Facturación Web</hint>
           </input>
