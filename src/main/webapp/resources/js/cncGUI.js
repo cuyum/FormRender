@@ -63,14 +63,23 @@ var gui = new function(){
 				url: "/FormRender/rest/service/submit",
 				data: {"submit_data":JSON.stringify(message),"url": thisForm.attr("submit-url")},
 				success:function(data, statusStr, xhr){
-					if(data.result.type == "SUCESS"){
-						alert("Formulario guardado ("+data.result.type.id+").");
-					}else if(data.result.type == "ERROR"){
-						alert("Ha ocurrido un error en el servidor de persistencia<br/>"+data.result.msg1);
+					if(data.result && data.result.type){
+						if(data.result.type == "SUCESS"){
+							alert("Formulario guardado ("+data.result.type.id+").");
+						}else if(data.result.type == "ERROR"){
+							alert("Ha ocurrido un error en el servidor de persistencia<br/>"+data.result.msg1);
+						}else{
+							alert("Ha ocurrido un error no indicado en el servidor de persistencia");
+						}
 					}else{
-						alert("Ha ocurrido un error no indicado en el servidor de persistencia");
+						alert("Formulario guardado.");
+						if(!data.success){
+							console.group("ERROR REMOTO DETECTADO");
+							console.warn("Error:"+data.msg);
+							console.log("Objeto de respuesta",data.remote);
+							console.groupEnd();
+						}
 					}
-//					console.log(data);
 				},
 				error:function(xhr,statusStr,errorStr){
 					console.error("Error en submit:"+statusStr);

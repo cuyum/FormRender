@@ -66,7 +66,7 @@ public class RelayService {
 		try {
 			method = new HttpPost(url.toURI());
 			method.setEntity(new StringEntity(data, ContentType.APPLICATION_JSON));
-			method.setHeader("Accept", "2220");
+//			method.setHeader("Accept", "2220");
 		} catch (Exception e) {
 			log.error("No se pudo construir el request",e);
 		}

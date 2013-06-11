@@ -68,10 +68,11 @@ public class RelayRest {
 			@FormParam("url") String submit_url) {
 		
 		JSONObject response;
+		String remoteResponse = "";
 		try {
 			URL url = new URL(frp.getRemoteSubmissionHost()+submit_url);
 			
-			String remoteResponse = relay.submit(url, submit_data);
+			remoteResponse = relay.submit(url, submit_data);
 			response = new JSONObject(remoteResponse);
 			return response.toString();
 		}catch (MalformedURLException e){
@@ -79,9 +80,9 @@ public class RelayRest {
 			log.error(msg,e);
 			return "{\"success\":false,\"msg\": \""+msg+"\"}";
 		} catch (JSONException e) {
-			String msg = "No se pudo generar la respuesta json en relay service ya que el servicio ha respondido en un objeto JSON inv&aacute;lido";
+			String msg = "No se pudo generar la respuesta json en relay service ya que el servicio remoto ha respondido en un objeto JSON inv&aacute;lido";
 			log.error(msg,e);
-			return "{\"success\":false,\"msg\": \""+msg+"\"}";
+			return "{\"success\":false,\"msg\": \""+msg+"\",\"remote\":\""+remoteResponse+"\"}";
 		}
 	}
 	
