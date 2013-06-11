@@ -88,16 +88,16 @@ INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.31','Tarifas / Planes internet móvil','D1.031-V001-MAY13','D1.31.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.32','Tarifas / Servicios adicionales','D1.032-V001-MAY13','D1.32.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.33','Ingresos prestación de servicios / Abonos telefonía móvil','D1.033-V001-MAY13','D1.33.xml', 0);
--- INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.34','','D1.034-V001-MAY13','D1.34.xml', 0);
--- INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.35','','D1.035-V001-MAY13','D1.35.xml', 0);
--- INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.36','','D1.036-V001-MAY13','D1.36.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.34','Ingresos prestación de servicios / Tráfico telefonía móvil','D1.034-V001-MAY13','D1.34.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.35','Ingresos Interconexión','D1.035-V001-MAY13','D1.35.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.36','Otros ingresos','D1.036-V001-MAY13','D1.36.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.37','Ingresos por Provincia','D1.037-V001-MAY13','D1.37.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.38','Gastos en Personal','D1.038-V001-MAY13','D1.38.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.39','Otros Gastos','D1.039-V001-MAY13','D1.39.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.40','Costos de interconexión','D1.040-V001-MAY13','D1.40.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.41','Personal ocupado','D1.041-V001-MAY13','D1.41.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.42','Inversiones','D1.042-V001-MAY13','D1.42.xml', 0);
---INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.43','','D1.043-V001-MAY13','D1.43.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.43','Comercio exterior','D1.043-V001-MAY13','D1.43.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.44','Rentas','D1.044-V001-MAY13','D1.44.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.45','Financiamiento SU / Subsidios','D1.045-V001-MAY13','D1.45.xml', 0);
 

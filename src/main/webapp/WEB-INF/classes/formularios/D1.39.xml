@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario D1.39 - Otros Gastos</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.39 id="D1.39">
           <meses jr:template="">
@@ -32,7 +33,7 @@
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.39/meses/mes/costoEquipos" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.39/meses/mes/otrosComerciales" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.39/meses/mes/otrosFinancieros" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.39/meses/mes/otrosAdminist" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.39/meses/mes/otrosAdminist" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.39/meses/mes/total" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.39/meta/instanceID" readonly="true()" type="string"/>
     </model>
@@ -48,15 +49,15 @@
             <hint>I &amp; D [en miles de pesos]</hint>
           </input>
           <input ref="/D1.39/meses/mes/impuestos">
-            <label>lmpuestos</label>
-            <hint>lmp [en miles de pesos]</hint>
+            <label>lmp.</label>
+            <hint>lmpuestos [en miles de pesos]</hint>
           </input>
           <input ref="/D1.39/meses/mes/amortBienesUso">
-            <label>Amortización de Bienes de Uso</label>
-            <hint>Amortiz. de Bienes de uso [en miles de pesos]</hint>
+            <label>Amortización Bienes de Uso</label>
+            <hint>Amortización de Bienes de uso [en miles de pesos]</hint>
           </input>
           <input ref="/D1.39/meses/mes/amortIntangibles">
-            <label>Amortización de Intangibles</label>
+            <label>Amortiz. Intangibles</label>
             <hint>Amortización de Intangibles [en miles de pesos]</hint>
           </input>
           <input ref="/D1.39/meses/mes/publicidad">
@@ -64,8 +65,8 @@
             <hint>Publicidad [en miles de pesos]</hint>
           </input>
           <input ref="/D1.39/meses/mes/costoEquipos">
-            <label>Costo de Equipos</label>
-            <hint>Costo Equipos [en miles de pesos]</hint>
+            <label>Costo Equipos</label>
+            <hint>Costo de Equipos [en miles de pesos]</hint>
           </input>
           <input ref="/D1.39/meses/mes/otrosComerciales">
             <label>Otros Comerciales</label>

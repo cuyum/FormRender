@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario C1.6 - Clientes operativos (modalidad de contratación)</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.6 id="C1.6">
           <meses jr:template="">

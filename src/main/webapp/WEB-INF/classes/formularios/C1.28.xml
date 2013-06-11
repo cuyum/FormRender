@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario C1.28 - Ingresos</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.28 id="C1.28">
           <meses jr:template="">

@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario C1.20 - Calidad de servicio / Atención telefónica</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.20 id="C1.20">
           <meses jr:template="">

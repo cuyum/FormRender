@@ -3,6 +3,7 @@
   <h:head>
     <h:title>C1.15 - Tráfico hacia móviles (llamadas)</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.15 id="C1.15">
           <meses jr:template="">

@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario C1.48 - Costos de interconexión</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.48 id="C1.48">
           <meses jr:template="">

@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario C1.50 - Inversiones</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.50 id="C1.50">
           <meses jr:template="">

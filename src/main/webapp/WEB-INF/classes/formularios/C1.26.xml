@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario C1.26 - Tarifas / Planes</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.26 id="C1.26">
           <plan_plan jr:template="">

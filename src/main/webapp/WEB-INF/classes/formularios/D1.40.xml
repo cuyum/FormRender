@@ -3,37 +3,38 @@
   <h:head>
     <h:title>Formulario D1.40 - Costos de interconexión</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.40 id="D1.40">
           <meses jr:template="">
             <mes>
-              <red_movil>
-                <redFijaPrest1/>
-                <redFijaCosto1/>
-                <redFijaPrest2/>
-                <redFijaCosto2/>
-                <redFijaPrest3/>
-                <redFijaCosto3/>
-                <redFijaPrestOtros/>
-                <redFijaCostoOtros/>
-              </red_movil>
-              <red_fija>
-                <redMovilPrest1/>
+              <redMovil>
+                <redMovilProve1/>
                 <redMovilCosto1/>
-                <redMovilPrest2/>
+                <redMovilProve2/>
                 <redMovilCosto2/>
-                <redMovilPrest3/>
+                <redMovilProve3/>
                 <redMovilCosto3/>
-                <redMovilPrestOtros/>
+                <redMovilProveOtros/>
                 <redMovilCostoOtros/>
-              </red_fija>
+              </redMovil>
+              <redFija>
+                <redFijaProve1/>
+                <redFijaCosto1/>
+                <redFijaProve2/>
+                <redFijaCosto2/>
+                <redFijaProve3/>
+                <redFijaCosto3/>
+                <redFijaProveOtros/>
+                <redFijaCostoOtros/>
+              </redFija>
               <otros>
                 <mantenimiento/>
                 <otros/>
               </otros>
-              <total1>
+              <gtotal>
                 <total/>
-              </total1>
+              </gtotal>
             </mes>
           </meses>
           <meta>
@@ -41,25 +42,25 @@
           </meta>
         </D1.40>
       </instance>
-      <bind constraint="cuit" jr:constraintMsg="CUIT no válido" nodeset="/D1.40/meses/mes/red_movil/redFijaPrest1" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.40/meses/mes/red_movil/redFijaCosto1" required="true()" type="int"/>
-      <bind constraint="cuit" jr:constraintMsg="CUIT no válido" nodeset="/D1.40/meses/mes/red_movil/redFijaPrest2" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.40/meses/mes/red_movil/redFijaCosto2" required="true()" type="int"/>
-      <bind constraint="cuit" jr:constraintMsg="CUIT no válido" nodeset="/D1.40/meses/mes/red_movil/redFijaPrest3" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.40/meses/mes/red_movil/redFijaCosto3" required="true()" type="int"/>
-      <bind constraint="cuit" jr:constraintMsg="CUIT no válido" nodeset="/D1.40/meses/mes/red_movil/redFijaPrestOtros" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.40/meses/mes/red_movil/redFijaCostoOtros" required="true()" type="int"/>
-      <bind constraint="cuit" jr:constraintMsg="CUIT no válido" nodeset="/D1.40/meses/mes/red_fija/redMovilPrest1" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.40/meses/mes/red_fija/redMovilCosto1" required="true()" type="int"/>
-      <bind constraint="cuit" jr:constraintMsg="CUIT no válido" nodeset="/D1.40/meses/mes/red_fija/redMovilPrest2" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.40/meses/mes/red_fija/redMovilCosto2" required="true()" type="int"/>
-      <bind constraint="cuit" jr:constraintMsg="CUIT no válido" nodeset="/D1.40/meses/mes/red_fija/redMovilPrest3" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.40/meses/mes/red_fija/redMovilCosto3" required="true()" type="int"/>
-      <bind constraint="cuit" jr:constraintMsg="CUIT no válido" nodeset="/D1.40/meses/mes/red_fija/redMovilPrestOtros" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.40/meses/mes/red_fija/redMovilCostoOtros" required="true()" type="int"/>
+      <bind constraint="cuit" jr:constraintMsg="CUIT no válido" nodeset="/D1.40/meses/mes/redMovil/redMovilProve1" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.40/meses/mes/redMovil/redMovilCosto1" required="true()" type="int"/>
+      <bind constraint="cuit" jr:constraintMsg="CUIT no válido" nodeset="/D1.40/meses/mes/redMovil/redMovilProve2" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.40/meses/mes/redMovil/redMovilCosto2" required="true()" type="int"/>
+      <bind constraint="cuit" jr:constraintMsg="CUIT no válido" nodeset="/D1.40/meses/mes/redMovil/redMovilProve3" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.40/meses/mes/redMovil/redMovilCosto3" required="true()" type="int"/>
+      <bind constraint="cuit" jr:constraintMsg="CUIT no válido" nodeset="/D1.40/meses/mes/redMovil/redMovilProveOtros" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.40/meses/mes/redMovil/redMovilCostoOtros" required="true()" type="int"/>
+      <bind constraint="cuit" jr:constraintMsg="CUIT no válido" nodeset="/D1.40/meses/mes/redFija/redFijaProve1" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.40/meses/mes/redFija/redFijaCosto1" required="true()" type="int"/>
+      <bind constraint="cuit" jr:constraintMsg="CUIT no válido" nodeset="/D1.40/meses/mes/redFija/redFijaProve2" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.40/meses/mes/redFija/redFijaCosto2" required="true()" type="int"/>
+      <bind constraint="cuit" jr:constraintMsg="CUIT no válido" nodeset="/D1.40/meses/mes/redFija/redFijaProve3" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.40/meses/mes/redFija/redFijaCosto3" required="true()" type="int"/>
+      <bind constraint="cuit" jr:constraintMsg="CUIT no válido" nodeset="/D1.40/meses/mes/redFija/redFijaProveOtros" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.40/meses/mes/redFija/redFijaCostoOtros" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.40/meses/mes/otros/mantenimiento" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.40/meses/mes/otros/otros" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.40/meses/mes/total1/total" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.40/meses/mes/gtotal/total" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.40/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -69,74 +70,74 @@
       <repeat nodeset="/D1.40/meses">
         <group appearance="col1 well-white variable" ref="/D1.40/meses/mes">
           <label>{title}</label>
-          <group appearance="col2 well-white" ref="/D1.40/meses/mes/red_movil">
+          <group appearance="col2 well-white" ref="/D1.40/meses/mes/redMovil">
             <label>Costo interconexión a red móvil</label>
-            <input ref="/D1.40/meses/mes/red_movil/redFijaPrest1">
-              <label>Prestador</label>
-              <hint>Prestador 1</hint>
+            <input ref="/D1.40/meses/mes/redMovil/redMovilProve1">
+              <label>Proveedor</label>
+              <hint>Proveedor 1</hint>
             </input>
-            <input ref="/D1.40/meses/mes/red_movil/redFijaCosto1">
+            <input ref="/D1.40/meses/mes/redMovil/redMovilCosto1">
               <label>Costo</label>
               <hint>Costo 1 [en miles de pesos]</hint>
             </input>
-            <input ref="/D1.40/meses/mes/red_movil/redFijaPrest2">
-              <label>Prestador</label>
-              <hint>Prestador 2</hint>
+            <input ref="/D1.40/meses/mes/redMovil/redMovilProve2">
+              <label>Proveedor</label>
+              <hint>Proveedor 2</hint>
             </input>
-            <input ref="/D1.40/meses/mes/red_movil/redFijaCosto2">
+            <input ref="/D1.40/meses/mes/redMovil/redMovilCosto2">
               <label>Costo</label>
               <hint>Costo 2 [en miles de pesos]</hint>
             </input>
-            <input ref="/D1.40/meses/mes/red_movil/redFijaPrest3">
-              <label>Prestador</label>
-              <hint>Prestador 3</hint>
+            <input ref="/D1.40/meses/mes/redMovil/redMovilProve3">
+              <label>Proveedor</label>
+              <hint>Proveedor 3</hint>
             </input>
-            <input ref="/D1.40/meses/mes/red_movil/redFijaCosto3">
+            <input ref="/D1.40/meses/mes/redMovil/redMovilCosto3">
               <label>Costo</label>
               <hint>Costo 3 [en miles de pesos]</hint>
             </input>
-            <input ref="/D1.40/meses/mes/red_movil/redFijaPrestOtros">
-              <label>Prestador Otros</label>
-              <hint>Prestador Otros</hint>
+            <input ref="/D1.40/meses/mes/redMovil/redMovilProveOtros">
+              <label>Proveedor Otros</label>
+              <hint>Proveedor Otros</hint>
             </input>
-            <input ref="/D1.40/meses/mes/red_movil/redFijaCostoOtros">
-              <label>Costo Otros</label>
-              <hint>Costo Otros [en miles de pesos]</hint>
+            <input ref="/D1.40/meses/mes/redMovil/redMovilCostoOtros">
+              <label>Otros Costos</label>
+              <hint>Otros Costos [en miles de pesos]</hint>
             </input>
           </group>
-          <group appearance="col2 well-white" ref="/D1.40/meses/mes/red_fija">
+          <group appearance="col2 well-white" ref="/D1.40/meses/mes/redFija">
             <label>Costo interconexión a red fija</label>
-            <input ref="/D1.40/meses/mes/red_fija/redMovilPrest1">
-              <label>Prestador</label>
-              <hint>Prestador 1</hint>
+            <input ref="/D1.40/meses/mes/redFija/redFijaProve1">
+              <label>Proveedor</label>
+              <hint>Proveedor 1</hint>
             </input>
-            <input ref="/D1.40/meses/mes/red_fija/redMovilCosto1">
+            <input ref="/D1.40/meses/mes/redFija/redFijaCosto1">
               <label>Costo</label>
               <hint>Costo 1 [en miles de pesos]</hint>
             </input>
-            <input ref="/D1.40/meses/mes/red_fija/redMovilPrest2">
-              <label>Prestador</label>
-              <hint>Prestador 2</hint>
+            <input ref="/D1.40/meses/mes/redFija/redFijaProve2">
+              <label>Proveedor</label>
+              <hint>Proveedor 2</hint>
             </input>
-            <input ref="/D1.40/meses/mes/red_fija/redMovilCosto2">
+            <input ref="/D1.40/meses/mes/redFija/redFijaCosto2">
               <label>Costo</label>
               <hint>Costo 2 [en miles de pesos]</hint>
             </input>
-            <input ref="/D1.40/meses/mes/red_fija/redMovilPrest3">
-              <label>Prestador</label>
-              <hint>Prestador 3</hint>
+            <input ref="/D1.40/meses/mes/redFija/redFijaProve3">
+              <label>Proveedor</label>
+              <hint>Proveedor 3</hint>
             </input>
-            <input ref="/D1.40/meses/mes/red_fija/redMovilCosto3">
+            <input ref="/D1.40/meses/mes/redFija/redFijaCosto3">
               <label>Costo</label>
               <hint>Costo 3 [en miles de pesos]</hint>
             </input>
-            <input ref="/D1.40/meses/mes/red_fija/redMovilPrestOtros">
-              <label>Prestador Otros</label>
-              <hint>Prestador Otros</hint>
+            <input ref="/D1.40/meses/mes/redFija/redFijaProveOtros">
+              <label>Proveedor Otros</label>
+              <hint>Proveedor Otros</hint>
             </input>
-            <input ref="/D1.40/meses/mes/red_fija/redMovilCostoOtros">
-              <label>Costo Otros</label>
-              <hint>Costo Otros [en miles de pesos]</hint>
+            <input ref="/D1.40/meses/mes/redFija/redFijaCostoOtros">
+              <label>Otros Costos</label>
+              <hint>Otros Costos [en miles de pesos]</hint>
             </input>
           </group>
           <group appearance="col2 well-white" ref="/D1.40/meses/mes/otros">
@@ -149,8 +150,8 @@
               <hint>Otros [en miles de pesos]</hint>
             </input>
           </group>
-          <group appearance="col2 well-white" ref="/D1.40/meses/mes/total1">
-            <input ref="/D1.40/meses/mes/total1/total">
+          <group appearance="col2 well-white" ref="/D1.40/meses/mes/gtotal">
+            <input ref="/D1.40/meses/mes/gtotal/total">
               <label>Total</label>
               <hint>Total [en miles de pesos]</hint>
             </input>

@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario C1.17 - Calidad de servicio / Facturación</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.17 id="C1.17">
           <meses jr:template="">

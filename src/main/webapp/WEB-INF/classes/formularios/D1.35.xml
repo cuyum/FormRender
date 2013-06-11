@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario D1.35 - Ingresos interconexión</h:title>
+    <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <instance>
+        <D1.35 id="D1.35">
+          <meses jr:template="">
+            <mes>
+              <alquilerSitios/>
+              <cpp/>
+              <interconexionRFija/>
+              <interconexionRMovil/>
+              <otrosIngresosInterc/>
+              <total/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </D1.35>
+      </instance>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.35/meses/mes/alquilerSitios" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.35/meses/mes/cpp" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.35/meses/mes/interconexionRFija" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.35/meses/mes/interconexionRMovil" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.35/meses/mes/otrosIngresosInterc" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.35/meses/mes/total" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/D1.35/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/D1.35/meses">
+      <label></label>
+      <repeat nodeset="/D1.35/meses">
+        <group appearance="col4 well-white variable" ref="/D1.35/meses/mes">
+          <label>{title}</label>
+          <input ref="/D1.35/meses/mes/alquilerSitios">
+            <label>Alquiler de sitios</label>
+            <hint>Alquiler de sitios [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.35/meses/mes/cpp">
+            <label>CPP</label>
+            <hint>CPP [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.35/meses/mes/interconexionRFija">
+            <label>Interconexión operadores de red fija</label>
+            <hint>Interconexión operadores de red fija [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.35/meses/mes/interconexionRMovil">
+            <label>Interconexión operadores de red móvil</label>
+            <hint>Interconexión operadores de red móvil [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.35/meses/mes/otrosIngresosInterc">
+            <label>Otros ingresos interconexión</label>
+            <hint>Trunking [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.35/meses/mes/total">
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

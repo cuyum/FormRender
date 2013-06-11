@@ -3,35 +3,36 @@
   <h:head>
     <h:title>Formulario D1.42 - Inversiones</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.42 id="D1.42">
           <meses jr:template="">
             <mes>
-              <redes_de_acceso>
+              <redesAcceso>
                 <accesoFijo/>
                 <accesoMovil/>
-              </redes_de_acceso>
+              </redesAcceso>
               <transporte>
                 <transOptico/>
                 <transCobre/>
-                <transpRadioelectRadioenlaces/>
+                <transpRadioelecRadioenlaces/>
                 <transpRadioelecSatelital/>
               </transporte>
-              <obra_civil>
+              <obraCivil>
                 <oCivilRedTransporte/>
-                <oCivilRedInalambricas/>
+                <oCivilRedInalambrica/>
                 <oCivilRedAcceso/>
                 <oCivilPlantelExterior/>
-              </obra_civil>
+              </obraCivil>
               <equipamiento>
                 <equipRedesFijoyMovil/>
                 <equipInstalClientes/>
               </equipamiento>
               <software>
-                <s_administracion/>
-                <s_monitoreo/>
-                <s_mantenimiento/>
-                <s_nodo/>
+                <softAdministracion/>
+                <softMonitoreo/>
+                <softMantenimiento/>
+                <softNodoDatacenter/>
               </software>
               <licencias>
                 <licSoftware/>
@@ -49,22 +50,22 @@
           </meta>
         </D1.42>
       </instance>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/redes_de_acceso/accesoFijo" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/redes_de_acceso/accesoMovil" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/redesAcceso/accesoFijo" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/redesAcceso/accesoMovil" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/transporte/transOptico" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/transporte/transCobre" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/transporte/transpRadioelectRadioenlaces" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/transporte/transpRadioelecRadioenlaces" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/transporte/transpRadioelecSatelital" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/obra_civil/oCivilRedTransporte" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/obra_civil/oCivilRedInalambricas" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/obra_civil/oCivilRedAcceso" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/obra_civil/oCivilPlantelExterior" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/obraCivil/oCivilRedTransporte" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/obraCivil/oCivilRedInalambrica" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/obraCivil/oCivilRedAcceso" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/obraCivil/oCivilPlantelExterior" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/equipamiento/equipRedesFijoyMovil" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/equipamiento/equipInstalClientes" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/software/s_administracion" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/software/s_monitoreo" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/software/s_mantenimiento" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/software/s_nodo" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/software/softAdministracion" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/software/softMonitoreo" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/software/softMantenimiento" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/software/softNodoDatacenter" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/licencias/licSoftware" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/licencias/licHardware" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.42/meses/mes/licencias/licRegulatorias" required="true()" type="int"/>
@@ -81,14 +82,14 @@
       <repeat nodeset="/D1.42/meses">
         <group appearance="col1 well-white variable" ref="/D1.42/meses/mes">
           <label>{title}</label>
-          <group appearance="col1 well-white" ref="/D1.42/meses/mes/redes_de_acceso">
+          <group appearance="col1 well-white" ref="/D1.42/meses/mes/redesAcceso">
             <label>Redes de Acceso</label>
-            <input ref="/D1.42/meses/mes/redes_de_acceso/accesoFijo">
-              <label>Acceso Fijo</label>
+            <input ref="/D1.42/meses/mes/redesAcceso/accesoFijo">
+              <label>Fijo</label>
               <hint>Acceso Fijo [en miles de pesos]</hint>
             </input>
-            <input ref="/D1.42/meses/mes/redes_de_acceso/accesoMovil">
-              <label>Accesp Móvil</label>
+            <input ref="/D1.42/meses/mes/redesAcceso/accesoMovil">
+              <label>Móvil</label>
               <hint>Acceso Móvil [en miles de pesos]</hint>
             </input>
           </group>
@@ -102,38 +103,38 @@
               <label>Cobre</label>
               <hint>Transporte Cobre [en miles de pesos]</hint>
             </input>
-            <input ref="/D1.42/meses/mes/transporte/transpRadioelectRadioenlaces">
-              <label>Radioeléctrico Radioenlaces</label>
+            <input ref="/D1.42/meses/mes/transporte/transpRadioelecRadioenlaces">
+              <label>Radioeléctrico radioenlaces</label>
               <hint>Transporte Radioeléctrico. Radioenlaces [en miles de pesos]</hint>
             </input>
             <input ref="/D1.42/meses/mes/transporte/transpRadioelecSatelital">
-              <label>Radioeléctrico Satelital</label>
+              <label>Radioeléctrico satelital</label>
               <hint>Transporte Radioeléctrico. Satelital [en miles de pesos]</hint>
             </input>
           </group>
-          <group appearance="col2 well-white" ref="/D1.42/meses/mes/obra_civil">
+          <group appearance="col2 well-white" ref="/D1.42/meses/mes/obraCivil">
             <label>Obra Civil</label>
-            <input ref="/D1.42/meses/mes/obra_civil/oCivilRedTransporte">
-              <label>Redes de Transporte</label>
-              <hint>Obra Civil. Redes de Transporte [en miles de pesos]</hint>
+            <input ref="/D1.42/meses/mes/obraCivil/oCivilRedTransporte">
+              <label>Redes de transporte</label>
+              <hint>Obra Civil Redes de Transporte [en miles de pesos]</hint>
             </input>
-            <input ref="/D1.42/meses/mes/obra_civil/oCivilRedInalambricas">
-              <label>Redes Inalámbricas</label>
-              <hint>Obra Civil. Redes Inalámbricas [en miles de pesos]</hint>
+            <input ref="/D1.42/meses/mes/obraCivil/oCivilRedInalambrica">
+              <label>Redes inalámbricas</label>
+              <hint>Obra Civil Redes Inalámbricas [en miles de pesos]</hint>
             </input>
-            <input ref="/D1.42/meses/mes/obra_civil/oCivilRedAcceso">
-              <label>Redes de Acceso</label>
-              <hint>Obra Civil. Redes de Acceso [en miles de pesos]</hint>
+            <input ref="/D1.42/meses/mes/obraCivil/oCivilRedAcceso">
+              <label>Redes de acceso</label>
+              <hint>Obra Civil Redes de Acceso [en miles de pesos]</hint>
             </input>
-            <input ref="/D1.42/meses/mes/obra_civil/oCivilPlantelExterior">
-              <label>Plantel Exterior</label>
-              <hint>Obra Civil. Plantel Exterior [en miles de pesos]</hint>
+            <input ref="/D1.42/meses/mes/obraCivil/oCivilPlantelExterior">
+              <label>Plantel exterior</label>
+              <hint>Obra Civil Plantel Exterior [en miles de pesos]</hint>
             </input>
           </group>
           <group appearance="col1 well-white" ref="/D1.42/meses/mes/equipamiento">
             <label>Equipamiento</label>
             <input ref="/D1.42/meses/mes/equipamiento/equipRedesFijoyMovil">
-              <label>Redes de Transporte y acceso móvil y fijo</label>
+              <label>Redes de transporte y acceso fijo y móvil</label>
               <hint>Equipamiento asociado a las redes de transporte y acceso fijo y móvil [en miles de pesos]</hint>
             </input>
             <input ref="/D1.42/meses/mes/equipamiento/equipInstalClientes">
@@ -143,20 +144,20 @@
           </group>
           <group appearance="col2 well-white" ref="/D1.42/meses/mes/software">
             <label>Software</label>
-            <input ref="/D1.42/meses/mes/software/s_administracion">
+            <input ref="/D1.42/meses/mes/software/softAdministracion">
               <label>Administración de red</label>
               <hint>Software para administración de red [en miles de pesos]</hint>
             </input>
-            <input ref="/D1.42/meses/mes/software/s_monitoreo">
-              <label>Monitoreo y Control</label>
+            <input ref="/D1.42/meses/mes/software/softMonitoreo">
+              <label>Monitoreo y control</label>
               <hint>Software para Monitoreo y control [en miles de pesos]</hint>
             </input>
-            <input ref="/D1.42/meses/mes/software/s_mantenimiento">
+            <input ref="/D1.42/meses/mes/software/softMantenimiento">
               <label>Mantenimiento</label>
               <hint>Software para mantenimiento [en miles de pesos]</hint>
             </input>
-            <input ref="/D1.42/meses/mes/software/s_nodo">
-              <label>Nodo o Datacenter de Alojamiento</label>
+            <input ref="/D1.42/meses/mes/software/softNodoDatacenter">
+              <label>Nodo o Datacenter de alojamiento</label>
               <hint>Software para Nodo o Datacenter de Alojamiento [en miles de pesos]</hint>
             </input>
           </group>
@@ -176,11 +177,11 @@
             </input>
           </group>
           <input ref="/D1.42/meses/mes/infraestrAdmComercial">
-            <label>Infraestructura administrativa y comercial</label>
+            <label>Infraestructura administrativa / comercial</label>
             <hint>Infraestructura administrativa/comercial [en miles de pesos]</hint>
           </input>
           <input ref="/D1.42/meses/mes/desServUniversal">
-            <label>Desarrollo del Servicio Universal</label>
+            <label>Desarrollo del servicio universal</label>
             <hint>Desarrollo del Servicio Universal, conf Pto 10.1 f) Anexo I Dtoo. 764/2000 [en miles de pesos]</hint>
           </input>
           <input ref="/D1.42/meses/mes/otros">

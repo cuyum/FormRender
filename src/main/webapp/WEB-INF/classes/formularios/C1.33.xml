@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario C1.33 - Ingresos / Servicios especiales</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.33 id="C1.33">
           <meses jr:template="">

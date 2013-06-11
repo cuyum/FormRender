@@ -3,34 +3,36 @@
   <h:head>
     <h:title>Formulario D1.37 - Ingresos por Provincia</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.37 id="D1.37">
           <meses jr:template="">
             <mes>
               <caba/>
-              <buenos_Aires/>
+              <buenosAires/>
               <catamarca/>
               <chaco/>
               <chubut/>
               <cordoba/>
               <corrientes/>
-              <entre_rios/>
+              <entreRios/>
               <formosa/>
               <jujuy/>
-              <la_Pampa/>
-              <la_Rioja/>
+              <laPampa/>
+              <laRioja/>
               <mendoza/>
               <misiones/>
               <neuquen/>
-              <rio_Negro/>
+              <rioNegro/>
               <salta/>
-              <san_Juan/>
-              <san_Luis/>
-              <santa_Cruz/>
-              <santa_Fe/>
-              <santiago_Estero/>
-              <tierra_Fuego/>
+              <sanJuan/>
+              <sanLuis/>
+              <santaCruz/>
+              <santaFe/>
+              <santiagoDelEstero/>
+              <tierraDelFuego/>
               <tucuman/>
+              <total/>
             </mes>
           </meses>
           <meta>
@@ -39,29 +41,30 @@
         </D1.37>
       </instance>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/caba" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/buenos_Aires" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/buenosAires" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/catamarca" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/chaco" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/chubut" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/cordoba" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/corrientes" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/entre_rios" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/entreRios" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/formosa" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/jujuy" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/la_Pampa" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/la_Rioja" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/laPampa" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/laRioja" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/mendoza" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/misiones" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/neuquen" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/rio_Negro" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/rioNegro" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/salta" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/san_Juan" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/san_Luis" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/santa_Cruz" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/santa_Fe" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/santiago_Estero" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/tierra_Fuego" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/sanJuan" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/sanLuis" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/santaCruz" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/santaFe" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/santiagoDelEstero" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/tierraDelFuego" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/tucuman" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.37/meses/mes/total" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.37/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -75,7 +78,7 @@
             <label>CABA</label>
             <hint>CABA [en miles de pesos]</hint>
           </input>
-          <input ref="/D1.37/meses/mes/buenos_Aires">
+          <input ref="/D1.37/meses/mes/buenosAires">
             <label>Buenos Aires</label>
             <hint>Buenos Aires [en miles de pesos]</hint>
           </input>
@@ -99,7 +102,7 @@
             <label>Corrientes</label>
             <hint>Corrientes [en miles de pesos]</hint>
           </input>
-          <input ref="/D1.37/meses/mes/entre_rios">
+          <input ref="/D1.37/meses/mes/entreRios">
             <label>Entre Ríos</label>
             <hint>Entre Ríos [en miles de pesos]</hint>
           </input>
@@ -111,11 +114,11 @@
             <label>Jujuy</label>
             <hint>Jujuy [en miles de pesos]</hint>
           </input>
-          <input ref="/D1.37/meses/mes/la_Pampa">
+          <input ref="/D1.37/meses/mes/laPampa">
             <label>La Pampa</label>
             <hint>La Pampa [en miles de pesos]</hint>
           </input>
-          <input ref="/D1.37/meses/mes/la_Rioja">
+          <input ref="/D1.37/meses/mes/laRioja">
             <label>La Rioja</label>
             <hint>La Rioja [en miles de pesos]</hint>
           </input>
@@ -131,7 +134,7 @@
             <label>Neuquén</label>
             <hint>Neuquén [en miles de pesos]</hint>
           </input>
-          <input ref="/D1.37/meses/mes/rio_Negro">
+          <input ref="/D1.37/meses/mes/rioNegro">
             <label>Río Negro</label>
             <hint>Río Negro [en miles de pesos]</hint>
           </input>
@@ -139,33 +142,37 @@
             <label>Salta</label>
             <hint>Salta [en miles de pesos]</hint>
           </input>
-          <input ref="/D1.37/meses/mes/san_Juan">
+          <input ref="/D1.37/meses/mes/sanJuan">
             <label>San Juan</label>
             <hint>San Juan [en miles de pesos]</hint>
           </input>
-          <input ref="/D1.37/meses/mes/san_Luis">
+          <input ref="/D1.37/meses/mes/sanLuis">
             <label>San Luis</label>
             <hint>San Luis [en miles de pesos]</hint>
           </input>
-          <input ref="/D1.37/meses/mes/santa_Cruz">
+          <input ref="/D1.37/meses/mes/santaCruz">
             <label>Santa Cruz</label>
             <hint>Santa Cruz [en miles de pesos]</hint>
           </input>
-          <input ref="/D1.37/meses/mes/santa_Fe">
+          <input ref="/D1.37/meses/mes/santaFe">
             <label>Santa Fe</label>
             <hint>Santa Fe [en miles de pesos]</hint>
           </input>
-          <input ref="/D1.37/meses/mes/santiago_Estero">
+          <input ref="/D1.37/meses/mes/santiagoDelEstero">
             <label>Santiago del Estero</label>
             <hint>Santiago del Estero [en miles de pesos]</hint>
           </input>
-          <input ref="/D1.37/meses/mes/tierra_Fuego">
+          <input ref="/D1.37/meses/mes/tierraDelFuego">
             <label>Tierra del Fuego</label>
             <hint>Tierra del Fuego [en miles de pesos]</hint>
           </input>
           <input ref="/D1.37/meses/mes/tucuman">
             <label>Tucumán</label>
             <hint>Tucumán [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.37/meses/mes/total">
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
           </input>
         </group>
       </repeat>

@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario C1.24 - Tarifas / Precio minuto servicios especiales</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.24 id="C1.24">
           <precio>

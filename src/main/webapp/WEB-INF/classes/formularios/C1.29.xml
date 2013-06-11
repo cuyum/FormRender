@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario C1.29 - Ingresos / Totales telefonía local por provincia</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.29 id="C1.29">
           <meses jr:template="">

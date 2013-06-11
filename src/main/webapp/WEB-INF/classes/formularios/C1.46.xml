@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario C1.46 - Gastos en Personal</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.46 id="C1.46">
           <meses jr:template="">

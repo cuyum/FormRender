@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario C1.41 - Ingresos interconexióon a la red fija - larga distancia nacional a 3°</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.41 id="C1.41">
           <meses jr:template="">

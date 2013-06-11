@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario C1.52 - Rentas</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.52 id="C1.52">
           <rentas>

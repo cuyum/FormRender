@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario C1.11 - Tráfico I (en minutos)</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.11 id="C1.11">
           <meses jr:template="">

@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario C1.23 - Tarifas / Precio minuto de comunicación telefonía fija</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.23 id="C1.23">
           <minuto_mlu_pos>

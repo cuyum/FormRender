@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario D1.41 - Personal ocupado</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.41 id="D1.41">
           <meses jr:template="">
@@ -16,8 +17,8 @@
           </meta>
         </D1.41>
       </instance>
-      <bind constraint="mask=99999" jr:constraintMsg="Datos no válidos" nodeset="/D1.41/meses/mes/hombres" required="true()" type="int"/>
-      <bind constraint="mask=99999" jr:constraintMsg="Datos no válidos" nodeset="/D1.41/meses/mes/mujeres" required="true()" type="int"/>
+      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.41/meses/mes/hombres" required="true()" type="int"/>
+      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.41/meses/mes/mujeres" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.41/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -25,7 +26,7 @@
     <group ref="/D1.41/meses">
       <label></label>
       <repeat nodeset="/D1.41/meses">
-        <group appearance="col1 well-white variable" ref="/D1.41/meses/mes">
+        <group appearance="col4 well-white variable" ref="/D1.41/meses/mes">
           <label>{title}</label>
           <input ref="/D1.41/meses/mes/hombres">
             <label>Hombres</label>

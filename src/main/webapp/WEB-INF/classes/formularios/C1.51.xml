@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario C1.51 - Comercio exterior</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.51 id="C1.51">
           <meses jr:template="">

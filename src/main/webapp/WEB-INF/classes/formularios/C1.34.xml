@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario C1.34 - Ingresos / Tráfico horario normal</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.34 id="C1.34">
           <meses jr:template="">

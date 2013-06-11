@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario C1.45 - Ingresos interconexion a la red fija - LDI a vinculadas</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.45 id="C1.45">
           <meses jr:template="">

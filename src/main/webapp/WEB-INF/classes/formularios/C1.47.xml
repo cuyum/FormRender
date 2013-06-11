@@ -3,6 +3,7 @@
   <h:head>
     <h:title>Formulario C1.47 - Otros Gastos</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.47 id="C1.47">
           <meses jr:template="">

@@ -3,17 +3,18 @@
   <h:head>
     <h:title>Formulario D1.33 - Ingresos prestación de servicios / Abonos telefonía móvil</h:title>
     <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.33 id="D1.33">
           <meses jr:template="">
             <mes>
-              <conexion/>
-              <pospagos/>
-              <mixtos/>
-              <abonos/>
-              <gastos/>
+              <cargosConexion/>
+              <abonosPospagos/>
+              <abonosMixtos/>
+              <otrosAbonos/>
+              <gastosAdminist/>
               <seguros/>
-              <reconexion/>
+              <cargosReconexion/>
               <otros/>
               <total/>
             </mes>
@@ -23,13 +24,13 @@
           </meta>
         </D1.33>
       </instance>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/conexion" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/pospagos" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/mixtos" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/abonos" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/gastos" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/cargosConexion" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/abonosPospagos" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/abonosMixtos" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/otrosAbonos" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/gastosAdminist" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/seguros" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/reconexion" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/cargosReconexion" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/otros" required="true()" type="int"/>
       <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.33/meses/mes/total" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.33/meta/instanceID" readonly="true()" type="string"/>
@@ -41,23 +42,23 @@
       <repeat nodeset="/D1.33/meses">
         <group appearance="col4 well-white variable" ref="/D1.33/meses/mes">
           <label>{title}</label>
-          <input ref="/D1.33/meses/mes/conexion">
+          <input ref="/D1.33/meses/mes/cargosConexion">
             <label>Cargos de Conexión</label>
-            <hint>Cargos de Conexión [en miles de pesos]</hint>
+            <hint>Cargos de conexión [en miles de pesos]</hint>
           </input>
-          <input ref="/D1.33/meses/mes/pospagos">
+          <input ref="/D1.33/meses/mes/abonosPospagos">
             <label>Abonos Pospagos</label>
             <hint>Abonos Pospagos [en miles de pesos]</hint>
           </input>
-          <input ref="/D1.33/meses/mes/mixtos">
+          <input ref="/D1.33/meses/mes/abonosMixtos">
             <label>Abonos Mixtos</label>
             <hint>Abonos Mixtos [en miles de pesos]</hint>
           </input>
-          <input ref="/D1.33/meses/mes/abonos">
+          <input ref="/D1.33/meses/mes/otrosAbonos">
             <label>Otros Abonos / Servicios</label>
             <hint>Otros Abonos / Servicios [en miles de pesos]</hint>
           </input>
-          <input ref="/D1.33/meses/mes/gastos">
+          <input ref="/D1.33/meses/mes/gastosAdminist">
             <label>Gastos Administrativos</label>
             <hint>Gastos Administrativos [en miles de pesos]</hint>
           </input>
@@ -65,7 +66,7 @@
             <label>Seguros</label>
             <hint>Seguros [en miles de pesos]</hint>
           </input>
-          <input ref="/D1.33/meses/mes/reconexion">
+          <input ref="/D1.33/meses/mes/cargosReconexion">
             <label>Cargos de Reconexión / Rehabilitación</label>
             <hint>Cargos de Reconexión / Rehabilitación [en miles de pesos]</hint>
           </input>
