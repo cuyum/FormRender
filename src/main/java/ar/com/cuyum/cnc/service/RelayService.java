@@ -13,6 +13,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.entity.ContentType;
@@ -41,12 +42,23 @@ public class RelayService {
 		return performSubmission(remoteUrl,data);
 	}
 	
+	public String retrieve(URL remoteUrl){
+		return performRetrieval(remoteUrl);
+	}
+	
 	public String request(URL remoteUrl, String fkey){
 		return performRequest(remoteUrl,fkey);
 	}
-	
+
 	private String performSubmission(URL url,String data){
 		HttpPost request = buildSubmission(url,data);
+		HttpResponse rawResponse = execute(request);
+		String responseStr = processResponse(rawResponse);
+		return responseStr;
+	}
+	
+	private String performRetrieval(URL url){
+		HttpGet request = buildRetrieval(url);
 		HttpResponse rawResponse = execute(request);
 		String responseStr = processResponse(rawResponse);
 		return responseStr;
@@ -66,7 +78,16 @@ public class RelayService {
 		try {
 			method = new HttpPost(url.toURI());
 			method.setEntity(new StringEntity(data, ContentType.APPLICATION_JSON));
-//			method.setHeader("Accept", "2220");
+		} catch (Exception e) {
+			log.error("No se pudo construir el request",e);
+		}
+		return method;
+	}
+	
+	private final HttpGet buildRetrieval(URL url) {
+		HttpGet method = null;
+		try {
+			method = new HttpGet(url.toURI());
 		} catch (Exception e) {
 			log.error("No se pudo construir el request",e);
 		}

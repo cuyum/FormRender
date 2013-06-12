@@ -17,8 +17,6 @@ var gui = new function(){
 				var dataList = [];
 				for ( var i = 0; i < dl.length; i++) {
 					var data = dl[i];
-					if(data["instance"]!=undefined)
-						delete data["instance"];
 					if(data["values"] != undefined)
 						delete data["values"];
 					if(data["fields"] != undefined)
@@ -63,17 +61,18 @@ var gui = new function(){
 				url: "/FormRender/rest/service/submit",
 				data: {"submit_data":JSON.stringify(message),"url": thisForm.attr("submit-url")},
 				success:function(data, statusStr, xhr){
+					console.info(data);
 					if(data.result && data.result.type){
-						if(data.result.type == "SUCESS"){
-							alert("Formulario guardado ("+data.result.type.id+").");
+						if(data.result.type == "SUCCESS"){
+							alert("Formulario guardado ("+data.result.id+").");
 						}else if(data.result.type == "ERROR"){
-							alert("Ha ocurrido un error en el servidor de persistencia<br/>"+data.result.msg1);
+							alert("Ha ocurrido un error en el servidor de persistencia<br/>"+data.result.msg);
 						}else{
 							alert("Ha ocurrido un error no indicado en el servidor de persistencia");
 						}
 					}else{
-						alert("Formulario guardado.");
 						if(!data.success){
+							alert("Error Remoto, contacte a su administrador.");
 							console.group("ERROR REMOTO DETECTADO");
 							console.warn("Error:"+data.msg);
 							console.log("Objeto de respuesta",data.remote);
@@ -82,6 +81,7 @@ var gui = new function(){
 					}
 				},
 				error:function(xhr,statusStr,errorStr){
+					alert("Error Remoto, contacte a su administrador.");
 					console.error("Error en submit:"+statusStr);
 				}
 			});
@@ -144,7 +144,7 @@ var gui = new function(){
 		return ancestor;
 	};
 	this.getCleanFieldName = function(fullName,fieldsetInstance){
-		if(fieldsetInstance && !isNaN(fieldsetInstance)){
+		if(fieldsetInstance!=undefined && !isNaN(fieldsetInstance)){
 			fullName = fullName.replace("_"+fieldsetInstance,"");
 		}
 		if(fullName && fullName.trim()!=""){
@@ -172,6 +172,37 @@ var gui = new function(){
 			}
 		}
 	};
+	this.completeWithDelay = function(record,j,fields,delay){
+		var delayTime = delay || 1000;
+		var field = $(fields[j]);
+		console.log("RECORD:",record);
+		console.log("CAMPOS:",fields);
+		console.log("CAMPO:",field);
+		console.log("Iteracion:",(j+1));
+		var fieldCleanName = gui.getCleanFieldName(field.attr("name"),record.instance);
+		if (!field.is("select")) {
+			delayTime = 0;
+		}
+		setTimeout(function() {
+			console.log(fields,fieldCleanName);
+			if (field.is("select")){
+				console.log(fieldCleanName,record[fieldCleanName].value);
+				field.val(record[fieldCleanName].value);
+			}else { 
+				console.log(fieldCleanName,record[fieldCleanName]);
+				field.val(record[fieldCleanName]);
+			}
+			field.trigger("change");
+			
+			j++;
+			if (j < fields.length) {
+				gui.completeWithDelay(record,j, fields, delayTime);
+			}else{
+				$("#unblockable").remove();
+				$.unblockUI();
+			}
+		}, delayTime);
+	};
 	this.grid = {
 		editing : -1,
 		headers : [],
@@ -183,6 +214,9 @@ var gui = new function(){
 			instance:-1
 		},
 		element : $('<table id="repeat-grid" class="table table-striped"></table>'),
+		processRawRecord : function(rawRecord){
+			
+		},
 		getRowData : function(rowIndex){
 			return this.element.dataTable().fnGetData(rowIndex);
 		},
@@ -192,33 +226,11 @@ var gui = new function(){
 				var rowIndex =  gui.grid.element.dataTable().fnGetPosition($(evt.target).closest('tr').get(0));
 				var record = gui.grid.getRowData(rowIndex);
 				var fields = gui.fieldsets[record.instance].fields;
-				
 				$.blockUI({message:"Cargando...<br>Espere por favor..."});
 				var unblock = $("<span id='unblockable'/>");
 				unblock.appendTo("body");
 				
-				function loopWithDelay(i, fields) {
-					var delayTime = 1000;
-					var field = $(fields[i]);
-					if (!field.is("select")) {
-						delayTime = 0;
-					}
-					setTimeout(function() {
-						field.val(record.values[i]);
-						field.trigger("change");
-
-						i++;
-						if (i < fields.length) {
-							loopWithDelay(i, fields, delayTime);
-						}else{
-							$("#unblockable").remove();
-							$.unblockUI();
-						}
-					}, delayTime);
-				}
-				
-				loopWithDelay(0,fields);
-				
+				gui.completeWithDelay(record,0,fields);
 				
 				for ( var i = 0; i < fields.length; i++) {
 					var field = $(fields[i]);
@@ -236,13 +248,12 @@ var gui = new function(){
 			var fieldset = gui.fieldsets[fieldsetInstance];
 			
 			var record = $.extend(true,{},this.model);
-			console.log(record);
 			if(gui.repeatCount && gui.repeatCount>1) 	record.item = fieldset.title;
 			var commit = true; 
 			for ( var i = 0; i < fieldset.fields.length; i++) {
 				var field =$(fieldset.fields[i]);
 				var attribute = gui.getCleanFieldName(field.attr("name"),fieldsetInstance);
-				record.fields.push(field.attr("name"));
+//				record.fields.push(field.attr("name"));
 				if(field.is(":visible")){
 					var value = field.val();
 					if(value!=undefined && value!=null && $(gui.form).validate().element(field)){
@@ -252,7 +263,7 @@ var gui = new function(){
 						}else{
 							record[attribute] = value;
 						}
-						record.values.push(value);
+//						record.values.push(value);
 					} else {
 						commit = false;
 						break;
@@ -280,6 +291,10 @@ var gui = new function(){
 				}
 				this.setupEditClck();
 			}
+		},
+		addRows : function(dataArray){
+			this.element.dataTable().fnAddData(dataArray,true);
+			this.setupEditClck();
 		},
 		/**
 		 * Call grid render function after building Form.fieldsets with repeat parent fieldset 

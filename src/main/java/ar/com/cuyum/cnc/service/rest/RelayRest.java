@@ -9,9 +9,11 @@ import java.net.URL;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.FormParam;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 
 import org.apache.log4j.Logger;
 import org.primefaces.json.JSONException;
@@ -73,6 +75,7 @@ public class RelayRest {
 			URL url = new URL(frp.getRemoteSubmissionHost()+submit_url);
 			
 			remoteResponse = relay.submit(url, submit_data);
+			log.info(remoteResponse);
 			response = new JSONObject(remoteResponse);
 			return response.toString();
 		}catch (MalformedURLException e){
@@ -83,6 +86,24 @@ public class RelayRest {
 			String msg = "No se pudo generar la respuesta json en relay service ya que el servicio remoto ha respondido en un objeto JSON inv&aacute;lido";
 			log.error(msg,e);
 			return "{\"success\":false,\"msg\": \""+msg+"\",\"remote\":\""+remoteResponse+"\"}";
+		}
+	}
+	
+	@GET
+	@Path("/retrieve")
+	@Produces("application/json")
+	public String retrieve(@QueryParam("recordId") String recordId) {
+		
+		String remoteResponse = "";
+		try {
+			URL url = new URL(frp.getRemoteSubmissionHost()+"/api/deposition/draft/"+recordId);
+			
+			remoteResponse = relay.retrieve(url);
+			return remoteResponse;
+		}catch (MalformedURLException e){
+			String msg = "No se pudo generar la petici&oacute;n con relay service ya que la URL suministrada es inv&aacute;lida";
+			log.error(msg,e);
+			return "{\"success\":false,\"msg\": \""+msg+"\"}";
 		}
 	}
 	
