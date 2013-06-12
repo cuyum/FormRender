@@ -93,7 +93,7 @@ public class TransformationService {
 //		StringWriter resultData = new StringWriter();
 		
 		// Create a transformer for the stylesheet.
-		Transformer transformerForm = tfactory.newTransformer(new StreamSource(new InputStreamReader(loadXsl(XSL_FORM),"UTF-8")));
+		Transformer transformerForm = tfactory.newTransformer(new StreamSource(new InputStreamReader(loadXsl(XSL_FORM),"UTF8")));
 		
 		// Create a transformer for the stylesheet.
 //		Transformer transformerData = tfactory.newTransformer(new StreamSource(new InputStreamReader(loadXsl(XSL_DATA),"UTF-8")));
@@ -106,7 +106,7 @@ public class TransformationService {
 		
 		// Transform the source XML to System.out.
 //		transformerData.transform(new StreamSource(new InputStreamReader(xmlStreamData),"UTF-8"),  new StreamResult(resultData));
-		transformerForm.transform(new StreamSource(new InputStreamReader(xmlStreamForm),"UTF-8"),  new StreamResult(resultForm));
+		transformerForm.transform(new StreamSource(new InputStreamReader(xmlStreamForm),"UTF8"),  new StreamResult(resultForm));
 		
 //		return "<root>"+resultData.toString()+resultForm.toString()+"</root>";
 		return resultForm.toString();
