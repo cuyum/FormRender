@@ -4,24 +4,24 @@
   	
   	
   	
-  	  	<persistence-unit name="administracion">
+<!--   	  	<persistence-unit name="administracion"> -->
 		
-		<jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source>
-		<properties>
-			
-			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
-			<property name="hibernate.show_sql" value="false" />
-		</properties>
-	</persistence-unit>
-
-<!-- <persistence-unit name="administracion"> -->
-<!-- 		<provider>org.hibernate.ejb.HibernatePersistence</provider> -->
-<!-- 		<jta-data-source>java:jboss/datasources/FormRenderDS</jta-data-source> -->
+<!-- 		<jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source> -->
 <!-- 		<properties> -->
-<!-- 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" /> -->
-<!-- 			<property name="hibernate.hbm2ddl.auto" value="create"/> -->
-<!--          	<property name="hibernate.show_sql" value="false"/> -->
-<!--          	<property name="hibernate.format_sql" value="true"/> -->
-<!--      	</properties> -->
-<!-- 	</persistence-unit>	  -->
+			
+<!-- 			<property name="hibernate.hbm2ddl.auto" value="create-drop" /> -->
+<!-- 			<property name="hibernate.show_sql" value="false" /> -->
+<!-- 		</properties> -->
+<!-- 	</persistence-unit> -->
+
+<persistence-unit name="administracion">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:jboss/datasources/FormRenderDS</jta-data-source>
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="create"/>
+         	<property name="hibernate.show_sql" value="false"/>
+         	<property name="hibernate.format_sql" value="true"/>
+     	</properties>
+	</persistence-unit>	 
 </persistence>
