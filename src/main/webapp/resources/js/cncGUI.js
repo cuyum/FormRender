@@ -34,12 +34,9 @@ var gui = new function(){
 				thisForm.valid();
 			}
 		}else{
-			console.log("Traversing DOM");
 			if(thisForm.valid()){
-				console.info("Form is valid");
 				var data = [];
 				for ( var i = 0; i < gui.fieldsets.length; i++) {
-					console.log(gui.fieldsets[i].fields.length +" fields");
 					var kvpair = {};
 					for ( var j = 0; j < gui.fieldsets[i].fields.length; j++) {
 						var field = $(gui.fieldsets[i].fields[j]);
@@ -61,10 +58,13 @@ var gui = new function(){
 				url: "/FormRender/rest/service/submit",
 				data: {"submit_data":JSON.stringify(message),"url": thisForm.attr("submit-url")},
 				success:function(data, statusStr, xhr){
-					console.info(data);
 					if(data.result && data.result.type){
 						if(data.result.type == "SUCCESS"){
 							alert("Formulario guardado ("+data.result.id+").");
+							gui.form.reset();
+							if(gui.renderGrid){
+								gui.grid.element.dataTable().fnClearTable();
+							}
 						}else if(data.result.type == "ERROR"){
 							alert("Ha ocurrido un error en el servidor de persistencia<br/>"+data.result.msg);
 						}else{
