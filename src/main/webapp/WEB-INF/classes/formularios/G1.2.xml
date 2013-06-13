@@ -1,0 +1,277 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario G1.2 - Redes e Infraestructura</h:title>
+    <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <instance>
+        <G1.2 id="G1.2">
+          <puntos jr:template="">
+            <ubicacion>
+              <provincia/>
+              <partido/>
+              <localidad/>
+              <localidad_otro/>
+              <area/>
+              <area_otro/>
+            </ubicacion>
+            <equipamiento>
+              <tecnologia/>
+              <equipamiento_tecn_otro/>
+              <equipamiento_cap_disp/>
+              <equipamiento_cap_util/>
+            </equipamiento>
+            <tipomedio>
+              <medio/>
+              <medio_tipo_otro/>
+              <medio_cap_disp/>
+              <medio_cap_util/>
+            </tipomedio>
+            <tipotendido>
+              <tendido/>
+              <tendido_tipo_otro/>
+              <tendido_cap_disp/>
+              <tendido_cap_util/>
+            </tipotendido>
+            <ubicacion1>
+              <provincia1/>
+              <partido1/>
+              <localidad1/>
+              <localidad1_otro/>
+              <area1/>
+              <area1_otro/>
+            </ubicacion1>
+          </puntos>
+          <meta>
+            <instanceID/>
+          </meta>
+        </G1.2>
+      </instance>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/G1.2/puntos/ubicacion/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/G1.2/puntos/ubicacion/provincia" nodeset="/G1.2/puntos/ubicacion/partido" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/G1.2/puntos/ubicacion/partido" nodeset="/G1.2/puntos/ubicacion/localidad" required="true()" type="select1"/>
+      <bind nodeset="/G1.2/puntos/ubicacion/localidad_otro" relevant=" /G1.2/puntos/ubicacion/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/G1.2/puntos/ubicacion/localidad" nodeset="/G1.2/puntos/ubicacion/area" required="true()" type="select1"/>
+      <bind nodeset="/G1.2/puntos/ubicacion/area_otro" relevant=" /G1.2/puntos/ubicacion/area =9999" required="true()" type="string"/>
+      <bind nodeset="/G1.2/puntos/equipamiento/tecnologia" required="true()" type="select1"/>
+      <bind nodeset="/G1.2/puntos/equipamiento/equipamiento_tecn_otro" relevant=" /G1.2/puntos/equipamiento/tecnologia =Otros" required="true()" type="string"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/G1.2/puntos/equipamiento/equipamiento_cap_disp" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/G1.2/puntos/equipamiento/equipamiento_cap_util" required="true()" type="decimal"/>
+      <bind nodeset="/G1.2/puntos/tipomedio/medio" required="true()" type="select1"/>
+      <bind nodeset="/G1.2/puntos/tipomedio/medio_tipo_otro" relevant=" /G1.2/puntos/tipomedio/medio =Otros" required="true()" type="string"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/G1.2/puntos/tipomedio/medio_cap_disp" relevant=" /G1.2/puntos/tipomedio/medio =FO" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/G1.2/puntos/tipomedio/medio_cap_util" relevant=" /G1.2/puntos/tipomedio/medio =FO" required="true()" type="decimal"/>
+      <bind nodeset="/G1.2/puntos/tipotendido" relevant=" /G1.2/puntos/tipomedio/medio =FO or  /G1.2/puntos/tipomedio/medio =Otros"/>
+      <bind nodeset="/G1.2/puntos/tipotendido/tendido" relevant=" /G1.2/puntos/tipomedio/medio =FO or  /G1.2/puntos/tipomedio/medio =Otros" required="true()" type="select1"/>
+      <bind nodeset="/G1.2/puntos/tipotendido/tendido_tipo_otro" relevant=" /G1.2/puntos/tipotendido/tendido =Otros" required="true()" type="string"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/G1.2/puntos/tipotendido/tendido_cap_disp" relevant=" /G1.2/puntos/tipomedio/medio =FO" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/G1.2/puntos/tipotendido/tendido_cap_util" relevant=" /G1.2/puntos/tipomedio/medio =FO" required="true()" type="decimal"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/G1.2/puntos/ubicacion1/provincia1" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/C1.3/puntos/ubicacion1/provincia1" nodeset="/G1.2/puntos/ubicacion1/partido1" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/C1.3/puntos/ubicacion1/partido1" nodeset="/G1.2/puntos/ubicacion1/localidad1" required="true()" type="select1"/>
+      <bind nodeset="/G1.2/puntos/ubicacion1/localidad1_otro" relevant=" /G1.2/puntos/ubicacion1/localidad1 =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C1.3/puntos/ubicacion1/localidad1" nodeset="/G1.2/puntos/ubicacion1/area1" required="true()" type="select1"/>
+      <bind nodeset="/G1.2/puntos/ubicacion1/area1_otro" relevant=" /G1.2/puntos/ubicacion1/area1 =9999" required="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/G1.2/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/G1.2/puntos">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/G1.2/puntos">
+        <group appearance="col4 well-white" ref="/G1.2/puntos/ubicacion">
+          <label>Ubicación</label>
+          <select1 appearance="minimal" ref="/G1.2/puntos/ubicacion/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/G1.2/puntos/ubicacion/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/G1.2/puntos/ubicacion/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/G1.2/puntos/ubicacion/localidad_otro">
+            <label>Localidad Otros</label>
+          </input>
+          <select1 appearance="minimal" ref="/G1.2/puntos/ubicacion/area">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/G1.2/puntos/ubicacion/area_otro">
+            <label>Área Otros</label>
+          </input>
+        </group>
+        <group appearance="col3 well-white" ref="/G1.2/puntos/equipamiento">
+          <label>Equipamiento</label>
+          <select1 appearance="minimal" ref="/G1.2/puntos/equipamiento/tecnologia">
+            <label>Tecnología</label>
+            <hint>Tecnología</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>SDH</label>
+              <value>SDH</value>
+            </item>
+            <item>
+              <label>DWDM</label>
+              <value>DWDM</value>
+            </item>
+            <item>
+              <label>PDH</label>
+              <value>PDH</value>
+            </item>
+            <item>
+              <label>IP</label>
+              <value>IP</value>
+            </item>
+            <item>
+              <label>Otros</label>
+              <value>Otros</value>
+            </item>
+          </select1>
+          <input ref="/G1.2/puntos/equipamiento/equipamiento_tecn_otro">
+            <label>Tec. Otros</label>
+          </input>
+          <input ref="/G1.2/puntos/equipamiento/equipamiento_cap_disp">
+            <label>Capacidad Disponible</label>
+            <hint>Capacidad Disponible [Mbps / xxE1]</hint>
+          </input>
+          <input ref="/G1.2/puntos/equipamiento/equipamiento_cap_util">
+            <label>Capacidad Utilizada</label>
+            <hint>Capacidad Utilizada [Mbps / xxE1]</hint>
+          </input>
+        </group>
+        <group appearance="col3 well-white" ref="/G1.2/puntos/tipomedio">
+          <label>Medio</label>
+          <select1 appearance="minimal" ref="/G1.2/puntos/tipomedio/medio">
+            <label>Tipo</label>
+            <hint>Tipo</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>FO</label>
+              <value>FO</value>
+            </item>
+            <item>
+              <label>MW</label>
+              <value>MW</value>
+            </item>
+            <item>
+              <label>Otros</label>
+              <value>Otros</value>
+            </item>
+          </select1>
+          <input ref="/G1.2/puntos/tipomedio/medio_tipo_otro">
+            <label>Tipo Otros</label>
+          </input>
+          <input ref="/G1.2/puntos/tipomedio/medio_cap_disp">
+            <label>Capacidad Disponible</label>
+            <hint>Capacidad Disponible [Mbps / xxE1]</hint>
+          </input>
+          <input ref="/G1.2/puntos/tipomedio/medio_cap_util">
+            <label>Capacidad Utilizada</label>
+            <hint>Capacidad Utilizada [Mbps / xxE1]</hint>
+          </input>
+        </group>
+        <group appearance="col3 well-white" ref="/G1.2/puntos/tipotendido">
+          <label>Tendido</label>
+          <select1 appearance="minimal" ref="/G1.2/puntos/tipotendido/tendido">
+            <label>Tipo</label>
+            <hint>Tipo</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>AÉREO</label>
+              <value>AÉREO</value>
+            </item>
+            <item>
+              <label>SUBTERRANEO</label>
+              <value>SUBTERRANEO</value>
+            </item>
+            <item>
+              <label>Otros</label>
+              <value>Otros</value>
+            </item>
+          </select1>
+          <input ref="/G1.2/puntos/tipotendido/tendido_tipo_otro">
+            <label>Tipo Otros</label>
+          </input>
+          <input ref="/G1.2/puntos/tipotendido/tendido_cap_disp">
+            <label>Capacidad Disponible</label>
+            <hint>Capacidad Disponible [Mbps / xxE1]</hint>
+          </input>
+          <input ref="/G1.2/puntos/tipotendido/tendido_cap_util">
+            <label>Capacidad Utilizada</label>
+            <hint>Capacidad Utilizada [Mbps / xxE1]</hint>
+          </input>
+        </group>
+        <group appearance="col4 well-white" ref="/G1.2/puntos/ubicacion1">
+          <label>Ubicación</label>
+          <select1 appearance="minimal" ref="/G1.2/puntos/ubicacion1/provincia1">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/G1.2/puntos/ubicacion1/partido1">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/G1.2/puntos/ubicacion1/localidad1">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/G1.2/puntos/ubicacion1/localidad1_otro">
+            <label>Localidad Otros</label>
+          </input>
+          <select1 appearance="minimal" ref="/G1.2/puntos/ubicacion1/area1">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/G1.2/puntos/ubicacion1/area1_otro">
+            <label>Área Otros</label>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>
