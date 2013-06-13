@@ -6,6 +6,20 @@ var gui = new function(){
 	this.getURLParameter = function(name) {
 	    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
 	};
+	this.retrieveFormFieldData = function(){
+		var data = [];
+		for ( var i = 0; i < gui.fieldsets.length; i++) {
+			var kvpair = {};
+			for ( var j = 0; j < gui.fieldsets[i].fields.length; j++) {
+				var field = $(gui.fieldsets[i].fields[j]);
+				var key = gui.getCleanFieldName(field.attr("name"));
+				var val = field.val();
+				kvpair[key] = val;
+			}
+			data.push(kvpair);
+		}
+		return data;
+	};
 	this.submissionHandler = function(clickEvent){
 		var thisForm = $(gui.form);
 		var message = {header:{}, payload:{formulario:{"id":thisForm.attr("id"),data:[]}}};
@@ -34,23 +48,18 @@ var gui = new function(){
 				thisForm.valid();
 			}
 		}else{
-			if(thisForm.valid()){
-				var data = [];
-				for ( var i = 0; i < gui.fieldsets.length; i++) {
-					var kvpair = {};
-					for ( var j = 0; j < gui.fieldsets[i].fields.length; j++) {
-						var field = $(gui.fieldsets[i].fields[j]);
-						var key = gui.getCleanFieldName(field.attr("name"));
-						var val = field.val();
-						kvpair[key] = val;
-					}
-					data.push(kvpair);
+			var btn = clickEvent.target;
+			var draft = $(btn).attr("draft");
+			if(draft){
+				message.payload.formulario.data = gui.retrieveFormFieldData();
+				submit = true;
+			}else{
+				if(thisForm.valid()){
+					message.payload.formulario.data = gui.retrieveFormFieldData();
+					submit=true;
 				}
-				message.payload.formulario.data = data;
-				submit=true;
 			}
 		}
-		
 		if(submit && thisForm.attr("submit-url")){
 			$.ajax({
 				type: "POST",
@@ -175,21 +184,21 @@ var gui = new function(){
 	this.completeWithDelay = function(record,j,fields,delay){
 		var delayTime = delay || 1000;
 		var field = $(fields[j]);
-		console.log("RECORD:",record);
-		console.log("CAMPOS:",fields);
-		console.log("CAMPO:",field);
-		console.log("Iteracion:",(j+1));
+//		console.log("RECORD:",record);
+//		console.log("CAMPOS:",fields);
+//		console.log("CAMPO:",field);
+//		console.log("Iteracion:",(j+1));
 		var fieldCleanName = gui.getCleanFieldName(field.attr("name"),record.instance);
 		if (!field.is("select")) {
 			delayTime = 0;
 		}
 		setTimeout(function() {
-			console.log(fields,fieldCleanName);
+//			console.log(fields,fieldCleanName);
 			if (field.is("select")){
-				console.log(fieldCleanName,record[fieldCleanName].value);
+//				console.log(fieldCleanName,record[fieldCleanName].value);
 				field.val(record[fieldCleanName].value);
 			}else { 
-				console.log(fieldCleanName,record[fieldCleanName]);
+//				console.log(fieldCleanName,record[fieldCleanName]);
 				field.val(record[fieldCleanName]);
 			}
 			field.trigger("change");
