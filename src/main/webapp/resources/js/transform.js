@@ -110,15 +110,8 @@ $(document).ready(function() {
 							for ( var i = 0; i < dataArray.length; i++) {
 								var record = dataArray[i];
 								console.group("CAMPOS INSTANCIA "+i);
-//								console.log(record);
-//								console.log("CAMPOS:",gui.fieldsets[i].fields);
 								gui.completeWithDelay(record,0,gui.fieldsets[i].fields);
 								console.groupEnd();
-//								var keys = $.map(dataArray[int], function(element,index) {return index});
-//								for ( var j = 0; j < keys.length; j++) {
-//								}
-//									var field = $
-//									var value = dataArray[i][keys[j]];
 							}
 						}
 					}
