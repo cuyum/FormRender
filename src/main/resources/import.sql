@@ -101,4 +101,25 @@ INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.44','Rentas','D1.044-V001-MAY13','D1.44.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('D1.45','Financiamiento SU / Subsidios','D1.045-V001-MAY13','D1.45.xml', 0);
 
+-- Anexo C2 --
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C2.1','Áreas de prestación de servicios','C2.001-V001-MAY13','C2.1.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C2.2','Provisión de líneas','C2.002-V001-MAY13','C2.2.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C2.3','Telefonía pública','C2.003-V001-MAY13','C2.3.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C2.4','Tarifa / precio minuto de comunicación telefonía pública','C2.004-V001-MAY13','C2.4.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C2.5','Ingresos','C2.005-V001-MAY13','C2.5.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C2.6','Ingresos por provincia','C2.006-V001-MAY13','C2.6.xml', 0);
+-- Anexo G --
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('G1.1','Áreas de prestación de servicios','G1.001-V001-MAY13','G1.1.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('G1.2','Redes e infrasestructura','G1.002-V001-MAY13','G1.2.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('G1.3','Clientes operativos','G1.003-V001-MAY13','G1.3.xml', 0);
+-- Anexo H2 --
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H2.1','Áreas de prestación de servicios','H2.001-V001-MAY13','H2.1.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H2.2','Provisión de líneas','H2.002-V002-MAY13','H2.2.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H2.3','Telefonía pública','H2.003-V003-MAY13','H2.3.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H2.4','Tarifa / Precio minuto de comunicación telefonía pública','H2.004-V004-MAY13','H2.4.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H2.5','Ingresos','H2.001-V005-MAY13','H2.5.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H2.6','Ingresos por provincia','H2.001-V006-MAY13','H2.6.xml', 0);
 
+
+-- Anexo F --
+--INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('F1.4','Accesos Públicos','F1.004-V001-MAY13','F1.4.xml', 0);

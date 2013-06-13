@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C2.3 - Telefonía Pública</h:title>
+    <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <instance>
+        <C2.3 id="C2.3">
+          <areasprest jr:template="">
+            <areas>
+              <provincia/>
+              <partido/>
+              <localidad/>
+              <localidad_otro/>
+              <area/>
+              <area_otro/>
+              <telefonosVia/>
+              <lineasTelef/>
+            </areas>
+            <telefonosPublicos>
+              <tpa/>
+              <tpu/>
+              <tsp/>
+              <thih/>
+              <sspld/>
+            </telefonosPublicos>
+            <lineas>
+              <telefonosSemi/>
+              <locutorios/>
+              <locuroriosCabinas/>
+            </lineas>
+          </areasprest>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C2.3>
+      </instance>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/C2.3/areasprest/areas/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/C2.3/areasprest/areas/provincia" nodeset="/C2.3/areasprest/areas/partido" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/C2.3/areasprest/areas/partido" nodeset="/C2.3/areasprest/areas/localidad" required="true()" type="select1"/>
+      <bind nodeset="/C2.3/areasprest/areas/localidad_otro" relevant=" /C2.3/areasprest/areas/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C2.3/areasprest/areas/localidad" nodeset="/C2.3/areasprest/areas/area" required="true()" type="select1"/>
+      <bind nodeset="/C2.3/areasprest/areas/area_otro" relevant=" /C2.3/areasprest/areas/area =9999" required="true()" type="string"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C2.3/areasprest/areas/telefonosVia" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C2.3/areasprest/areas/lineasTelef" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C2.3/areasprest/telefonosPublicos/tpa" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C2.3/areasprest/telefonosPublicos/tpu" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C2.3/areasprest/telefonosPublicos/tsp" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C2.3/areasprest/telefonosPublicos/thih" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C2.3/areasprest/telefonosPublicos/sspld" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C2.3/areasprest/lineas/telefonosSemi" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C2.3/areasprest/lineas/locutorios" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C2.3/areasprest/lineas/locuroriosCabinas" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C2.3/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/C2.3/areasprest">
+      <label></label>
+      <repeat nodeset="/C2.3/areasprest">
+        <group appearance="col4 well-white variable" ref="/C2.3/areasprest/areas">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/C2.3/areasprest/areas/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C2.3/areasprest/areas/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C2.3/areasprest/areas/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/C2.3/areasprest/areas/localidad_otro">
+            <label>Localidad Otros</label>
+          </input>
+          <select1 appearance="minimal" ref="/C2.3/areasprest/areas/area">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/C2.3/areasprest/areas/area_otro">
+            <label>Área Otros</label>
+          </input>
+          <input ref="/C2.3/areasprest/areas/telefonosVia">
+            <label>Teléfonos en vía pública</label>
+            <hint>Teléfonos en vía pública</hint>
+          </input>
+          <input ref="/C2.3/areasprest/areas/lineasTelef">
+            <label>Líneas telefonía pública</label>
+            <hint>Líneas telefonía pública</hint>
+          </input>
+        </group>
+        <group appearance="col6 well-white" ref="/C2.3/areasprest/telefonosPublicos">
+          <label>Teléfonos Públicos</label>
+          <input ref="/C2.3/areasprest/telefonosPublicos/tpa">
+            <label>TPA (24 hs)</label>
+            <hint>TPA (24 hs)</hint>
+          </input>
+          <input ref="/C2.3/areasprest/telefonosPublicos/tpu">
+            <label>TPU</label>
+            <hint>TPU</hint>
+          </input>
+          <input ref="/C2.3/areasprest/telefonosPublicos/tsp">
+            <label>TSP</label>
+            <hint>TSP</hint>
+          </input>
+          <input ref="/C2.3/areasprest/telefonosPublicos/thih">
+            <label>THIH</label>
+            <hint>THIH</hint>
+          </input>
+          <input ref="/C2.3/areasprest/telefonosPublicos/sspld">
+            <label>SSPLD</label>
+            <hint>SSPLD</hint>
+          </input>
+        </group>
+        <group appearance="col3 well-white" ref="/C2.3/areasprest/lineas">
+          <label>Líneas</label>
+          <input ref="/C2.3/areasprest/lineas/telefonosSemi">
+            <label>Teléfonos semi-públicos</label>
+            <hint>Teléfonos semi-públicos</hint>
+          </input>
+          <input ref="/C2.3/areasprest/lineas/locutorios">
+            <label>Locutorios</label>
+            <hint>Locutorios</hint>
+          </input>
+          <input ref="/C2.3/areasprest/lineas/locuroriosCabinas">
+            <label>Locutorios / Cabinas públicas</label>
+            <hint>Locutorios / Cabinas públicas</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>
