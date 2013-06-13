@@ -138,8 +138,14 @@ var setupCalculate = function(field,fieldset){
 							var sumFields = event.data.sumFields;
 							var substractFields = event.data.substractFields;
 							var fieldsetInstance = event.data.fieldsetInstance;
-							var totalVal = totalField.data("updateTotal")(sumFields,substractFields,fieldsetInstance);
-							totalField.val(totalVal);
+							var totalFunc = totalField.data("updateTotal");
+							var totalVal = null;
+							if(totalFunc){
+								totalVal= totalFunc(sumFields,substractFields,fieldsetInstance);
+								totalField.val(totalVal);
+							}else{
+								console.error("Se ha encontrado un campo totalizador con un nombre incorrecto.");
+							}
 						});
 					}
 				}

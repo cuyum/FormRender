@@ -34,12 +34,9 @@ var gui = new function(){
 				thisForm.valid();
 			}
 		}else{
-			console.log("Traversing DOM");
 			if(thisForm.valid()){
-				console.info("Form is valid");
 				var data = [];
 				for ( var i = 0; i < gui.fieldsets.length; i++) {
-					console.log(gui.fieldsets[i].fields.length +" fields");
 					var kvpair = {};
 					for ( var j = 0; j < gui.fieldsets[i].fields.length; j++) {
 						var field = $(gui.fieldsets[i].fields[j]);
@@ -61,10 +58,13 @@ var gui = new function(){
 				url: "/FormRender/rest/service/submit",
 				data: {"submit_data":JSON.stringify(message),"url": thisForm.attr("submit-url")},
 				success:function(data, statusStr, xhr){
-					console.info(data);
 					if(data.result && data.result.type){
 						if(data.result.type == "SUCCESS"){
 							alert("Formulario guardado ("+data.result.id+").");
+							gui.form.reset();
+							if(gui.renderGrid){
+								gui.grid.element.dataTable().fnClearTable();
+							}
 						}else if(data.result.type == "ERROR"){
 							alert("Ha ocurrido un error en el servidor de persistencia<br/>"+data.result.msg);
 						}else{
@@ -214,8 +214,12 @@ var gui = new function(){
 			instance:-1
 		},
 		element : $('<table id="repeat-grid" class="table table-striped"></table>'),
-		processRawRecord : function(rawRecord){
-			
+		resetFields : function(fields){
+			for ( var i = 0; i < fields.length; i++) {
+				var field = $(fields[i]);
+				field.val('')
+				 .removeAttr('checked');
+			}
 		},
 		getRowData : function(rowIndex){
 			return this.element.dataTable().fnGetData(rowIndex);
@@ -246,14 +250,14 @@ var gui = new function(){
 		},
 		addRow : function(fieldsetInstance){
 			var fieldset = gui.fieldsets[fieldsetInstance];
-			
+			var fields = [];
 			var record = $.extend(true,{},this.model);
-			if(gui.repeatCount && gui.repeatCount>1) 	record.item = fieldset.title;
+			if(gui.repeatCount && gui.repeatCount>1)
+				record.item = fieldset.title;
 			var commit = true; 
 			for ( var i = 0; i < fieldset.fields.length; i++) {
 				var field =$(fieldset.fields[i]);
 				var attribute = gui.getCleanFieldName(field.attr("name"),fieldsetInstance);
-//				record.fields.push(field.attr("name"));
 				if(field.is(":visible")){
 					var value = field.val();
 					if(value!=undefined && value!=null && $(gui.form).validate().element(field)){
@@ -263,22 +267,20 @@ var gui = new function(){
 						}else{
 							record[attribute] = value;
 						}
-//						record.values.push(value);
+						fields.push(field);
 					} else {
 						commit = false;
 						break;
 					}
 				}else{
-					if(field.is("select"))
-						record[attribute] = {label:" "};
-					else
-						record[attribute] = " ";
-					record.values.push(" ");
+					if(field.is("select")) record[attribute] = {label:" "};
+					else record[attribute] = " ";
 				}
 			}
 			record.instance = fieldset.instance;
 			if(commit){
-				gui.form.reset();
+//				gui.form.reset();
+				this.resetFields(fields);
 				for ( var i = 0; i < fieldset.fields.length; i++) {
 					var af = $(fieldset.fields[i]);
 					af.data("renderLogic")(af);
