@@ -14,8 +14,10 @@ var gui = new function(){
 	this.resetFields = function(fields){
 		for ( var i = 0; i < fields.length; i++) {
 			var field = $(fields[i]);
-			field.val('')
-			 .removeAttr('checked');
+			if(field.is("select"))
+				field.val("-1");
+			else
+				field.val('').removeAttr('checked');
 		}
 	};
 	this.retrieveFormFieldData = function(){
