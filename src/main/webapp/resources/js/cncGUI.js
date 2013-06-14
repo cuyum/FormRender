@@ -6,6 +6,10 @@ var gui = new function(){
 	this.getURLParameter = function(name) {
 	    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
 	};
+	this.cleanFormValidations = function(){
+		$("[class~='error']").siblings("label[class='error']").remove();
+		$("[class~='error']").removeClass("error");
+	};
 	this.submissionHandler = function(clickEvent){
 		var thisForm = $(gui.form);
 		var message = {header:{}, payload:{formulario:{"id":thisForm.attr("id"),data:[]}}};
