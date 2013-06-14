@@ -50,7 +50,7 @@ var gui = new function(){
 		}else{
 			var btn = clickEvent.target;
 			var draft = $(btn).attr("draft");
-			if(draft){
+			if(draft && draft=="true"){
 				message.payload.formulario.data = gui.retrieveFormFieldData();
 				submit = true;
 			}else{
