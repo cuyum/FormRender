@@ -93,8 +93,8 @@
             </item>
           </select1>
           <input ref="/F1.4/meses/mes/capacidad">
-            <label>Capacidad</label>
-            <hint>Capacidad [Mbps]</hint>
+            <label>Accesos</label>
+            <hint>Accesos</hint>
           </input>
         </group>
       </repeat>
