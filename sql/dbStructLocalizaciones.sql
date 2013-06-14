@@ -16,6 +16,7 @@ SET default_tablespace = '';
 
 SET default_with_oids = false;
 
+DROP TABLE IF EXISTS localidades_poblacion;
 CREATE TABLE localidades_poblacion (
     id_provincia bigint NOT NULL,
     id_municipio bigint NOT NULL,
@@ -52,7 +53,7 @@ ALTER TABLE public.localidades_poblacion OWNER TO postgres;
 -- TOC entry 182 (class 1259 OID 109701)
 -- Name: localidades_poblacion_id_area_local_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
-
+DROP SEQUENCE IF EXISTS localidades_poblacion_id_area_local_seq;
 CREATE SEQUENCE localidades_poblacion_id_area_local_seq
     START WITH 1
     INCREMENT BY 1
@@ -85,7 +86,7 @@ SELECT pg_catalog.setval('localidades_poblacion_id_area_local_seq', 1, false);
 -- TOC entry 181 (class 1259 OID 109699)
 -- Name: localidades_poblacion_id_localidad_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
-
+DROP SEQUENCE IF EXISTS localidades_poblacion_id_localidad_seq;
 CREATE SEQUENCE localidades_poblacion_id_localidad_seq
     START WITH 1
     INCREMENT BY 1
@@ -118,7 +119,7 @@ SELECT pg_catalog.setval('localidades_poblacion_id_localidad_seq', 1, false);
 -- TOC entry 180 (class 1259 OID 109697)
 -- Name: localidades_poblacion_id_municipio_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
-
+DROP SEQUENCE IF EXISTS localidades_poblacion_id_municipio_seq;
 CREATE SEQUENCE localidades_poblacion_id_municipio_seq
     START WITH 1
     INCREMENT BY 1
@@ -151,7 +152,7 @@ SELECT pg_catalog.setval('localidades_poblacion_id_municipio_seq', 1, false);
 -- TOC entry 179 (class 1259 OID 109695)
 -- Name: localidades_poblacion_id_provincia_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
-
+DROP SEQUENCE IF EXISTS localidades_poblacion_id_provincia_seq;
 CREATE SEQUENCE localidades_poblacion_id_provincia_seq
     START WITH 1
     INCREMENT BY 1
@@ -184,7 +185,7 @@ SELECT pg_catalog.setval('localidades_poblacion_id_provincia_seq', 1, false);
 -- TOC entry 178 (class 1259 OID 109581)
 -- Name: maestro_areas_locales; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
-
+DROP TABLE IF EXISTS maestro_areas_locales;
 CREATE TABLE maestro_areas_locales (
     id_provincia bigint NOT NULL,
     id_area_local bigint NOT NULL,
@@ -197,7 +198,7 @@ CREATE TABLE maestro_areas_locales (
 ALTER TABLE public.maestro_areas_locales OWNER TO postgres;
 
 
-
+DROP SEQUENCE IF EXISTS maestro_areas_locales_id_area_local_access_seq;
 CREATE SEQUENCE maestro_areas_locales_id_area_local_access_seq
     START WITH 1
     INCREMENT BY 1
@@ -217,7 +218,7 @@ ALTER SEQUENCE maestro_areas_locales_id_area_local_access_seq OWNED BY maestro_a
 SELECT pg_catalog.setval('maestro_areas_locales_id_area_local_access_seq', 1, false);
 
 
-
+DROP SEQUENCE IF EXISTS maestro_areas_locales_id_area_local_seq;
 CREATE SEQUENCE maestro_areas_locales_id_area_local_seq
     START WITH 1
     INCREMENT BY 1
@@ -236,7 +237,7 @@ ALTER SEQUENCE maestro_areas_locales_id_area_local_seq OWNED BY maestro_areas_lo
 
 SELECT pg_catalog.setval('maestro_areas_locales_id_area_local_seq', 1, false);
 
-
+DROP SEQUENCE IF EXISTS maestro_areas_locales_id_provincia_seq;
 CREATE SEQUENCE maestro_areas_locales_id_provincia_seq
     START WITH 1
     INCREMENT BY 1
@@ -253,6 +254,8 @@ ALTER SEQUENCE maestro_areas_locales_id_provincia_seq OWNED BY maestro_areas_loc
 
 SELECT pg_catalog.setval('maestro_areas_locales_id_provincia_seq', 1, false);
 
+
+DROP SEQUENCE IF EXISTS maestro_areas_locales_indic_inter_seq;
 CREATE SEQUENCE maestro_areas_locales_indic_inter_seq
     START WITH 1
     INCREMENT BY 1
@@ -269,6 +272,7 @@ ALTER SEQUENCE maestro_areas_locales_indic_inter_seq OWNED BY maestro_areas_loca
 SELECT pg_catalog.setval('maestro_areas_locales_indic_inter_seq', 1, false);
 
 
+DROP TABLE IF EXISTS maestro_provincias;
 CREATE TABLE maestro_provincias (
     id_prov bigint NOT NULL,
     descripcion character varying
@@ -277,7 +281,7 @@ CREATE TABLE maestro_provincias (
 
 ALTER TABLE public.maestro_provincias OWNER TO postgres;
 
-
+DROP SEQUENCE IF EXISTS maestro_provincias_id_prov_seq;
 CREATE SEQUENCE maestro_provincias_id_prov_seq
     START WITH 1
     INCREMENT BY 1
@@ -293,7 +297,7 @@ ALTER SEQUENCE maestro_provincias_id_prov_seq OWNED BY maestro_provincias.id_pro
 
 SELECT pg_catalog.setval('maestro_provincias_id_prov_seq', 1, false);
 
-
+DROP TABLE IF EXISTS p_dpto_partido_id;
 CREATE TABLE p_dpto_partido_id (
     id_prov bigint,
     id_dpto_partido bigint,
@@ -324,6 +328,7 @@ ALTER TABLE ONLY maestro_provincias ALTER COLUMN id_prov SET DEFAULT nextval('ma
 
 -- DROP TABLE prestadores;
 
+DROP TABLE IF EXISTS prestadores;
 CREATE TABLE prestadores
 (
   id_bp bigserial NOT NULL,

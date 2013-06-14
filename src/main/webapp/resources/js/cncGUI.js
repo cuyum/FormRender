@@ -7,8 +7,30 @@ var gui = new function(){
 	    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
 	};
 	this.cleanFormValidations = function(){
+		console.log("Cleaning Form");
 		$("[class~='error']").siblings("label[class='error']").remove();
 		$("[class~='error']").removeClass("error");
+	};
+	this.resetFields = function(fields){
+		for ( var i = 0; i < fields.length; i++) {
+			var field = $(fields[i]);
+			field.val('')
+			 .removeAttr('checked');
+		}
+	};
+	this.retrieveFormFieldData = function(){
+		var data = [];
+		for ( var i = 0; i < gui.fieldsets.length; i++) {
+			var kvpair = {};
+			for ( var j = 0; j < gui.fieldsets[i].fields.length; j++) {
+				var field = $(gui.fieldsets[i].fields[j]);
+				var key = gui.getCleanFieldName(field.attr("name"));
+				var val = field.val();
+				kvpair[key] = val;
+			}
+			data.push(kvpair);
+		}
+		return data;
 	};
 	this.submissionHandler = function(clickEvent){
 		var thisForm = $(gui.form);
@@ -38,26 +60,19 @@ var gui = new function(){
 				thisForm.valid();
 			}
 		}else{
-			console.log("Traversing DOM");
-			if(thisForm.valid()){
-				console.info("Form is valid");
-				var data = [];
-				for ( var i = 0; i < gui.fieldsets.length; i++) {
-					console.log(gui.fieldsets[i].fields.length +" fields");
-					var kvpair = {};
-					for ( var j = 0; j < gui.fieldsets[i].fields.length; j++) {
-						var field = $(gui.fieldsets[i].fields[j]);
-						var key = gui.getCleanFieldName(field.attr("name"));
-						var val = field.val();
-						kvpair[key] = val;
-					}
-					data.push(kvpair);
+			var btn = clickEvent.target;
+			var draft = $(btn).attr("draft");
+			if(draft && draft=="true"){
+				gui.cleanFormValidations();
+				message.payload.formulario.data = gui.retrieveFormFieldData();
+				submit = true;
+			}else{
+				if(thisForm.valid()){
+					message.payload.formulario.data = gui.retrieveFormFieldData();
+					submit=true;
 				}
-				message.payload.formulario.data = data;
-				submit=true;
 			}
 		}
-		
 		if(submit && thisForm.attr("submit-url")){
 			$.ajax({
 				type: "POST",
@@ -65,10 +80,13 @@ var gui = new function(){
 				url: "/FormRender/rest/service/submit",
 				data: {"submit_data":JSON.stringify(message),"url": thisForm.attr("submit-url")},
 				success:function(data, statusStr, xhr){
-					console.info(data);
 					if(data.result && data.result.type){
 						if(data.result.type == "SUCCESS"){
 							alert("Formulario guardado ("+data.result.id+").");
+							gui.form.reset();
+							if(gui.renderGrid){
+								gui.grid.element.dataTable().fnClearTable();
+							}
 						}else if(data.result.type == "ERROR"){
 							alert("Ha ocurrido un error en el servidor de persistencia<br/>"+data.result.msg);
 						}else{
@@ -179,21 +197,21 @@ var gui = new function(){
 	this.completeWithDelay = function(record,j,fields,delay){
 		var delayTime = delay || 1000;
 		var field = $(fields[j]);
-		console.log("RECORD:",record);
-		console.log("CAMPOS:",fields);
-		console.log("CAMPO:",field);
-		console.log("Iteracion:",(j+1));
+//		console.log("RECORD:",record);
+//		console.log("CAMPOS:",fields);
+//		console.log("CAMPO:",field);
+//		console.log("Iteracion:",(j+1));
 		var fieldCleanName = gui.getCleanFieldName(field.attr("name"),record.instance);
 		if (!field.is("select")) {
 			delayTime = 0;
 		}
 		setTimeout(function() {
-			console.log(fields,fieldCleanName);
+//			console.log(fields,fieldCleanName);
 			if (field.is("select")){
-				console.log(fieldCleanName,record[fieldCleanName].value);
+//				console.log(fieldCleanName,record[fieldCleanName].value);
 				field.val(record[fieldCleanName].value);
 			}else { 
-				console.log(fieldCleanName,record[fieldCleanName]);
+//				console.log(fieldCleanName,record[fieldCleanName]);
 				field.val(record[fieldCleanName]);
 			}
 			field.trigger("change");
@@ -218,9 +236,6 @@ var gui = new function(){
 			instance:-1
 		},
 		element : $('<table id="repeat-grid" class="table table-striped"></table>'),
-		processRawRecord : function(rawRecord){
-			
-		},
 		getRowData : function(rowIndex){
 			return this.element.dataTable().fnGetData(rowIndex);
 		},
@@ -250,14 +265,14 @@ var gui = new function(){
 		},
 		addRow : function(fieldsetInstance){
 			var fieldset = gui.fieldsets[fieldsetInstance];
-			
+			var fields = [];
 			var record = $.extend(true,{},this.model);
-			if(gui.repeatCount && gui.repeatCount>1) 	record.item = fieldset.title;
+			if(gui.repeatCount && gui.repeatCount>1)
+				record.item = fieldset.title;
 			var commit = true; 
 			for ( var i = 0; i < fieldset.fields.length; i++) {
 				var field =$(fieldset.fields[i]);
 				var attribute = gui.getCleanFieldName(field.attr("name"),fieldsetInstance);
-//				record.fields.push(field.attr("name"));
 				if(field.is(":visible")){
 					var value = field.val();
 					if(value!=undefined && value!=null && $(gui.form).validate().element(field)){
@@ -267,22 +282,20 @@ var gui = new function(){
 						}else{
 							record[attribute] = value;
 						}
-//						record.values.push(value);
+						fields.push(field);
 					} else {
 						commit = false;
 						break;
 					}
 				}else{
-					if(field.is("select"))
-						record[attribute] = {label:" "};
-					else
-						record[attribute] = " ";
-					record.values.push(" ");
+					if(field.is("select")) record[attribute] = {label:" "};
+					else record[attribute] = " ";
 				}
 			}
 			record.instance = fieldset.instance;
 			if(commit){
-				gui.form.reset();
+				gui.cleanFormValidations();
+				gui.resetFields(fields);
 				for ( var i = 0; i < fieldset.fields.length; i++) {
 					var af = $(fieldset.fields[i]);
 					af.data("renderLogic")(af);

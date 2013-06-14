@@ -90,46 +90,6 @@ $(document).ready(function() {
 			}
 		}
 		
-		gui.loadDataId = gui.getURLParameter("recordId");
-		
-		if(gui.loadDataId && gui.loadDataId.trim()!=""){
-			$.blockUI({message:"Cargando...<br>Espere por favor..."});
-			$.ajax({
-				type: "GET",
-				url: "/FormRender/rest/service/retrieve",
-				data: {"recordId":gui.loadDataId},
-				success:function(data, statusStr, xhr){
-					if(data.result && data.result.type && data.result.type=="ERROR"){
-						alert("Error remoto: "+data.result.msg);
-					}else{//success retrieval
-						console.log(data);
-						var dataArray = data.payload.formulario.data;
-						if(gui.renderGrid)
-							gui.grid.addRows(dataArray);
-						else{
-							for ( var i = 0; i < dataArray.length; i++) {
-								var record = dataArray[i];
-								console.group("CAMPOS INSTANCIA "+i);
-//								console.log(record);
-//								console.log("CAMPOS:",gui.fieldsets[i].fields);
-								gui.completeWithDelay(record,0,gui.fieldsets[i].fields);
-								console.groupEnd();
-//								var keys = $.map(dataArray[int], function(element,index) {return index});
-//								for ( var j = 0; j < keys.length; j++) {
-//								}
-//									var field = $
-//									var value = dataArray[i][keys[j]];
-							}
-						}
-					}
-				},
-				error:function(xhr,statusStr,errorStr){
-					console.error(data);
-				}
-			});
-			$.unblockUI();
-		}
-		
 	}else if(fs.length>0 && gui.repeatCount==0){
 		console.info("Se encuentra repeat infinito");
 	}else{
@@ -148,6 +108,39 @@ $(document).ready(function() {
 			setupValidations(field);
 		}
 		gui.fieldsets.push(fieldset);
+	}
+	
+	gui.loadDataId = gui.getURLParameter("recordId");
+	
+	if(gui.loadDataId && gui.loadDataId.trim()!=""){
+		$.blockUI({message:"Cargando...<br>Espere por favor..."});
+		$.ajax({
+			type: "GET",
+			url: "/FormRender/rest/service/retrieve",
+			data: {"recordId":gui.loadDataId},
+			success:function(data, statusStr, xhr){
+				if(data.result && data.result.type && data.result.type=="ERROR"){
+					alert("Error remoto: "+data.result.msg);
+				}else{//success retrieval
+//					console.log(data);
+					var dataArray = data.payload.formulario.data;
+					if(gui.renderGrid)
+						gui.grid.addRows(dataArray);
+					else{
+						for ( var i = 0; i < dataArray.length; i++) {
+							var record = dataArray[i];
+//							console.group("CAMPOS INSTANCIA "+i);
+							gui.completeWithDelay(record,0,gui.fieldsets[i].fields);
+//							console.groupEnd();
+						}
+					}
+				}
+			},
+			error:function(xhr,statusStr,errorStr){
+				console.error(data);
+			}
+		});
+		$.unblockUI();
 	}
 	
 });
