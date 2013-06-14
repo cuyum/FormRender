@@ -7,544 +7,544 @@
       <instance>
         <H2.4 id="H2.4">
           <local>
-            <tarifa1>
-              <tarifaHN1/>
-              <tarifaHR1/>
-            </tarifa1>
-            <ritmo1>
-              <ritmoHN1/>
-              <ritmoHR1/>
-            </ritmo1>
+            <tarifaLocal>
+              <tarifaLocalHN/>
+              <tarifaLocalHR/>
+            </tarifaLocal>
+            <ritmoLocal>
+              <ritmoLocalHN/>
+              <ritmoLocalHR/>
+            </ritmoLocal>
           </local>
-          <ldnclave1>
-            <tarifa2>
-              <tarifaHN2/>
-              <tarifaHR2/>
-            </tarifa2>
-            <ritmo2>
-              <ritmoHN2/>
-              <ritmoHR2/>
-            </ritmo2>
-          </ldnclave1>
-          <ldnclave2>
-            <tarifa3>
-              <tarifaHN3/>
-              <tarifaHR3/>
-            </tarifa3>
-            <ritmo3>
-              <ritmoHN3/>
-              <ritmoHR3/>
-            </ritmo3>
-          </ldnclave2>
-          <ldnclave3>
-            <tarifa4>
-              <tarifaHN4/>
-              <tarifaHR4/>
-            </tarifa4>
-            <ritmo4>
-              <ritmoHN4/>
-              <ritmoHR4/>
-            </ritmo4>
-          </ldnclave3>
-          <ldnclave4>
-            <tarifa5>
-              <tarifaHN5/>
-              <tarifaHR5/>
-            </tarifa5>
-            <ritmo5>
-              <ritmoHN5/>
-              <ritmoHR5/>
-            </ritmo5>
-          </ldnclave4>
-          <ldnclave5>
-            <tarifa6>
-              <tarifaHN6/>
-              <tarifaHR6/>
-            </tarifa6>
-            <ritmo6>
-              <ritmoHN6/>
-              <ritmoHR6/>
-            </ritmo6>
-          </ldnclave5>
-          <ldnclave6>
-            <tarifa7>
-              <tarifaHN7/>
-              <tarifaHR7/>
-            </tarifa7>
-            <ritmo7>
-              <ritmoHN7/>
-              <ritmoHR7/>
-            </ritmo7>
-          </ldnclave6>
-          <ldiFront>
-            <tarifa8>
-              <tarifaHN8/>
-              <tarifaHR8/>
-            </tarifa8>
-            <ritmo8>
-              <ritmoHN8/>
-              <ritmoHR8/>
-            </ritmo8>
-          </ldiFront>
-          <ldiAmSur>
-            <tarifa9>
-              <tarifaHN9/>
-              <tarifaHR9/>
-            </tarifa9>
-            <ritmo9>
-              <ritmoHN9/>
-              <ritmoHR9/>
-            </ritmo9>
-          </ldiAmSur>
-          <ldiAmCen>
-            <tarifa10>
-              <tarifaHN10/>
-              <tarifaHR10/>
-            </tarifa10>
-            <ritmo10>
-              <ritmoHN10/>
-              <ritmoHR10/>
-            </ritmo10>
-          </ldiAmCen>
-          <ldiAmNor>
-            <tarifa11>
-              <tarifaHN11/>
-              <tarifaHR11/>
-            </tarifa11>
-            <ritmo11>
-              <ritmoHN11/>
-              <ritmoHR11/>
-            </ritmo11>
-          </ldiAmNor>
-          <ldiEur>
-            <tarifa12>
-              <tarifaHN12/>
-              <tarifaHR12/>
-            </tarifa12>
-            <ritmo12>
-              <ritmoHN12/>
-              <ritmoHR12/>
-            </ritmo12>
-          </ldiEur>
-          <ldiAfr>
-            <tarifa13>
-              <tarifaHN13/>
-              <tarifaHR13/>
-            </tarifa13>
-            <ritmo13>
-              <ritmoHN13/>
-              <ritmoHR13/>
-            </ritmo13>
-          </ldiAfr>
+          <ldnClave1>
+            <tarifaClave1>
+              <tarifaClave1HN/>
+              <tarifaClave1HR/>
+            </tarifaClave1>
+            <ritmoClave1>
+              <ritmoClave1HN/>
+              <ritmoClave1HR/>
+            </ritmoClave1>
+          </ldnClave1>
+          <ldnClave2>
+            <tarifaClave2>
+              <tarifaClave2HN/>
+              <tarifaClave2HR/>
+            </tarifaClave2>
+            <ritmoClave2>
+              <ritmoClave2HN/>
+              <ritmoClave2HR/>
+            </ritmoClave2>
+          </ldnClave2>
+          <ldnClave3>
+            <tarifaClave3>
+              <tarifaClave3HN/>
+              <tarifaClave3HR/>
+            </tarifaClave3>
+            <ritmoClave3>
+              <ritmoClave3HN/>
+              <ritmoClave3HR/>
+            </ritmoClave3>
+          </ldnClave3>
+          <ldnClave4>
+            <tarifaClave4>
+              <tarifaClave4HN/>
+              <tarifaClave4HR/>
+            </tarifaClave4>
+            <ritmoClave4>
+              <ritmoClave4HN/>
+              <ritmoClave4HR/>
+            </ritmoClave4>
+          </ldnClave4>
+          <ldnClave5>
+            <tarifaClave5>
+              <tarifaClave5HN/>
+              <tarifaClave5HR/>
+            </tarifaClave5>
+            <ritmoClave5>
+              <ritmoClave5HN/>
+              <ritmoClave5HR/>
+            </ritmoClave5>
+          </ldnClave5>
+          <ldnClave6>
+            <tarifaClave6>
+              <tarifaClave6HN/>
+              <tarifaClave6HR/>
+            </tarifaClave6>
+            <ritmoClave6>
+              <ritmoClave6HN/>
+              <ritmoClave6HR/>
+            </ritmoClave6>
+          </ldnClave6>
+          <ldiFronterizo>
+            <tarifaLdiFronterizo>
+              <tarifaLdiFronterizoHN/>
+              <tarifaLdiFronterizoHR/>
+            </tarifaLdiFronterizo>
+            <ritmoLdiFronterizo>
+              <ritmoLdiFronterizoHN/>
+              <ritmoLdiFronterizoHR/>
+            </ritmoLdiFronterizo>
+          </ldiFronterizo>
+          <ldiAmericaSur>
+            <tarifaAmericaSur>
+              <tarifaAmericaSurHN/>
+              <tarifaAmericaSurHR/>
+            </tarifaAmericaSur>
+            <ritmoAmericaSur>
+              <ritmoAmericaSurHN/>
+              <ritmoAmericaSurHR/>
+            </ritmoAmericaSur>
+          </ldiAmericaSur>
+          <ldiAmCentral>
+            <tarifaAmCentral>
+              <tarifaAmCentralHN/>
+              <tarifaAmCentralHR/>
+            </tarifaAmCentral>
+            <ritmoAmCentral>
+              <ritmoAmCentralHN/>
+              <ritmoAmCentralHR/>
+            </ritmoAmCentral>
+          </ldiAmCentral>
+          <ldiAmNorte>
+            <tarifaAmNorte>
+              <tarifaAmNorteHN/>
+              <tarifaAmNorteHR/>
+            </tarifaAmNorte>
+            <ritmoAmNorte>
+              <ritmoAmNorteHN/>
+              <ritmoAmNorteHR/>
+            </ritmoAmNorte>
+          </ldiAmNorte>
+          <ldiEuropa>
+            <tarifaEuropa>
+              <tarifaEuropaHN/>
+              <tarifaEuropaHR/>
+            </tarifaEuropa>
+            <ritmoEuropa>
+              <ritmoEuropaHN/>
+              <ritmoEuropaHR/>
+            </ritmoEuropa>
+          </ldiEuropa>
+          <ldiAfrica>
+            <tarifaAfrica>
+              <tarifaAfricaHN/>
+              <tarifaAfricaHR/>
+            </tarifaAfrica>
+            <ritmoAfrica>
+              <ritmoAfricaHN/>
+              <ritmoAfricaHR/>
+            </ritmoAfrica>
+          </ldiAfrica>
           <ldiAsia>
-            <tarifa14>
-              <tarifaHN14/>
-              <tarifaHR14/>
-            </tarifa14>
-            <ritmo14>
-              <ritmoHN14/>
-              <ritmoHR14/>
-            </ritmo14>
+            <tarifaAsia>
+              <tarifaAsiaHN/>
+              <tarifaAsiaHR/>
+            </tarifaAsia>
+            <ritmoAsia>
+              <ritmoAsiaHN/>
+              <ritmoAsiaHR/>
+            </ritmoAsia>
           </ldiAsia>
           <ldiOceania>
-            <tarifa15>
-              <tarifaHN15/>
-              <tarifaHR15/>
-            </tarifa15>
-            <ritmo15>
-              <ritmoHN15/>
-              <ritmoHR15/>
-            </ritmo15>
+            <tarifaOceania>
+              <tarifaOceaniaHN/>
+              <tarifaOceaniaHR/>
+            </tarifaOceania>
+            <ritmoOceania>
+              <ritmoOceaniaHN/>
+              <ritmoOceaniaHR/>
+            </ritmoOceania>
           </ldiOceania>
           <meta>
             <instanceID/>
           </meta>
         </H2.4>
       </instance>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/local/tarifa1/tarifaHN1" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/local/tarifa1/tarifaHR1" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/local/ritmo1/ritmoHN1" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/local/ritmo1/ritmoHR1" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave1/tarifa2/tarifaHN2" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave1/tarifa2/tarifaHR2" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave1/ritmo2/ritmoHN2" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave1/ritmo2/ritmoHR2" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave2/tarifa3/tarifaHN3" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave2/tarifa3/tarifaHR3" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave2/ritmo3/ritmoHN3" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave2/ritmo3/ritmoHR3" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave3/tarifa4/tarifaHN4" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave3/tarifa4/tarifaHR4" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave3/ritmo4/ritmoHN4" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave3/ritmo4/ritmoHR4" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave4/tarifa5/tarifaHN5" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave4/tarifa5/tarifaHR5" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave4/ritmo5/ritmoHN5" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave4/ritmo5/ritmoHR5" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave5/tarifa6/tarifaHN6" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave5/tarifa6/tarifaHR6" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave5/ritmo6/ritmoHN6" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave5/ritmo6/ritmoHR6" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave6/tarifa7/tarifaHN7" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave6/tarifa7/tarifaHR7" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave6/ritmo7/ritmoHN7" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnclave6/ritmo7/ritmoHR7" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiFront/tarifa8/tarifaHN8" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiFront/tarifa8/tarifaHR8" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiFront/ritmo8/ritmoHN8" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiFront/ritmo8/ritmoHR8" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmSur/tarifa9/tarifaHN9" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmSur/tarifa9/tarifaHR9" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmSur/ritmo9/ritmoHN9" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmSur/ritmo9/ritmoHR9" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmCen/tarifa10/tarifaHN10" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmCen/tarifa10/tarifaHR10" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmCen/ritmo10/ritmoHN10" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmCen/ritmo10/ritmoHR10" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmNor/tarifa11/tarifaHN11" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmNor/tarifa11/tarifaHR11" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmNor/ritmo11/ritmoHN11" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmNor/ritmo11/ritmoHR11" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiEur/tarifa12/tarifaHN12" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiEur/tarifa12/tarifaHR12" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiEur/ritmo12/ritmoHN12" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiEur/ritmo12/ritmoHR12" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAfr/tarifa13/tarifaHN13" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAfr/tarifa13/tarifaHR13" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAfr/ritmo13/ritmoHN13" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAfr/ritmo13/ritmoHR13" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAsia/tarifa14/tarifaHN14" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAsia/tarifa14/tarifaHR14" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAsia/ritmo14/ritmoHN14" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAsia/ritmo14/ritmoHR14" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiOceania/tarifa15/tarifaHN15" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiOceania/tarifa15/tarifaHR15" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiOceania/ritmo15/ritmoHN15" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiOceania/ritmo15/ritmoHR15" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/local/tarifaLocal/tarifaLocalHN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/local/tarifaLocal/tarifaLocalHR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/local/ritmoLocal/ritmoLocalHN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/local/ritmoLocal/ritmoLocalHR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave1/tarifaClave1/tarifaClave1HN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave1/tarifaClave1/tarifaClave1HR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave1/ritmoClave1/ritmoClave1HN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave1/ritmoClave1/ritmoClave1HR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave2/tarifaClave2/tarifaClave2HN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave2/tarifaClave2/tarifaClave2HR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave2/ritmoClave2/ritmoClave2HN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave2/ritmoClave2/ritmoClave2HR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave3/tarifaClave3/tarifaClave3HN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave3/tarifaClave3/tarifaClave3HR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave3/ritmoClave3/ritmoClave3HN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave3/ritmoClave3/ritmoClave3HR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave4/tarifaClave4/tarifaClave4HN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave4/tarifaClave4/tarifaClave4HR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave4/ritmoClave4/ritmoClave4HN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave4/ritmoClave4/ritmoClave4HR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave5/tarifaClave5/tarifaClave5HN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave5/tarifaClave5/tarifaClave5HR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave5/ritmoClave5/ritmoClave5HN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave5/ritmoClave5/ritmoClave5HR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave6/tarifaClave6/tarifaClave6HN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave6/tarifaClave6/tarifaClave6HR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave6/ritmoClave6/ritmoClave6HN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldnClave6/ritmoClave6/ritmoClave6HR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiFronterizo/tarifaLdiFronterizo/tarifaLdiFronterizoHN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiFronterizo/tarifaLdiFronterizo/tarifaLdiFronterizoHR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiFronterizo/ritmoLdiFronterizo/ritmoLdiFronterizoHN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiFronterizo/ritmoLdiFronterizo/ritmoLdiFronterizoHR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmericaSur/tarifaAmericaSur/tarifaAmericaSurHN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmericaSur/tarifaAmericaSur/tarifaAmericaSurHR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmericaSur/ritmoAmericaSur/ritmoAmericaSurHN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmericaSur/ritmoAmericaSur/ritmoAmericaSurHR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmCentral/tarifaAmCentral/tarifaAmCentralHN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmCentral/tarifaAmCentral/tarifaAmCentralHR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmCentral/ritmoAmCentral/ritmoAmCentralHN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmCentral/ritmoAmCentral/ritmoAmCentralHR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmNorte/tarifaAmNorte/tarifaAmNorteHN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmNorte/tarifaAmNorte/tarifaAmNorteHR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmNorte/ritmoAmNorte/ritmoAmNorteHN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAmNorte/ritmoAmNorte/ritmoAmNorteHR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiEuropa/tarifaEuropa/tarifaEuropaHN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiEuropa/tarifaEuropa/tarifaEuropaHR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiEuropa/ritmoEuropa/ritmoEuropaHN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiEuropa/ritmoEuropa/ritmoEuropaHR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAfrica/tarifaAfrica/tarifaAfricaHN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAfrica/tarifaAfrica/tarifaAfricaHR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAfrica/ritmoAfrica/ritmoAfricaHN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAfrica/ritmoAfrica/ritmoAfricaHR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAsia/tarifaAsia/tarifaAsiaHN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAsia/tarifaAsia/tarifaAsiaHR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAsia/ritmoAsia/ritmoAsiaHN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiAsia/ritmoAsia/ritmoAsiaHR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiOceania/tarifaOceania/tarifaOceaniaHN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiOceania/tarifaOceania/tarifaOceaniaHR" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiOceania/ritmoOceania/ritmoOceaniaHN" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/H2.4/ldiOceania/ritmoOceania/ritmoOceaniaHR" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/H2.4/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
     <group appearance="col1 well-white" ref="/H2.4/local">
       <label>Ficha/Unidad/Minuto local</label>
-      <group appearance="col2 well-white" ref="/H2.4/local/tarifa1">
+      <group appearance="col2 well-white" ref="/H2.4/local/tarifaLocal">
         <label>TARIFA/PRECIO</label>
-        <input ref="/H2.4/local/tarifa1/tarifaHN1">
+        <input ref="/H2.4/local/tarifaLocal/tarifaLocalHN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/local/tarifa1/tarifaHR1">
+        <input ref="/H2.4/local/tarifaLocal/tarifaLocalHR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/H2.4/local/ritmo1">
+      <group appearance="col2 well-white" ref="/H2.4/local/ritmoLocal">
         <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
-        <input ref="/H2.4/local/ritmo1/ritmoHN1">
+        <input ref="/H2.4/local/ritmoLocal/ritmoLocalHN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/local/ritmo1/ritmoHR1">
+        <input ref="/H2.4/local/ritmoLocal/ritmoLocalHR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
     </group>
-    <group appearance="col1 well-white" ref="/H2.4/ldnclave1">
+    <group appearance="col1 well-white" ref="/H2.4/ldnClave1">
       <label>Ficha/Unidad/Minuto LDN Clave 1 (hasta 30 km)</label>
-      <group appearance="col2 well-white" ref="/H2.4/ldnclave1/tarifa2">
+      <group appearance="col2 well-white" ref="/H2.4/ldnClave1/tarifaClave1">
         <label>TARIFA/PRECIO</label>
-        <input ref="/H2.4/ldnclave1/tarifa2/tarifaHN2">
+        <input ref="/H2.4/ldnClave1/tarifaClave1/tarifaClave1HN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldnclave1/tarifa2/tarifaHR2">
+        <input ref="/H2.4/ldnClave1/tarifaClave1/tarifaClave1HR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/H2.4/ldnclave1/ritmo2">
+      <group appearance="col2 well-white" ref="/H2.4/ldnClave1/ritmoClave1">
         <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
-        <input ref="/H2.4/ldnclave1/ritmo2/ritmoHN2">
+        <input ref="/H2.4/ldnClave1/ritmoClave1/ritmoClave1HN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldnclave1/ritmo2/ritmoHR2">
+        <input ref="/H2.4/ldnClave1/ritmoClave1/ritmoClave1HR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
     </group>
-    <group appearance="col1 well-white" ref="/H2.4/ldnclave2">
+    <group appearance="col1 well-white" ref="/H2.4/ldnClave2">
       <label>Ficha/Unidad/Minuto LDN Clave 2 (hasta 55 km)</label>
-      <group appearance="col2 well-white" ref="/H2.4/ldnclave2/tarifa3">
+      <group appearance="col2 well-white" ref="/H2.4/ldnClave2/tarifaClave2">
         <label>TARIFA/PRECIO</label>
-        <input ref="/H2.4/ldnclave2/tarifa3/tarifaHN3">
+        <input ref="/H2.4/ldnClave2/tarifaClave2/tarifaClave2HN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldnclave2/tarifa3/tarifaHR3">
+        <input ref="/H2.4/ldnClave2/tarifaClave2/tarifaClave2HR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/H2.4/ldnclave2/ritmo3">
+      <group appearance="col2 well-white" ref="/H2.4/ldnClave2/ritmoClave2">
         <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
-        <input ref="/H2.4/ldnclave2/ritmo3/ritmoHN3">
+        <input ref="/H2.4/ldnClave2/ritmoClave2/ritmoClave2HN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldnclave2/ritmo3/ritmoHR3">
+        <input ref="/H2.4/ldnClave2/ritmoClave2/ritmoClave2HR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
     </group>
-    <group appearance="col1 well-white" ref="/H2.4/ldnclave3">
+    <group appearance="col1 well-white" ref="/H2.4/ldnClave3">
       <label>Ficha/Unidad/Minuto LDN Clave 3 (hasta 110 km)</label>
-      <group appearance="col2 well-white" ref="/H2.4/ldnclave3/tarifa4">
+      <group appearance="col2 well-white" ref="/H2.4/ldnClave3/tarifaClave3">
         <label>TARIFA/PRECIO</label>
-        <input ref="/H2.4/ldnclave3/tarifa4/tarifaHN4">
+        <input ref="/H2.4/ldnClave3/tarifaClave3/tarifaClave3HN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldnclave3/tarifa4/tarifaHR4">
+        <input ref="/H2.4/ldnClave3/tarifaClave3/tarifaClave3HR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/H2.4/ldnclave3/ritmo4">
+      <group appearance="col2 well-white" ref="/H2.4/ldnClave3/ritmoClave3">
         <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
-        <input ref="/H2.4/ldnclave3/ritmo4/ritmoHN4">
+        <input ref="/H2.4/ldnClave3/ritmoClave3/ritmoClave3HN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldnclave3/ritmo4/ritmoHR4">
+        <input ref="/H2.4/ldnClave3/ritmoClave3/ritmoClave3HR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
     </group>
-    <group appearance="col1 well-white" ref="/H2.4/ldnclave4">
+    <group appearance="col1 well-white" ref="/H2.4/ldnClave4">
       <label>Ficha/Unidad/Minuto LDN Clave 4 (hasta 170 km)</label>
-      <group appearance="col2 well-white" ref="/H2.4/ldnclave4/tarifa5">
+      <group appearance="col2 well-white" ref="/H2.4/ldnClave4/tarifaClave4">
         <label>TARIFA/PRECIO</label>
-        <input ref="/H2.4/ldnclave4/tarifa5/tarifaHN5">
+        <input ref="/H2.4/ldnClave4/tarifaClave4/tarifaClave4HN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldnclave4/tarifa5/tarifaHR5">
+        <input ref="/H2.4/ldnClave4/tarifaClave4/tarifaClave4HR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/H2.4/ldnclave4/ritmo5">
+      <group appearance="col2 well-white" ref="/H2.4/ldnClave4/ritmoClave4">
         <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
-        <input ref="/H2.4/ldnclave4/ritmo5/ritmoHN5">
+        <input ref="/H2.4/ldnClave4/ritmoClave4/ritmoClave4HN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldnclave4/ritmo5/ritmoHR5">
+        <input ref="/H2.4/ldnClave4/ritmoClave4/ritmoClave4HR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
     </group>
-    <group appearance="col1 well-white" ref="/H2.4/ldnclave5">
+    <group appearance="col1 well-white" ref="/H2.4/ldnClave5">
       <label>Ficha/Unidad/Minuto LDN Clave 5 (hasta 240 km)</label>
-      <group appearance="col2 well-white" ref="/H2.4/ldnclave5/tarifa6">
+      <group appearance="col2 well-white" ref="/H2.4/ldnClave5/tarifaClave5">
         <label>TARIFA/PRECIO</label>
-        <input ref="/H2.4/ldnclave5/tarifa6/tarifaHN6">
+        <input ref="/H2.4/ldnClave5/tarifaClave5/tarifaClave5HN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldnclave5/tarifa6/tarifaHR6">
+        <input ref="/H2.4/ldnClave5/tarifaClave5/tarifaClave5HR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/H2.4/ldnclave5/ritmo6">
+      <group appearance="col2 well-white" ref="/H2.4/ldnClave5/ritmoClave5">
         <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
-        <input ref="/H2.4/ldnclave5/ritmo6/ritmoHN6">
+        <input ref="/H2.4/ldnClave5/ritmoClave5/ritmoClave5HN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldnclave5/ritmo6/ritmoHR6">
+        <input ref="/H2.4/ldnClave5/ritmoClave5/ritmoClave5HR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
     </group>
-    <group appearance="col1 well-white" ref="/H2.4/ldnclave6">
+    <group appearance="col1 well-white" ref="/H2.4/ldnClave6">
       <label>Ficha/Unidad/Minuto LDN Clave 6-12 (más de 240 km)</label>
-      <group appearance="col2 well-white" ref="/H2.4/ldnclave6/tarifa7">
+      <group appearance="col2 well-white" ref="/H2.4/ldnClave6/tarifaClave6">
         <label>TARIFA/PRECIO</label>
-        <input ref="/H2.4/ldnclave6/tarifa7/tarifaHN7">
+        <input ref="/H2.4/ldnClave6/tarifaClave6/tarifaClave6HN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldnclave6/tarifa7/tarifaHR7">
+        <input ref="/H2.4/ldnClave6/tarifaClave6/tarifaClave6HR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/H2.4/ldnclave6/ritmo7">
+      <group appearance="col2 well-white" ref="/H2.4/ldnClave6/ritmoClave6">
         <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
-        <input ref="/H2.4/ldnclave6/ritmo7/ritmoHN7">
+        <input ref="/H2.4/ldnClave6/ritmoClave6/ritmoClave6HN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldnclave6/ritmo7/ritmoHR7">
+        <input ref="/H2.4/ldnClave6/ritmoClave6/ritmoClave6HR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
     </group>
-    <group appearance="col1 well-white" ref="/H2.4/ldiFront">
+    <group appearance="col1 well-white" ref="/H2.4/ldiFronterizo">
       <label>Ficha/Unidad/Minuto LDI de salida promedio fronterizo</label>
-      <group appearance="col2 well-white" ref="/H2.4/ldiFront/tarifa8">
+      <group appearance="col2 well-white" ref="/H2.4/ldiFronterizo/tarifaLdiFronterizo">
         <label>TARIFA/PRECIO</label>
-        <input ref="/H2.4/ldiFront/tarifa8/tarifaHN8">
+        <input ref="/H2.4/ldiFronterizo/tarifaLdiFronterizo/tarifaLdiFronterizoHN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldiFront/tarifa8/tarifaHR8">
+        <input ref="/H2.4/ldiFronterizo/tarifaLdiFronterizo/tarifaLdiFronterizoHR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/H2.4/ldiFront/ritmo8">
+      <group appearance="col2 well-white" ref="/H2.4/ldiFronterizo/ritmoLdiFronterizo">
         <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
-        <input ref="/H2.4/ldiFront/ritmo8/ritmoHN8">
+        <input ref="/H2.4/ldiFronterizo/ritmoLdiFronterizo/ritmoLdiFronterizoHN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldiFront/ritmo8/ritmoHR8">
+        <input ref="/H2.4/ldiFronterizo/ritmoLdiFronterizo/ritmoLdiFronterizoHR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
     </group>
-    <group appearance="col1 well-white" ref="/H2.4/ldiAmSur">
+    <group appearance="col1 well-white" ref="/H2.4/ldiAmericaSur">
       <label>Ficha/Unidad/Minuto LDI de salida promedio América del Sur</label>
-      <group appearance="col2 well-white" ref="/H2.4/ldiAmSur/tarifa9">
+      <group appearance="col2 well-white" ref="/H2.4/ldiAmericaSur/tarifaAmericaSur">
         <label>TARIFA/PRECIO</label>
-        <input ref="/H2.4/ldiAmSur/tarifa9/tarifaHN9">
+        <input ref="/H2.4/ldiAmericaSur/tarifaAmericaSur/tarifaAmericaSurHN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldiAmSur/tarifa9/tarifaHR9">
+        <input ref="/H2.4/ldiAmericaSur/tarifaAmericaSur/tarifaAmericaSurHR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/H2.4/ldiAmSur/ritmo9">
+      <group appearance="col2 well-white" ref="/H2.4/ldiAmericaSur/ritmoAmericaSur">
         <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
-        <input ref="/H2.4/ldiAmSur/ritmo9/ritmoHN9">
+        <input ref="/H2.4/ldiAmericaSur/ritmoAmericaSur/ritmoAmericaSurHN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldiAmSur/ritmo9/ritmoHR9">
+        <input ref="/H2.4/ldiAmericaSur/ritmoAmericaSur/ritmoAmericaSurHR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
     </group>
-    <group appearance="col1 well-white" ref="/H2.4/ldiAmCen">
+    <group appearance="col1 well-white" ref="/H2.4/ldiAmCentral">
       <label>Ficha/Unidad/Minuto LDI de salida promedio América Central</label>
-      <group appearance="col2 well-white" ref="/H2.4/ldiAmCen/tarifa10">
+      <group appearance="col2 well-white" ref="/H2.4/ldiAmCentral/tarifaAmCentral">
         <label>TARIFA/PRECIO</label>
-        <input ref="/H2.4/ldiAmCen/tarifa10/tarifaHN10">
+        <input ref="/H2.4/ldiAmCentral/tarifaAmCentral/tarifaAmCentralHN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldiAmCen/tarifa10/tarifaHR10">
+        <input ref="/H2.4/ldiAmCentral/tarifaAmCentral/tarifaAmCentralHR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/H2.4/ldiAmCen/ritmo10">
+      <group appearance="col2 well-white" ref="/H2.4/ldiAmCentral/ritmoAmCentral">
         <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
-        <input ref="/H2.4/ldiAmCen/ritmo10/ritmoHN10">
+        <input ref="/H2.4/ldiAmCentral/ritmoAmCentral/ritmoAmCentralHN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldiAmCen/ritmo10/ritmoHR10">
+        <input ref="/H2.4/ldiAmCentral/ritmoAmCentral/ritmoAmCentralHR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
     </group>
-    <group appearance="col1 well-white" ref="/H2.4/ldiAmNor">
+    <group appearance="col1 well-white" ref="/H2.4/ldiAmNorte">
       <label>Ficha/Unidad/Minuto LDI de salida promedio América del Norte</label>
-      <group appearance="col2 well-white" ref="/H2.4/ldiAmNor/tarifa11">
+      <group appearance="col2 well-white" ref="/H2.4/ldiAmNorte/tarifaAmNorte">
         <label>TARIFA/PRECIO</label>
-        <input ref="/H2.4/ldiAmNor/tarifa11/tarifaHN11">
+        <input ref="/H2.4/ldiAmNorte/tarifaAmNorte/tarifaAmNorteHN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldiAmNor/tarifa11/tarifaHR11">
+        <input ref="/H2.4/ldiAmNorte/tarifaAmNorte/tarifaAmNorteHR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/H2.4/ldiAmNor/ritmo11">
+      <group appearance="col2 well-white" ref="/H2.4/ldiAmNorte/ritmoAmNorte">
         <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
-        <input ref="/H2.4/ldiAmNor/ritmo11/ritmoHN11">
+        <input ref="/H2.4/ldiAmNorte/ritmoAmNorte/ritmoAmNorteHN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldiAmNor/ritmo11/ritmoHR11">
+        <input ref="/H2.4/ldiAmNorte/ritmoAmNorte/ritmoAmNorteHR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
     </group>
-    <group appearance="col1 well-white" ref="/H2.4/ldiEur">
+    <group appearance="col1 well-white" ref="/H2.4/ldiEuropa">
       <label>Ficha/Unidad/Minuto LDI de salida promedio Europa</label>
-      <group appearance="col2 well-white" ref="/H2.4/ldiEur/tarifa12">
+      <group appearance="col2 well-white" ref="/H2.4/ldiEuropa/tarifaEuropa">
         <label>TARIFA/PRECIO</label>
-        <input ref="/H2.4/ldiEur/tarifa12/tarifaHN12">
+        <input ref="/H2.4/ldiEuropa/tarifaEuropa/tarifaEuropaHN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldiEur/tarifa12/tarifaHR12">
+        <input ref="/H2.4/ldiEuropa/tarifaEuropa/tarifaEuropaHR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/H2.4/ldiEur/ritmo12">
+      <group appearance="col2 well-white" ref="/H2.4/ldiEuropa/ritmoEuropa">
         <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
-        <input ref="/H2.4/ldiEur/ritmo12/ritmoHN12">
+        <input ref="/H2.4/ldiEuropa/ritmoEuropa/ritmoEuropaHN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldiEur/ritmo12/ritmoHR12">
+        <input ref="/H2.4/ldiEuropa/ritmoEuropa/ritmoEuropaHR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
     </group>
-    <group appearance="col1 well-white" ref="/H2.4/ldiAfr">
+    <group appearance="col1 well-white" ref="/H2.4/ldiAfrica">
       <label>Ficha/Unidad/Minuto LDI de salida promedio África</label>
-      <group appearance="col2 well-white" ref="/H2.4/ldiAfr/tarifa13">
+      <group appearance="col2 well-white" ref="/H2.4/ldiAfrica/tarifaAfrica">
         <label>TARIFA/PRECIO</label>
-        <input ref="/H2.4/ldiAfr/tarifa13/tarifaHN13">
+        <input ref="/H2.4/ldiAfrica/tarifaAfrica/tarifaAfricaHN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldiAfr/tarifa13/tarifaHR13">
+        <input ref="/H2.4/ldiAfrica/tarifaAfrica/tarifaAfricaHR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/H2.4/ldiAfr/ritmo13">
+      <group appearance="col2 well-white" ref="/H2.4/ldiAfrica/ritmoAfrica">
         <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
-        <input ref="/H2.4/ldiAfr/ritmo13/ritmoHN13">
+        <input ref="/H2.4/ldiAfrica/ritmoAfrica/ritmoAfricaHN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldiAfr/ritmo13/ritmoHR13">
+        <input ref="/H2.4/ldiAfrica/ritmoAfrica/ritmoAfricaHR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
@@ -552,24 +552,24 @@
     </group>
     <group appearance="col1 well-white" ref="/H2.4/ldiAsia">
       <label>Ficha/Unidad/Minuto LDI de salida promedio Asia</label>
-      <group appearance="col2 well-white" ref="/H2.4/ldiAsia/tarifa14">
+      <group appearance="col2 well-white" ref="/H2.4/ldiAsia/tarifaAsia">
         <label>TARIFA/PRECIO</label>
-        <input ref="/H2.4/ldiAsia/tarifa14/tarifaHN14">
+        <input ref="/H2.4/ldiAsia/tarifaAsia/tarifaAsiaHN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldiAsia/tarifa14/tarifaHR14">
+        <input ref="/H2.4/ldiAsia/tarifaAsia/tarifaAsiaHR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/H2.4/ldiAsia/ritmo14">
+      <group appearance="col2 well-white" ref="/H2.4/ldiAsia/ritmoAsia">
         <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
-        <input ref="/H2.4/ldiAsia/ritmo14/ritmoHN14">
+        <input ref="/H2.4/ldiAsia/ritmoAsia/ritmoAsiaHN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldiAsia/ritmo14/ritmoHR14">
+        <input ref="/H2.4/ldiAsia/ritmoAsia/ritmoAsiaHR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
@@ -577,24 +577,24 @@
     </group>
     <group appearance="col1 well-white" ref="/H2.4/ldiOceania">
       <label>Ficha/Unidad/Minuto LDI de salida promedio Oceanía</label>
-      <group appearance="col2 well-white" ref="/H2.4/ldiOceania/tarifa15">
+      <group appearance="col2 well-white" ref="/H2.4/ldiOceania/tarifaOceania">
         <label>TARIFA/PRECIO</label>
-        <input ref="/H2.4/ldiOceania/tarifa15/tarifaHN15">
+        <input ref="/H2.4/ldiOceania/tarifaOceania/tarifaOceaniaHN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldiOceania/tarifa15/tarifaHR15">
+        <input ref="/H2.4/ldiOceania/tarifaOceania/tarifaOceaniaHR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/H2.4/ldiOceania/ritmo15">
+      <group appearance="col2 well-white" ref="/H2.4/ldiOceania/ritmoOceania">
         <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
-        <input ref="/H2.4/ldiOceania/ritmo15/ritmoHN15">
+        <input ref="/H2.4/ldiOceania/ritmoOceania/ritmoOceaniaHN">
           <label>HN</label>
           <hint>HN</hint>
         </input>
-        <input ref="/H2.4/ldiOceania/ritmo15/ritmoHR15">
+        <input ref="/H2.4/ldiOceania/ritmoOceania/ritmoOceaniaHR">
           <label>HR</label>
           <hint>HR</hint>
         </input>
