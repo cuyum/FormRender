@@ -15,7 +15,9 @@
             <interurbano/>
             <internacional/>
           </trafico>
-          <total/>
+          <tot>
+            <total/>
+          </tot>
           <meta>
             <instanceID/>
           </meta>
@@ -26,12 +28,12 @@
       <bind constraint="mask=9.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C2.5/trafico/urbano" required="true()" type="int"/>
       <bind constraint="mask=9.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C2.5/trafico/interurbano" required="true()" type="int"/>
       <bind constraint="mask=9.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C2.5/trafico/internacional" required="true()" type="int"/>
-      <bind constraint="mask=9.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C2.5/total" required="true()" type="int"/>
+      <bind constraint="mask=9.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C2.5/tot/total" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C2.5/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group appearance="col1 well-white" ref="/C2.5/ingresos">
+    <group appearance="col4 well-white" ref="/C2.5/ingresos">
       <label>Ingresos</label>
       <select1 appearance="minimal" ref="/C2.5/ingresos/anio">
         <label>Año</label>
@@ -62,7 +64,7 @@
         <hint>Abono</hint>
       </input>
     </group>
-    <group appearance="col3 well-white" ref="/C2.5/trafico">
+    <group appearance="col4 well-white" ref="/C2.5/trafico">
       <label>Tráfico</label>
       <input ref="/C2.5/trafico/urbano">
         <label>Urbano</label>
@@ -77,9 +79,11 @@
         <hint>Internacional</hint>
       </input>
     </group>
-    <input ref="/C2.5/total">
-      <label>Total</label>
-      <hint>Total</hint>
-    </input>
+    <group appearance="col4 well-white" ref="/C2.5/tot">
+      <input ref="/C2.5/tot/total">
+        <label>Total</label>
+        <hint>Total</hint>
+      </input>
+    </group>
   </h:body>
 </h:html>

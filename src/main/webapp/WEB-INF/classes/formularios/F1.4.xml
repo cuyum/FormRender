@@ -22,8 +22,8 @@
         </F1.4>
       </instance>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/F1.4/meses/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/D1.2/inter/interconexion/provincia" nodeset="/F1.4/meses/mes/partido" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/D1.2/inter/interconexion/partido" nodeset="/F1.4/meses/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/F1.4/meses/mes/provincia" nodeset="/F1.4/meses/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/F1.4/meses/mes/partido" nodeset="/F1.4/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/F1.4/meses/mes/localidad_otro" relevant=" /F1.4/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind nodeset="/F1.4/meses/mes/institucion" required="true()" type="select1"/>
       <bind constraint="mask=99.999.999" nodeset="/F1.4/meses/mes/capacidad" required="true()" type="int"/>
@@ -34,7 +34,7 @@
     <group ref="/F1.4/meses">
       <label></label>
       <repeat appearance="grilla" nodeset="/F1.4/meses">
-        <group appearance="col3 well-white" ref="/F1.4/meses/mes">
+        <group appearance="col3 well-white variable" ref="/F1.4/meses/mes">
           <label>{title}</label>
           <select1 appearance="minimal" ref="/F1.4/meses/mes/provincia">
             <label>Provincia</label>

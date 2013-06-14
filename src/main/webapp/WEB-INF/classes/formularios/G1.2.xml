@@ -67,10 +67,10 @@
       <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/G1.2/puntos/tipotendido/tendidoCapacidadDisp" relevant=" /G1.2/puntos/tipomedio/medio =FO" required="true()" type="decimal"/>
       <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/G1.2/puntos/tipotendido/tendidoCapacidadUtilizada" relevant=" /G1.2/puntos/tipomedio/medio =FO" required="true()" type="decimal"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/G1.2/puntos/ubicacionFin/provinciaFin" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/C1.3/puntos/ubicacionFin/provinciaFin" nodeset="/G1.2/puntos/ubicacionFin/partidoFin" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/C1.3/puntos/ubicacionFin/partidoFin" nodeset="/G1.2/puntos/ubicacionFin/localidadFin" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/G1.2/puntos/ubicacionFin/provinciaFin" nodeset="/G1.2/puntos/ubicacionFin/partidoFin" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/G1.2/puntos/ubicacionFin/partidoFin" nodeset="/G1.2/puntos/ubicacionFin/localidadFin" required="true()" type="select1"/>
       <bind nodeset="/G1.2/puntos/ubicacionFin/localidadFin_otro" relevant=" /G1.2/puntos/ubicacionFin/localidadFin =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C1.3/puntos/ubicacionFin/localidadFin" nodeset="/G1.2/puntos/ubicacionFin/areaFin" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/G1.2/puntos/ubicacionFin/localidadFin" nodeset="/G1.2/puntos/ubicacionFin/areaFin" required="true()" type="select1"/>
       <bind nodeset="/G1.2/puntos/ubicacionFin/areaFin_otro" relevant=" /G1.2/puntos/ubicacionFin/areaFin =9999" required="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/G1.2/meta/instanceID" readonly="true()" type="string"/>
     </model>

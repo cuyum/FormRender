@@ -22,8 +22,8 @@
         </F1.2>
       </instance>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/F1.2/inter/interconexion/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/D1.2/inter/interconexion/provincia" nodeset="/F1.2/inter/interconexion/partido" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/D1.2/inter/interconexion/partido" nodeset="/F1.2/inter/interconexion/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/F1.2/inter/interconexion/provincia" nodeset="/F1.2/inter/interconexion/partido" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/F1.2/inter/interconexion/partido" nodeset="/F1.2/inter/interconexion/localidad" required="true()" type="select1"/>
       <bind nodeset="/F1.2/inter/interconexion/localidad_otro" relevant=" /F1.2/inter/interconexion/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" nodeset="/F1.2/inter/interconexion/prestador" required="true()" type="select1"/>
       <bind constraint="mask=9.999.999,99" nodeset="/F1.2/inter/interconexion/capacidad" required="true()" type="decimal"/>

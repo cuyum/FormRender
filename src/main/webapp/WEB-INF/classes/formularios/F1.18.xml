@@ -100,7 +100,7 @@
             <label>Acceso Otros</label>
             <hint>Acceso Otros</hint>
           </input>
-          <group appearance="col2 well-white" ref="/F1.18/agregar/planes/velocidad">
+          <group appearance="col4" ref="/F1.18/agregar/planes/velocidad">
             <label>Velocidad</label>
             <select1 appearance="minimal" ref="/F1.18/agregar/planes/velocidad/velocidadSubida">
               <label>Subida</label>
