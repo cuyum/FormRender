@@ -66,7 +66,7 @@
           </input>
           <select1 appearance="minimal" ref="/F1.4/meses/mes/institucion">
             <label>Institución</label>
-            <hint>BIBLIOTECA: Incluye las bibliotecas públicas que dependen de organismos nacionales, provinciales o municipales con dependencia estatal y las públicas denominadas populares, que se conforman a partir de organizaciones sin fines de lucro, comunitarias, coop</hint>
+            <hint>Institución</hint>
             <item>
               <label>Seleccione una opción</label>
               <value>-1</value>

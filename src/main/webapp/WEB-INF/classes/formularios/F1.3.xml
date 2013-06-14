@@ -1,0 +1,249 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario F1.3 - Redes e Infraestructura</h:title>
+    <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <instance>
+        <F1.3 id="F1.3">
+          <puntos jr:template="">
+            <lugar>
+              <provincia/>
+              <partido/>
+              <localidad/>
+              <localidad_otro/>
+            </lugar>
+            <equipamiento>
+              <tecnologia/>
+              <tecnologia_otro/>
+              <equipCapacidadDisp/>
+              <equipCapacidadUtilizada/>
+            </equipamiento>
+            <tipomedio>
+              <medio/>
+              <medio_otro/>
+              <medioCapacidadDisp/>
+              <medioCapacidadUtilizada/>
+            </tipomedio>
+            <tipotendido>
+              <tendido/>
+              <tendido_otro/>
+              <tendidoCapacidadDisp/>
+              <tendidoCapacidadUtilizada/>
+            </tipotendido>
+            <lugarFin>
+              <provinciaFin/>
+              <partidoFin/>
+              <localidadFin/>
+              <localidadFin_otro/>
+            </lugarFin>
+          </puntos>
+          <meta>
+            <instanceID/>
+          </meta>
+        </F1.3>
+      </instance>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/F1.3/puntos/lugar/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/F1.3/puntos/lugar/provincia" nodeset="/F1.3/puntos/lugar/partido" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/F1.3/puntos/lugar/partido" nodeset="/F1.3/puntos/lugar/localidad" required="true()" type="select1"/>
+      <bind nodeset="/F1.3/puntos/lugar/localidad_otro" relevant=" /F1.3/puntos/lugar/localidad =9999" required="true()" type="string"/>
+      <bind nodeset="/F1.3/puntos/equipamiento/tecnologia" required="true()" type="select1"/>
+      <bind nodeset="/F1.3/puntos/equipamiento/tecnologia_otro" relevant=" /F1.3/puntos/equipamiento/tecnologia =Otros" required="true()" type="string"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/F1.3/puntos/equipamiento/equipCapacidadDisp" required="true()" type="decimal"/>
+      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/F1.3/puntos/equipamiento/equipCapacidadUtilizada" required="true()" type="decimal"/>
+      <bind nodeset="/F1.3/puntos/tipomedio/medio" required="true()" type="select1"/>
+      <bind nodeset="/F1.3/puntos/tipomedio/medio_otro" relevant=" /F1.3/puntos/tipomedio/medio =Otros" required="true()" type="string"/>
+      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/F1.3/puntos/tipomedio/medioCapacidadDisp" relevant=" /F1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
+      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/F1.3/puntos/tipomedio/medioCapacidadUtilizada" relevant=" /F1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
+      <bind nodeset="/F1.3/puntos/tipotendido" relevant=" /F1.3/puntos/tipomedio/medio =FO or  /F1.3/puntos/tipomedio/medio =Otros"/>
+      <bind nodeset="/F1.3/puntos/tipotendido/tendido" relevant=" /F1.3/puntos/tipomedio/medio =FO or  /F1.3/puntos/tipomedio/medio =Otros" required="true()" type="select1"/>
+      <bind nodeset="/F1.3/puntos/tipotendido/tendido_otro" relevant=" /F1.3/puntos/tipotendido/tendido =Otros" required="true()" type="string"/>
+      <bind constraint="mask=999" jr:constraintMsg="Datos no válidos" nodeset="/F1.3/puntos/tipotendido/tendidoCapacidadDisp" relevant=" /F1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
+      <bind constraint="mask=999" jr:constraintMsg="Datos no válidos" nodeset="/F1.3/puntos/tipotendido/tendidoCapacidadUtilizada" relevant=" /F1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/F1.3/puntos/lugarFin/provinciaFin" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/F1.3/puntos/lugarFin/provinciaFin" nodeset="/F1.3/puntos/lugarFin/partidoFin" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/F1.3/puntos/lugarFin/partidoFin" nodeset="/F1.3/puntos/lugarFin/localidadFin" required="true()" type="select1"/>
+      <bind nodeset="/F1.3/puntos/lugarFin/localidadFin_otro" relevant=" /F1.3/puntos/lugarFin/localidadFin =9999" required="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/F1.3/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/F1.3/puntos">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/F1.3/puntos">
+        <group appearance="col3 well-white" ref="/F1.3/puntos/lugar">
+          <label>Lugar</label>
+          <select1 appearance="minimal" ref="/F1.3/puntos/lugar/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/F1.3/puntos/lugar/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/F1.3/puntos/lugar/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/F1.3/puntos/lugar/localidad_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+        </group>
+        <group appearance="col3 well-white" ref="/F1.3/puntos/equipamiento">
+          <label>Equipamiento</label>
+          <select1 appearance="minimal" ref="/F1.3/puntos/equipamiento/tecnologia">
+            <label>Tecnología</label>
+            <hint>Tecnología</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>SDH</label>
+              <value>SDH</value>
+            </item>
+            <item>
+              <label>DWDM</label>
+              <value>DWDM</value>
+            </item>
+            <item>
+              <label>PDH</label>
+              <value>PDH</value>
+            </item>
+            <item>
+              <label>IP</label>
+              <value>IP</value>
+            </item>
+            <item>
+              <label>Otros</label>
+              <value>Otros</value>
+            </item>
+          </select1>
+          <input ref="/F1.3/puntos/equipamiento/tecnologia_otro">
+            <label>Tec. Otros</label>
+          </input>
+          <input ref="/F1.3/puntos/equipamiento/equipCapacidadDisp">
+            <label>Capacidad Disponible</label>
+            <hint>Capacidad Disponible [Mbps / xxE1]</hint>
+          </input>
+          <input ref="/F1.3/puntos/equipamiento/equipCapacidadUtilizada">
+            <label>Capacidad Utilizada</label>
+            <hint>Capacidad Utilizada [Mbps / xxE1]</hint>
+          </input>
+        </group>
+        <group appearance="col3 well-white" ref="/F1.3/puntos/tipomedio">
+          <label>Medio</label>
+          <select1 appearance="minimal" ref="/F1.3/puntos/tipomedio/medio">
+            <label>Tipo</label>
+            <hint>Tipo</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>FO</label>
+              <value>FO</value>
+            </item>
+            <item>
+              <label>MW</label>
+              <value>MW</value>
+            </item>
+            <item>
+              <label>Otros</label>
+              <value>Otros</value>
+            </item>
+          </select1>
+          <input ref="/F1.3/puntos/tipomedio/medio_otro">
+            <label>Tipo Otros</label>
+          </input>
+          <input ref="/F1.3/puntos/tipomedio/medioCapacidadDisp">
+            <label>Capacidad Disponible</label>
+            <hint>Capacidad Disponible [cantidad de pelos]</hint>
+          </input>
+          <input ref="/F1.3/puntos/tipomedio/medioCapacidadUtilizada">
+            <label>Capacidad Utilizada</label>
+            <hint>Capacidad Utilizada [cantidad de pelos]</hint>
+          </input>
+        </group>
+        <group appearance="col3 well-white" ref="/F1.3/puntos/tipotendido">
+          <label>Tendido</label>
+          <select1 appearance="minimal" ref="/F1.3/puntos/tipotendido/tendido">
+            <label>Tipo</label>
+            <hint>Tipo</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>AÉREO</label>
+              <value>AEREO</value>
+            </item>
+            <item>
+              <label>SUBTERRÁNEO</label>
+              <value>SUBTERRANEO</value>
+            </item>
+            <item>
+              <label>Otros</label>
+              <value>Otros</value>
+            </item>
+          </select1>
+          <input ref="/F1.3/puntos/tipotendido/tendido_otro">
+            <label>Tipo Otros</label>
+          </input>
+          <input ref="/F1.3/puntos/tipotendido/tendidoCapacidadDisp">
+            <label>Capacidad Disponible</label>
+            <hint>Capacidad Disponible [cantidad de ductos]</hint>
+          </input>
+          <input ref="/F1.3/puntos/tipotendido/tendidoCapacidadUtilizada">
+            <label>Capacidad Utilizada</label>
+            <hint>Capacidad Utilizada [cantidad de ductos]</hint>
+          </input>
+        </group>
+        <group appearance="col3 well-white" ref="/F1.3/puntos/lugarFin">
+          <label>Lugar</label>
+          <select1 appearance="minimal" ref="/F1.3/puntos/lugarFin/provinciaFin">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/F1.3/puntos/lugarFin/partidoFin">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/F1.3/puntos/lugarFin/localidadFin">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/F1.3/puntos/lugarFin/localidadFin_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

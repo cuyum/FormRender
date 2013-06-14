@@ -14,8 +14,8 @@
             <localidad_otro/>
             <area/>
             <area_otro/>
-            <telefonosVia/>
-            <lineasTelef/>
+            <telefViaPublica/>
+            <lineasTelefoniaPublica/>
           </lineas>
           <telefonosPublicos>
             <tpa/>
@@ -25,7 +25,7 @@
             <sspld/>
           </telefonosPublicos>
           <lineas1>
-            <telefonosSemi/>
+            <telefSemiPublicos/>
             <locutorios/>
             <locuroriosCabinas/>
           </lineas1>
@@ -41,14 +41,14 @@
       <bind nodeset="/H2.3/lineas/localidad_otro" relevant=" /H2.3/lineas/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/H2.3/areasprest/lineas/localidad" nodeset="/H2.3/lineas/area" required="true()" type="select1"/>
       <bind nodeset="/H2.3/lineas/area_otro" relevant=" /H2.3/lineas/area =9999" required="true()" type="string"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/lineas/telefonosVia" required="true()" type="int"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/lineas/lineasTelef" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/lineas/telefViaPublica" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/lineas/lineasTelefoniaPublica" required="true()" type="int"/>
       <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/telefonosPublicos/tpa" required="true()" type="int"/>
       <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/telefonosPublicos/tpu" required="true()" type="int"/>
       <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/telefonosPublicos/tsp" required="true()" type="int"/>
       <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/telefonosPublicos/thih" required="true()" type="int"/>
       <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/telefonosPublicos/sspld" required="true()" type="int"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/lineas1/telefonosSemi" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/lineas1/telefSemiPublicos" required="true()" type="int"/>
       <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/lineas1/locutorios" required="true()" type="int"/>
       <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/lineas1/locuroriosCabinas" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/H2.3/meta/instanceID" readonly="true()" type="string"/>
@@ -119,11 +119,11 @@
       <input ref="/H2.3/lineas/area_otro">
         <label>Área Otros</label>
       </input>
-      <input ref="/H2.3/lineas/telefonosVia">
+      <input ref="/H2.3/lineas/telefViaPublica">
         <label>Teléfonos en vía pública</label>
         <hint>Teléfonos en vía pública</hint>
       </input>
-      <input ref="/H2.3/lineas/lineasTelef">
+      <input ref="/H2.3/lineas/lineasTelefoniaPublica">
         <label>Líneas telefonía pública</label>
         <hint>Líneas telefonía pública</hint>
       </input>
@@ -153,7 +153,7 @@
     </group>
     <group appearance="col3 well-white" ref="/H2.3/lineas1">
       <label>Líneas</label>
-      <input ref="/H2.3/lineas1/telefonosSemi">
+      <input ref="/H2.3/lineas1/telefSemiPublicos">
         <label>Teléfonos semi-públicos</label>
         <hint>Teléfonos semi-públicos</hint>
       </input>
