@@ -2295,3 +2295,16 @@ label + fieldset {
 }
 
 th, td { white-space: nowrap; }
+
+fieldset label.valid{
+	height: 1px;
+}
+fieldset label.error{
+	height: 1px;
+}
+fieldset select label.valid{
+	height: 1px;
+}
+fieldset select label.error{
+	height: 1px;
+}

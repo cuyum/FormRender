@@ -34,7 +34,7 @@
     <group ref="/F1.4/meses">
       <label></label>
       <repeat appearance="grilla" nodeset="/F1.4/meses">
-        <group appearance="col3 well-white" ref="/F1.4/meses/mes">
+        <group appearance="col3 well-white variable" ref="/F1.4/meses/mes">
           <label>{title}</label>
           <select1 appearance="minimal" ref="/F1.4/meses/mes/provincia">
             <label>Provincia</label>
