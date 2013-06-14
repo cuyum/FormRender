@@ -76,31 +76,31 @@
             </item>
             <item>
               <label>HASTA 512 kbps</label>
-              <value>a</value>
+              <value>HASTA512kbps</value>
             </item>
             <item>
               <label>+ 512 Kbps - 1 Mbps</label>
-              <value>b</value>
+              <value>512 Kbps_1Mbps</value>
             </item>
             <item>
               <label>+ 1 Mbps - 6 Mbps</label>
-              <value>c</value>
+              <value>1Mbps_6Mbps</value>
             </item>
             <item>
               <label>+ 6 Mbps - 10 Mbps</label>
-              <value>d</value>
+              <value>6Mbps_10Mbps</value>
             </item>
             <item>
               <label>+ 10 Mbps - 20 Mbps</label>
-              <value>e</value>
+              <value>10Mbps_20Mbps</value>
             </item>
             <item>
               <label>+ 20 Mbps - 30 Mbps</label>
-              <value>f</value>
+              <value>20Mbps_30Mbps</value>
             </item>
             <item>
               <label>+ 30 Mbps</label>
-              <value>g</value>
+              <value>30Mbps</value>
             </item>
           </select1>
         </group>
