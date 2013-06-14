@@ -2226,13 +2226,10 @@ fieldset .col4 label.error {
 }
 
 fieldset .col6 label .error {
-	color: #B94A48;
-	font-size: 10px;
-	margin-left: 1px;
-	width: 100%;
+	margin: 0;
+	width: 95%;
 	line-height: 7px;
-	line-height: 12px;
-    margin-left: 1px;
+	line-height: 12px;    
     padding-bottom: 0;
 }
 .col6 label.error {
