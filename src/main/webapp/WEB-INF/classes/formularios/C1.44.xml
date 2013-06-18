@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario C1.44 - Ingresos interconexion a la red fija - LDN a vinculadas</h:title>
+    <h:title>Formulario C1.44 - Ingresos interconexión a la red fija - LDN a vinculadas</h:title>
     <model>
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
@@ -11,7 +11,6 @@
               <arriendo/>
               <transporte/>
               <otros/>
-              <calculate2/>
               <total/>
             </mes>
           </meses>
@@ -23,7 +22,6 @@
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.44/meses/mes/arriendo" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.44/meses/mes/transporte" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.44/meses/mes/otros" required="true()" type="int"/>
-      <bind calculate=" /C1.44/meses/mes/arriendo + /C1.44/meses/mes/transporte + /C1.44/meses/mes/otros " nodeset="/C1.44/meses/mes/calculate2" type="string"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.44/meses/mes/total" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.44/meta/instanceID" readonly="true()" type="string"/>
     </model>
