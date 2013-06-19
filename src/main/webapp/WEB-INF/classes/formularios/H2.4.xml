@@ -226,9 +226,9 @@
   </h:head>
   <h:body>
     <group appearance="col1 well-white" ref="/H2.4/local">
-      <label>Ficha/Unidad/Minuto local</label>
+      <label>Ficha / Unidad / Minuto local</label>
       <group appearance="col2 well-white" ref="/H2.4/local/tarifaLocal">
-        <label>TARIFA/PRECIO</label>
+        <label>Tarifa / Precio</label>
         <input ref="/H2.4/local/tarifaLocal/tarifaLocalHN">
           <label>HN</label>
           <hint>HN</hint>
@@ -239,7 +239,7 @@
         </input>
       </group>
       <group appearance="col2 well-white" ref="/H2.4/local/ritmoLocal">
-        <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
+        <label>Ritmo de Tasación / Duración Unidad</label>
         <input ref="/H2.4/local/ritmoLocal/ritmoLocalHN">
           <label>HN</label>
           <hint>HN</hint>
@@ -251,9 +251,9 @@
       </group>
     </group>
     <group appearance="col1 well-white" ref="/H2.4/ldnClave1">
-      <label>Ficha/Unidad/Minuto LDN Clave 1 (hasta 30 km)</label>
+      <label>Ficha / Unidad / Minuto LDN Clave 1 (hasta 30 km)</label>
       <group appearance="col2 well-white" ref="/H2.4/ldnClave1/tarifaClave1">
-        <label>TARIFA/PRECIO</label>
+        <label>Tarifa / Precio</label>
         <input ref="/H2.4/ldnClave1/tarifaClave1/tarifaClave1HN">
           <label>HN</label>
           <hint>HN</hint>
@@ -264,7 +264,7 @@
         </input>
       </group>
       <group appearance="col2 well-white" ref="/H2.4/ldnClave1/ritmoClave1">
-        <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
+        <label>Ritmo de Tasación / Duración Unidad</label>
         <input ref="/H2.4/ldnClave1/ritmoClave1/ritmoClave1HN">
           <label>HN</label>
           <hint>HN</hint>
@@ -276,9 +276,9 @@
       </group>
     </group>
     <group appearance="col1 well-white" ref="/H2.4/ldnClave2">
-      <label>Ficha/Unidad/Minuto LDN Clave 2 (hasta 55 km)</label>
+      <label>Ficha / Unidad / Minuto LDN Clave 2 (hasta 55 km)</label>
       <group appearance="col2 well-white" ref="/H2.4/ldnClave2/tarifaClave2">
-        <label>TARIFA/PRECIO</label>
+        <label>Tarifa / Precio</label>
         <input ref="/H2.4/ldnClave2/tarifaClave2/tarifaClave2HN">
           <label>HN</label>
           <hint>HN</hint>
@@ -289,7 +289,7 @@
         </input>
       </group>
       <group appearance="col2 well-white" ref="/H2.4/ldnClave2/ritmoClave2">
-        <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
+        <label>Ritmo de Tasación / Duración Unidad</label>
         <input ref="/H2.4/ldnClave2/ritmoClave2/ritmoClave2HN">
           <label>HN</label>
           <hint>HN</hint>
@@ -301,9 +301,9 @@
       </group>
     </group>
     <group appearance="col1 well-white" ref="/H2.4/ldnClave3">
-      <label>Ficha/Unidad/Minuto LDN Clave 3 (hasta 110 km)</label>
+      <label>Ficha / Unidad / Minuto LDN Clave 3 (hasta 110 km)</label>
       <group appearance="col2 well-white" ref="/H2.4/ldnClave3/tarifaClave3">
-        <label>TARIFA/PRECIO</label>
+        <label>Tarifa / Precio</label>
         <input ref="/H2.4/ldnClave3/tarifaClave3/tarifaClave3HN">
           <label>HN</label>
           <hint>HN</hint>
@@ -314,7 +314,7 @@
         </input>
       </group>
       <group appearance="col2 well-white" ref="/H2.4/ldnClave3/ritmoClave3">
-        <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
+        <label>Ritmo de Tasación / Duración Unidad</label>
         <input ref="/H2.4/ldnClave3/ritmoClave3/ritmoClave3HN">
           <label>HN</label>
           <hint>HN</hint>
@@ -326,9 +326,9 @@
       </group>
     </group>
     <group appearance="col1 well-white" ref="/H2.4/ldnClave4">
-      <label>Ficha/Unidad/Minuto LDN Clave 4 (hasta 170 km)</label>
+      <label>Ficha / Unidad / Minuto LDN Clave 4 (hasta 170 km)</label>
       <group appearance="col2 well-white" ref="/H2.4/ldnClave4/tarifaClave4">
-        <label>TARIFA/PRECIO</label>
+        <label>Tarifa / Precio</label>
         <input ref="/H2.4/ldnClave4/tarifaClave4/tarifaClave4HN">
           <label>HN</label>
           <hint>HN</hint>
@@ -339,7 +339,7 @@
         </input>
       </group>
       <group appearance="col2 well-white" ref="/H2.4/ldnClave4/ritmoClave4">
-        <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
+        <label>Ritmo de Tasación / Duración Unidad</label>
         <input ref="/H2.4/ldnClave4/ritmoClave4/ritmoClave4HN">
           <label>HN</label>
           <hint>HN</hint>
@@ -351,9 +351,9 @@
       </group>
     </group>
     <group appearance="col1 well-white" ref="/H2.4/ldnClave5">
-      <label>Ficha/Unidad/Minuto LDN Clave 5 (hasta 240 km)</label>
+      <label>Ficha / Unidad / Minuto LDN Clave 5 (hasta 240 km)</label>
       <group appearance="col2 well-white" ref="/H2.4/ldnClave5/tarifaClave5">
-        <label>TARIFA/PRECIO</label>
+        <label>Tarifa / Precio</label>
         <input ref="/H2.4/ldnClave5/tarifaClave5/tarifaClave5HN">
           <label>HN</label>
           <hint>HN</hint>
@@ -364,7 +364,7 @@
         </input>
       </group>
       <group appearance="col2 well-white" ref="/H2.4/ldnClave5/ritmoClave5">
-        <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
+        <label>Ritmo de Tasación / Duración Unidad</label>
         <input ref="/H2.4/ldnClave5/ritmoClave5/ritmoClave5HN">
           <label>HN</label>
           <hint>HN</hint>
@@ -376,9 +376,9 @@
       </group>
     </group>
     <group appearance="col1 well-white" ref="/H2.4/ldnClave6">
-      <label>Ficha/Unidad/Minuto LDN Clave 6-12 (más de 240 km)</label>
+      <label>Ficha / Unidad / Minuto LDN Clave 6-12 (más de 240 km)</label>
       <group appearance="col2 well-white" ref="/H2.4/ldnClave6/tarifaClave6">
-        <label>TARIFA/PRECIO</label>
+        <label>Tarifa / Precio</label>
         <input ref="/H2.4/ldnClave6/tarifaClave6/tarifaClave6HN">
           <label>HN</label>
           <hint>HN</hint>
@@ -389,7 +389,7 @@
         </input>
       </group>
       <group appearance="col2 well-white" ref="/H2.4/ldnClave6/ritmoClave6">
-        <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
+        <label>Ritmo de Tasación / Duración Unidad</label>
         <input ref="/H2.4/ldnClave6/ritmoClave6/ritmoClave6HN">
           <label>HN</label>
           <hint>HN</hint>
@@ -401,9 +401,9 @@
       </group>
     </group>
     <group appearance="col1 well-white" ref="/H2.4/ldiFronterizo">
-      <label>Ficha/Unidad/Minuto LDI de salida promedio fronterizo</label>
+      <label>Ficha / Unidad / Minuto LDI de salida promedio fronterizo</label>
       <group appearance="col2 well-white" ref="/H2.4/ldiFronterizo/tarifaLdiFronterizo">
-        <label>TARIFA/PRECIO</label>
+        <label>Tarifa / Precio</label>
         <input ref="/H2.4/ldiFronterizo/tarifaLdiFronterizo/tarifaLdiFronterizoHN">
           <label>HN</label>
           <hint>HN</hint>
@@ -414,7 +414,7 @@
         </input>
       </group>
       <group appearance="col2 well-white" ref="/H2.4/ldiFronterizo/ritmoLdiFronterizo">
-        <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
+        <label>Ritmo de Tasación / Duración Unidad</label>
         <input ref="/H2.4/ldiFronterizo/ritmoLdiFronterizo/ritmoLdiFronterizoHN">
           <label>HN</label>
           <hint>HN</hint>
@@ -426,9 +426,9 @@
       </group>
     </group>
     <group appearance="col1 well-white" ref="/H2.4/ldiAmericaSur">
-      <label>Ficha/Unidad/Minuto LDI de salida promedio América del Sur</label>
+      <label>Ficha / Unidad / Minuto LDI de salida promedio América del Sur</label>
       <group appearance="col2 well-white" ref="/H2.4/ldiAmericaSur/tarifaAmericaSur">
-        <label>TARIFA/PRECIO</label>
+        <label>Tarifa / Precio</label>
         <input ref="/H2.4/ldiAmericaSur/tarifaAmericaSur/tarifaAmericaSurHN">
           <label>HN</label>
           <hint>HN</hint>
@@ -439,7 +439,7 @@
         </input>
       </group>
       <group appearance="col2 well-white" ref="/H2.4/ldiAmericaSur/ritmoAmericaSur">
-        <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
+        <label>Ritmo de Tasación / Duración Unidad</label>
         <input ref="/H2.4/ldiAmericaSur/ritmoAmericaSur/ritmoAmericaSurHN">
           <label>HN</label>
           <hint>HN</hint>
@@ -451,9 +451,9 @@
       </group>
     </group>
     <group appearance="col1 well-white" ref="/H2.4/ldiAmCentral">
-      <label>Ficha/Unidad/Minuto LDI de salida promedio América Central</label>
+      <label>Ficha / Unidad / Minuto LDI de salida promedio América Central</label>
       <group appearance="col2 well-white" ref="/H2.4/ldiAmCentral/tarifaAmCentral">
-        <label>TARIFA/PRECIO</label>
+        <label>Tarifa / Precio</label>
         <input ref="/H2.4/ldiAmCentral/tarifaAmCentral/tarifaAmCentralHN">
           <label>HN</label>
           <hint>HN</hint>
@@ -464,7 +464,7 @@
         </input>
       </group>
       <group appearance="col2 well-white" ref="/H2.4/ldiAmCentral/ritmoAmCentral">
-        <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
+        <label>Ritmo de Tasación / Duración Unidad</label>
         <input ref="/H2.4/ldiAmCentral/ritmoAmCentral/ritmoAmCentralHN">
           <label>HN</label>
           <hint>HN</hint>
@@ -476,9 +476,9 @@
       </group>
     </group>
     <group appearance="col1 well-white" ref="/H2.4/ldiAmNorte">
-      <label>Ficha/Unidad/Minuto LDI de salida promedio América del Norte</label>
+      <label>Ficha / Unidad / Minuto LDI de salida promedio América del Norte</label>
       <group appearance="col2 well-white" ref="/H2.4/ldiAmNorte/tarifaAmNorte">
-        <label>TARIFA/PRECIO</label>
+        <label>Tarifa / Precio</label>
         <input ref="/H2.4/ldiAmNorte/tarifaAmNorte/tarifaAmNorteHN">
           <label>HN</label>
           <hint>HN</hint>
@@ -489,7 +489,7 @@
         </input>
       </group>
       <group appearance="col2 well-white" ref="/H2.4/ldiAmNorte/ritmoAmNorte">
-        <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
+        <label>Ritmo de Tasación / Duración Unidad</label>
         <input ref="/H2.4/ldiAmNorte/ritmoAmNorte/ritmoAmNorteHN">
           <label>HN</label>
           <hint>HN</hint>
@@ -501,9 +501,9 @@
       </group>
     </group>
     <group appearance="col1 well-white" ref="/H2.4/ldiEuropa">
-      <label>Ficha/Unidad/Minuto LDI de salida promedio Europa</label>
+      <label>Ficha / Unidad / Minuto LDI de salida promedio Europa</label>
       <group appearance="col2 well-white" ref="/H2.4/ldiEuropa/tarifaEuropa">
-        <label>TARIFA/PRECIO</label>
+        <label>Tarifa / Precio</label>
         <input ref="/H2.4/ldiEuropa/tarifaEuropa/tarifaEuropaHN">
           <label>HN</label>
           <hint>HN</hint>
@@ -514,7 +514,7 @@
         </input>
       </group>
       <group appearance="col2 well-white" ref="/H2.4/ldiEuropa/ritmoEuropa">
-        <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
+        <label>Ritmo de Tasación / Duración Unidad</label>
         <input ref="/H2.4/ldiEuropa/ritmoEuropa/ritmoEuropaHN">
           <label>HN</label>
           <hint>HN</hint>
@@ -526,9 +526,9 @@
       </group>
     </group>
     <group appearance="col1 well-white" ref="/H2.4/ldiAfrica">
-      <label>Ficha/Unidad/Minuto LDI de salida promedio África</label>
+      <label>Ficha / Unidad / Minuto LDI de salida promedio África</label>
       <group appearance="col2 well-white" ref="/H2.4/ldiAfrica/tarifaAfrica">
-        <label>TARIFA/PRECIO</label>
+        <label>Tarifa / Precio</label>
         <input ref="/H2.4/ldiAfrica/tarifaAfrica/tarifaAfricaHN">
           <label>HN</label>
           <hint>HN</hint>
@@ -539,7 +539,7 @@
         </input>
       </group>
       <group appearance="col2 well-white" ref="/H2.4/ldiAfrica/ritmoAfrica">
-        <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
+        <label>Ritmo de Tasación / Duración Unidad</label>
         <input ref="/H2.4/ldiAfrica/ritmoAfrica/ritmoAfricaHN">
           <label>HN</label>
           <hint>HN</hint>
@@ -551,9 +551,9 @@
       </group>
     </group>
     <group appearance="col1 well-white" ref="/H2.4/ldiAsia">
-      <label>Ficha/Unidad/Minuto LDI de salida promedio Asia</label>
+      <label>Ficha / Unidad / Minuto LDI de salida promedio Asia</label>
       <group appearance="col2 well-white" ref="/H2.4/ldiAsia/tarifaAsia">
-        <label>TARIFA/PRECIO</label>
+        <label>Tarifa / Precio</label>
         <input ref="/H2.4/ldiAsia/tarifaAsia/tarifaAsiaHN">
           <label>HN</label>
           <hint>HN</hint>
@@ -564,7 +564,7 @@
         </input>
       </group>
       <group appearance="col2 well-white" ref="/H2.4/ldiAsia/ritmoAsia">
-        <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
+        <label>Ritmo de Tasación / Duración Unidad</label>
         <input ref="/H2.4/ldiAsia/ritmoAsia/ritmoAsiaHN">
           <label>HN</label>
           <hint>HN</hint>
@@ -576,9 +576,9 @@
       </group>
     </group>
     <group appearance="col1 well-white" ref="/H2.4/ldiOceania">
-      <label>Ficha/Unidad/Minuto LDI de salida promedio Oceanía</label>
+      <label>Ficha / Unidad / Minuto LDI de salida promedio Oceanía</label>
       <group appearance="col2 well-white" ref="/H2.4/ldiOceania/tarifaOceania">
-        <label>TARIFA/PRECIO</label>
+        <label>Tarifa / Precio</label>
         <input ref="/H2.4/ldiOceania/tarifaOceania/tarifaOceaniaHN">
           <label>HN</label>
           <hint>HN</hint>
@@ -589,7 +589,7 @@
         </input>
       </group>
       <group appearance="col2 well-white" ref="/H2.4/ldiOceania/ritmoOceania">
-        <label>RITMO DE TASACIÓN / DURACIÓN UNIDAD</label>
+        <label>Ritmo de Tasación / Duración Unidad</label>
         <input ref="/H2.4/ldiOceania/ritmoOceania/ritmoOceaniaHN">
           <label>HN</label>
           <hint>HN</hint>

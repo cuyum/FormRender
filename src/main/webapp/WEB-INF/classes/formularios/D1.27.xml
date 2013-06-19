@@ -58,21 +58,21 @@
       <bind nodeset="/D1.27/tarifasPlanes/caracteristicas/plan" required="true()" type="string"/>
       <bind nodeset="/D1.27/tarifasPlanes/caracteristicas/modalidad" required="true()" type="select1"/>
       <bind nodeset="/D1.27/tarifasPlanes/caracteristicas/segmento" required="true()" type="select1"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/cargos/abono" type="int"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/cargos/gastos" type="int"/>
-      <bind constraint="mask=99.999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/cargos/total" type="int"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/cargos/abono" type="decimal"/>
+      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/cargos/gastos" type="decimal"/>
+      <bind constraint="mask=99.999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/cargos/total" type="decimal"/>
       <bind nodeset="/D1.27/tarifasPlanes/servicios/minutos" required="true()" type="string"/>
       <bind nodeset="/D1.27/tarifasPlanes/servicios/sms" required="true()" type="string"/>
       <bind nodeset="/D1.27/tarifasPlanes/servicios/mms" required="true()" type="string"/>
       <bind nodeset="/D1.27/tarifasPlanes/servicios/serviciosAdic" type="string"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/minutoLocal/minutoOnNet" required="true()" type="int"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/minutoLocal/minutoOffNet" required="true()" type="int"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/sms/smsOnNet" required="true()" type="int"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/sms/smsOffNet" required="true()" type="int"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/mms/mmsOnNet" required="true()" type="int"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/mms/mmsOffNet" required="true()" type="int"/>
-      <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/datos/datosOnNet" required="true()" type="int"/>
-      <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/datos/datosOffNet" required="true()" type="int"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/minutoLocal/minutoOnNet" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/minutoLocal/minutoOffNet" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/sms/smsOnNet" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/sms/smsOffNet" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/mms/mmsOnNet" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/mms/mmsOffNet" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/datos/datosOnNet" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/datos/datosOffNet" required="true()" type="decimal"/>
       <bind nodeset="/D1.27/tarifasPlanes/otrosImp/grupoOtros/otros" required="true()" type="string"/>
       <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/otrosImp/impuestos/porcentaje" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.27/meta/instanceID" readonly="true()" type="string"/>
@@ -160,15 +160,15 @@
           <label>Servicios Inluidos en Abono</label>
           <input ref="/D1.27/tarifasPlanes/servicios/minutos">
             <label>Minutos</label>
-            <hint>Minutos</hint>
+            <hint>Minutos [&quot;ILIMITADO&quot; ó 9999]</hint>
           </input>
           <input ref="/D1.27/tarifasPlanes/servicios/sms">
             <label>SMS</label>
-            <hint>SMS</hint>
+            <hint>SMS [&quot;ILIMITADO&quot; ó 9999]</hint>
           </input>
           <input ref="/D1.27/tarifasPlanes/servicios/mms">
             <label>MMS</label>
-            <hint>MMS</hint>
+            <hint>MMS [&quot;ILIMITADO&quot; ó 9999]</hint>
           </input>
           <input ref="/D1.27/tarifasPlanes/servicios/serviciosAdic">
             <label>Servicios Adicionales</label>
@@ -234,7 +234,7 @@
             <label>Impuestos</label>
             <input ref="/D1.27/tarifasPlanes/otrosImp/impuestos/porcentaje">
               <label>Porcentaje</label>
-              <hint>Porcentaje</hint>
+              <hint>Porcentaje [en %]</hint>
             </input>
           </group>
         </group>

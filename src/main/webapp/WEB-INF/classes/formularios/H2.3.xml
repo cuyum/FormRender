@@ -17,6 +17,11 @@
               <area_otro/>
               <telefViaPublica/>
               <lineasTelefoniaPublica/>
+              <telPublica>
+                <telefSemiPublicos/>
+                <locutorios/>
+                <locuroriosCabinas/>
+              </telPublica>
             </lineas>
             <telefonosPublicos>
               <tpa/>
@@ -25,11 +30,6 @@
               <thih/>
               <sspld/>
             </telefonosPublicos>
-            <lineas1>
-              <telefSemiPublicos/>
-              <locutorios/>
-              <locuroriosCabinas/>
-            </lineas1>
           </telefonia>
           <meta>
             <instanceID/>
@@ -45,14 +45,14 @@
       <bind nodeset="/H2.3/telefonia/lineas/area_otro" relevant=" /H2.3/telefonia/lineas/area =9999" required="true()" type="string"/>
       <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/telefonia/lineas/telefViaPublica" required="true()" type="int"/>
       <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/telefonia/lineas/lineasTelefoniaPublica" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/telefonia/lineas/telPublica/telefSemiPublicos" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/telefonia/lineas/telPublica/locutorios" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/telefonia/lineas/telPublica/locuroriosCabinas" required="true()" type="int"/>
       <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/telefonia/telefonosPublicos/tpa" required="true()" type="int"/>
       <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/telefonia/telefonosPublicos/tpu" required="true()" type="int"/>
       <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/telefonia/telefonosPublicos/tsp" required="true()" type="int"/>
       <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/telefonia/telefonosPublicos/thih" required="true()" type="int"/>
       <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/telefonia/telefonosPublicos/sspld" required="true()" type="int"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/telefonia/lineas1/telefSemiPublicos" required="true()" type="int"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/telefonia/lineas1/locutorios" required="true()" type="int"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/H2.3/telefonia/lineas1/locuroriosCabinas" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/H2.3/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -132,6 +132,21 @@
             <label>Líneas telefonía pública</label>
             <hint>Líneas telefonía pública</hint>
           </input>
+          <group appearance="col4" ref="/H2.3/telefonia/lineas/telPublica">
+            <label>Líneas Tel. Pública</label>
+            <input ref="/H2.3/telefonia/lineas/telPublica/telefSemiPublicos">
+              <label>Teléfonos semi-públicos</label>
+              <hint>Teléfonos semi-públicos</hint>
+            </input>
+            <input ref="/H2.3/telefonia/lineas/telPublica/locutorios">
+              <label>Locutorios</label>
+              <hint>Locutorios</hint>
+            </input>
+            <input ref="/H2.3/telefonia/lineas/telPublica/locuroriosCabinas">
+              <label>Locutorios / Cabinas públicas</label>
+              <hint>Locutorios / Cabinas públicas</hint>
+            </input>
+          </group>
         </group>
         <group appearance="col6 well-white" ref="/H2.3/telefonia/telefonosPublicos">
           <label>Teléfonos Públicos</label>
@@ -154,21 +169,6 @@
           <input ref="/H2.3/telefonia/telefonosPublicos/sspld">
             <label>SSPLD</label>
             <hint>SSPLD</hint>
-          </input>
-        </group>
-        <group appearance="col4 well-white" ref="/H2.3/telefonia/lineas1">
-          <label>Líneas</label>
-          <input ref="/H2.3/telefonia/lineas1/telefSemiPublicos">
-            <label>Teléfonos semi-públicos</label>
-            <hint>Teléfonos semi-públicos</hint>
-          </input>
-          <input ref="/H2.3/telefonia/lineas1/locutorios">
-            <label>Locutorios</label>
-            <hint>Locutorios</hint>
-          </input>
-          <input ref="/H2.3/telefonia/lineas1/locuroriosCabinas">
-            <label>Locutorios / Cabinas públicas</label>
-            <hint>Locutorios / Cabinas públicas</hint>
           </input>
         </group>
       </repeat>

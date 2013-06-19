@@ -68,15 +68,15 @@
           </input>
           <input ref="/D1.22/meses/mes/facturacion">
             <label>Facturación</label>
-            <hint>Contratos Vigentes</hint>
+            <hint>Facturación</hint>
           </input>
           <input ref="/D1.22/meses/mes/averias">
             <label>Averías</label>
-            <hint>Facturación Papel</hint>
+            <hint>Averías</hint>
           </input>
           <input ref="/D1.22/meses/mes/otros">
             <label>Otros</label>
-            <hint>Facturación Web</hint>
+            <hint>Otros</hint>
           </input>
         </group>
       </repeat>

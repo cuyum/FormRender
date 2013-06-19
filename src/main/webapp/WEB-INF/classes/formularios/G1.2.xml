@@ -33,14 +33,14 @@
               <tendidoCapacidadDisp/>
               <tendidoCapacidadUtilizada/>
             </tipotendido>
-            <ubicacionFin>
-              <provinciaFin/>
-              <partidoFin/>
-              <localidadFin/>
-              <localidadFin_otro/>
-              <areaFin/>
-              <areaFin_otro/>
-            </ubicacionFin>
+            <ubicacionDestino>
+              <provinciaDestino/>
+              <partidoDestino/>
+              <localidadDestino/>
+              <localidadDestino_otro/>
+              <areaDestino/>
+              <areaDestino_otro/>
+            </ubicacionDestino>
           </puntos>
           <meta>
             <instanceID/>
@@ -66,12 +66,12 @@
       <bind nodeset="/G1.2/puntos/tipotendido/tendido_otro" relevant=" /G1.2/puntos/tipotendido/tendido =Otros" required="true()" type="string"/>
       <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/G1.2/puntos/tipotendido/tendidoCapacidadDisp" relevant=" /G1.2/puntos/tipomedio/medio =FO" required="true()" type="decimal"/>
       <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/G1.2/puntos/tipotendido/tendidoCapacidadUtilizada" relevant=" /G1.2/puntos/tipomedio/medio =FO" required="true()" type="decimal"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/G1.2/puntos/ubicacionFin/provinciaFin" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/G1.2/puntos/ubicacionFin/provinciaFin" nodeset="/G1.2/puntos/ubicacionFin/partidoFin" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/G1.2/puntos/ubicacionFin/partidoFin" nodeset="/G1.2/puntos/ubicacionFin/localidadFin" required="true()" type="select1"/>
-      <bind nodeset="/G1.2/puntos/ubicacionFin/localidadFin_otro" relevant=" /G1.2/puntos/ubicacionFin/localidadFin =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/G1.2/puntos/ubicacionFin/localidadFin" nodeset="/G1.2/puntos/ubicacionFin/areaFin" required="true()" type="select1"/>
-      <bind nodeset="/G1.2/puntos/ubicacionFin/areaFin_otro" relevant=" /G1.2/puntos/ubicacionFin/areaFin =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/G1.2/puntos/ubicacionDestino/provinciaDestino" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/G1.2/puntos/ubicacionDestino/provinciaDestino" nodeset="/G1.2/puntos/ubicacionDestino/partidoDestino" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/G1.2/puntos/ubicacionDestino/partidoDestino" nodeset="/G1.2/puntos/ubicacionDestino/localidadDestino" required="true()" type="select1"/>
+      <bind nodeset="/G1.2/puntos/ubicacionDestino/localidadDestino_otro" relevant=" /G1.2/puntos/ubicacionDestino/localidadDestino =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/G1.2/puntos/ubicacionDestino/localidadDestino" nodeset="/G1.2/puntos/ubicacionDestino/areaDestino" required="true()" type="select1"/>
+      <bind nodeset="/G1.2/puntos/ubicacionDestino/areaDestino_otro" relevant=" /G1.2/puntos/ubicacionDestino/areaDestino =9999" required="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/G1.2/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -80,7 +80,7 @@
       <label></label>
       <repeat appearance="grilla" nodeset="/G1.2/puntos">
         <group appearance="col4 well-white" ref="/G1.2/puntos/ubicacion">
-          <label>Ubicación</label>
+          <label>Ubicación Origen</label>
           <select1 appearance="minimal" ref="/G1.2/puntos/ubicacion/provincia">
             <label>Provincia</label>
             <hint>Provincia</hint>
@@ -230,9 +230,9 @@
             <hint>Capacidad Utilizada [Mbps / xxE1]</hint>
           </input>
         </group>
-        <group appearance="col4 well-white" ref="/G1.2/puntos/ubicacionFin">
-          <label>Ubicación</label>
-          <select1 appearance="minimal" ref="/G1.2/puntos/ubicacionFin/provinciaFin">
+        <group appearance="col4 well-white" ref="/G1.2/puntos/ubicacionDestino">
+          <label>Ubicación Destino</label>
+          <select1 appearance="minimal" ref="/G1.2/puntos/ubicacionDestino/provinciaDestino">
             <label>Provincia</label>
             <hint>Provincia</hint>
             <item>
@@ -240,7 +240,7 @@
               <value>-1</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/G1.2/puntos/ubicacionFin/partidoFin">
+          <select1 appearance="minimal" ref="/G1.2/puntos/ubicacionDestino/partidoDestino">
             <label>Partido / Departamento</label>
             <hint>Partido/Departamento</hint>
             <item>
@@ -248,7 +248,7 @@
               <value>-1</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/G1.2/puntos/ubicacionFin/localidadFin">
+          <select1 appearance="minimal" ref="/G1.2/puntos/ubicacionDestino/localidadDestino">
             <label>Localidad</label>
             <hint>Localidad</hint>
             <item>
@@ -256,10 +256,10 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/G1.2/puntos/ubicacionFin/localidadFin_otro">
+          <input ref="/G1.2/puntos/ubicacionDestino/localidadDestino_otro">
             <label>Localidad Otros</label>
           </input>
-          <select1 appearance="minimal" ref="/G1.2/puntos/ubicacionFin/areaFin">
+          <select1 appearance="minimal" ref="/G1.2/puntos/ubicacionDestino/areaDestino">
             <label>Área Local</label>
             <hint>Área Local</hint>
             <item>
@@ -267,7 +267,7 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/G1.2/puntos/ubicacionFin/areaFin_otro">
+          <input ref="/G1.2/puntos/ubicacionDestino/areaDestino_otro">
             <label>Área Otros</label>
           </input>
         </group>

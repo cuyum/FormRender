@@ -9,7 +9,7 @@
           <tarifasPlanes jr:template="">
             <caracteristicas>
               <plan/>
-              <recarga/>
+              <recargaTipo/>
               <serviciosAdicionales/>
             </caracteristicas>
             <precios>
@@ -51,22 +51,22 @@
         </D1.28>
       </instance>
       <bind nodeset="/D1.28/tarifasPlanes/caracteristicas/plan" required="true()" type="string"/>
-      <bind nodeset="/D1.28/tarifasPlanes/caracteristicas/recarga" required="true()" type="select1"/>
+      <bind nodeset="/D1.28/tarifasPlanes/caracteristicas/recargaTipo" required="true()" type="select1"/>
       <bind nodeset="/D1.28/tarifasPlanes/caracteristicas/serviciosAdicionales" required="true()" type="string"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/minuto/minutoOnNet" required="true()" type="int"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/minuto/minutoOffNet" required="true()" type="int"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/sms/smsOnNet" required="true()" type="int"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/sms/smsOffNet" required="true()" type="int"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/mms/mmsOnNet" required="true()" type="int"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/mms/mmsOffNet" required="true()" type="int"/>
-      <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/datos/datosOnNet" required="true()" type="int"/>
-      <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/datos/datosOffNet" required="true()" type="int"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/minuto/minutoOnNet" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/minuto/minutoOffNet" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/sms/smsOnNet" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/sms/smsOffNet" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/mms/mmsOnNet" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/mms/mmsOffNet" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/datos/datosOnNet" required="true()" type="decimal"/>
+      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/precios/datos/datosOffNet" required="true()" type="decimal"/>
       <bind constraint="mask=999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/vigencia/credito" required="true()" type="int"/>
       <bind constraint="mask=999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/vigencia/sms" required="true()" type="int"/>
       <bind constraint="mask=999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/vigencia/recarga" required="true()" type="int"/>
       <bind constraint="mask=999" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/vigencia/cuentaActiva" required="true()" type="int"/>
       <bind nodeset="/D1.28/tarifasPlanes/otrosImp/grupoOtros/otros" required="true()" type="string"/>
-      <bind constraint="mask=999,99" nodeset="/D1.28/tarifasPlanes/otrosImp/impuestos/porcentaje" required="true()" type="decimal"/>
+      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.28/tarifasPlanes/otrosImp/impuestos/porcentaje" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.28/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -80,7 +80,7 @@
             <label>Plan</label>
             <hint>Plan</hint>
           </input>
-          <select1 appearance="minimal" ref="/D1.28/tarifasPlanes/caracteristicas/recarga">
+          <select1 appearance="minimal" ref="/D1.28/tarifasPlanes/caracteristicas/recargaTipo">
             <label>Recarga</label>
             <hint>Recarga</hint>
             <item>

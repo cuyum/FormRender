@@ -25,8 +25,8 @@
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/D1.18/meses/mes/provincia" nodeset="/D1.18/meses/mes/partido" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/D1.18/meses/mes/partido" nodeset="/D1.18/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/D1.18/meses/mes/localidad_otro" relevant=" /D1.18/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.18/meses/mes/cppNacional" required="true()" type="int"/>
-      <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.18/meses/mes/cppInternac" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.18/meses/mes/cppNacional" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.18/meses/mes/cppInternac" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.18/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

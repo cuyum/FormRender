@@ -1731,8 +1731,9 @@ textarea,input[type="text"],input[type="password"],input[type="datetime"],input[
 	text-indent:5px;
 
 }
-textarea{height:25px;}
-textarea:focus{height:25px;}
+textarea{height:25px; width:100%; position: relative; z-index: 9999; min-width: 100%;min-height: 25px;}
+textarea:focus{height:25px; position: relative; width:100%; z-index: 9999; min-width: 100%;min-height: 25px;}
+
 input[type="text"],input[type="password"],input[type="datetime"],input[type="datetime-local"],input[type="date"],input[type="month"],input[type="time"],input[type="week"],input[type="number"],input[type="email"],input[type="url"],input[type="search"],input[type="tel"],input[type="color"]
 	{
 	height: 25px;

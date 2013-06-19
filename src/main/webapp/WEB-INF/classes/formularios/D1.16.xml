@@ -24,7 +24,7 @@
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/D1.16/areasprest/areas/provincia" nodeset="/D1.16/areasprest/areas/partido" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/D1.16/areasprest/areas/partido" nodeset="/D1.16/areasprest/areas/localidad" required="true()" type="select1"/>
       <bind nodeset="/D1.16/areasprest/areas/localidad_otro" relevant=" /D1.16/areasprest/areas/localidad =9999" required="true()" type="string"/>
-      <bind nodeset="/D1.16/areasprest/areas/datos" required="true()" type="string"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.16/areasprest/areas/datos" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.16/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
