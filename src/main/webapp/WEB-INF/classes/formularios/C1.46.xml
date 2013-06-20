@@ -8,11 +8,10 @@
         <C1.46 id="C1.46">
           <meses jr:template="">
             <mes>
-              <gastos/>
-              <cargas/>
-              <terceros/>
+              <gastosPersonal/>
+              <cargasSocialesyOtrosLaborales/>
+              <materialesyTrabajoTerceros/>
               <otros/>
-              <calculate/>
               <total/>
             </mes>
           </meses>
@@ -21,11 +20,10 @@
           </meta>
         </C1.46>
       </instance>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/meses/mes/gastos" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/meses/mes/cargas" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/meses/mes/terceros" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/meses/mes/gastosPersonal" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/meses/mes/cargasSocialesyOtrosLaborales" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/meses/mes/materialesyTrabajoTerceros" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/meses/mes/otros" required="true()" type="int"/>
-      <bind calculate=" /C1.46/meses/mes/gastos + /C1.46/meses/mes/cargas + /C1.46/meses/mes/terceros + /C1.46/meses/mes/otros " nodeset="/C1.46/meses/mes/calculate" type="string"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.46/meses/mes/total" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.46/meta/instanceID" readonly="true()" type="string"/>
     </model>
@@ -36,15 +34,15 @@
       <repeat nodeset="/C1.46/meses">
         <group appearance="col3 well-white variable" ref="/C1.46/meses/mes">
           <label>{title}</label>
-          <input ref="/C1.46/meses/mes/gastos">
+          <input ref="/C1.46/meses/mes/gastosPersonal">
             <label>Gastos en Personal (remuneraciones)</label>
             <hint>Gastos en Personal [en miles de pesos]</hint>
           </input>
-          <input ref="/C1.46/meses/mes/cargas">
+          <input ref="/C1.46/meses/mes/cargasSocialesyOtrosLaborales">
             <label>Cargas Soc. y otros costos laborales</label>
             <hint>CS y Otros [en miles de pesos]</hint>
           </input>
-          <input ref="/C1.46/meses/mes/terceros">
+          <input ref="/C1.46/meses/mes/materialesyTrabajoTerceros">
             <label>Materiales y trabajo de terceros</label>
             <hint>Terceros [en miles de pesos]</hint>
           </input>

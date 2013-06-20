@@ -13,7 +13,6 @@
               <ldi/>
               <lineas/>
               <otros/>
-              <calculate1/>
               <total/>
             </mes>
           </meses>
@@ -27,7 +26,6 @@
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.28/meses/mes/ldi" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.28/meses/mes/lineas" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.28/meses/mes/otros" required="true()" type="int"/>
-      <bind calculate=" /C1.28/meses/mes/stl + /C1.28/meses/mes/ldn + /C1.28/meses/mes/ldi + /C1.28/meses/mes/lineas + /C1.28/meses/mes/otros " nodeset="/C1.28/meses/mes/calculate1" type="string"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.28/meses/mes/total" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.28/meta/instanceID" readonly="true()" type="string"/>
     </model>

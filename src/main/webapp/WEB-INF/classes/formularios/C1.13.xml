@@ -14,24 +14,24 @@
               <localidad_otro/>
               <area/>
               <area_otro/>
-              <l_l>
-                <l_hogar/>
-                <l_empresa/>
-                <l_gob/>
-                <l_otros/>
-              </l_l>
-              <l_ldn>
-                <ldn_hogar/>
-                <ldn_empresa/>
-                <ldn_gob/>
-                <ldn_otros/>
-              </l_ldn>
-              <l_ldi>
-                <ldi_hogar/>
-                <ldi_empresa/>
-                <ldi_gob/>
-                <ldi_otros/>
-              </l_ldi>
+              <ll>
+                <llHogar/>
+                <llEmpresa/>
+                <llGobierno/>
+                <llOtros/>
+              </ll>
+              <lldn>
+                <lldnHogar/>
+                <lldnEmpresa/>
+                <lldnGobierno/>
+                <lldnOtros/>
+              </lldn>
+              <lldi>
+                <lldiHogar/>
+                <lldiEmpresa/>
+                <lldiGobierno/>
+                <lldiOtros/>
+              </lldi>
             </mes>
           </meses>
           <meta>
@@ -45,18 +45,18 @@
       <bind nodeset="/C1.13/meses/mes/localidad_otro" relevant=" /C1.13/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C1.13/meses/mes/localidad" nodeset="/C1.13/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/C1.13/meses/mes/area_otro" relevant=" /C1.13/meses/mes/area =9999" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/l_l/l_hogar" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/l_l/l_empresa" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/l_l/l_gob" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/l_l/l_otros" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/l_ldn/ldn_hogar" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/l_ldn/ldn_empresa" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/l_ldn/ldn_gob" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/l_ldn/ldn_otros" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/l_ldi/ldi_hogar" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/l_ldi/ldi_empresa" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/l_ldi/ldi_gob" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/l_ldi/ldi_otros" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/ll/llHogar" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/ll/llEmpresa" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/ll/llGobierno" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/ll/llOtros" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/lldn/lldnHogar" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/lldn/lldnEmpresa" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/lldn/lldnGobierno" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/lldn/lldnOtros" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/lldi/lldiHogar" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/lldi/lldiEmpresa" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/lldi/lldiGobierno" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/lldi/lldiOtros" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.13/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -104,59 +104,59 @@
           <input ref="/C1.13/meses/mes/area_otro">
             <label>Área Otros</label>
           </input>
-          <group appearance="col2 well-white" ref="/C1.13/meses/mes/l_l">
+          <group appearance="col2 well-white" ref="/C1.13/meses/mes/ll">
             <label>L-L</label>
-            <input ref="/C1.13/meses/mes/l_l/l_hogar">
+            <input ref="/C1.13/meses/mes/ll/llHogar">
               <label>Hogar</label>
               <hint>Hogar [en miles]</hint>
             </input>
-            <input ref="/C1.13/meses/mes/l_l/l_empresa">
+            <input ref="/C1.13/meses/mes/ll/llEmpresa">
               <label>Empresa</label>
               <hint>Empresa [en miles]</hint>
             </input>
-            <input ref="/C1.13/meses/mes/l_l/l_gob">
+            <input ref="/C1.13/meses/mes/ll/llGobierno">
               <label>Gob</label>
               <hint>Gobierno [en miles]</hint>
             </input>
-            <input ref="/C1.13/meses/mes/l_l/l_otros">
+            <input ref="/C1.13/meses/mes/ll/llOtros">
               <label>Otros</label>
               <hint>Otros [en miles]</hint>
             </input>
           </group>
-          <group appearance="col2 well-white" ref="/C1.13/meses/mes/l_ldn">
+          <group appearance="col2 well-white" ref="/C1.13/meses/mes/lldn">
             <label>L-LDN</label>
-            <input ref="/C1.13/meses/mes/l_ldn/ldn_hogar">
+            <input ref="/C1.13/meses/mes/lldn/lldnHogar">
               <label>Hogar</label>
               <hint>Hogar [en miles]</hint>
             </input>
-            <input ref="/C1.13/meses/mes/l_ldn/ldn_empresa">
+            <input ref="/C1.13/meses/mes/lldn/lldnEmpresa">
               <label>Empresa</label>
               <hint>Empresa [en miles]</hint>
             </input>
-            <input ref="/C1.13/meses/mes/l_ldn/ldn_gob">
+            <input ref="/C1.13/meses/mes/lldn/lldnGobierno">
               <label>Gob</label>
               <hint>Gobierno [en miles]</hint>
             </input>
-            <input ref="/C1.13/meses/mes/l_ldn/ldn_otros">
+            <input ref="/C1.13/meses/mes/lldn/lldnOtros">
               <label>Otros</label>
               <hint>Otros [en miles]</hint>
             </input>
           </group>
-          <group appearance="col2 well-white" ref="/C1.13/meses/mes/l_ldi">
+          <group appearance="col2 well-white" ref="/C1.13/meses/mes/lldi">
             <label>L-LDI</label>
-            <input ref="/C1.13/meses/mes/l_ldi/ldi_hogar">
+            <input ref="/C1.13/meses/mes/lldi/lldiHogar">
               <label>Hogar</label>
               <hint>Hogar [en miles]</hint>
             </input>
-            <input ref="/C1.13/meses/mes/l_ldi/ldi_empresa">
+            <input ref="/C1.13/meses/mes/lldi/lldiEmpresa">
               <label>Empresa</label>
               <hint>Empresa [en miles]</hint>
             </input>
-            <input ref="/C1.13/meses/mes/l_ldi/ldi_gob">
+            <input ref="/C1.13/meses/mes/lldi/lldiGobierno">
               <label>Gob</label>
               <hint>Gobierno [en miles]</hint>
             </input>
-            <input ref="/C1.13/meses/mes/l_ldi/ldi_otros">
+            <input ref="/C1.13/meses/mes/lldi/lldiOtros">
               <label>Otros</label>
               <hint>Otros [en miles]</hint>
             </input>

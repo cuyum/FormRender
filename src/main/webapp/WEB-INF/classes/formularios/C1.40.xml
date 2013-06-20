@@ -8,15 +8,14 @@
         <C1.40 id="C1.40">
           <meses jr:template="">
             <mes>
-              <terminacion_fijo/>
-              <terminacion_movil/>
+              <origenYTerminacionFijo/>
+              <origenYTerminacionMovil/>
               <puertos/>
               <coubicacion/>
               <transito/>
               <otras/>
               <facturacion/>
               <otros/>
-              <calculate1/>
               <total/>
             </mes>
           </meses>
@@ -25,15 +24,14 @@
           </meta>
         </C1.40>
       </instance>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/meses/mes/terminacion_fijo" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/meses/mes/terminacion_movil" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/meses/mes/origenYTerminacionFijo" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/meses/mes/origenYTerminacionMovil" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/meses/mes/puertos" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/meses/mes/coubicacion" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/meses/mes/transito" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/meses/mes/otras" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/meses/mes/facturacion" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/meses/mes/otros" required="true()" type="int"/>
-      <bind calculate=" /C1.40/meses/mes/terminacion_fijo + /C1.40/meses/mes/terminacion_movil + /C1.40/meses/mes/puertos + /C1.40/meses/mes/coubicacion + /C1.40/meses/mes/transito + /C1.40/meses/mes/otras + /C1.40/meses/mes/facturacion + /C1.40/meses/mes/otros " nodeset="/C1.40/meses/mes/calculate1" type="string"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.40/meses/mes/total" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.40/meta/instanceID" readonly="true()" type="string"/>
     </model>
@@ -44,11 +42,11 @@
       <repeat nodeset="/C1.40/meses">
         <group appearance="col3 well-white variable" ref="/C1.40/meses/mes">
           <label>{title}</label>
-          <input ref="/C1.40/meses/mes/terminacion_fijo">
+          <input ref="/C1.40/meses/mes/origenYTerminacionFijo">
             <label>Origen y Terminación Local Fijo</label>
             <hint>Origen y Terminación Local Fijo [en miles de pesos]</hint>
           </input>
-          <input ref="/C1.40/meses/mes/terminacion_movil">
+          <input ref="/C1.40/meses/mes/origenYTerminacionMovil">
             <label>Origen y Terminación Móvil</label>
             <hint>Origen y Terminación Móvil [en miles de pesos]</hint>
           </input>

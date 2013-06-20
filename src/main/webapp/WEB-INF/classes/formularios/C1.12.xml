@@ -14,18 +14,18 @@
               <localidad_otro/>
               <area/>
               <area_otro/>
-              <l_l>
-                <l_hn/>
-                <l_hr/>
-              </l_l>
-              <l_ldn>
-                <ldn_hn/>
-                <ldn_hr/>
-              </l_ldn>
-              <l_ldi>
-                <ldi_hn/>
-                <ldi_hr/>
-              </l_ldi>
+              <ll>
+                <llHorarioNormal/>
+                <llHorarioReducido/>
+              </ll>
+              <lldn>
+                <lldnHorarioNormal/>
+                <lldnHorarioReducido/>
+              </lldn>
+              <lldi>
+                <lldiHorarioNormal/>
+                <lldiHorarioReducido/>
+              </lldi>
             </mes>
           </meses>
           <meta>
@@ -39,12 +39,12 @@
       <bind nodeset="/C1.12/meses/mes/localidad_otro" relevant=" /C1.12/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C1.12/meses/mes/localidad" nodeset="/C1.12/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/C1.12/meses/mes/area_otro" relevant=" /C1.12/meses/mes/area =9999" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/meses/mes/l_l/l_hn" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/meses/mes/l_l/l_hr" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/meses/mes/l_ldn/ldn_hn" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/meses/mes/l_ldn/ldn_hr" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/meses/mes/l_ldi/ldi_hn" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/meses/mes/l_ldi/ldi_hr" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/meses/mes/ll/llHorarioNormal" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/meses/mes/ll/llHorarioReducido" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/meses/mes/lldn/lldnHorarioNormal" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/meses/mes/lldn/lldnHorarioReducido" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/meses/mes/lldi/lldiHorarioNormal" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Dato no válido" nodeset="/C1.12/meses/mes/lldi/lldiHorarioReducido" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.12/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -92,35 +92,35 @@
           <input ref="/C1.12/meses/mes/area_otro">
             <label>Área Otros</label>
           </input>
-          <group appearance="col2 well-white" ref="/C1.12/meses/mes/l_l">
+          <group appearance="col2 well-white" ref="/C1.12/meses/mes/ll">
             <label>L-L</label>
-            <input ref="/C1.12/meses/mes/l_l/l_hn">
+            <input ref="/C1.12/meses/mes/ll/llHorarioNormal">
               <label>HN</label>
               <hint>HN [en miles]</hint>
             </input>
-            <input ref="/C1.12/meses/mes/l_l/l_hr">
+            <input ref="/C1.12/meses/mes/ll/llHorarioReducido">
               <label>HR</label>
               <hint>HR [en miles]</hint>
             </input>
           </group>
-          <group appearance="col2 well-white" ref="/C1.12/meses/mes/l_ldn">
+          <group appearance="col2 well-white" ref="/C1.12/meses/mes/lldn">
             <label>L-LDN</label>
-            <input ref="/C1.12/meses/mes/l_ldn/ldn_hn">
+            <input ref="/C1.12/meses/mes/lldn/lldnHorarioNormal">
               <label>HN</label>
               <hint>HN [en miles]</hint>
             </input>
-            <input ref="/C1.12/meses/mes/l_ldn/ldn_hr">
+            <input ref="/C1.12/meses/mes/lldn/lldnHorarioReducido">
               <label>HR</label>
               <hint>HR [en miles]</hint>
             </input>
           </group>
-          <group appearance="col2 well-white" ref="/C1.12/meses/mes/l_ldi">
+          <group appearance="col2 well-white" ref="/C1.12/meses/mes/lldi">
             <label>L-LDI</label>
-            <input ref="/C1.12/meses/mes/l_ldi/ldi_hn">
+            <input ref="/C1.12/meses/mes/lldi/lldiHorarioNormal">
               <label>HN</label>
               <hint>HN [en miles]</hint>
             </input>
-            <input ref="/C1.12/meses/mes/l_ldi/ldi_hr">
+            <input ref="/C1.12/meses/mes/lldi/lldiHorarioReducido">
               <label>HR</label>
               <hint>HR [en miles]</hint>
             </input>

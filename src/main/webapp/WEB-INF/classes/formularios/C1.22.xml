@@ -7,133 +7,133 @@
       <instance>
         <C1.22 id="C1.22">
           <instalacion>
-            <instalacion_familia/>
-            <instalacion_comercial/>
-            <instalacion_gobierno/>
-            <instalacion_jubilados/>
-            <instalacion_profesional/>
-            <instalacion_otros/>
+            <instalacionFamilia/>
+            <instalacionComercial/>
+            <instalacionGobierno/>
+            <instalacionJubilados/>
+            <instalacionProfesional/>
+            <instalacionOtros/>
           </instalacion>
           <abono>
-            <abono_familia/>
-            <abono_comercial/>
-            <abono_gobierno/>
-            <abono_jubilados/>
-            <abono_profesional/>
-            <abono_otros/>
+            <abonoFamilia/>
+            <abonoComercial/>
+            <abonoGobierno/>
+            <abonoJubilados/>
+            <abonoProfesional/>
+            <abonoOtros/>
           </abono>
           <abono_entrante>
-            <entrante_familia/>
-            <entrante_comercial/>
-            <entrante_gobierno/>
-            <entrante_jubilados/>
-            <entrante_profesional/>
-            <entrante_otros/>
+            <entranteFamilia/>
+            <entranteComercial/>
+            <entranteGobierno/>
+            <entranteJubilados/>
+            <entranteProfesional/>
+            <entranteOtros/>
           </abono_entrante>
           <meta>
             <instanceID/>
           </meta>
         </C1.22>
       </instance>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_familia" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_comercial" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_gobierno" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_jubilados" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_profesional" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacion_otros" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_familia" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_comercial" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_gobierno" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_jubilados" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_profesional" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abono_otros" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_familia" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_comercial" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_gobierno" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_jubilados" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_profesional" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entrante_otros" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacionFamilia" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacionComercial" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacionGobierno" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacionJubilados" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacionProfesional" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/instalacion/instalacionOtros" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abonoFamilia" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abonoComercial" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abonoGobierno" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abonoJubilados" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abonoProfesional" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono/abonoOtros" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entranteFamilia" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entranteComercial" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entranteGobierno" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entranteJubilados" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entranteProfesional" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.22/abono_entrante/entranteOtros" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.22/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
     <group appearance="col6 well-white" ref="/C1.22/instalacion">
       <label>Instalación</label>
-      <input ref="/C1.22/instalacion/instalacion_familia">
+      <input ref="/C1.22/instalacion/instalacionFamilia">
         <label>Hogares</label>
         <hint>Hogares [en pesos]</hint>
       </input>
-      <input ref="/C1.22/instalacion/instalacion_comercial">
+      <input ref="/C1.22/instalacion/instalacionComercial">
         <label>Comercial</label>
         <hint>Comercial [en pesos]</hint>
       </input>
-      <input ref="/C1.22/instalacion/instalacion_gobierno">
+      <input ref="/C1.22/instalacion/instalacionGobierno">
         <label>Gobierno</label>
         <hint>Gobierno [en pesos]</hint>
       </input>
-      <input ref="/C1.22/instalacion/instalacion_jubilados">
+      <input ref="/C1.22/instalacion/instalacionJubilados">
         <label>Jubilados</label>
         <hint>Jubilados [en pesos]</hint>
       </input>
-      <input ref="/C1.22/instalacion/instalacion_profesional">
+      <input ref="/C1.22/instalacion/instalacionProfesional">
         <label>Profesional</label>
         <hint>Profesional [en pesos]</hint>
       </input>
-      <input ref="/C1.22/instalacion/instalacion_otros">
+      <input ref="/C1.22/instalacion/instalacionOtros">
         <label>Otros</label>
         <hint>Otros [en pesos]</hint>
       </input>
     </group>
     <group appearance="col6 well-white" ref="/C1.22/abono">
       <label>Abono</label>
-      <input ref="/C1.22/abono/abono_familia">
+      <input ref="/C1.22/abono/abonoFamilia">
         <label>Hogares</label>
         <hint>Hogares [en pesos]</hint>
       </input>
-      <input ref="/C1.22/abono/abono_comercial">
+      <input ref="/C1.22/abono/abonoComercial">
         <label>Comercial</label>
         <hint>Comercial [en pesos]</hint>
       </input>
-      <input ref="/C1.22/abono/abono_gobierno">
+      <input ref="/C1.22/abono/abonoGobierno">
         <label>Gobierno</label>
         <hint>Gobierno [en pesos]</hint>
       </input>
-      <input ref="/C1.22/abono/abono_jubilados">
+      <input ref="/C1.22/abono/abonoJubilados">
         <label>Jubilados</label>
         <hint>Jubilados [en pesos]</hint>
       </input>
-      <input ref="/C1.22/abono/abono_profesional">
+      <input ref="/C1.22/abono/abonoProfesional">
         <label>Profesional</label>
         <hint>Profesional [en pesos]</hint>
       </input>
-      <input ref="/C1.22/abono/abono_otros">
+      <input ref="/C1.22/abono/abonoOtros">
         <label>Otros</label>
         <hint>Otros [en pesos]</hint>
       </input>
     </group>
     <group appearance="col6 well-white" ref="/C1.22/abono_entrante">
       <label>Abono Entrante</label>
-      <input ref="/C1.22/abono_entrante/entrante_familia">
+      <input ref="/C1.22/abono_entrante/entranteFamilia">
         <label>Hogares</label>
         <hint>Hogares [en pesos]</hint>
       </input>
-      <input ref="/C1.22/abono_entrante/entrante_comercial">
+      <input ref="/C1.22/abono_entrante/entranteComercial">
         <label>Comercial</label>
         <hint>Comercial [en pesos]</hint>
       </input>
-      <input ref="/C1.22/abono_entrante/entrante_gobierno">
+      <input ref="/C1.22/abono_entrante/entranteGobierno">
         <label>Gobierno</label>
         <hint>Gobierno [en pesos]</hint>
       </input>
-      <input ref="/C1.22/abono_entrante/entrante_jubilados">
+      <input ref="/C1.22/abono_entrante/entranteJubilados">
         <label>Jubilados</label>
         <hint>Jubilados [en pesos]</hint>
       </input>
-      <input ref="/C1.22/abono_entrante/entrante_profesional">
+      <input ref="/C1.22/abono_entrante/entranteProfesional">
         <label>Profesional</label>
         <hint>Profesional [en pesos]</hint>
       </input>
-      <input ref="/C1.22/abono_entrante/entrante_otros">
+      <input ref="/C1.22/abono_entrante/entranteOtros">
         <label>Otros</label>
         <hint>Otros [en pesos]</hint>
       </input>

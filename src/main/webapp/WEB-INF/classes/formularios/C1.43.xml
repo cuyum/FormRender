@@ -8,15 +8,14 @@
         <C1.43 id="C1.43">
           <meses jr:template="">
             <Enero>
-              <orterfijo/>
-              <ortermovil/>
+              <origenYTerminacionFijo/>
+              <origenYTerminacionMovil/>
               <puertos/>
-              <coubic/>
+              <coubicacion/>
               <transito/>
-              <facilidades/>
-              <facturacion/>
+              <otrasFacilidadesEsenciales/>
+              <facturacionyCobranzas/>
               <otros/>
-              <calculate1/>
               <total/>
             </Enero>
           </meses>
@@ -25,15 +24,14 @@
           </meta>
         </C1.43>
       </instance>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/meses/Enero/orterfijo" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/meses/Enero/ortermovil" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/meses/Enero/origenYTerminacionFijo" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/meses/Enero/origenYTerminacionMovil" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/meses/Enero/puertos" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/meses/Enero/coubic" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/meses/Enero/coubicacion" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/meses/Enero/transito" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/meses/Enero/facilidades" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/meses/Enero/facturacion" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/meses/Enero/otrasFacilidadesEsenciales" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/meses/Enero/facturacionyCobranzas" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/meses/Enero/otros" required="true()" type="int"/>
-      <bind calculate=" /C1.43/meses/Enero/orterfijo + /C1.43/meses/Enero/ortermovil + /C1.43/meses/Enero/puertos + /C1.43/meses/Enero/coubic + /C1.43/meses/Enero/transito + /C1.43/meses/Enero/facilidades + /C1.43/meses/Enero/facturacion + /C1.43/meses/Enero/otros " nodeset="/C1.43/meses/Enero/calculate1" type="string"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.43/meses/Enero/total" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.43/meta/instanceID" readonly="true()" type="string"/>
     </model>
@@ -44,11 +42,11 @@
       <repeat nodeset="/C1.43/meses">
         <group appearance="col3 well-white variable" ref="/C1.43/meses/Enero">
           <label>{title}</label>
-          <input ref="/C1.43/meses/Enero/orterfijo">
+          <input ref="/C1.43/meses/Enero/origenYTerminacionFijo">
             <label>Origen y Terminación Local Fijo</label>
             <hint>Origen y Terminación Local Fijo [en miles de pesos]</hint>
           </input>
-          <input ref="/C1.43/meses/Enero/ortermovil">
+          <input ref="/C1.43/meses/Enero/origenYTerminacionMovil">
             <label>Origen y Terminación Móvil</label>
             <hint>Origen y Terminación Móvil [en miles de pesos]</hint>
           </input>
@@ -56,7 +54,7 @@
             <label>Puertos</label>
             <hint>Puertos [en miles de pesos]</hint>
           </input>
-          <input ref="/C1.43/meses/Enero/coubic">
+          <input ref="/C1.43/meses/Enero/coubicacion">
             <label>Coubicación</label>
             <hint>Coubicación [en miles de pesos]</hint>
           </input>
@@ -64,11 +62,11 @@
             <label>Tránsito Local</label>
             <hint>Tránsito Local [en miles de pesos]</hint>
           </input>
-          <input ref="/C1.43/meses/Enero/facilidades">
+          <input ref="/C1.43/meses/Enero/otrasFacilidadesEsenciales">
             <label>Otras Facilidades Esenciales</label>
             <hint>Otras Facilidades Esenciales [en miles de pesos]</hint>
           </input>
-          <input ref="/C1.43/meses/Enero/facturacion">
+          <input ref="/C1.43/meses/Enero/facturacionyCobranzas">
             <label>Facturación y Cobranzas</label>
             <hint>Facturación y Cobranzas [en miles de pesos]</hint>
           </input>

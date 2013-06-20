@@ -8,8 +8,8 @@
         <C1.44 id="C1.44">
           <meses jr:template="">
             <mes>
-              <arriendo/>
-              <transporte/>
+              <arriendoLdn/>
+              <transporteLdn/>
               <otros/>
               <total/>
             </mes>
@@ -19,8 +19,8 @@
           </meta>
         </C1.44>
       </instance>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.44/meses/mes/arriendo" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.44/meses/mes/transporte" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.44/meses/mes/arriendoLdn" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.44/meses/mes/transporteLdn" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.44/meses/mes/otros" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.44/meses/mes/total" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.44/meta/instanceID" readonly="true()" type="string"/>
@@ -32,11 +32,11 @@
       <repeat nodeset="/C1.44/meses">
         <group appearance="col4 well-white variable" ref="/C1.44/meses/mes">
           <label>{title}</label>
-          <input ref="/C1.44/meses/mes/arriendo">
+          <input ref="/C1.44/meses/mes/arriendoLdn">
             <label>Arriendo de Circuitos LDN</label>
             <hint>Arriendo de Circuitos LDN [en miles de pesos]</hint>
           </input>
-          <input ref="/C1.44/meses/mes/transporte">
+          <input ref="/C1.44/meses/mes/transporteLdn">
             <label>Transporte LDN</label>
             <hint>Transporte LDN [en miles de pesos]</hint>
           </input>

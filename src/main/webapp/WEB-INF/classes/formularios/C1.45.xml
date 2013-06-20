@@ -8,11 +8,11 @@
         <C1.45 id="C1.45">
           <meses jr:template="">
             <mes>
-              <arriendos/>
-              <trafico/>
-              <corresponsales_entrada/>
-              <corresponsales_salida/>
-              <total_neto/>
+              <arriendosCircuitodLdi/>
+              <traficoLdi/>
+              <corresponsalesEntrada/>
+              <corresponsalesSalida/>
+              <totalNetoCorrespSalida/>
               <total/>
             </mes>
           </meses>
@@ -21,11 +21,11 @@
           </meta>
         </C1.45>
       </instance>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.45/meses/mes/arriendos" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.45/meses/mes/trafico" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.45/meses/mes/corresponsales_entrada" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.45/meses/mes/corresponsales_salida" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.45/meses/mes/total_neto" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.45/meses/mes/arriendosCircuitodLdi" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.45/meses/mes/traficoLdi" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.45/meses/mes/corresponsalesEntrada" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.45/meses/mes/corresponsalesSalida" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.45/meses/mes/totalNetoCorrespSalida" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.45/meses/mes/total" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.45/meta/instanceID" readonly="true()" type="string"/>
     </model>
@@ -36,23 +36,23 @@
       <repeat nodeset="/C1.45/meses">
         <group appearance="col3 well-white variable" ref="/C1.45/meses/mes">
           <label>{title}</label>
-          <input ref="/C1.45/meses/mes/arriendos">
+          <input ref="/C1.45/meses/mes/arriendosCircuitodLdi">
             <label>Arriendos Circuitos LDI</label>
             <hint>Arriendos Circuitos LDI [en miles de pesos]</hint>
           </input>
-          <input ref="/C1.45/meses/mes/trafico">
+          <input ref="/C1.45/meses/mes/traficoLdi">
             <label>Tráfico LDI</label>
             <hint>Tráfico LDI [en miles de pesos]</hint>
           </input>
-          <input ref="/C1.45/meses/mes/corresponsales_entrada">
+          <input ref="/C1.45/meses/mes/corresponsalesEntrada">
             <label>Corresponsales de Entrada</label>
             <hint>Corresponsales de Entrada [en miles de pesos]</hint>
           </input>
-          <input ref="/C1.45/meses/mes/corresponsales_salida">
+          <input ref="/C1.45/meses/mes/corresponsalesSalida">
             <label>Corresponsales de Salida</label>
             <hint>Corresponsales de Salida [en miles de pesos]</hint>
           </input>
-          <input ref="/C1.45/meses/mes/total_neto">
+          <input ref="/C1.45/meses/mes/totalNetoCorrespSalida">
             <label>Total Neto de Corresponsales de Salida</label>
             <hint>Total Neto de Corresponsales de Salida [en miles de pesos]</hint>
           </input>

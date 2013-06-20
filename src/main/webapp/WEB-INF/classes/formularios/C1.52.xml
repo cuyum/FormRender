@@ -7,27 +7,27 @@
       <instance>
         <C1.52 id="C1.52">
           <rentas>
-            <remision/>
-            <distribucion/>
+            <remisionUtilidades/>
+            <distribucionDividendos/>
           </rentas>
           <meta>
             <instanceID/>
           </meta>
         </C1.52>
       </instance>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.52/rentas/remision" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.52/rentas/distribucion" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.52/rentas/remisionUtilidades" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.52/rentas/distribucionDividendos" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.52/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
     <group appearance="col1 well-white" ref="/C1.52/rentas">
       <label>Rentas</label>
-      <input ref="/C1.52/rentas/remision">
+      <input ref="/C1.52/rentas/remisionUtilidades">
         <label>Remisión de Utilidades</label>
         <hint>Remisión de Utilidades [en miles de pesos]</hint>
       </input>
-      <input ref="/C1.52/rentas/distribucion">
+      <input ref="/C1.52/rentas/distribucionDividendos">
         <label>Distribución de Dividendos</label>
         <hint>Distribución de Dividendos [en miles de pesos]</hint>
       </input>

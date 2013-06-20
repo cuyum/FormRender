@@ -9,9 +9,9 @@
           <meses jr:template="">
             <mes>
               <clave1/>
-              <clave2_3/>
-              <clave4_5/>
-              <clave6_12/>
+              <clave2y3/>
+              <clave4y5/>
+              <clave6a12/>
             </mes>
           </meses>
           <meta>
@@ -20,9 +20,9 @@
         </C1.37>
       </instance>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.37/meses/mes/clave1" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.37/meses/mes/clave2_3" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.37/meses/mes/clave4_5" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.37/meses/mes/clave6_12" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.37/meses/mes/clave2y3" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.37/meses/mes/clave4y5" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.37/meses/mes/clave6a12" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.37/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -36,15 +36,15 @@
             <label>Clave 1</label>
             <hint>Clave 1 [en miles de pesos]</hint>
           </input>
-          <input ref="/C1.37/meses/mes/clave2_3">
+          <input ref="/C1.37/meses/mes/clave2y3">
             <label>Clave 2 y 3</label>
             <hint>Clave 2 y 3 [en miles de pesos]</hint>
           </input>
-          <input ref="/C1.37/meses/mes/clave4_5">
+          <input ref="/C1.37/meses/mes/clave4y5">
             <label>Clave 4 y 5</label>
             <hint>Clave 4 y 5 [en miles de pesos]</hint>
           </input>
-          <input ref="/C1.37/meses/mes/clave6_12">
+          <input ref="/C1.37/meses/mes/clave6a12">
             <label>Clave 6 a 12</label>
             <hint>Clave 6 a 12 [en miles de pesos]</hint>
           </input>

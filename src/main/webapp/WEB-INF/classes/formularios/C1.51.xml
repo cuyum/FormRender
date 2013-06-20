@@ -8,18 +8,16 @@
         <C1.51 id="C1.51">
           <meses jr:template="">
             <mes>
-              <tele_expo/>
-              <tele_impo/>
-              <serv_expo/>
-              <serv_impo/>
-              <impo_bienes/>
-              <impo_piezas/>
+              <telecomunicExpo/>
+              <telecomunicImpo/>
+              <serviciosExpo/>
+              <serviciosImpo/>
+              <importacBienesCapital/>
+              <importacionesPiezas/>
               <regalias/>
               <total>
-                <calculate1/>
-                <calculate2/>
-                <total1/>
-                <total2/>
+                <totalExpo/>
+                <totalImpo/>
               </total>
             </mes>
           </meses>
@@ -28,17 +26,15 @@
           </meta>
         </C1.51>
       </instance>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/tele_expo" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/tele_impo" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/serv_expo" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/serv_impo" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/impo_bienes" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/impo_piezas" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/telecomunicExpo" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/telecomunicImpo" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/serviciosExpo" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/serviciosImpo" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/importacBienesCapital" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/importacionesPiezas" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/regalias" required="true()" type="int"/>
-      <bind calculate=" /C1.51/meses/mes/tele_expo + /C1.51/meses/mes/serv_expo " nodeset="/C1.51/meses/mes/total/calculate1" type="string"/>
-      <bind calculate=" /C1.51/meses/mes/tele_impo + /C1.51/meses/mes/serv_impo + /C1.51/meses/mes/impo_bienes + /C1.51/meses/mes/impo_piezas " nodeset="/C1.51/meses/mes/total/calculate2" type="string"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/total/total1" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/total/total2" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/total/totalExpo" required="true()" type="int"/>
+      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.51/meses/mes/total/totalImpo" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.51/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -48,27 +44,27 @@
       <repeat nodeset="/C1.51/meses">
         <group appearance="col4 well-white variable" ref="/C1.51/meses/mes">
           <label>{title}</label>
-          <input ref="/C1.51/meses/mes/tele_expo">
+          <input ref="/C1.51/meses/mes/telecomunicExpo">
             <label>Telecomunicaciones Expo.</label>
             <hint>Expo [en miles de pesos]</hint>
           </input>
-          <input ref="/C1.51/meses/mes/tele_impo">
+          <input ref="/C1.51/meses/mes/telecomunicImpo">
             <label>Telecomunicaciones Impo.</label>
             <hint>Impo [en miles de pesos]</hint>
           </input>
-          <input ref="/C1.51/meses/mes/serv_expo">
+          <input ref="/C1.51/meses/mes/serviciosExpo">
             <label>Servicios Expo.</label>
             <hint>Expo [en miles de pesos]</hint>
           </input>
-          <input ref="/C1.51/meses/mes/serv_impo">
+          <input ref="/C1.51/meses/mes/serviciosImpo">
             <label>Servicios Impo.</label>
             <hint>Impo [en miles de pesos]</hint>
           </input>
-          <input ref="/C1.51/meses/mes/impo_bienes">
+          <input ref="/C1.51/meses/mes/importacBienesCapital">
             <label>Importaciones Bienes Capital</label>
             <hint>Importaciones de Bienes de Capital [en miles de pesos]</hint>
           </input>
-          <input ref="/C1.51/meses/mes/impo_piezas">
+          <input ref="/C1.51/meses/mes/importacionesPiezas">
             <label>Importaciones de Piezas</label>
             <hint>Importaciones de Piezas [en miles de pesos]</hint>
           </input>
@@ -77,11 +73,11 @@
             <hint>Regalías [en miles de pesos]</hint>
           </input>
           <group appearance="col4 well-white" ref="/C1.51/meses/mes/total">
-            <input ref="/C1.51/meses/mes/total/total1">
+            <input ref="/C1.51/meses/mes/total/totalExpo">
               <label>Totales expo.</label>
               <hint>Expo [en miles de pesos]</hint>
             </input>
-            <input ref="/C1.51/meses/mes/total/total2">
+            <input ref="/C1.51/meses/mes/total/totalImpo">
               <label>Totales impo.</label>
               <hint>Impo [en miles de pesos]</hint>
             </input>

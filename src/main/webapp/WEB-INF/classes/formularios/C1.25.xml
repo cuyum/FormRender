@@ -7,189 +7,189 @@
       <instance>
         <C1.25 id="C1.25">
           <servicios>
-            <s_llamada_conf/>
-            <s_bloqueo_local/>
-            <s_bloqueo_ldn/>
-            <s_desvio_ocupado1/>
-            <s_desvio_no/>
-            <s_desvio_cambio/>
-            <s_desvio_baja/>
-            <s_bloqueo_ldi/>
-            <s_llamada_selec/>
-            <s_identificador/>
-            <s_restriccion/>
-            <s_facturacion/>
-            <s_no_figurar/>
-            <s_despertador/>
-            <s_no_molestar/>
-            <s_cliente/>
-            <s_numeracion_abrev/>
-            <s_senal_llamada/>
-            <s_desvio_dir/>
-            <s_memo_llamada/>
-            <s_amplificador/>
-            <s_timbre/>
-            <s_bloqueo_llamadas/>
-            <s_telectura/>
-            <s_mant_domicilio/>
-            <s_datos/>
-            <s_bloqueo_modalidad/>
-            <s_bloqueo_audiotexto/>
-            <s_otros/>
+            <llamadaConferencia/>
+            <bloqueoTraficoLocal/>
+            <bloqueoTraficoLdn/>
+            <desvioOcupado/>
+            <desvioNoContesta/>
+            <desvioCambioDomicilio/>
+            <desvioPorBaja/>
+            <bloqueoTraficoLdi/>
+            <llamadaSinSeleccion/>
+            <callerId/>
+            <restriccionCallerId/>
+            <facturacionDetallada/>
+            <noFigurar/>
+            <despertador/>
+            <noMolestar/>
+            <clienteAbonadoAusente/>
+            <numeracionAbreviada/>
+            <senialLlamadaEspera/>
+            <desvioDirecto/>
+            <memoLlamada/>
+            <amplificadorPRadiodifusion/>
+            <timbreLlamadas/>
+            <bloqueoLlamadasMasivas/>
+            <telelectura/>
+            <manteimientoDomiciliario/>
+            <datosInquilinoFactura/>
+            <bloqueoModoLlamantePaga/>
+            <bloqueoAudiotexto/>
+            <otrosServicios/>
           </servicios>
           <meta>
             <instanceID/>
           </meta>
         </C1.25>
       </instance>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_llamada_conf" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_local" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_ldn" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_ocupado1" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_no" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_cambio" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_baja" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_ldi" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_llamada_selec" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_identificador" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_restriccion" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_facturacion" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_no_figurar" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_despertador" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_no_molestar" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_cliente" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_numeracion_abrev" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_senal_llamada" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_desvio_dir" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_memo_llamada" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_amplificador" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_timbre" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_llamadas" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_telectura" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_mant_domicilio" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_datos" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_modalidad" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_bloqueo_audiotexto" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/s_otros" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/llamadaConferencia" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/bloqueoTraficoLocal" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/bloqueoTraficoLdn" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/desvioOcupado" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/desvioNoContesta" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/desvioCambioDomicilio" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/desvioPorBaja" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/bloqueoTraficoLdi" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/llamadaSinSeleccion" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/callerId" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/restriccionCallerId" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/facturacionDetallada" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/noFigurar" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/despertador" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/noMolestar" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/clienteAbonadoAusente" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/numeracionAbreviada" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/senialLlamadaEspera" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/desvioDirecto" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/memoLlamada" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/amplificadorPRadiodifusion" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/timbreLlamadas" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/bloqueoLlamadasMasivas" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/telelectura" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/manteimientoDomiciliario" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/datosInquilinoFactura" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/bloqueoModoLlamantePaga" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/bloqueoAudiotexto" required="true()" type="decimal"/>
+      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.25/servicios/otrosServicios" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.25/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
     <group appearance="col4 well-white" ref="/C1.25/servicios">
       <label>Servicios</label>
-      <input ref="/C1.25/servicios/s_llamada_conf">
+      <input ref="/C1.25/servicios/llamadaConferencia">
         <label>Llamada en Conferencia</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_bloqueo_local">
+      <input ref="/C1.25/servicios/bloqueoTraficoLocal">
         <label>Bloqueo de Tráfico Local</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_bloqueo_ldn">
+      <input ref="/C1.25/servicios/bloqueoTraficoLdn">
         <label>Bloqueo de Tráfico LDN</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_desvio_ocupado1">
+      <input ref="/C1.25/servicios/desvioOcupado">
         <label>Desvío por Ocupado</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_desvio_no">
+      <input ref="/C1.25/servicios/desvioNoContesta">
         <label>Desvío por No contesta</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_desvio_cambio">
+      <input ref="/C1.25/servicios/desvioCambioDomicilio">
         <label>Desvío por Cambio de Domicilio</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_desvio_baja">
+      <input ref="/C1.25/servicios/desvioPorBaja">
         <label>Desvío por Baja</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_bloqueo_ldi">
+      <input ref="/C1.25/servicios/bloqueoTraficoLdi">
         <label>Bloqueo de Tráfico LDI</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_llamada_selec">
+      <input ref="/C1.25/servicios/llamadaSinSeleccion">
         <label>Llamada sin Selección</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_identificador">
+      <input ref="/C1.25/servicios/callerId">
         <label>Identificador de llamadas (Caller ID)</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_restriccion">
+      <input ref="/C1.25/servicios/restriccionCallerId">
         <label>Restricción Caller ID permanente</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_facturacion">
+      <input ref="/C1.25/servicios/facturacionDetallada">
         <label>Facturación detallada</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_no_figurar">
+      <input ref="/C1.25/servicios/noFigurar">
         <label>No figurar / Publicar en guía</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_despertador">
+      <input ref="/C1.25/servicios/despertador">
         <label>Servicio de Despertador (cronoalarma)</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_no_molestar">
+      <input ref="/C1.25/servicios/noMolestar">
         <label>No Molestar</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_cliente">
+      <input ref="/C1.25/servicios/clienteAbonadoAusente">
         <label>Cliente / Abonado Ausente</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_numeracion_abrev">
+      <input ref="/C1.25/servicios/numeracionAbreviada">
         <label>Numeración Abreviada</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_senal_llamada">
+      <input ref="/C1.25/servicios/senialLlamadaEspera">
         <label>Señal de Llamada en Espera</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_desvio_dir">
+      <input ref="/C1.25/servicios/desvioDirecto">
         <label>Desvío Directo / Transferencia de Llamadas</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_memo_llamada">
+      <input ref="/C1.25/servicios/memoLlamada">
         <label>Memo Llamada / Contestador</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_amplificador">
+      <input ref="/C1.25/servicios/amplificadorPRadiodifusion">
         <label>Amplificador para Radiodifusión</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_timbre">
+      <input ref="/C1.25/servicios/timbreLlamadas">
         <label>Timbre distintivo de Llamadas (Multiring)</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_bloqueo_llamadas">
+      <input ref="/C1.25/servicios/bloqueoLlamadasMasivas">
         <label>Bloqueo de Llamadas Masivas</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_telectura">
+      <input ref="/C1.25/servicios/telelectura">
         <label>Servicio de Telelectura</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_mant_domicilio">
+      <input ref="/C1.25/servicios/manteimientoDomiciliario">
         <label>Servicio de Mantenimiento Domiciliario</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_datos">
+      <input ref="/C1.25/servicios/datosInquilinoFactura">
         <label>Datos del Inquilino en la facturación</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_bloqueo_modalidad">
+      <input ref="/C1.25/servicios/bloqueoModoLlamantePaga">
         <label>Bloqueo modalidad abonado llamante paga (CPP)</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_bloqueo_audiotexto">
+      <input ref="/C1.25/servicios/bloqueoAudiotexto">
         <label>Bloqueo de Audiotexto</label>
         <hint>Mensual [en pesos]</hint>
       </input>
-      <input ref="/C1.25/servicios/s_otros">
+      <input ref="/C1.25/servicios/otrosServicios">
         <label>Otros Servicios / Especificar</label>
         <hint>Mensual [en pesos]</hint>
       </input>

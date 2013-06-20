@@ -22,7 +22,7 @@
                 <salientes3/>
                 <operador3/>
                 <salientes4/>
-                <operador4/>
+                <operadorOtros/>
               </salientes>
             </mes>
           </meses>
@@ -44,7 +44,7 @@
       <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.15/meses/mes/salientes/salientes3" required="true()" type="decimal"/>
       <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/salientes/operador3" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.15/meses/mes/salientes/salientes4" required="true()" type="decimal"/>
-      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/salientes/operador4" required="true()" type="int"/>
+      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/salientes/operadorOtros" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.15/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -121,7 +121,7 @@
               <label>Salientes</label>
               <hint>Salientes [en miles]</hint>
             </input>
-            <input ref="/C1.15/meses/mes/salientes/operador4">
+            <input ref="/C1.15/meses/mes/salientes/operadorOtros">
               <label>Operador Otros</label>
               <hint>Operador Otros</hint>
             </input>

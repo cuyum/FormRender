@@ -14,9 +14,9 @@
               <localidad_otro/>
               <area/>
               <area_otro/>
-              <contratos_vigentes/>
-              <facturacion_papel/>
-              <facturacion_web/>
+              <contratosVigentes/>
+              <facturacionPapel/>
+              <facturacionWeb/>
             </mes>
           </meses>
           <meta>
@@ -30,9 +30,9 @@
       <bind nodeset="/C1.17/meses/mes/localidad_otro" relevant=" /C1.17/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C1.17/meses/mes/localidad" nodeset="/C1.17/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/C1.17/meses/mes/area_otro" relevant=" /C1.17/meses/mes/area =9999" required="true()" type="string"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.17/meses/mes/contratos_vigentes" required="true()" type="int"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.17/meses/mes/facturacion_papel" required="true()" type="int"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.17/meses/mes/facturacion_web" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.17/meses/mes/contratosVigentes" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.17/meses/mes/facturacionPapel" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.17/meses/mes/facturacionWeb" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.17/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -80,15 +80,15 @@
           <input ref="/C1.17/meses/mes/area_otro">
             <label>Área Otros</label>
           </input>
-          <input ref="/C1.17/meses/mes/contratos_vigentes">
-            <label>Contratos Vigente</label>
+          <input ref="/C1.17/meses/mes/contratosVigentes">
+            <label>Contratos Vigentes</label>
             <hint>Contratos Vigente</hint>
           </input>
-          <input ref="/C1.17/meses/mes/facturacion_papel">
+          <input ref="/C1.17/meses/mes/facturacionPapel">
             <label>Facturación Papel</label>
             <hint>Facturación Papel</hint>
           </input>
-          <input ref="/C1.17/meses/mes/facturacion_web">
+          <input ref="/C1.17/meses/mes/facturacionWeb">
             <label>Facturación Web</label>
             <hint>Facturación Web</hint>
           </input>

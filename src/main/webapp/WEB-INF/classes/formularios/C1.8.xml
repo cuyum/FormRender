@@ -14,10 +14,10 @@
               <localidad_otro/>
               <area/>
               <area_otro/>
-              <abono_local/>
-              <abono_ldn/>
-              <abono_ldi/>
-              <suscrip_serv_adic/>
+              <abonoLocal/>
+              <abonoLdnLdi/>
+              <abonoLdi/>
+              <suscripServAdicionales/>
             </mes>
           </meses>
           <meta>
@@ -31,10 +31,10 @@
       <bind nodeset="/C1.8/meses/mes/localidad_otro" relevant=" /C1.8/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C1.8/meses/mes/localidad" nodeset="/C1.8/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/C1.8/meses/mes/area_otro" relevant=" /C1.8/meses/mes/area =9999" required="true()" type="string"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/meses/mes/abono_local" required="true()" type="int"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/meses/mes/abono_ldn" required="true()" type="int"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/meses/mes/abono_ldi" required="true()" type="int"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/meses/mes/suscrip_serv_adic" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/meses/mes/abonoLocal" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/meses/mes/abonoLdnLdi" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/meses/mes/abonoLdi" required="true()" type="int"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.8/meses/mes/suscripServAdicionales" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.8/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -82,19 +82,19 @@
           <input ref="/C1.8/meses/mes/area_otro">
             <label>Área Otros</label>
           </input>
-          <input ref="/C1.8/meses/mes/abono_local">
+          <input ref="/C1.8/meses/mes/abonoLocal">
             <label>Abono Local</label>
             <hint>Abono Local</hint>
           </input>
-          <input ref="/C1.8/meses/mes/abono_ldn">
+          <input ref="/C1.8/meses/mes/abonoLdnLdi">
             <label>Abono LDN / LDI</label>
             <hint>Abono LDN / LDI</hint>
           </input>
-          <input ref="/C1.8/meses/mes/abono_ldi">
+          <input ref="/C1.8/meses/mes/abonoLdi">
             <label>Abono LDI</label>
             <hint>Abono LDI</hint>
           </input>
-          <input ref="/C1.8/meses/mes/suscrip_serv_adic">
+          <input ref="/C1.8/meses/mes/suscripServAdicionales">
             <label>Suscripción Servicios Adicionales</label>
             <hint>Suscrip. Serv. Adic.</hint>
           </input>
