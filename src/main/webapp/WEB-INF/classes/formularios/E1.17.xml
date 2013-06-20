@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario E1.17 - Calidad del servicio / Ratios</h:title>
+    <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <instance>
+        <E1.17 id="E1.17">
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <partido/>
+              <localidad/>
+              <localidad_otro/>
+              <trp/>
+              <trcp/>
+              <trr/>
+              <roac/>
+              <rscp/>
+              <tcf/>
+              <dposs/>
+              <tfrp/>
+              <drf/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </E1.17>
+      </instance>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/E1.17/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/E1.17/meses/mes/provincia" nodeset="/E1.17/meses/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/E1.17/meses/mes/partido" nodeset="/E1.17/meses/mes/localidad" required="true()" type="select1"/>
+      <bind nodeset="/E1.17/meses/mes/localidad_otro" relevant=" /E1.17/meses/mes/localidad =9999" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999999.99" nodeset="/E1.17/meses/mes/trp" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999999.99" nodeset="/E1.17/meses/mes/trcp" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999999.99" nodeset="/E1.17/meses/mes/trr" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999999.99" nodeset="/E1.17/meses/mes/roac" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999999.99" nodeset="/E1.17/meses/mes/rscp" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999999.99" nodeset="/E1.17/meses/mes/tcf" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999999.99" nodeset="/E1.17/meses/mes/dposs" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999999.99" nodeset="/E1.17/meses/mes/tfrp" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999999.99" nodeset="/E1.17/meses/mes/drf" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/E1.17/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/E1.17/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/E1.17/meses">
+        <group appearance="col4 well-white variable" ref="/E1.17/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/E1.17/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/E1.17/meses/mes/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/E1.17/meses/mes/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/E1.17/meses/mes/localidad_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+          <input ref="/E1.17/meses/mes/trp">
+            <label>TRP</label>
+            <hint>TRP [%]</hint>
+          </input>
+          <input ref="/E1.17/meses/mes/trcp">
+            <label>TRCP</label>
+            <hint>TRCP [%]</hint>
+          </input>
+          <input ref="/E1.17/meses/mes/trr">
+            <label>TRR</label>
+            <hint>TRR [%]</hint>
+          </input>
+          <input ref="/E1.17/meses/mes/roac">
+            <label>ROAC</label>
+            <hint>ROAC [%]</hint>
+          </input>
+          <input ref="/E1.17/meses/mes/rscp">
+            <label>RSCP</label>
+            <hint>RSCP [%]</hint>
+          </input>
+          <input ref="/E1.17/meses/mes/tcf">
+            <label>TCF</label>
+            <hint>TCF [%]</hint>
+          </input>
+          <input ref="/E1.17/meses/mes/dposs">
+            <label>DPOSS</label>
+            <hint>DPOSS [%]</hint>
+          </input>
+          <input ref="/E1.17/meses/mes/tfrp">
+            <label>TFRP</label>
+            <hint>TFRP [%]</hint>
+          </input>
+          <input ref="/E1.17/meses/mes/drf">
+            <label>DRF</label>
+            <hint>DRF [%]</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

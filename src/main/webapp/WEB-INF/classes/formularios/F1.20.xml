@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario F1.20 - Planes combinaciones con otros servicios</h:title>
+    <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <instance>
+        <F1.20 id="F1.20">
+          <agregar jr:template="">
+            <planes>
+              <planesPlan/>
+              <planesAccesos/>
+              <planesAccesos_otro/>
+              <velocidad/>
+              <abono/>
+              <vigencia/>
+              <abonoFinal/>
+              <servIncluido/>
+            </planes>
+          </agregar>
+          <meta>
+            <instanceID/>
+          </meta>
+        </F1.20>
+      </instance>
+      <bind nodeset="/F1.20/agregar/planes/planesPlan" required="true()" type="string"/>
+      <bind nodeset="/F1.20/agregar/planes/planesAccesos" required="true()" type="select1"/>
+      <bind nodeset="/F1.20/agregar/planes/planesAccesos_otro" relevant=" /F1.20/agregar/planes/planesAccesos =OTROS" required="true()" type="string"/>
+      <bind nodeset="/F1.20/agregar/planes/velocidad" required="true()" type="select1"/>
+      <bind constraint=".&lt;=1000" nodeset="/F1.20/agregar/planes/abono" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9999.99" nodeset="/F1.20/agregar/planes/vigencia" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9999.99" nodeset="/F1.20/agregar/planes/abonoFinal" required="true()" type="decimal"/>
+      <bind nodeset="/F1.20/agregar/planes/servIncluido" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/F1.20/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/F1.20/agregar">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/F1.20/agregar">
+        <group appearance="col4 well-white" ref="/F1.20/agregar/planes">
+          <label>Planes</label>
+          <input ref="/F1.20/agregar/planes/planesPlan">
+            <label>Plan</label>
+            <hint>Plan</hint>
+          </input>
+          <select1 appearance="minimal" ref="/F1.20/agregar/planes/planesAccesos">
+            <label>Accesos</label>
+            <hint>Accesos</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>DIAL UP</label>
+              <value>DIALUP</value>
+            </item>
+            <item>
+              <label>ADSL</label>
+              <value>ADSL</value>
+            </item>
+            <item>
+              <label>CABLEMODEN</label>
+              <value>CABLEMODEN</value>
+            </item>
+            <item>
+              <label>WIRELESS</label>
+              <value>WIRELESS</value>
+            </item>
+            <item>
+              <label>CELULAR</label>
+              <value>CELULAR</value>
+            </item>
+            <item>
+              <label>SATELITAL</label>
+              <value>SATELITAL</value>
+            </item>
+            <item>
+              <label>BPL</label>
+              <value>BPL</value>
+            </item>
+            <item>
+              <label>WIMAX</label>
+              <value>WIMAX</value>
+            </item>
+            <item>
+              <label>FIBRA OPTICA</label>
+              <value>FIBRAOPTICA</value>
+            </item>
+            <item>
+              <label>OTROS</label>
+              <value>OTROS</value>
+            </item>
+          </select1>
+          <input ref="/F1.20/agregar/planes/planesAccesos_otro">
+            <label>Acceso Otros</label>
+            <hint>Acceso Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/F1.20/agregar/planes/velocidad">
+            <label>Velocidad</label>
+            <hint>Velocidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>HASTA 512 kbps</label>
+              <value>HASTA512kbps</value>
+            </item>
+            <item>
+              <label>+ 512 Kbps - 1 Mbps</label>
+              <value>512 Kbps_1Mbps</value>
+            </item>
+            <item>
+              <label>+ 1 Mbps - 6 Mbps</label>
+              <value>1Mbps_6Mbps</value>
+            </item>
+            <item>
+              <label>+ 6 Mbps - 10 Mbps</label>
+              <value>6Mbps_10Mbps</value>
+            </item>
+            <item>
+              <label>+ 10 Mbps - 20 Mbps</label>
+              <value>10Mbps_20Mbps</value>
+            </item>
+            <item>
+              <label>+ 20 Mbps - 30 Mbps</label>
+              <value>20Mbps_30Mbps</value>
+            </item>
+            <item>
+              <label>+ 30 Mbps</label>
+              <value>30Mbps</value>
+            </item>
+          </select1>
+          <input ref="/F1.20/agregar/planes/abono">
+            <label>Abono</label>
+            <hint>Abono</hint>
+          </input>
+          <input ref="/F1.20/agregar/planes/vigencia">
+            <label>Vigencia</label>
+            <hint>Vigencia</hint>
+          </input>
+          <input ref="/F1.20/agregar/planes/abonoFinal">
+            <label>Abono Final</label>
+            <hint>Abono Final</hint>
+          </input>
+          <input appearance="multiline" ref="/F1.20/agregar/planes/servIncluido">
+            <label>Serv. Inc.</label>
+            <hint>Serv. Inc.</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>
