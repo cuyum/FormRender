@@ -15,10 +15,7 @@
               <servicio/>
               <servicio_otro/>
               <acceso/>
-              <accesoBandaAncha/>
               <acceso_otro/>
-              <accesoBandaAnchayOtros/>
-              <accesoBandaAncha_otro/>
               <cuentas/>
             </mes>
           </meses>
@@ -33,12 +30,9 @@
       <bind nodeset="/F1.6/meses/mes/localidad_otro" relevant=" /F1.6/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind nodeset="/F1.6/meses/mes/servicio" required="true()" type="select1"/>
       <bind nodeset="/F1.6/meses/mes/servicio_otro" relevant=" /F1.6/meses/mes/servicio =OTROS" required="true()" type="string"/>
-      <bind nodeset="/F1.6/meses/mes/acceso" relevant=" /F1.6/meses/mes/servicio =610 or  /F1.6/meses/mes/servicio =611 or  /F1.6/meses/mes/servicio =612 or  /F1.6/meses/mes/servicio =NRO_GEOGRAFICO or  /F1.6/meses/mes/servicio =OTROS" required="true()" type="select1"/>
-      <bind nodeset="/F1.6/meses/mes/accesoBandaAncha" relevant=" /F1.6/meses/mes/servicio =BANDA_ANCHA" type="select1"/>
-      <bind nodeset="/F1.6/meses/mes/acceso_otro" relevant=" /F1.6/meses/mes/accesoBandaAncha =OTROS" required="true()" type="string"/>
-      <bind nodeset="/F1.6/meses/mes/accesoBandaAnchayOtros" relevant=" /F1.6/meses/mes/servicio =OTROS" type="select1"/>
-      <bind nodeset="/F1.6/meses/mes/accesoBandaAncha_otro" relevant=" /F1.6/meses/mes/accesoBandaAnchayOtros =OTROS" required="true()" type="string"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/F1.6/meses/mes/cuentas" relevant=" /F1.6/meses/mes/servicio =OTROS" required="true()" type="int"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/accesos and depends=/F1.6/meses/mes/servicio" nodeset="/F1.6/meses/mes/acceso" required="true()" type="select1"/>
+      <bind nodeset="/F1.6/meses/mes/acceso_otro" relevant=" /F1.6/meses/mes/acceso =OTROS" required="true()" type="string"/>
+      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/F1.6/meses/mes/cuentas" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/F1.6/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -117,75 +111,8 @@
               <label>Seleccione una opción</label>
               <value>-1</value>
             </item>
-            <item>
-              <label>DIAL UP</label>
-              <value>DIAL_UP</value>
-            </item>
-          </select1>
-          <select1 appearance="minimal" ref="/F1.6/meses/mes/accesoBandaAncha">
-            <label>Accesos</label>
-            <hint>Accesos</hint>
-            <item>
-              <label>Seleccione una opción</label>
-              <value>-1</value>
-            </item>
-            <item>
-              <label>ADSL</label>
-              <value>ADSL</value>
-            </item>
-            <item>
-              <label>CABLEMODEN</label>
-              <value>CABLEMODEN</value>
-            </item>
-            <item>
-              <label>WIRELESS</label>
-              <value>WIRELESS</value>
-            </item>
-            <item>
-              <label>CELULAR</label>
-              <value>CELULAR</value>
-            </item>
-            <item>
-              <label>SATELITAL</label>
-              <value>SATELITAL</value>
-            </item>
-            <item>
-              <label>BPL</label>
-              <value>BPL</value>
-            </item>
-            <item>
-              <label>WIMAX</label>
-              <value>WIMAX</value>
-            </item>
-            <item>
-              <label>FIBRA OPTICA</label>
-              <value>FIBRA_OPTICA</value>
-            </item>
-            <item>
-              <label>OTROS</label>
-              <value>OTROS</value>
-            </item>
           </select1>
           <input ref="/F1.6/meses/mes/acceso_otro">
-            <label>Acceso Otros</label>
-          </input>
-          <select1 appearance="minimal" ref="/F1.6/meses/mes/accesoBandaAnchayOtros">
-            <label>Accesos</label>
-            <hint>Accesos</hint>
-            <item>
-              <label>Seleccione una opción</label>
-              <value>-1</value>
-            </item>
-            <item>
-              <label>DIAL UP</label>
-              <value>DIAL_UP</value>
-            </item>
-            <item>
-              <label>OTROS</label>
-              <value>OTROS</value>
-            </item>
-          </select1>
-          <input ref="/F1.6/meses/mes/accesoBandaAncha_otro">
             <label>Acceso Otros</label>
           </input>
           <input ref="/F1.6/meses/mes/cuentas">
