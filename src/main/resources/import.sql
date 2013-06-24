@@ -163,4 +163,13 @@ INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.8','Tráfico III en llamadas','E1.008-V001-MAY13','E1.8.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.9','Tráfico III (# Llamadas)','E1.009-V001-MAY13','E1.9.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.10','Tráfico hacia Redes fijas II (llamadas)','E1.010-V001-MAY13','E1.10.xml', 0);
-
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.11','Tráfico hacia Redes móviles I (minutos)','E1.011-V001-MAY13','E1.11.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.12','Tráfico hacia Redes móviles II (# Llamadas)','E1.012-V001-MAY13','E1.12.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.13','Tráfico de datos','E1.013-V001-MAY13','E1.13.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.14','Roaming (minutos)','E1.014-V001-MAY13','E1.14.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.15','Interconexión (minutos)','E1.015-V001-MAY13','E1.15.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.16','Mensajes','E1.016-V001-MAY13','E1.16.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.17','Calidad del servicio / Ratios','E1.017-V001-MAY13','E1.17.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.18','Calidad de servicio / Facturación','E1.018-V001-MAY13','E1.18.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.19','Calidad de servicio / Reclamos','E1.019-V001-MAY13','E1.19.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.20','Calidad de servicio / Atención personalizada','E1.020-V001-MAY13','E1.20.xml', 0);
