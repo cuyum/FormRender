@@ -343,3 +343,52 @@ WITH (
 );
 ALTER TABLE prestadores
   OWNER TO postgres;
+
+  
+DROP TABLE IF EXISTS accesos;
+
+CREATE TABLE accesos
+(
+  idAcceso character varying NOT NULL,
+  acceso character varying NOT NULL, 
+  CONSTRAINT accesos_pkey PRIMARY KEY (idAcceso)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE accesos
+  OWNER TO postgres;
+
+DROP TABLE IF EXISTS servicios;  
+CREATE TABLE servicios
+(
+  idServicio character varying NOT NULL,
+  servicio character varying NOT NULL,  
+  CONSTRAINT servicios_pkey PRIMARY KEY (idServicio)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE servicios
+  OWNER TO postgres; 
+  
+DROP TABLE IF EXISTS accesos_servicio;
+
+CREATE TABLE accesos_servicio
+(
+  idAcceso character varying NOT NULL,
+  idServicio character varying NOT NULL,
+  CONSTRAINT accesos_servicio_pkey PRIMARY KEY (idAcceso, idServicio),
+  CONSTRAINT accesos_servicio_idAcceso_fkey FOREIGN KEY (idAcceso)
+      REFERENCES accesos (idacceso) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT accesos_servicio_idServicio_fkey FOREIGN KEY (idServicio)
+      REFERENCES servicios (idservicio) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE accesos_servicio
+  OWNER TO postgres;
+  
