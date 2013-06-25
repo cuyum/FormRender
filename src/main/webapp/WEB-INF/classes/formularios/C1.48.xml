@@ -48,7 +48,7 @@
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.48/meses/mes/redMovil/redMovilCosto2" required="true()" type="int"/>
       <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="Datos no válidos" nodeset="/C1.48/meses/mes/redMovil/redMovilPrestador3" required="true()" type="select1"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.48/meses/mes/redMovil/redMovilCcosto3" required="true()" type="int"/>
-      <bind constraint="cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.48/meses/mes/redMovil/redMovilPrestadorOtros" required="true()" type="int"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="Datos no válidos" nodeset="/C1.48/meses/mes/redMovil/redMovilPrestadorOtros" required="true()" type="select1"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.48/meses/mes/redMovil/redMovilCostoOtros" required="true()" type="int"/>
       <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="Datos no válidos" nodeset="/C1.48/meses/mes/redFija/redFijaPrestador1" required="true()" type="select1"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.48/meses/mes/redFija/redFijaCosto1" required="true()" type="int"/>
@@ -56,7 +56,7 @@
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.48/meses/mes/redFija/redFijaCosto2" required="true()" type="int"/>
       <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="Datos no válidos" nodeset="/C1.48/meses/mes/redFija/redFijaPrestador3" required="true()" type="select1"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.48/meses/mes/redFija/redFijaCosto3" required="true()" type="int"/>
-      <bind constraint="cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.48/meses/mes/redFija/redFijaPrestadorOtros" required="true()" type="int"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="Datos no válidos" nodeset="/C1.48/meses/mes/redFija/redFijaPrestadorOtros" required="true()" type="select1"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.48/meses/mes/redFija/redFijaCostoOtros" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.48/meses/mes/otros/mantenimiento" required="true()" type="int"/>
       <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.48/meses/mes/otros/otros" required="true()" type="int"/>
@@ -108,10 +108,14 @@
               <label>Costo</label>
               <hint>Costo 3 [en miles de pesos]</hint>
             </input>
-            <input ref="/C1.48/meses/mes/redMovil/redMovilPrestadorOtros">
+            <select1 appearance="minimal" ref="/C1.48/meses/mes/redMovil/redMovilPrestadorOtros">
               <label>Prestador Otros</label>
               <hint>Prestador Otros</hint>
-            </input>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+            </select1>
             <input ref="/C1.48/meses/mes/redMovil/redMovilCostoOtros">
               <label>Costo Otros</label>
               <hint>Costo Otros [en miles de pesos]</hint>
@@ -155,10 +159,14 @@
               <label>Costo</label>
               <hint>Costo 3 [en miles de pesos]</hint>
             </input>
-            <input ref="/C1.48/meses/mes/redFija/redFijaPrestadorOtros">
+            <select1 appearance="minimal" ref="/C1.48/meses/mes/redFija/redFijaPrestadorOtros">
               <label>Prestador Otros</label>
               <hint>Prestador Otros</hint>
-            </input>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+            </select1>
             <input ref="/C1.48/meses/mes/redFija/redFijaCostoOtros">
               <label>Costo Otros</label>
               <hint>Costo Otros [en miles de pesos]</hint>
