@@ -378,6 +378,22 @@ private Long id;
 
    private Predicate[] getSearchPredicates(Root<Formulario> root)
    {
+	   Map<String, String> filters = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();		
+	    	      
+
+	   if (filters != null){
+		   
+    	 if (filters.get("search:formularioBeanExampleFormCodigo") !=null && !filters.get("search:formularioBeanExampleFormCodigo").isEmpty()){
+			   this.example.setCodigo(filters.get("search:formularioBeanExampleFormCodigo"));		 
+    	 }		 
+    	 if (filters.get("search:formularioBeanExampleNombre") !=null && !filters.get("search:formularioBeanExampleNombre").isEmpty()){
+			   this.example.setNombre(filters.get("search:formularioBeanExampleNombre"));		 
+    	 }		 
+    	 if (filters.get("search:formularioBeanArchivo") !=null && !filters.get("search:formularioBeanArchivo").isEmpty()){
+			   this.example.setArchivo(filters.get("search:formularioBeanArchivo"));
+		 
+    	 }		
+      }	
 
       CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
       List<Predicate> predicatesList = new ArrayList<Predicate>();
