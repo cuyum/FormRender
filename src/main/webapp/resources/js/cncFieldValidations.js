@@ -375,12 +375,15 @@ var setupRemoteData = function(field,fieldset){
 
 var setupDataConstraints = function(field){
 	var data_constraints = field.attr("data-constraint");
+	console.group("CAMPO:"+field.attr("name"));
 	if(data_constraints){
 		var constraintContainer = [];
 		var constraints = data_constraints.split(" and ");
 		/* Process constraints of field */
+		console.log(constraints);
 		for ( var i = 0; i < constraints.length; i++) {
 			var constraint = constraints[i];
+//			console.log(constraint);
 			/*FIXME: refactor this or case scenario*/
 			if(constraint.indexOf(" or ")!=-1){/*check for 'ors' and 'ands' to constraints*/
 				var cc = constraint.split(" or ");
@@ -391,33 +394,37 @@ var setupDataConstraints = function(field){
 				constraints = constraints.concat(cc);
 			}
 			/*max constraint*/
-			if(constraint.indexOf(".<=")!=-1){
+			if(constraint.indexOf(".<=")!=-1 || constraint.indexOf(".&lt;=")!=-1){
 				var number = constraint.substring(constraint.indexOf(".<=")+3,constraint.length);
-				number = number.match(/\d*/gi)[0];
+//				number = number.match(/\d*/gi)[0];
+//				console.log("max="+number);
 				var max = new Number(number);
 				if(!isNaN(max)) field.data("jr:constraint:max",max);
 				else log.error("Not a number for max constraint",number);
 			}else
 			/*min constraint*/
-			if(constraint.indexOf(".>=")!=-1){
+			if(constraint.indexOf(".>=")!=-1 || constraint.indexOf(".&gt;=")!=-1){
 				var number = constraint.substring(constraint.indexOf(".>=")+3,constraint.length);
-				number = number.match(/\d*/gi)[0];
+//				number = number.match(/\d*/gi)[0];
+//				console.log("min="+number);
 				var min = new Number(number); 
 				if(!isNaN(min))	field.data("jr:constraint:min",min);
 				else log.error("Not a number for min constraint",number);
 			}else 
 			/*lower constraint*/
-			if(constraint.indexOf(".<")!=-1){
+			if(constraint.indexOf(".<")!=-1 || constraint.indexOf(".&lt;")!=-1){
 				var number = constraint.substring(constraint.indexOf(".<")+2,constraint.length);
-				number = number.match(/\d*/gi)[0];
+//				number = number.match(/\d*/gi)[0];
+//				console.log("lower than="+number);
 				var lower = new Number(number);
 				if(!isNaN(lower)) field.data("jr:constraint:lower",lower);
 				else console.error("Not a number for max constraint",number);
 			}else 
 			/*higher constraint*/
-			if(constraint.indexOf(".>")!=-1){
+			if(constraint.indexOf(".>")!=-1 || constraint.indexOf(".&gt;")!=-1){
 				var number = constraint.substring(constraint.indexOf(".>")+2,constraint.length);
-				number = number.match(/\d*/gi)[0];
+//				number = number.match(/\d*/gi)[0];
+//				console.log("higher than="+number);
 				var higher = new Number(number);
 				if(!isNaN(higher))	field.data("jr:constraint:higher",higher);
 				else console.error("Not a number for min constraint",number);
@@ -447,10 +454,12 @@ var setupDataConstraints = function(field){
 		
 		field.data("jr:constraints",constraintContainer);
 	}
+	console.groupEnd();
 };
 
 var validationDecimal = function(field){
 	var data_type = field.attr("data-type-xml");
+	console.log("DECIMAL:"+field.attr("name"));
 	if(data_type && data_type=="decimal"){
 		var constraintMsg = field.attr("data-constraint-msg");
 		field.rules( "add", {
@@ -591,30 +600,47 @@ var setupValidationDefaults = function(){
 	$.validator.addMethod("entero", 
 		function(value, element) {
 //			return this.optional(element) || /^(-)?[0-9]*$/.test(value); 
-			return /^-?(?:\d+|\d{1,3}(?:\.\d{3})+)$/.test(value); 
+			var match = /^-?(?:\d+|\d{1,3}(?:\.\d{3})+)$/.test(value);
+//			console.log("ENTERO="+match);
+			return this.optional(element) || match; 
 		}, 
 		"N&uacute;mero no v&aacute;lido");
 //		"Debe especificar un n&uacute;mero entero");
 	
 	$.validator.addMethod("decimal", 
 		function(value, element) { 
-//			return this.optional(element) || /^\s*-?(\d+(\.\d{1,2})?|\.\d{1,2})\s*$/.test(value); 
-			return /^-?(?:\d+\,\d{1,3}|\d{1,3}(?:\.\d{3})+\,\d{1,3})$/.test(value); 
+//			return this.optional(element) || /^\s*-?(\d+(\.\d{1,2})?|\.\d{1,2})\s*$/.test(value);
+			var match =/^-?(?:\d+\,\d{1,3}|\d{1,3}(?:\.\d{3})+\,\d{1,3})$/.test(value);
+//			console.log("DECIMAL="+match);
+			return this.optional(element) || match; 
 		}, 
 		"N&uacute;mero no v&aacute;lido");
 //		"Debe especificar un n&uacute;mero decimal con dos cifras luego del punto");
 	
 	$.validator.addMethod("higher", 
 		function(value, element, param) { 
-			return value > param;
+			return this.optional(element) || value > param;
 		}, 
 		"Debe ser mayor que {0} ");
 	
 	$.validator.addMethod("lower", 
 		function(value, element, param) { 
-			return value < param;
+			return this.optional(element) || value < param;
 		}, 
 		"Debe ser menor que {0} ");
+	
+	$.validator.addMethod("min", 
+			function(value, element, param) { 
+				return this.optional(element) || cncToNumber(value) >= param;
+			}, 
+			"Debe ser mayor o igual que {0} ");
+	
+	$.validator.addMethod("max", 
+			function(value, element, param) { 
+				return this.optional(element) || cncToNumber(value) <= param;
+			}, 
+			"Debe ser menor o igual que {0} ");
+	
 	$.validator.addMethod("required", 
 		function(value, element, param) { 
 			// check if dependency is met
