@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario I1.14 - Inversiones</h:title>
+    <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <instance>
+        <I1.14 id="I1.14">
+          <inversiones>
+            <anio/>
+            <total/>
+          </inversiones>
+          <meta>
+            <instanceID/>
+          </meta>
+        </I1.14>
+      </instance>
+      <bind nodeset="/I1.14/inversiones/anio" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/I1.14/inversiones/total" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/I1.14/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col2 well-white" ref="/I1.14/inversiones">
+      <label>Inversiones</label>
+      <select1 ref="/I1.14/inversiones/anio">
+        <label>Año</label>
+        <hint>Año</hint>
+        <item>
+          <label>Seleccione una opción</label>
+          <value>-1</value>
+        </item>
+        <item>
+          <label>2010</label>
+          <value>2010</value>
+        </item>
+        <item>
+          <label>2011</label>
+          <value>2011</value>
+        </item>
+        <item>
+          <label>2012</label>
+          <value>2012</value>
+        </item>
+        <item>
+          <label>2013</label>
+          <value>2013</value>
+        </item>
+        <item>
+          <label>2014</label>
+          <value>2014</value>
+        </item>
+        <item>
+          <label>2015</label>
+          <value>2015</value>
+        </item>
+        <item>
+          <label>2016</label>
+          <value>2016</value>
+        </item>
+        <item>
+          <label>2017</label>
+          <value>2017</value>
+        </item>
+        <item>
+          <label>2018</label>
+          <value>2018</value>
+        </item>
+        <item>
+          <label>2019</label>
+          <value>2019</value>
+        </item>
+        <item>
+          <label>2020</label>
+          <value>2020</value>
+        </item>
+      </select1>
+      <input ref="/I1.14/inversiones/total">
+        <label>Total</label>
+        <hint>Total [en miles de pesos]</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

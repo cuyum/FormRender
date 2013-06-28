@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario E1.28 - Tarifas / Planes internet móvil</h:title>
+    <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <instance>
+        <E1.28 id="E1.28">
+          <agregar jr:template="">
+            <caracteristicas>
+              <plan/>
+              <modalidad/>
+            </caracteristicas>
+            <abonoDatos>
+              <abonoRecarga>
+                <abono/>
+              </abonoRecarga>
+              <datos>
+                <datosIncuidos/>
+              </datos>
+            </abonoDatos>
+            <precios>
+              <kb/>
+              <kbExedente/>
+              <sms/>
+              <minuto/>
+            </precios>
+            <impOtros>
+              <impuestos>
+                <impuestosPorc/>
+              </impuestos>
+              <obs>
+                <observaciones/>
+              </obs>
+            </impOtros>
+          </agregar>
+          <meta>
+            <instanceID/>
+          </meta>
+        </E1.28>
+      </instance>
+      <bind nodeset="/E1.28/agregar/caracteristicas/plan" required="true()" type="string"/>
+      <bind nodeset="/E1.28/agregar/caracteristicas/modalidad" required="true()" type="select1"/>
+      <bind nodeset="/E1.28/agregar/abonoDatos/abonoRecarga/abono" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999" nodeset="/E1.28/agregar/abonoDatos/datos/datosIncuidos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.28/agregar/precios/kb" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.28/agregar/precios/kbExedente" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.28/agregar/precios/sms" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.28/agregar/precios/minuto" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999,99" nodeset="/E1.28/agregar/impOtros/impuestos/impuestosPorc" required="true()" type="decimal"/>
+      <bind nodeset="/E1.28/agregar/impOtros/obs/observaciones" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/E1.28/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/E1.28/agregar">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/E1.28/agregar">
+        <group appearance="col1 well-white" ref="/E1.28/agregar/caracteristicas">
+          <label>Características Generales</label>
+          <input ref="/E1.28/agregar/caracteristicas/plan">
+            <label>Nombre del Plan</label>
+            <hint>Nombre del Plan</hint>
+          </input>
+          <select1 appearance="minimal" ref="/E1.28/agregar/caracteristicas/modalidad">
+            <label>Modalidad</label>
+            <hint>Modalidad</hint>
+            <item>
+              <label>Seleccione opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>Opción 1</label>
+              <value>opcion1</value>
+            </item>
+            <item>
+              <label>Opción 2</label>
+              <value>opcion2</value>
+            </item>
+            <item>
+              <label>Opción 3</label>
+              <value>opcion3</value>
+            </item>
+          </select1>
+        </group>
+        <group appearance="col1 well-white" ref="/E1.28/agregar/abonoDatos">
+          <group appearance="col2 well-white" ref="/E1.28/agregar/abonoDatos/abonoRecarga">
+            <label>Abono Recarga</label>
+            <select1 appearance="minimal" ref="/E1.28/agregar/abonoDatos/abonoRecarga/abono">
+              <label>Abono</label>
+              <hint>Abono</hint>
+              <item>
+                <label>Seleccione opción</label>
+                <value>-1</value>
+              </item>
+              <item>
+                <label>Opción 1</label>
+                <value>opcion1</value>
+              </item>
+              <item>
+                <label>Opción 2</label>
+                <value>opcion2</value>
+              </item>
+              <item>
+                <label>Opción 3</label>
+                <value>opcion3</value>
+              </item>
+            </select1>
+          </group>
+          <group appearance="col2 well-white" ref="/E1.28/agregar/abonoDatos/datos">
+            <label>Datos</label>
+            <input ref="/E1.28/agregar/abonoDatos/datos/datosIncuidos">
+              <label>Datos Incluidos</label>
+              <hint>Datos Incluidos</hint>
+            </input>
+          </group>
+        </group>
+        <group appearance="col4 well-white" ref="/E1.28/agregar/precios">
+          <label>Precios</label>
+          <input ref="/E1.28/agregar/precios/kb">
+            <label>KB</label>
+            <hint>KB</hint>
+          </input>
+          <input ref="/E1.28/agregar/precios/kbExedente">
+            <label>KB Exedente</label>
+            <hint>KB Exedente</hint>
+          </input>
+          <input ref="/E1.28/agregar/precios/sms">
+            <label>SMS</label>
+            <hint>SMS</hint>
+          </input>
+          <input ref="/E1.28/agregar/precios/minuto">
+            <label>Minuto</label>
+            <hint>Minuto</hint>
+          </input>
+        </group>
+        <group appearance="col1 well-white" ref="/E1.28/agregar/impOtros">
+          <group appearance="col2 well-white" ref="/E1.28/agregar/impOtros/impuestos">
+            <label>Impuestos</label>
+            <input ref="/E1.28/agregar/impOtros/impuestos/impuestosPorc">
+              <label>% impuestos</label>
+              <hint>% impuestos</hint>
+            </input>
+          </group>
+          <group appearance="col2 well-white" ref="/E1.28/agregar/impOtros/obs">
+            <label>Observaciones</label>
+            <input appearance="multiline" ref="/E1.28/agregar/impOtros/obs/observaciones">
+              <label>Observaciones</label>
+              <hint>Observaciones</hint>
+            </input>
+          </group>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

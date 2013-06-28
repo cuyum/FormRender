@@ -10,6 +10,7 @@
             <mes>
               <provincia/>
               <partido/>
+              <partido_otro/>
               <localidad/>
               <localidad_otro/>
               <centrosAtencion/>
@@ -24,11 +25,12 @@
       </instance>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/E1.20/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/E1.20/meses/mes/provincia" nodeset="/E1.20/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/E1.20/meses/mes/partido_otro" relevant=" /E1.20/meses/mes/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/E1.20/meses/mes/partido" nodeset="/E1.20/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/E1.20/meses/mes/localidad_otro" relevant=" /E1.20/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999" jr:constraintMsg="Ingrese entero entre 0 y 999999" nodeset="/E1.20/meses/mes/centrosAtencion" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999" jr:constraintMsg="Ingrese entero entre 0 y 999999" nodeset="/E1.20/meses/mes/personal" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999" jr:constraintMsg="Ingrese entero entre 0 y 999999" nodeset="/E1.20/meses/mes/esperaPromedio" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999" nodeset="/E1.20/meses/mes/centrosAtencion" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999" nodeset="/E1.20/meses/mes/personal" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999" nodeset="/E1.20/meses/mes/esperaPromedio" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/E1.20/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -54,6 +56,10 @@
               <value>-1</value>
             </item>
           </select1>
+          <input ref="/E1.20/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
           <select1 appearance="minimal" ref="/E1.20/meses/mes/localidad">
             <label>Localidad</label>
             <hint>Localidad</hint>

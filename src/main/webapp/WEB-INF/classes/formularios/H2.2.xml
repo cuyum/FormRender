@@ -11,6 +11,7 @@
               <anio/>
               <provincia/>
               <partido/>
+              <partido_otro/>
               <localidad/>
               <localidad_otro/>
               <area/>
@@ -27,6 +28,7 @@
       <bind nodeset="/H2.2/areasprest/lineas/anio" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/H2.2/areasprest/lineas/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/H2.2/areasprest/lineas/provincia" nodeset="/H2.2/areasprest/lineas/partido" required="true()" type="select1"/>
+      <bind nodeset="/H2.2/areasprest/lineas/partido_otro" relevant=" /H2.2/areasprest/lineas/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/H2.2/areasprest/lineas/partido" nodeset="/H2.2/areasprest/lineas/localidad" required="true()" type="select1"/>
       <bind nodeset="/H2.2/areasprest/lineas/localidad_otro" relevant=" /H2.2/areasprest/lineas/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/H2.2/areasprest/lineas/localidad" nodeset="/H2.2/areasprest/lineas/area" required="true()" type="select1"/>
@@ -65,6 +67,34 @@
               <label>2013</label>
               <value>2013</value>
             </item>
+            <item>
+              <label>2014</label>
+              <value>2014</value>
+            </item>
+            <item>
+              <label>2015</label>
+              <value>2015</value>
+            </item>
+            <item>
+              <label>2016</label>
+              <value>2016</value>
+            </item>
+            <item>
+              <label>2017</label>
+              <value>2017</value>
+            </item>
+            <item>
+              <label>2018</label>
+              <value>2018</value>
+            </item>
+            <item>
+              <label>2019</label>
+              <value>2019</value>
+            </item>
+            <item>
+              <label>2020</label>
+              <value>2020</value>
+            </item>
           </select1>
           <select1 appearance="minimal" ref="/H2.2/areasprest/lineas/provincia">
             <label>Provincia</label>
@@ -82,6 +112,9 @@
               <value>-1</value>
             </item>
           </select1>
+          <input ref="/H2.2/areasprest/lineas/partido_otro">
+            <label>Partido Otros</label>
+          </input>
           <select1 appearance="minimal" ref="/H2.2/areasprest/lineas/localidad">
             <label>Localidad</label>
             <hint>Localidad</hint>

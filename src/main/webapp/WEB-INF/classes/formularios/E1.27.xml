@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario E1.27 - Tarifas LDI</h:title>
+    <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <instance>
+        <E1.27 id="E1.27">
+          <limitrofes>
+            <limitrofeRoaming>
+              <limitrofeRoamPrepago/>
+              <limitrofeRoamPospago/>
+            </limitrofeRoaming>
+            <limitrofeLdn>
+              <limitrofeLdnPrepago/>
+              <limitrofeLdnPospago/>
+            </limitrofeLdn>
+          </limitrofes>
+          <sudamerica>
+            <sudamRoaming>
+              <sudamRoamPrepago/>
+              <sudamRoamPospago/>
+            </sudamRoaming>
+            <sudamLdn>
+              <sudamLdnPrepago/>
+              <sudamLdnPospago/>
+            </sudamLdn>
+          </sudamerica>
+          <norteAmerica>
+            <norteamRoaming>
+              <norteamRoamingPrepago/>
+              <norteamRoamingPospago/>
+            </norteamRoaming>
+            <norteamLdn>
+              <norteamLdnPrepago/>
+              <norteamLdnPospago/>
+            </norteamLdn>
+          </norteAmerica>
+          <europa>
+            <euroRoaming>
+              <euroRoamPrepago/>
+              <euroRoamPospago/>
+            </euroRoaming>
+            <euroLdn>
+              <euroLdnPrepago/>
+              <euroLdnPospago/>
+            </euroLdn>
+          </europa>
+          <mundo>
+            <mundoRoaming>
+              <mundoRoamPrepago/>
+              <mundoRoamPospago/>
+            </mundoRoaming>
+            <mundoLdn>
+              <mundoLdnPrepago/>
+              <mundoLdnPospago/>
+            </mundoLdn>
+          </mundo>
+          <meta>
+            <instanceID/>
+          </meta>
+        </E1.27>
+      </instance>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.27/limitrofes/limitrofeRoaming/limitrofeRoamPrepago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.27/limitrofes/limitrofeRoaming/limitrofeRoamPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.27/limitrofes/limitrofeLdn/limitrofeLdnPrepago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.27/limitrofes/limitrofeLdn/limitrofeLdnPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.27/sudamerica/sudamRoaming/sudamRoamPrepago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.27/sudamerica/sudamRoaming/sudamRoamPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.27/sudamerica/sudamLdn/sudamLdnPrepago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.27/sudamerica/sudamLdn/sudamLdnPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.27/norteAmerica/norteamRoaming/norteamRoamingPrepago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.27/norteAmerica/norteamRoaming/norteamRoamingPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.27/norteAmerica/norteamLdn/norteamLdnPrepago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.27/norteAmerica/norteamLdn/norteamLdnPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.27/europa/euroRoaming/euroRoamPrepago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.27/europa/euroRoaming/euroRoamPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.27/europa/euroLdn/euroLdnPrepago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.27/europa/euroLdn/euroLdnPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.27/mundo/mundoRoaming/mundoRoamPrepago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.27/mundo/mundoRoaming/mundoRoamPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.27/mundo/mundoLdn/mundoLdnPrepago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.27/mundo/mundoLdn/mundoLdnPospago" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/E1.27/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col1 well-white" ref="/E1.27/limitrofes">
+      <label>Limítrofes</label>
+      <group appearance="col2 well-white" ref="/E1.27/limitrofes/limitrofeRoaming">
+        <label>Roaming LDN precio</label>
+        <input ref="/E1.27/limitrofes/limitrofeRoaming/limitrofeRoamPrepago">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/E1.27/limitrofes/limitrofeRoaming/limitrofeRoamPospago">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/E1.27/limitrofes/limitrofeLdn">
+        <label>LDN precio minuto</label>
+        <input ref="/E1.27/limitrofes/limitrofeLdn/limitrofeLdnPrepago">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/E1.27/limitrofes/limitrofeLdn/limitrofeLdnPospago">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/E1.27/sudamerica">
+      <label>Resto de Sudamérica</label>
+      <group appearance="col2 well-white" ref="/E1.27/sudamerica/sudamRoaming">
+        <label>Roaming LDN precio</label>
+        <input ref="/E1.27/sudamerica/sudamRoaming/sudamRoamPrepago">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/E1.27/sudamerica/sudamRoaming/sudamRoamPospago">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/E1.27/sudamerica/sudamLdn">
+        <label>LDN precio minuto</label>
+        <input ref="/E1.27/sudamerica/sudamLdn/sudamLdnPrepago">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/E1.27/sudamerica/sudamLdn/sudamLdnPospago">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/E1.27/norteAmerica">
+      <label>Centro y Norte América</label>
+      <group appearance="col2 well-white" ref="/E1.27/norteAmerica/norteamRoaming">
+        <label>Roaming LDN precio</label>
+        <input ref="/E1.27/norteAmerica/norteamRoaming/norteamRoamingPrepago">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/E1.27/norteAmerica/norteamRoaming/norteamRoamingPospago">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/E1.27/norteAmerica/norteamLdn">
+        <label>LDN precio minuto</label>
+        <input ref="/E1.27/norteAmerica/norteamLdn/norteamLdnPrepago">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/E1.27/norteAmerica/norteamLdn/norteamLdnPospago">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/E1.27/europa">
+      <label>Europa</label>
+      <group appearance="col2 well-white" ref="/E1.27/europa/euroRoaming">
+        <label>Roaming LDN precio</label>
+        <input ref="/E1.27/europa/euroRoaming/euroRoamPrepago">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/E1.27/europa/euroRoaming/euroRoamPospago">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/E1.27/europa/euroLdn">
+        <label>LDN precio minuto</label>
+        <input ref="/E1.27/europa/euroLdn/euroLdnPrepago">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/E1.27/europa/euroLdn/euroLdnPospago">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/E1.27/mundo">
+      <label>Resto del Mundo</label>
+      <group appearance="col2 well-white" ref="/E1.27/mundo/mundoRoaming">
+        <label>Roaming LDN precio</label>
+        <input ref="/E1.27/mundo/mundoRoaming/mundoRoamPrepago">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/E1.27/mundo/mundoRoaming/mundoRoamPospago">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/E1.27/mundo/mundoLdn">
+        <label>LDN precio minuto</label>
+        <input ref="/E1.27/mundo/mundoLdn/mundoLdnPrepago">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/E1.27/mundo/mundoLdn/mundoLdnPospago">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+    </group>
+  </h:body>
+</h:html>

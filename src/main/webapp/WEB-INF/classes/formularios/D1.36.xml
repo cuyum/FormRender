@@ -34,7 +34,7 @@
     <group ref="/D1.36/meses">
       <label></label>
       <repeat nodeset="/D1.36/meses">
-        <group appearance="col4 well-white variable" ref="/D1.36/meses/mes">
+        <group appearance="col3 well-white variable" ref="/D1.36/meses/mes">
           <label>{title}</label>
           <input ref="/D1.36/meses/mes/alquilerSitios">
             <label>Ventas SIM cards</label>

@@ -116,14 +116,14 @@ INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H2.1','Áreas de prestación de servicios','H2.001-V001-MAY13','H2.1.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H2.2','Provisión de líneas','H2.002-V002-MAY13','H2.2.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H2.3','Telefonía pública','H2.003-V003-MAY13','H2.3.xml', 0);
-INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H2.4','Tarifa / Precio minuto de comunicación telefonía pública','H2.004-V004-MAY13','H2.4.xml', 0);
-INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H2.5','Ingresos','H2.001-V005-MAY13','H2.5.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H2.4','Tarifa / Precio minuto de comunicación telefonía pública','H2.004-V001-MAY13','H2.4.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H2.5','Ingresos','H2.005-V001-MAY13','H2.5.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H2.6','Ingresos por provincia','H2.001-V006-MAY13','H2.6.xml', 0);
 
 -- Anexo F --
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('F1.1','Accesos Públicos','F1.001-V001-MAY13','F1.1.xml', 0);
-INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('F1.2','Interconexión','F2.001-V001-MAY13','F1.2.xml', 0);
-INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('F1.3','Redes e infraestructura','F3.001-V001-MAY13','F1.3.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('F1.2','Interconexión','F1.002-V001-MAY13','F1.2.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('F1.3','Redes e infraestructura','F1.003-V001-MAY13','F1.3.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('F1.4','Accesos Públicos','F1.004-V001-MAY13','F1.4.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('F1.5','Accesos modalidad de pago','F1.005-V001-MAY13','F1.5.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('F1.6','Clientes servicio tecnología','F1.006-V001-MAY13','F1.6.xml', 0);
@@ -173,3 +173,68 @@ INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.18','Calidad de servicio / Facturación','E1.018-V001-MAY13','E1.18.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.19','Calidad de servicio / Reclamos','E1.019-V001-MAY13','E1.19.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.20','Calidad de servicio / Atención personalizada','E1.020-V001-MAY13','E1.20.xml', 0);
+
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.21','Calidad del servicio / Atención telefónica','E1.021-V001-MAY13','E1.21.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.22','Calidad del servicio / Atención web','E1.022-V001-MAY13','E1.22.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.23','Tasas generales','E1.023-V001-MAY13','E1.23.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.24','Tarifas / Planes pospago - mixto','E1.024-V001-MAY13','E1.24.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.25','Tarifas / Planes prepago','E1.025-V001-MAY13','E1.25.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.26','Tarifas / Roaming - LDN','E1.026-V001-MAY13','E1.26.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.27','Tarifas LDI','E1.027-V001-MAY13','E1.27.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.28','Tarifas / Planes internet móvil','E1.028-V001-MAY13','E1.28.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.29','Tarifas / Servicios adicionales','E1.029-V001-MAY13','E1.29.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.30','Ingresos prestación de servicios / Abonos','E1.030-V001-MAY13','E1.30.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.31','Ingresos prestación de servicios / Tráfico telefonía móvil','E1.031-V001-MAY13','E1.31.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.32','Ingresos interconexión','E1.032-V001-MAY13','E1.32.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.33','Otros ingresos','E1.033-V001-MAY13','E1.33.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.34','Ingresos por Provincia','E1.034-V001-MAY13','E1.34.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.35','Gastos I','E1.035-V001-MAY13','E1.35.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.36','Gastos II','E1.036-V001-MAY13','E1.36.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.37','Costos de interconexión','E1.037-V001-MAY13','E1.37.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.38','Personal ocupado','E1.038-V001-MAY13','E1.38.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.39','Inversiones','E1.039-V001-MAY13','E1.39.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.40','Comercio exterior','E1.040-V001-MAY13','E1.40.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.41','Rentas','E1.041-V001-MAY13','E1.41.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.42','Financiamiento SU / Subsidios','E1.042-V001-MAY13','E1.42.xml', 0);
+
+-- Anexo H1 --
+
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.1','Áreas de prestación de servicios','H1.001-V001-MAY13','H1.1.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.2','Interconexión','H1.002-V001-MAY13','H1.2.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.3','Redes e Infraestructura','H1.003-V001-MAY13','H1.3.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.4','Accesos Disponibles','H1.004-V001-MAY13','H1.4.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.5','Accesos Operativos','H1.005-V001-MAY13','H1.5.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.6','Clientes I','H1.006-V001-MAY13','H1.6.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.7','Tráfico I (# llamadas)','H1.007-V001-MAY13','H1.7.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.8','Tráfico II (minutos)','H1.008-V001-MAY13','H1.8.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.9','Tráfico hacia Redes Móviles (minutos)','H1.009-V001-MAY13','H1.9.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.10','Calidad de servicio / Reclamos','H1.010-V001-MAY13','H1.10.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.11','Tarifas / Precio vigente','H1.011-V001-MAY13','H1.11.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.12','Precio minuto según Distancia','H1.012-V001-MAY13','H1.12.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.13','Precio Números Especiales','H1.013-V001-MAY13','H1.13.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.14','Precios / Precios Servicios Adicionales','H1.014-V001-MAY13','H1.14.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.15','Planes','H1.015-V001-MAY13','H1.15.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.16','Ingresos','H1.016-V001-MAY13','H1.16.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.17','Ingresos por provincia','H1.017-V001-MAY13','H1.17.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.18','Ingresos interconexión a la red fija','H1.018-V001-MAY13','H1.18.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.19','Costos','H1.019-V001-MAY13','H1.19.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.20','Costos de interconexión','H1.020-V001-MAY13','H1.20.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.21','Personal Ocupado','H1.021-V001-MAY13','H1.21.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('H1.22','Inversiones','H1.022-V001-MAY13','H1.22.xml', 0);
+
+-- Anexo I --
+
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('I1.1','Áreas de prestación de servicios','I1.001-V001-MAY13','I1.1.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('I1.2','Interconexión','I1.002-V001-MAY13','I1.2.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('I1.3','Redes e Infraestructura','I1.003-V001-MAY13','I1.3.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('I1.4','Accesos','I1.004-V001-MAY13','I1.4.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('I1.5','Clientes','I1.005-V001-MAY13','I1.5.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('I1.6','Tráfico (minutos)','I1.006-V001-MAY13','I1.6.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('I1.7','Tráfico saliente','I1.007-V001-MAY13','I1.7.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('I1.8','Tarifas generales','I1.008-V001-MAY13','I1.8.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('I1.9','Tarifas','I1.009-V001-MAY13','I1.9.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('I1.10','Ingresos prestación de servicios','I1.010-V001-MAY13','I1.10.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('I1.11','Gastos I','I1.011-V001-MAY13','I1.11.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('I1.12','Gastos y Costos','I1.012-V001-MAY13','I1.12.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('I1.13','Personal Ocupado','I1.013-V001-MAY13','I1.13.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('I1.14','Inversiones','I1.014-V001-MAY13','I1.14.xml', 0);

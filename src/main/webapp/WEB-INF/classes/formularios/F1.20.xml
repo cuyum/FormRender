@@ -27,9 +27,9 @@
       <bind nodeset="/F1.20/agregar/planes/planesAccesos" required="true()" type="select1"/>
       <bind nodeset="/F1.20/agregar/planes/planesAccesos_otro" relevant=" /F1.20/agregar/planes/planesAccesos =OTROS" required="true()" type="string"/>
       <bind nodeset="/F1.20/agregar/planes/velocidad" required="true()" type="select1"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9999.99" nodeset="/F1.20/agregar/planes/abono" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9999.99" nodeset="/F1.20/agregar/planes/vigencia" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9999.99" nodeset="/F1.20/agregar/planes/abonoFinal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/F1.20/agregar/planes/abono" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/F1.20/agregar/planes/vigencia" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/F1.20/agregar/planes/abonoFinal" required="true()" type="decimal"/>
       <bind nodeset="/F1.20/agregar/planes/servIncluido" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/F1.20/meta/instanceID" readonly="true()" type="string"/>
     </model>

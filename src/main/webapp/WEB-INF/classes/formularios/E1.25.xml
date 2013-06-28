@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario E1.25 - Tarifas / Planes prepago</h:title>
+    <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <instance>
+        <E1.25 id="E1.25">
+          <tarifasPlanes jr:template="">
+            <caracteristicas>
+              <plan/>
+              <recargaTipo/>
+              <serviciosAdicionales/>
+            </caracteristicas>
+            <precios>
+              <minuto>
+                <minutoOnNet/>
+                <minutoOffNet/>
+              </minuto>
+              <sms>
+                <smsOnNet/>
+                <smsOffNet/>
+              </sms>
+              <minutoRadio>
+                <mmsOnNet/>
+                <mmsOffNet/>
+              </minutoRadio>
+              <datos>
+                <datosPrecio/>
+              </datos>
+            </precios>
+            <vigencia>
+              <credito/>
+              <sms/>
+              <recarga/>
+              <cuentaActiva/>
+            </vigencia>
+            <otrosImp>
+              <grupoOtros>
+                <otros/>
+              </grupoOtros>
+              <impuestos>
+                <porcentajeImpuesto/>
+              </impuestos>
+            </otrosImp>
+          </tarifasPlanes>
+          <meta>
+            <instanceID/>
+          </meta>
+        </E1.25>
+      </instance>
+      <bind nodeset="/E1.25/tarifasPlanes/caracteristicas/plan" required="true()" type="string"/>
+      <bind nodeset="/E1.25/tarifasPlanes/caracteristicas/recargaTipo" required="true()" type="select1"/>
+      <bind nodeset="/E1.25/tarifasPlanes/caracteristicas/serviciosAdicionales" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.25/tarifasPlanes/precios/minuto/minutoOnNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.25/tarifasPlanes/precios/minuto/minutoOffNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.25/tarifasPlanes/precios/sms/smsOnNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.25/tarifasPlanes/precios/sms/smsOffNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.25/tarifasPlanes/precios/minutoRadio/mmsOnNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.25/tarifasPlanes/precios/minutoRadio/mmsOffNet" required="true()" type="decimal"/>
+      <bind nodeset="/E1.25/tarifasPlanes/precios/datos/datosPrecio" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/E1.25/tarifasPlanes/vigencia/credito" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/E1.25/tarifasPlanes/vigencia/sms" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/E1.25/tarifasPlanes/vigencia/recarga" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/E1.25/tarifasPlanes/vigencia/cuentaActiva" required="true()" type="int"/>
+      <bind nodeset="/E1.25/tarifasPlanes/otrosImp/grupoOtros/otros" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999,99" nodeset="/E1.25/tarifasPlanes/otrosImp/impuestos/porcentajeImpuesto" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/E1.25/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/E1.25/tarifasPlanes">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/E1.25/tarifasPlanes">
+        <group appearance="col3 well-white" ref="/E1.25/tarifasPlanes/caracteristicas">
+          <label>Características Generales</label>
+          <input ref="/E1.25/tarifasPlanes/caracteristicas/plan">
+            <label>Plan</label>
+            <hint>Plan</hint>
+          </input>
+          <select1 appearance="minimal" ref="/E1.25/tarifasPlanes/caracteristicas/recargaTipo">
+            <label>Recarga</label>
+            <hint>Recarga</hint>
+            <item>
+              <label>Seleccione opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>Opción 1</label>
+              <value>opcion1</value>
+            </item>
+            <item>
+              <label>Opción 2</label>
+              <value>opcion2</value>
+            </item>
+            <item>
+              <label>Opción 3</label>
+              <value>opcion3</value>
+            </item>
+          </select1>
+          <input ref="/E1.25/tarifasPlanes/caracteristicas/serviciosAdicionales">
+            <label>Servicios Adicionales Incluidos</label>
+            <hint>Servicios Adicionales Incluidos</hint>
+          </input>
+        </group>
+        <group appearance="col1 well-white" ref="/E1.25/tarifasPlanes/precios">
+          <label>Precios</label>
+          <group appearance="col2 well-white" ref="/E1.25/tarifasPlanes/precios/minuto">
+            <label>Minuto Local</label>
+            <input ref="/E1.25/tarifasPlanes/precios/minuto/minutoOnNet">
+              <label>ON NET</label>
+              <hint>ON NET</hint>
+            </input>
+            <input ref="/E1.25/tarifasPlanes/precios/minuto/minutoOffNet">
+              <label>OFF NET</label>
+              <hint>OFF NET</hint>
+            </input>
+          </group>
+          <group appearance="col2 well-white" ref="/E1.25/tarifasPlanes/precios/sms">
+            <label>SMS</label>
+            <input ref="/E1.25/tarifasPlanes/precios/sms/smsOnNet">
+              <label>ON NET</label>
+              <hint>ON NET</hint>
+            </input>
+            <input ref="/E1.25/tarifasPlanes/precios/sms/smsOffNet">
+              <label>OFF NET</label>
+              <hint>OFF NET</hint>
+            </input>
+          </group>
+          <group appearance="col2 well-white" ref="/E1.25/tarifasPlanes/precios/minutoRadio">
+            <label>Minuto Radio</label>
+            <input ref="/E1.25/tarifasPlanes/precios/minutoRadio/mmsOnNet">
+              <label>ON NET</label>
+              <hint>ON NET</hint>
+            </input>
+            <input ref="/E1.25/tarifasPlanes/precios/minutoRadio/mmsOffNet">
+              <label>OFF NET</label>
+              <hint>OFF NET</hint>
+            </input>
+          </group>
+          <group appearance="col2 well-white" ref="/E1.25/tarifasPlanes/precios/datos">
+            <label>Datos</label>
+            <input ref="/E1.25/tarifasPlanes/precios/datos/datosPrecio">
+              <label>Precio</label>
+              <hint>Precio</hint>
+            </input>
+          </group>
+        </group>
+        <group appearance="col4 well-white" ref="/E1.25/tarifasPlanes/vigencia">
+          <label>Vigencia</label>
+          <input ref="/E1.25/tarifasPlanes/vigencia/credito">
+            <label>Crédito</label>
+            <hint>Crédito</hint>
+          </input>
+          <input ref="/E1.25/tarifasPlanes/vigencia/sms">
+            <label>SMS</label>
+            <hint>SMS</hint>
+          </input>
+          <input ref="/E1.25/tarifasPlanes/vigencia/recarga">
+            <label>Recarga</label>
+            <hint>Recarga</hint>
+          </input>
+          <input ref="/E1.25/tarifasPlanes/vigencia/cuentaActiva">
+            <label>Cuenta Activa</label>
+            <hint>Cuenta Activa</hint>
+          </input>
+        </group>
+        <group appearance="col1 well-white" ref="/E1.25/tarifasPlanes/otrosImp">
+          <group appearance="col2 well-white" ref="/E1.25/tarifasPlanes/otrosImp/grupoOtros">
+            <label>Otros</label>
+            <input ref="/E1.25/tarifasPlanes/otrosImp/grupoOtros/otros">
+              <label>Otros</label>
+              <hint>Otros</hint>
+            </input>
+          </group>
+          <group appearance="col2 well-white" ref="/E1.25/tarifasPlanes/otrosImp/impuestos">
+            <label>Impuestos</label>
+            <input ref="/E1.25/tarifasPlanes/otrosImp/impuestos/porcentajeImpuesto">
+              <label>% de impuesto</label>
+              <hint>% de impuesto</hint>
+            </input>
+          </group>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

@@ -10,6 +10,7 @@
             <interconexion>
               <provincia/>
               <partido/>
+              <partido_otro/>
               <localidad/>
               <localidad_otro/>
               <prestador/>
@@ -23,10 +24,11 @@
       </instance>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/E1.2/inter/interconexion/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/E1.2/inter/interconexion/provincia" nodeset="/E1.2/inter/interconexion/partido" required="true()" type="select1"/>
+      <bind nodeset="/E1.2/inter/interconexion/partido_otro" relevant=" /E1.2/inter/interconexion/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/E1.2/inter/interconexion/partido" nodeset="/E1.2/inter/interconexion/localidad" required="true()" type="select1"/>
       <bind nodeset="/E1.2/inter/interconexion/localidad_otro" relevant=" /E1.2/inter/interconexion/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="Datos no válidos" nodeset="/E1.2/inter/interconexion/prestador" required="true()" type="select1"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9999999.99" nodeset="/E1.2/inter/interconexion/capacidad" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999.999,99" nodeset="/E1.2/inter/interconexion/capacidad" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/E1.2/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -52,6 +54,10 @@
               <value>-1</value>
             </item>
           </select1>
+          <input ref="/E1.2/inter/interconexion/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
           <select1 appearance="minimal" ref="/E1.2/inter/interconexion/localidad">
             <label>Localidad</label>
             <hint>Localidad</hint>
