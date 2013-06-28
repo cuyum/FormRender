@@ -184,7 +184,7 @@ INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.28','Tarifas / Planes internet móvil','E1.028-V001-MAY13','E1.28.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.29','Tarifas / Servicios adicionales','E1.029-V001-MAY13','E1.29.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.30','Ingresos prestación de servicios / Abonos','E1.030-V001-MAY13','E1.30.xml', 0);
-INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.31','Ingresos prestación de servicios / Tráfico telefonía móvil','E1.031-V001-MAY13','E1.31.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.31','Ingresos prestación de servicios / Tráfico','E1.031-V001-MAY13','E1.31.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.32','Ingresos interconexión','E1.032-V001-MAY13','E1.32.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.33','Otros ingresos','E1.033-V001-MAY13','E1.33.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('E1.34','Ingresos por Provincia','E1.034-V001-MAY13','E1.34.xml', 0);

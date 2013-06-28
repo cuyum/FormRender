@@ -23,7 +23,7 @@
     </model>
   </h:head>
   <h:body>
-    <group ref="/H1.13/numeros">
+    <group appearance="col3 well-white" ref="/H1.13/numeros">
       <label>Números</label>
       <input ref="/H1.13/numeros/numeros110">
         <label>110</label>

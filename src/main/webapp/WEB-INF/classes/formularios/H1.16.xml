@@ -38,7 +38,7 @@
     <group ref="/H1.16/meses">
       <label></label>
       <repeat nodeset="/H1.16/meses">
-        <group appearance="col2 well-white variable" ref="/H1.16/meses/mes">
+        <group appearance="col4 well-white variable" ref="/H1.16/meses/mes">
           <label>{title}</label>
           <input ref="/H1.16/meses/mes/instalacion">
             <label>Instalación de Líneas</label>
@@ -48,7 +48,7 @@
             <label>Abono</label>
             <hint>Abono [en miles de pesos]</hint>
           </input>
-          <group appearance="col3 well-white variable" ref="/H1.16/meses/mes/trafico">
+          <group appearance="col4" ref="/H1.16/meses/mes/trafico">
             <label>Tráfico</label>
             <input ref="/H1.16/meses/mes/trafico/traficoUrbano">
               <label>Urbano</label>

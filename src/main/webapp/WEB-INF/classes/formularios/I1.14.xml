@@ -21,9 +21,9 @@
     </model>
   </h:head>
   <h:body>
-    <group appearance="col2 well-white" ref="/I1.14/inversiones">
+    <group appearance="col3 well-white" ref="/I1.14/inversiones">
       <label>Inversiones</label>
-      <select1 ref="/I1.14/inversiones/anio">
+      <select1 appearance="minimal" ref="/I1.14/inversiones/anio">
         <label>Año</label>
         <hint>Año</hint>
         <item>
