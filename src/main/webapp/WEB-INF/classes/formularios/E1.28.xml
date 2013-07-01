@@ -70,16 +70,16 @@
               <value>-1</value>
             </item>
             <item>
-              <label>Opción 1</label>
-              <value>opcion1</value>
+              <label>PREPAGO</label>
+              <value>prepago</value>
             </item>
             <item>
-              <label>Opción 2</label>
-              <value>opcion2</value>
+              <label>POSPAGO</label>
+              <value>pospago</value>
             </item>
             <item>
-              <label>Opción 3</label>
-              <value>opcion3</value>
+              <label>MIXTO</label>
+              <value>mixto</value>
             </item>
           </select1>
         </group>
@@ -94,16 +94,24 @@
                 <value>-1</value>
               </item>
               <item>
-                <label>Opción 1</label>
-                <value>opcion1</value>
+                <label>Hasta 10 pesos.</label>
+                <value>hasta_10_pesos</value>
               </item>
               <item>
-                <label>Opción 2</label>
-                <value>opcion2</value>
+                <label>desde 10 hasta 20 pesos.</label>
+                <value>desde_10_hasta_20_pesos</value>
               </item>
               <item>
-                <label>Opción 3</label>
-                <value>opcion3</value>
+                <label>desde 20 hasta 30 pesos.</label>
+                <value>desde_20_hasta_30_pesos</value>
+              </item>
+              <item>
+                <label>desde 30 hasta 50 pesos.</label>
+                <value>desde_30_hasta_50_pesos</value>
+              </item>
+              <item>
+                <label>desde 50 pesos.</label>
+                <value>desde_50_pesos</value>
               </item>
             </select1>
           </group>

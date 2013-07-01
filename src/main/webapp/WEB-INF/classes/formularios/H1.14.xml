@@ -77,7 +77,7 @@
     </model>
   </h:head>
   <h:body>
-    <group appearance="col4 well-white" ref="/H1.14/servicios">
+    <group appearance="col3 well-white" ref="/H1.14/servicios">
       <label>Servicios</label>
       <input ref="/H1.14/servicios/llamadaConferencia">
         <label>Llamada en Conferencia</label>

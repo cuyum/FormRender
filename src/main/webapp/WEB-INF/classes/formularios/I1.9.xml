@@ -94,16 +94,16 @@
               <value>-1</value>
             </item>
             <item>
-              <label>Opción 1</label>
-              <value>opcion1</value>
+              <label>PREPAGO</label>
+              <value>prepago</value>
             </item>
             <item>
-              <label>Opción 2</label>
-              <value>opcion2</value>
+              <label>POSPAGO</label>
+              <value>pospago</value>
             </item>
             <item>
-              <label>Opción 3</label>
-              <value>opcion3</value>
+              <label>MIXTO</label>
+              <value>mixto</value>
             </item>
           </select1>
           <select1 appearance="minimal" ref="/I1.9/tarifasPlanes/caracteristicas/segmento">
