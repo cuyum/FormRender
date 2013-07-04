@@ -10,6 +10,7 @@
             <mes>
               <provincia/>
               <partido/>
+              <partido_otro/>
               <localidad/>
               <localidad_otro/>
               <area/>
@@ -25,12 +26,13 @@
       </instance>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/C1.21/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/C1.21/meses/mes/provincia" nodeset="/C1.21/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/C1.21/meses/mes/partido_otro" relevant=" /C1.21/meses/mes/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/C1.21/meses/mes/partido" nodeset="/C1.21/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/C1.21/meses/mes/localidad_otro" relevant=" /C1.21/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C1.21/meses/mes/localidad" nodeset="/C1.21/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/C1.21/meses/mes/area_otro" relevant=" /C1.21/meses/mes/area =9999" required="true()" type="string"/>
-      <bind constraint="mask=999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.21/meses/mes/personal" required="true()" type="int"/>
-      <bind constraint="mask=999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.21/meses/mes/esperaPromedio" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999" nodeset="/C1.21/meses/mes/personal" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999" nodeset="/C1.21/meses/mes/esperaPromedio" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.21/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -56,6 +58,10 @@
               <value>-1</value>
             </item>
           </select1>
+          <input ref="/C1.21/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
           <select1 appearance="minimal" ref="/C1.21/meses/mes/localidad">
             <label>Localidad</label>
             <hint>Localidad</hint>
@@ -66,6 +72,7 @@
           </select1>
           <input ref="/C1.21/meses/mes/localidad_otro">
             <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
           </input>
           <select1 appearance="minimal" ref="/C1.21/meses/mes/area">
             <label>Área Local</label>
@@ -77,6 +84,7 @@
           </select1>
           <input ref="/C1.21/meses/mes/area_otro">
             <label>Área Otros</label>
+            <hint>Área Otros</hint>
           </input>
           <input ref="/C1.21/meses/mes/personal">
             <label>Personal</label>

@@ -18,9 +18,9 @@
           </meta>
         </D1.26>
       </instance>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.26/meses/mes/cargoActivacion" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.26/meses/mes/cargoReconexion" required="true()" type="decimal"/>
-      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.26/meses/mes/tasaMora" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/D1.26/meses/mes/cargoActivacion" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/D1.26/meses/mes/cargoReconexion" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999,99" nodeset="/D1.26/meses/mes/tasaMora" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.26/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

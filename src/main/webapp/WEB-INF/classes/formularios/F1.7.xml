@@ -10,6 +10,7 @@
             <mes>
               <provincia/>
               <partido/>
+              <partido_otro/>
               <localidad/>
               <localidad_otro/>
               <cuentas/>
@@ -23,9 +24,10 @@
       </instance>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/F1.7/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/F1.7/meses/mes/provincia" nodeset="/F1.7/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/F1.7/meses/mes/partido_otro" relevant=" /F1.7/meses/mes/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/F1.7/meses/mes/partido" nodeset="/F1.7/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/F1.7/meses/mes/localidad_otro" relevant=" /F1.7/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint="mask=99.999.999" jr:constraintMsg="Datos no válidos" nodeset="/F1.7/meses/mes/cuentas" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/F1.7/meses/mes/cuentas" required="true()" type="int"/>
       <bind nodeset="/F1.7/meses/mes/velocidad" required="true()" type="select1"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/F1.7/meta/instanceID" readonly="true()" type="string"/>
     </model>
@@ -52,6 +54,10 @@
               <value>-1</value>
             </item>
           </select1>
+          <input ref="/F1.7/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
           <select1 appearance="minimal" ref="/F1.7/meses/mes/localidad">
             <label>Localidad</label>
             <hint>Localidad</hint>
@@ -62,6 +68,7 @@
           </select1>
           <input ref="/F1.7/meses/mes/localidad_otro">
             <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
           </input>
           <input ref="/F1.7/meses/mes/cuentas">
             <label># Cuentas</label>

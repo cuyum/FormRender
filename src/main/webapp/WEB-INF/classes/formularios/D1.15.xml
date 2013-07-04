@@ -10,6 +10,7 @@
             <mes>
               <provincia/>
               <partido/>
+              <partido_otro/>
               <localidad/>
               <localidad_otro/>
               <ll>
@@ -33,14 +34,15 @@
       </instance>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/D1.15/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/D1.15/meses/mes/provincia" nodeset="/D1.15/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/D1.15/meses/mes/partido_otro" relevant=" /D1.15/meses/mes/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/D1.15/meses/mes/partido" nodeset="/D1.15/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/D1.15/meses/mes/localidad_otro" relevant=" /D1.15/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.15/meses/mes/ll/llSaliente" required="true()" type="int"/>
-      <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.15/meses/mes/ll/llOperador" required="true()" type="select1"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.15/meses/mes/lldn/lldnSaliente" required="true()" type="int"/>
-      <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.15/meses/mes/lldn/lldnOperador" required="true()" type="select1"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.15/meses/mes/lldi/lldiSaliente" required="true()" type="int"/>
-      <bind jr:constraintMsg="Datos no válidos" nodeset="/D1.15/meses/mes/lldi/lldiOperador" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.15/meses/mes/ll/llSaliente" required="true()" type="int"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/D1.15/meses/mes/ll/llOperador" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.15/meses/mes/lldn/lldnSaliente" required="true()" type="int"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/D1.15/meses/mes/lldn/lldnOperador" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.15/meses/mes/lldi/lldiSaliente" required="true()" type="int"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/D1.15/meses/mes/lldi/lldiOperador" required="true()" type="select1"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.15/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -66,6 +68,10 @@
               <value>-1</value>
             </item>
           </select1>
+          <input ref="/D1.15/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
           <select1 appearance="minimal" ref="/D1.15/meses/mes/localidad">
             <label>Localidad</label>
             <hint>Localidad</hint>
@@ -91,18 +97,6 @@
                 <label>Seleccione una opción</label>
                 <value>-1</value>
               </item>
-              <item>
-                <label>Opción 1</label>
-                <value>opcion1</value>
-              </item>
-              <item>
-                <label>Opción 2</label>
-                <value>opcion2</value>
-              </item>
-              <item>
-                <label>Opción 3</label>
-                <value>opcion3</value>
-              </item>
             </select1>
           </group>
           <group appearance="col2 well-white" ref="/D1.15/meses/mes/lldn">
@@ -118,18 +112,6 @@
                 <label>Seleccione una opción</label>
                 <value>-1</value>
               </item>
-              <item>
-                <label>Opción 1</label>
-                <value>opcion1</value>
-              </item>
-              <item>
-                <label>Opción 2</label>
-                <value>opcion2</value>
-              </item>
-              <item>
-                <label>Opción 3</label>
-                <value>opcion3</value>
-              </item>
             </select1>
           </group>
           <group appearance="col2 well-white" ref="/D1.15/meses/mes/lldi">
@@ -144,18 +126,6 @@
               <item>
                 <label>Seleccione una opción</label>
                 <value>-1</value>
-              </item>
-              <item>
-                <label>Opción 1</label>
-                <value>opcion1</value>
-              </item>
-              <item>
-                <label>Opción 2</label>
-                <value>opcion2</value>
-              </item>
-              <item>
-                <label>Opción 3</label>
-                <value>opcion3</value>
               </item>
             </select1>
           </group>

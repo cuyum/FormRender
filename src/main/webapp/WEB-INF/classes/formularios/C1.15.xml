@@ -10,6 +10,7 @@
             <mes>
               <provincia/>
               <partido/>
+              <partido_otro/>
               <localidad/>
               <localidad_otro/>
               <area/>
@@ -33,18 +34,19 @@
       </instance>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/C1.15/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/C1.15/meses/mes/provincia" nodeset="/C1.15/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/C1.15/meses/mes/partido_otro" relevant=" /C1.15/meses/mes/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/C1.15/meses/mes/partido" nodeset="/C1.15/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/C1.15/meses/mes/localidad_otro" relevant=" /C1.15/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C1.15/meses/mes/localidad" nodeset="/C1.15/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/C1.15/meses/mes/area_otro" relevant=" /C1.15/meses/mes/area =9999" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.15/meses/mes/salientes/salientes1" required="true()" type="decimal"/>
-      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/salientes/operador1" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.15/meses/mes/salientes/salientes2" required="true()" type="decimal"/>
-      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/salientes/operador2" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.15/meses/mes/salientes/salientes3" required="true()" type="decimal"/>
-      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/salientes/operador3" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.15/meses/mes/salientes/salientes4" required="true()" type="decimal"/>
-      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/salientes/operadorOtros" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.15/meses/mes/salientes/salientes1" required="true()" type="decimal"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/salientes/operador1" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.15/meses/mes/salientes/salientes2" required="true()" type="decimal"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/salientes/operador2" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.15/meses/mes/salientes/salientes3" required="true()" type="decimal"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/salientes/operador3" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.15/meses/mes/salientes/salientes4" required="true()" type="decimal"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/salientes/operadorOtros" required="true()" type="select1"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.15/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -70,6 +72,10 @@
               <value>-1</value>
             </item>
           </select1>
+          <input ref="/C1.15/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
           <select1 appearance="minimal" ref="/C1.15/meses/mes/localidad">
             <label>Localidad</label>
             <hint>Localidad</hint>
@@ -80,6 +86,7 @@
           </select1>
           <input ref="/C1.15/meses/mes/localidad_otro">
             <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
           </input>
           <select1 appearance="minimal" ref="/C1.15/meses/mes/area">
             <label>Área Local</label>
@@ -91,40 +98,57 @@
           </select1>
           <input ref="/C1.15/meses/mes/area_otro">
             <label>Área Otros</label>
+            <hint>Área Otros</hint>
           </input>
           <group appearance="col2 well-white" ref="/C1.15/meses/mes/salientes">
             <input ref="/C1.15/meses/mes/salientes/salientes1">
               <label>Salientes</label>
               <hint>Salientes [en miles]</hint>
             </input>
-            <input ref="/C1.15/meses/mes/salientes/operador1">
+            <select1 appearance="minimal" ref="/C1.15/meses/mes/salientes/operador1">
               <label>Operador 1</label>
               <hint>Operador 1</hint>
-            </input>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+            </select1>
             <input ref="/C1.15/meses/mes/salientes/salientes2">
               <label>Salientes</label>
               <hint>Salientes [en miles]</hint>
             </input>
-            <input ref="/C1.15/meses/mes/salientes/operador2">
+            <select1 appearance="minimal" ref="/C1.15/meses/mes/salientes/operador2">
               <label>Operador 2</label>
               <hint>Operador 2</hint>
-            </input>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+            </select1>
             <input ref="/C1.15/meses/mes/salientes/salientes3">
               <label>Salientes</label>
               <hint>Salientes [en miles]</hint>
             </input>
-            <input ref="/C1.15/meses/mes/salientes/operador3">
+            <select1 appearance="minimal" ref="/C1.15/meses/mes/salientes/operador3">
               <label>Operador 3</label>
               <hint>Operador 3</hint>
-            </input>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+            </select1>
             <input ref="/C1.15/meses/mes/salientes/salientes4">
               <label>Salientes</label>
               <hint>Salientes [en miles]</hint>
             </input>
-            <input ref="/C1.15/meses/mes/salientes/operadorOtros">
+            <select1 appearance="minimal" ref="/C1.15/meses/mes/salientes/operadorOtros">
               <label>Operador Otros</label>
               <hint>Operador Otros</hint>
-            </input>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+            </select1>
           </group>
         </group>
       </repeat>

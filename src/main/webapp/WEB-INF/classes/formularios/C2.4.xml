@@ -161,66 +161,66 @@
           </meta>
         </C2.4>
       </instance>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/local/tarifaLocal/tarifaLocalHN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/local/tarifaLocal/tarifaLocalHR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/local/ritmoLocal/ritmoLocalHN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/local/ritmoLocal/ritmoLocalHR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave1/tarifaClave1/tarifaClave1HN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave1/tarifaClave1/tarifaClave1HR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave1/ritmoClave1/ritmoClave1HN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave1/ritmoClave1/ritmoClave1HR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave2/tarifaClave2/tarifaClave2HN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave2/tarifaClave2/tarifaClave2HR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave2/ritmoClave2/ritmoClave2HN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave2/ritmoClave2/ritmoClave2HR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave3/tarifaClave3/tarifaClave3HN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave3/tarifaClave3/tarifaClave3HR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave3/ritmoClave3/ritmoClave3HN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave3/ritmoClave3/ritmoClave3HR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave4/tarifaClave4/tarifaClave4HN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave4/tarifaClave4/tarifaClave4HR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave4/ritmoClave4/ritmoClave4HN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave4/ritmoClave4/ritmoClave4HR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave5/tarifaClave5/tarifaClave5HN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave5/tarifaClave5/tarifaClave5HR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave5/ritmoClave5/ritmoClave5HN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave5/ritmoClave5/ritmoClave5HR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave6/tarifaClave6/tarifaClave6HN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave6/tarifaClave6/tarifaClave6HR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave6/ritmoClave6/ritmoClave6HN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldnClave6/ritmoClave6/ritmoClave6HR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiFronterizo/tarifaLdiFronterizo/tarifaLdiFronterizoHN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiFronterizo/tarifaLdiFronterizo/tarifaLdiFronterizoHR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiFronterizo/ritmoLdiFronterizo/ritmoLdiFronterizoHN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiFronterizo/ritmoLdiFronterizo/ritmoLdiFronterizoHR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiAmericaSur/tarifaAmericaSur/tarifaAmericaSurHN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiAmericaSur/tarifaAmericaSur/tarifaAmericaSurHR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiAmericaSur/ritmoAmericaSur/ritmoAmericaSurHN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiAmericaSur/ritmoAmericaSur/ritmoAmericaSurHR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiAmCentral/tarifaAmCentral/tarifaAmCentralHN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiAmCentral/tarifaAmCentral/tarifaAmCentralHR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiAmCentral/ritmoAmCentral/ritmoAmCentralHN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiAmCentral/ritmoAmCentral/ritmoAmCentralHR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiAmNorte/tarifaAmNorte/tarifaAmNorteHN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiAmNorte/tarifaAmNorte/tarifaAmNorteHR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiAmNorte/ritmoAmNorte/ritmoAmNorteHN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiAmNorte/ritmoAmNorte/ritmoAmNorteHR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiEuropa/tarifaEuropa/tarifaEuropaHN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiEuropa/tarifaEuropa/tarifaEuropaHR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiEuropa/ritmoEuropa/ritmoEuropaHN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiEuropa/ritmoEuropa/ritmoEuropaHR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiAfrica/tarifaAfrica/tarifaAfricaHN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiAfrica/tarifaAfrica/tarifaAfricaHR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiAfrica/ritmoAfrica/ritmoAfricaHN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiAfrica/ritmoAfrica/ritmoAfricaHR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiAsia/tarifaAsia/tarifaAsiaHN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiAsia/tarifaAsia/tarifaAsiaHR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiAsia/ritmoAsia/ritmoAsiaHN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiAsia/ritmoAsia/ritmoAsiaHR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiOceania/tarifaOceania/tarifaOceaniaHN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,999" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiOceania/tarifaOceania/tarifaOceaniaHR" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiOceania/ritmoOceania/ritmoOceaniaHN" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C2.4/ldiOceania/ritmoOceania/ritmoOceaniaHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/local/tarifaLocal/tarifaLocalHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/local/tarifaLocal/tarifaLocalHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/local/ritmoLocal/ritmoLocalHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/local/ritmoLocal/ritmoLocalHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave1/tarifaClave1/tarifaClave1HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave1/tarifaClave1/tarifaClave1HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave1/ritmoClave1/ritmoClave1HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave1/ritmoClave1/ritmoClave1HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave2/tarifaClave2/tarifaClave2HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave2/tarifaClave2/tarifaClave2HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave2/ritmoClave2/ritmoClave2HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave2/ritmoClave2/ritmoClave2HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave3/tarifaClave3/tarifaClave3HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave3/tarifaClave3/tarifaClave3HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave3/ritmoClave3/ritmoClave3HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave3/ritmoClave3/ritmoClave3HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave4/tarifaClave4/tarifaClave4HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave4/tarifaClave4/tarifaClave4HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave4/ritmoClave4/ritmoClave4HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave4/ritmoClave4/ritmoClave4HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave5/tarifaClave5/tarifaClave5HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave5/tarifaClave5/tarifaClave5HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave5/ritmoClave5/ritmoClave5HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave5/ritmoClave5/ritmoClave5HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave6/tarifaClave6/tarifaClave6HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave6/tarifaClave6/tarifaClave6HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave6/ritmoClave6/ritmoClave6HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldnClave6/ritmoClave6/ritmoClave6HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiFronterizo/tarifaLdiFronterizo/tarifaLdiFronterizoHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiFronterizo/tarifaLdiFronterizo/tarifaLdiFronterizoHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiFronterizo/ritmoLdiFronterizo/ritmoLdiFronterizoHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiFronterizo/ritmoLdiFronterizo/ritmoLdiFronterizoHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiAmericaSur/tarifaAmericaSur/tarifaAmericaSurHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiAmericaSur/tarifaAmericaSur/tarifaAmericaSurHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiAmericaSur/ritmoAmericaSur/ritmoAmericaSurHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiAmericaSur/ritmoAmericaSur/ritmoAmericaSurHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiAmCentral/tarifaAmCentral/tarifaAmCentralHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiAmCentral/tarifaAmCentral/tarifaAmCentralHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiAmCentral/ritmoAmCentral/ritmoAmCentralHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiAmCentral/ritmoAmCentral/ritmoAmCentralHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiAmNorte/tarifaAmNorte/tarifaAmNorteHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiAmNorte/tarifaAmNorte/tarifaAmNorteHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiAmNorte/ritmoAmNorte/ritmoAmNorteHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiAmNorte/ritmoAmNorte/ritmoAmNorteHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiEuropa/tarifaEuropa/tarifaEuropaHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiEuropa/tarifaEuropa/tarifaEuropaHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiEuropa/ritmoEuropa/ritmoEuropaHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiEuropa/ritmoEuropa/ritmoEuropaHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiAfrica/tarifaAfrica/tarifaAfricaHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiAfrica/tarifaAfrica/tarifaAfricaHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiAfrica/ritmoAfrica/ritmoAfricaHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiAfrica/ritmoAfrica/ritmoAfricaHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiAsia/tarifaAsia/tarifaAsiaHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiAsia/tarifaAsia/tarifaAsiaHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiAsia/ritmoAsia/ritmoAsiaHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiAsia/ritmoAsia/ritmoAsiaHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiOceania/tarifaOceania/tarifaOceaniaHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiOceania/tarifaOceania/tarifaOceaniaHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiOceania/ritmoOceania/ritmoOceaniaHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,999" nodeset="/C2.4/ldiOceania/ritmoOceania/ritmoOceaniaHR" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C2.4/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

@@ -10,6 +10,7 @@
             <mes>
               <provincia/>
               <partido/>
+              <partido_otro/>
               <localidad/>
               <localidad_otro/>
               <area/>
@@ -41,22 +42,23 @@
       </instance>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/C1.13/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/C1.13/meses/mes/provincia" nodeset="/C1.13/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/C1.13/meses/mes/partido_otro" relevant=" /C1.13/meses/mes/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/C1.13/meses/mes/partido" nodeset="/C1.13/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/C1.13/meses/mes/localidad_otro" relevant=" /C1.13/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C1.13/meses/mes/localidad" nodeset="/C1.13/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/C1.13/meses/mes/area_otro" relevant=" /C1.13/meses/mes/area =9999" required="true()" type="string"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/ll/llHogar" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/ll/llEmpresa" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/ll/llGobierno" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/ll/llOtros" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/lldn/lldnHogar" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/lldn/lldnEmpresa" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/lldn/lldnGobierno" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/lldn/lldnOtros" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/lldi/lldiHogar" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/lldi/lldiEmpresa" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/lldi/lldiGobierno" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999.999.999,9" jr:constraintMsg="Datos no válidos" nodeset="/C1.13/meses/mes/lldi/lldiOtros" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.13/meses/mes/ll/llHogar" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.13/meses/mes/ll/llEmpresa" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.13/meses/mes/ll/llGobierno" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.13/meses/mes/ll/llOtros" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.13/meses/mes/lldn/lldnHogar" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.13/meses/mes/lldn/lldnEmpresa" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.13/meses/mes/lldn/lldnGobierno" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.13/meses/mes/lldn/lldnOtros" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.13/meses/mes/lldi/lldiHogar" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.13/meses/mes/lldi/lldiEmpresa" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.13/meses/mes/lldi/lldiGobierno" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.13/meses/mes/lldi/lldiOtros" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.13/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -82,6 +84,10 @@
               <value>-1</value>
             </item>
           </select1>
+          <input ref="/C1.13/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
           <select1 appearance="minimal" ref="/C1.13/meses/mes/localidad">
             <label>Localidad</label>
             <hint>Localidad</hint>
@@ -92,6 +98,7 @@
           </select1>
           <input ref="/C1.13/meses/mes/localidad_otro">
             <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
           </input>
           <select1 appearance="minimal" ref="/C1.13/meses/mes/area">
             <label>Área Local</label>
@@ -103,6 +110,7 @@
           </select1>
           <input ref="/C1.13/meses/mes/area_otro">
             <label>Área Otros</label>
+            <hint>Área Otros</hint>
           </input>
           <group appearance="col2 well-white" ref="/C1.13/meses/mes/ll">
             <label>L-L</label>

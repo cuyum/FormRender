@@ -8,8 +8,8 @@ INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.7','Clientes operativos (segmentación)','C1.007-V001-MAY13','C1.7.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.8','Clientes operativos (abonos)','C1.008-V001-MAY13','C1.8.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.9','Tráfico I (llamadas)','C1.009-V001-MAY13','C1.9.xml', 0);
-INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.10','Tráfico III (llamadas)','C1.010-V001-MAY13','C1.10.xml', 0);
-INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.11','Tráfico I (minutos)','C1.011-V001-MAY13','C1.11.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.10','Tráfico III (cantidad de llamadas)','C1.010-V001-MAY13','C1.10.xml', 0);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.11','Tráfico I (en minutos)','C1.011-V001-MAY13','C1.11.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.12','Tráfico II (minutos)','C1.012-V001-MAY13','C1.12.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.13','Tráfico III (en minutos)','C1.013-V001-MAY13','C1.13.xml', 0);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version) VALUES ('C1.14','Tráfico hacia móviles (minutos)','C1.014-V001-MAY13','C1.14.xml', 0);
