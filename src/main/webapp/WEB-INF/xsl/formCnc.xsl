@@ -180,9 +180,10 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 	                <ul class="icons"><li><a href="#">
 	                	<span id="version"></span>
 	                </a></li></ul>
-	                <!-- 
+	                
 	                </div>
-                        <div class="alert">
+	                <!-- 
+                    <div class="alert">
                         <button data-dismiss="alert" class="close" type="button">×</button>
                         <strong>Warning!</strong> Best check yo self, you're not looking too good.
                     </div>
