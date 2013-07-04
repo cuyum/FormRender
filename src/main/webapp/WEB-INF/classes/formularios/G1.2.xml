@@ -10,6 +10,7 @@
             <ubicacion>
               <provincia/>
               <partido/>
+              <partido_otro/>
               <localidad/>
               <localidad_otro/>
               <area/>
@@ -36,6 +37,7 @@
             <ubicacionDestino>
               <provinciaDestino/>
               <partidoDestino/>
+              <partidoDestino_otro/>
               <localidadDestino/>
               <localidadDestino_otro/>
               <areaDestino/>
@@ -49,25 +51,27 @@
       </instance>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/G1.2/puntos/ubicacion/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/G1.2/puntos/ubicacion/provincia" nodeset="/G1.2/puntos/ubicacion/partido" required="true()" type="select1"/>
+      <bind nodeset="/G1.2/puntos/ubicacion/partido_otro" relevant=" /G1.2/puntos/ubicacion/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/G1.2/puntos/ubicacion/partido" nodeset="/G1.2/puntos/ubicacion/localidad" required="true()" type="select1"/>
       <bind nodeset="/G1.2/puntos/ubicacion/localidad_otro" relevant=" /G1.2/puntos/ubicacion/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/G1.2/puntos/ubicacion/localidad" nodeset="/G1.2/puntos/ubicacion/area" required="true()" type="select1"/>
       <bind nodeset="/G1.2/puntos/ubicacion/area_otro" relevant=" /G1.2/puntos/ubicacion/area =9999" required="true()" type="string"/>
       <bind nodeset="/G1.2/puntos/equipamiento/tecnologia" required="true()" type="select1"/>
       <bind nodeset="/G1.2/puntos/equipamiento/tecnologia_otro" relevant=" /G1.2/puntos/equipamiento/tecnologia =Otros" required="true()" type="string"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/G1.2/puntos/equipamiento/equipCapacidadDisp" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/G1.2/puntos/equipamiento/equipCapacidadUtilizada" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999.999,99" nodeset="/G1.2/puntos/equipamiento/equipCapacidadDisp" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999.999,99" nodeset="/G1.2/puntos/equipamiento/equipCapacidadUtilizada" required="true()" type="decimal"/>
       <bind nodeset="/G1.2/puntos/tipomedio/medio" required="true()" type="select1"/>
       <bind nodeset="/G1.2/puntos/tipomedio/medio_otro" relevant=" /G1.2/puntos/tipomedio/medio =Otros" required="true()" type="string"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/G1.2/puntos/tipomedio/medioCapacidadDisp" relevant=" /G1.2/puntos/tipomedio/medio =FO" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/G1.2/puntos/tipomedio/medioCapacidadUtilizada" relevant=" /G1.2/puntos/tipomedio/medio =FO" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999.999,99" nodeset="/G1.2/puntos/tipomedio/medioCapacidadDisp" relevant=" /G1.2/puntos/tipomedio/medio =FO" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999.999,99" nodeset="/G1.2/puntos/tipomedio/medioCapacidadUtilizada" relevant=" /G1.2/puntos/tipomedio/medio =FO" required="true()" type="decimal"/>
       <bind nodeset="/G1.2/puntos/tipotendido" relevant=" /G1.2/puntos/tipomedio/medio =FO or  /G1.2/puntos/tipomedio/medio =Otros"/>
       <bind nodeset="/G1.2/puntos/tipotendido/tendido" relevant=" /G1.2/puntos/tipomedio/medio =FO or  /G1.2/puntos/tipomedio/medio =Otros" required="true()" type="select1"/>
       <bind nodeset="/G1.2/puntos/tipotendido/tendido_otro" relevant=" /G1.2/puntos/tipotendido/tendido =Otros" required="true()" type="string"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/G1.2/puntos/tipotendido/tendidoCapacidadDisp" relevant=" /G1.2/puntos/tipomedio/medio =FO" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/G1.2/puntos/tipotendido/tendidoCapacidadUtilizada" relevant=" /G1.2/puntos/tipomedio/medio =FO" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999.999,99" nodeset="/G1.2/puntos/tipotendido/tendidoCapacidadDisp" relevant=" /G1.2/puntos/tipomedio/medio =FO" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999.999,99" nodeset="/G1.2/puntos/tipotendido/tendidoCapacidadUtilizada" relevant=" /G1.2/puntos/tipomedio/medio =FO" required="true()" type="decimal"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/G1.2/puntos/ubicacionDestino/provinciaDestino" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/G1.2/puntos/ubicacionDestino/provinciaDestino" nodeset="/G1.2/puntos/ubicacionDestino/partidoDestino" required="true()" type="select1"/>
+      <bind nodeset="/G1.2/puntos/ubicacionDestino/partidoDestino_otro" relevant=" /G1.2/puntos/ubicacionDestino/partidoDestino =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/G1.2/puntos/ubicacionDestino/partidoDestino" nodeset="/G1.2/puntos/ubicacionDestino/localidadDestino" required="true()" type="select1"/>
       <bind nodeset="/G1.2/puntos/ubicacionDestino/localidadDestino_otro" relevant=" /G1.2/puntos/ubicacionDestino/localidadDestino =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/G1.2/puntos/ubicacionDestino/localidadDestino" nodeset="/G1.2/puntos/ubicacionDestino/areaDestino" required="true()" type="select1"/>
@@ -97,6 +101,10 @@
               <value>-1</value>
             </item>
           </select1>
+          <input ref="/G1.2/puntos/ubicacion/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
           <select1 appearance="minimal" ref="/G1.2/puntos/ubicacion/localidad">
             <label>Localidad</label>
             <hint>Localidad</hint>
@@ -248,6 +256,10 @@
               <value>-1</value>
             </item>
           </select1>
+          <input ref="/G1.2/puntos/ubicacionDestino/partidoDestino_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
           <select1 appearance="minimal" ref="/G1.2/puntos/ubicacionDestino/localidadDestino">
             <label>Localidad</label>
             <hint>Localidad</hint>
