@@ -2302,8 +2302,24 @@ fieldset label.error{
 	width: 100%;	
 	line-height: 12px;    
     padding-bottom: 0;
-    height: 24px;    
+    height: 24px;  
 }
+
+fieldset input.error{	 
+    /*border-color: #e9322d;
+    color: #b94a48;*/
+    background: #ffabad; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffabad 0%, #ffd0da 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffabad), color-stop(100%,#ffd0da)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffabad 0%,#ffd0da 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffabad 0%,#ffd0da 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffabad 0%,#ffd0da 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffabad 0%,#ffd0da 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffabad', endColorstr='#ffd0da',GradientType=0 ); /* IE6-9 */
+ 	border:1px solid #F05258;
+ 	color: #D50019;
+}
+
 fieldset select label.valid{
 	height: 1px;
 }
