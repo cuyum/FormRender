@@ -95,6 +95,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
             	<link rel="stylesheet" href="/FormRender/resources/css/jquery-ui.css" />           	
             	<link rel="stylesheet" href="/FormRender/resources/css/main.css"/>
             	<link rel="stylesheet" href="/FormRender/resources/css/style.css"/>            	
+            	<link rel="stylesheet" href="/FormRender/resources/css/select2.css"/>            	
 			  	<script type="text/javascript" src="/FormRender/resources/js/jquery-1.9.1.min.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
@@ -116,6 +117,9 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 			  	<script type="text/javascript" src="/FormRender/resources/js/jquery.maskedinput.min.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
+			  	<script type="text/javascript" src="/FormRender/resources/js/jquery.select2.min.js">
+            		<xsl:text>&#10;</xsl:text>
+            	</script>
 			  	 <script src="/FormRender/resources/js/jquery-ui.min.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
@@ -126,6 +130,9 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
             		<xsl:text>&#10;</xsl:text>
             	</script>     
             	<script type="text/javascript" src="/FormRender/resources/js/cncDefaults.js">
+            		<xsl:text>&#10;</xsl:text>
+            	</script>     
+            	<script type="text/javascript" src="/FormRender/resources/js/cncCache.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>     
             	<script type="text/javascript" src="/FormRender/resources/js/cncGUI.js">

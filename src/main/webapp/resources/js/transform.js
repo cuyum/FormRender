@@ -1,7 +1,6 @@
 $(document).ready(function() {
 	gui.form = document.forms[0];
-	// override these in your code to change the default behavior and style 
-	
+	// override these in your code to change the default behavior and style
 	setupValidationDefaults();
 	
 	/*Setup Version*/
@@ -15,7 +14,6 @@ $(document).ready(function() {
 	 * búsquedas internas deberán dejar de hacerse globalmente y deberán buscarse dentro del fieldset
 	 * suministrado. 
 	 */
-	
 	var fs = $("fieldset.jr-repeat");
 	gui.repeatCount = gui.getURLParameter("repeat");
 	gui.renderGrid = fs.hasClass("grilla");
@@ -91,7 +89,7 @@ $(document).ready(function() {
 		}
 		
 	}else if(fs.length>0 && gui.repeatCount==0){
-		console.info("Se encuentra repeat infinito");
+		console.error("Se encuentra repeat infinito");
 	}else{
 		$(gui.form).validate();
 		var fieldset = {};
@@ -103,11 +101,11 @@ $(document).ready(function() {
 		 * si van a venir las instancias de repeticiones tengo que tenerlas en cuenta
 		 * e iterarlas antes de iterar los campos
 		 */
+		gui.fieldsets.push(fieldset);
 		for ( var i = 0; i < fieldset.fields.length; i++) {
 			var field = fieldset.fields[i];
 			setupValidations(field);
 		}
-		gui.fieldsets.push(fieldset);
 	}
 	
 	gui.loadDataId = gui.getURLParameter("recordId");
@@ -142,5 +140,5 @@ $(document).ready(function() {
 		});
 		$.unblockUI();
 	}
-	
+	gui.setupDefaults();
 });

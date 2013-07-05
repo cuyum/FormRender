@@ -3,19 +3,94 @@ var gui = new function(){
 	this.fieldsets = [];
 	this.repeatCount = undefined;
 	this.renderGrid = false;
+	this.replaceFieldInFieldset = function(newField, oldField, fieldset){
+		var fs;
+		if(fieldset && fieldset.instance){
+			fs = fieldset;
+		}else fs = this.fieldsets[0];
+		
+		for ( var i = 0; i < fs.fields.length; i++) {
+			var f = fs.fields[i];
+			if($(f).attr("name")==oldField.attr("name")){
+				fs.fields.splice(i,1,newField);
+				break;
+			}
+		}
+	};
+	this.validateForm = function(){
+		var validFields = false;
+		var validSelects = false;
+		
+		validFields = $(gui.form).valid();
+		validSelects = gui.validateRemoteSelects();
+		
+		return validFields && validSelects;
+			
+	};
+	this.setupDefaults = function(){
+		$("select").select2();
+	};
+	this.blockUI = function(message,unblockable){
+		if(!$("#unblockable").is("span")){
+			if(message){
+				$.blockUI({message:message});
+			}else{
+				$.blockUI({message:"Cargando...<br>Espere por favor..."});
+			}
+		}
+		if(!$("#unblockable").is("span") && unblockable!=undefined && unblockable){
+			var unblock = $("<span id='unblockable'/>");
+			unblock.appendTo("body");
+		}
+	};
+	this.unblockUI = function(force){
+		if(force) {
+			$("#unblockable").remove();
+			$.unblockUI();
+		}else{
+			if(!$("#unblockable").is("span")){
+				$.unblockUI();
+			}
+		}
+	};
+	this.cache = {
+		data : [],
+		store : function(index,data){
+			this.data[index] = data;
+//			console.info("Stored",data);
+		},
+		check : function(index){
+			var data = this.data[index];
+			if(data!=undefined){
+				return true;
+			}else{
+//				console.log("no data stored");
+				return false;
+			}
+		},
+		retrieve:function(index){
+			return this.data[index];
+		},
+		reset : function(){
+			this.data = [];
+//			console.log("Cleaning cache.");
+		}
+	};
 	this.getURLParameter = function(name) {
 	    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
 	};
 	this.cleanFormValidations = function(){
-		console.log("Cleaning Form");
+		console.info("Cleaning Form Validations");
 		$("[class~='error']").siblings("label[class='error']").remove();
 		$("[class~='error']").removeClass("error");
 	};
 	this.resetFields = function(fields){
 		for ( var i = 0; i < fields.length; i++) {
 			var field = $(fields[i]);
-			if(field.is("select"))
-				field.val("-1");
+			if(field.is("select")){
+				field.select2("val","-1");
+			}else if(field.attr("data-type-xml")=="select2")
+				field.select2("data",null);
 			else
 				field.val('').removeAttr('checked');
 		}
@@ -34,12 +109,22 @@ var gui = new function(){
 		}
 		return data;
 	};
+	this.validateRemoteSelects = function(){
+		var selectFields = $("input[class~='select2-offscreen']:hidden");
+		var valid = true;
+		for ( var i = 0; i < selectFields.length; i++) {
+			if(!$(gui.form).validate().element(selectFields[i]) && valid){
+				valid = false;
+			}
+		}
+		return valid;
+	};
 	this.submissionHandler = function(clickEvent){
 		var thisForm = $(gui.form);
 		var message = {header:{}, payload:{formulario:{"id":thisForm.attr("id"),data:[]}}};
 		var submit = false;
 		if(gui.renderGrid){
-			console.log("Retrieving Grid data list");
+//			console.log("Retrieving Grid data list");
 			var dl = gui.grid.element.dataTable().fnGetData();
 			if(dl.length>0){
 				var dataList = [];
@@ -59,7 +144,7 @@ var gui = new function(){
 				submit=true;
 			} else {
 				console.warn("No data in grid");
-				thisForm.valid();
+				gui.validateForm();
 			}
 		}else{
 			var btn = clickEvent.target;
@@ -69,7 +154,7 @@ var gui = new function(){
 				message.payload.formulario.data = gui.retrieveFormFieldData();
 				submit = true;
 			}else{
-				if(thisForm.valid()){
+				if(gui.validateForm()){
 					message.payload.formulario.data = gui.retrieveFormFieldData();
 					submit=true;
 				}
@@ -130,16 +215,35 @@ var gui = new function(){
 						break;
 					}
 				}
-				if(push)relevants.push(relevant);
+				if(push){
+					relevants.push(relevant);
+//					console.log("relevant added",relevant);
+				}
 			}else{
 				relevants = [relevant];
 			}
 			field.data("relevants",relevants);
 		}
 	};
+	this.removeRelevant = function(field,relevant){
+		if(field && relevant){
+			var relevants = field.data("relevants");
+			if(relevants){
+				for(var i = 0;i < relevants.length;i++){
+					var r = relevants[i];
+					if(relevant.tutor.attr("name") == r.tutor.attr("name")){
+//						console.log("relevant removed:",r);
+						relevants.splice(i,1);
+						break;
+					}
+				}
+			}
+			field.data("relevants",relevants);
+		}
+	};
 	this.addDependant = function(tutor,dependant){
 		if(tutor && dependant){
-			var dependants = tutor.data("dependant");
+			var dependants = gui.getDependants(tutor);
 			if(dependants){
 				var push = true;
 				for(var i = 0;i < dependants.length;i++){
@@ -154,6 +258,29 @@ var gui = new function(){
 				dependants = [dependant];
 			}
 			tutor.data("dependant",dependants);
+		}
+	};
+	this.removeDependant = function(tutor,dependant){
+		if(tutor && dependant){
+			var dependants = gui.getDependants(tutor);
+			if(dependants){
+				for(var i = 0;i < dependants.length;i++){
+					var d = dependants[i];
+					if(dependant.attr("name") == d.attr("name")){
+						dependants.splice(i,1);
+						break;
+					}
+				}
+			}
+			tutor.data("dependant",dependants);
+		}
+	};
+	this.getDependants = function(field){
+		if(field!=undefined && field!=null){
+			var dependants = field.data("dependant");
+			if(dependants!=undefined && dependants !=null){
+				return dependants; 	
+			}else return [];
 		}
 	};
 	this.getField = function(name,fieldset){
@@ -179,14 +306,17 @@ var gui = new function(){
 		return "";
 	};
 	this.flagPerformRelevantCheck = function(ancestor){
-		if(ancestor && ancestor.is("select")){
+		if(ancestor && ancestor.is("select") || ancestor.attr("data-type-xml")=="select2"){
+//			console.log(ancestor.attr("name"),ancestor.data());
 			var isChecking = ancestor.data("isCheckingRelevants");
 			if(!isChecking){
 				ancestor.data("isCheckingRelevants",true);
 				ancestor.on("change",{ me:ancestor }, function(event){
+					console.log("change fired from ancestor and captured from relevant");
 					var _this = event.data.me;
 					/*retrieve all dependant field of _this field*/
 					var dependants = _this.data("dependant");
+					console.log(dependants);
 
 					for ( var i = 0; i < dependants.length; i++) {
 						var dependant = dependants[i];
@@ -196,36 +326,74 @@ var gui = new function(){
 			}
 		}
 	};
-	this.completeWithDelay = function(record,j,fields,delay){
-		var delayTime = delay || 1000;
-		var field = $(fields[j]);
-//		console.log("RECORD:",record);
-//		console.log("CAMPOS:",fields);
-//		console.log("CAMPO:",field);
-//		console.log("Iteracion:",(j+1));
-		var fieldCleanName = gui.getCleanFieldName(field.attr("name"),record.instance);
-		if (!field.is("select")) {
-			delayTime = 0;
+	this.resetSelect = function(field){
+		if(field.is("select")){
+			var option = field.children("option[value='-1']").clone();
+			field.empty();
+			option.appendTo(field);
+		}  
+	};
+	this.redrawSelect = function(field,data){
+		gui.resetHierarchy([field]);
+		for ( var count = 0; count < data.result.length; count++) {
+			var o = data.result[count];
+			var option = $("<option></option>");
+			option.attr("value",o.id);
+			option.text(o.nombre);
+			field.append(option);
 		}
-		setTimeout(function() {
-//			console.log(fields,fieldCleanName);
-			if (field.is("select")){
-//				console.log(fieldCleanName,record[fieldCleanName].value);
-				field.val(record[fieldCleanName].value);
-			}else { 
-//				console.log(fieldCleanName,record[fieldCleanName]);
+		if($.browser.msie) field.hide().show();
+	};
+	this.remoteReqHandler = function(field, url, data) {
+//		console.log(data);
+		if (data.success) {
+			gui.redrawSelect(field, data);
+			gui.cache.store(url, data);
+			field.trigger("remote_complete");
+		} else {
+			console.warn("No se obtuvo una lista de elementos para agregar al campo "
+					+ field.attr("name"));
+		}
+	};
+	this.resetHierarchy = function(fields) {
+		for ( var i = 0; i < fields.length; i++) {
+			var field = fields[i];
+			if (field.is("select") || field.attr("data-type-xml") == "select2") {
+				field.select2("data", null);
+			} else {
+				if (field.is("input[type='text']")) {
+					el = field.closest("label");
+					field.val("");
+				} else if (field.is("input[type='radio']")
+						|| field.is("input[type='checkbox']")) {
+					el = field.closest("fieldset").closest("label");
+				}
+				if (el){
+					//FIXME: fijarse en que esconda bien los campos
+//					console.log("hidding el "+field.attr("name"));
+//					el.hide();
+				}
+			}
+			var dependants = field.data("dependant");
+			if (dependants) {
+				gui.resetHierarchy(dependants);
+			}
+		}
+	};
+	this.completeForm = function(record, fields){
+		for ( var i = 0; i < fields.length; i++) {
+			var field = $(fields[i]);
+			var fieldCleanName = gui.getCleanFieldName(field.attr("name"),record.instance);
+			
+			if(field.is("select") ){
+				field.select2("val",record[fieldCleanName].value);
+			}else if(field.attr("data-type-xml")=="select2"){
+				field.select2("data",{id:record[fieldCleanName].value,text:record[fieldCleanName].label});
+			}else{ 
 				field.val(record[fieldCleanName]);
 			}
 			field.trigger("change");
-			
-			j++;
-			if (j < fields.length) {
-				gui.completeWithDelay(record,j, fields, delayTime);
-			}else{
-				$("#unblockable").remove();
-				$.unblockUI();
-			}
-		}, delayTime);
+		}
 	};
 	this.grid = {
 		editing : -1,
@@ -247,17 +415,16 @@ var gui = new function(){
 				var rowIndex =  gui.grid.element.dataTable().fnGetPosition($(evt.target).closest('tr').get(0));
 				var record = gui.grid.getRowData(rowIndex);
 				var fields = gui.fieldsets[record.instance].fields;
-				$.blockUI({message:"Cargando...<br>Espere por favor..."});
-				var unblock = $("<span id='unblockable'/>");
-				unblock.appendTo("body");
+				gui.blockUI("Cargando...<br>Espere por favor...",true);
 				
-				gui.completeWithDelay(record,0,fields);
+				gui.completeForm(record,fields);
 				
 				for ( var i = 0; i < fields.length; i++) {
 					var field = $(fields[i]);
 					field.data("renderLogic")(field);
 				}
 				gui.grid.editing = rowIndex;
+				gui.unblockUI(true);
 			});
 		},
 		setupAddClick: function(){
@@ -275,12 +442,16 @@ var gui = new function(){
 			for ( var i = 0; i < fieldset.fields.length; i++) {
 				var field =$(fieldset.fields[i]);
 				var attribute = gui.getCleanFieldName(field.attr("name"),fieldsetInstance);
-				if(field.is(":visible")){
+				if(field.is(":visible") || field.attr("data-type-xml")=="select2"){
 					var value = field.val();
 					if(value!=undefined && value!=null && $(gui.form).validate().element(field)){
 						if(field.is("select")){
 							var o = field.children("option:selected");
 							record[attribute] = {label:o.text(),value:value};
+						}else if(field.attr("data-type-xml")=="select2"){
+							var data = field.select2("data");
+//							console.log("select2 data",data);
+							record[attribute] = {label:data.text,value:data.id};
 						}else{
 							record[attribute] = value;
 						}
@@ -300,6 +471,7 @@ var gui = new function(){
 				gui.resetFields(fields);
 				for ( var i = 0; i < fieldset.fields.length; i++) {
 					var af = $(fieldset.fields[i]);
+//					console.log("campo a checkear visualizacion",af);
 					af.data("renderLogic")(af);
 				}
 				if(this.editing==-1){

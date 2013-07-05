@@ -162,7 +162,7 @@ var setupMask = function(field){
 	}
 };
 
-var setupRelevantData = function(field, fieldset){
+var setupRelevantData = function(field, fieldset, oldField){
 	var data_relevant = field.attr("data-relevant");
 	if(data_relevant && data_relevant.trim().length>0){
 		/*-------HIDE FIELD FOR RELEVANT DEPENDENCY-------*/
@@ -215,6 +215,7 @@ var setupRelevantData = function(field, fieldset){
 			
 			var ancestor = gui.getField(data[0],fieldset);
 			if(ancestor){ /*relate fields*/
+				if(oldField)gui.removeDependant(ancestor,oldField);
 				gui.addDependant(ancestor,field);
 				/*add condition of visualization to field*/
 				var relevant = {tutor:ancestor,value:data[1]};
@@ -226,7 +227,7 @@ var setupRelevantData = function(field, fieldset){
 };
 
 
-var setupDependency = function(field, fieldset){
+var setupDependency = function(field, fieldset, oldField){
 	
 	if(field.data("jr:constraint:depends")!=undefined && field.is("input")){
 		var ancestorSelector = "[name~='"+field.data("jr:constraint:depends")+"']";
@@ -235,13 +236,13 @@ var setupDependency = function(field, fieldset){
 			ancestorSelector = "[name~='"+field.data("jr:constraint:depends")+"_"+fieldset.instance+"']";
 		}
 		
-		
 		var ancestor = $(ancestorSelector);
 		
-		if(ancestor.is("select")){/*solo funciona con selects hasta ahora*/
+		console.info(ancestor);
+		
+		if(ancestor.is("select") /*|| ancestor.attr("data-type-xml") == "select2"*/){/*solo funciona con selects hasta ahora*/
 			gui.addDependant(ancestor,field);
-			if(field.is("input"))
-				field.hide();
+			if(field.is("input")) field.hide();
 			
 			ancestor.on("change",
 			{
@@ -249,6 +250,7 @@ var setupDependency = function(field, fieldset){
 				ancestor : ancestor
 			},
 			function(event){
+//				console.log("change fired and captured from dependency code");
 				var name = event.data.dependant.attr("name");
 				var slashIndex = name.lastIndexOf("/");
 				var cleanName = name.substring(slashIndex+1);
@@ -259,7 +261,7 @@ var setupDependency = function(field, fieldset){
 				}
 			});
 		}else{
-			console.warning("Dependency of "+field.data("jr:constraint:depends")+" found but not field with such name could be retrieved");
+			console.warn("Dependency of "+field.data("jr:constraint:depends")+" found but not field with such name could be retrieved");
 		}
 	}
 };
@@ -268,106 +270,82 @@ var setupRemoteData = function(field,fieldset){
 	var fieldName = field.attr("name");
 	if(field.data("jr:constraint:remote")!=undefined && field.is("select")){
 		var url = field.data("jr:constraint:remote");
+//		console.group("CAMPO:"+fieldName+"---Lista remota");
 		
-		if(field.data("jr:constraint:depends")!=undefined){
-			var ancestorSelector = "[name~='"+field.data("jr:constraint:depends")+"']";
+		/*
+		 * Select2 has a documented limitation when it concernes ajax remote loading
+		 * It has to be attached to a hidden input element instead of a select
+		 */
+		var attrs = field.get()[0].attributes; //we retrieve all attributes
+		var newField = $("<input type='hidden'/>"); //reference the new element
+		$.each(attrs,function(key,value){
+			newField.attr(attrs[key].name,attrs[key].value); //assign all previous attributes to new element
+		});
+		field.after(newField); //insert the new element in the same position as the old select element
+		gui.replaceFieldInFieldset(newField, field, fieldset);
+		newField.attr("data-type-xml","select2");
+		newField.data(field.data());
+		setupRelevantData(newField,fieldset, field);//vuelvo a setear dependencia relevante
+		field.remove(); //and finally remove the select element
+		if(newField.data("jr:constraint:depends")!=undefined){//depende de otro campo
+			var ancestorSelector = "[name~='"+newField.data("jr:constraint:depends")+"']";
 			if(fieldset.instance!=undefined){
-				ancestorSelector = "[name~='"+field.data("jr:constraint:depends")+"_"+fieldset.instance+"']";
+				ancestorSelector = "[name~='"+newField.data("jr:constraint:depends")+"_"+fieldset.instance+"']";
 			}
 			var ancestor = $(ancestorSelector);
+			gui.addDependant(ancestor,newField);
 			
-			gui.addDependant(ancestor,field);
-			
-			ancestor.on("change",function(){
-				if(!$("#unblockable").is("span"))
-					$.blockUI({message:"Cargando...<br>Espere por favor..."});
-				$.ajax({
-				  url: "/FormRender/rest/service/relay",
-				  type: "POST",
-				  dataType: "json",
-				  data:{
-					  fkey:ancestor.val(),
-					  remoteUrl:url
-				  },
-				  success : function(data, statusStr, xhr) {
-					  var resetHierarchy = function(fields){
-						  for ( var i = 0; i < fields.length; i++) {
-							  var field = fields[i];
-							  if(field.is("select")){
-								  var option = field.children("option[value='-1']").clone();
-								  field.empty();
-								  field.append(option);
-							  }else{
-								  if(field.is("input[type='text']")){
-									  el = field.closest("label");
-									  field.val("");
-								  }else if(field.is("input[type='radio']") || field.is("input[type='checkbox']")){
-									  el = field.closest("fieldset").closest("label");
-								  }
-								  if(el)el.hide();
-							  }
-							  var dependants = field.data("dependant");
-							  if(dependants){
-								  resetHierarchy(dependants);
-							  }
-						  }
-					  };
-					  if(data.success){
-//						  console.group("resetHierarchy");
-						  resetHierarchy([field]);
-//						  console.groupEnd();
-						  for ( var count = 0; count < data.result.length; count++) {
-							  var o = data.result[count];
-							  var option = $("<option></option>");
-							  option.attr("value",o.id);
-							  option.text(o.nombre);
-							  field.append(option);
-						  }
-						  if($.browser.msie) field.hide().show();
-					  }else{
-						  console.warn("No se obtuvo una lista de elementos para agregar al campo "+ fieldName );
-					  }
-					  if(!$("#unblockable").is("span")) $.unblockUI();
-					},
-				  error:function(xhr,statusStr,errorStr){
-					  $.unblockUI();
-					  console.error("Error tratando de recuperar valores para "+ fieldName+". "+statusStr);
-				  }
-				});
-			});
-		}else{
-			if(!$("#unblockable").is("span"))
-				$.blockUI({message:"Cargando...<br>Espere por favor..."});
-			$.ajax({
-			  url: "/FormRender/rest/service/relay",
-			  type: "POST",
-			  dataType: "json",
-			  data:{
-				remoteUrl:url  
-			  },
-			  success : function(data, statusStr, xhr) {
-				  if(data.success){
-					  if(field.is("select")){
-						  var option = field.children("option[value='-1']").clone();
-						  field.empty();
-						  option.appendTo(field);
-						  for ( var count = 0; count < data.result.length; count++) {
-							  var o = data.result[count];
-							  var option = $("<option></option>");
-							  option.attr("value",o.id);
-							  option.text(o.nombre);
-							  field.append(option);
-						  }
-					  }
-				  }else{
-					  console.warn("No se obtuvo una lista de elementos para agregar al campo "+ fieldName );
-				  }
-				  if(!$("#unblockable").is("span")) $.unblockUI();
+			newField.select2({
+				placeholder:"Seleccione una opci\u00f3n",
+				ajax:{
+					url:"/FormRender/rest/service/relay",
+					dataType:"json",
+					type:"POST",
+					quietMillis:300,
+					data: function (term, page) { // page is the one-based page number tracked by Select2
+		                return {
+		                	fkey:ancestor.val(),
+		                    remoteUrl:url+"?limit=20&page="+page+(term && term.length>0?"&term="+term:"") //remote service url
+		                };
+		            },
+		            results: function (data, page) {
+		                var more = (page * 10) < data.total; // whether or not there are more results available
+		                // notice we return the value of more so Select2 knows if more results can be loaded
+		                return {results: data.result, more: more};
+		            }
 				},
-			  error:function(xhr,statusStr,errorStr){
-				  $.unblockUI();
-				  console.error("Error tratando de recuperar valores para "+ fieldName+". "+statusStr);
-			  }
+				formatSelection:function(record){
+					return record.text.length>40?record.text.substring(0,40)+"...":record.text;
+				}
+			});
+			ancestor.on("change",ancestor,function(event){
+//				console.log("change fired and captured from remote code");
+				var fields = event.data.data("dependant");
+				gui.resetHierarchy(fields);
+			});
+//			console.log("remote "+newField.attr("name")+" has ancestor"+ancestor.attr("name"));
+		}else{
+			newField.select2({
+				placeholder:"Seleccione una opci\u00f3n",
+				ajax:{
+					url:"/FormRender/rest/service/relay",
+					dataType:"json",
+					type:"POST",
+					quietMillis:300,
+					data: function (term, page) { // page is the one-based page number tracked by Select2
+	                    return {
+	                        remoteUrl:url+"?limit=20&page="+page+(term && term.length>0?"&term="+term:"") //remote service url
+	                    };
+	                },
+	                results: function (data, page) {
+	                    var more = (page * 10) < data.total; // whether or not there are more results available
+	                    // notice we return the value of more so Select2 knows if more results can be loaded
+	                    return {results: data.result, more: more};
+	                }
+				},
+				formatSelection:function(record){
+					return record.text.length>40?record.text.substring(0,40)+"...":record.text;
+				}
 			});
 		}
 	}
@@ -375,12 +353,12 @@ var setupRemoteData = function(field,fieldset){
 
 var setupDataConstraints = function(field){
 	var data_constraints = field.attr("data-constraint");
-	console.group("CAMPO:"+field.attr("name"));
+//	console.group("CAMPO:"+field.attr("name"));
 	if(data_constraints){
 		var constraintContainer = [];
 		var constraints = data_constraints.split(" and ");
 		/* Process constraints of field */
-		console.log(constraints);
+//		console.log(constraints);
 		for ( var i = 0; i < constraints.length; i++) {
 			var constraint = constraints[i];
 //			console.log(constraint);
@@ -454,12 +432,12 @@ var setupDataConstraints = function(field){
 		
 		field.data("jr:constraints",constraintContainer);
 	}
-	console.groupEnd();
+//	console.groupEnd();
 };
 
 var validationDecimal = function(field){
 	var data_type = field.attr("data-type-xml");
-	console.log("DECIMAL:"+field.attr("name"));
+//	console.log("DECIMAL:"+field.attr("name"));
 	if(data_type && data_type=="decimal"){
 		var constraintMsg = field.attr("data-constraint-msg");
 		field.rules( "add", {
@@ -557,6 +535,7 @@ var addVisualizationLogic = function(field){
 //		console.group("RENDER LOGIC FOR "+field.attr("name"));
 		var relevants = field.data("relevants");
 		var show = false;
+		
 		if(relevants){
 			for ( var i = 0; i < relevants.length; i++) {
 				var relevant = relevants[i];
@@ -576,13 +555,14 @@ var addVisualizationLogic = function(field){
 				}
 			}
 			if(show){
-//				console.log("should show");
+//				console.log("should show ",field);
 				field.closest("label").show();
 			}else{
 //				console.log("should not show");
 				field.closest("label").hide();
 			}
-		}
+		}else console.log("no relevants found");
+		
 		
 //		console.groupEnd();
 	};
