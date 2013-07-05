@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario F1.24 - Otros Gastos</h:title>
+    <h:title>Formulario F1.24 - Gastos y Costos</h:title>
     <model>
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
@@ -14,6 +14,7 @@
               <amortizIntangibles/>
               <publicidad/>
               <costoEquipos/>
+              <otrosExplotacion/>
               <otrosComerciales/>
               <otrosFinancieros/>
               <otrosAdministrativos/>
@@ -31,6 +32,7 @@
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.24/meses/mes/amortizIntangibles" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.24/meses/mes/publicidad" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.24/meses/mes/costoEquipos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.24/meses/mes/otrosExplotacion" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.24/meses/mes/otrosComerciales" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.24/meses/mes/otrosFinancieros" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.24/meses/mes/otrosAdministrativos" required="true()" type="int"/>
@@ -67,6 +69,10 @@
           <input ref="/F1.24/meses/mes/costoEquipos">
             <label>Costo Equipos</label>
             <hint>Costo Equipos [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.24/meses/mes/otrosExplotacion">
+            <label>Otros Gastos Explotación</label>
+            <hint>Otros Gastos Explotación [en miles de pesos]</hint>
           </input>
           <input ref="/F1.24/meses/mes/otrosComerciales">
             <label>Otros Comerciales</label>
