@@ -10,6 +10,7 @@
             <mes>
               <provincia/>
               <partido/>
+              <partido_otro/>
               <localidad/>
               <localidad_otro/>
               <trp/>
@@ -30,17 +31,18 @@
       </instance>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/F1.10/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/F1.10/meses/mes/provincia" nodeset="/F1.10/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/F1.10/meses/mes/partido_otro" relevant=" /F1.10/meses/mes/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/F1.10/meses/mes/partido" nodeset="/F1.10/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/F1.10/meses/mes/localidad_otro" relevant=" /F1.10/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/F1.10/meses/mes/trp" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/F1.10/meses/mes/trcp" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/F1.10/meses/mes/trr" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/F1.10/meses/mes/roac" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/F1.10/meses/mes/rscp" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/F1.10/meses/mes/tcf" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/F1.10/meses/mes/dposs" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/F1.10/meses/mes/tfrp" required="true()" type="decimal"/>
-      <bind constraint="mask=999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/F1.10/meses/mes/drf" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/F1.10/meses/mes/trp" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/F1.10/meses/mes/trcp" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/F1.10/meses/mes/trr" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/F1.10/meses/mes/roac" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/F1.10/meses/mes/rscp" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/F1.10/meses/mes/tcf" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/F1.10/meses/mes/dposs" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/F1.10/meses/mes/tfrp" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/F1.10/meses/mes/drf" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/F1.10/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -66,6 +68,10 @@
               <value>-1</value>
             </item>
           </select1>
+          <input ref="/F1.10/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
           <select1 appearance="minimal" ref="/F1.10/meses/mes/localidad">
             <label>Localidad</label>
             <hint>Localidad</hint>

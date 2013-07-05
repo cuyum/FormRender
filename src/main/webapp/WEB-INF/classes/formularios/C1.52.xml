@@ -15,8 +15,8 @@
           </meta>
         </C1.52>
       </instance>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.52/rentas/remisionUtilidades" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/C1.52/rentas/distribucionDividendos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.52/rentas/remisionUtilidades" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.52/rentas/distribucionDividendos" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.52/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

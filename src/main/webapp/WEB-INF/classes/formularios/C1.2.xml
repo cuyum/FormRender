@@ -10,6 +10,7 @@
             <interconexion>
               <provincia/>
               <partido/>
+              <partido_otro/>
               <localidad/>
               <localidad_otro/>
               <area/>
@@ -26,12 +27,13 @@
       </instance>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/C1.2/inter/interconexion/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/C1.2/inter/interconexion/provincia" nodeset="/C1.2/inter/interconexion/partido" required="true()" type="select1"/>
+      <bind nodeset="/C1.2/inter/interconexion/partido_otro" relevant=" /C1.2/inter/interconexion/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/C1.2/inter/interconexion/partido" nodeset="/C1.2/inter/interconexion/localidad" required="true()" type="select1"/>
       <bind nodeset="/C1.2/inter/interconexion/localidad_otro" relevant=" /C1.2/inter/interconexion/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C1.2/inter/interconexion/localidad" nodeset="/C1.2/inter/interconexion/area" required="true()" type="select1"/>
       <bind nodeset="/C1.2/inter/interconexion/area_otro" relevant=" /C1.2/inter/interconexion/area =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="Datos no válidos" nodeset="/C1.2/inter/interconexion/prestador" required="true()" type="select1"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/C1.2/inter/interconexion/capacidad" required="true()" type="decimal"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.2/inter/interconexion/prestador" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999.999,99" nodeset="/C1.2/inter/interconexion/capacidad" required="true()" type="decimal"/>
       <bind nodeset="/C1.2/inter/interconexion/unidad" required="true()" type="select1"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.2/meta/instanceID" readonly="true()" type="string"/>
     </model>
@@ -58,6 +60,10 @@
               <value>-1</value>
             </item>
           </select1>
+          <input ref="/C1.2/inter/interconexion/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
           <select1 appearance="minimal" ref="/C1.2/inter/interconexion/localidad">
             <label>Localidad</label>
             <hint>Localidad</hint>
@@ -68,6 +74,7 @@
           </select1>
           <input ref="/C1.2/inter/interconexion/localidad_otro">
             <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
           </input>
           <select1 appearance="minimal" ref="/C1.2/inter/interconexion/area">
             <label>Área Local</label>
@@ -79,6 +86,7 @@
           </select1>
           <input ref="/C1.2/inter/interconexion/area_otro">
             <label>Área Otros</label>
+            <hint>Área Otros</hint>
           </input>
           <select1 appearance="minimal" ref="/C1.2/inter/interconexion/prestador">
             <label>Prestador</label>

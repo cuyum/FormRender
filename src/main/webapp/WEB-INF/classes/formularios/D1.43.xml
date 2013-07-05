@@ -26,15 +26,15 @@
           </meta>
         </D1.43>
       </instance>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.43/importaciones/importacionTelecomunic" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.43/importaciones/importacionServicios" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.43/importaciones/importacionBienesCapital" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.43/importaciones/importacionPiezas" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.43/importaciones/importacionTotal" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.43/exportaciones/exportacionTelecomunic" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.43/exportaciones/exportacionServicios" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.43/exportaciones/exportacionTotal" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.43/grupoRegalias/regalias" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.43/importaciones/importacionTelecomunic" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.43/importaciones/importacionServicios" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.43/importaciones/importacionBienesCapital" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.43/importaciones/importacionPiezas" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.43/importaciones/importacionTotal" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.43/exportaciones/exportacionTelecomunic" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.43/exportaciones/exportacionServicios" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.43/exportaciones/exportacionTotal" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.43/grupoRegalias/regalias" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.43/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

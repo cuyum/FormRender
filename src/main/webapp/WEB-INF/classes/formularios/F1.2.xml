@@ -10,6 +10,7 @@
             <interconexion>
               <provincia/>
               <partido/>
+              <partido_otro/>
               <localidad/>
               <localidad_otro/>
               <prestador/>
@@ -23,10 +24,11 @@
       </instance>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/F1.2/inter/interconexion/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/F1.2/inter/interconexion/provincia" nodeset="/F1.2/inter/interconexion/partido" required="true()" type="select1"/>
+      <bind nodeset="/F1.2/inter/interconexion/partido_otro" relevant=" /F1.2/inter/interconexion/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/F1.2/inter/interconexion/partido" nodeset="/F1.2/inter/interconexion/localidad" required="true()" type="select1"/>
       <bind nodeset="/F1.2/inter/interconexion/localidad_otro" relevant=" /F1.2/inter/interconexion/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" nodeset="/F1.2/inter/interconexion/prestador" required="true()" type="select1"/>
-      <bind constraint="mask=9.999.999,99" nodeset="/F1.2/inter/interconexion/capacidad" required="true()" type="decimal"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/F1.2/inter/interconexion/prestador" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999.999,99" nodeset="/F1.2/inter/interconexion/capacidad" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/F1.2/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -52,6 +54,10 @@
               <value>-1</value>
             </item>
           </select1>
+          <input ref="/F1.2/inter/interconexion/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
           <select1 appearance="minimal" ref="/F1.2/inter/interconexion/localidad">
             <label>Localidad</label>
             <hint>Localidad</hint>

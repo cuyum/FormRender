@@ -10,6 +10,7 @@
             <mes>
               <provincia/>
               <partido/>
+              <partido_otro/>
               <localidad/>
               <localidad_otro/>
               <trafico1>
@@ -41,20 +42,21 @@
       </instance>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/F1.8/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/F1.8/meses/mes/provincia" nodeset="/F1.8/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/F1.8/meses/mes/partido_otro" relevant=" /F1.8/meses/mes/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/F1.8/meses/mes/partido" nodeset="/F1.8/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/F1.8/meses/mes/localidad_otro" relevant=" /F1.8/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/F1.8/meses/mes/trafico1/prestador1" required="true()" type="select1"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/F1.8/meses/mes/trafico1/entrante1" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/F1.8/meses/mes/trafico1/saliente1" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.8/meses/mes/trafico1/entrante1" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.8/meses/mes/trafico1/saliente1" required="true()" type="int"/>
       <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/F1.8/meses/mes/trafico2/prestador2" required="true()" type="select1"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/F1.8/meses/mes/trafico2/entrante2" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/F1.8/meses/mes/trafico2/saliente2" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.8/meses/mes/trafico2/entrante2" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.8/meses/mes/trafico2/saliente2" required="true()" type="int"/>
       <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/F1.8/meses/mes/trafico3/prestador3" required="true()" type="select1"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/F1.8/meses/mes/trafico3/entrante3" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/F1.8/meses/mes/trafico3/saliente3" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.8/meses/mes/trafico3/entrante3" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.8/meses/mes/trafico3/saliente3" required="true()" type="int"/>
       <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/F1.8/meses/mes/traficoOtros/prestadorOtros" required="true()" type="select1"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/F1.8/meses/mes/traficoOtros/entranteOtros" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/F1.8/meses/mes/traficoOtros/salienteOtros" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.8/meses/mes/traficoOtros/entranteOtros" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.8/meses/mes/traficoOtros/salienteOtros" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/F1.8/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -80,6 +82,10 @@
               <value>-1</value>
             </item>
           </select1>
+          <input ref="/F1.8/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
           <select1 appearance="minimal" ref="/F1.8/meses/mes/localidad">
             <label>Localidad</label>
             <hint>Localidad</hint>
@@ -90,6 +96,7 @@
           </select1>
           <input ref="/F1.8/meses/mes/localidad_otro">
             <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
           </input>
           <group appearance="col3 well-white" ref="/F1.8/meses/mes/trafico1">
             <label>Tráfico 1</label>

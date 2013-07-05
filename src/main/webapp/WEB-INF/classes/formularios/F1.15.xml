@@ -10,6 +10,7 @@
             <mes>
               <provincia/>
               <partido/>
+              <partido_otro/>
               <localidad/>
               <localidad_otro/>
               <personal/>
@@ -23,10 +24,11 @@
       </instance>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/F1.15/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/F1.15/meses/mes/provincia" nodeset="/F1.15/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/F1.15/meses/mes/partido_otro" relevant=" /F1.15/meses/mes/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/F1.15/meses/mes/partido" nodeset="/F1.15/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/F1.15/meses/mes/localidad_otro" relevant=" /F1.15/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint="mask=999.999" jr:constraintMsg="Datos no válidos" nodeset="/F1.15/meses/mes/personal" required="true()" type="int"/>
-      <bind constraint="mask=999.999" jr:constraintMsg="Datos no válidos" nodeset="/F1.15/meses/mes/esperaPromedio" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999" nodeset="/F1.15/meses/mes/personal" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999" nodeset="/F1.15/meses/mes/esperaPromedio" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/F1.15/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -52,6 +54,10 @@
               <value>-1</value>
             </item>
           </select1>
+          <input ref="/F1.15/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
           <select1 appearance="minimal" ref="/F1.15/meses/mes/localidad">
             <label>Localidad</label>
             <hint>Localidad</hint>

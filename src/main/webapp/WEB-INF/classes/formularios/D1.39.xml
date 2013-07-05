@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario D1.39 - Otros Gastos</h:title>
+    <h:title>Formulario D1.39 - Gastos y Costos</h:title>
     <model>
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
@@ -14,6 +14,7 @@
               <amortIntangibles/>
               <publicidad/>
               <costoEquipos/>
+              <otrosExplotacion/>
               <otrosComerciales/>
               <otrosFinancieros/>
               <otrosAdminist/>
@@ -25,16 +26,17 @@
           </meta>
         </D1.39>
       </instance>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.39/meses/mes/id" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.39/meses/mes/impuestos" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.39/meses/mes/amortBienesUso" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.39/meses/mes/amortIntangibles" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.39/meses/mes/publicidad" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.39/meses/mes/costoEquipos" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.39/meses/mes/otrosComerciales" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.39/meses/mes/otrosFinancieros" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.39/meses/mes/otrosAdminist" required="true()" type="int"/>
-      <bind constraint="mask=999.999.999" jr:constraintMsg="Datos no válidos" nodeset="/D1.39/meses/mes/total" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.39/meses/mes/id" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.39/meses/mes/impuestos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.39/meses/mes/amortBienesUso" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.39/meses/mes/amortIntangibles" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.39/meses/mes/publicidad" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.39/meses/mes/costoEquipos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.39/meses/mes/otrosExplotacion" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.39/meses/mes/otrosComerciales" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.39/meses/mes/otrosFinancieros" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.39/meses/mes/otrosAdminist" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.39/meses/mes/total" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.39/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -67,6 +69,10 @@
           <input ref="/D1.39/meses/mes/costoEquipos">
             <label>Costo Equipos</label>
             <hint>Costo de Equipos [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.39/meses/mes/otrosExplotacion">
+            <label>Otros Gastos Explotación</label>
+            <hint>Otros Gastos Explotación [en miles de pesos]</hint>
           </input>
           <input ref="/D1.39/meses/mes/otrosComerciales">
             <label>Otros Comerciales</label>

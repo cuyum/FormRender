@@ -10,6 +10,7 @@
             <lugar>
               <provincia/>
               <partido/>
+              <partido_otro/>
               <localidad/>
               <localidad_otro/>
             </lugar>
@@ -34,6 +35,7 @@
             <lugarFin>
               <provinciaFin/>
               <partidoFin/>
+              <partidoFin_otro/>
               <localidadFin/>
               <localidadFin_otro/>
             </lugarFin>
@@ -45,23 +47,25 @@
       </instance>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/F1.3/puntos/lugar/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/F1.3/puntos/lugar/provincia" nodeset="/F1.3/puntos/lugar/partido" required="true()" type="select1"/>
+      <bind nodeset="/F1.3/puntos/lugar/partido_otro" relevant=" /F1.3/puntos/lugar/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/F1.3/puntos/lugar/partido" nodeset="/F1.3/puntos/lugar/localidad" required="true()" type="select1"/>
       <bind nodeset="/F1.3/puntos/lugar/localidad_otro" relevant=" /F1.3/puntos/lugar/localidad =9999" required="true()" type="string"/>
       <bind nodeset="/F1.3/puntos/equipamiento/tecnologia" required="true()" type="select1"/>
       <bind nodeset="/F1.3/puntos/equipamiento/tecnologia_otro" relevant=" /F1.3/puntos/equipamiento/tecnologia =Otros" required="true()" type="string"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/F1.3/puntos/equipamiento/equipCapacidadDisp" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999.999,99" jr:constraintMsg="Datos no válidos" nodeset="/F1.3/puntos/equipamiento/equipCapacidadUtilizada" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999.999,99" nodeset="/F1.3/puntos/equipamiento/equipCapacidadDisp" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999.999,99" nodeset="/F1.3/puntos/equipamiento/equipCapacidadUtilizada" required="true()" type="decimal"/>
       <bind nodeset="/F1.3/puntos/tipomedio/medio" required="true()" type="select1"/>
       <bind nodeset="/F1.3/puntos/tipomedio/medio_otro" relevant=" /F1.3/puntos/tipomedio/medio =Otros" required="true()" type="string"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/F1.3/puntos/tipomedio/medioCapacidadDisp" relevant=" /F1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
-      <bind constraint="mask=99.999" jr:constraintMsg="Datos no válidos" nodeset="/F1.3/puntos/tipomedio/medioCapacidadUtilizada" relevant=" /F1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999" jr:constraintMsg="Ingrese entero entre 0 y 99.999" nodeset="/F1.3/puntos/tipomedio/medioCapacidadDisp" relevant=" /F1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999" jr:constraintMsg="Ingrese entero entre 0 y 99.999" nodeset="/F1.3/puntos/tipomedio/medioCapacidadUtilizada" relevant=" /F1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
       <bind nodeset="/F1.3/puntos/tipotendido" relevant=" /F1.3/puntos/tipomedio/medio =FO or  /F1.3/puntos/tipomedio/medio =Otros"/>
       <bind nodeset="/F1.3/puntos/tipotendido/tendido" relevant=" /F1.3/puntos/tipomedio/medio =FO or  /F1.3/puntos/tipomedio/medio =Otros" required="true()" type="select1"/>
       <bind nodeset="/F1.3/puntos/tipotendido/tendido_otro" relevant=" /F1.3/puntos/tipotendido/tendido =Otros" required="true()" type="string"/>
-      <bind constraint="mask=999" jr:constraintMsg="Datos no válidos" nodeset="/F1.3/puntos/tipotendido/tendidoCapacidadDisp" relevant=" /F1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
-      <bind constraint="mask=999" jr:constraintMsg="Datos no válidos" nodeset="/F1.3/puntos/tipotendido/tendidoCapacidadUtilizada" relevant=" /F1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/F1.3/puntos/tipotendido/tendidoCapacidadDisp" relevant=" /F1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/F1.3/puntos/tipotendido/tendidoCapacidadUtilizada" relevant=" /F1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/F1.3/puntos/lugarFin/provinciaFin" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/F1.3/puntos/lugarFin/provinciaFin" nodeset="/F1.3/puntos/lugarFin/partidoFin" required="true()" type="select1"/>
+      <bind nodeset="/F1.3/puntos/lugarFin/partidoFin_otro" relevant=" /F1.3/puntos/lugarFin/partidoFin =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/F1.3/puntos/lugarFin/partidoFin" nodeset="/F1.3/puntos/lugarFin/localidadFin" required="true()" type="select1"/>
       <bind nodeset="/F1.3/puntos/lugarFin/localidadFin_otro" relevant=" /F1.3/puntos/lugarFin/localidadFin =9999" required="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/F1.3/meta/instanceID" readonly="true()" type="string"/>
@@ -89,6 +93,10 @@
               <value>-1</value>
             </item>
           </select1>
+          <input ref="/F1.3/puntos/lugar/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
           <select1 appearance="minimal" ref="/F1.3/puntos/lugar/localidad">
             <label>Localidad</label>
             <hint>Localidad</hint>
@@ -230,6 +238,10 @@
               <value>-1</value>
             </item>
           </select1>
+          <input ref="/F1.3/puntos/lugarFin/partidoFin_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
           <select1 appearance="minimal" ref="/F1.3/puntos/lugarFin/localidadFin">
             <label>Localidad</label>
             <hint>Localidad</hint>

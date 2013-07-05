@@ -22,9 +22,9 @@
       </instance>
       <bind nodeset="/F1.16/agregar/tarifas/tarifasAcceso" required="true()" type="select1"/>
       <bind nodeset="/F1.16/agregar/tarifas/tarifasAcceso_otro" relevant=" /F1.16/agregar/tarifas/tarifasAcceso =OTROS" required="true()" type="string"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/F1.16/agregar/tarifas/tarifasInstalacion" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/F1.16/agregar/tarifas/tarifasModem" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/F1.16/agregar/tarifas/tarifasReconexion" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/F1.16/agregar/tarifas/tarifasInstalacion" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/F1.16/agregar/tarifas/tarifasModem" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/F1.16/agregar/tarifas/tarifasReconexion" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/F1.16/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

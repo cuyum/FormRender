@@ -58,23 +58,23 @@
       <bind nodeset="/D1.27/tarifasPlanes/caracteristicas/plan" required="true()" type="string"/>
       <bind nodeset="/D1.27/tarifasPlanes/caracteristicas/modalidad" required="true()" type="select1"/>
       <bind nodeset="/D1.27/tarifasPlanes/caracteristicas/segmento" required="true()" type="select1"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/cargos/abono" required="true()" type="decimal"/>
-      <bind constraint="mask=9.999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/cargos/gastos" required="true()" type="decimal"/>
-      <bind constraint="mask=99.999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/cargos/total" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/D1.27/tarifasPlanes/cargos/abono" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/D1.27/tarifasPlanes/cargos/gastos" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999.99" jr:constraintMsg="Ingrese decimal entre 0 y 99.999,99" nodeset="/D1.27/tarifasPlanes/cargos/total" required="true()" type="decimal"/>
       <bind nodeset="/D1.27/tarifasPlanes/servicios/minutos" required="true()" type="string"/>
       <bind nodeset="/D1.27/tarifasPlanes/servicios/sms" required="true()" type="string"/>
       <bind nodeset="/D1.27/tarifasPlanes/servicios/mms" required="true()" type="string"/>
       <bind nodeset="/D1.27/tarifasPlanes/servicios/serviciosAdic" type="string"/>
-      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/minutoLocal/minutoOnNet" required="true()" type="decimal"/>
-      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/minutoLocal/minutoOffNet" required="true()" type="decimal"/>
-      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/sms/smsOnNet" required="true()" type="decimal"/>
-      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/sms/smsOffNet" required="true()" type="decimal"/>
-      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/mms/mmsOnNet" required="true()" type="decimal"/>
-      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/mms/mmsOffNet" required="true()" type="decimal"/>
-      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/datos/datosOnNet" required="true()" type="decimal"/>
-      <bind constraint="mask=99,999" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/precios/datos/datosOffNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.27/tarifasPlanes/precios/minutoLocal/minutoOnNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.27/tarifasPlanes/precios/minutoLocal/minutoOffNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.27/tarifasPlanes/precios/sms/smsOnNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.27/tarifasPlanes/precios/sms/smsOffNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.27/tarifasPlanes/precios/mms/mmsOnNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.27/tarifasPlanes/precios/mms/mmsOffNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.27/tarifasPlanes/precios/datos/datosOnNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.27/tarifasPlanes/precios/datos/datosOffNet" required="true()" type="decimal"/>
       <bind nodeset="/D1.27/tarifasPlanes/otrosImp/grupoOtros/otros" required="true()" type="string"/>
-      <bind constraint="mask=999,99" jr:constraintMsg="Datos no válidos" nodeset="/D1.27/tarifasPlanes/otrosImp/impuestos/porcentaje" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999,99" nodeset="/D1.27/tarifasPlanes/otrosImp/impuestos/porcentaje" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.27/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

@@ -187,9 +187,26 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 	                <ul class="icons"><li><a href="#">
 	                	<span id="version"></span>
 	                </a></li></ul>
+	                
 	                </div>
-                            
-		            
+	                <!-- 
+                    <div class="alert">
+                        <button data-dismiss="alert" class="close" type="button">×</button>
+                        <strong>Warning!</strong> Best check yo self, you're not looking too good.
+                    </div>
+                    <div class="alert alert-error semi-block">
+                        <button data-dismiss="alert" class="close" type="button">×</button>
+                        <strong>Warning!</strong> Best check yo self, you're not looking too good.
+                    </div>
+                    <div class="alert alert-success semi-block">
+                        <button data-dismiss="alert" class="close" type="button">×</button>
+                        <strong>Warning!</strong> Best check yo self, you're not looking too good.
+                    </div>
+                    <div class="alert alert-info semi-block">
+                        <button data-dismiss="alert" class="close" type="button">×</button>
+                        <strong>Warning!</strong> Best check yo self, you're not looking too good.
+                    </div>                         
+		            -->
                 <!--
                     <div id="stats" style="display: none;">
                         <span id="jrSelect"><xsl:value-of select="count(/h:html/h:body//xf:select)"/></span>

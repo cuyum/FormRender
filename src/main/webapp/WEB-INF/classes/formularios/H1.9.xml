@@ -42,11 +42,11 @@
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/H1.9/meses/mes/localidad" nodeset="/H1.9/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/H1.9/meses/mes/area_otro" relevant=" /H1.9/meses/mes/area =9999" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/H1.9/meses/mes/ll/llSaliente" required="true()" type="decimal"/>
-      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="CUIT no válido" nodeset="/H1.9/meses/mes/ll/llOperador" required="true()" type="int"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/H1.9/meses/mes/ll/llOperador" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/H1.9/meses/mes/lldn/lldnSaliente" required="true()" type="decimal"/>
-      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="CUIT no válido" nodeset="/H1.9/meses/mes/lldn/lldnOperador" required="true()" type="int"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/H1.9/meses/mes/lldn/lldnOperador" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/H1.9/meses/mes/lldi/lldiSaliente" required="true()" type="decimal"/>
-      <bind constraint="regex(., '^[0-9]{2}[0-9]{8}[0-9]$') and type=cuit" jr:constraintMsg="CUIT no válido" nodeset="/H1.9/meses/mes/lldi/lldiOperador" required="true()" type="int"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/H1.9/meses/mes/lldi/lldiOperador" required="true()" type="select1"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/H1.9/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -106,10 +106,14 @@
               <label>Saliente</label>
               <hint>Saliente [en miles]</hint>
             </input>
-            <input ref="/H1.9/meses/mes/ll/llOperador">
+            <select1 appearance="minimal" ref="/H1.9/meses/mes/ll/llOperador">
               <label>Operador</label>
               <hint>Operador</hint>
-            </input>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+            </select1>
           </group>
           <group appearance="col2 well-white" ref="/H1.9/meses/mes/lldn">
             <label>L-LDN</label>
@@ -117,10 +121,14 @@
               <label>Saliente</label>
               <hint>Saliente [en miles]</hint>
             </input>
-            <input ref="/H1.9/meses/mes/lldn/lldnOperador">
+            <select1 appearance="minimal" ref="/H1.9/meses/mes/lldn/lldnOperador">
               <label>Operador</label>
               <hint>Operador</hint>
-            </input>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+            </select1>
           </group>
           <group appearance="col2 well-white" ref="/H1.9/meses/mes/lldi">
             <label>L-LDI</label>
@@ -128,10 +136,14 @@
               <label>Saliente</label>
               <hint>Saliente [en miles]</hint>
             </input>
-            <input ref="/H1.9/meses/mes/lldi/lldiOperador">
+            <select1 appearance="minimal" ref="/H1.9/meses/mes/lldi/lldiOperador">
               <label>Operador</label>
               <hint>Operador</hint>
-            </input>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+            </select1>
           </group>
         </group>
       </repeat>
