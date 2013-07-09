@@ -975,7 +975,7 @@ div.uploader input { width: 256px; opacity: 0; filter: alpha(opacity:0); positio
 /* ===== Datatables ===== */
 
 .dataTables_wrapper { position: relative; clear: both; *zoom: 1; }
-.dataTables_length { float: right; padding: 12px 10px; display: block; }
+.dataTables_length { float: right; display: block; }
 .dataTables_length > label > span { float: left; margin-top: 3px; }
 .dataTables_length .selector { margin-left: 10px; line-height: 26px; height: 26px; }
 .dataTables_length .selector > span { height: 26px; line-height: 26px; background-position: 100% -1px; padding-top: 0; }

@@ -11,6 +11,7 @@
               <plan/>
               <modalidad/>
               <segmento/>
+              <segmento_otro/>
             </caracteristicas>
             <cargos>
               <abono/>
@@ -57,6 +58,7 @@
       <bind nodeset="/I1.9/tarifasPlanes/caracteristicas/plan" required="true()" type="string"/>
       <bind nodeset="/I1.9/tarifasPlanes/caracteristicas/modalidad" required="true()" type="select1"/>
       <bind nodeset="/I1.9/tarifasPlanes/caracteristicas/segmento" required="true()" type="select1"/>
+      <bind nodeset="/I1.9/tarifasPlanes/caracteristicas/segmento_otro" relevant=" /I1.9/tarifasPlanes/caracteristicas/segmento =OTROS" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/I1.9/tarifasPlanes/cargos/abono" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/I1.9/tarifasPlanes/cargos/gastos" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99999.99" jr:constraintMsg="Ingrese decimal entre 0 y 99.999,99" nodeset="/I1.9/tarifasPlanes/cargos/total" required="true()" type="decimal"/>
@@ -138,6 +140,10 @@
               <value>OTROS</value>
             </item>
           </select1>
+          <input ref="/I1.9/tarifasPlanes/caracteristicas/segmento_otro">
+            <label>Segmento Otros</label>
+            <hint>Segmento Otros</hint>
+          </input>
         </group>
         <group appearance="col3 well-white" ref="/I1.9/tarifasPlanes/cargos">
           <label>Cargos Fijos Mensuales</label>

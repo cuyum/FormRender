@@ -93,7 +93,8 @@
             </item>
           </select1>
           <input ref="/C1.26/plan_plan/planes/segmento_otro">
-            <label>Seg. Otros</label>
+            <label>Segmento Otros</label>
+            <hint>Segmento Otros</hint>
           </input>
           <input ref="/C1.26/plan_plan/planes/abono">
             <label>Abono</label>

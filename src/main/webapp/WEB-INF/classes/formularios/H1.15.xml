@@ -93,7 +93,8 @@
             </item>
           </select1>
           <input ref="/H1.15/plan_plan/nombrePlan/segmento_otro">
-            <label>Seg. Otros</label>
+            <label>Segmento Otros</label>
+            <hint>Segmento Otros</hint>
           </input>
           <input ref="/H1.15/plan_plan/nombrePlan/abono">
             <label>Abono</label>
