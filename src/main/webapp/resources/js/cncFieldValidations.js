@@ -30,18 +30,14 @@ var validationRequired = function(field){
 var setupHint = function(field){
 	var hint = field.siblings("[class^='jr-hint']");
 	if(hint){
-		var fieldName = field.attr("name");
-		/*tooltipo selector*/
-		itemSelector = "[name~='"+fieldName+"']";
+		var label = hint.siblings(".jr-label");
 		
-		//FIXME: arreglar para radios y textareas
-//		var fieldType = $(field).attr("type");
-//		if(fieldType != "undefined" && fieldType == "radio"){
-//			itemSelector = "[data-itext-id~='"+fieldName+":label']";
-//		}
+		label.attr("title",hint.text());
+		hint.remove();
+		label.tooltip();
+		
 		$(field).tooltip({
-			content:hint.text(),
-			 items: itemSelector
+			position:{ my: "left top+15", at: "right center", collision: "flipfit" }
 		});
 	}
 };
