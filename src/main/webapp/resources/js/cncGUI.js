@@ -29,6 +29,7 @@ var gui = new function(){
 	};
 	this.setupDefaults = function(){
 		$("select").select2();
+		setupFormHint();
 	};
 	this.blockUI = function(message,unblockable){
 		if(!$("#unblockable").is("span")){

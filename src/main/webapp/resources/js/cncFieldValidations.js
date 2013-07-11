@@ -34,12 +34,24 @@ var setupHint = function(field){
 		
 		label.attr("title",hint.text());
 		hint.remove();
-		label.tooltip();
-		
-		$(field).tooltip({
-			position:{ my: "left top+15", at: "right center", collision: "flipfit" }
+		label.tooltip({
+			placement:"right"
 		});
 	}
+};
+
+var setupFormHint = function(){
+	var hint = $("form label.tooltip").children("span.jr-hint");
+	if(hint){
+		var title = $("#form-title");
+		title.attr("title",hint.text());
+		hint.parent("label").remove();
+		title.tooltip({
+			placement:"right"
+		});
+		
+	}
+	
 };
 
 var setupCalculate = function(field,fieldset){
