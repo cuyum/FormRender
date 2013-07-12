@@ -302,6 +302,7 @@ var setupRemoteData = function(field,fieldset){
 			gui.addDependant(ancestor,newField);
 			
 			newField.select2({
+				allowClear: true,
 				placeholder:"Seleccione una opci\u00f3n",
 				ajax:{
 					url:"/FormRender/rest/service/relay",
@@ -332,6 +333,7 @@ var setupRemoteData = function(field,fieldset){
 //			console.log("remote "+newField.attr("name")+" has ancestor"+ancestor.attr("name"));
 		}else{
 			newField.select2({
+				allowClear: true,
 				placeholder:"Seleccione una opci\u00f3n",
 				ajax:{
 					url:"/FormRender/rest/service/relay",

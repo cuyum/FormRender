@@ -85,6 +85,15 @@ var gui = new function(){
 		$("[class~='error']").siblings("label[class='error']").remove();
 		$("[class~='error']").removeClass("error");
 	};
+	this.resetForm = function(){
+		gui.form.reset();
+		$("select").each(function(count,item){
+			$(item).select2("data",null);
+		});
+		$("[data-type-xml='select2']").each(function(i, item){
+			$(item).select2("val","");
+		});
+	};
 	this.resetFields = function(fields){
 		for ( var i = 0; i < fields.length; i++) {
 			var field = $(fields[i]);
@@ -172,7 +181,8 @@ var gui = new function(){
 					if(data.result && data.result.type){
 						if(data.result.type == "SUCCESS"){
 							alert("Formulario guardado ("+data.result.id+").");
-							gui.form.reset();
+							gui.cleanFormValidations();
+							gui.resetForm();
 							if(gui.renderGrid){
 								gui.grid.element.dataTable().fnClearTable();
 							}
