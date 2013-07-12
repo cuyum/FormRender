@@ -144,6 +144,7 @@ var gui = new function(){
 				message.payload.formulario.data = dataList;
 				submit=true;
 			} else {
+				alert("No se encuentran registros para guardar.")
 				console.warn("No data in grid");
 				gui.validateForm();
 			}
@@ -313,11 +314,11 @@ var gui = new function(){
 			if(!isChecking){
 				ancestor.data("isCheckingRelevants",true);
 				ancestor.on("change",{ me:ancestor }, function(event){
-					console.log("change fired from ancestor and captured from relevant");
+//					console.log("change fired from ancestor and captured from relevant");
 					var _this = event.data.me;
 					/*retrieve all dependant field of _this field*/
 					var dependants = _this.data("dependant");
-					console.log(dependants);
+//					console.log(dependants);
 
 					for ( var i = 0; i < dependants.length; i++) {
 						var dependant = dependants[i];
@@ -407,6 +408,9 @@ var gui = new function(){
 			instance:-1
 		},
 		element : $('<table id="repeat-grid" class="table table-striped"></table>'),
+		getData : function(){
+			return this.element.dataTable().fnGetData();
+		},
 		getRowData : function(rowIndex){
 			return this.element.dataTable().fnGetData(rowIndex);
 		},
@@ -414,7 +418,9 @@ var gui = new function(){
 			$("input[type~='button'][repeat-action='edit']").unbind("click");
 			$("input[type~='button'][repeat-action='edit']").click(function(evt){
 				var rowIndex =  gui.grid.element.dataTable().fnGetPosition($(evt.target).closest('tr').get(0));
+				console.log(rowIndex);
 				var record = gui.grid.getRowData(rowIndex);
+				console.log(record);
 				var fields = gui.fieldsets[record.instance].fields;
 				gui.blockUI("Cargando...<br>Espere por favor...",true);
 				
@@ -439,7 +445,9 @@ var gui = new function(){
 			var record = $.extend(true,{},this.model);
 			if(gui.repeatCount && gui.repeatCount>1)
 				record.item = fieldset.title;
-			var commit = true; 
+			var commit = true;
+			var tmpHash = "";
+			var hash;
 			for ( var i = 0; i < fieldset.fields.length; i++) {
 				var field =$(fieldset.fields[i]);
 				var attribute = gui.getCleanFieldName(field.attr("name"),fieldsetInstance);
@@ -449,13 +457,19 @@ var gui = new function(){
 						if(field.is("select")){
 							var o = field.children("option:selected");
 							record[attribute] = {label:o.text(),value:value};
+							tmpHash = tmpHash + value; 
 						}else if(field.attr("data-type-xml")=="select2"){
 							var data = field.select2("data");
 //							console.log("select2 data",data);
 							record[attribute] = {label:data.text,value:data.id};
+							tmpHash = tmpHash + data.id;
 						}else{
 							record[attribute] = value;
+							tmpHash = tmpHash + value;
 						}
+						hash = new jsSHA(tmpHash,"TEXT");
+						
+						record["firma_digital"] = hash.getHash("SHA-1","HEX");
 						fields.push(field);
 					} else {
 						commit = false;
@@ -467,6 +481,17 @@ var gui = new function(){
 				}
 			}
 			record.instance = fieldset.instance;
+			var storedData = this.getData();
+//			console.info("new record",record.signature);
+			for ( var i = 0; i < storedData.length; i++) {
+				var storedRecord = storedData[i];
+//				console.info("stored record",storedRecord.signature);
+				if(storedRecord.firma_digital == record.firma_digital){
+					alert("Ya hay un registro con esos valores");
+					commit = false;
+					break;
+				};
+			}
 			if(commit){
 				gui.cleanFormValidations();
 				gui.resetFields(fields);

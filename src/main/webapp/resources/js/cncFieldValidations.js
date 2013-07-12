@@ -49,9 +49,7 @@ var setupFormHint = function(){
 		title.tooltip({
 			placement:"right"
 		});
-		
 	}
-	
 };
 
 var setupCalculate = function(field,fieldset){
@@ -569,7 +567,7 @@ var addVisualizationLogic = function(field){
 //				console.log("should not show");
 				field.closest("label").hide();
 			}
-		}else console.log("no relevants found");
+		}//else console.log("no relevants found");
 		
 		
 //		console.groupEnd();
