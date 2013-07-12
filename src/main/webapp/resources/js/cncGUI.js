@@ -433,7 +433,7 @@ var gui = new function(){
 				console.log(record);
 				var fields = gui.fieldsets[record.instance].fields;
 				gui.blockUI("Cargando...<br>Espere por favor...",true);
-				
+				gui.resetForm();
 				gui.completeForm(record,fields);
 				
 				for ( var i = 0; i < fields.length; i++) {
