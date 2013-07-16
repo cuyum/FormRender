@@ -293,6 +293,13 @@ var setupRemoteData = function(field,fieldset){
 		newField.data(field.data());
 		setupRelevantData(newField,fieldset, field);//vuelvo a setear dependencia relevante
 		field.remove(); //and finally remove the select element
+		
+		/*
+		 *Bug #192 url in get parameter --- 
+		 * escape() will not encode: /@*+
+		 * encodeURI() will not encode: ~!@#$&*()=:/,;?+'
+		 * encodeURIComponent() will not encode: ~!*()'
+		 */
 		if(newField.data("jr:constraint:depends")!=undefined){//depende de otro campo
 			var ancestorSelector = "[name~='"+newField.data("jr:constraint:depends")+"']";
 			if(fieldset.instance!=undefined){
@@ -310,9 +317,14 @@ var setupRemoteData = function(field,fieldset){
 					type:"POST",
 					quietMillis:300,
 					data: function (term, page) { // page is the one-based page number tracked by Select2
-		                return {
+						term = term.trim();
+						if(term.length>0){
+							term = encodeURIComponent(term); 
+							console.log("remote1",term);
+						}
+						return {
 		                	fkey:ancestor.val(),
-		                    remoteUrl:url+"?limit=20&page="+page+(term && term.length>0?"&term="+term:"") //remote service url
+		                    remoteUrl:url+"?limit=20&page="+page+(term && term.length>0?"&term="+term.toLowerCase():"") //remote service url
 		                };
 		            },
 		            results: function (data, page) {
@@ -341,8 +353,13 @@ var setupRemoteData = function(field,fieldset){
 					type:"POST",
 					quietMillis:300,
 					data: function (term, page) { // page is the one-based page number tracked by Select2
-	                    return {
-	                        remoteUrl:url+"?limit=20&page="+page+(term && term.length>0?"&term="+term:"") //remote service url
+						term = term.trim();
+						if(term.length>0){
+							term = encodeURIComponent(term); 
+							console.log("remote2",term);
+						}
+						return {
+	                        remoteUrl:url+"?limit=20&page="+page+(term && term.length>0?"&term="+term.toLowerCase():"") //remote service url
 	                    };
 	                },
 	                results: function (data, page) {
