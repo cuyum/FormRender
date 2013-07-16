@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.28 id="C1.28">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <stl/>
@@ -21,6 +22,7 @@
           </meta>
         </C1.28>
       </instance>
+      <bind nodeset="/C1.28/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.28/meses/mes/stl" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.28/meses/mes/ldn" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.28/meses/mes/ldi" required="true()" type="int"/>
@@ -31,6 +33,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/C1.28/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
     <group ref="/C1.28/meses">
       <label></label>
       <repeat nodeset="/C1.28/meses">
@@ -54,7 +59,7 @@
           </input>
           <input ref="/C1.28/meses/mes/otros">
             <label>Otros</label>
-            <hint>Otros [en miles de pesos]</hint>
+            <hint>Informar lo que no está incluido en los campos precedentes de manera que el total sea coincidente con lo consignado en los EECC [en miles de pesos]</hint>
           </input>
           <input ref="/C1.28/meses/mes/total">
             <label>Total</label>

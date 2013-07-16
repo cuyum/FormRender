@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.12 id="C1.12">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <provincia/>
@@ -34,6 +35,7 @@
           </meta>
         </C1.12>
       </instance>
+      <bind nodeset="/C1.12/titulo" readonly="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/C1.12/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/C1.12/meses/mes/provincia" nodeset="/C1.12/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/C1.12/meses/mes/partido_otro" relevant=" /C1.12/meses/mes/partido =9999" required="true()" type="string"/>
@@ -41,16 +43,19 @@
       <bind nodeset="/C1.12/meses/mes/localidad_otro" relevant=" /C1.12/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C1.12/meses/mes/localidad" nodeset="/C1.12/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/C1.12/meses/mes/area_otro" relevant=" /C1.12/meses/mes/area =9999" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.12/meses/mes/ll/llHorarioNormal" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.12/meses/mes/ll/llHorarioReducido" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.12/meses/mes/lldn/lldnHorarioNormal" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.12/meses/mes/lldn/lldnHorarioReducido" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.12/meses/mes/lldi/lldiHorarioNormal" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.12/meses/mes/lldi/lldiHorarioReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999.999.999,9" nodeset="/C1.12/meses/mes/ll/llHorarioNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999.999.999,9" nodeset="/C1.12/meses/mes/ll/llHorarioReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999.999.999,9" nodeset="/C1.12/meses/mes/lldn/lldnHorarioNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999.999.999,9" nodeset="/C1.12/meses/mes/lldn/lldnHorarioReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999.999.999,9" nodeset="/C1.12/meses/mes/lldi/lldiHorarioNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999.999.999,9" nodeset="/C1.12/meses/mes/lldi/lldiHorarioReducido" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.12/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/C1.12/titulo">
+      <hint>Consignar tráfico saliente, en cantidad de minutos, con la desagregación solicitada.</hint>
+    </input>
     <group ref="/C1.12/meses">
       <label></label>
       <repeat appearance="grilla" nodeset="/C1.12/meses">

@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.40 id="C1.40">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <origenYTerminacionFijo/>
@@ -24,6 +25,7 @@
           </meta>
         </C1.40>
       </instance>
+      <bind nodeset="/C1.40/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.40/meses/mes/origenYTerminacionFijo" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.40/meses/mes/origenYTerminacionMovil" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.40/meses/mes/puertos" required="true()" type="int"/>
@@ -37,6 +39,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/C1.40/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
     <group ref="/C1.40/meses">
       <label></label>
       <repeat nodeset="/C1.40/meses">
@@ -72,7 +77,7 @@
           </input>
           <input ref="/C1.40/meses/mes/otros">
             <label>Otros</label>
-            <hint>Otros [en miles de pesos]</hint>
+            <hint>Consignar los ingresos por interconexión a la red fija no incluidos en los campos precedentes [en miles de pesos]</hint>
           </input>
           <input ref="/C1.40/meses/mes/total">
             <label>Total</label>

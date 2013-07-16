@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.47 id="C1.47">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <iandD/>
@@ -26,6 +27,7 @@
           </meta>
         </C1.47>
       </instance>
+      <bind nodeset="/C1.47/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.47/meses/mes/iandD" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.47/meses/mes/impuestos" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.47/meses/mes/amortizacionBienesUso" required="true()" type="int"/>
@@ -41,6 +43,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/C1.47/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC. Los campos &quot;Otros …&quot; deben ser completados de forma tal que el total del formulario coincida con lo informado en los EECC.</hint>
+    </input>
     <group ref="/C1.47/meses">
       <label></label>
       <repeat nodeset="/C1.47/meses">

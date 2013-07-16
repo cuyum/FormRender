@@ -88,11 +88,11 @@
           </input>
           <input ref="/C1.20/meses/mes/personal">
             <label>Personal</label>
-            <hint>Personal</hint>
+            <hint>Cantidad de empleados dedicados a la atención telefónica, normalizada de acuerdo al criterio explicitado en el Manual.</hint>
           </input>
           <input ref="/C1.20/meses/mes/esperaPromedio">
             <label>Espera Promedio</label>
-            <hint>Espera Promedio [minutos]</hint>
+            <hint>Minutos de espera promedio en la atención al cliente.</hint>
           </input>
         </group>
       </repeat>

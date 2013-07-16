@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.38 id="C1.38">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <ddi/>
@@ -18,6 +19,7 @@
           </meta>
         </C1.38>
       </instance>
+      <bind nodeset="/C1.38/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.38/meses/mes/ddi" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.38/meses/mes/operadora" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.38/meses/mes/otros" required="true()" type="int"/>
@@ -25,6 +27,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/C1.38/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
     <group ref="/C1.38/meses">
       <label></label>
       <repeat nodeset="/C1.38/meses">
@@ -40,7 +45,7 @@
           </input>
           <input ref="/C1.38/meses/mes/otros">
             <label>Otros</label>
-            <hint>Otros [en miles de pesos]</hint>
+            <hint>Consignar los ingresos por larga distancia internacional no incluidos en los campos precedentes [en miles de pesos]</hint>
           </input>
         </group>
       </repeat>

@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.11 id="C1.11">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <provincia/>
@@ -34,6 +35,7 @@
           </meta>
         </C1.11>
       </instance>
+      <bind nodeset="/C1.11/titulo" readonly="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/C1.11/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/C1.11/meses/mes/provincia" nodeset="/C1.11/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/C1.11/meses/mes/partido_otro" relevant=" /C1.11/meses/mes/partido =9999" required="true()" type="string"/>
@@ -41,16 +43,19 @@
       <bind nodeset="/C1.11/meses/mes/localidad_otro" relevant=" /C1.11/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C1.11/meses/mes/localidad" nodeset="/C1.11/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/C1.11/meses/mes/area_otro" relevant=" /C1.11/meses/mes/area =9999" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.11/meses/mes/ll/llEntrante" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.11/meses/mes/ll/llSaliente" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.11/meses/mes/lldn/lldnEntrante" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.11/meses/mes/lldn/lldnSaliente" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.11/meses/mes/lldi/lldiEntrante" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.11/meses/mes/lldi/lldiSaliente" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999.999.999,9" nodeset="/C1.11/meses/mes/ll/llEntrante" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999.999.999,9" nodeset="/C1.11/meses/mes/ll/llSaliente" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999.999.999,9" nodeset="/C1.11/meses/mes/lldn/lldnEntrante" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999.999.999,9" nodeset="/C1.11/meses/mes/lldn/lldnSaliente" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999.999.999,9" nodeset="/C1.11/meses/mes/lldi/lldiEntrante" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999.999.999,9" nodeset="/C1.11/meses/mes/lldi/lldiSaliente" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.11/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/C1.11/titulo">
+      <hint>Consignar el tráfico entrante y saliente, en cantidad de minutos, desagregado por distancia.</hint>
+    </input>
     <group ref="/C1.11/meses">
       <label></label>
       <repeat appearance="grilla" nodeset="/C1.11/meses">

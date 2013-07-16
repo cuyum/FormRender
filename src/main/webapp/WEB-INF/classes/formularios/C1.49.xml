@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.49 id="C1.49">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <hombres/>
@@ -17,12 +18,16 @@
           </meta>
         </C1.49>
       </instance>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.49/meses/mes/hombres" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.49/meses/mes/mujeres" required="true()" type="decimal"/>
+      <bind nodeset="/C1.49/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.49/meses/mes/hombres" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.49/meses/mes/mujeres" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.49/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/C1.49/titulo">
+      <hint>Cantidad de empleados, normalizada de acuerdo al criterio explicitado en el Manual.</hint>
+    </input>
     <group ref="/C1.49/meses">
       <label></label>
       <repeat nodeset="/C1.49/meses">

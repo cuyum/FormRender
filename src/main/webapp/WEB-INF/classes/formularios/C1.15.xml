@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.15 id="C1.15">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <provincia/>
@@ -22,8 +23,7 @@
                 <operador2/>
                 <salientes3/>
                 <operador3/>
-                <salientes4/>
-                <operadorOtros/>
+                <salientesOtros/>
               </salientes>
             </mes>
           </meses>
@@ -32,6 +32,7 @@
           </meta>
         </C1.15>
       </instance>
+      <bind nodeset="/C1.15/titulo" readonly="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/C1.15/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/C1.15/meses/mes/provincia" nodeset="/C1.15/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/C1.15/meses/mes/partido_otro" relevant=" /C1.15/meses/mes/partido =9999" required="true()" type="string"/>
@@ -39,18 +40,20 @@
       <bind nodeset="/C1.15/meses/mes/localidad_otro" relevant=" /C1.15/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C1.15/meses/mes/localidad" nodeset="/C1.15/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/C1.15/meses/mes/area_otro" relevant=" /C1.15/meses/mes/area =9999" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.15/meses/mes/salientes/salientes1" required="true()" type="decimal"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/salientes/operador1" required="true()" type="select1"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.15/meses/mes/salientes/salientes2" required="true()" type="decimal"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/salientes/operador2" required="true()" type="select1"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.15/meses/mes/salientes/salientes3" required="true()" type="decimal"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/salientes/operador3" required="true()" type="select1"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0 y 999.999.999.999,9" nodeset="/C1.15/meses/mes/salientes/salientes4" required="true()" type="decimal"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.15/meses/mes/salientes/operadorOtros" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999.999.999,9" nodeset="/C1.15/meses/mes/salientes/salientes1" required="true()" type="decimal"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/prestadores" nodeset="/C1.15/meses/mes/salientes/operador1" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999.999.999,9" nodeset="/C1.15/meses/mes/salientes/salientes2" type="decimal"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/prestadores" nodeset="/C1.15/meses/mes/salientes/operador2" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999.999.999,9" nodeset="/C1.15/meses/mes/salientes/salientes3" type="decimal"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/prestadores" nodeset="/C1.15/meses/mes/salientes/operador3" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999.999.999,9" nodeset="/C1.15/meses/mes/salientes/salientesOtros" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.15/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/C1.15/titulo">
+      <hint>Incluye el tráfico dentro de la red propia (on-net) y el tráfico hacia redes de terceros (off-net), en cantidad de llamadas.</hint>
+    </input>
     <group ref="/C1.15/meses">
       <label></label>
       <repeat appearance="grilla" nodeset="/C1.15/meses">
@@ -137,18 +140,10 @@
                 <value>-1</value>
               </item>
             </select1>
-            <input ref="/C1.15/meses/mes/salientes/salientes4">
-              <label>Salientes</label>
-              <hint>Salientes [en miles]</hint>
+            <input ref="/C1.15/meses/mes/salientes/salientesOtros">
+              <label>Salientes Operador Otros</label>
+              <hint>Salientes Operador Otros [en miles]</hint>
             </input>
-            <select1 appearance="minimal" ref="/C1.15/meses/mes/salientes/operadorOtros">
-              <label>Operador Otros</label>
-              <hint>Operador Otros</hint>
-              <item>
-                <label>Seleccione una opción</label>
-                <value>-1</value>
-              </item>
-            </select1>
           </group>
         </group>
       </repeat>

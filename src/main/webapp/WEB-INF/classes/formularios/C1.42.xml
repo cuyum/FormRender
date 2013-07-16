@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.42 id="C1.42">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <arriendosCircuitosLdi/>
@@ -21,6 +22,7 @@
           </meta>
         </C1.42>
       </instance>
+      <bind nodeset="/C1.42/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.42/meses/mes/arriendosCircuitosLdi" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.42/meses/mes/traficoLdi" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.42/meses/mes/corresponsalesEntrada" required="true()" type="int"/>
@@ -31,6 +33,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/C1.42/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
     <group ref="/C1.42/meses">
       <label></label>
       <repeat nodeset="/C1.42/meses">

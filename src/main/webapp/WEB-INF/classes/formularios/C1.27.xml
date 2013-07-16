@@ -27,9 +27,9 @@
       <bind nodeset="/C1.27/plan_plan/planes/aplicacion" required="true()" type="select1"/>
       <bind nodeset="/C1.27/plan_plan/planes/segmento" required="true()" type="select1"/>
       <bind nodeset="/C1.27/plan_plan/planes/segmento_otro" relevant=" /C1.27/plan_plan/planes/segmento =OTROS" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/C1.27/plan_plan/planes/abono" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 9.999,99" nodeset="/C1.27/plan_plan/planes/abono" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999" nodeset="/C1.27/plan_plan/planes/minutos" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/C1.27/plan_plan/planes/precio" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 9.999,99" nodeset="/C1.27/plan_plan/planes/precio" required="true()" type="decimal"/>
       <bind nodeset="/C1.27/plan_plan/planes/observacion" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.27/meta/instanceID" readonly="true()" type="string"/>
     </model>
@@ -42,7 +42,7 @@
           <label>Planes</label>
           <input ref="/C1.27/plan_plan/planes/plan">
             <label>Plan</label>
-            <hint>Plan</hint>
+            <hint>Ingresar el nombre comercial del plan.</hint>
           </input>
           <select1 appearance="minimal" ref="/C1.27/plan_plan/planes/aplicacion">
             <label>Aplicación</label>
@@ -62,7 +62,7 @@
           </select1>
           <select1 appearance="minimal" ref="/C1.27/plan_plan/planes/segmento">
             <label>Segmento</label>
-            <hint>Segmento</hint>
+            <hint>Seleccionar desde la lista desplegable a qué segmento corresponde.</hint>
             <item>
               <label>Seleccione opción</label>
               <value>-1</value>
@@ -98,19 +98,19 @@
           </input>
           <input ref="/C1.27/plan_plan/planes/abono">
             <label>Abono</label>
-            <hint>Abono [en pesos]</hint>
+            <hint>Informar el monto del abono en pesos, sin IVA.</hint>
           </input>
           <input ref="/C1.27/plan_plan/planes/minutos">
             <label>Minutos</label>
-            <hint>Minutos</hint>
+            <hint>Informar minutos incluidos en el abono.</hint>
           </input>
           <input ref="/C1.27/plan_plan/planes/precio">
             <label>Precio</label>
-            <hint>Precio [en pesos]</hint>
+            <hint>Informar precio promedio del minuto excedente.</hint>
           </input>
           <input appearance="multiline" ref="/C1.27/plan_plan/planes/observacion">
             <label>Observaciones</label>
-            <hint>Observaciones</hint>
+            <hint>En caso de ofrecer planes que empaquetan distintos servicios, consignar los servicios adicionales en este campo.</hint>
           </input>
         </group>
       </repeat>

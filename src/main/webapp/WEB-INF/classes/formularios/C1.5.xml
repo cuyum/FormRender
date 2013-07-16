@@ -94,7 +94,7 @@
           </input>
           <input ref="/C1.5/meses/mes/accesos">
             <label>Accesos</label>
-            <hint>Accesos</hint>
+            <hint>Informar datos al final del período considerado.</hint>
           </input>
           <input ref="/C1.5/meses/mes/tramasE1">
             <label>Tramas E1</label>

@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.10 id="C1.10">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <provincia/>
@@ -40,6 +41,7 @@
           </meta>
         </C1.10>
       </instance>
+      <bind nodeset="/C1.10/titulo" readonly="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/C1.10/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/C1.10/meses/mes/provincia" nodeset="/C1.10/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/C1.10/meses/mes/partido_otro" relevant=" /C1.10/meses/mes/partido =9999" required="true()" type="string"/>
@@ -47,22 +49,25 @@
       <bind nodeset="/C1.10/meses/mes/localidad_otro" relevant=" /C1.10/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C1.10/meses/mes/localidad" nodeset="/C1.10/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/C1.10/meses/mes/area_otro" relevant=" /C1.10/meses/mes/area =9999" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 99.999.999,99" nodeset="/C1.10/meses/mes/ll/llHogar" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 99.999.999,99" nodeset="/C1.10/meses/mes/ll/llEmpresa" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 99.999.999,99" nodeset="/C1.10/meses/mes/ll/llGobierno" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 99.999.999,99" nodeset="/C1.10/meses/mes/ll/llOtros" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 99.999.999,99" nodeset="/C1.10/meses/mes/lldn/lldnHogar" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 99.999.999,99" nodeset="/C1.10/meses/mes/lldn/lldnEmpresa" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 99.999.999,99" nodeset="/C1.10/meses/mes/lldn/lldnGobierno" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 99.999.999,99" nodeset="/C1.10/meses/mes/lldn/lldnOtros" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 99.999.999,99" nodeset="/C1.10/meses/mes/lldi/lldiHogar" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 99.999.999,99" nodeset="/C1.10/meses/mes/lldi/lldiEmpresa" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 99.999.999,99" nodeset="/C1.10/meses/mes/lldi/lldiGobierno" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 99.999.999,99" nodeset="/C1.10/meses/mes/lldi/lldiOtros" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 99.999.999,99" nodeset="/C1.10/meses/mes/ll/llHogar" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 99.999.999,99" nodeset="/C1.10/meses/mes/ll/llEmpresa" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 99.999.999,99" nodeset="/C1.10/meses/mes/ll/llGobierno" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 99.999.999,99" nodeset="/C1.10/meses/mes/ll/llOtros" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 99.999.999,99" nodeset="/C1.10/meses/mes/lldn/lldnHogar" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 99.999.999,99" nodeset="/C1.10/meses/mes/lldn/lldnEmpresa" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 99.999.999,99" nodeset="/C1.10/meses/mes/lldn/lldnGobierno" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 99.999.999,99" nodeset="/C1.10/meses/mes/lldn/lldnOtros" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 99.999.999,99" nodeset="/C1.10/meses/mes/lldi/lldiHogar" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 99.999.999,99" nodeset="/C1.10/meses/mes/lldi/lldiEmpresa" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 99.999.999,99" nodeset="/C1.10/meses/mes/lldi/lldiGobierno" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 99.999.999,99" nodeset="/C1.10/meses/mes/lldi/lldiOtros" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.10/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/C1.10/titulo">
+      <hint>Consignar tráfico saliente con la desagregación solicitada.</hint>
+    </input>
     <group ref="/C1.10/meses">
       <label></label>
       <repeat appearance="grilla" nodeset="/C1.10/meses">

@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.25 id="C1.25">
+          <titulo/>
           <servicios>
             <llamadaConferencia/>
             <bloqueoTraficoLocal/>
@@ -42,39 +43,43 @@
           </meta>
         </C1.25>
       </instance>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/llamadaConferencia" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/bloqueoTraficoLocal" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/bloqueoTraficoLdn" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/desvioOcupado" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/desvioNoContesta" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/desvioCambioDomicilio" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/desvioPorBaja" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/bloqueoTraficoLdi" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/llamadaSinSeleccion" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/callerId" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/restriccionCallerId" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/facturacionDetallada" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/noFigurar" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/despertador" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/noMolestar" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/clienteAbonadoAusente" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/numeracionAbreviada" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/senialLlamadaEspera" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/desvioDirecto" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/memoLlamada" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/amplificadorPRadiodifusion" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/timbreLlamadas" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/bloqueoLlamadasMasivas" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/telelectura" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/manteimientoDomiciliario" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/datosInquilinoFactura" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/bloqueoModoLlamantePaga" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/bloqueoAudiotexto" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/C1.25/servicios/otrosServicios" required="true()" type="decimal"/>
+      <bind nodeset="/C1.25/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/llamadaConferencia" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/bloqueoTraficoLocal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/bloqueoTraficoLdn" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/desvioOcupado" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/desvioNoContesta" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/desvioCambioDomicilio" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/desvioPorBaja" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/bloqueoTraficoLdi" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/llamadaSinSeleccion" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/callerId" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/restriccionCallerId" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/facturacionDetallada" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/noFigurar" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/despertador" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/noMolestar" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/clienteAbonadoAusente" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/numeracionAbreviada" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/senialLlamadaEspera" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/desvioDirecto" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/memoLlamada" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/amplificadorPRadiodifusion" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/timbreLlamadas" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/bloqueoLlamadasMasivas" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/telelectura" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/manteimientoDomiciliario" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/datosInquilinoFactura" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/bloqueoModoLlamantePaga" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/bloqueoAudiotexto" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.25/servicios/otrosServicios" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.25/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/C1.25/titulo">
+      <hint>Informar dato al final del período. Todos los valores monetarios deben ser expresados sin IVA.</hint>
+    </input>
     <group appearance="col4 well-white" ref="/C1.25/servicios">
       <label>Servicios</label>
       <input ref="/C1.25/servicios/llamadaConferencia">

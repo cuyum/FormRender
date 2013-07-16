@@ -401,18 +401,18 @@ private Long id;
       String codigo = this.example.getCodigo();
       if (codigo != null && !"".equals(codigo))
       {
-         predicatesList.add(builder.like(root.<String> get("codigo"), '%' + codigo + '%'));         
+         predicatesList.add(builder.like(builder.lower(root.<String> get("codigo")), '%' + codigo.toLowerCase() + '%'));         
       }
       
       String nombre = this.example.getNombre();
       if (nombre != null && !"".equals(nombre))
       {
-         predicatesList.add(builder.like(root.<String> get("nombre"), '%' + nombre + '%'));         
+         predicatesList.add(builder.like(builder.lower(root.<String> get("nombre")), '%' + nombre.toLowerCase() + '%'));         
       }
       String archivo = this.example.getArchivo();
       if (archivo != null && !"".equals(archivo))
       {
-         predicatesList.add(builder.like(root.<String> get("archivo"), '%' + archivo + '%'));
+         predicatesList.add(builder.like(builder.lower(root.<String> get("archivo")), '%' + archivo.toLowerCase() + '%'));
       }
 
       return predicatesList.toArray(new Predicate[predicatesList.size()]); 

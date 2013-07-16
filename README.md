@@ -111,7 +111,7 @@ Hace la carga inicial y creacion de tablas automaticamente.
 	Ej.	xmlForms.destination=/var/cnc
 	
 3) Configurar ip/port server de donde se tomarán listas externas tales como geográficas y prestadores en archivo de 
-	propiedades.
+	propiedades. Esto hace referencia al localizacion.war en donde está el acceso a las listas externas.
 	
 	FormRender\src\main\resources\formrender.properties	
 	
@@ -121,6 +121,7 @@ Hace la carga inicial y creacion de tablas automaticamente.
 	
 	Ej.	list.remote.host=http://54.232.16.128
 	list.remote.port=8080
+	
 
 4) Situarse en la raiz del directorio del codigo y ejecutar 
 	$>mvn clean package

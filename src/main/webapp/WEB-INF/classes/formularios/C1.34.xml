@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.34 id="C1.34">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <hogares/>
@@ -21,6 +22,7 @@
           </meta>
         </C1.34>
       </instance>
+      <bind nodeset="/C1.34/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.34/meses/mes/hogares" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.34/meses/mes/comercial" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.34/meses/mes/gobierno" required="true()" type="int"/>
@@ -31,6 +33,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/C1.34/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
     <group ref="/C1.34/meses">
       <label></label>
       <repeat nodeset="/C1.34/meses">
@@ -58,7 +63,7 @@
           </input>
           <input ref="/C1.34/meses/mes/otros">
             <label>Otros</label>
-            <hint>Otros [en miles de pesos]</hint>
+            <hint>Consignar los ingresos por tráfico en horario normal no incluidos en los campos precedentes [en miles de pesos]</hint>
           </input>
         </group>
       </repeat>

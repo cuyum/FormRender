@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C1.50 id="C1.50">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <redes_de_acceso>
@@ -50,6 +51,7 @@
           </meta>
         </C1.50>
       </instance>
+      <bind nodeset="/C1.50/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.50/meses/mes/redes_de_acceso/redAccesoFijo" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.50/meses/mes/redes_de_acceso/redAccesoMovil" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.50/meses/mes/transporte/transporteOptico" required="true()" type="int"/>
@@ -77,6 +79,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/C1.50/titulo">
+      <hint>Completar en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
     <group ref="/C1.50/meses">
       <label></label>
       <repeat nodeset="/C1.50/meses">
