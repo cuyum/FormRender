@@ -166,6 +166,13 @@ var gui = new function(){
 	this.submissionHandler = function(clickEvent){
 		var thisForm = $(gui.form);
 		var message = {header:{}, payload:{formulario:{"id":thisForm.attr("id"),data:[]}}};
+		if(this.loadDataId != null && this.loadDataId != undefined){
+			message.header.recordId=this.loadDataId;
+		}
+		var callbackId = gui.getURLParameter("callbackId");
+		if(callbackId!=null && callbackId!=undefined){
+			message.header.callback_id = callbackId;
+		}
 		var submit = false;
 		if(gui.renderGrid){
 //			console.log("Retrieving Grid data list");
