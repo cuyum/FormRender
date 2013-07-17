@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.34 id="D1.34">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <traficoPospago/>
@@ -25,6 +26,7 @@
           </meta>
         </D1.34>
       </instance>
+      <bind nodeset="/D1.34/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.34/meses/mes/traficoPospago" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.34/meses/mes/traficoPrepago" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.34/meses/mes/excedPospago" required="true()" type="int"/>
@@ -39,6 +41,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/D1.34/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
     <group ref="/D1.34/meses">
       <label></label>
       <repeat nodeset="/D1.34/meses">
@@ -78,7 +83,7 @@
           </input>
           <input ref="/D1.34/meses/mes/otrosValorAgregado">
             <label>Otros servicios valor agregado</label>
-            <hint>Otros servicios valor agregado [en miles de pesos]</hint>
+            <hint>Informar lo que no está incluido en los campos precedentes.</hint>
           </input>
           <input ref="/D1.34/meses/mes/total">
             <label>Total</label>

@@ -74,15 +74,15 @@
           </input>
           <input ref="/E1.18/meses/mes/contratosVigentes">
             <label>Contratos Vigentes</label>
-            <hint>Contratos Vigentes</hint>
+            <hint>Cantidad de contratos vigentes.</hint>
           </input>
           <input ref="/E1.18/meses/mes/facturacionPapel">
             <label>Facturación Papel</label>
-            <hint>Facturación Papel</hint>
+            <hint>Cantidad de clientes con facturación en papel.</hint>
           </input>
           <input ref="/E1.18/meses/mes/facturacionWeb">
             <label>Facturación Web</label>
-            <hint>Facturación Web</hint>
+            <hint>Cantidad de clientes con facturación web.</hint>
           </input>
         </group>
       </repeat>

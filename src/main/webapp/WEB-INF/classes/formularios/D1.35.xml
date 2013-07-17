@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.35 id="D1.35">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <alquilerSitios/>
@@ -21,6 +22,7 @@
           </meta>
         </D1.35>
       </instance>
+      <bind nodeset="/D1.35/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.35/meses/mes/alquilerSitios" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.35/meses/mes/cpp" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.35/meses/mes/interconexionRFija" required="true()" type="int"/>
@@ -31,6 +33,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/D1.35/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
     <group ref="/D1.35/meses">
       <label></label>
       <repeat nodeset="/D1.35/meses">
@@ -54,7 +59,7 @@
           </input>
           <input ref="/D1.35/meses/mes/otrosIngresosInterc">
             <label>Otros ingresos interconexión</label>
-            <hint>Trunking [en miles de pesos]</hint>
+            <hint>Informar lo que no está incluido en los campos precedentes.</hint>
           </input>
           <input ref="/D1.35/meses/mes/total">
             <label>Total</label>

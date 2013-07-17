@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <F1.20 id="F1.20">
+          <titulo/>
           <agregar jr:template="">
             <planes>
               <planesPlan/>
@@ -23,18 +24,22 @@
           </meta>
         </F1.20>
       </instance>
+      <bind nodeset="/F1.20/titulo" readonly="true()" type="string"/>
       <bind nodeset="/F1.20/agregar/planes/planesPlan" required="true()" type="string"/>
       <bind nodeset="/F1.20/agregar/planes/planesAccesos" required="true()" type="select1"/>
       <bind nodeset="/F1.20/agregar/planes/planesAccesos_otro" relevant=" /F1.20/agregar/planes/planesAccesos =OTROS" required="true()" type="string"/>
       <bind nodeset="/F1.20/agregar/planes/velocidad" required="true()" type="select1"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/F1.20/agregar/planes/abono" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/F1.20/agregar/planes/vigencia" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/F1.20/agregar/planes/abonoFinal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 9.999,99" nodeset="/F1.20/agregar/planes/abono" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999" jr:constraintMsg="Ingrese entero entre 0 y 9.999" nodeset="/F1.20/agregar/planes/vigencia" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 9.999,99" nodeset="/F1.20/agregar/planes/abonoFinal" required="true()" type="decimal"/>
       <bind nodeset="/F1.20/agregar/planes/servIncluido" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/F1.20/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/F1.20/titulo">
+      <hint>Informar el nombre comercial del plan.</hint>
+    </input>
     <group ref="/F1.20/agregar">
       <label></label>
       <repeat appearance="grilla" nodeset="/F1.20/agregar">
@@ -134,19 +139,19 @@
           </select1>
           <input ref="/F1.20/agregar/planes/abono">
             <label>Abono</label>
-            <hint>Abono</hint>
+            <hint>Consignar el monto en pesos sin IVA.</hint>
           </input>
           <input ref="/F1.20/agregar/planes/vigencia">
             <label>Vigencia</label>
-            <hint>Vigencia</hint>
+            <hint>Período en el cual se mantienen las condiciones ofrecidas.</hint>
           </input>
           <input ref="/F1.20/agregar/planes/abonoFinal">
             <label>Abono Final</label>
-            <hint>Abono Final</hint>
+            <hint>Consignar el monto final que debe abonar el cliente.</hint>
           </input>
           <input appearance="multiline" ref="/F1.20/agregar/planes/servIncluido">
             <label>Serv. Inc.</label>
-            <hint>Serv. Inc.</hint>
+            <hint>Consignar los servicios incluidos.</hint>
           </input>
         </group>
       </repeat>

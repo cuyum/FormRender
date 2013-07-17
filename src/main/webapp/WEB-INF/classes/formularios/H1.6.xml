@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <H1.6 id="H1.6">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <provincia/>
@@ -26,6 +27,7 @@
           </meta>
         </H1.6>
       </instance>
+      <bind nodeset="/H1.6/titulo" readonly="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/H1.6/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/H1.6/meses/mes/provincia" nodeset="/H1.6/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/H1.6/meses/mes/partido_otro" relevant=" /H1.6/meses/mes/partido =9999" required="true()" type="string"/>
@@ -41,6 +43,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/H1.6/titulo">
+      <hint>Informar datos al final del período considerado. Desagregar según modalidad de contratación.</hint>
+    </input>
     <group ref="/H1.6/meses">
       <label></label>
       <repeat appearance="grilla" nodeset="/H1.6/meses">

@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.29 id="D1.29">
+          <titulo/>
           <hasta110>
             <roaming110>
               <roamingPrepago110/>
@@ -41,22 +42,26 @@
           </meta>
         </D1.29>
       </instance>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.29/hasta110/roaming110/roamingPrepago110" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.29/hasta110/roaming110/roamingPospago110" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.29/hasta110/ldn110/ldnPrepago110" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.29/hasta110/ldn110/ldnPospago110" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.29/de110A240/roaming240/roamingPrepago240" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.29/de110A240/roaming240/roamingPospago240" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.29/de110A240/ldn240/ldnPrepago240" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.29/de110A240/ldn240/ldnPospago240" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.29/mas240/roamMas240/roamPrepagoMas240" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.29/mas240/roamMas240/roamPospagoMas240" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.29/mas240/ldnMas240/ldnPrepagoMas240" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.29/mas240/ldnMas240/ldnPospagoMas240" required="true()" type="decimal"/>
+      <bind nodeset="/D1.29/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/D1.29/hasta110/roaming110/roamingPrepago110" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/D1.29/hasta110/roaming110/roamingPospago110" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/D1.29/hasta110/ldn110/ldnPrepago110" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/D1.29/hasta110/ldn110/ldnPospago110" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/D1.29/de110A240/roaming240/roamingPrepago240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/D1.29/de110A240/roaming240/roamingPospago240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/D1.29/de110A240/ldn240/ldnPrepago240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/D1.29/de110A240/ldn240/ldnPospago240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/D1.29/mas240/roamMas240/roamPrepagoMas240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/D1.29/mas240/roamMas240/roamPospagoMas240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/D1.29/mas240/ldnMas240/ldnPrepagoMas240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/D1.29/mas240/ldnMas240/ldnPospagoMas240" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.29/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/D1.29/titulo">
+      <hint>Informar importes en pesos sin impuestos. Último dato vigente al final del período considerado.</hint>
+    </input>
     <group appearance="col1 well-white" ref="/D1.29/hasta110">
       <label>Hasta 110km</label>
       <group appearance="col2 well-white" ref="/D1.29/hasta110/roaming110">

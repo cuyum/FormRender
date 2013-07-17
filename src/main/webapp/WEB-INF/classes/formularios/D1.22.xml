@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.22 id="D1.22">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <provincia/>
@@ -23,6 +24,7 @@
           </meta>
         </D1.22>
       </instance>
+      <bind nodeset="/D1.22/titulo" readonly="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/D1.22/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/D1.22/meses/mes/provincia" nodeset="/D1.22/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/D1.22/meses/mes/partido_otro" relevant=" /D1.22/meses/mes/partido =9999" required="true()" type="string"/>
@@ -35,6 +37,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/D1.22/titulo">
+      <hint>Cantidad de reclamos recibidos por el prestador, según motivo.</hint>
+    </input>
     <group ref="/D1.22/meses">
       <label></label>
       <repeat appearance="grilla" nodeset="/D1.22/meses">

@@ -43,11 +43,11 @@
       <bind nodeset="/E1.28/agregar/caracteristicas/modalidad" required="true()" type="select1"/>
       <bind nodeset="/E1.28/agregar/abonoDatos/abonoRecarga/abono" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999" nodeset="/E1.28/agregar/abonoDatos/datos/datosIncuidos" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.28/agregar/precios/kb" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.28/agregar/precios/kbExedente" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.28/agregar/precios/sms" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/E1.28/agregar/precios/minuto" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999,99" nodeset="/E1.28/agregar/impOtros/impuestos/impuestosPorc" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.28/agregar/precios/kb" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.28/agregar/precios/kbExedente" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.28/agregar/precios/sms" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.28/agregar/precios/minuto" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999,99" nodeset="/E1.28/agregar/impOtros/impuestos/impuestosPorc" required="true()" type="decimal"/>
       <bind nodeset="/E1.28/agregar/impOtros/obs/observaciones" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/E1.28/meta/instanceID" readonly="true()" type="string"/>
     </model>
@@ -130,8 +130,8 @@
             <hint>KB</hint>
           </input>
           <input ref="/E1.28/agregar/precios/kbExedente">
-            <label>KB Exedente</label>
-            <hint>KB Exedente</hint>
+            <label>KB Excedente</label>
+            <hint>KB Excedente</hint>
           </input>
           <input ref="/E1.28/agregar/precios/sms">
             <label>SMS</label>

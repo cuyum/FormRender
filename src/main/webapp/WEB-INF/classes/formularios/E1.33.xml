@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <E1.33 id="E1.33">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <alquilerSitios/>
@@ -21,6 +22,7 @@
           </meta>
         </E1.33>
       </instance>
+      <bind nodeset="/E1.33/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/E1.33/meses/mes/alquilerSitios" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/E1.33/meses/mes/cpp" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/E1.33/meses/mes/ventaEquipos" required="true()" type="int"/>
@@ -31,6 +33,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/E1.33/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
     <group ref="/E1.33/meses">
       <label></label>
       <repeat nodeset="/E1.33/meses">
@@ -54,7 +59,7 @@
           </input>
           <input ref="/E1.33/meses/mes/otrosIngresos">
             <label>Otros ingresos</label>
-            <hint>Otros ingresos [en miles de pesos]</hint>
+            <hint>Informar lo que no está incluído en los campos precedentes y los formulairos E1.30 / E1.31 y E1.32 [en miles de pesos]</hint>
           </input>
           <input ref="/E1.33/meses/mes/total">
             <label>Total</label>

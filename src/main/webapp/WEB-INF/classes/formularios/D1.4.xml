@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.4 id="D1.4">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <provincia/>
@@ -18,6 +19,7 @@
               <prepago/>
               <pospago/>
               <mixto/>
+              <suscripInternet/>
               <altas/>
               <bajas/>
             </mes>
@@ -27,6 +29,7 @@
           </meta>
         </D1.4>
       </instance>
+      <bind nodeset="/D1.4/titulo" readonly="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/D1.4/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/D1.4/meses/mes/provincia" nodeset="/D1.4/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/D1.4/meses/mes/partido_otro" relevant=" /D1.4/meses/mes/partido =9999" required="true()" type="string"/>
@@ -37,12 +40,16 @@
       <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/D1.4/meses/mes/prepago" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/D1.4/meses/mes/pospago" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/D1.4/meses/mes/mixto" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/D1.4/meses/mes/suscripInternet" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/D1.4/meses/mes/altas" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/D1.4/meses/mes/bajas" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.4/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/D1.4/titulo">
+      <hint>Se define como la infraestructura que permite la conexión directa del usuario a la red del prestador.</hint>
+    </input>
     <group ref="/D1.4/meses">
       <label></label>
       <repeat appearance="grilla" nodeset="/D1.4/meses">
@@ -100,13 +107,17 @@
             <label>Mixto</label>
             <hint>Mixto</hint>
           </input>
+          <input ref="/D1.4/meses/mes/suscripInternet">
+            <label>Suscripciones a Internet</label>
+            <hint>Sucripciones a Internet</hint>
+          </input>
           <input ref="/D1.4/meses/mes/altas">
             <label>Altas</label>
-            <hint>Altas</hint>
+            <hint>Informar total de altas producidas en el período.</hint>
           </input>
           <input ref="/D1.4/meses/mes/bajas">
             <label>Bajas</label>
-            <hint>Bajas</hint>
+            <hint>Informar total de bajas producidas en el período.</hint>
           </input>
         </group>
       </repeat>

@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.9 id="D1.9">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <provincia/>
@@ -32,6 +33,7 @@
           </meta>
         </D1.9>
       </instance>
+      <bind nodeset="/D1.9/titulo" readonly="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/D1.9/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/D1.9/meses/mes/provincia" nodeset="/D1.9/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/D1.9/meses/mes/partido_otro" relevant=" /D1.9/meses/mes/partido =9999" required="true()" type="string"/>
@@ -47,6 +49,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/D1.9/titulo">
+      <hint>Consignar tráfico saliente con la desagregación solicitada, en minutos.Incluir trafico on-net y off-net.</hint>
+    </input>
     <group ref="/D1.9/meses">
       <label></label>
       <repeat appearance="grilla" nodeset="/D1.9/meses">

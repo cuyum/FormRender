@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <F1.23 id="F1.23">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <gastosPersonal/>
@@ -20,6 +21,7 @@
           </meta>
         </F1.23>
       </instance>
+      <bind nodeset="/F1.23/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.23/meses/mes/gastosPersonal" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.23/meses/mes/csYotros" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.23/meses/mes/terceros" required="true()" type="int"/>
@@ -29,6 +31,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/F1.23/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
     <group ref="/F1.23/meses">
       <label></label>
       <repeat nodeset="/F1.23/meses">
@@ -40,7 +45,7 @@
           </input>
           <input ref="/F1.23/meses/mes/csYotros">
             <label>CS y Otros</label>
-            <hint>CS y Otros [en miles de pesos]</hint>
+            <hint>Cargas Sociales [en miles de pesos]</hint>
           </input>
           <input ref="/F1.23/meses/mes/terceros">
             <label>Terceros</label>
@@ -48,7 +53,7 @@
           </input>
           <input ref="/F1.23/meses/mes/otros">
             <label>Otros</label>
-            <hint>Otros [en miles de pesos]</hint>
+            <hint>Informar lo que no está incluído en los campos precedentes [en miles de pesos]</hint>
           </input>
           <input ref="/F1.23/meses/mes/total">
             <label>Total</label>

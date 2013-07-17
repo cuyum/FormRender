@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <F1.16 id="F1.16">
+          <titulo/>
           <agregar jr:template="">
             <tarifas>
               <tarifasAcceso/>
@@ -20,15 +21,19 @@
           </meta>
         </F1.16>
       </instance>
+      <bind nodeset="/F1.16/titulo" readonly="true()" type="string"/>
       <bind nodeset="/F1.16/agregar/tarifas/tarifasAcceso" required="true()" type="select1"/>
       <bind nodeset="/F1.16/agregar/tarifas/tarifasAcceso_otro" relevant=" /F1.16/agregar/tarifas/tarifasAcceso =OTROS" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/F1.16/agregar/tarifas/tarifasInstalacion" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/F1.16/agregar/tarifas/tarifasModem" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/F1.16/agregar/tarifas/tarifasReconexion" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 9.999,99" nodeset="/F1.16/agregar/tarifas/tarifasInstalacion" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 9.999,99" nodeset="/F1.16/agregar/tarifas/tarifasModem" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 9.999,99" nodeset="/F1.16/agregar/tarifas/tarifasReconexion" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/F1.16/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/F1.16/titulo">
+      <hint>Informar importes promedio en pesos sin IVA. Último dato vigente al final del período considerado.</hint>
+    </input>
     <group ref="/F1.16/agregar">
       <label></label>
       <repeat appearance="grilla" nodeset="/F1.16/agregar">

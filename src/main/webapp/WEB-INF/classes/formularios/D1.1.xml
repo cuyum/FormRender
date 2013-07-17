@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.1 id="D1.1">
+          <titulo/>
           <areasprest jr:template="">
             <areas>
               <provincia/>
@@ -20,6 +21,7 @@
           </meta>
         </D1.1>
       </instance>
+      <bind nodeset="/D1.1/titulo" readonly="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/D1.1/areasprest/areas/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/D1.1/areasprest/areas/provincia" nodeset="/D1.1/areasprest/areas/partido" required="true()" type="select1"/>
       <bind nodeset="/D1.1/areasprest/areas/partido_otro" relevant=" /D1.1/areasprest/areas/partido =9999" required="true()" type="string"/>
@@ -29,6 +31,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/D1.1/titulo">
+      <hint>Debe informar todas las localidades donde presta servicio.</hint>
+    </input>
     <group ref="/D1.1/areasprest">
       <label></label>
       <repeat appearance="grilla" nodeset="/D1.1/areasprest">

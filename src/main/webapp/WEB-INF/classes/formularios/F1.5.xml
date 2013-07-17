@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <F1.5 id="F1.5">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <provincia/>
@@ -27,6 +28,7 @@
           </meta>
         </F1.5>
       </instance>
+      <bind nodeset="/F1.5/titulo" readonly="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/F1.5/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/F1.5/meses/mes/provincia" nodeset="/F1.5/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/F1.5/meses/mes/partido_otro" relevant=" /F1.5/meses/mes/partido =9999" required="true()" type="string"/>
@@ -43,6 +45,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/F1.5/titulo">
+      <hint>Se define como la infraestructura que permite la conexión directa del usuario a la red del prestador.</hint>
+    </input>
     <group ref="/F1.5/meses">
       <label></label>
       <repeat appearance="grilla" nodeset="/F1.5/meses">
@@ -102,11 +107,11 @@
           </input>
           <input ref="/F1.5/meses/mes/altas">
             <label>Altas</label>
-            <hint>Altas</hint>
+            <hint>Informar total de altas producidas en el período.</hint>
           </input>
           <input ref="/F1.5/meses/mes/bajas">
             <label>Bajas</label>
-            <hint>Bajas</hint>
+            <hint>Informar total de bajas producidas en el período.</hint>
           </input>
         </group>
       </repeat>

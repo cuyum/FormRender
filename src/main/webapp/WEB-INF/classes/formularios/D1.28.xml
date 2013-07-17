@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.28 id="D1.28">
+          <titulo/>
           <tarifasPlanes jr:template="">
             <caracteristicas>
               <plan/>
@@ -50,27 +51,31 @@
           </meta>
         </D1.28>
       </instance>
+      <bind nodeset="/D1.28/titulo" readonly="true()" type="string"/>
       <bind nodeset="/D1.28/tarifasPlanes/caracteristicas/plan" required="true()" type="string"/>
       <bind nodeset="/D1.28/tarifasPlanes/caracteristicas/recargaTipo" required="true()" type="select1"/>
       <bind nodeset="/D1.28/tarifasPlanes/caracteristicas/serviciosAdicionales" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.28/tarifasPlanes/precios/minuto/minutoOnNet" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.28/tarifasPlanes/precios/minuto/minutoOffNet" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.28/tarifasPlanes/precios/sms/smsOnNet" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.28/tarifasPlanes/precios/sms/smsOffNet" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.28/tarifasPlanes/precios/mms/mmsOnNet" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.28/tarifasPlanes/precios/mms/mmsOffNet" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.28/tarifasPlanes/precios/datos/datosOnNet" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/D1.28/tarifasPlanes/precios/datos/datosOffNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/D1.28/tarifasPlanes/precios/minuto/minutoOnNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/D1.28/tarifasPlanes/precios/minuto/minutoOffNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/D1.28/tarifasPlanes/precios/sms/smsOnNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/D1.28/tarifasPlanes/precios/sms/smsOffNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/D1.28/tarifasPlanes/precios/mms/mmsOnNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/D1.28/tarifasPlanes/precios/mms/mmsOffNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/D1.28/tarifasPlanes/precios/datos/datosOnNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/D1.28/tarifasPlanes/precios/datos/datosOffNet" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/D1.28/tarifasPlanes/vigencia/credito" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/D1.28/tarifasPlanes/vigencia/sms" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/D1.28/tarifasPlanes/vigencia/recarga" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/D1.28/tarifasPlanes/vigencia/cuentaActiva" required="true()" type="int"/>
-      <bind nodeset="/D1.28/tarifasPlanes/otrosImp/grupoOtros/otros" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999,99" nodeset="/D1.28/tarifasPlanes/otrosImp/impuestos/porcentaje" required="true()" type="decimal"/>
+      <bind nodeset="/D1.28/tarifasPlanes/otrosImp/grupoOtros/otros" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999,99" nodeset="/D1.28/tarifasPlanes/otrosImp/impuestos/porcentaje" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.28/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/D1.28/titulo">
+      <hint>Informar importes en pesos sin impuestos. Último dato vigente al final del período considerado.</hint>
+    </input>
     <group ref="/D1.28/tarifasPlanes">
       <label></label>
       <repeat appearance="grilla" nodeset="/D1.28/tarifasPlanes">
@@ -164,27 +169,27 @@
           <label>Vigencia</label>
           <input ref="/D1.28/tarifasPlanes/vigencia/credito">
             <label>Crédito</label>
-            <hint>Crédito</hint>
+            <hint>Informar tiempo de vigencia del crédito, en días.</hint>
           </input>
           <input ref="/D1.28/tarifasPlanes/vigencia/sms">
             <label>SMS</label>
-            <hint>SMS</hint>
+            <hint>Informar tiempo de vigencia de los mensajes, en días.</hint>
           </input>
           <input ref="/D1.28/tarifasPlanes/vigencia/recarga">
             <label>Recarga</label>
-            <hint>Recarga</hint>
+            <hint>Informar tiempo de recarga para recupero del crédito, en días.</hint>
           </input>
           <input ref="/D1.28/tarifasPlanes/vigencia/cuentaActiva">
             <label>Cuenta Activa</label>
-            <hint>Cuenta Activa</hint>
+            <hint>Informar período de línea activa, en días.</hint>
           </input>
         </group>
         <group appearance="col1 well-white" ref="/D1.28/tarifasPlanes/otrosImp">
           <group appearance="col2 well-white" ref="/D1.28/tarifasPlanes/otrosImp/grupoOtros">
             <label>Otros</label>
-            <input ref="/D1.28/tarifasPlanes/otrosImp/grupoOtros/otros">
+            <input appearance="multiline" ref="/D1.28/tarifasPlanes/otrosImp/grupoOtros/otros">
               <label>Otros</label>
-              <hint>Otros</hint>
+              <hint>Campo disponible para realizar observaciones.</hint>
             </input>
           </group>
           <group appearance="col2 well-white" ref="/D1.28/tarifasPlanes/otrosImp/impuestos">

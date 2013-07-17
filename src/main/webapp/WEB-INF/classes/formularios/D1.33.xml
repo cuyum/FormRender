@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.33 id="D1.33">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <cargosConexion/>
@@ -24,6 +25,7 @@
           </meta>
         </D1.33>
       </instance>
+      <bind nodeset="/D1.33/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.33/meses/mes/cargosConexion" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.33/meses/mes/abonosPospagos" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.33/meses/mes/abonosMixtos" required="true()" type="int"/>
@@ -37,6 +39,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/D1.33/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
     <group ref="/D1.33/meses">
       <label></label>
       <repeat nodeset="/D1.33/meses">
@@ -72,7 +77,7 @@
           </input>
           <input ref="/D1.33/meses/mes/otros">
             <label>Otros</label>
-            <hint>Otros [en miles de pesos]</hint>
+            <hint>Informar lo que no está incluido en los campos precedentes.</hint>
           </input>
           <input ref="/D1.33/meses/mes/total">
             <label>Total</label>

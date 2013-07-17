@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C2.2 id="C2.2">
+          <titulo/>
           <areasprest jr:template="">
             <areas>
               <provincia/>
@@ -24,6 +25,7 @@
           </meta>
         </C2.2>
       </instance>
+      <bind nodeset="/C2.2/titulo" readonly="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/C2.2/areasprest/areas/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/C2.2/areasprest/areas/provincia" nodeset="/C2.2/areasprest/areas/partido" required="true()" type="select1"/>
       <bind nodeset="/C2.2/areasprest/areas/partido_otro" relevant=" /C2.2/areasprest/areas/partido =9999" required="true()" type="string"/>
@@ -37,6 +39,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/C2.2/titulo">
+      <hint>Cantidad de líneas provistas por período, por área local.</hint>
+    </input>
     <group ref="/C2.2/areasprest">
       <label></label>
       <repeat appearance="grilla" nodeset="/C2.2/areasprest">

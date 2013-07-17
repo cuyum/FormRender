@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <F1.22 id="F1.22">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <caba/>
@@ -40,6 +41,7 @@
           </meta>
         </F1.22>
       </instance>
+      <bind nodeset="/F1.22/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.22/meses/mes/caba" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.22/meses/mes/buenosAires" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.22/meses/mes/catamarca" required="true()" type="int"/>
@@ -69,6 +71,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/F1.22/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
     <group ref="/F1.22/meses">
       <label></label>
       <repeat nodeset="/F1.22/meses">

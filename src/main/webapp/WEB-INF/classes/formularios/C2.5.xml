@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C2.5 id="C2.5">
+          <titulo/>
           <ingresos>
             <anio/>
             <abono/>
@@ -23,6 +24,7 @@
           </meta>
         </C2.5>
       </instance>
+      <bind nodeset="/C2.5/titulo" readonly="true()" type="string"/>
       <bind nodeset="/C2.5/ingresos/anio" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese enterol entre 0 y 9.999.999.999" nodeset="/C2.5/ingresos/abono" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese enterol entre 0 y 9.999.999.999" nodeset="/C2.5/trafico/urbano" required="true()" type="int"/>
@@ -33,6 +35,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/C2.5/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
     <group appearance="col4 well-white" ref="/C2.5/ingresos">
       <label>Ingresos</label>
       <select1 appearance="minimal" ref="/C2.5/ingresos/anio">

@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <G1.3 id="G1.3">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <provincia/>
@@ -23,6 +24,7 @@
           </meta>
         </G1.3>
       </instance>
+      <bind nodeset="/G1.3/titulo" readonly="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/G1.3/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/G1.3/meses/mes/provincia" nodeset="/G1.3/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/G1.3/meses/mes/partido_otro" relevant=" /G1.3/meses/mes/partido =9999" required="true()" type="string"/>
@@ -35,6 +37,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/G1.3/titulo">
+      <hint>Informar datos al final del período considerado.</hint>
+    </input>
     <group ref="/G1.3/meses">
       <label></label>
       <repeat appearance="grilla" nodeset="/G1.3/meses">

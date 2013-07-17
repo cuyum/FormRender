@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <C2.1 id="C2.1">
+          <titulo/>
           <areasprest jr:template="">
             <areas>
               <provincia/>
@@ -22,6 +23,7 @@
           </meta>
         </C2.1>
       </instance>
+      <bind nodeset="/C2.1/titulo" readonly="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/C2.1/areasprest/areas/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/C2.1/areasprest/areas/provincia" nodeset="/C2.1/areasprest/areas/partido" required="true()" type="select1"/>
       <bind nodeset="/C2.1/areasprest/areas/partido_otro" relevant=" /C2.1/areasprest/areas/partido =9999" required="true()" type="string"/>
@@ -33,6 +35,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/C2.1/titulo">
+      <hint>Debe informar todas las Areas/localidades donde presta servicio.</hint>
+    </input>
     <group ref="/C2.1/areasprest">
       <label></label>
       <repeat appearance="grilla" nodeset="/C2.1/areasprest">

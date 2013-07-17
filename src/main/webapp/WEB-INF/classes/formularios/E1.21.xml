@@ -72,11 +72,11 @@
           </input>
           <input ref="/E1.21/meses/mes/personal">
             <label>Personal</label>
-            <hint>Personal</hint>
+            <hint>Cantidad de empleados dedicados a la atención web, normalizada de acuerdo al criterio explicitado en el Manual.</hint>
           </input>
           <input ref="/E1.21/meses/mes/esperaPromedio">
             <label>Espera Promedio</label>
-            <hint>Espera Promedio</hint>
+            <hint>Minutos de espera promedio en la atención al cliente.</hint>
           </input>
         </group>
       </repeat>

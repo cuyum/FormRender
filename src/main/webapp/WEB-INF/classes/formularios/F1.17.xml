@@ -14,7 +14,7 @@
           </meta>
         </F1.17>
       </instance>
-      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/F1.17/tasa/tasaInteres" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 9.999,99" nodeset="/F1.17/tasa/tasaInteres" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/F1.17/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

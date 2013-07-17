@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <E1.34 id="E1.34">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <caba/>
@@ -40,6 +41,7 @@
           </meta>
         </E1.34>
       </instance>
+      <bind nodeset="/E1.34/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/E1.34/meses/mes/caba" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/E1.34/meses/mes/buenosAires" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/E1.34/meses/mes/catamarca" required="true()" type="int"/>
@@ -69,6 +71,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/E1.34/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC. El total de este formulario debe coincidir con la sumatoria de los totales de los formularios D1.30 / D1.31 / D1.32 y D1.33.</hint>
+    </input>
     <group ref="/E1.34/meses">
       <label></label>
       <repeat nodeset="/E1.34/meses">

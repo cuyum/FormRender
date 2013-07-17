@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <E1.42 id="E1.42">
+          <titulo/>
           <financiamiento>
             <financiamientoSU/>
             <subsidiosTasaInteres/>
@@ -17,6 +18,7 @@
           </meta>
         </E1.42>
       </instance>
+      <bind nodeset="/E1.42/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/E1.42/financiamiento/financiamientoSU" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/E1.42/financiamiento/subsidiosTasaInteres" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/E1.42/financiamiento/subsidiosImpositivos" required="true()" type="int"/>
@@ -25,6 +27,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/E1.42/titulo">
+      <hint>Completar en base a la contabilidad del prestador. Comprende el monto anual recibido en concepto de subsidios incluyendo subsidios de tasas de interés, impositivos y servicio universal, entre otros.</hint>
+    </input>
     <group appearance="col4 well-white" ref="/E1.42/financiamiento">
       <label>Financiamiento</label>
       <input ref="/E1.42/financiamiento/financiamientoSU">
@@ -41,7 +46,7 @@
       </input>
       <input ref="/E1.42/financiamiento/subsidiosOtros">
         <label>Otros Subsidios</label>
-        <hint>Otros Subsidios [en miles de pesos]</hint>
+        <hint>Consignar el resto de subsidios hasta completar el total [en miles de pesos]</hint>
       </input>
     </group>
   </h:body>

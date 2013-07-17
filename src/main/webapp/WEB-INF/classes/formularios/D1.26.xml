@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.26 id="D1.26">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <cargoActivacion/>
@@ -18,13 +19,17 @@
           </meta>
         </D1.26>
       </instance>
-      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/D1.26/meses/mes/cargoActivacion" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/D1.26/meses/mes/cargoReconexion" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999,99" nodeset="/D1.26/meses/mes/tasaMora" required="true()" type="decimal"/>
+      <bind nodeset="/D1.26/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 9.999,99" nodeset="/D1.26/meses/mes/cargoActivacion" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 9.999,99" nodeset="/D1.26/meses/mes/cargoReconexion" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999,99" nodeset="/D1.26/meses/mes/tasaMora" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.26/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/D1.26/titulo">
+      <hint>Informar importes en pesos sin IVA. Ultimo dato vigente al final del período considerado.</hint>
+    </input>
     <group ref="/D1.26/meses">
       <label></label>
       <repeat nodeset="/D1.26/meses">

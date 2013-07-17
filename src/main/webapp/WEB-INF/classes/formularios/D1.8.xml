@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.8 id="D1.8">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <provincia/>
@@ -14,15 +15,12 @@
               <localidad/>
               <localidad_otro/>
               <prepago>
-                <prepagoEntrante/>
                 <prepagoSaliente/>
               </prepago>
               <pospago>
-                <pospagoEntrante/>
                 <pospagoSaliente/>
               </pospago>
               <mixto>
-                <mixtoEntrante/>
                 <mixtoSaliente/>
               </mixto>
             </mes>
@@ -32,21 +30,22 @@
           </meta>
         </D1.8>
       </instance>
+      <bind nodeset="/D1.8/titulo" readonly="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/D1.8/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/D1.8/meses/mes/provincia" nodeset="/D1.8/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/D1.8/meses/mes/partido_otro" relevant=" /D1.8/meses/mes/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/D1.8/meses/mes/partido" nodeset="/D1.8/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/D1.8/meses/mes/localidad_otro" relevant=" /D1.8/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.8/meses/mes/prepago/prepagoEntrante" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.8/meses/mes/prepago/prepagoSaliente" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.8/meses/mes/pospago/pospagoEntrante" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.8/meses/mes/pospago/pospagoSaliente" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.8/meses/mes/mixto/mixtoEntrante" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/D1.8/meses/mes/mixto/mixtoSaliente" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.8/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/D1.8/titulo">
+      <hint>Consignar el tráfico saliente, en cantidad de minutos, desagregado por modalidad de contratación. Incluir trafico on-net y off-net.</hint>
+    </input>
     <group ref="/D1.8/meses">
       <label></label>
       <repeat appearance="grilla" nodeset="/D1.8/meses">
@@ -84,34 +83,22 @@
             <label>Localidad Otros</label>
             <hint>Localidad Otros</hint>
           </input>
-          <group appearance="col2 well-white" ref="/D1.8/meses/mes/prepago">
+          <group appearance="col2" ref="/D1.8/meses/mes/prepago">
             <label>Prepago</label>
-            <input ref="/D1.8/meses/mes/prepago/prepagoEntrante">
-              <label>Entrante</label>
-              <hint>Entrante [en miles]</hint>
-            </input>
             <input ref="/D1.8/meses/mes/prepago/prepagoSaliente">
               <label>Saliente</label>
               <hint>Saliente [en miles]</hint>
             </input>
           </group>
-          <group appearance="col2 well-white" ref="/D1.8/meses/mes/pospago">
+          <group appearance="col2" ref="/D1.8/meses/mes/pospago">
             <label>Pospago</label>
-            <input ref="/D1.8/meses/mes/pospago/pospagoEntrante">
-              <label>Entrante</label>
-              <hint>Entrante [en miles]</hint>
-            </input>
             <input ref="/D1.8/meses/mes/pospago/pospagoSaliente">
               <label>Saliente</label>
               <hint>Saliente [en miles]</hint>
             </input>
           </group>
-          <group appearance="col2 well-white" ref="/D1.8/meses/mes/mixto">
+          <group appearance="col2" ref="/D1.8/meses/mes/mixto">
             <label>Mixto</label>
-            <input ref="/D1.8/meses/mes/mixto/mixtoEntrante">
-              <label>Entrante</label>
-              <hint>Entrante [en miles]</hint>
-            </input>
             <input ref="/D1.8/meses/mes/mixto/mixtoSaliente">
               <label>Saliente</label>
               <hint>Saliente [en miles]</hint>

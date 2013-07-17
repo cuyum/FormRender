@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <D1.5 id="D1.5">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <provincia/>
@@ -17,7 +18,7 @@
               <prepago/>
               <pospago/>
               <mixto/>
-              <suscripcion/>
+              <suscripInternet/>
             </mes>
           </meses>
           <meta>
@@ -25,6 +26,7 @@
           </meta>
         </D1.5>
       </instance>
+      <bind nodeset="/D1.5/titulo" readonly="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/D1.5/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/D1.5/meses/mes/provincia" nodeset="/D1.5/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/D1.5/meses/mes/partido_otro" relevant=" /D1.5/meses/mes/partido =9999" required="true()" type="string"/>
@@ -34,11 +36,14 @@
       <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/D1.5/meses/mes/prepago" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/D1.5/meses/mes/pospago" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/D1.5/meses/mes/mixto" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/D1.5/meses/mes/suscripcion" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/D1.5/meses/mes/suscripInternet" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.5/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/D1.5/titulo">
+      <hint>Informar datos al final del período considerado.</hint>
+    </input>
     <group ref="/D1.5/meses">
       <label></label>
       <repeat appearance="grilla" nodeset="/D1.5/meses">
@@ -92,9 +97,9 @@
             <label>Mixto</label>
             <hint>Mixto</hint>
           </input>
-          <input ref="/D1.5/meses/mes/suscripcion">
-            <label>Suscripción de servicios adicionales</label>
-            <hint>Suscripción de servicios adicionales</hint>
+          <input ref="/D1.5/meses/mes/suscripInternet">
+            <label>Suscripción a Internet</label>
+            <hint>Cantidad de clientes suscriptos a Internet.</hint>
           </input>
         </group>
       </repeat>

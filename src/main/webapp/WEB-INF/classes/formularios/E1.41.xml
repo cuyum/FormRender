@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <E1.41 id="E1.41">
+          <titulo/>
           <rentas>
             <remision/>
             <distribucion/>
@@ -15,21 +16,25 @@
           </meta>
         </E1.41>
       </instance>
+      <bind nodeset="/E1.41/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/E1.41/rentas/remision" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/E1.41/rentas/distribucion" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/E1.41/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/E1.41/titulo">
+      <hint>Completar en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
     <group appearance="col4 well-white" ref="/E1.41/rentas">
       <label>Rentas</label>
       <input ref="/E1.41/rentas/remision">
         <label>Remisión de utilidades</label>
-        <hint>Remisión de Utilidades [en miles de pesos]</hint>
+        <hint>Rentas devengadas por la participación de inversores no residentes [en miles de pesos]</hint>
       </input>
       <input ref="/E1.41/rentas/distribucion">
         <label>Distribución de dividendos</label>
-        <hint>Distribución de Dividendos [en miles de pesos]</hint>
+        <hint>Rentas que se devengan por la propiedad del capital [en miles de pesos]</hint>
       </input>
     </group>
   </h:body>

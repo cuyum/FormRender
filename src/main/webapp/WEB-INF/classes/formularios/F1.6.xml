@@ -30,7 +30,7 @@
       <bind nodeset="/F1.6/meses/mes/partido_otro" relevant=" /F1.6/meses/mes/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/F1.6/meses/mes/partido" nodeset="/F1.6/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/F1.6/meses/mes/localidad_otro" relevant=" /F1.6/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind nodeset="/F1.6/meses/mes/servicio" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/servicios" nodeset="/F1.6/meses/mes/servicio" required="true()" type="select1"/>
       <bind nodeset="/F1.6/meses/mes/servicio_otro" relevant=" /F1.6/meses/mes/servicio =OTROS" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/accesos and depends=/F1.6/meses/mes/servicio" nodeset="/F1.6/meses/mes/acceso" required="true()" type="select1"/>
       <bind nodeset="/F1.6/meses/mes/acceso_otro" relevant=" /F1.6/meses/mes/acceso =OTROS" required="true()" type="string"/>

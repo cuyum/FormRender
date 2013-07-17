@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <H1.2 id="H1.2">
+          <titulo/>
           <inter jr:template="">
             <interconexion>
               <provincia/>
@@ -25,6 +26,7 @@
           </meta>
         </H1.2>
       </instance>
+      <bind nodeset="/H1.2/titulo" readonly="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/H1.2/inter/interconexion/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/H1.2/inter/interconexion/provincia" nodeset="/H1.2/inter/interconexion/partido" required="true()" type="select1"/>
       <bind nodeset="/H1.2/inter/interconexion/partido_otro" relevant=" /H1.2/inter/interconexion/partido =9999" required="true()" type="string"/>
@@ -33,12 +35,15 @@
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/H1.2/inter/interconexion/localidad" nodeset="/H1.2/inter/interconexion/area" required="true()" type="select1"/>
       <bind nodeset="/H1.2/inter/interconexion/area_otro" relevant=" /H1.2/inter/interconexion/area =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/H1.2/inter/interconexion/prestador" required="true()" type="select1"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999.999,99" nodeset="/H1.2/inter/interconexion/capacidad" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9.999.999" nodeset="/H1.2/inter/interconexion/capacidad" required="true()" type="int"/>
       <bind nodeset="/H1.2/inter/interconexion/unidad" required="true()" type="select1"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/H1.2/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/H1.2/titulo">
+      <hint>Debe informar cada uno de sus puntos de interconexión: ubicación geográfica de origen y destino, capacidad y prestador con el cual se conecta.</hint>
+    </input>
     <group ref="/H1.2/inter">
       <label></label>
       <repeat appearance="grilla" nodeset="/H1.2/inter">
@@ -90,7 +95,7 @@
           </input>
           <select1 appearance="minimal" ref="/H1.2/inter/interconexion/prestador">
             <label>Prestador</label>
-            <hint>Prestador</hint>
+            <hint>Prestador con el cual se interconecta.</hint>
             <item>
               <label>Seleccione una opción</label>
               <value>-1</value>
@@ -98,7 +103,7 @@
           </select1>
           <input ref="/H1.2/inter/interconexion/capacidad">
             <label>Capacidad</label>
-            <hint>Capacidad [Mbps / n*E1]</hint>
+            <hint>Capacidad expresada en MBPS del enlace de intercambio de tráfico.</hint>
           </input>
           <select1 appearance="minimal" ref="/H1.2/inter/interconexion/unidad">
             <label>Unidad</label>
