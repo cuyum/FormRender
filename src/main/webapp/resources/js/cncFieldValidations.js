@@ -27,29 +27,29 @@ var validationRequired = function(field){
 	}
 };
 
-var setupHint = function(field){
-	var hint = field.siblings("span [class^='jr-hint']");
-	if(hint){
-		var label = hint.siblings(".jr-label");
-		
-		label.attr("title",hint.text());
-		hint.remove();
-		label.tooltip({
-			placement:"right"
-		});
-	}
-};
-
 /*FormHint MUST be setup befor other hints*/
-var setupFormHint = function(){
-	var hint = $("form label.tooltip").children("span.jr-hint");
-	if(hint){
+var setupHints = function(){
+	var formHint = $("form label.tooltip").children("span.jr-hint");
+	if(formHint){
 		var title = $("#form-title");
-		title.attr("title",hint.text());
-		hint.parent("label").remove();
+		title.attr("title",formHint.text());
+		formHint.parent("label").remove();
 		title.tooltip({
 			placement:"right"
 		});
+	}
+	var fieldHints = $("span.jr-hint");
+	for ( var i = 0; i < fieldHints.length; i++) {
+		var hint = $(fieldHints[i]);
+		if(hint){
+			var label = hint.siblings(".jr-label");
+			
+			label.attr("title",hint.text());
+			hint.remove();
+			label.tooltip({
+				placement:"right"
+			});
+		}
 	}
 };
 
@@ -712,7 +712,6 @@ var setupValidations = function(f,fieldset){
 	validationCuit(field);
 	
 	/*Aditional field logic*/
-	setupHint(field);
 	setupCalculate(field,fieldset);
 	setupMask(field);
 	setupRelevantData(field,fieldset);
