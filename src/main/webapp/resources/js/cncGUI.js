@@ -45,10 +45,10 @@ var gui = new function(){
 		if(type==null || type==undefined || type.trim()==""){
 			type = "";
 		}
-		var alertDiv = $("<div data-dismiss='alert' class='alert "+type+"' style='display:none;'><button  class='close' type='button'>×</button></div>");
+		var alertDiv = $("<div data-dismiss='alert' class='fade alert "+type+"'><button  class='close' type='button'>×</button></div>");
 		var m = alertDiv.append(message);
 		$("#internal-messages").append(m).goTo();
-		m.fadeIn();
+		alertDiv.addClass("in");
 	};
 	this.displayWarning = function(message){
 		this.displayMessage(message);
@@ -163,17 +163,105 @@ var gui = new function(){
 		}
 		return valid;
 	};
-	this.submissionHandler = function(clickEvent){
+	this.executeSubmission = function(url,message){
+		return $.ajax({
+			type: "POST",
+			contentType : "application/x-www-form-urlencoded; charset=utf-8",
+			url: "/FormRender/rest/service/submit",
+			data: {"submit_data":JSON.stringify(message),"url": url},
+			success:function(data, statusStr, xhr){
+				console.log(xhr);
+				if(data.result && data.result.type){
+					if(data.result.type == "SUCCESS"){
+						gui.displaySuccess("Formulario guardado ("+data.result.id+").");
+						if(gui.renderGrid){
+							gui.grid.element.dataTable().fnClearTable();
+						}
+					}else if(data.result.type == "ERROR"){
+						gui.displayError("Ha ocurrido un error en el servidor de persistencia<br/>"+data.result.msg);
+					}else{
+						gui.displayError("Ha ocurrido un error no indicado en el servidor de persistencia");
+					}
+				}else{
+					if(!data.success){
+						gui.displayError("Error Remoto, contacte a su administrador.");
+						console.group("ERROR REMOTO DETECTADO");
+						console.warn("Error:"+data.result.msg);
+						console.log("Objeto de respuesta",data);
+						console.groupEnd();
+					}
+				}
+			},
+			error:function(xhr,statusStr,errorStr){
+				gui.displayError("Error Remoto, contacte a su administrador.");
+				console.error("Error en submit:"+statusStr);
+			}
+		});
+	};
+	this.saveDraft = function(message){
+		/* FIXME: ISSUE:200
+		 * por ahora guarda drafts solamente, 
+		 * cuando se encuentre implementado servicio de presentacion 
+		 * final se podra probar este caso de prueba
+		 */
 		var thisForm = $(gui.form);
-		var message = {header:{}, payload:{formulario:{"id":thisForm.attr("id"),data:[]}}};
+		if(thisForm.attr("submit-url")){
+			this.executeSubmission(thisForm.attr("submit-url"), message);
+		}else{
+			gui.displayError("Error local, contactae a su administrador.");
+			console.error("No se encuentra daclarada la URL de submission");
+		}
+	};
+	this.saveFinal = function(message){
+		
+//		clickEvent.preventDefault();
+		bootbox.confirm("Esta acci\u00E1n implica que UD. ha completado la carga del formulario. No podr\u00E1 seguir edit\u00E1ndolo ya que es parte integral de la DDJJ. Desea continuar?", function(confirmed) {
+			if(confirmed){
+				var thisForm = $(gui.form);
+				if(thisForm.attr("submit-url")){
+					gui.executeSubmission(thisForm.attr("submit-url"), message).done(function(data){
+						if(data.result.success){
+							gui.resetForm();
+							gui.cleanFormValidations();
+						}
+					});
+				}else{
+					gui.displayError("Error local, contactae a su administrador.");
+					console.error("No se encuentra daclarada la URL de submission");
+				}
+			}
+		});
+	};
+	this.submissionHandler = function(clickEvent){
+		/*instancia del mensaje por defecto*/
+		var message = {
+			header:{}, 
+			payload:{
+				formulario:{
+					"id":$(gui.form).attr("id"),
+					data:[]
+				}
+			}
+		};
+		/*verifico si tiene recordId para pasar en cabacera*/
 		if(this.loadDataId != null && this.loadDataId != undefined){
 			message.header.recordId=this.loadDataId;
 		}
+		/*verifico si tiene callback_id para pasar en cabecera*/
 		var callbackId = gui.getURLParameter("callbackId");
 		if(callbackId!=null && callbackId!=undefined){
 			message.header.callback_id = callbackId;
 		}
-		var submit = false;
+		/*
+		 * Establezco que tipo de accion se quiere llevar a cabo
+		 */
+		var btn = clickEvent.target;
+		var draft = $(btn).attr("draft")=="true";
+		
+		/* si hay una grilla no es necesario validar nada
+		 * simplemente se extraen los datos de la grilla 
+		 * para crear el batch de registros que enviara
+		 */
 		if(gui.renderGrid){
 //			console.log("Retrieving Grid data list");
 			var dl = gui.grid.element.dataTable().fnGetData();
@@ -192,66 +280,27 @@ var gui = new function(){
 					dataList.push(data);
 				}
 				message.payload.formulario.data = dataList;
-				submit=true;
+				draft==true?gui.saveDraft(message):gui.saveFinal(message);
 			} else {
 				gui.displayWarning("No se encuentran registros para guardar.");
 				console.warn("No data in grid");
 				gui.validateForm();
 			}
+		/* si no hay grilla es necesario se deben extraer los datos
+		 * del formulario crudo y si es un draft, no hace falta validar
+		 * caso contrario se debera validar todo el formulario antes de
+		 * realizar el submit
+		 */
 		}else{
-			var btn = clickEvent.target;
-			var draft = $(btn).attr("draft");
-			if(draft && draft=="true"){
-				gui.cleanFormValidations();
+			if(draft==true){
 				message.payload.formulario.data = gui.retrieveFormFieldData();
-				submit = true;
+				gui.saveDraft(clickEvent);
 			}else{
 				if(gui.validateForm()){
 					message.payload.formulario.data = gui.retrieveFormFieldData();
-					submit=true;
+					gui.saveFinal(clickEvent);
 				}
 			}
-		}
-		if(submit && thisForm.attr("submit-url")){
-			$.ajax({
-				type: "POST",
-				contentType : "application/x-www-form-urlencoded; charset=utf-8",
-				url: "/FormRender/rest/service/submit",
-				data: {"submit_data":JSON.stringify(message),"url": thisForm.attr("submit-url")},
-				success:function(data, statusStr, xhr){
-					if(data.result && data.result.type){
-						if(data.result.type == "SUCCESS"){
-							gui.displaySuccess("Formulario guardado ("+data.result.id+").")	
-							gui.cleanFormValidations();
-							gui.resetForm();
-							if(gui.renderGrid){
-								gui.grid.element.dataTable().fnClearTable();
-							}
-						}else if(data.result.type == "ERROR"){
-							gui.displayError("Ha ocurrido un error en el servidor de persistencia<br/>"+data.result.msg);
-						}else{
-							gui.displayError("Ha ocurrido un error no indicado en el servidor de persistencia");
-						}
-					}else{
-						if(!data.success){
-							gui.displayError("Error Remoto, contacte a su administrador.");
-							console.group("ERROR REMOTO DETECTADO");
-							console.warn("Error:"+data.msg);
-							console.log("Objeto de respuesta",data.remote);
-							console.groupEnd();
-						}
-					}
-				},
-				error:function(xhr,statusStr,errorStr){
-					gui.displayError("Error Remoto, contacte a su administrador.");
-					console.error("Error en submit:"+statusStr);
-				}
-			});
-		}else{
-			if(submit)
-				console.error("No se encuentra daclarada la URL de submission");
-			else
-				console.error("No se ha podido llevar a cabo la submision de datos");
 		}
 	};
 	this.addRelevant = function(field,relevant){

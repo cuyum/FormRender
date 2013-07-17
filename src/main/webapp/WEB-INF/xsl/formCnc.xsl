@@ -256,7 +256,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 							<div>
 								<div class="form-actions align-left">		
 									<input type="button" class="btn " value="Guardar Borrador" action="submit" draft="true" />						
-									<input type="button" class="btn btn-success " value="Listo" action="submit" draft="false" />
+									<input type="button" class="btn btn-success confirm" value="Listo" action="submit" draft="false" />
 								</div>
 							</div>
 						</div>
