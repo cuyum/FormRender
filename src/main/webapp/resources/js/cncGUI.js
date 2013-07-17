@@ -215,7 +215,7 @@ var gui = new function(){
 	this.saveFinal = function(message){
 		
 //		clickEvent.preventDefault();
-		bootbox.confirm("Esta acci\u00E1n implica que UD. ha completado la carga del formulario. No podr\u00E1 seguir edit\u00E1ndolo ya que es parte integral de la DDJJ. Desea continuar?", function(confirmed) {
+		bootbox.confirm("Esta acci\u00F3n implica que UD. ha completado la carga del formulario. No podr\u00E1 seguir edit\u00E1ndolo ya que es parte integral de la DDJJ. Desea continuar?", function(confirmed) {
 			if(confirmed){
 				var thisForm = $(gui.form);
 				if(thisForm.attr("submit-url")){
