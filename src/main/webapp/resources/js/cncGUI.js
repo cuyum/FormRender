@@ -398,9 +398,17 @@ var gui = new function(){
 			var fieldCleanName = gui.getCleanFieldName(field.attr("name"),record.instance);
 			
 			if(field.is("select") ){
-				field.select2("val",record[fieldCleanName].value);
+				if(record[fieldCleanName].value == null){
+					field.select2("data",null);
+				}else{
+					field.select2("val",record[fieldCleanName].value);
+				}
 			}else if(field.attr("data-type-xml")=="select2"){
-				field.select2("data",{id:record[fieldCleanName].value,text:record[fieldCleanName].label});
+				if(record[fieldCleanName].value == null){
+					field.select2("data",null);
+				}else{
+					field.select2("data",{id:record[fieldCleanName].value,text:record[fieldCleanName].label});
+				}
 			}else{ 
 				field.val(record[fieldCleanName]);
 			}
@@ -430,7 +438,7 @@ var gui = new function(){
 				var rowIndex =  gui.grid.element.dataTable().fnGetPosition($(evt.target).closest('tr').get(0));
 				console.log(rowIndex);
 				var record = gui.grid.getRowData(rowIndex);
-				console.log(record);
+//				console.log(record);
 				var fields = gui.fieldsets[record.instance].fields;
 				gui.blockUI("Cargando...<br>Espere por favor...",true);
 				gui.resetForm();
@@ -463,16 +471,26 @@ var gui = new function(){
 				var attribute = gui.getCleanFieldName(field.attr("name"),fieldsetInstance);
 				if(field.is(":visible") || field.attr("data-type-xml")=="select2"){
 					var value = field.val();
+//					console.log("Value",field.attr("name"),":_"+value+"_");
 					if(value!=undefined && value!=null && $(gui.form).validate().element(field)){
 						if(field.is("select")){
-							var o = field.children("option:selected");
-							record[attribute] = {label:o.text(),value:value};
-							tmpHash = tmpHash + value; 
+							var o;
+							if(value.trim()!=""){
+								o = field.children("option:selected");
+								record[attribute] = {label:o.text(),value:value};
+								tmpHash = tmpHash + value; 
+							}else{
+								record[attribute] = {label:" ",value:null};
+							}
 						}else if(field.attr("data-type-xml")=="select2"){
-							var data = field.select2("data");
-//							console.log("select2 data",data);
-							record[attribute] = {label:data.text,value:data.id};
-							tmpHash = tmpHash + data.id;
+							var data; 
+							if(value.trim()!=""){
+								data = field.select2("data");
+								record[attribute] = {label:data.text,value:data.id};
+								tmpHash = tmpHash + data.id;
+							}else{
+								record[attribute] = {label:" ",value:null};
+							}
 						}else{
 							record[attribute] = value;
 							tmpHash = tmpHash + value;
@@ -483,6 +501,7 @@ var gui = new function(){
 						fields.push(field);
 					} else {
 						commit = false;
+						console.warn("Could not commit due to field",field);
 						break;
 					}
 				}else{

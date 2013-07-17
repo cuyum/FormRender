@@ -43,7 +43,6 @@ var setupHint = function(field){
 /*FormHint MUST be setup befor other hints*/
 var setupFormHint = function(){
 	var hint = $("form label.tooltip").children("span.jr-hint");
-	console.log(hint);
 	if(hint){
 		var title = $("#form-title");
 		title.attr("title",hint.text());
