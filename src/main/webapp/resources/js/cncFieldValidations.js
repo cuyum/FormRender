@@ -28,7 +28,7 @@ var validationRequired = function(field){
 };
 
 var setupHint = function(field){
-	var hint = field.siblings("[class^='jr-hint']");
+	var hint = field.siblings("span [class^='jr-hint']");
 	if(hint){
 		var label = hint.siblings(".jr-label");
 		
@@ -40,8 +40,10 @@ var setupHint = function(field){
 	}
 };
 
+/*FormHint MUST be setup befor other hints*/
 var setupFormHint = function(){
 	var hint = $("form label.tooltip").children("span.jr-hint");
+	console.log(hint);
 	if(hint){
 		var title = $("#form-title");
 		title.attr("title",hint.text());
