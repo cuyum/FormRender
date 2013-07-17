@@ -3,6 +3,12 @@ var gui = new function(){
 	this.fieldsets = [];
 	this.repeatCount = undefined;
 	this.renderGrid = false;
+	this.MESSAGES = {
+		INFO : "alert-info",
+		WARN : "",
+		SUCCESS: "alert-success",
+		ERROR: "alert-error"
+	};
 	this.replaceFieldInFieldset = function(newField, oldField, fieldset){
 		var fs;
 		if(fieldset && fieldset.instance){
@@ -30,6 +36,34 @@ var gui = new function(){
 	this.setupDefaults = function(){
 		$("select").select2();
 		setupHints();
+	};
+	this.displayMessage = function(message,type){
+		if(message==undefined || message==null){
+			console.warn("No message supplied for message display");
+			return;
+		}
+		if(type==null || type==undefined || type.trim()==""){
+			type = "";
+		}
+		var alertDiv = $("<div data-dismiss='alert' class='alert "+type+"' style='display:none;'><button  class='close' type='button'>×</button></div>");
+		var m = alertDiv.append(message);
+		$("#internal-messages").append(m).goTo();
+		m.fadeIn();
+	};
+	this.displayWarning = function(message){
+		this.displayMessage(message);
+	};
+	this.displayInfo = function(message){
+		this.displayMessage(message, this.MESSAGES.INFO);
+	};
+	this.displaySuccess = function(message){
+		this.displayMessage(message, this.MESSAGES.SUCCESS);
+	};
+	this.displayError = function(message){
+		this.displayMessage(message, this.MESSAGES.ERROR);
+	};
+	this.closeAllMessages = function(){
+		$("#internal-messages").children().each(function(count,el){$(el).fadeOut();});
 	};
 	this.blockUI = function(message,unblockable){
 		if(!$("#unblockable").is("span")){
@@ -153,7 +187,7 @@ var gui = new function(){
 				message.payload.formulario.data = dataList;
 				submit=true;
 			} else {
-				alert("No se encuentran registros para guardar.")
+				gui.displayWarning("No se encuentran registros para guardar.");
 				console.warn("No data in grid");
 				gui.validateForm();
 			}
@@ -180,20 +214,20 @@ var gui = new function(){
 				success:function(data, statusStr, xhr){
 					if(data.result && data.result.type){
 						if(data.result.type == "SUCCESS"){
-							alert("Formulario guardado ("+data.result.id+").");
+							gui.displaySuccess("Formulario guardado ("+data.result.id+").")	
 							gui.cleanFormValidations();
 							gui.resetForm();
 							if(gui.renderGrid){
 								gui.grid.element.dataTable().fnClearTable();
 							}
 						}else if(data.result.type == "ERROR"){
-							alert("Ha ocurrido un error en el servidor de persistencia<br/>"+data.result.msg);
+							gui.displayError("Ha ocurrido un error en el servidor de persistencia<br/>"+data.result.msg);
 						}else{
-							alert("Ha ocurrido un error no indicado en el servidor de persistencia");
+							gui.displayError("Ha ocurrido un error no indicado en el servidor de persistencia");
 						}
 					}else{
 						if(!data.success){
-							alert("Error Remoto, contacte a su administrador.");
+							gui.displayError("Error Remoto, contacte a su administrador.");
 							console.group("ERROR REMOTO DETECTADO");
 							console.warn("Error:"+data.msg);
 							console.log("Objeto de respuesta",data.remote);
@@ -202,7 +236,7 @@ var gui = new function(){
 					}
 				},
 				error:function(xhr,statusStr,errorStr){
-					alert("Error Remoto, contacte a su administrador.");
+					gui.displayError("Error Remoto, contacte a su administrador.");
 					console.error("Error en submit:"+statusStr);
 				}
 			});
@@ -516,7 +550,7 @@ var gui = new function(){
 				var storedRecord = storedData[i];
 //				console.info("stored record",storedRecord.signature);
 				if(storedRecord.firma_digital == record.firma_digital){
-					alert("Ya hay un registro con esos valores");
+					gui.displayWarning("Ya se encuentra agregado un registro con esos valores");
 					commit = false;
 					break;
 				};

@@ -118,7 +118,7 @@ $(document).ready(function() {
 			data: {"recordId":gui.loadDataId},
 			success:function(data, statusStr, xhr){
 				if(data.result && data.result.type && data.result.type=="ERROR"){
-					alert("Error remoto: "+data.result.msg);
+					gui.displayError("Error remoto: "+data.result.msg);
 				}else{//success retrieval
 //					console.log(data);
 					var dataArray = data.payload.formulario.data;

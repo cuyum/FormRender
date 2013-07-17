@@ -4,5 +4,5 @@
             scrollTop: $(this).offset().top + 'px'
         }, 'fast');
         return this; // for chaining...
-    }
+    };
 })(jQuery);

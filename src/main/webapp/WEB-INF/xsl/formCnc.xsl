@@ -123,13 +123,16 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 			  	<script type="text/javascript" src="/FormRender/resources/js/jquery.select2.min.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
-			  	 <script src="/FormRender/resources/js/jquery-ui.min.js">
+			  	 <script type="text/javascript" src="/FormRender/resources/js/jquery-ui.min.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
-			  	 <script src="/FormRender/resources/js/bootstrap.min.js">
+			  	 <script type="text/javascript" src="/FormRender/resources/js/bootstrap.min.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
-			  	 <script src="/FormRender/resources/js/jquery.dataTables.min.js">
+			  	 <script type="text/javascript" src="/FormRender/resources/js/bootbox.min.js">
+            		<xsl:text>&#10;</xsl:text>
+            	</script>
+			  	 <script type="text/javascript" src="/FormRender/resources/js/jquery.dataTables.min.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
             	<script type="text/javascript" src="/FormRender/resources/js/sha.js">
@@ -182,40 +185,21 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
                         <xsl:text> </xsl:text>
                     </section>
                     <div class="page-header">
-                   
-	                <h5 id="form-title">
-	                    <xsl:choose>
-                            <xsl:when test="/h:html/h:head/h:title">
-                                <xsl:value-of select="/h:html/h:head/h:title"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:text>No Title</xsl:text>
-                            </xsl:otherwise>
-                        </xsl:choose>
-	                </h5>
-	                <ul class="icons"><li><a href="#">
-	                	<span id="version"></span>
-	                </a></li></ul>
-	                
+		                <h5 id="form-title">
+		                    <xsl:choose>
+	                            <xsl:when test="/h:html/h:head/h:title">
+	                                <xsl:value-of select="/h:html/h:head/h:title"/>
+	                            </xsl:when>
+	                            <xsl:otherwise>
+	                                <xsl:text>No Title</xsl:text>
+	                            </xsl:otherwise>
+	                        </xsl:choose>
+		                </h5>
+		                <ul class="icons"><li><a href="#">
+		                	<span id="version"></span>
+		                </a></li></ul>
 	                </div>
-	                <!-- 
-                    <div class="alert">
-                        <button data-dismiss="alert" class="close" type="button">×</button>
-                        <strong>Warning!</strong> Best check yo self, you're not looking too good.
-                    </div>
-                    <div class="alert alert-error semi-block">
-                        <button data-dismiss="alert" class="close" type="button">×</button>
-                        <strong>Warning!</strong> Best check yo self, you're not looking too good.
-                    </div>
-                    <div class="alert alert-success semi-block">
-                        <button data-dismiss="alert" class="close" type="button">×</button>
-                        <strong>Warning!</strong> Best check yo self, you're not looking too good.
-                    </div>
-                    <div class="alert alert-info semi-block">
-                        <button data-dismiss="alert" class="close" type="button">×</button>
-                        <strong>Warning!</strong> Best check yo self, you're not looking too good.
-                    </div>                         
-		            -->
+	                <div id="internal-messages" class="notice"><xsl:text>&#10;</xsl:text></div>
                 <!--
                     <div id="stats" style="display: none;">
                         <span id="jrSelect"><xsl:value-of select="count(/h:html/h:body//xf:select)"/></span>
