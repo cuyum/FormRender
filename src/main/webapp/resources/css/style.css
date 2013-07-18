@@ -545,22 +545,6 @@ fieldset .col6 label .error {
     margin-left: 1px;
     padding-bottom: 0;
 }
-
-
-body .ui-tooltip { 
-	max-width: 200px;
-	text-align: center; text-decoration: none;
-	font-family: Arial, Helvetica, sans-serif;
-	border-radius: 2px;	
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px; 
-	color: #fff;
-	font-size: 11px;	
-	padding: 3px 8px;
-	background: #202020;	
-	border: 1px solid #282828;
-	box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset;	
-}
 */
 input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:focus {
     border-color: none;
@@ -1121,20 +1105,7 @@ fieldset .col6 label .error {
 }
 
 
-body .ui-tooltip { 
-	max-width: 200px;
-	text-align: center; text-decoration: none;
-	font-family: Arial, Helvetica, sans-serif;
-	border-radius: 2px;	
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px; 
-	color: #fff;
-	font-size: 11px;	
-	padding: 3px 8px;
-	background: #202020;	
-	border: 1px solid #282828;
-	box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset;	
-}
+
 */
 input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:focus {
     border-color: none;
@@ -1691,20 +1662,7 @@ fieldset .col6 label .error {
 }
 
 
-body .ui-tooltip { 
-	max-width: 200px;
-	text-align: center; text-decoration: none;
-	font-family: Arial, Helvetica, sans-serif;
-	border-radius: 2px;	
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px; 
-	color: #fff;
-	font-size: 11px;	
-	padding: 3px 8px;
-	background: #202020;	
-	border: 1px solid #282828;
-	box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset;	
-}
+
 */
 input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:focus {
     border-color: none;
@@ -2281,26 +2239,6 @@ fieldset .col6 label .error {
     padding-bottom: 0;
 }
 */
-
-body .ui-tooltip { 
-	max-width: 200px;
-	text-align: center; text-decoration: none;
-	font-family: Arial, Helvetica, sans-serif;
-	border-radius: 2px;	
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px; 
-	color: #fff;
-	font-size: 11px;	
-	padding: 3px 8px;
-	background: #202020;	
-	border: 1px solid #282828;
-	box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset;	
-}
-
-
-
-.ui-tooltip-content{
-top:10px;}
 input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:focus {
     border-color: none;
     box-shadow: none;

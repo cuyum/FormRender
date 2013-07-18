@@ -35,7 +35,7 @@ var setupHints = function(){
 		title.attr("title",formHint.text());
 		formHint.parent("label").remove();
 		title.tooltip({
-			placement:"right"
+			placement:"bottom"
 		});
 	}
 	var fieldHints = $("span.jr-hint");
