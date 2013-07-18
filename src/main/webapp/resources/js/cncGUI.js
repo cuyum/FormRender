@@ -47,7 +47,7 @@ var gui = new function(){
 		}
 		var alertDiv = $("<div data-dismiss='alert' class='fade alert "+type+"'><button  class='close' type='button'>×</button></div>");
 		var m = alertDiv.append(message);
-		$("#internal-messages").append(m).goTo();
+		$("#internal-messages").append(m).scrollTo();
 		alertDiv.addClass("in");
 	};
 	this.displayWarning = function(message){
@@ -330,6 +330,8 @@ var gui = new function(){
 				if(gui.validateForm()){
 					message.payload.formulario.data = gui.retrieveFormFieldData();
 					gui.saveFinal(clickEvent);
+				}else{
+					gui.displayWarning("El formulario posse errores.");
 				}
 			}
 		}
@@ -574,6 +576,7 @@ var gui = new function(){
 				}
 				gui.grid.editing = rowIndex;
 				gui.unblockUI(true);
+				$(gui.fieldsets[record.instance].dom).scrollTo();
 			});
 		},
 		setupAddClick: function(){

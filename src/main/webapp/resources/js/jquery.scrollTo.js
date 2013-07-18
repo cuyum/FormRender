@@ -1,5 +1,5 @@
 (function($) {
-    $.fn.goTo = function() {
+    $.fn.scrollTo = function() {
         $('html, body').animate({
             scrollTop: $(this).offset().top + 'px'
         }, 'fast');
