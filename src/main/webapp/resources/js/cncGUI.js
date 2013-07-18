@@ -119,6 +119,17 @@ var gui = new function(){
 		$("[class~='error']").siblings("label[class='error']").remove();
 		$("[class~='error']").removeClass("error");
 	};
+	this.isCNCNumberField = function(field){
+		var data_type = field.attr("data-type-xml");
+		if(data_type== null || data_type==undefined){
+			return false;
+		}else{
+			if(data_type=="decimal") return true;
+			if(data_type=="int") return true;
+			
+			return false;
+		}
+	};
 	this.resetForm = function(){
 		gui.form.reset();
 		$("select").each(function(count,item){
@@ -146,8 +157,13 @@ var gui = new function(){
 			for ( var j = 0; j < gui.fieldsets[i].fields.length; j++) {
 				var field = $(gui.fieldsets[i].fields[j]);
 				var key = gui.getCleanFieldName(field.attr("name"));
-				var val = new Number(field.val());
-				if(isNaN(val))val= field.val();
+				console.log(field);
+				var val;
+				if(this.isCNCNumberField(field)){
+					val = cncToNumber(field.val());
+				}else{
+					val = field.val();
+				}
 				kvpair[key] = val;
 			}
 			data.push(kvpair);
@@ -515,6 +531,9 @@ var gui = new function(){
 					field.select2("data",{id:record[fieldCleanName].value,text:record[fieldCleanName].label});
 				}
 			}else{ 
+				if(!isNaN(record[fieldCleanName])){//javascript valid number need to be parsed to locale
+					record[fieldCleanName] = cncFromNumber(record[fieldCleanName]);
+				}
 				field.val(record[fieldCleanName]);
 			}
 			field.trigger("change");
@@ -597,6 +616,8 @@ var gui = new function(){
 								record[attribute] = {label:" ",value:null};
 							}
 						}else{
+							if(gui.isCNCNumberField(field)) 
+								value = cncToNumber(value);
 							record[attribute] = value;
 							tmpHash = tmpHash + value;
 						}
@@ -730,12 +751,16 @@ var cncToNumber = function(value){
 };
 
 var cncFromNumber = function(value,decimals){
-	var d = 0;
 	var vStr = ""+value;
-	if(vStr.indexOf(".")>0){
-		d = vStr.substring(vStr.indexOf(".")+1).length;
+	if(decimals==undefined){
+		var d = 0;
+		if(vStr.indexOf(".")>0){
+			d = vStr.substring(vStr.indexOf(".")+1).length;
+		}
+		decimals = "n"+d;
+	}else{
+		decimals = "n"+decimals;
 	}
-	decimals = "n"+d;
 	
 	if(value && !isNaN(value)){
 		var formated = $.i18n.formatNumber( value, decimals, {region:'es-AR'} );

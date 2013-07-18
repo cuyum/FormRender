@@ -128,7 +128,7 @@ $(document).ready(function() {
 						for ( var i = 0; i < dataArray.length; i++) {
 							var record = dataArray[i];
 //							console.group("CAMPOS INSTANCIA "+i);
-							gui.completeWithDelay(record,0,gui.fieldsets[i].fields);
+							gui.completeForm(record,gui.fieldsets[i].fields);
 //							console.groupEnd();
 						}
 					}
