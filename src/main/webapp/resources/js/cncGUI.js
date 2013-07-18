@@ -146,7 +146,8 @@ var gui = new function(){
 			for ( var j = 0; j < gui.fieldsets[i].fields.length; j++) {
 				var field = $(gui.fieldsets[i].fields[j]);
 				var key = gui.getCleanFieldName(field.attr("name"));
-				var val = field.val();
+				var val = new Number(field.val());
+				if(isNaN(val))val= field.val();
 				kvpair[key] = val;
 			}
 			data.push(kvpair);
@@ -170,30 +171,33 @@ var gui = new function(){
 			url: "/FormRender/rest/service/submit",
 			data: {"submit_data":JSON.stringify(message),"url": url},
 			success:function(data, statusStr, xhr){
-				console.log(xhr);
 				if(data.result && data.result.type){
-					if(data.result.type == "SUCCESS"){
-						gui.displaySuccess("Formulario guardado ("+data.result.id+").");
-						if(gui.renderGrid){
-							gui.grid.element.dataTable().fnClearTable();
-						}
-					}else if(data.result.type == "ERROR"){
-						gui.displayError("Ha ocurrido un error en el servidor de persistencia<br/>"+data.result.msg);
+					if(data.success){
+						if(data.result.msg!=undefined)
+							gui.displaySuccess(data.result.msg);
+						else
+							gui.displaySuccess("Formulario guardado ("+data.result.id+").");
 					}else{
-						gui.displayError("Ha ocurrido un error no indicado en el servidor de persistencia");
+						if(data.result.msg!=undefined)
+							gui.displayError("Ha ocurrido un error en el servidor de persistencia<br/>"+data.result.msg);
+						else
+							gui.displayError("Ha ocurrido un error no indicado en el servidor de persistencia");
 					}
 				}else{
-					if(!data.success){
-						gui.displayError("Error Remoto, contacte a su administrador.");
-						console.group("ERROR REMOTO DETECTADO");
+					console.group("ERROR REMOTO DETECTADO");
+					if(data.result.msg != undefined){
+						gui.displayError(data.result);
 						console.warn("Error:"+data.result.msg);
-						console.log("Objeto de respuesta",data);
-						console.groupEnd();
+					}else{
+						console.warn("No remote error defined");
+						gui.displayError("Error remoto, contacte a su administrador.");
 					}
+					console.log("Objeto de respuesta",data);
+					console.groupEnd();
 				}
 			},
 			error:function(xhr,statusStr,errorStr){
-				gui.displayError("Error Remoto, contacte a su administrador.");
+				gui.displayError("El servicio de persistencia no se encuentra disponible, contacte a su administrador.");
 				console.error("Error en submit:"+statusStr);
 			}
 		});
@@ -208,7 +212,7 @@ var gui = new function(){
 		if(thisForm.attr("submit-url")){
 			this.executeSubmission(thisForm.attr("submit-url"), message);
 		}else{
-			gui.displayError("Error local, contactae a su administrador.");
+			gui.displayError("Error local, contacte a su administrador.");
 			console.error("No se encuentra daclarada la URL de submission");
 		}
 	};
@@ -223,6 +227,9 @@ var gui = new function(){
 						if(data.result.success){
 							gui.resetForm();
 							gui.cleanFormValidations();
+							if(gui.renderGrid){
+								gui.grid.element.dataTable().fnClearTable();
+							}
 						}
 					});
 				}else{
@@ -252,6 +259,14 @@ var gui = new function(){
 		if(callbackId!=null && callbackId!=undefined){
 			message.header.callback_id = callbackId;
 		}
+		/*FIXME: ELIMINAR ESTO CUANDO CALLBACK_ID NO SEA OBLIGATORIO
+		 * marta dijo que se implementara de esta manera porque no puede
+		 * coordinar con Leonardo
+		 */
+		else{
+			message.header.callback_id = "algo";
+		}
+		
 		/*
 		 * Establezco que tipo de accion se quiere llevar a cabo
 		 */
