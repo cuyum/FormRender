@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <H2.6 id="H2.6">
+          <titulo/>
           <provincias>
             <caba/>
             <buenos_Aires/>
@@ -38,6 +39,7 @@
           </meta>
         </H2.6>
       </instance>
+      <bind nodeset="/H2.6/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/H2.6/provincias/caba" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/H2.6/provincias/buenos_Aires" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/H2.6/provincias/catamarca" required="true()" type="int"/>
@@ -67,6 +69,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/H2.6/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
     <group appearance="col6 well-white" ref="/H2.6/provincias">
       <label>Provincias</label>
       <input ref="/H2.6/provincias/caba">

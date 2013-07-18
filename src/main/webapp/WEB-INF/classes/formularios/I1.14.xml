@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <I1.14 id="I1.14">
+          <titulo/>
           <inversiones>
             <anio/>
             <total/>
@@ -15,12 +16,16 @@
           </meta>
         </I1.14>
       </instance>
+      <bind nodeset="/I1.14/titulo" readonly="true()" type="string"/>
       <bind nodeset="/I1.14/inversiones/anio" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/I1.14/inversiones/total" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/I1.14/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/I1.14/titulo">
+      <hint>Completar en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
     <group appearance="col3 well-white" ref="/I1.14/inversiones">
       <label>Inversiones</label>
       <select1 appearance="minimal" ref="/I1.14/inversiones/anio">

@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <H1.15 id="H1.15">
+          <titulo/>
           <plan_plan jr:template="">
             <nombrePlan>
               <plan/>
@@ -23,18 +24,22 @@
           </meta>
         </H1.15>
       </instance>
+      <bind nodeset="/H1.15/titulo" readonly="true()" type="string"/>
       <bind nodeset="/H1.15/plan_plan/nombrePlan/plan" required="true()" type="string"/>
       <bind nodeset="/H1.15/plan_plan/nombrePlan/aplicacion" required="true()" type="select1"/>
       <bind nodeset="/H1.15/plan_plan/nombrePlan/segmento" required="true()" type="select1"/>
       <bind nodeset="/H1.15/plan_plan/nombrePlan/segmento_otro" relevant=" /H1.15/plan_plan/nombrePlan/segmento =OTROS" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/H1.15/plan_plan/nombrePlan/abono" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 9.999,99" nodeset="/H1.15/plan_plan/nombrePlan/abono" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999" nodeset="/H1.15/plan_plan/nombrePlan/minutos" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/H1.15/plan_plan/nombrePlan/precio" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 9.999,99" nodeset="/H1.15/plan_plan/nombrePlan/precio" required="true()" type="decimal"/>
       <bind nodeset="/H1.15/plan_plan/nombrePlan/observaciones" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/H1.15/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/H1.15/titulo">
+      <hint>Ingresar el nombre comercial del plan.</hint>
+    </input>
     <group ref="/H1.15/plan_plan">
       <label></label>
       <repeat appearance="grilla" nodeset="/H1.15/plan_plan">
@@ -46,7 +51,7 @@
           </input>
           <select1 appearance="minimal" ref="/H1.15/plan_plan/nombrePlan/aplicacion">
             <label>Aplicación</label>
-            <hint>Aplicación</hint>
+            <hint>Seleccionar desde la lista desplegable a qué segmento corresponde.</hint>
             <item>
               <label>Seleccione opción</label>
               <value>-1</value>
@@ -62,7 +67,7 @@
           </select1>
           <select1 appearance="minimal" ref="/H1.15/plan_plan/nombrePlan/segmento">
             <label>Segmento</label>
-            <hint>Segmento</hint>
+            <hint>Seleccionar desde la lista desplegable a qué segmento corresponde.</hint>
             <item>
               <label>Seleccione opción</label>
               <value>-1</value>
@@ -98,19 +103,19 @@
           </input>
           <input ref="/H1.15/plan_plan/nombrePlan/abono">
             <label>Abono</label>
-            <hint>Abono [en pesos]</hint>
+            <hint>Informar el monto del abono en pesos, sin IVA.</hint>
           </input>
           <input ref="/H1.15/plan_plan/nombrePlan/minutos">
             <label>Minutos</label>
-            <hint>Minutos</hint>
+            <hint>Informar minutos incluidos en el abono.</hint>
           </input>
           <input ref="/H1.15/plan_plan/nombrePlan/precio">
             <label>Precio</label>
-            <hint>Precio [en pesos]</hint>
+            <hint>Informar precio promedio del minuto excedente.</hint>
           </input>
           <input appearance="multiline" ref="/H1.15/plan_plan/nombrePlan/observaciones">
             <label>Observaciones</label>
-            <hint>Observaciones</hint>
+            <hint>En caso de ofrecer planes que empaquetan distintos servicios, consignar los servicios adicionales en este campo.</hint>
           </input>
         </group>
       </repeat>

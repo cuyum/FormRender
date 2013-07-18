@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <I1.9 id="I1.9">
+          <titulo/>
           <tarifasPlanes jr:template="">
             <caracteristicas>
               <plan/>
@@ -55,30 +56,34 @@
           </meta>
         </I1.9>
       </instance>
+      <bind nodeset="/I1.9/titulo" readonly="true()" type="string"/>
       <bind nodeset="/I1.9/tarifasPlanes/caracteristicas/plan" required="true()" type="string"/>
       <bind nodeset="/I1.9/tarifasPlanes/caracteristicas/modalidad" required="true()" type="select1"/>
       <bind nodeset="/I1.9/tarifasPlanes/caracteristicas/segmento" required="true()" type="select1"/>
       <bind nodeset="/I1.9/tarifasPlanes/caracteristicas/segmento_otro" relevant=" /I1.9/tarifasPlanes/caracteristicas/segmento =OTROS" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/I1.9/tarifasPlanes/cargos/abono" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/I1.9/tarifasPlanes/cargos/gastos" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999.99" jr:constraintMsg="Ingrese decimal entre 0 y 99.999,99" nodeset="/I1.9/tarifasPlanes/cargos/total" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 9.999,99" nodeset="/I1.9/tarifasPlanes/cargos/abono" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 9.999,99" nodeset="/I1.9/tarifasPlanes/cargos/gastos" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 99.999,99" nodeset="/I1.9/tarifasPlanes/cargos/total" required="true()" type="decimal"/>
       <bind nodeset="/I1.9/tarifasPlanes/servicios/minutos" required="true()" type="string"/>
       <bind nodeset="/I1.9/tarifasPlanes/servicios/sms" required="true()" type="string"/>
       <bind nodeset="/I1.9/tarifasPlanes/servicios/minutosRadios" required="true()" type="string"/>
       <bind nodeset="/I1.9/tarifasPlanes/servicios/serviciosAdic" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/I1.9/tarifasPlanes/precios/minutoLocal/minutoOnNet" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/I1.9/tarifasPlanes/precios/minutoLocal/minutoOffNet" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/I1.9/tarifasPlanes/precios/sms/smsOnNet" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/I1.9/tarifasPlanes/precios/sms/smsOffNet" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/I1.9/tarifasPlanes/precios/mms/mmsOnNet" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0 y 99,999" nodeset="/I1.9/tarifasPlanes/precios/mms/mmsOffNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/I1.9/tarifasPlanes/precios/minutoLocal/minutoOnNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/I1.9/tarifasPlanes/precios/minutoLocal/minutoOffNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/I1.9/tarifasPlanes/precios/sms/smsOnNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/I1.9/tarifasPlanes/precios/sms/smsOffNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/I1.9/tarifasPlanes/precios/mms/mmsOnNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/I1.9/tarifasPlanes/precios/mms/mmsOffNet" required="true()" type="decimal"/>
       <bind nodeset="/I1.9/tarifasPlanes/precios/datos/datosPrecio" required="true()" type="string"/>
-      <bind nodeset="/I1.9/tarifasPlanes/otrosImp/grupoOtros/otros" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999,99" nodeset="/I1.9/tarifasPlanes/otrosImp/impuestos/porcentaje" required="true()" type="decimal"/>
+      <bind nodeset="/I1.9/tarifasPlanes/otrosImp/grupoOtros/otros" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999,99" nodeset="/I1.9/tarifasPlanes/otrosImp/impuestos/porcentaje" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/I1.9/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/I1.9/titulo">
+      <hint>Informar importes en pesos sin impuestos. Ultimo dato vigente al final del período considerado.</hint>
+    </input>
     <group ref="/I1.9/tarifasPlanes">
       <label></label>
       <repeat appearance="grilla" nodeset="/I1.9/tarifasPlanes">
@@ -185,33 +190,33 @@
             <label>Minuto Local</label>
             <input ref="/I1.9/tarifasPlanes/precios/minutoLocal/minutoOnNet">
               <label>ON NET</label>
-              <hint>ON NET</hint>
+              <hint>Precio del minuto promedio.</hint>
             </input>
             <input ref="/I1.9/tarifasPlanes/precios/minutoLocal/minutoOffNet">
               <label>OFF NET</label>
-              <hint>OFF NET</hint>
+              <hint>Precio del minuto promedio.</hint>
             </input>
           </group>
           <group appearance="col2 well-white" ref="/I1.9/tarifasPlanes/precios/sms">
             <label>SMS</label>
             <input ref="/I1.9/tarifasPlanes/precios/sms/smsOnNet">
               <label>ON NET</label>
-              <hint>ON NET</hint>
+              <hint>Precio del SMS promedio.</hint>
             </input>
             <input ref="/I1.9/tarifasPlanes/precios/sms/smsOffNet">
               <label>OFF NET</label>
-              <hint>OFF NET</hint>
+              <hint>Precio del SMS promedio.</hint>
             </input>
           </group>
           <group appearance="col2 well-white" ref="/I1.9/tarifasPlanes/precios/mms">
             <label>Minutos Radios</label>
             <input ref="/I1.9/tarifasPlanes/precios/mms/mmsOnNet">
               <label>ON NET</label>
-              <hint>ON NET</hint>
+              <hint>Precio del minuto de radio promedio.</hint>
             </input>
             <input ref="/I1.9/tarifasPlanes/precios/mms/mmsOffNet">
               <label>OFF NET</label>
-              <hint>OFF NET</hint>
+              <hint>Precio del minuto de radio promedio.</hint>
             </input>
           </group>
           <group appearance="col2 well-white" ref="/I1.9/tarifasPlanes/precios/datos">
@@ -225,9 +230,9 @@
         <group appearance="col1 well-white" ref="/I1.9/tarifasPlanes/otrosImp">
           <group appearance="col2 well-white" ref="/I1.9/tarifasPlanes/otrosImp/grupoOtros">
             <label>Otros</label>
-            <input ref="/I1.9/tarifasPlanes/otrosImp/grupoOtros/otros">
+            <input appearance="multiline" ref="/I1.9/tarifasPlanes/otrosImp/grupoOtros/otros">
               <label>Otros</label>
-              <hint>Otros</hint>
+              <hint>Campo disponible para realizar observaciones.</hint>
             </input>
           </group>
           <group appearance="col2 well-white" ref="/I1.9/tarifasPlanes/otrosImp/impuestos">

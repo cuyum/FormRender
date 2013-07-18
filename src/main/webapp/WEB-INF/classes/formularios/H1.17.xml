@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <H1.17 id="H1.17">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <caba/>
@@ -40,6 +41,7 @@
           </meta>
         </H1.17>
       </instance>
+      <bind nodeset="/H1.17/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/H1.17/meses/mes/caba" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/H1.17/meses/mes/buenosAires" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/H1.17/meses/mes/catamarca" required="true()" type="int"/>
@@ -69,6 +71,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/H1.17/titulo">
+      <hint>Monto total de ingresos, desagregado por provincia.</hint>
+    </input>
     <group ref="/H1.17/meses">
       <label></label>
       <repeat nodeset="/H1.17/meses">

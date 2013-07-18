@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <H1.14 id="H1.14">
+          <titulo/>
           <servicios>
             <llamadaConferencia/>
             <senialLlamadaEspera/>
@@ -43,40 +44,44 @@
           </meta>
         </H1.14>
       </instance>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/llamadaConferencia" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/senialLlamadaEspera" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/desvioDirecto" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/desvioOcupado" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/desvioNoContesta" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/desvioCambioDomicilio" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/desvioPorBaja" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/memoLlamada" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/llamadaSinSeleccion" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/callerId" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/restriccionCallerId" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/facturacionDetallada" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/noFigurar" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/despertador" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/noMolestar" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/clienteAbonadoAusente" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/numeracionAbreviada" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/bloqueoTraficoLocal" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/bloqueoTraficoLdn" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/bloqueoTraficoLdi" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/bloqueoModoLlamantePaga" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/bloqueoAudiotexto" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/bloqueoLlamadasMasivas" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/telelectura" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/manteimientoDomiciliario" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/datosInquilinoFactura" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/amplificadorPRadiodifusion" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/timbreLlamadas" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/otrosServicios" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,99" nodeset="/H1.14/servicios/otrosServicios2" required="true()" type="decimal"/>
+      <bind nodeset="/H1.14/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/llamadaConferencia" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/senialLlamadaEspera" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/desvioDirecto" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/desvioOcupado" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/desvioNoContesta" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/desvioCambioDomicilio" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/desvioPorBaja" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/memoLlamada" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/llamadaSinSeleccion" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/callerId" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/restriccionCallerId" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/facturacionDetallada" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/noFigurar" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/despertador" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/noMolestar" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/clienteAbonadoAusente" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/numeracionAbreviada" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/bloqueoTraficoLocal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/bloqueoTraficoLdn" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/bloqueoTraficoLdi" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/bloqueoModoLlamantePaga" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/bloqueoAudiotexto" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/bloqueoLlamadasMasivas" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/telelectura" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/manteimientoDomiciliario" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/datosInquilinoFactura" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/amplificadorPRadiodifusion" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/timbreLlamadas" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/otrosServicios" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/H1.14/servicios/otrosServicios2" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/H1.14/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/H1.14/titulo">
+      <hint>Informar datos al final del período. Todos los valores monetarios deben ser expresados sin IVA.</hint>
+    </input>
     <group appearance="col3 well-white" ref="/H1.14/servicios">
       <label>Servicios</label>
       <input ref="/H1.14/servicios/llamadaConferencia">

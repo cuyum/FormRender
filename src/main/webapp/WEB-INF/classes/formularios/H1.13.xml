@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <H1.13 id="H1.13">
+          <titulo/>
           <numeros>
             <numeros110/>
             <numeros113/>
@@ -16,13 +17,17 @@
           </meta>
         </H1.13>
       </instance>
-      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,999" nodeset="/H1.13/numeros/numeros110" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,999" nodeset="/H1.13/numeros/numeros113" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0 y 999.999,999" nodeset="/H1.13/numeros/numerosOtros" type="decimal"/>
+      <bind nodeset="/H1.13/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,999" nodeset="/H1.13/numeros/numeros110" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,999" nodeset="/H1.13/numeros/numeros113" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,999" nodeset="/H1.13/numeros/numerosOtros" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/H1.13/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/H1.13/titulo">
+      <hint>Informar datos al final del período. Todos los valores monetarios deben ser expresados sin IVA.</hint>
+    </input>
     <group appearance="col3 well-white" ref="/H1.13/numeros">
       <label>Números</label>
       <input ref="/H1.13/numeros/numeros110">

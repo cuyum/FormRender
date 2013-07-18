@@ -94,7 +94,7 @@
         <hint>Envío de SMS a Fijo</hint>
       </input>
       <input ref="/E1.29/servicios/restriccionNroEnvio">
-        <label>Restricción envio Núm.</label>
+        <label>Restricción envío Núm.</label>
         <hint>Restricción de Envío de Número</hint>
       </input>
       <input ref="/E1.29/servicios/restriccionDdiDdn">

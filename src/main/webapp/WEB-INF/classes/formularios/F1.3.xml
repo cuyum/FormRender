@@ -8,13 +8,13 @@
         <F1.3 id="F1.3">
           <titulo/>
           <puntos jr:template="">
-            <lugar>
-              <provincia/>
-              <partido/>
-              <partido_otro/>
-              <localidad/>
-              <localidad_otro/>
-            </lugar>
+            <ubicacionOrigen>
+              <provinciaOrigen/>
+              <partidoOrigen/>
+              <partidoOrigen_otro/>
+              <localidadOrigen/>
+              <localidadOrigen_otro/>
+            </ubicacionOrigen>
             <equipamiento>
               <tecnologia/>
               <tecnologia_otro/>
@@ -33,13 +33,13 @@
               <tendidoCapacidadDisp/>
               <tendidoCapacidadUtilizada/>
             </tipotendido>
-            <lugarFin>
-              <provinciaFin/>
-              <partidoFin/>
-              <partidoFin_otro/>
-              <localidadFin/>
-              <localidadFin_otro/>
-            </lugarFin>
+            <ubicacionDestino>
+              <provinciaDestino/>
+              <partidoDestino/>
+              <partidoDestino_otro/>
+              <localidadDestino/>
+              <localidadDestino_otro/>
+            </ubicacionDestino>
           </puntos>
           <meta>
             <instanceID/>
@@ -47,11 +47,11 @@
         </F1.3>
       </instance>
       <bind nodeset="/F1.3/titulo" readonly="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/F1.3/puntos/lugar/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/F1.3/puntos/lugar/provincia" nodeset="/F1.3/puntos/lugar/partido" required="true()" type="select1"/>
-      <bind nodeset="/F1.3/puntos/lugar/partido_otro" relevant=" /F1.3/puntos/lugar/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/F1.3/puntos/lugar/partido" nodeset="/F1.3/puntos/lugar/localidad" required="true()" type="select1"/>
-      <bind nodeset="/F1.3/puntos/lugar/localidad_otro" relevant=" /F1.3/puntos/lugar/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/F1.3/puntos/ubicacionOrigen/provinciaOrigen" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/F1.3/puntos/ubicacionOrigen/provinciaOrigen" nodeset="/F1.3/puntos/ubicacionOrigen/partidoOrigen" required="true()" type="select1"/>
+      <bind nodeset="/F1.3/puntos/ubicacionOrigen/partidoOrigen_otro" relevant=" /F1.3/puntos/ubicacionOrigen/partidoOrigen =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/F1.3/puntos/ubicacionOrigen/partidoOrigen" nodeset="/F1.3/puntos/ubicacionOrigen/localidadOrigen" required="true()" type="select1"/>
+      <bind nodeset="/F1.3/puntos/ubicacionOrigen/localidadOrigen_otro" relevant=" /F1.3/puntos/ubicacionOrigen/localidadOrigen =9999" required="true()" type="string"/>
       <bind nodeset="/F1.3/puntos/equipamiento/tecnologia" required="true()" type="select1"/>
       <bind nodeset="/F1.3/puntos/equipamiento/tecnologia_otro" relevant=" /F1.3/puntos/equipamiento/tecnologia =Otros" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9.999.999" nodeset="/F1.3/puntos/equipamiento/equipCapacidadDisp" required="true()" type="int"/>
@@ -65,11 +65,11 @@
       <bind nodeset="/F1.3/puntos/tipotendido/tendido_otro" relevant=" /F1.3/puntos/tipotendido/tendido =Otros" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/F1.3/puntos/tipotendido/tendidoCapacidadDisp" relevant=" /F1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/F1.3/puntos/tipotendido/tendidoCapacidadUtilizada" relevant=" /F1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/F1.3/puntos/lugarFin/provinciaFin" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/F1.3/puntos/lugarFin/provinciaFin" nodeset="/F1.3/puntos/lugarFin/partidoFin" required="true()" type="select1"/>
-      <bind nodeset="/F1.3/puntos/lugarFin/partidoFin_otro" relevant=" /F1.3/puntos/lugarFin/partidoFin =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/F1.3/puntos/lugarFin/partidoFin" nodeset="/F1.3/puntos/lugarFin/localidadFin" required="true()" type="select1"/>
-      <bind nodeset="/F1.3/puntos/lugarFin/localidadFin_otro" relevant=" /F1.3/puntos/lugarFin/localidadFin =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/F1.3/puntos/ubicacionDestino/provinciaDestino" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/F1.3/puntos/ubicacionDestino/provinciaDestino" nodeset="/F1.3/puntos/ubicacionDestino/partidoDestino" required="true()" type="select1"/>
+      <bind nodeset="/F1.3/puntos/ubicacionDestino/partidoDestino_otro" relevant=" /F1.3/puntos/ubicacionDestino/partidoDestino =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/F1.3/puntos/ubicacionDestino/partidoDestino" nodeset="/F1.3/puntos/ubicacionDestino/localidadDestino" required="true()" type="select1"/>
+      <bind nodeset="/F1.3/puntos/ubicacionDestino/localidadDestino_otro" relevant=" /F1.3/puntos/ubicacionDestino/localidadDestino =9999" required="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/F1.3/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -80,9 +80,9 @@
     <group ref="/F1.3/puntos">
       <label></label>
       <repeat appearance="grilla" nodeset="/F1.3/puntos">
-        <group appearance="col3 well-white" ref="/F1.3/puntos/lugar">
+        <group appearance="col3 well-white" ref="/F1.3/puntos/ubicacionOrigen">
           <label>Ubicación Origen</label>
-          <select1 appearance="minimal" ref="/F1.3/puntos/lugar/provincia">
+          <select1 appearance="minimal" ref="/F1.3/puntos/ubicacionOrigen/provinciaOrigen">
             <label>Provincia</label>
             <hint>Provincia</hint>
             <item>
@@ -90,7 +90,7 @@
               <value>-1</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/F1.3/puntos/lugar/partido">
+          <select1 appearance="minimal" ref="/F1.3/puntos/ubicacionOrigen/partidoOrigen">
             <label>Partido / Departamento</label>
             <hint>Partido/Departamento</hint>
             <item>
@@ -98,11 +98,11 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/F1.3/puntos/lugar/partido_otro">
+          <input ref="/F1.3/puntos/ubicacionOrigen/partidoOrigen_otro">
             <label>Partido Otros</label>
             <hint>Partido Otros</hint>
           </input>
-          <select1 appearance="minimal" ref="/F1.3/puntos/lugar/localidad">
+          <select1 appearance="minimal" ref="/F1.3/puntos/ubicacionOrigen/localidadOrigen">
             <label>Localidad</label>
             <hint>Localidad</hint>
             <item>
@@ -110,7 +110,7 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/F1.3/puntos/lugar/localidad_otro">
+          <input ref="/F1.3/puntos/ubicacionOrigen/localidadOrigen_otro">
             <label>Localidad Otros</label>
             <hint>Localidad Otros</hint>
           </input>
@@ -225,9 +225,9 @@
             <hint>Capacidad Utilizada [cantidad de ductos]</hint>
           </input>
         </group>
-        <group appearance="col3 well-white" ref="/F1.3/puntos/lugarFin">
+        <group appearance="col3 well-white" ref="/F1.3/puntos/ubicacionDestino">
           <label>Ubicación Destino</label>
-          <select1 appearance="minimal" ref="/F1.3/puntos/lugarFin/provinciaFin">
+          <select1 appearance="minimal" ref="/F1.3/puntos/ubicacionDestino/provinciaDestino">
             <label>Provincia</label>
             <hint>Provincia</hint>
             <item>
@@ -235,7 +235,7 @@
               <value>-1</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/F1.3/puntos/lugarFin/partidoFin">
+          <select1 appearance="minimal" ref="/F1.3/puntos/ubicacionDestino/partidoDestino">
             <label>Partido / Departamento</label>
             <hint>Partido/Departamento</hint>
             <item>
@@ -243,11 +243,11 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/F1.3/puntos/lugarFin/partidoFin_otro">
+          <input ref="/F1.3/puntos/ubicacionDestino/partidoDestino_otro">
             <label>Partido Otros</label>
             <hint>Partido Otros</hint>
           </input>
-          <select1 appearance="minimal" ref="/F1.3/puntos/lugarFin/localidadFin">
+          <select1 appearance="minimal" ref="/F1.3/puntos/ubicacionDestino/localidadDestino">
             <label>Localidad</label>
             <hint>Localidad</hint>
             <item>
@@ -255,7 +255,7 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/F1.3/puntos/lugarFin/localidadFin_otro">
+          <input ref="/F1.3/puntos/ubicacionDestino/localidadDestino_otro">
             <label>Localidad Otros</label>
             <hint>Localidad Otros</hint>
           </input>

@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <I1.6 id="I1.6">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <provincia/>
@@ -32,6 +33,7 @@
           </meta>
         </I1.6>
       </instance>
+      <bind nodeset="/I1.6/titulo" readonly="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/I1.6/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/I1.6/meses/mes/provincia" nodeset="/I1.6/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/I1.6/meses/mes/partido_otro" relevant=" /I1.6/meses/mes/partido =9999" required="true()" type="string"/>
@@ -47,6 +49,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/I1.6/titulo">
+      <hint>Consignar el tráfico entrante y saliente, en cantidad de minutos, desagregado por distancia. Sólo referido al servicio de telefonía móvil y fija, no debe incluir el atribuido a SRCE.</hint>
+    </input>
     <group ref="/I1.6/meses">
       <label></label>
       <repeat appearance="grilla" nodeset="/I1.6/meses">

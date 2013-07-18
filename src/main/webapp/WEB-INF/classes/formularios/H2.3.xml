@@ -188,23 +188,23 @@
           <label>Teléfonos Públicos</label>
           <input ref="/H2.3/telefonia/telefonosPublicos/tpa">
             <label>TPA (24 hs)</label>
-            <hint>TPA (24 hs)</hint>
+            <hint>Teléfono Público Alcancía disponible las 24 horas</hint>
           </input>
           <input ref="/H2.3/telefonia/telefonosPublicos/tpu">
             <label>TPU</label>
-            <hint>TPU</hint>
+            <hint>Teléfono Público Urbano</hint>
           </input>
           <input ref="/H2.3/telefonia/telefonosPublicos/tsp">
             <label>TSP</label>
-            <hint>TSP</hint>
+            <hint>Teléfono Social Público</hint>
           </input>
           <input ref="/H2.3/telefonia/telefonosPublicos/thih">
             <label>THIH</label>
-            <hint>THIH</hint>
+            <hint>Teléfono para Hipoacúsicos e Impedidos del Habla</hint>
           </input>
           <input ref="/H2.3/telefonia/telefonosPublicos/sspld">
             <label>SSPLD</label>
-            <hint>SSPLD</hint>
+            <hint>Servicio Semipúblico de Larga Distancia</hint>
           </input>
         </group>
       </repeat>

@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <H1.16 id="H1.16">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <instalacion/>
@@ -24,6 +25,7 @@
           </meta>
         </H1.16>
       </instance>
+      <bind nodeset="/H1.16/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/H1.16/meses/mes/instalacion" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/H1.16/meses/mes/abono" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/H1.16/meses/mes/trafico/traficoUrbano" required="true()" type="int"/>
@@ -35,6 +37,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/H1.16/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
     <group ref="/H1.16/meses">
       <label></label>
       <repeat nodeset="/H1.16/meses">
@@ -65,7 +70,7 @@
           </group>
           <input ref="/H1.16/meses/mes/otros">
             <label>Otros</label>
-            <hint>Otros [en miles de pesos]</hint>
+            <hint>Informar lo que no está incluido en los campos precedentes de manera que el total sea coincidente con lo consignado en los EECC [en miles de pesos]</hint>
           </input>
           <input ref="/H1.16/meses/mes/total">
             <label>Total</label>

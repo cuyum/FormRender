@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <I1.8 id="I1.8">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <cargoActivacion/>
@@ -18,6 +19,7 @@
           </meta>
         </I1.8>
       </instance>
+      <bind nodeset="/I1.8/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/I1.8/meses/mes/cargoActivacion" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0 y 9.999,99" nodeset="/I1.8/meses/mes/cargoReconexion" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0 y 999,99" nodeset="/I1.8/meses/mes/tasaMora" required="true()" type="decimal"/>
@@ -25,6 +27,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/I1.8/titulo">
+      <hint>Informar importes en pesos sin IVA. Ultimo dato vigente al final del período considerado.</hint>
+    </input>
     <group ref="/I1.8/meses">
       <label></label>
       <repeat nodeset="/I1.8/meses">

@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <H2.2 id="H2.2">
+          <titulo/>
           <areasprest jr:template="">
             <lineas>
               <anio/>
@@ -25,6 +26,7 @@
           </meta>
         </H2.2>
       </instance>
+      <bind nodeset="/H2.2/titulo" readonly="true()" type="string"/>
       <bind nodeset="/H2.2/areasprest/lineas/anio" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/H2.2/areasprest/lineas/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/H2.2/areasprest/lineas/provincia" nodeset="/H2.2/areasprest/lineas/partido" required="true()" type="select1"/>
@@ -39,6 +41,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/H2.2/titulo">
+      <hint>Cantidad de líneas provistas por período, por área local.</hint>
+    </input>
     <group ref="/H2.2/areasprest">
       <label></label>
       <repeat appearance="grilla" nodeset="/H2.2/areasprest">

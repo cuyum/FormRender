@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <I1.7 id="I1.7">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <provincia/>
@@ -29,7 +30,6 @@
                 <saliente3/>
               </trafico3>
               <traficoOtros>
-                <prestadorOtros/>
                 <entranteOtros/>
                 <salienteOtros/>
               </traficoOtros>
@@ -40,6 +40,7 @@
           </meta>
         </I1.7>
       </instance>
+      <bind nodeset="/I1.7/titulo" readonly="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/I1.7/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/I1.7/meses/mes/provincia" nodeset="/I1.7/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/I1.7/meses/mes/partido_otro" relevant=" /I1.7/meses/mes/partido =9999" required="true()" type="string"/>
@@ -48,19 +49,21 @@
       <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/I1.7/meses/mes/trafico1/prestador1" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/I1.7/meses/mes/trafico1/entrante1" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/I1.7/meses/mes/trafico1/saliente1" required="true()" type="int"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/I1.7/meses/mes/trafico2/prestador2" required="true()" type="select1"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/I1.7/meses/mes/trafico2/entrante2" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/I1.7/meses/mes/trafico2/saliente2" required="true()" type="int"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/I1.7/meses/mes/trafico3/prestador3" required="true()" type="select1"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/I1.7/meses/mes/trafico3/entrante3" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/I1.7/meses/mes/trafico3/saliente3" required="true()" type="int"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/I1.7/meses/mes/traficoOtros/prestadorOtros" required="true()" type="select1"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/I1.7/meses/mes/traficoOtros/entranteOtros" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/I1.7/meses/mes/traficoOtros/salienteOtros" required="true()" type="int"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/I1.7/meses/mes/trafico2/prestador2" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/I1.7/meses/mes/trafico2/entrante2" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/I1.7/meses/mes/trafico2/saliente2" type="int"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/I1.7/meses/mes/trafico3/prestador3" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/I1.7/meses/mes/trafico3/entrante3" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/I1.7/meses/mes/trafico3/saliente3" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/I1.7/meses/mes/traficoOtros/entranteOtros" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/I1.7/meses/mes/traficoOtros/salienteOtros" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/I1.7/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/I1.7/titulo">
+      <hint>Consignar el tráfico saliente, en cantidad de minutos, desagregado por operador. Seleccionar los operadores de mayor a menor en función del tráfico. Sólo referido al servicio de telefonía móvil y fija, no debe incluir el atribuido a SRCE.</hint>
+    </input>
     <group ref="/I1.7/meses">
       <label></label>
       <repeat appearance="grilla" nodeset="/I1.7/meses">
@@ -157,21 +160,13 @@
           </group>
           <group appearance="col3 well-white" ref="/I1.7/meses/mes/traficoOtros">
             <label>Otros Tráfico</label>
-            <select1 appearance="minimal" ref="/I1.7/meses/mes/traficoOtros/prestadorOtros">
-              <label>Prestador</label>
-              <hint>Prestador</hint>
-              <item>
-                <label>Seleccione una opción</label>
-                <value>-1</value>
-              </item>
-            </select1>
             <input ref="/I1.7/meses/mes/traficoOtros/entranteOtros">
               <label>Entrante</label>
-              <hint>Entrante</hint>
+              <hint>Consignar el trafico saliente no incluido en los campos precedentes.</hint>
             </input>
             <input ref="/I1.7/meses/mes/traficoOtros/salienteOtros">
               <label>Saliente</label>
-              <hint>Saliente</hint>
+              <hint>Consignar el trafico saliente no incluido en los campos precedentes.</hint>
             </input>
           </group>
         </group>

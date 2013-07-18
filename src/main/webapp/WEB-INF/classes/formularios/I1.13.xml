@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <I1.13 id="I1.13">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <hombres/>
@@ -17,12 +18,16 @@
           </meta>
         </I1.13>
       </instance>
+      <bind nodeset="/I1.13/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=99999" jr:constraintMsg="Ingrese entero entre 0 y 99.999" nodeset="/I1.13/meses/mes/hombres" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=99999" jr:constraintMsg="Ingrese entero entre 0 y 99.999" nodeset="/I1.13/meses/mes/mujeres" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/I1.13/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/I1.13/titulo">
+      <hint>Cantidad de empleados, normalizada de acuerdo al criterio explicitado en el Manual.</hint>
+    </input>
     <group ref="/I1.13/meses">
       <label></label>
       <repeat nodeset="/I1.13/meses">

@@ -6,6 +6,7 @@
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <H1.18 id="H1.18">
+          <titulo/>
           <meses jr:template="">
             <mes>
               <origenYTerminacionFijo/>
@@ -24,6 +25,7 @@
           </meta>
         </H1.18>
       </instance>
+      <bind nodeset="/H1.18/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/H1.18/meses/mes/origenYTerminacionFijo" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/H1.18/meses/mes/origenYTerminacionMovil" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/H1.18/meses/mes/transito" required="true()" type="int"/>
@@ -37,6 +39,9 @@
     </model>
   </h:head>
   <h:body>
+    <input appearance="tooltip" ref="/H1.18/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
     <group ref="/H1.18/meses">
       <label></label>
       <repeat nodeset="/H1.18/meses">
