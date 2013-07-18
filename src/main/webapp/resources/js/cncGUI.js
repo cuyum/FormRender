@@ -562,9 +562,7 @@ var gui = new function(){
 			$("input[type~='button'][repeat-action='edit']").unbind("click");
 			$("input[type~='button'][repeat-action='edit']").click(function(evt){
 				var rowIndex =  gui.grid.element.dataTable().fnGetPosition($(evt.target).closest('tr').get(0));
-				console.log(rowIndex);
 				var record = gui.grid.getRowData(rowIndex);
-//				console.log(record);
 				var fields = gui.fieldsets[record.instance].fields;
 				gui.blockUI("Cargando...<br>Espere por favor...",true);
 				gui.resetForm();
@@ -583,6 +581,17 @@ var gui = new function(){
 			$("input[type~='button'][repeat-action='add']").click(this,function(evt){
 				gui.grid.addRow($(evt.target).parent().attr("repeat-instance"));
 			});
+		},
+		setupRemoveClick: function(){
+			$("input[type~='button'][repeat-action='remove']").unbind("click");
+			$("input[type~='button'][repeat-action='remove']").click(function(evt){
+				var rowIndex =  gui.grid.element.dataTable().fnGetPosition($(evt.target).closest('tr').get(0));
+				gui.grid.removeRow(rowIndex);
+			});
+		},
+		setupRowActions: function(){
+			this.setupEditClck();
+			this.setupRemoveClick();
 		},
 		addRow : function(fieldsetInstance){
 			var fieldset = gui.fieldsets[fieldsetInstance];
@@ -664,12 +673,15 @@ var gui = new function(){
 					this.element.dataTable().fnUpdate(record, this.editing);
 					this.editing = -1;
 				}
-				this.setupEditClck();
+				this.setupRowActions();
 			}
 		},
 		addRows : function(dataArray){
 			this.element.dataTable().fnAddData(dataArray,true);
-			this.setupEditClck();
+			this.setupRowActions();
+		},
+		removeRow : function(rowIndex){
+			this.element.dataTable().fnDeleteRow(rowIndex);
 		},
 		/**
 		 * Call grid render function after building Form.fieldsets with repeat parent fieldset 
@@ -704,11 +716,12 @@ var gui = new function(){
 				"sTitle":"Acciones", 
 				"bSearchable": false, 
 				"mData": function ( data, type, full ) {
-					return '<input type="button" repeat-action="edit" class="btn" value="Editar"/>';
+					return '<input type="button" repeat-action="edit" class="btn" value="Editar"/>&#10;'+
+					'<input type="button" repeat-action="remove" class="btn" value="Borrar"/>';
 				}
 	        });
 			this.setupAddClick();
-			this.setupEditClck();
+			this.setupRowActions();
 			this.element.dataTable({
 				"bJQueryUI": false,
 				"bAutoWidth": false,
