@@ -182,6 +182,7 @@ var gui = new function(){
 	};
 	this.executeSubmission = function(url,message){
 		return $.ajax({
+			async:false,
 			type: "POST",
 			contentType : "application/x-www-form-urlencoded; charset=utf-8",
 			url: "/FormRender/rest/service/submit",
@@ -284,10 +285,12 @@ var gui = new function(){
 		}
 		
 		/*
-		 * Establezco que tipo de accion se quiere llevar a cabo
+		 * Reconozco que tipo de accion se quiere llevar a cabo
 		 */
 		var btn = clickEvent.target;
 		var draft = $(btn).attr("draft")=="true";
+		
+		$(btn).attr("disabled","disabled");
 		
 		/* si hay una grilla no es necesario validar nada
 		 * simplemente se extraen los datos de la grilla 
@@ -317,6 +320,7 @@ var gui = new function(){
 				console.warn("No data in grid");
 				gui.validateForm();
 			}
+			
 		/* si no hay grilla es necesario se deben extraer los datos
 		 * del formulario crudo y si es un draft, no hace falta validar
 		 * caso contrario se debera validar todo el formulario antes de
@@ -331,10 +335,11 @@ var gui = new function(){
 					message.payload.formulario.data = gui.retrieveFormFieldData();
 					gui.saveFinal(clickEvent);
 				}else{
-					gui.displayWarning("El formulario posse errores.");
+					gui.displayWarning("El formulario posee errores.");
 				}
 			}
 		}
+		$(btn).removeAttr("disabled");
 	};
 	this.addRelevant = function(field,relevant){
 		if(field && relevant){
