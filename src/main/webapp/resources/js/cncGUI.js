@@ -267,8 +267,8 @@ var gui = new function(){
 			}
 		};
 		/*verifico si tiene recordId para pasar en cabacera*/
-		if(this.loadDataId != null && this.loadDataId != undefined){
-			message.header.recordId=this.loadDataId;
+		if(gui.loadDataId != null && gui.loadDataId != undefined){
+			message.header.recordId=gui.loadDataId;
 		}
 		/*verifico si tiene callback_id para pasar en cabecera*/
 		var callbackId = gui.getURLParameter("callbackId");
