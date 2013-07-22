@@ -275,13 +275,9 @@ var gui = new function(){
 		var callbackId = gui.getURLParameter("callback_id");
 		if(callbackId!=null && callbackId!=undefined){
 			message.header.callback_id = callbackId;
-		}
-		/*FIXME: ELIMINAR ESTO CUANDO CALLBACK_ID NO SEA OBLIGATORIO
-		 * marta dijo que se implementara de esta manera porque no puede
-		 * coordinar con Leonardo
-		 */
+		}		
 		else{
-			message.header.callback_id = "algo";
+			message.header.callback_id = "";
 		}
 		
 		/*

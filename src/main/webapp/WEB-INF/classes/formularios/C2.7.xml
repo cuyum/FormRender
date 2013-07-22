@@ -19,7 +19,7 @@
     </model>
   </h:head>
   <h:body>
-    <group appearance="col1 whell-white" ref="/C2.7/nota">
+    <group appearance="textarea" ref="/C2.7/nota">
       <label>Observaciones</label>
       <input appearance="multiline" ref="/C2.7/nota/obsAnexoC2">
         <label>Observaciones</label>
