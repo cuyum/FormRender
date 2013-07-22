@@ -4,10 +4,6 @@
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
-  <error-page>
-    <exception-type>javax.faces.application.ViewExpiredException</exception-type>
-    <location>/error.xhtml</location>
-  </error-page>
   <context-param>
     <param-name>primefaces.THEME</param-name>
     <param-value>cupertino</param-value>
