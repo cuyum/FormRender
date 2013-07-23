@@ -180,12 +180,12 @@ var gui = new function(){
 		}
 		return valid;
 	};
-	this.executeSubmission = function(url,message){
+	this.executeSubmission = function(url,message){				
 		return $.ajax({
 			async:false,
 			type: "POST",
 			contentType : "application/x-www-form-urlencoded; charset=utf-8",
-			url: "/FormRender/rest/service/submit",
+			url: "/FormRender/rest/service/submit",		
 			data: {"submit_data":JSON.stringify(message),"url": url},
 			success:function(data, statusStr, xhr){
 				if(data.result && data.result.type){
@@ -325,11 +325,11 @@ var gui = new function(){
 		}else{
 			if(draft==true){
 				message.payload.formulario.data = gui.retrieveFormFieldData();
-				gui.saveDraft(clickEvent);
+				gui.saveDraft(message);
 			}else{
 				if(gui.validateForm()){
 					message.payload.formulario.data = gui.retrieveFormFieldData();
-					gui.saveFinal(clickEvent);
+					gui.saveFinal(message);
 				}else{
 					gui.displayWarning("El formulario posee errores.");
 				}
