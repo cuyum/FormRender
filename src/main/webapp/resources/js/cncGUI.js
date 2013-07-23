@@ -194,7 +194,7 @@ var gui = new function(){
 							gui.displaySuccess(data.result.msg);
 						else
 							gui.displaySuccess("Formulario guardado ("+data.result.id+").");
-					}else{
+					}else{						
 						if(data.result.msg!=undefined)
 							gui.displayError("Ha ocurrido un error en el servidor de persistencia<br/>"+data.result.msg);
 						else
@@ -203,7 +203,7 @@ var gui = new function(){
 				}else{
 					console.group("ERROR REMOTO DETECTADO");
 					if(data.result.msg != undefined){
-						gui.displayError(data.result);
+						gui.displayError(data.result.msg);
 						console.warn("Error:"+data.result.msg);
 					}else{
 						console.warn("No remote error defined");
