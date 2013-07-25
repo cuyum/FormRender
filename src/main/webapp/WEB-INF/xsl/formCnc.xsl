@@ -67,7 +67,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
             </xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
-    
+    <xsl:param name="versionForm"/>    
     <xsl:template match="/">
     	<xsl:if test="not(function-available('xalan:nodeset'))">
             <xsl:message terminate="yes">FATAL ERROR: exsl:node-set function is not available in this XSLT processor</xsl:message>
@@ -195,8 +195,12 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 	                            </xsl:otherwise>
 	                        </xsl:choose>
 		                </h5>
-		                <ul class="icons"><li><a href="#">
-		                	<span id="version"></span>
+		                <ul class="icons"><li><a href="#"> 
+			                <span id="version">
+			                	<xsl:if test="$versionForm">
+			               	 		Versión: <xsl:value-of select="$versionForm"/>
+			               	 	</xsl:if>
+			               	</span>			                           
 		                </a></li></ul>
 	                </div>
 	                <div id="internal-messages" class="notice"><xsl:text>&#10;</xsl:text></div>

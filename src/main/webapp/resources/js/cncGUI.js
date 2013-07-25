@@ -241,7 +241,7 @@ var gui = new function(){
 				var thisForm = $(gui.form);
 				if(thisForm.attr("submit-url")){
 					gui.executeSubmission(thisForm.attr("submit-url"), message).done(function(data){
-						if(data.result.success){
+						if(data.success){
 							gui.resetForm();
 							gui.cleanFormValidations();
 							if(gui.renderGrid){
@@ -250,7 +250,7 @@ var gui = new function(){
 						}
 					});
 				}else{
-					gui.displayError("Error local, contactae a su administrador.");
+					gui.displayError("Error local, contacte a su administrador.");
 					console.error("No se encuentra daclarada la URL de submission");
 				}
 			}
@@ -586,8 +586,11 @@ var gui = new function(){
 		setupRemoveClick: function(){
 			$("input[type~='button'][repeat-action='remove']").unbind("click");
 			$("input[type~='button'][repeat-action='remove']").click(function(evt){
-				var rowIndex =  gui.grid.element.dataTable().fnGetPosition($(evt.target).closest('tr').get(0));
-				gui.grid.removeRow(rowIndex);
+				var rowIndex =  gui.grid.element.dataTable().fnGetPosition($(evt.target).closest('tr').get(0));				
+				var record = gui.grid.getRowData(rowIndex);
+				gui.grid.removeRow(rowIndex);				
+				var fields = gui.fieldsets[record.instance].fields;
+				gui.resetFields(fields);
 			});
 		},
 		setupRowActions: function(){

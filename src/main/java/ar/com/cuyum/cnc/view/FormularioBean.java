@@ -520,6 +520,7 @@ private Long id;
 	   FacesContext fc = FacesContext.getCurrentInstance();
 	   
 	   Map<String,String> requestParams = fc.getExternalContext().getRequestParameterMap();
+	   
        String id = requestParams.get("form_id");
        if(id==null){
     	   id = requestParams.get("id");
@@ -534,10 +535,9 @@ private Long id;
 	    		xmlId = getId();
 	    	}
 	    	this.formulario = findById(xmlId);	    	
-    	 
 	 	    xmlStream = fileUtils.getInputStream(formulario);
 	    	ts.setRemoteTransformation(false);
-			String transformedHtml = ts.transform(xmlStream);
+			String transformedHtml = ts.transform(xmlStream, formulario.getFormVersion());
 			ec.responseReset(); // Some JSF component library or some Filter might have set some headers in the buffer beforehand. We want to get rid of them, else it may collide.
 //		    ec.setResponseContentType("text/html"); // Check http://www.iana.org/assignments/media-types for all types. Use if necessary ExternalContext#getMimeType() for auto-detection based on filename.
 //		    ec.setResponseHeader("Content-Disposition", "attachment; filename=\""+formulario.getArchivo()+"\""); // The Save As popup magic is done here. You can give it any file name you want, this only won't work in MSIE, it will use current request URL as file name instead.

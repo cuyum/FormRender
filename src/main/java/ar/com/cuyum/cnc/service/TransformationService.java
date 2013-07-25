@@ -3,7 +3,6 @@
  */
 package ar.com.cuyum.cnc.service;
 
-import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -50,25 +49,25 @@ public class TransformationService {
 	
 	/*================ POINT OF ENTRANCE =================*/
 	
-	public String transform(InputStream xmlStream){
+	public String transform(InputStream xmlStream, String strParamVersion){
 		String transformedXml = null;
 		if(remoteTransformation){
 			transformedXml = requestTransformation(xmlStream);
 		}else{
-			transformedXml = performTransformation(xmlStream);
+			transformedXml = performTransformation(xmlStream, strParamVersion);
 		}
 		return transformedXml;
 	}
 	
 	/*=============TRANSFORMATION ALTERNATIVES============*/
 	
-	private String performTransformation(InputStream xmlStream){
+	private String performTransformation(InputStream xmlStream, String strParamVersion){
 		log.debug("Transformando el xml localmente");
 		
 		String result = "<html><body>Error.</body></html>";
 		
 		try {
-			result = transformHtml(xmlStream);
+			result = transformHtml(xmlStream, strParamVersion);
 		} catch (Exception e) {
 			log.error("Error transformando localmente el xml",e);
 		}
@@ -83,32 +82,27 @@ public class TransformationService {
 		return transformedXml;
 	}
 	
-	/*=================VIA SAXON SERVICE===================*/
+	/*=================VIA XALAN SERVICE===================*/
 	
-	private String transformHtml(InputStream xmlStream) throws Exception {
+	private String transformHtml(InputStream xmlStream, String strParamVersion) throws Exception {
 		
 		// Create a transform factory instance.
 		TransformerFactory tfactory = TransformerFactory.newInstance();
 		StringWriter resultForm = new StringWriter();
-//		StringWriter resultData = new StringWriter();
 		
 		// Create a transformer for the stylesheet.
 		Transformer transformerForm = tfactory.newTransformer(new StreamSource(new InputStreamReader(loadXsl(XSL_FORM),"UTF8")));
 		
-		// Create a transformer for the stylesheet.
-//		Transformer transformerData = tfactory.newTransformer(new StreamSource(new InputStreamReader(loadXsl(XSL_DATA),"UTF-8")));
-
 		// get the xml bytes
 		byte[] xmlBytes = IOUtils.toByteArray(xmlStream);
 		
-//		InputStream xmlStreamData = new ByteArrayInputStream(xmlBytes);
 		InputStream xmlStreamForm = new ByteArrayInputStream(xmlBytes);
 		
 		// Transform the source XML to System.out.
-//		transformerData.transform(new StreamSource(new InputStreamReader(xmlStreamData),"UTF-8"),  new StreamResult(resultData));
+		if (null != strParamVersion && !strParamVersion.isEmpty())
+			transformerForm.setParameter("versionForm", strParamVersion);
 		transformerForm.transform(new StreamSource(new InputStreamReader(xmlStreamForm),"UTF8"),  new StreamResult(resultForm));
-		
-//		return "<root>"+resultData.toString()+resultForm.toString()+"</root>";
+
 		return resultForm.toString();
 	}
 	

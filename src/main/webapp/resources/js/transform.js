@@ -3,10 +3,12 @@ $(document).ready(function() {
 	// override these in your code to change the default behavior and style
 	setupValidationDefaults();
 	
-	/*Setup Version*/
+	/*Setup Version
 	var versionElement = $("#version");
 	var versionValue = gui.getURLParameter("version");
 	if(versionElement && versionValue) versionElement.text("Versi\u00F3n: "+versionValue);
+	*/
+	
 	/*
 	 * Para repeat se necesitará duplicar todo lo que se encuentre dentro del fieldset.jr-repeat
 	 * actualmente se está pasando un listado de campos al setup de validaciones y se están buscando 
