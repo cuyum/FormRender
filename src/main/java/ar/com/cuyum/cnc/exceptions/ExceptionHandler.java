@@ -96,6 +96,7 @@ public class ExceptionHandler extends ExceptionHandlerWrapper {
 				if (!foundedMessage){
 					message = t.getMessage();
 					requestMap.put("errorMsg", message);
+					log.error(message);
 					try {
 						log.info("Redirecting ../error.xhtml");
 						externalContext.redirect("../error.xhtml");
