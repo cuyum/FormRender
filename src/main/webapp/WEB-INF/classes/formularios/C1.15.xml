@@ -40,13 +40,13 @@
       <bind nodeset="/C1.15/meses/mes/localidad_otro" relevant=" /C1.15/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C1.15/meses/mes/localidad" nodeset="/C1.15/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/C1.15/meses/mes/area_otro" relevant=" /C1.15/meses/mes/area =9999" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999.999.999,9" nodeset="/C1.15/meses/mes/salientes/salientes1" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.15/meses/mes/salientes/salientes1" required="true()" type="decimal"/>
       <bind constraint="url=/localizacion/rest/localizaciones/prestadores" nodeset="/C1.15/meses/mes/salientes/operador1" required="true()" type="select1"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999.999.999,9" nodeset="/C1.15/meses/mes/salientes/salientes2" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.15/meses/mes/salientes/salientes2" type="decimal"/>
       <bind constraint="url=/localizacion/rest/localizaciones/prestadores" nodeset="/C1.15/meses/mes/salientes/operador2" type="select1"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999.999.999,9" nodeset="/C1.15/meses/mes/salientes/salientes3" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.15/meses/mes/salientes/salientes3" type="decimal"/>
       <bind constraint="url=/localizacion/rest/localizaciones/prestadores" nodeset="/C1.15/meses/mes/salientes/operador3" type="select1"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999.999.999,9" nodeset="/C1.15/meses/mes/salientes/salientesOtros" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.15/meses/mes/salientes/salientesOtros" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.15/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

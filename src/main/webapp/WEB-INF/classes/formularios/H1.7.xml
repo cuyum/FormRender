@@ -43,12 +43,12 @@
       <bind nodeset="/H1.7/meses/mes/localidad_otro" relevant=" /H1.7/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/H1.7/meses/mes/localidad" nodeset="/H1.7/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/H1.7/meses/mes/area_otro" relevant=" /H1.7/meses/mes/area =9999" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 99.999.999,99" nodeset="/H1.7/meses/mes/ll/llEntrante" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 99.999.999,99" nodeset="/H1.7/meses/mes/ll/llSaliente" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 99.999.999,99" nodeset="/H1.7/meses/mes/lldn/lldnEntrante" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 99.999.999,99" nodeset="/H1.7/meses/mes/lldn/lldnSaliente" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 99.999.999,99" nodeset="/H1.7/meses/mes/lldi/lldiEntrante" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 99.999.999,99" nodeset="/H1.7/meses/mes/lldi/lldiSaliente" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 99999999.99" nodeset="/H1.7/meses/mes/ll/llEntrante" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 99999999.99" nodeset="/H1.7/meses/mes/ll/llSaliente" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 99999999.99" nodeset="/H1.7/meses/mes/lldn/lldnEntrante" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 99999999.99" nodeset="/H1.7/meses/mes/lldn/lldnSaliente" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 99999999.99" nodeset="/H1.7/meses/mes/lldi/lldiEntrante" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 99999999.99" nodeset="/H1.7/meses/mes/lldi/lldiSaliente" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/H1.7/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

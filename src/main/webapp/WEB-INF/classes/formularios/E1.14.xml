@@ -21,10 +21,10 @@
           </meta>
         </E1.14>
       </instance>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/E1.14/roaming/nacional/nacionalEntrante" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/E1.14/roaming/nacional/nacionalSaliente" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/E1.14/roaming/internacional/internacEntrante" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/E1.14/roaming/internacional/internacSaliente" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/E1.14/roaming/nacional/nacionalEntrante" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/E1.14/roaming/nacional/nacionalSaliente" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/E1.14/roaming/internacional/internacEntrante" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/E1.14/roaming/internacional/internacSaliente" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/E1.14/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

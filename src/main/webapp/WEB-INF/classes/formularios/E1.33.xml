@@ -23,12 +23,12 @@
         </E1.33>
       </instance>
       <bind nodeset="/E1.33/titulo" readonly="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/E1.33/meses/mes/alquilerSitios" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/E1.33/meses/mes/cpp" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/E1.33/meses/mes/ventaEquipos" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/E1.33/meses/mes/ventaAccesorios" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/E1.33/meses/mes/otrosIngresos" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/E1.33/meses/mes/total" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.33/meses/mes/alquilerSitios" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.33/meses/mes/cpp" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.33/meses/mes/ventaEquipos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.33/meses/mes/ventaAccesorios" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.33/meses/mes/otrosIngresos" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.33/meses/mes/total" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/E1.33/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

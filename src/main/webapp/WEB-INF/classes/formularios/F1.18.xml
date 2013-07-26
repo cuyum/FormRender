@@ -33,9 +33,9 @@
       <bind nodeset="/F1.18/agregar/planes/planesAccesos_otro" relevant=" /F1.18/agregar/planes/planesAccesos =OTROS" required="true()" type="string"/>
       <bind nodeset="/F1.18/agregar/planes/velocidad/velocidadSubida" required="true()" type="select1"/>
       <bind nodeset="/F1.18/agregar/planes/velocidad/velocidadBajada" required="true()" type="select1"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 9.999,99" nodeset="/F1.18/agregar/planes/planesAbono" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/F1.18/agregar/planes/planesAbono" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/F1.18/agregar/planes/planesVigencia" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 9.999,99" nodeset="/F1.18/agregar/planes/planesAbonoFinal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/F1.18/agregar/planes/planesAbonoFinal" required="true()" type="decimal"/>
       <bind nodeset="/F1.18/agregar/planes/planesObs" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/F1.18/meta/instanceID" readonly="true()" type="string"/>
     </model>

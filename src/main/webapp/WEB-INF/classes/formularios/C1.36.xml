@@ -19,10 +19,10 @@
           </meta>
         </C1.36>
       </instance>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.36/meses/mes/clave1" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.36/meses/mes/clave2y3" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.36/meses/mes/clave4y5" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.36/meses/mes/clave6a12" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.36/meses/mes/clave1" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.36/meses/mes/clave2y3" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.36/meses/mes/clave4y5" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.36/meses/mes/clave6a12" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.36/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

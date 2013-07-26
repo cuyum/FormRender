@@ -20,9 +20,9 @@
         </C1.39>
       </instance>
       <bind nodeset="/C1.39/titulo" readonly="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.39/meses/mes/ddi" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.39/meses/mes/operadora" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.39/meses/mes/otros" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.39/meses/mes/ddi" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.39/meses/mes/operadora" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.39/meses/mes/otros" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.39/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

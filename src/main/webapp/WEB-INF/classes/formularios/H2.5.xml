@@ -24,11 +24,11 @@
         </H2.5>
       </instance>
       <bind nodeset="/H2.5/titulo" readonly="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese entero entre 0 y 9.999.999.999" nodeset="/H2.5/ingresos/abono" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese entero entre 0 y 9.999.999.999" nodeset="/H2.5/ingresos/trafico/urbano" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese entero entre 0 y 9.999.999.999" nodeset="/H2.5/ingresos/trafico/interurbano" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese entero entre 0 y 9.999.999.999" nodeset="/H2.5/ingresos/trafico/internacional" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese entero entre 0 y 9.999.999.999" nodeset="/H2.5/ingresos/tot/total" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999999" nodeset="/H2.5/ingresos/abono" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999999" nodeset="/H2.5/ingresos/trafico/urbano" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999999" nodeset="/H2.5/ingresos/trafico/interurbano" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999999" nodeset="/H2.5/ingresos/trafico/internacional" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999999" nodeset="/H2.5/ingresos/tot/total" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/H2.5/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

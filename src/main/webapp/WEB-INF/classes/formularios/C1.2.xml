@@ -35,7 +35,7 @@
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C1.2/inter/interconexion/localidad" nodeset="/C1.2/inter/interconexion/area" required="true()" type="select1"/>
       <bind nodeset="/C1.2/inter/interconexion/area_otro" relevant=" /C1.2/inter/interconexion/area =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/prestadores" nodeset="/C1.2/inter/interconexion/prestador" required="true()" type="select1"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9.999.999" nodeset="/C1.2/inter/interconexion/capacidad" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999" nodeset="/C1.2/inter/interconexion/capacidad" required="true()" type="int"/>
       <bind nodeset="/C1.2/inter/interconexion/unidad" required="true()" type="select1"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.2/meta/instanceID" readonly="true()" type="string"/>
     </model>

@@ -605,9 +605,8 @@ var setupValidationDefaults = function(){
 	
 	$.validator.addMethod("entero", 
 		function(value, element) {
-//			return this.optional(element) || /^(-)?[0-9]*$/.test(value); 
-			var match = /^-?(?:\d+|\d{1,3}(?:\.\d{3})+)$/.test(value);
-//			console.log("ENTERO="+match);
+		var match = /^(-)?[0-9]*$/.test(value);
+//			var match = /^-?(?:\d+|\d{1,3}(?:\.\d{3})+)$/.test(value);
 			return this.optional(element) || match; 
 		}, 
 		"N&uacute;mero no v&aacute;lido");
@@ -615,9 +614,8 @@ var setupValidationDefaults = function(){
 	
 	$.validator.addMethod("decimal", 
 		function(value, element) { 
-//			return this.optional(element) || /^\s*-?(\d+(\.\d{1,2})?|\.\d{1,2})\s*$/.test(value);
-			var match =/^-?(?:\d+\,\d{1,3}|\d{1,3}(?:\.\d{3})+\,\d{1,3})$/.test(value);
-//			console.log("DECIMAL="+match);
+//			var match =/^-?(?:\d+\,\d{1,3}|\d{1,3}(?:\.\d{3})+\,\d{1,3})$/.test(value);
+		var match =/^\s*-?(\d+(\.\d{1,3})?|\.\d{1,3})\s*$/.test(value);
 			return this.optional(element) || match; 
 		}, 
 		"N&uacute;mero no v&aacute;lido");

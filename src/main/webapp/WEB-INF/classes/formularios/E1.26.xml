@@ -43,18 +43,18 @@
         </E1.26>
       </instance>
       <bind nodeset="/E1.26/titulo" readonly="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.26/hasta110/roaming110/roamingPrepago110" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.26/hasta110/roaming110/roamingPospago110" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.26/hasta110/ldn110/ldnPrepago110" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.26/hasta110/ldn110/ldnPospago110" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.26/de110A240/roaming240/roamingPrepago240" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.26/de110A240/roaming240/roamingPospago240" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.26/de110A240/ldn240/ldnPrepago240" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.26/de110A240/ldn240/ldnPospago240" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.26/mas240/roamMas240/roamPrepagoMas240" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.26/mas240/roamMas240/roamPospagoMas240" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.26/mas240/ldnMas240/ldnPrepagoMas240" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.26/mas240/ldnMas240/ldnPospagoMas240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/hasta110/roaming110/roamingPrepago110" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/hasta110/roaming110/roamingPospago110" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/hasta110/ldn110/ldnPrepago110" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/hasta110/ldn110/ldnPospago110" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/de110A240/roaming240/roamingPrepago240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/de110A240/roaming240/roamingPospago240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/de110A240/ldn240/ldnPrepago240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/de110A240/ldn240/ldnPospago240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/mas240/roamMas240/roamPrepagoMas240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/mas240/roamMas240/roamPospagoMas240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/mas240/ldnMas240/ldnPrepagoMas240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/mas240/ldnMas240/ldnPospagoMas240" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/E1.26/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

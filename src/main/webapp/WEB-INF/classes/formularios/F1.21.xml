@@ -22,11 +22,11 @@
           </meta>
         </F1.21>
       </instance>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.21/meses/mes/dialUp" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.21/meses/mes/bandaAncha/kbps1Mbps" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.21/meses/mes/bandaAncha/Mbps6Mbps" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.21/meses/mes/bandaAncha/Mbps10Mbps" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/F1.21/meses/mes/bandaAncha/Mbps" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.21/meses/mes/dialUp" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.21/meses/mes/bandaAncha/kbps1Mbps" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.21/meses/mes/bandaAncha/Mbps6Mbps" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.21/meses/mes/bandaAncha/Mbps10Mbps" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.21/meses/mes/bandaAncha/Mbps" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/F1.21/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

@@ -45,16 +45,16 @@
       <bind nodeset="/C2.3/areasprest/areas/cobertura/localidad_otro" relevant=" /C2.3/areasprest/areas/cobertura/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C2.3/areasprest/areas/cobertura/localidad" nodeset="/C2.3/areasprest/areas/cobertura/area" required="true()" type="select1"/>
       <bind nodeset="/C2.3/areasprest/areas/cobertura/area_otro" relevant=" /C2.3/areasprest/areas/cobertura/area =9999" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/C2.3/areasprest/areas/cobertura/telefViaPublica" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/C2.3/areasprest/areas/cobertura/lineasTelefoniaPublica" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/C2.3/areasprest/areas/telefonosPublicos/tpa" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/C2.3/areasprest/areas/telefonosPublicos/tpu" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/C2.3/areasprest/areas/telefonosPublicos/tsp" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/C2.3/areasprest/areas/telefonosPublicos/thih" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/C2.3/areasprest/areas/telefonosPublicos/sspld" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/C2.3/areasprest/areas/lineas/telefSemiPublicos" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/C2.3/areasprest/areas/lineas/locutorios" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/C2.3/areasprest/areas/lineas/locuroriosCabinas" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/C2.3/areasprest/areas/cobertura/telefViaPublica" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/C2.3/areasprest/areas/cobertura/lineasTelefoniaPublica" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/C2.3/areasprest/areas/telefonosPublicos/tpa" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/C2.3/areasprest/areas/telefonosPublicos/tpu" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/C2.3/areasprest/areas/telefonosPublicos/tsp" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/C2.3/areasprest/areas/telefonosPublicos/thih" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/C2.3/areasprest/areas/telefonosPublicos/sspld" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/C2.3/areasprest/areas/lineas/telefSemiPublicos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/C2.3/areasprest/areas/lineas/locutorios" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/C2.3/areasprest/areas/lineas/locuroriosCabinas" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C2.3/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

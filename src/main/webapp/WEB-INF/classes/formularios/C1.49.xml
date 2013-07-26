@@ -19,8 +19,8 @@
         </C1.49>
       </instance>
       <bind nodeset="/C1.49/titulo" readonly="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.49/meses/mes/hombres" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/C1.49/meses/mes/mujeres" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.49/meses/mes/hombres" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.49/meses/mes/mujeres" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.49/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

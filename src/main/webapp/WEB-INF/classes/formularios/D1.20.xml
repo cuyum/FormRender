@@ -34,15 +34,15 @@
       <bind nodeset="/D1.20/meses/mes/partido_otro" relevant=" /D1.20/meses/mes/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/D1.20/meses/mes/partido" nodeset="/D1.20/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/D1.20/meses/mes/localidad_otro" relevant=" /D1.20/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/D1.20/meses/mes/trp" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/D1.20/meses/mes/trcp" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/D1.20/meses/mes/trr" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/D1.20/meses/mes/roac" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/D1.20/meses/mes/rscp" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/D1.20/meses/mes/tcf" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/D1.20/meses/mes/dposs" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/D1.20/meses/mes/tfrp" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,99" nodeset="/D1.20/meses/mes/drf" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/D1.20/meses/mes/trp" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/D1.20/meses/mes/trcp" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/D1.20/meses/mes/trr" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/D1.20/meses/mes/roac" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/D1.20/meses/mes/rscp" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/D1.20/meses/mes/tcf" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/D1.20/meses/mes/dposs" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/D1.20/meses/mes/tfrp" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/D1.20/meses/mes/drf" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.20/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

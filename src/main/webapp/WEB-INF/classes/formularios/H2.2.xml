@@ -36,7 +36,7 @@
       <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/H2.2/areasprest/lineas/localidad" nodeset="/H2.2/areasprest/lineas/area" required="true()" type="select1"/>
       <bind nodeset="/H2.2/areasprest/lineas/area_otro" relevant=" /H2.2/areasprest/lineas/area =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/H2.2/areasprest/lineas/operador" required="true()" type="select1"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/H2.2/areasprest/lineas/lineas" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/H2.2/areasprest/lineas/lineas" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/H2.2/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

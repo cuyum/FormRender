@@ -29,8 +29,8 @@
       <bind nodeset="/E1.15/meses/mes/partido_otro" relevant=" /E1.15/meses/mes/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/E1.15/meses/mes/partido" nodeset="/E1.15/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/E1.15/meses/mes/localidad_otro" relevant=" /E1.15/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/E1.15/meses/mes/cppNacional" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/E1.15/meses/mes/cppInternacional" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/E1.15/meses/mes/cppNacional" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/E1.15/meses/mes/cppInternacional" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/E1.15/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

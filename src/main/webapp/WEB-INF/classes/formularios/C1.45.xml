@@ -23,12 +23,12 @@
         </C1.45>
       </instance>
       <bind nodeset="/C1.45/titulo" readonly="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.45/meses/mes/arriendosCircuitodLdi" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.45/meses/mes/traficoLdi" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.45/meses/mes/corresponsalesEntrada" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.45/meses/mes/corresponsalesSalida" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.45/meses/mes/totalNetoCorrespSalida" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999.999" nodeset="/C1.45/meses/mes/total" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.45/meses/mes/arriendosCircuitodLdi" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.45/meses/mes/traficoLdi" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.45/meses/mes/corresponsalesEntrada" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.45/meses/mes/corresponsalesSalida" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.45/meses/mes/totalNetoCorrespSalida" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.45/meses/mes/total" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.45/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

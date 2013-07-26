@@ -63,26 +63,26 @@
         </E1.27>
       </instance>
       <bind nodeset="/E1.27/titulo" readonly="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.27/limitrofes/limitrofeRoaming/limitrofeRoamPrepago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.27/limitrofes/limitrofeRoaming/limitrofeRoamPospago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.27/limitrofes/limitrofeLdn/limitrofeLdnPrepago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.27/limitrofes/limitrofeLdn/limitrofeLdnPospago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.27/sudamerica/sudamRoaming/sudamRoamPrepago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.27/sudamerica/sudamRoaming/sudamRoamPospago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.27/sudamerica/sudamLdn/sudamLdnPrepago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.27/sudamerica/sudamLdn/sudamLdnPospago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.27/norteAmerica/norteamRoaming/norteamRoamingPrepago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.27/norteAmerica/norteamRoaming/norteamRoamingPospago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.27/norteAmerica/norteamLdn/norteamLdnPrepago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.27/norteAmerica/norteamLdn/norteamLdnPospago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.27/europa/euroRoaming/euroRoamPrepago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.27/europa/euroRoaming/euroRoamPospago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.27/europa/euroLdn/euroLdnPrepago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.27/europa/euroLdn/euroLdnPospago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.27/mundo/mundoRoaming/mundoRoamPrepago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.27/mundo/mundoRoaming/mundoRoamPospago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.27/mundo/mundoLdn/mundoLdnPrepago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 99,999" nodeset="/E1.27/mundo/mundoLdn/mundoLdnPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/limitrofes/limitrofeRoaming/limitrofeRoamPrepago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/limitrofes/limitrofeRoaming/limitrofeRoamPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/limitrofes/limitrofeLdn/limitrofeLdnPrepago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/limitrofes/limitrofeLdn/limitrofeLdnPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/sudamerica/sudamRoaming/sudamRoamPrepago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/sudamerica/sudamRoaming/sudamRoamPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/sudamerica/sudamLdn/sudamLdnPrepago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/sudamerica/sudamLdn/sudamLdnPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/norteAmerica/norteamRoaming/norteamRoamingPrepago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/norteAmerica/norteamRoaming/norteamRoamingPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/norteAmerica/norteamLdn/norteamLdnPrepago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/norteAmerica/norteamLdn/norteamLdnPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/europa/euroRoaming/euroRoamPrepago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/europa/euroRoaming/euroRoamPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/europa/euroLdn/euroLdnPrepago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/europa/euroLdn/euroLdnPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/mundo/mundoRoaming/mundoRoamPrepago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/mundo/mundoRoaming/mundoRoamPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/mundo/mundoLdn/mundoLdnPrepago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/mundo/mundoLdn/mundoLdnPospago" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/E1.27/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

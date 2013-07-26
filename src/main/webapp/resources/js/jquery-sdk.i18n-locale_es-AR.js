@@ -8,16 +8,16 @@
         nativeName: "Español (Argentina)",
         language: "es",
         numberFormat: {
-            ',': ".",
-            '.': ",",
+            ',': "",
+            '.': ".",
             percent: {
-                ',': ".",
-                '.': ","
+                ',': "",
+                '.': "."
             },
             currencies: {'':{
                 pattern: ["$-n","$ n"],
-                ',': ".",
-                '.': ","
+                ',': "",
+                '.': "."
             }}
         },
         calendars: {

@@ -30,7 +30,7 @@
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/F1.4/meses/mes/partido" nodeset="/F1.4/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/F1.4/meses/mes/localidad_otro" relevant=" /F1.4/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind jr:constraintMsg="Datos no válidos" nodeset="/F1.4/meses/mes/institucion" type="select1"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/F1.4/meses/mes/capacidad" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/F1.4/meses/mes/capacidad" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/F1.4/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

@@ -19,8 +19,8 @@
         </D1.41>
       </instance>
       <bind nodeset="/D1.41/titulo" readonly="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999" jr:constraintMsg="Ingrese entero entre 0 y 99.999" nodeset="/D1.41/meses/mes/hombres" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999" jr:constraintMsg="Ingrese entero entre 0 y 99.999" nodeset="/D1.41/meses/mes/mujeres" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999" jr:constraintMsg="Ingrese entero entre 0 y 99999" nodeset="/D1.41/meses/mes/hombres" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999" jr:constraintMsg="Ingrese entero entre 0 y 99999" nodeset="/D1.41/meses/mes/mujeres" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.41/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

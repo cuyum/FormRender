@@ -60,12 +60,12 @@
       <bind nodeset="/C1.3/puntos/lugarOrigen/area_otro" relevant=" /C1.3/puntos/lugarOrigen/areaOrigen =9999" required="true()" type="string"/>
       <bind nodeset="/C1.3/puntos/equipamiento/tecnologia" required="true()" type="select1"/>
       <bind nodeset="/C1.3/puntos/equipamiento/tecnologia_otro" relevant=" /C1.3/puntos/equipamiento/tecnologia =Otros" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9.999.999" nodeset="/C1.3/puntos/equipamiento/equipCapacidadDisp" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9.999.999" nodeset="/C1.3/puntos/equipamiento/equipCapacidadUtilizada" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999" nodeset="/C1.3/puntos/equipamiento/equipCapacidadDisp" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999" nodeset="/C1.3/puntos/equipamiento/equipCapacidadUtilizada" required="true()" type="int"/>
       <bind nodeset="/C1.3/puntos/tipomedio/medio" required="true()" type="select1"/>
       <bind nodeset="/C1.3/puntos/tipomedio/medio_otro" relevant=" /C1.3/puntos/tipomedio/medio =Otros" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999" jr:constraintMsg="Ingrese entero entre 0 y 99.999" nodeset="/C1.3/puntos/tipomedio/medioCapacidadDisp" relevant=" /C1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999" jr:constraintMsg="Ingrese entero entre 0 y 99.999" nodeset="/C1.3/puntos/tipomedio/medioCapacidadUtilizada" relevant=" /C1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999" jr:constraintMsg="Ingrese entero entre 0 y 99999" nodeset="/C1.3/puntos/tipomedio/medioCapacidadDisp" relevant=" /C1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999" jr:constraintMsg="Ingrese entero entre 0 y 99999" nodeset="/C1.3/puntos/tipomedio/medioCapacidadUtilizada" relevant=" /C1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
       <bind nodeset="/C1.3/puntos/tipotendido" relevant=" /C1.3/puntos/tipomedio/medio =FO or  /C1.3/puntos/tipomedio/medio =Otros"/>
       <bind nodeset="/C1.3/puntos/tipotendido/tendido" relevant=" /C1.3/puntos/tipomedio/medio =FO or  /C1.3/puntos/tipomedio/medio =Otros" required="true()" type="select1"/>
       <bind nodeset="/C1.3/puntos/tipotendido/tendido_otro" relevant=" /C1.3/puntos/tipotendido/tendido =Otros" required="true()" type="string"/>

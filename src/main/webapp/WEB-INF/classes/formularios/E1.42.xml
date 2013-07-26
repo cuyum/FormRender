@@ -19,10 +19,10 @@
         </E1.42>
       </instance>
       <bind nodeset="/E1.42/titulo" readonly="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/E1.42/financiamiento/financiamientoSU" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/E1.42/financiamiento/subsidiosTasaInteres" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/E1.42/financiamiento/subsidiosImpositivos" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999.999.999" nodeset="/E1.42/financiamiento/subsidiosOtros" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.42/financiamiento/financiamientoSU" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.42/financiamiento/subsidiosTasaInteres" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.42/financiamiento/subsidiosImpositivos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.42/financiamiento/subsidiosOtros" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/E1.42/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

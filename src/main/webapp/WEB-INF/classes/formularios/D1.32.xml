@@ -32,23 +32,23 @@
         </D1.32>
       </instance>
       <bind nodeset="/D1.32/titulo" readonly="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999,99" nodeset="/D1.32/servicios/transfLlamada" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999,99" nodeset="/D1.32/servicios/llamadaEspera" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999,99" nodeset="/D1.32/servicios/confTripartita" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999,99" nodeset="/D1.32/servicios/idLlamadaEntrante" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999,99" nodeset="/D1.32/servicios/contestador" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999,99" nodeset="/D1.32/servicios/confMultipartita" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999,99" nodeset="/D1.32/servicios/servicioInfNoticias" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999,99" nodeset="/D1.32/servicios/mensajeriaTexto" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999,99" nodeset="/D1.32/servicios/mensajeriaDatos" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999,99" nodeset="/D1.32/servicios/smsAFijo" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999,99" nodeset="/D1.32/servicios/restriccionNroEnvio" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999,99" nodeset="/D1.32/servicios/restriccionDdiDdn" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999,99" nodeset="/D1.32/servicios/facturaDetallada" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999,99" nodeset="/D1.32/servicios/facturaDetalladaUnaVez" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999,99" nodeset="/D1.32/servicios/otrosServicios1" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999,99" nodeset="/D1.32/servicios/otrosServicios2" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0,00 y 999,99" nodeset="/D1.32/servicios/otrosServicios3" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/D1.32/servicios/transfLlamada" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/D1.32/servicios/llamadaEspera" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/D1.32/servicios/confTripartita" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/D1.32/servicios/idLlamadaEntrante" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/D1.32/servicios/contestador" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/D1.32/servicios/confMultipartita" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/D1.32/servicios/servicioInfNoticias" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/D1.32/servicios/mensajeriaTexto" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/D1.32/servicios/mensajeriaDatos" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/D1.32/servicios/smsAFijo" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/D1.32/servicios/restriccionNroEnvio" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/D1.32/servicios/restriccionDdiDdn" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/D1.32/servicios/facturaDetallada" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/D1.32/servicios/facturaDetalladaUnaVez" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/D1.32/servicios/otrosServicios1" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/D1.32/servicios/otrosServicios2" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/D1.32/servicios/otrosServicios3" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.32/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

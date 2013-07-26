@@ -18,9 +18,9 @@
         </C1.24>
       </instance>
       <bind nodeset="/C1.24/titulo" readonly="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,999" nodeset="/C1.24/precio/tarifa110" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,999" nodeset="/C1.24/precio/tarifa113" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,999" nodeset="/C1.24/precio/tarifaOtros" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/C1.24/precio/tarifa110" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/C1.24/precio/tarifa113" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/C1.24/precio/tarifaOtros" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.24/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

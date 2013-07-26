@@ -30,9 +30,9 @@
       <bind nodeset="/D1.22/meses/mes/partido_otro" relevant=" /D1.22/meses/mes/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/D1.22/meses/mes/partido" nodeset="/D1.22/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/D1.22/meses/mes/localidad_otro" relevant=" /D1.22/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/D1.22/meses/mes/facturacion" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/D1.22/meses/mes/averias" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99.999.999" nodeset="/D1.22/meses/mes/otros" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/D1.22/meses/mes/facturacion" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/D1.22/meses/mes/averias" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/D1.22/meses/mes/otros" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/D1.22/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

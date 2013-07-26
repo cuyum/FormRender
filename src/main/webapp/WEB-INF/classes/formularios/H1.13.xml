@@ -18,9 +18,9 @@
         </H1.13>
       </instance>
       <bind nodeset="/H1.13/titulo" readonly="true()" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,999" nodeset="/H1.13/numeros/numeros110" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,999" nodeset="/H1.13/numeros/numeros113" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0,00 y 999.999,999" nodeset="/H1.13/numeros/numerosOtros" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.13/numeros/numeros110" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.13/numeros/numeros113" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.13/numeros/numerosOtros" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/H1.13/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
