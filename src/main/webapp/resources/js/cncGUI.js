@@ -9,6 +9,17 @@ var gui = new function(){
 		SUCCESS: "alert-success",
 		ERROR: "alert-error"
 	};
+	this.toNumber = function(value){
+		if(value && !isNaN(value)){
+			return parseFloat(value);
+		}else if(isNaN(value)){
+			console.warn("Alphanumeric String passed as an argument, only String with Numeric characters allowed as argument");
+			return value;
+		}else if(value==undefined){
+			console.error("Undefined value argument passed to \"toNumber()\"");
+			return value;
+		}
+	};
 	this.replaceFieldInFieldset = function(newField, oldField, fieldset){
 		var fs;
 		if(fieldset && fieldset.instance){
@@ -133,7 +144,8 @@ var gui = new function(){
 	this.resetForm = function(){
 		gui.form.reset();
 		$("select").each(function(count,item){
-			$(item).select2("data",null);
+			if(!$(item).attr("name")=="repeat-grid_length")
+				$(item).select2("data",null);
 		});
 		$("[data-type-xml='select2']").each(function(i, item){
 			$(item).select2("val","");
@@ -157,10 +169,9 @@ var gui = new function(){
 			for ( var j = 0; j < gui.fieldsets[i].fields.length; j++) {
 				var field = $(gui.fieldsets[i].fields[j]);
 				var key = gui.getCleanFieldName(field.attr("name"));
-				console.log(field);
 				var val;
 				if(this.isCNCNumberField(field)){
-					val = cncToNumber(field.val());
+					val = this.toNumber(field.val());
 				}else{
 					val = field.val();
 				}
@@ -535,7 +546,7 @@ var gui = new function(){
 				}
 			}else{ 
 				if(!isNaN(record[fieldCleanName])){//javascript valid number need to be parsed to locale
-					record[fieldCleanName] = cncFromNumber(record[fieldCleanName]);
+					record[fieldCleanName] = record[fieldCleanName];
 				}
 				field.val(record[fieldCleanName]);
 			}
@@ -633,7 +644,7 @@ var gui = new function(){
 							}
 						}else{
 							if(gui.isCNCNumberField(field)) 
-								value = cncToNumber(value);
+								value = gui.toNumber(value);
 							record[attribute] = value;
 							tmpHash = tmpHash + value;
 						}
