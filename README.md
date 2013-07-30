@@ -1,24 +1,24 @@
 FormRender
 ===============
 
-Permite el Ingreso de Formularios en archivos .xml que contienen su especificacion (tipos de datos, requeridos o no, etc).
+Permite el Ingreso de Formularios en archivos .xml que contienen su especificaci&oacute;n (tipos de datos, requeridos o no, etc).
 
-Transformaci�n xml => html.
+Transformaci&oacute;n xml => html.
 
 1.Objetivo del documento 
 -------------------------
 
-Especificar los requerimientos de sistema necesarios para poder instalar y ejecutar la aplicacion.
+Especificar los requerimientos de sistema necesarios para poder instalar y ejecutar la aplicaci&oacute;n.
 
-2.Configuracion
+2.Configuraci&oacute;n
 ---------------
-Componentes necesarios para poder ejecutar la aplicación:
+Componentes necesarios para poder ejecutar la aplicaci&oacute;n:
 *	JDK 1.6.x
 *	Jboss-as-7.1.0.Final
 *	Maven 3.0.4
 *	PostgreSQL 1.16
 
-2.1 Requisitos minimos
+2.1 Requisitos m&iacute;nimos
 1) Es necesario tener instalados (al menos) 2Gb de ram.
 
 2.2	Configuracion JBoss
@@ -50,11 +50,11 @@ Agregar al archivo <jboss-as-7.1.0.Final>\standalone\configuration\standalone.xm
 	</module>
 2.3.2) Para ejecutar esta aplicacion se debe 
 
-Crear base de datos BD formrender
+Crear base de datos BD "formrender"
 
-A continuacion se especifica el datasource que debe ser usado, en este caso para una BD Postgres.
+A continuaci&oacute;n se especifica el datasource que debe ser usado, en este caso para una BD Postgres.
 
-Agregar al archivo <jboss-as-7.1.0.Final>\standalone\configuration\standalone.xml en la secci�n <datasources> 
+Agregar al archivo <jboss-as-7.1.0.Final>\standalone\configuration\standalone.xml en la secci&oacute;n <datasources> 
 la siguiente entrada, especificando usuario y password correspondiente:
 
 	...
@@ -81,15 +81,12 @@ la siguiente entrada, especificando usuario y password correspondiente:
 	</datasources>
 	...	   
 
-2.1) Al levantarse el JBoss, se generaran las tablas correspondientes.
+2.1) Ejecutar los scripts de estructura y datos en la BD creada
 
-Para desplegar una aplicacion nueva, desde cero, el persistence.xml deber� estar en modo create, 
+Los scripts de carga inicial están ubicados en FormRender/sql/ y son:
 
-teniendo presente que en cada arranque esta configuracion elimina los datos que esten cargados.
-
-<property name="hibernate.hbm2ddl.auto" value="create"/>, 
-
-Hace la carga inicial y creacion de tablas automaticamente.
+FormRender/sql/estructuras.sql (crea las tablas en la bd)
+FormRender/sql/formulariosCNC.sql (inserción de formularios de CNC)
 
 
 3.Despliegue
@@ -110,8 +107,8 @@ Hace la carga inicial y creacion de tablas automaticamente.
 	
 	Ej.	xmlForms.destination=/var/cnc
 	
-3) Configurar ip/port server de donde se tomarán listas externas tales como geográficas y prestadores en archivo de 
-	propiedades. Esto hace referencia al localizacion.war en donde está el acceso a las listas externas.
+3) Configurar ip/port server de donde se tomar&aacute;n listas externas tales como geogr&aacute;ficas y prestadores en archivo de 
+	propiedades. Esto hace referencia al localizacion.war en donde est&aacute; el acceso a las listas externas.
 	
 	FormRender\src\main\resources\formrender.properties	
 	
@@ -123,7 +120,7 @@ Hace la carga inicial y creacion de tablas automaticamente.
 	list.remote.port=8080
 	
 
-4) Situarse en la raiz del directorio del codigo y ejecutar 
+4) Situarse en la ra&iacute;z del directorio del c&oacute;digo y ejecutar 
 	$>mvn clean package
 	Esto genera un archivo war en "FormRender/target/FormRender.war"
 	
@@ -132,10 +129,9 @@ Hace la carga inicial y creacion de tablas automaticamente.
    
 6) Iniciar el server (standalone.bat en windows o standalone.sh unix)
    
-7) Acceder desde un browser a la direccion. Ej
+7) Acceder desde un browser a la direcci&oacute;n. Ej
 	
 	http://<localhost:8080>/FormRender/
 	
-	La página de inicio muestra un listado de los formularios que se presentaron de muestra para esta entrega
-	xml y html (columnas URL y XML respectivamente). Haciendo click en cada uno de ellos se pueden visualizar.
+	La página de inicio muestra un listado de los formularios xml y html (columnas URL y XML respectivamente). Haciendo click en cada uno de ellos se pueden visualizar.
 	

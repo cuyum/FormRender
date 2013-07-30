@@ -4,9 +4,10 @@
   	
   	
   	
-<!--   	  	<persistence-unit name="administracion"> -->
+<!--   	  	<persistence-unit name="formrender"> -->
 		
 <!-- 		<jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source> -->
+<!-- <class>ar.com.cuyum.cnc.domain.Formulario</class> -->	
 <!-- 		<properties> -->
 			
 <!-- 			<property name="hibernate.hbm2ddl.auto" value="create-drop" /> -->
@@ -14,12 +15,12 @@
 <!-- 		</properties> -->
 <!-- 	</persistence-unit> -->
 
-<persistence-unit name="administracion">
+<persistence-unit name="formrender">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:jboss/datasources/FormRenderDS</jta-data-source>
+		<class>ar.com.cuyum.cnc.domain.Formulario</class>		
 		<properties>
-			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
-			<property name="hibernate.hbm2ddl.auto" value="create"/>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />			
          	<property name="hibernate.show_sql" value="false"/>
          	<property name="hibernate.format_sql" value="true"/>
      	</properties>
