@@ -80,9 +80,8 @@ var setupCalculate = function(field,fieldset){
 						var field = $(fieldSelector);
 						
 						if(!field)	return "Error: "+sumFields[i]+" inexistent";
-						var n = new Number(field.val());
-						if(isNaN(n)){
-							var parsedNumber = cncToNumber(field.val());
+						if(isNaN(field.val())){
+							var parsedNumber = gui.toNumber(field.val());
 							if(parsedNumber && !isNaN(parsedNumber)){
 								total = total+parsedNumber;
 							}
@@ -106,7 +105,8 @@ var setupCalculate = function(field,fieldset){
 						else
 							total = total - n;
 					}
-					return cncFromNumber(total);
+//					return cncFromNumber(total);
+					return total;
 				};
 				
 				totalField.data("updateTotal",updateTotal);
@@ -635,13 +635,13 @@ var setupValidationDefaults = function(){
 	
 	$.validator.addMethod("min", 
 			function(value, element, param) { 
-				return this.optional(element) || cncToNumber(value) >= param;
+				return this.optional(element) || gui.toNumber(value) >= param;
 			}, 
 			"Debe ser mayor o igual que {0} ");
 	
 	$.validator.addMethod("max", 
 			function(value, element, param) { 
-				return this.optional(element) || cncToNumber(value) <= param;
+				return this.optional(element) || gui.toNumber(value) <= param;
 			}, 
 			"Debe ser menor o igual que {0} ");
 	
