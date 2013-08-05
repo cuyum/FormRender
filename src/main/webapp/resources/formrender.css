@@ -234,7 +234,9 @@ button{margin-top: 3px;}
 	border-radius: 4px; 
 }
 
-.ui-inputfield {padding:0px;}
+.ui-widget .ui-widget {
+    font-size: 12px;
+}
 
 #content table .component input, #content table .component select {
 	width: 84%;	

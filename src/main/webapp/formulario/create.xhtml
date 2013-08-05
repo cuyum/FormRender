@@ -35,34 +35,48 @@
 	<ui:define name="main">
 		<h:form id="create" enctype="multipart/form-data">			
 		    <p:messages id="messages" globalOnly="true" showDetail="true" autoUpdate="true" />			
-			<h:panelGrid columns="3">
+			<h:panelGrid columns="3" columnClasses="required,label,component">
+				<h:outputText value="*" />
 				<h:outputLabel for="formularioBeanExampleCodigo" value="C&oacute;digo:" />
 				<h:panelGroup>
-					<h:inputText id="formularioBeanExampleCodigo" value="#{formularioBean.formulario.codigo}" required="true"/>
-					<h:message for="formularioBeanExampleCodigo" styleClass="error"/>
+					<h:inputText id="formularioBeanExampleCodigo" value="#{formularioBean.formulario.codigo}" />
+					<div><h:message for="formularioBeanExampleCodigo" styleClass="error"/></div>
 				</h:panelGroup>
-				<h:outputText/>
 				
-				<h:outputLabel for="formularioBeanExampleNombre" value="Nombre:" />
+				<h:outputText value="*" />
+				<h:outputLabel for="formularioBeanExampleNombre" value="Nombre / Descripci&oacute;n:" />
 				<h:panelGroup>
-					<h:inputText id="formularioBeanExampleNombre" value="#{formularioBean.formulario.nombre}" required="true"/>
-					<h:message for="formularioBeanExampleNombre" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>	
+					<h:inputText id="formularioBeanExampleNombre" value="#{formularioBean.formulario.nombre}"/>
+					<div><h:message for="formularioBeanExampleNombre" styleClass="error"/></div>
+				</h:panelGroup>	
 							
+				<h:outputText/>			
 				<h:outputLabel for="formularioBeanFormularioFormVersion" value="Versión:"/>
 				<h:panelGroup>
 					<h:inputText id="formularioBeanFormularioFormVersion" value="#{formularioBean.formulario.formVersion}"/>
 					<h:message for="formularioBeanFormularioFormVersion" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
+				</h:panelGroup>				
+				
+				<h:outputText value="*" />
 				<h:outputLabel value="Archivo (xml):" style="vertical-align: top;"/>	
 				<h:panelGrid columns="1">								
 					<p:fileUpload value="#{formularioBean.file}" mode="simple" sizeLimit="100000" allowTypes=".xml" style="height:27px; 
 					border:none; box-shadow:none;"/>
 					<h:outputText value="#{formularioBean.formulario.archivo}" rendered="#{!empty formularioBean.id}"/>
-				</h:panelGrid>					
-				<h:outputText/>		
+				</h:panelGrid>	
+					
+				<h:outputText value="*" />
+				<h:outputLabel value="Xsl:" />
+				<h:panelGroup>	
+					<p:selectOneMenu value="#{formularioBean.idXsl}" style="width:30%;"
+						id="formularioBeanFormularioXsl">
+						<f:selectItem itemLabel="Seleccione..." itemValue="" />
+						<f:selectItems itemLabel="#{_itemXsl.archivo}" itemValue="#{_itemXsl.id}" var="_itemXsl"
+						value="#{xslBean.all}" />
+					</p:selectOneMenu>					
+					<div><h:message for="formularioBeanFormularioXsl" styleClass="error"/></div>										
+				</h:panelGroup>	
+				
 			</h:panelGrid>
 				
 			

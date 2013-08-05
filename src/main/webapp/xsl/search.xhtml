@@ -29,53 +29,50 @@
 		<h:form id="search">
 			<f:validateBean disabled="true">
 				<p:panel styleClass="search">
-
 					<h:panelGrid columnClasses="label,component,required" columns="3">
-						<h:outputLabel for="xslBeanExampleNombre" value="Nombre:"/>
+					
+						<h:outputLabel for="xslBeanNombre" value="Nombre / Descripci&oacute;n:"/>
 						<h:panelGroup>
-							<h:inputText id="xslBeanExampleNombre" value="#{xslBean.example.nombre}"/>
-							<h:message for="xslBeanExampleNombre" styleClass="error"/>
+							<h:inputText id="xslBeanNombre" value="#{xslBean.example.nombre}"/>
+							<h:message for="xslBeanNombre" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="xslBeanExampleXlsVersion" value="Xls Version:"/>
+						
+						<h:outputLabel for="xslBeanArchivo" value="Archivo:"/>
 						<h:panelGroup>
-							<h:inputText id="xslBeanExampleXlsVersion" value="#{xslBean.example.xlsVersion}"/>
-							<h:message for="xslBeanExampleXlsVersion" styleClass="error"/>
+							<h:inputText id="xslBeanArchivo" value="#{xslBean.example.archivo}"/>
+							<h:message for="xslBeanArchivo" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
+						
 					</h:panelGrid>
-					<p:panel styleClass="buttons">
-						<p:commandLink value="Buscar" action="#{xslBean.search}" styleClass="btn btn-primary"/>
-						<p:commandLink value="Nuevo" action="#{xslBean.create}" styleClass="btn btn-primary"/>
+					<p:panel style="font-size:12px;">
+						<p:commandButton value="Buscar" id="btBuscarXsl" action="#{xslBean.search}" update="xslBeanPageItems"/>
+						<p:commandButton value="Nuevo" id="btNuevo" action="#{xslBean.create}"/>
+						<p:defaultCommand target="btBuscarXsl"/>
 					</p:panel>
 				</p:panel>
 			</f:validateBean>
 			
-			<h:dataTable id="xslBeanPageItems" styleClass="data-table" value="#{xslBean.pageItems}" var="_item">
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Nombre"/>
-					</f:facet>
-					<h:link outcome="/xsl/view">
+			<p:dataTable id="xslBeanPageItems" value="#{xslBean.pageItems}" var="_item" style="font-size:12px;" rows="20" 
+				paginator="true" paginatorPosition="bottom" emptyMessage="No se encontraron resultados.">
+							
+				<p:column headerText="Nombre / Descripci&oacute;n">					
+					<h:link outcome="/xsl/view" styleClass="decoNone">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+						<h:outputText id="itemXlsVersion" value="#{_item.nombre}"/>
 					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Xls Version"/>
-					</f:facet>
-					<h:link outcome="/xsl/view">
+				</p:column>
+				
+				<p:column headerText="Archivo">					
+					<h:link outcome="/xsl/view" styleClass="decoNone">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemXlsVersion" value="#{_item.xlsVersion}"/>
+						<h:outputText id="itemArchivo" value="#{_item.archivo}"/>
 					</h:link>
-				</h:column>
-			</h:dataTable>
-			<ui:include src="/resources/scaffold/paginator.xhtml">
-				<ui:param name="paginatorBean" value="#{xslBean}"/>
-			</ui:include>
-		</h:form>
-			
+				</p:column>
+				
+			</p:dataTable>			
+		</h:form>			
 	</ui:define>
 
 </ui:composition>

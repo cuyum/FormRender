@@ -33,26 +33,37 @@
 	<ui:define name="footer"/>
 
 	<ui:define name="main">
-		<h:form id="create">			
+		<h:form id="create" enctype="multipart/form-data">			
 		    <p:messages id="messages" globalOnly="true" showDetail="true" autoUpdate="true" />
 			
-			<h:panelGrid columnClasses="label,component,required" columns="3">
-				<h:outputLabel for="xslBeanXslNombre" value="Nombre:"/>
+			<h:panelGrid columns="3" columnClasses="required,label,component">
+			
+				<h:outputText value="*" />
+				<h:outputLabel for="xslBeanXslNombre" value="Nombre / Descripci&oacute;n:"/>
 				<h:panelGroup>
 					<h:inputText id="xslBeanXslNombre" value="#{xslBean.xsl.nombre}"/>
-					<h:message for="xslBeanXslNombre" styleClass="error"/>
+					<div><h:message for="xslBeanXslNombre" styleClass="error"/></div>
 				</h:panelGroup>
+				
 				<h:outputText/>
 				<h:outputLabel for="xslBeanXslXlsVersion" value="Xls Version:"/>
 				<h:panelGroup>
 					<h:inputText id="xslBeanXslXlsVersion" value="#{xslBean.xsl.xlsVersion}"/>
-					<h:message for="xslBeanXslXlsVersion" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
+					<div><h:message for="xslBeanXslXlsVersion" styleClass="error"/></div>
+				</h:panelGroup>				
+				
+				<h:outputText value="*" />
+				<h:outputLabel value="Archivo (xsl):" style="vertical-align: top;"/>	
+				<h:panelGrid columns="1">								
+					<p:fileUpload value="#{xslBean.file}" mode="simple" sizeLimit="100000" allowTypes=".xsl" style="height:27px; 
+					border:none; box-shadow:none;"/>
+					<h:outputText value="#{xslBean.xsl.archivo}" rendered="#{!empty xslBean.id}"/>
+				</h:panelGrid>				
+						
 			</h:panelGrid>
 
 			<div class="buttons">
-				<p:commandLink value="Guardar" action="#{xslBean.update}" styleClass="btn btn-primary"/>
+				<p:commandLink ajax="false" value="Guardar" action="#{xslBean.update}" styleClass="btn btn-primary"/>
 				<c:choose>
 					<c:when test="#{!empty xslBean.id}">
 						<h:link value="Cancelar" outcome="view" styleClass="btn btn-primary">

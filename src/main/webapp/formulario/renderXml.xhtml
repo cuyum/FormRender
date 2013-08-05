@@ -29,11 +29,11 @@
 		<h:form id="form">			
 			<p:messages id="messages" globalOnly="true" showDetail="true" autoUpdate="true" />
 			<p:panel styleClass="component">
-			<p:inputTextarea value="#{formularioBean.formDom}" cols="95" 
-				rows="20" readonly="true" autoResize="false" />
+			<p:inputTextarea value="#{formularioBean.formDom}" cols="140" 
+				rows="20" readonly="true" autoResize="false" rendered="#{formularioBean.formDom ne null and formularioBean.formDom ne ''}"/>
 			</p:panel>
 			<div class="buttons">
-				<p:commandLink id="downloadLink" value="Descargar" ajax="false"> 				 
+				<p:commandLink id="downloadLink" value="Descargar" ajax="false" rendered="#{formularioBean.formDom ne null and formularioBean.formDom ne ''}"> 				 
 			    	<p:fileDownload value="#{formularioBean.downloadFile}"/>	  
 				</p:commandLink>
 				<h:link value="Cancelar" outcome="search" styleClass="btn btn-primary"/>

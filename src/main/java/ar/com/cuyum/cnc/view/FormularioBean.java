@@ -39,6 +39,7 @@ import org.primefaces.model.StreamedContent;
 import org.primefaces.model.UploadedFile;
 
 import ar.com.cuyum.cnc.domain.Formulario;
+import ar.com.cuyum.cnc.domain.Xsl;
 import ar.com.cuyum.cnc.service.TransformationService;
 import ar.com.cuyum.cnc.utils.DomUtils;
 import ar.com.cuyum.cnc.utils.FormRenderProperties;
@@ -75,19 +76,29 @@ public class FormularioBean implements Serializable
 
    private String formDom;
    
+   private Long idXsl;
+   
+   public Long getIdXsl() {
+	   return idXsl;
+   }
+	
+   public void setIdXsl(Long idXsl) {
+	   this.idXsl = idXsl;
+   }
+   
    /*
     * Support creating and retrieving Formulario entities
-    */
+    */ 
 
    public String getFormDom() {
-	return formDom;
-}
+	   return formDom;
+   }
+	
+   public void setFormDom(String formDom) {
+	   this.formDom = formDom;
+   }
 
-public void setFormDom(String formDom) {
-	this.formDom = formDom;
-}
-
-private Long id;
+   private Long id;
 
    public Long getId()
    {
@@ -160,6 +171,9 @@ private Long id;
       else
       {
          this.formulario = findById(getId());
+         if (null != this.formulario && null != this.formulario.getXslTransform()){
+        	 this.idXsl = this.formulario.getXslTransform().getId();
+         }
       }
    }
 
@@ -171,7 +185,7 @@ private Long id;
    
    public String getXmlFile() {	  
 	   InputStream xmlStream=null;	   	  
-	   xmlStream = fileUtils.getInputStream(formulario);
+	   xmlStream = fileUtils.getXmlInputStream(formulario);
 	   if (null != xmlStream){	   
 		   downloadFile = new DefaultStreamedContent(xmlStream, "application/xml", formulario.getArchivo()); 
 	   } else {
@@ -263,15 +277,29 @@ private Long id;
 		  	  }
 		  } else {
 			  FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Carga de Archivo Fallida", 
-					  "Solo archivos con extension xml!");  
+					  "Solo archivos con extensi\u00F3n xml!");  
 	          FacesContext.getCurrentInstance().addMessage(null, msg); 
 	          return null;
 		  }
 	  } else if (this.id == null){
-    	  FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Archivo de configuracion del formulario", "Adjunte el archivo!!");  
+    	  FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sr. Usuario: ", "Adjunte el xml de definici\u00F3n del formulario");  
           FacesContext.getCurrentInstance().addMessage(null, msg);  
           return null;
       }
+	  
+	  //Consulta si tiene el xsl de transformacion asociado
+	  
+	  if (null != this.idXsl){
+		  //Obtener el Xsl y asignarlo al formulario
+		  Xsl xslTransf = findXdlById(this.idXsl);
+		  if (null != xslTransf) {
+			  this.formulario.setXslTransform(xslTransf);
+		  } else {
+			  FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sr. Usuario: ", "Debe seleccionar el xsl de transformaci\u00F3n");  
+	          FacesContext.getCurrentInstance().addMessage(null, msg);  
+	          return null;
+		  }
+	  }
 	  
       this.conversation.end();
       
@@ -291,8 +319,13 @@ private Long id;
       catch (Exception e)
       {
          FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-         return null;
+         return null;        
       }
+   }
+   
+   private Xsl findXdlById(Long id)
+   {
+      return this.entityManager.find(Xsl.class, id);
    }
 
    public String delete()
@@ -480,13 +513,17 @@ private Long id;
    
    public String xmlView (){
 	   InputStream xmlStream=null;	    
-	   xmlStream = fileUtils.getInputStream(formulario);
+	   xmlStream = fileUtils.getXmlInputStream(formulario);
 	   if (null != xmlStream){		   
 		   formDom = fileUtils.format(xmlStream);		   
 	   } else {
+		   String msgText = "Archivo "+ formulario.getArchivo() +" no encontrado en: ";
+		   if (null != formulario.getUrl() && !formulario.getUrl().isEmpty())
+			   msgText = msgText.concat(formulario.getUrl());	
+		   else msgText = msgText.concat(DomUtils.getXMLFROM());
 		   FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error:", 
-					  "Archivo no encontrado en !");  
-	       FacesContext.getCurrentInstance().addMessage(null, msg); 	       
+					  msgText);  
+	       FacesContext.getCurrentInstance().addMessage(null, msg);	       
 	   }
 	   return null;	   	   
    }
@@ -516,7 +553,7 @@ private Long id;
    
    public void transform(){
 	   InputStream xmlStream=null; 	   
- 	   
+	   InputStream xslStream=null;
 	   FacesContext fc = FacesContext.getCurrentInstance();
 	   
 	   Map<String,String> requestParams = fc.getExternalContext().getRequestParameterMap();
@@ -530,23 +567,30 @@ private Long id;
        if(id!=null&& !id.isEmpty()) xmlId = Long.valueOf(id);
 	   
 	    ExternalContext ec = fc.getExternalContext();
+	    
 	    try {
 	    	if(xmlId==null){
 	    		xmlId = getId();
 	    	}
 	    	this.formulario = findById(xmlId);	    	
-	 	    xmlStream = fileUtils.getInputStream(formulario);
-	    	ts.setRemoteTransformation(false);
-			String transformedHtml = ts.transform(xmlStream, formulario.getFormVersion());
+	 	    xmlStream = fileUtils.getXmlInputStream(formulario);
+	 	    xslStream = fileUtils.loadXsl(formulario.getXslTransform());
+	 	   String transformedHtml;
+	    	if (null != xmlStream && null != xslStream) {
+	 	    	ts.setRemoteTransformation(false);
+	 	    	transformedHtml = ts.transform(xmlStream, xslStream, formulario.getFormVersion());
+	        } else {
+	        	transformedHtml = "<html><head><meta content='text/html;charset=UTF-8' http-equiv='Content-Type'><title>Error</title>" +
+	        			"</head><body><h1>Se ha producido un error</h1><p> No es posible renderizar el html del formulario debido a que uno/s de los archivos " +
+	        			"<em>xml o xsl</em> no se ha/n encontrado.</p><hr/></body></html>";
+	        }
 			ec.responseReset(); // Some JSF component library or some Filter might have set some headers in the buffer beforehand. We want to get rid of them, else it may collide.
-//		    ec.setResponseContentType("text/html"); // Check http://www.iana.org/assignments/media-types for all types. Use if necessary ExternalContext#getMimeType() for auto-detection based on filename.
-//		    ec.setResponseHeader("Content-Disposition", "attachment; filename=\""+formulario.getArchivo()+"\""); // The Save As popup magic is done here. You can give it any file name you want, this only won't work in MSIE, it will use current request URL as file name instead.
 			OutputStream output = ec.getResponseOutputStream();
 			output.write(transformedHtml.getBytes());
 		} catch (MalformedURLException e1) {
 			e1.printStackTrace();
 		} catch (IOException e) {
-			e.printStackTrace();
+			e.printStackTrace();			
 		}
 
 	    fc.responseComplete(); // Important! Otherwise JSF will attempt to render the response which obviously will fail since it's already written with a file and closed.

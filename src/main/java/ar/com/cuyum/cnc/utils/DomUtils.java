@@ -26,10 +26,15 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
 import ar.com.cuyum.cnc.domain.Formulario;
+import ar.com.cuyum.cnc.domain.Xsl;
 
 public class DomUtils implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
+	
+	private static String XSL_FROM = "/WEB-INF/xsl/";
+	private static String XML_FROM = "/WEB-INF/formularios/";
+	
 	public static Logger log = Logger.getLogger(DomUtils.class);
 	
 	public String format(InputStream isXml) {
@@ -88,7 +93,7 @@ public class DomUtils implements Serializable {
         }
     }
 	
-	public InputStream getInputStream(Formulario formulario){
+	public InputStream getXmlInputStream(Formulario formulario){
 		InputStream xmlStream=null;
 		String from;
 		try {
@@ -106,14 +111,39 @@ public class DomUtils implements Serializable {
 			}
 			   
 		   } else {
-			   //Probar del context
-			   FacesContext fc = FacesContext.getCurrentInstance();
-			   ExternalContext ec = fc.getExternalContext();
-			   xmlStream = ec.getResourceAsStream("/WEB-INF/classes/formularios/"+formulario.getArchivo());
+			   //Probar del context			   
+			   ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+			   xmlStream = ec.getResourceAsStream(XML_FROM + formulario.getArchivo());
 		   }
 		} catch (FileNotFoundException e) {
 			log.error(e.getMessage());
 		} 
 		return xmlStream;
+	}
+	
+	public InputStream loadXsl(Xsl xslTransform) {
+		InputStream xslIS=null;		
+		String from;
+		try {
+			from = xslTransform.getUrl();
+			if (from != null && !from.isEmpty()){
+				//Leer archivo desde ubicacion
+				if (!from.endsWith(System.getProperty("file.separator"))){
+				   //Agrego separador de fin
+				   from = from + System.getProperty("file.separator");
+				}			
+				File archivo = new File(from+ System.getProperty("file.separator") + xslTransform.getArchivo());				
+				xslIS = new FileInputStream(archivo);				
+			} else {
+				xslIS = FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(XSL_FROM + xslTransform.getArchivo());
+			}
+		} catch (FileNotFoundException e) {
+			log.error(e.getMessage());
+		}
+		return xslIS;
+	}
+	
+	public static String getXMLFROM () {
+		return XML_FROM;
 	}
 }

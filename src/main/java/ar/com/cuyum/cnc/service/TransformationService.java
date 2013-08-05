@@ -36,10 +36,9 @@ public class TransformationService {
 
 	public transient Logger log = Logger.getLogger(TransformationService.class);
 
-//	private static String XSL_FORM = "form.xsl"; 
+
 	private static String XSL_FORM = "formCnc.xsl"; 
-	private static String XSL_DATA = "data.xsl"; 
-	private static String XSL_HTML = "jrxfhtml.xsl"; 
+
 	
 	private HttpClient client = new DefaultHttpClient();
 
@@ -49,25 +48,25 @@ public class TransformationService {
 	
 	/*================ POINT OF ENTRANCE =================*/
 	
-	public String transform(InputStream xmlStream, String strParamVersion){
+	public String transform(InputStream xmlStream, InputStream xslStream, String strParamVersion){
 		String transformedXml = null;
 		if(remoteTransformation){
 			transformedXml = requestTransformation(xmlStream);
 		}else{
-			transformedXml = performTransformation(xmlStream, strParamVersion);
+			transformedXml = performTransformation(xmlStream, xslStream, strParamVersion);
 		}
 		return transformedXml;
 	}
 	
 	/*=============TRANSFORMATION ALTERNATIVES============*/
 	
-	private String performTransformation(InputStream xmlStream, String strParamVersion){
+	private String performTransformation(InputStream xmlStream, InputStream xslStream, String paramVersion){
 		log.debug("Transformando el xml localmente");
 		
 		String result = "<html><body>Error.</body></html>";
 		
 		try {
-			result = transformHtml(xmlStream, strParamVersion);
+			result = transformHtml(xmlStream, xslStream, paramVersion);
 		} catch (Exception e) {
 			log.error("Error transformando localmente el xml",e);
 		}
@@ -84,14 +83,15 @@ public class TransformationService {
 	
 	/*=================VIA XALAN SERVICE===================*/
 	
-	private String transformHtml(InputStream xmlStream, String strParamVersion) throws Exception {
+	private String transformHtml(InputStream xmlStream, InputStream xslStream, String paramVersion) throws Exception {
 		
 		// Create a transform factory instance.
 		TransformerFactory tfactory = TransformerFactory.newInstance();
 		StringWriter resultForm = new StringWriter();
 		
 		// Create a transformer for the stylesheet.
-		Transformer transformerForm = tfactory.newTransformer(new StreamSource(new InputStreamReader(loadXsl(XSL_FORM),"UTF8")));
+		//Transformer transformerForm = tfactory.newTransformer(new StreamSource(new InputStreamReader(loadXsl(XSL_FORM),"UTF8")));
+		Transformer transformerForm = tfactory.newTransformer(new StreamSource(new InputStreamReader(xslStream,"UTF8")));
 		
 		// get the xml bytes
 		byte[] xmlBytes = IOUtils.toByteArray(xmlStream);
@@ -99,18 +99,17 @@ public class TransformationService {
 		InputStream xmlStreamForm = new ByteArrayInputStream(xmlBytes);
 		
 		// Transform the source XML to System.out.
-		if (null != strParamVersion && !strParamVersion.isEmpty())
-			transformerForm.setParameter("versionForm", strParamVersion);
+		if (null != paramVersion && !paramVersion.isEmpty())
+			transformerForm.setParameter("versionForm", paramVersion);
 		transformerForm.transform(new StreamSource(new InputStreamReader(xmlStreamForm),"UTF8"),  new StreamResult(resultForm));
 
 		return resultForm.toString();
 	}
 	
-	private InputStream loadXsl(String xsl){
-		InputStream xslIS = FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream("/WEB-INF/xsl/"+xsl);
-		return xslIS;
-	}
-
+//	private InputStream loadXsl(String xsl){				
+//		InputStream xslIS = FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream("/WEB-INF/xsl/" + xsl);
+//		return xslIS;
+//	}
 	
 	/*=============== VIA HTTP REQUEST======================*/
 	

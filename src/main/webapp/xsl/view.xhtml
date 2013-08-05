@@ -25,12 +25,16 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
-			<h:outputLabel for="xslBeanXslNombre" value="Nombre:"/>
+			<h:outputLabel for="xslBeanXslNombre" value="Nombre / Descripci&oacute;n:"/>
 			<h:outputText id="xslBeanXslNombre" value="#{xslBean.xsl.nombre}"/>
 			<h:outputText/>
-			<h:outputLabel for="xslBeanXslXlsVersion" value="Xls Version:"/>
-			<h:outputText id="xslBeanXslXlsVersion" value="#{xslBean.xsl.xlsVersion}"/>
+			
+			<h:outputLabel for="xslBeanXslArchivo" value="Archivo:"/>
+			<h:outputText id="xslBeanXslArchivo" value="#{xslBean.xsl.archivo}"/>
 			<h:outputText/>
+			<!-- <h:outputLabel for="xslBeanXslXlsVersion" value="Xls Version:"/>
+			<h:outputText id="xslBeanXslXlsVersion" value="#{xslBean.xsl.xlsVersion}"/>
+			<h:outputText/> -->
 		</h:panelGrid>
 
 		<div class="buttons">

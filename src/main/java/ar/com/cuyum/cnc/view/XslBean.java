@@ -1,8 +1,14 @@
 package ar.com.cuyum.cnc.view;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.ejb.SessionContext;
@@ -24,7 +30,11 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import org.apache.log4j.Logger;
+import org.primefaces.model.UploadedFile;
+
 import ar.com.cuyum.cnc.domain.Xsl;
+import ar.com.cuyum.cnc.utils.FormRenderProperties;
 
 /**
  * Backing bean for Xsl entities.
@@ -42,8 +52,14 @@ import ar.com.cuyum.cnc.domain.Xsl;
 public class XslBean implements Serializable
 {
 
-   private static final long serialVersionUID = 1L;
+	public static Logger log = Logger.getLogger(XslBean.class);
+	
+	private static final long serialVersionUID = 1L;
 
+	private FacesMessage msgArchivoSubida;
+	
+	@Inject
+	private FormRenderProperties formRenderProperties;
    /*
     * Support creating and retrieving Xsl entities
     */
@@ -65,6 +81,16 @@ public class XslBean implements Serializable
    public Xsl getXsl()
    {
       return this.xsl;
+   }
+   
+   private UploadedFile file;
+   
+   public UploadedFile getFile() {  
+       return file;  
+   }  
+ 
+   public void setFile(UploadedFile file) {  
+       this.file = file;  
    }
 
    @Inject
@@ -115,6 +141,32 @@ public class XslBean implements Serializable
 
    public String update()
    {
+	  boolean copiado;
+	  if(this.file != null && !file.getFileName().isEmpty()) {
+		  String nameFile = file.getFileName();
+		  if (nameFile.endsWith("xsl")){
+		  String destination = formRenderProperties.getDestinationXml();			  
+	  	  copiado = copyFile(file, destination);
+	  	  if (copiado) {
+	  		this.xsl.setArchivo(file.getFileName());
+	  		this.xsl.setUrl(destination);
+	  	  }	
+	  	  else {		  		
+			   FacesContext.getCurrentInstance().addMessage(null, msgArchivoSubida);
+			   return null;
+	  	  }
+	  } else {
+		  FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Carga de Archivo Fallida: ", 
+				  "Solo archivos con extensi\u00F3n xsl!");  
+	          FacesContext.getCurrentInstance().addMessage(null, msg); 
+	          return null;
+		  }
+	  } else if (this.id == null){
+		  FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Sr. Usuario: ", "Adjunte el archivo xsl!!");  
+	      FacesContext.getCurrentInstance().addMessage(null, msg);  
+	      return null;
+	  } 
+	   
       this.conversation.end();
 
       try
@@ -136,6 +188,57 @@ public class XslBean implements Serializable
          return null;
       }
    }
+   
+   public boolean copyFile(UploadedFile file, String destination) {
+		  
+	   boolean copiado = false;
+	   boolean procesar = true;
+	   try {
+		   
+		   InputStream in = file.getInputstream();
+		   
+		   if (null != destination && !destination.isEmpty()){
+			   destination = destination.trim();
+			   if (!destination.endsWith(System.getProperty("file.separator"))){
+				   //Agrego separador de fin
+				   destination = destination + System.getProperty("file.separator");
+			   }
+			   File carpeta = new File(destination);
+			   if (!carpeta.exists()){
+				   msgArchivoSubida = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Carga de Archivo Fallida",
+						   "Destino incorrecto o no existente: "+ destination);
+				   procesar = false;
+				   copiado = false;
+			   }  
+		   } else {
+			   msgArchivoSubida = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Carga de Archivo Fallida",
+					   "Destino incorrecto o no existente: "+ destination);
+			   procesar = false;
+			   copiado = false;
+		   }
+		   
+		   //TODO: Preguntar si el archivo ya existia para reescribirlo o no
+		   
+		   if (procesar){				   
+			   OutputStream out = new FileOutputStream(destination + this.file.getFileName());
+			   int read = 0;
+			   byte[] bytes = new byte[1024];
+			   while ((read = in.read(bytes)) != -1) {
+				   out.write(bytes, 0, read);
+			   }	     
+			   in.close();
+			   out.flush();
+			   out.close();	    
+		       copiado = true;
+		   }
+
+	   } catch (IOException e) {
+		   msgArchivoSubida = new FacesMessage(FacesMessage.SEVERITY_ERROR, 
+				   "Carga de Archivo Fallida",  e.getMessage());		   
+		   copiado = false;		   
+	   }
+	   return copiado;
+   }   
 
    public String delete()
    {
@@ -146,10 +249,11 @@ public class XslBean implements Serializable
          this.entityManager.remove(findById(getId()));
          this.entityManager.flush();
          return "search?faces-redirect=true";
-      }
+      }      
       catch (Exception e)
-      {
-         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+      {   
+    	
+    	 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"No se puede eliminar el Xsl: ","tiene formularios asociados."));
          return null;
       }
    }
@@ -213,14 +317,25 @@ public class XslBean implements Serializable
       CriteriaQuery<Xsl> criteria = builder.createQuery(Xsl.class);
       root = criteria.from(Xsl.class);
       TypedQuery<Xsl> query = this.entityManager.createQuery(criteria
-            .select(root).where(getSearchPredicates(root)));
-      query.setFirstResult(this.page * getPageSize()).setMaxResults(
-            getPageSize());
+            .select(root).where(getSearchPredicates(root)));      
       this.pageItems = query.getResultList();
    }
 
    private Predicate[] getSearchPredicates(Root<Xsl> root)
    {
+	   
+	  Map<String, String> filters = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();		
+	      
+	  if (filters != null){
+		   
+    	 if (filters.get("search:xslBeanNombre") !=null && !filters.get("search:xslBeanNombre").isEmpty()){
+			   this.example.setNombre(filters.get("search:xslBeanNombre"));		 
+    	 }
+    	 
+    	 if (filters.get("search:xslBeanArchivo") !=null && !filters.get("search:xslBeanArchivo").isEmpty()){
+			   this.example.setArchivo(filters.get("search:xslBeanArchivo"));		 
+    	 }
+      }   
 
       CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
       List<Predicate> predicatesList = new ArrayList<Predicate>();
@@ -228,12 +343,12 @@ public class XslBean implements Serializable
       String nombre = this.example.getNombre();
       if (nombre != null && !"".equals(nombre))
       {
-         predicatesList.add(builder.like(root.<String> get("nombre"), '%' + nombre + '%'));
+         predicatesList.add(builder.like(builder.lower(root.<String> get("nombre")), '%' + nombre.toLowerCase() + '%'));
       }
-      String xlsVersion = this.example.getXlsVersion();
-      if (xlsVersion != null && !"".equals(xlsVersion))
+      String archivo = this.example.getArchivo();
+      if (archivo != null && !"".equals(archivo))
       {
-         predicatesList.add(builder.like(root.<String> get("xlsVersion"), '%' + xlsVersion + '%'));
+         predicatesList.add(builder.like(builder.lower(root.<String> get("archivo")), '%' + archivo.toLowerCase() + '%'));    	  
       }
 
       return predicatesList.toArray(new Predicate[predicatesList.size()]);

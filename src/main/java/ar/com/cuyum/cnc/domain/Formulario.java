@@ -1,16 +1,18 @@
 package ar.com.cuyum.cnc.domain;
 
-import javax.persistence.Entity;
-
 import java.io.Serializable;
-import javax.persistence.Id;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Version;
+import javax.validation.constraints.NotNull;
 
-
-import java.lang.Override;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Formulario implements Serializable
@@ -27,12 +29,18 @@ public class Formulario implements Serializable
    private int version = 0;
    
    @Column
+   @NotNull(message="Indique el c\u00F3digo del formulario")
+   @NotEmpty(message="Indique el c\u00F3digo del formulario")   
    private String codigo;
 
    @Column
+   @NotEmpty(message="Indique nombre o descripci\u00F3n corta")
+   @NotNull(message="Indique nombre o descripci\u00F3n corta")
    private String nombre;
    
    @Column
+   @NotNull(message="El xml de definici\u00F3n del formulario es obligatorio")
+   @NotEmpty(message="El xml de definici\u00F3n del formulario es obligatorio")
    private String archivo;
 
    @Column
@@ -41,6 +49,18 @@ public class Formulario implements Serializable
    @Column
    private String url;
    
+   @OneToOne(cascade={CascadeType.ALL})
+   @NotNull(message="Seleccione el xsl de transformaci\u00F3n")
+   private Xsl xslTransform;
+   
+   public Xsl getXslTransform() {
+	   return xslTransform;
+   }
+	
+   public void setXslTransform(Xsl xslTransform) {
+	   this.xslTransform = xslTransform;
+   }
+
    public Long getId()
    {
       return this.id;
