@@ -15,8 +15,12 @@ var gui = new function(){
 		}else if(isNaN(value)){
 			console.warn("Alphanumeric String passed as an argument, only String with Numeric characters allowed as argument");
 			return value;
-		}else if(value==undefined){
-			console.error("Undefined value argument passed to \"toNumber()\"");
+		}else{
+			if(value==undefined || value==null || value.trim()==""){
+				console.warn("Undefined or Null value argument passed to \"toNumber()\", returning same value");
+			}else{
+				console.error("Unidentifiably value passed as a parameter to \"gui.toNumber()\", returning same value");
+			}
 			return value;
 		}
 	};
@@ -654,6 +658,7 @@ var gui = new function(){
 						fields.push(field);
 					} else {
 						commit = false;
+						field.scrollTo();
 						console.warn("Could not commit due to field",field);
 						break;
 					}
@@ -665,6 +670,7 @@ var gui = new function(){
 			record.instance = fieldset.instance;
 			var storedData = this.getData();
 //			console.info("new record",record.signature);
+			console.info(record);
 			for ( var i = 0; i < storedData.length; i++) {
 				var storedRecord = storedData[i];
 //				console.info("stored record",storedRecord.signature);
