@@ -22,10 +22,13 @@ Transformaci&oacute;n xml => html.
 	- [Capa Transaccional](#45)
 	- [Capa Integración](#46)
 5. [Arquitectura](#5)
-6. [Especificaciones De Desarrollo](#6)
-7. [Especificaciones de Instalaci&oacute;n](#7)
+6. [Compilación, Instalación y Ejecución](#6)
+	- [Listado de componentes necesarios](#61)
+	- [Requisitos mínimos](#62)
+	- [Configuración](#63)
+	- [Descarga, Compilación y Ejecución](#64)
 
-
+----------------
 <span id="1"/></span>
 
 1. Objetivo del documento <span style="font-size:8px;">([Arriba](#0))</span>
@@ -33,6 +36,7 @@ Transformaci&oacute;n xml => html.
 
 Presentar una visión general de las características de la aplicación FormRender y sus aspectos técnicos de mayor relevancia, especificando las caracter&iacute;sticas t&eacute;cnicas y de arquitectura que tiene la plataforma, entre ellos los requerimientos de sistema necesarios para poder instalar y ejecutar la aplicaci&oacute;n.
 
+----------------
 <span id="2"/></span>
 
 2. Introducci&oacute;n <span style="font-size:8px;">([Arriba](#0))</span>
@@ -40,6 +44,7 @@ Presentar una visión general de las características de la aplicación FormRend
 La funci&oacute;n principal de FormRender es poder generar formularios HTML a partir de una especificaci&oacute;n basada en el estandar [xForms](http://www.w3.org/MarkUp/Forms/). 
 Los documentos xForms son documentos XML los cuales a trav&eacute;s de una pantalla administrativa se cargan un con un identificador para luego ser recuperados e integrados a otras aplicaciones. FormRender internamente utiliza un procesador XSL para a trav&eacute;s de un XSLT (Procesador de Transformación XSL) generar el código HTML correspondiente con sus correspondientes estilos CSS y funcionalidad JavaScript.
 
+----------------
 <span id="3"/></span>
 
 3. Tecnología <span style="font-size:8px;">([Arriba](#0))</span>
@@ -128,6 +133,7 @@ El sistema está construido utilizando plataforma y estándares de desarrollo JE
 
 Como tecnología de soporte para el mantenimiento de la información se utiliza base de datos relacional [PostgreSQL](http://www.postgresql.org/)
 
+----------------
 <span id="4"/></span>
 
 4. Vista Lógica <span style="font-size:8px;">([Arriba](#0))</span>
@@ -176,133 +182,125 @@ Su objetivo es brindar de una manera homogénea y transparente, mediante el uso 
 ###Capa Integración <span style="font-size:8px;">([Arriba](#0))</span>
 Provee interfaces para acceder a datos externos a la aplicación que neecsiten los formularios. Las implementaciones de estas interfaces se realiz+an mediante WebServices SOAP (JAX-WS) o Rest Services (JAX-RS) 
 
+----------------
 <span id="5"/></span>
 
-5. Especificaciones T&eacute;cnicas <span style="font-size:8px;">([Arriba](#0))</span>
------------------------------------
+5. Arquitectura <span style="font-size:8px;">([Arriba](#0))</span>
+----------------
 
-3. Configuraci&oacute;n <span style="font-size:8px;">([Arriba](#0))</span>
----------------
-Componentes necesarios para poder ejecutar la aplicaci&oacute;n:
-* JDK 1.6.x
-* Jboss-as-7.1.0.Final
-* Maven 3.0.4
-* PostgreSQL 1.16
 
-2.1 Requisitos m&iacute;nimos
-1) Es necesario tener instalados (al menos) 2Gb de ram.
+----------------
+<span id="6"/></span>
 
-2.2	Configuracion JBoss
+6. Compilación, Instalación y Ejecución <span style="font-size:8px;">([Arriba](#0))</span>
+----------------
+En ésta sección se detalla todo lo necesario para compilar, instalar o deployar y ejecutar la plataforma. Se asume que los siguientes componentes, necesarios para dichas tareas, se encuentran instalados y corriendo normalmente en el sistema operativo.
 
-Agregar al archivo <jboss-as-7.1.0.Final>\standalone\configuration\standalone.xml
+<span id="61"/></span>
+####6.1 Listado de componentes necesarios para poder ejecutar la aplicaci&oacute;n:
 
-2.3	Configuracion BD  
+- JDK 1.6.x ([Guía de instalación](https://help.ubuntu.com/community/Java))
+- Jboss-as-7.1.0.Final ([Descarga](http://www.jboss.org/jbossas/downloads/))
+- Maven 3.0.4 ([Descarga](http://maven.apache.org/download.cgi),[Instalación](http://maven.apache.org/download.cgi#Unix-based_Operating_Systems_Linux_Solaris_and_Mac_OS_X))
+- PostgreSQL 9.1 ([Guía de instalación](https://help.ubuntu.com/13.04/serverguide/postgresql.html))
+- Git (Solo para entorno de desarrollo, [Guía de instalación](https://help.ubuntu.com/community/Git))
 
-2.3.1) Instalar driver de base de datos
+<span id="62"/></span>
+####6.2 Requisitos Mínimos:
 
-   Para instalar driver de postgresql en jboss-as-7.1.0.Final se deben crear 2 carpetas (postgres y main) en 
+Es necesario tener instalados (al menos) 2Gb de ram.
+
+<span id="63"/></span>
+####6.3 Instalación y Configuraci&oacute;n de entorno <span style="font-size:8px;">([Arriba](#0))</span>
+
+Agregar al archivo __<jboss-as-7.1.0.Final>\standalone\configuration\standalone.xml__
+
+En la secci&oacute;n __<datasources>__ la siguiente entrada, especificando usuario y password correspondiente para habilitar el Data Source correctamente en Jboss:
+
+		...
+		<datasources>
+		...	
+			<datasource jta="true" jndi-name="java:jboss/datasources/FormRenderDS" pool-name="FormRenderDS" enabled="true" use-java-context="true" use-ccm="true">
+	            	<connection-url>jdbc:postgresql://localhost:5432/formrender</connection-url>
+          	  	<driver-class>org.postgresql.Driver</driver-class>
+	            	<driver>postgresql</driver>
+          	  	<security>
+				<user-name>${username}</user-name>
+          	      		<password>${password}</password>
+	          	</security>
+		</datasource>  
+		...              
+		<drivers>    
+		...                
+			<driver name="postgresql" module="org.postgresql">
+				<xa-datasource-class>org.postgresql.xa.PGXADataSource</xa-datasource-class>
+			</driver>
+		...    
+		</drivers>
+
+
+
+#####6.3.1 DataSource/DB
+
+- Deberemos instalar primero el driver de la base de datos relacional a la plataforma del Application Server, para esto deben crear 2 carpetas (postgres y main): 
+ 
+		<jboss-as-7.1.0.Final>\modules\org  (debiendo quedar la siguiente estructura)
    
-   <jboss-as-7.1.0.Final>\modules\org  debiendo quedar la siguiente estructura:
+		<jboss-as-7.1.0.Final>\modules\org\postgresql\main 
+
+- Dentro de la carpeta main copiar el archivo **postgresql-9.1-902.jdbc4.jar** y crear un archivo **module.xml** cuyo contenido debe ser:
    
-   <jboss-as-7.1.0.Final>\modules\org\postgresql\main 
+		<?xml version="1.0" encoding="UTF-8"?>
+		<module xmlns="urn:jboss:module:1.0" name="org.postgresql">
+			<resources>
+				<resource-root path="postgresql-9.1-902.jdbc4.jar"/>
+			</resources>
+			<dependencies>
+				<module name="javax.api"/>
+				<module name="javax.transaction.api"/>
+			</dependencies>
+		</module>
+
+- Crear base de datos BD "formrender" utilizando el cliente de preferencias, si el esquema (base de datos) no se encuentra creado, la aplicación no levantará correctamente.
+
+- Ejecutar los scripts de estructura y datos en la BD creada, estos están ubicados en FormRender/sql/ y son:
+	- FormRender/sql/estructuras.sql (crea las tablas en la bd)
+	- FormRender/sql/formulariosCNC.sql (inserción de formularios de CNC)
+
+<span id="64"/></span>
+
+####6.4 Descarga, Compilación y Ejecución <span style="font-size:8px;">([Arriba](#0))</span>
+
+- Este proyecto usa git para control de versiones y esta disponible en github. Para bajarse el proyecto, ejecutar
+
+		git clone git@cluster.softwarepublico.gob.ar:cnc2220.git
    
-   Dentro de la carpeta main copiar el archivo postgresql-9.1-902.jdbc4.jar y crear un archivo module.xml cuyo
-   contenido debe ser
-   
-	<?xml version="1.0" encoding="UTF-8"?>
-	<module xmlns="urn:jboss:module:1.0" name="org.postgresql">
-	 <resources>
-	 <resource-root path="postgresql-9.1-902.jdbc4.jar"/>
-	 </resources>
-	 <dependencies>
-	 <module name="javax.api"/>
-	 <module name="javax.transaction.api"/>
-	 </dependencies>
-	</module>
-2.3.2) Para ejecutar esta aplicacion se debe 
-
-Crear base de datos BD "formrender"
-
-A continuaci&oacute;n se especifica el datasource que debe ser usado, en este caso para una BD Postgres.
-
-Agregar al archivo <jboss-as-7.1.0.Final>\standalone\configuration\standalone.xml en la secci&oacute;n <datasources> 
-la siguiente entrada, especificando usuario y password correspondiente:
-
-	...
-	<datasources>
-	...	
-		<datasource jta="true" jndi-name="java:jboss/datasources/FormRenderDS" pool-name="FormRenderDS" enabled="true" use-java-context="true" use-ccm="true">
-            <connection-url>jdbc:postgresql://localhost:5432/formrender</connection-url>
-            <driver-class>org.postgresql.Driver</driver-class>
-            <driver>postgresql</driver>
-            <security>
-                <user-name>${username}</user-name>
-                <password>${password}</password>
-            </security>
-        </datasource>  
-        ...              
-        <drivers>    
-        ...                
-            <driver name="postgresql" module="org.postgresql">
-                <xa-datasource-class>org.postgresql.xa.PGXADataSource</xa-datasource-class>
-            </driver>
-        ...    
-        </drivers>
-	...
-	</datasources>
-	...	   
-
-2.1) Ejecutar los scripts de estructura y datos en la BD creada
-
-Los scripts de carga inicial están ubicados en FormRender/sql/ y son:
-
-FormRender/sql/estructuras.sql (crea las tablas en la bd)
-FormRender/sql/formulariosCNC.sql (inserción de formularios de CNC)
-
-
-3.Despliegue <span style="font-size:8px;">([Arriba](#0))</span>
-------------
-
-3.1 Pasos
-
-1) Este proyecto usa git para control de versiones y esta disponible en github. 
-   Para bajarse el proyecto, hacer git clone 
-   
-   git@cluster.softwarepublico.gob.ar:cnc2220.git
-   
-2) Configurar path destino de los archivos de especificacion de formularios (.xml)  en archivo de propiedades
-
-	FormRender\src\main\resources\formrender.properties	
+- Configurar path destino de los archivos de especificacion de formularios (.xml) en archivo de propiedades __FormRender\src\main\resources\formrender.properties	__
 	
-	Propiedad:xmlForms.destination
+		xmlForms.destination (Ej. xmlForms.destination=/var/cnc)	
 	
-	Ej.	xmlForms.destination=/var/cnc
+- Configurar ip/port server de donde se tomar&aacute;n listas externas tales como geogr&aacute;ficas y prestadores en archivo de propiedades. Esto hace referencia al localizacion.war en donde est&aacute; el acceso a las listas externas.
 	
-3) Configurar ip/port server de donde se tomar&aacute;n listas externas tales como geogr&aacute;ficas y prestadores en archivo de 
-	propiedades. Esto hace referencia al localizacion.war en donde est&aacute; el acceso a las listas externas.
-	
-	FormRender\src\main\resources\formrender.properties	
-	
-	Propiedades:
-	
-	list.remote.host y list.remote.port
-	
-	Ej.	list.remote.host=http://54.232.16.128
-	list.remote.port=8080
-	
+		FormRender\src\main\resources\formrender.properties	
 
-4) Situarse en la ra&iacute;z del directorio del c&oacute;digo y ejecutar 
+	
+		list.remote.host (Ej. list.remote.host=http://54.232.16.128)
+		list.remote.port (Ej. list.remote.port=8080)
+
+- Situarse en la ra&iacute;z del directorio del c&oacute;digo y ejecutar 
+
 	$>mvn clean package
-	Esto genera un archivo war en "FormRender/target/FormRender.war"
+
+Esto genera un archivo war en "FormRender/target/FormRender.war"
 	
-5) Deployar el archivo "FormRender.war" generado, para ello
-   en JBoss 7.1.0 copiar el archivo al directorio <jboss-as-7.1.0.Final>\standalone\deployments
+- Deployar el archivo "FormRender.war" generado, para ello en JBoss 7.1.0 copiar el archivo al directorio <jboss-as-7.1.0.Final>\standalone\deployments
    
-6) Iniciar el server (standalone.bat en windows o standalone.sh unix)
+- Iniciar el server (standalone.bat en windows o standalone.sh unix)
    
-7) Acceder desde un browser a la direcci&oacute;n. Ej
+- Acceder desde un browser a la direcci&oacute;n.
 	
 	http://<localhost:8080>/FormRender/
-	
-	La página de inicio muestra un listado de los formularios xml y html (columnas URL y XML respectivamente). Haciendo click en cada uno de ellos se pueden visualizar.
-	
+
+La página de inicio muestra un listado de los formularios xml y html (columnas URL y XML respectivamente). Haciendo click en cada uno de ellos se pueden visualizar.
+
+------------	
