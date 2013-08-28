@@ -217,7 +217,7 @@ var gui = new function(){
 					}
 				}else{
 					console.group("ERROR REMOTO DETECTADO");
-					if(data.result.msg != undefined){
+					if(data.result != undefined && data.result.msg != undefined){
 						gui.displayError(data.result.msg);
 						console.warn("Error:"+data.result.msg);
 					}else{
