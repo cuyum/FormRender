@@ -1,5 +1,4 @@
 
-
 FormRender
 ===============
 
@@ -21,8 +20,8 @@ Transformaci&oacute;n xml => html.
 	- [Capa Seguridad ](#44)
 	- [Capa Transaccional](#45)
 	- [Capa Integración](#46)
-5. [Arquitectura](#5)
-6. [Compilación, Instalación y Ejecución](#6)
+
+5. [Compilación, Instalación y Ejecución](#6)
 	- [Listado de componentes necesarios](#61)
 	- [Requisitos mínimos](#62)
 	- [Configuración](#63)
@@ -183,21 +182,15 @@ Su objetivo es brindar de una manera homogénea y transparente, mediante el uso 
 Provee interfaces para acceder a datos externos a la aplicación que neecsiten los formularios. Las implementaciones de estas interfaces se realiz+an mediante WebServices SOAP (JAX-WS) o Rest Services (JAX-RS) 
 
 ----------------
+
 <span id="5"/></span>
 
-5. Arquitectura <span style="font-size:8px;">([Arriba](#0))</span>
-----------------
-
-
-----------------
-<span id="6"/></span>
-
-6. Compilación, Instalación y Ejecución <span style="font-size:8px;">([Arriba](#0))</span>
+5. Compilación, Instalación y Ejecución <span style="font-size:8px;">([Arriba](#0))</span>
 ----------------
 En ésta sección se detalla todo lo necesario para compilar, instalar o deployar y ejecutar la plataforma. Se asume que los siguientes componentes, necesarios para dichas tareas, se encuentran instalados y corriendo normalmente en el sistema operativo.
 
-<span id="61"/></span>
-####6.1 Listado de componentes necesarios para poder ejecutar la aplicaci&oacute;n:
+<span id="51"/></span>
+####5.1 Listado de componentes necesarios para poder ejecutar la aplicaci&oacute;n:
 
 - JDK 1.6.x ([Guía de instalación](https://help.ubuntu.com/community/Java))
 - Jboss-as-7.1.0.Final ([Descarga](http://www.jboss.org/jbossas/downloads/))
@@ -205,13 +198,13 @@ En ésta sección se detalla todo lo necesario para compilar, instalar o deploya
 - PostgreSQL 9.1 ([Guía de instalación](https://help.ubuntu.com/13.04/serverguide/postgresql.html))
 - Git (Solo para entorno de desarrollo, [Guía de instalación](https://help.ubuntu.com/community/Git))
 
-<span id="62"/></span>
-####6.2 Requisitos Mínimos:
+<span id="52"/></span>
+####5.2 Requisitos Mínimos:
 
 Es necesario tener instalados (al menos) 2Gb de ram.
 
-<span id="63"/></span>
-####6.3 Instalación y Configuraci&oacute;n de entorno <span style="font-size:8px;">([Arriba](#0))</span>
+<span id="53"/></span>
+####5.3 Instalación y Configuraci&oacute;n de entorno <span style="font-size:8px;">([Arriba](#0))</span>
 
 Agregar al archivo __<jboss-as-7.1.0.Final>\standalone\configuration\standalone.xml__
 
@@ -240,7 +233,7 @@ En la secci&oacute;n __<datasources>__ la siguiente entrada, especificando usuar
 
 
 
-#####6.3.1 DataSource/DB
+#####5.3.1 DataSource/DB
 
 - Deberemos instalar primero el driver de la base de datos relacional a la plataforma del Application Server, para esto deben crear 2 carpetas (postgres y main): 
  
@@ -267,9 +260,9 @@ En la secci&oacute;n __<datasources>__ la siguiente entrada, especificando usuar
 	- FormRender/sql/estructuras.sql (crea las tablas en la bd)
 	- FormRender/sql/formulariosCNC.sql (inserción de formularios de CNC)
 
-<span id="64"/></span>
+<span id="54"/></span>
 
-####6.4 Descarga, Compilación y Ejecución <span style="font-size:8px;">([Arriba](#0))</span>
+####5.4 Descarga, Compilación y Ejecución <span style="font-size:8px;">([Arriba](#0))</span>
 
 - Este proyecto usa git para control de versiones y esta disponible en github. Para bajarse el proyecto, ejecutar
 
