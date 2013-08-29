@@ -38,6 +38,13 @@ public class RelayRest {
 	@Inject
 	private FormRenderProperties frp;
 	
+	@GET
+	@POST
+	@Produces("application/json")
+	public String relay(){
+		return "{\"success\":false,\"msg\": \"No se ha configurado correctamente la plataforma\"}";
+	}
+	
 	@POST
 	@Path("/relay")
 	@Produces("application/json")
@@ -45,12 +52,12 @@ public class RelayRest {
 		log.info("Ingreso en relay de "+remoteUrl+(fkey!=null?" con el siguiente fkey "+fkey:""));
 		
 		JSONObject response;
+		String remoteResponse = "";
 		try {
 			URL url = new URL(frp.getRemoteListHost()+remoteUrl);
-			String remoteResponse = relay.request(url, fkey);
+			remoteResponse = relay.request(url, fkey);
 			response = new JSONObject(remoteResponse);
 			return response.toString();
-			
 		}catch (MalformedURLException e){
 			String msg = "No se pudo generar la petici&oacute;n con relay service ya que la URL suministrada es inv&aacute;lida";
 			log.error(msg,e);
@@ -58,6 +65,7 @@ public class RelayRest {
 		} catch (JSONException e) {
 			String msg = "No se pudo generar la respuesta json en relay service ya que el servicio ha respondido en un objeto JSON inv&aacute;lido";
 			log.error(msg,e);
+			log.debug("Remote response: "+remoteResponse);
 			return "{\"success\":false,\"msg\": \""+msg+"\"}";
 		}
 	}
@@ -75,7 +83,6 @@ public class RelayRest {
 			URL url = new URL(frp.getRemoteSubmissionHost()+submit_url);
 			
 			remoteResponse = relay.submit(url, submit_data);
-			log.info(remoteResponse);
 			response = new JSONObject(remoteResponse);
 			return response.toString();
 		}catch (MalformedURLException e){
@@ -85,7 +92,8 @@ public class RelayRest {
 		} catch (JSONException e) {
 			String msg = "No se pudo generar la respuesta json en relay service ya que el servicio remoto ha respondido en un objeto JSON inv&aacute;lido";
 			log.error(msg,e);
-			return "{\"success\":false,\"msg\": \""+msg+"\",\"remote\":\""+remoteResponse+"\"}";
+			log.debug("Remote response: "+remoteResponse);
+			return "{\"success\":false,\"msg\": \""+msg+"\"}";
 		}
 	}
 	
