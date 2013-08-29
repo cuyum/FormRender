@@ -208,7 +208,7 @@ var gui = new function(){
 						if(data.result.msg!=undefined)
 							gui.displaySuccess(data.result.msg);
 						else
-							gui.displaySuccess("Formulario guardado ("+data.result.id+").");
+							gui.displaySuccess("Formulario guardado.");
 					}else{						
 						if(data.result.msg!=undefined)
 							gui.displayError("Ha ocurrido un error en el servidor de persistencia<br/>"+data.result.msg);

@@ -40,12 +40,12 @@ SET default_with_oids = false;
 -- Name: formulario; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 DROP TABLE IF EXISTS formulario;
-CREATE TABLE formulario (
+CREATE TABLE formulario (   
     id bigint NOT NULL,
-    archivo character varying(255),
-    codigo character varying(255),
+    archivo character varying(255) NOT NULL,
+    codigo character varying(255) NOT NULL,
     formversion character varying(255),
-    nombre character varying(255),
+    nombre character varying(255) NOT NULL,
     url character varying(255),
     version integer,
     xsltransform_id bigint NOT NULL
@@ -94,8 +94,8 @@ SELECT pg_catalog.setval('formulario_id_seq', 1, false);
 DROP TABLE IF EXISTS xsl;
 CREATE TABLE xsl (
     id bigint NOT NULL,
-    archivo character varying(255),
-    nombre character varying(255),
+    archivo character varying(255) NOT NULL,
+    nombre character varying(255) NOT NULL,
     url character varying(255),
     version integer,
     xlsversion character varying(255)
@@ -134,7 +134,7 @@ ALTER SEQUENCE xsl_id_seq OWNED BY xsl.id;
 -- Name: xsl_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('xsl_id_seq', 1, false);
+SELECT pg_catalog.setval('xsl_id_seq', 1, true);
 
 
 --
@@ -152,10 +152,8 @@ ALTER TABLE ONLY formulario ALTER COLUMN id SET DEFAULT nextval('formulario_id_s
 
 ALTER TABLE ONLY xsl ALTER COLUMN id SET DEFAULT nextval('xsl_id_seq'::regclass);
 
---
--- TOC entry 1927 (class 2606 OID 173087)
--- Name: formulario_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
---
+ALTER TABLE ONLY formulario
+    ADD CONSTRAINT formulario_codigo_key UNIQUE (codigo);
 
 ALTER TABLE ONLY formulario
     ADD CONSTRAINT formulario_pkey PRIMARY KEY (id);
