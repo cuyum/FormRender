@@ -272,13 +272,18 @@ En la secci&oacute;n __<datasources>__ la siguiente entrada, especificando usuar
 	
 		xmlForms.destination (Ej. xmlForms.destination=/var/cnc)	
 	
-- Configurar ip/port server de donde se tomar&aacute;n listas externas tales como geogr&aacute;ficas y prestadores en archivo de propiedades. Esto hace referencia al localizacion.war en donde est&aacute; el acceso a las listas externas.
+- Configurar ip/port server de donde se tomar&aacute;n listas externas tales como geogr&aacute;ficas y prestadores en archivo de propiedades. Se debe tener en cuenta si usa o no encriptaci&oacute;n y si este tiene un contexto habilitado diferente al / (ROOT)
 	
 		FormRender\src\main\resources\formrender.properties	
 
 	
-		list.remote.host (Ej. list.remote.host=http://54.232.16.128)
+		list.remote.host (Ej. list.remote.host=54.232.16.128)
 		list.remote.port (Ej. list.remote.port=8080)
+		list.remote.secure (Ej. list.remote.secure=false)
+		list.remote.context (Ej. list.remote.secure=/)
+
+-Estos mismos pasos deben realizarse para configurar tambi&eacute;n el servidor de persistencia de persistencia bajo el prefijo **submit.remote**.
+
 
 - Situarse en la ra&iacute;z del directorio del c&oacute;digo y ejecutar 
 
