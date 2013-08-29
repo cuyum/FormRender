@@ -221,10 +221,14 @@ var gui = new function(){
 						gui.displayError(data.result.msg);
 						console.warn("Error:"+data.result.msg);
 					}else{
-						console.warn("No remote error defined");
+						if(data.msg!=undefined){
+							console.warn("Remote Error: \""+data.msg+"\"");
+						}else{
+							console.warn("No remote error defined");
+						}
 						gui.displayError("Error remoto, contacte a su administrador.");
 					}
-					console.log("Objeto de respuesta",data);
+					console.log("Objeto de respuesta",xhr);
 					console.groupEnd();
 				}
 			},

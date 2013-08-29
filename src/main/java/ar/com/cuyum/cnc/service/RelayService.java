@@ -122,7 +122,8 @@ public class RelayService {
 	}
 	
 	private final String processResponse(HttpResponse rawResponse) {
-		String entity = "{}";
+		String entity = "{\"success\":false,\"msg\":\"Empty response received.\"}";
+		if(rawResponse==null)return entity;
 		try {
 			entity = EntityUtils.toString(rawResponse.getEntity());
 		} catch (Exception e) {
