@@ -116,7 +116,7 @@ $(document).ready(function() {
 		$.blockUI({message:"Cargando...<br>Espere por favor..."});
 		$.ajax({
 			type: "GET",
-			url: "/FormRender/rest/service/retrieve",
+			url: "/"+formRenderContext+"/rest/service/retrieve",
 			data: {"recordId":gui.loadDataId},
 			success:function(data, statusStr, xhr){
 				if(data.result && data.result.type && data.result.type=="ERROR"){

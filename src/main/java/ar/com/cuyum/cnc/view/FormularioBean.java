@@ -630,6 +630,7 @@ public class FormularioBean implements Serializable
 		    	if (null != xmlStream && null != xslStream) {
 		 	    	ts.setRemoteTransformation(false);
 		 	    	transformedHtml = ts.transform(xmlStream, xslStream, formulario.getFormVersion());
+		 	    	transformedHtml = transformedHtml.replaceAll("___context___", fc.getExternalContext().getContextName());
 		        } else {
 		        	transformedHtml = "<html><head><meta content='text/html;charset=UTF-8' http-equiv='Content-Type'><title>Error</title>" +
 		        			"</head><body><h1>Se ha producido un error</h1><p> No es posible renderizar el html del formulario debido a que uno/s de los archivos " +
