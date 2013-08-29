@@ -200,7 +200,7 @@ var gui = new function(){
 			async:false,
 			type: "POST",
 			contentType : "application/x-www-form-urlencoded; charset=utf-8",
-			url: "/FormRender/rest/service/submit",		
+			url: "/"+formRenderContext+"/rest/service/submit",		
 			data: {"submit_data":JSON.stringify(message),"url": url},
 			success:function(data, statusStr, xhr){
 				if(data.result && data.result.type){
