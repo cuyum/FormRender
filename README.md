@@ -280,7 +280,7 @@ En la secci&oacute;n __<datasources>__ la siguiente entrada, especificando usuar
 		list.remote.host (Ej. list.remote.host=54.232.16.128)
 		list.remote.port (Ej. list.remote.port=8080)
 		list.remote.secure (Ej. list.remote.secure=false)
-		list.remote.context (Ej. list.remote.secure=/)
+		list.remote.context (Ej. list.remote.context=/)
 
 -Estos mismos pasos deben realizarse para configurar tambi&eacute;n el servidor de persistencia de persistencia bajo el prefijo **submit.remote**.
 
