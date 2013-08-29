@@ -24,6 +24,7 @@ import javax.faces.convert.Converter;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
 import javax.persistence.TypedQuery;
@@ -179,8 +180,46 @@ public class FormularioBean implements Serializable
 
    public Formulario findById(Long id)
    {
-
       return this.entityManager.find(Formulario.class, id);
+   }
+   
+   private boolean verificarDuplicado(String codigo, Long id){
+	   boolean seguir = true;
+	   Formulario existentForm = null;
+	   try {
+		   existentForm = findByCode(codigo);
+	   } catch (NoResultException e) {		   
+		   //No hay ningun registro con ese codigo, puedo continuar;
+		   seguir = true;		   
+	   } catch (Exception e1) {		   
+		   //Trato de hacer update y ya hay un form con ese codigo;
+		   seguir = false;		   
+	   }  
+	   if (null != existentForm) {
+		   if (null == id){
+			  //Trato de crear nuevo form y ya hay un form con ese codigo;
+			  seguir = false; 
+		   }
+		   if (null != id){
+			   if (!existentForm.getId().equals(id)){
+				   seguir = false;
+			   }
+		   }
+	   }	   
+	   return seguir;
+   }
+   
+   public Formulario findByCode(String code)
+   {	
+	   Formulario formSelected =null;	   
+	   if (null != code && !code.trim().isEmpty()){
+		   formSelected = (Formulario) this.entityManager
+				.createQuery(
+						"select f from Formulario f where f.codigo = :code")
+				.setParameter("code", code.trim())
+				.getSingleResult();
+	   }
+	   return formSelected;
    }
    
    public String getXmlFile() {	  
@@ -299,16 +338,26 @@ public class FormularioBean implements Serializable
 	          FacesContext.getCurrentInstance().addMessage(null, msg);  
 	          return null;
 		  }
-	  }
+	  }	  
+	  
+	  //Verificamos que no exista ya un formulario con el Codigo repetido	  
+	  boolean seguir = verificarDuplicado(this.formulario.getCodigo(), this.formulario.getId());
+	  
+	  if (!seguir) {		  
+		  FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ya existe un formulario con ese c\u00F3digo. ", 
+			  "Debe ser único.");  
+		   FacesContext.getCurrentInstance().addMessage(null, msg);
+		   return null;	
+	  }	 
 	  
       this.conversation.end();
       
       try
       {
          if (this.id == null)
-         {
-            this.entityManager.persist(this.formulario);
-            return "search?faces-redirect=true";
+         {        	
+        	this.entityManager.persist(this.formulario);          
+        	return "search?faces-redirect=true";
          }
          else
          {
@@ -552,47 +601,64 @@ public class FormularioBean implements Serializable
    }
    
    public void transform(){
-	   InputStream xmlStream=null; 	   
+	   InputStream xmlStream=null;   
 	   InputStream xslStream=null;
 	   FacesContext fc = FacesContext.getCurrentInstance();
 	   
-	   Map<String,String> requestParams = fc.getExternalContext().getRequestParameterMap();
-	   
-       String id = requestParams.get("form_id");
-       if(id==null){
-    	   id = requestParams.get("id");
-       }
+	   Map<String,String> requestParams = fc.getExternalContext().getRequestParameterMap();	   
+       String idForm = requestParams.get("id");
        
-       Long xmlId = null;
-       if(id!=null&& !id.isEmpty()) xmlId = Long.valueOf(id);
-	   
-	    ExternalContext ec = fc.getExternalContext();
-	    
-	    try {
-	    	if(xmlId==null){
-	    		xmlId = getId();
+	   ExternalContext ec = fc.getExternalContext();
+	   try {
+		    String transformedHtml="";
+		    if (null != idForm && !idForm.isEmpty()) {
+			    if (isNum(idForm)){
+			    	Long xmlId = Long.valueOf(idForm);
+			    	this.formulario = findById(xmlId);
+			    } else {
+			    	try {
+						this.formulario = findByCode(idForm);
+					} catch (NoResultException e) {
+						//No existe un formulario con ese codigo
+						log.error("Formulario no existente");					
+					}
+			    }
+		    }
+	    	if (null != this.formulario) {
+		 	    xmlStream = fileUtils.getXmlInputStream(formulario);
+		 	    xslStream = fileUtils.loadXsl(formulario.getXslTransform()); 
+		    	if (null != xmlStream && null != xslStream) {
+		 	    	ts.setRemoteTransformation(false);
+		 	    	transformedHtml = ts.transform(xmlStream, xslStream, formulario.getFormVersion());
+		        } else {
+		        	transformedHtml = "<html><head><meta content='text/html;charset=UTF-8' http-equiv='Content-Type'><title>Error</title>" +
+		        			"</head><body><h1>Se ha producido un error</h1><p> No es posible renderizar el html del formulario debido a que uno/s de los archivos " +
+		        			"<em>xml o xsl</em> no se ha/n encontrado.</p><hr/></body></html>";
+		        }
+	    	} else {
+	    		transformedHtml = "<html><head><meta content='text/html;charset=UTF-8' http-equiv='Content-Type'><title>Error</title>" +
+	        			"</head><body><h1>Formulario no encontrado</h1><p> No se ha encontrado formulario con c&oacute;digo/id: " +
+	        			"<em><b>'"+idForm+"'</em></b>.</p><hr/></body></html>";
 	    	}
-	    	this.formulario = findById(xmlId);	    	
-	 	    xmlStream = fileUtils.getXmlInputStream(formulario);
-	 	    xslStream = fileUtils.loadXsl(formulario.getXslTransform());
-	 	   String transformedHtml;
-	    	if (null != xmlStream && null != xslStream) {
-	 	    	ts.setRemoteTransformation(false);
-	 	    	transformedHtml = ts.transform(xmlStream, xslStream, formulario.getFormVersion());
-	        } else {
-	        	transformedHtml = "<html><head><meta content='text/html;charset=UTF-8' http-equiv='Content-Type'><title>Error</title>" +
-	        			"</head><body><h1>Se ha producido un error</h1><p> No es posible renderizar el html del formulario debido a que uno/s de los archivos " +
-	        			"<em>xml o xsl</em> no se ha/n encontrado.</p><hr/></body></html>";
-	        }
 			ec.responseReset(); // Some JSF component library or some Filter might have set some headers in the buffer beforehand. We want to get rid of them, else it may collide.
 			OutputStream output = ec.getResponseOutputStream();
-			output.write(transformedHtml.getBytes());
+			output.write(transformedHtml.getBytes()); 
 		} catch (MalformedURLException e1) {
 			e1.printStackTrace();
 		} catch (IOException e) {
-			e.printStackTrace();			
+			e.printStackTrace();
 		}
 
 	    fc.responseComplete(); // Important! Otherwise JSF will attempt to render the response which obviously will fail since it's already written with a file and closed.
    }
+	    
+	private static boolean isNum(String strNum) {
+	    boolean ret = true;
+	    try {	
+	        Double.parseDouble(strNum);	
+	    } catch (NumberFormatException e) {
+	        ret = false;
+	    }
+	    return ret;
+	}
 }

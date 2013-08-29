@@ -97,7 +97,7 @@
 					or _item.codigo eq 'E1.8' or _item.codigo eq 'E1.9' or _item.codigo eq 'E1.10' or _item.codigo eq 'E1.11' or _item.codigo eq 'E1.12' or _item.codigo eq 'E1.15' or _item.codigo eq 'E1.16' or _item.codigo eq 'E1.17' or _item.codigo eq 'E1.18' 
 					or _item.codigo eq 'E1.19' or _item.codigo eq 'E1.20' or _item.codigo eq 'E1.21' or _item.codigo eq 'E1.22' or _item.codigo eq 'G1.3' or _item.codigo eq 'H1.4' or _item.codigo eq 'H1.5' or _item.codigo eq 'H1.6' or _item.codigo eq 'H1.7' or _item.codigo eq 'H1.8' 
 					or _item.codigo eq 'H1.9' or _item.codigo eq 'H1.10' or _item.codigo eq 'I1.4' or _item.codigo eq 'I1.5' or _item.codigo eq 'I1.6' or _item.codigo eq 'I1.7' or _item.codigo eq 'I1.10'}">
-						<f:param name="id" value="#{_item.id}"/>
+						<f:param name="id" value="#{_item.codigo}"/>
 						<f:param name="title" value="Enero,Febrero,Marzo"/>	
 						<f:param name="repeat" value="3"/>								
 					</h:link>
@@ -108,9 +108,10 @@
 					or _item.codigo eq 'G1.1' or _item.codigo eq 'G1.2' or _item.codigo eq 'H2.1' or _item.codigo eq 'H2.2' or _item.codigo eq 'H2.3' or _item.codigo eq 'E1.1' or _item.codigo eq 'E1.2' or _item.codigo eq 'E1.3' 
 					or _item.codigo eq 'E1.24' or _item.codigo eq 'E1.25' or _item.codigo eq 'E1.28' or _item.codigo eq 'H1.1' or _item.codigo eq 'H1.2' or _item.codigo eq 'H1.3' or _item.codigo eq 'H1.15' or _item.codigo eq 'I1.1' 
 					or _item.codigo eq 'I1.2' or _item.codigo eq 'I1.3' or _item.codigo eq 'I1.9'}">
-						<f:param name="id" value="#{_item.id}"/>																	
+						<f:param name="id" value="#{_item.codigo}"/>																	
 						<f:param name="repeat" value="1"/>
 					</h:link>
+					
 					<!-- mensualizados sin grilla -->		
 			   		<h:link outcome="/formulario/display" value="Ver" styleClass="button" rendered="#{_item.codigo eq 'C1.28' or _item.codigo eq 'C1.29' or _item.codigo eq 'C1.30' or _item.codigo eq 'C1.31' or _item.codigo eq 'C1.32' 
 			   		or _item.codigo eq 'C1.33' or _item.codigo eq 'C1.34' or _item.codigo eq 'C1.35' or _item.codigo eq 'C1.36' or _item.codigo eq 'C1.37' or _item.codigo eq 'C1.38' or _item.codigo eq 'C1.39' or _item.codigo eq 'C1.40' 
@@ -122,7 +123,7 @@
 			   		or _item.codigo eq 'E1.38' or _item.codigo eq 'E1.39' or _item.codigo eq 'H1.16' or _item.codigo eq 'H1.18' or _item.codigo eq 'H1.19' or _item.codigo eq 'H1.20' or _item.codigo eq 'H1.21' or _item.codigo eq 'I1.8' 
 			   		or _item.codigo eq 'I1.11' or _item.codigo eq 'I1.12' or _item.codigo eq 'I1.13' or _item.codigo eq 'H1.17' }"
 			   		>
-						<f:param name="id" value="#{_item.id}"/>
+						<f:param name="id" value="#{_item.codigo}"/>
 						<f:param name="title" value="Enero,Febrero,Marzo"/>	
 						<f:param name="repeat" value="3"/>													 
 					</h:link>
@@ -133,13 +134,13 @@
 					 or _item.codigo eq 'H2.5' or _item.codigo eq 'H2.6' or _item.codigo eq 'E1.26' or _item.codigo eq 'E1.27' or _item.codigo eq 'E1.29' or _item.codigo eq 'E1.40' or _item.codigo eq 'E1.41' or _item.codigo eq 'E1.42' 
 					 or _item.codigo eq 'H1.11' or _item.codigo eq 'H1.12' or _item.codigo eq 'H1.13' or _item.codigo eq 'H1.14' or _item.codigo eq 'H1.22' or _item.codigo eq 'I1.14' or _item.codigo eq 'C1.54' or _item.codigo eq 'C2.7' or _item.codigo eq 'D1.46' 
 					 or _item.codigo eq 'E1.43' or _item.codigo eq 'F1.31' or _item.codigo eq 'G1.4' or _item.codigo eq 'H1.23' or _item.codigo eq 'H2.7' or _item.codigo eq 'I1.15'}">
-						<f:param name="id" value="#{_item.id}"/>																								
+						<f:param name="id" value="#{_item.codigo}"/>
 					</h:link>
 					<!-- FIN CASOS CNC -->
 					
 					<h:link outcome="/formulario/display" value="Ver" styleClass="button" rendered="#{!fn:startsWith(_item.codigo, 'C1.') and !fn:startsWith(_item.codigo, 'C2.') and !fn:startsWith(_item.codigo, 'D1.') and !fn:startsWith(_item.codigo, 'E1.') and !fn:startsWith(_item.codigo, 'H1.') 
 					and !fn:startsWith(_item.codigo, 'F1.') and !fn:startsWith(_item.codigo, 'H2.') and !fn:startsWith(_item.codigo, 'G1.') and !fn:startsWith(_item.codigo, 'I1.')}">
-						<f:param name="id" value="#{_item.id}"/>
+						<f:param name="id" value="#{_item.codigo}"/>						
 					</h:link>															
 				</p:column>
 			</p:dataTable>			
