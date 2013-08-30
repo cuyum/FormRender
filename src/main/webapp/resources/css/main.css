@@ -1353,14 +1353,6 @@ ol.linenums li { padding-left: 12px; color: #bebec5; line-height: 20px; text-sha
 
 }
 
-	@media (min-width: 700px) and (max-width: 1024px){
-	 .dataTables_scroll {
-	     clear: both;
-	     overflow-x: scroll;
-	     width: 750px;
-	 }
-	}
-
 	.rating{
 		width:80px;
 		height:16px;
@@ -1424,4 +1416,12 @@ width:800px;}
     clear: both;
     overflow-x: scroll;
     width: 967px;
+}
+
+@media (min-width: 700px) and (max-width: 1024px){
+ .dataTables_scroll {
+     clear: both;
+     overflow-x: scroll;
+     width: 750px;
+ }
 }
