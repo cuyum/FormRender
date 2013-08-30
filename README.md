@@ -37,7 +37,7 @@ Aplicaci&oacute;n web que permite on the fly leer un formulario definido en form
 
 
 Presentar una visi&oacute;n general de las caracter&iacute;sticas de la aplicaci&oacute;n **FormRender** y sus aspectos t&eacute;cnicos de mayor relevancia, especificando las caracter&iacute;sticas t&eacute;cnicas y de arquitectura que tiene la plataforma, entre ellos los requerimientos de sistema necesarios para poder instalar y ejecutar la aplicaci&oacute;n.
-----------
+
 
 <span id="2"/></span>
 ##2. Introducci&oacute;n <span style="font-size:8px;">([Arriba](#0))</span>
