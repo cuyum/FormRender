@@ -1,4 +1,4 @@
-INSERT INTO xsl(nombre, archivo, xlsversion, version) VALUES ('Para uso de la CNC','formCnc.xsl', 'V1.0', 0);
+INSERT INTO xsl(id, nombre, archivo, xlsversion, version) VALUES (1, 'Para uso de la CNC','formCnc.xsl', 'V1.0', 0);
 
 -- ANEXO C --
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version,xsltransform_id) VALUES ('C1.1','Áreas de prestación de servicios','C1.001-V001-MAY13','C1.1.xml', 0, 1);
