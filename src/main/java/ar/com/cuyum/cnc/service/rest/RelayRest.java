@@ -3,11 +3,15 @@
  */
 package ar.com.cuyum.cnc.service.rest;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -96,6 +100,7 @@ public class RelayRest {
 			return "{\"success\":false,\"msg\": \""+msg+"\"}";
 		}
 	}
+	
 	
 	@GET
 	@Path("/retrieve")
