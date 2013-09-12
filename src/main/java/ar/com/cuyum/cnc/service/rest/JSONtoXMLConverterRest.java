@@ -31,7 +31,7 @@ import ar.com.cuyum.cnc.view.FormularioBean;
 @RequestScoped
 public class JSONtoXMLConverterRest {
 
-	private String context="http://localhost:8080/FormRender";
+	private String context="http://54.232.16.128:8080/FormRender";
 		
 	@Inject
 	private FormularioBean formularioBean;
