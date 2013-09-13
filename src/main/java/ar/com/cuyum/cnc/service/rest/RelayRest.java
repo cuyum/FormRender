@@ -8,17 +8,21 @@ import java.net.URL;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServlet;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
 
 import org.apache.log4j.Logger;
 import org.primefaces.json.JSONException;
 import org.primefaces.json.JSONObject;
 
+import ar.com.cuyum.cnc.service.JsonServices;
 import ar.com.cuyum.cnc.service.RelayService;
 import ar.com.cuyum.cnc.utils.FormRenderProperties;
 
@@ -43,6 +47,20 @@ public class RelayRest {
 	@Produces("application/json")
 	public String relay(){
 		return "{\"success\":false,\"msg\": \"No se ha configurado correctamente la plataforma\"}";
+	}
+	
+	@Inject private JsonServices jsonService;
+	
+	@GET
+	@Path("/preview")
+	@Produces("text/html")
+	public String preview(@Context ServletContext servletContext,@QueryParam("formId") Long formId) {
+		String cn = servletContext.getServletContextName();
+		
+		return jsonService.previewHtml(formId,"", cn, servletContext);
+		
+		
+		
 	}
 	
 	@POST

@@ -8,11 +8,15 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.io.StringWriter;
 
+import javax.annotation.Resource;
+import javax.ejb.Stateless;
 import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.inject.Any;
 import javax.enterprise.inject.Default;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.servlet.ServletContext;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -31,15 +35,15 @@ import org.xml.sax.SAXException;
 import ar.com.cuyum.cnc.domain.Formulario;
 import ar.com.cuyum.cnc.domain.Xsl;
 
-
-public class DomUtils implements Serializable {
+@Stateless
+public class FileUtilsAux implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private static String XSL_FROM = "/WEB-INF/xsl/";
 	private static String XML_FROM = "/WEB-INF/formularios/";
 
-	public static Logger log = Logger.getLogger(DomUtils.class);
+	public static Logger log = Logger.getLogger(FileUtilsAux.class);
 
 	public String format(InputStream isXml) {
 		StringWriter stringWriter = new StringWriter();
@@ -96,8 +100,10 @@ public class DomUtils implements Serializable {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	//@Resource ServletContext servletContext;
 
-	public InputStream getXmlInputStream(Formulario formulario) {
+	public InputStream getXmlInputStream(Formulario formulario, ServletContext servletContext) {
 		InputStream xmlStream = null;
 		String from;
 		try {
@@ -118,10 +124,9 @@ public class DomUtils implements Serializable {
 
 			} else {
 				// Probar del context
-				ExternalContext ec = FacesContext.getCurrentInstance()
-						.getExternalContext();
+				
 
-				xmlStream = ec.getResourceAsStream(XML_FROM
+				xmlStream = servletContext.getResourceAsStream(XML_FROM
 						+ formulario.getArchivo());
 
 				// xmlStream =
@@ -137,7 +142,7 @@ public class DomUtils implements Serializable {
 		return xmlStream;
 	}
 
-	public InputStream loadXsl(Xsl xslTransform) {
+	public InputStream loadXsl(Xsl xslTransform, ServletContext servletContext) {
 		InputStream xslIS = null;
 		String from;
 		try {
@@ -157,10 +162,7 @@ public class DomUtils implements Serializable {
 				// xslIS =
 				// this.getClass().getClassLoader().getResourceAsStream("WEB-INF/xsl/"
 				// + xslTransform.getArchivo());
-				xslIS = FacesContext
-						.getCurrentInstance()
-						.getExternalContext()
-						.getResourceAsStream(
+				xslIS = servletContext.getResourceAsStream(
 								XSL_FROM + xslTransform.getArchivo());
 			}
 		} catch (FileNotFoundException e) {
