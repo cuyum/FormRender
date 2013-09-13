@@ -1,6 +1,7 @@
 package ar.com.cuyum.cnc.service.rest;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 import javax.enterprise.context.RequestScoped;
@@ -58,9 +59,20 @@ public class ExternalRest {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces({ MediaType.APPLICATION_FORM_URLENCODED, "application/json" })
 	public String formConsumerURL(String input) {
-
-		return "http://" + request.getRemoteAddr()
-				+ "/formulario/display.xhtml?id=C1.1&repeat=1";
+		
+		
+		try {
+			URL url = new URL("http://" + request.getServerName() + ":"+request.getServerPort()+"/"+request.getServletContext().getServletContextName()
+					+ "/formulario/display.xhtml?id=C1.1&repeat=1");
+			
+			return url.toString();
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "URL INVALIDA";
+		}
+		
+		
 	}
 
 	
