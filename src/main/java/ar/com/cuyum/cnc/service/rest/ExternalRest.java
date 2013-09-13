@@ -103,9 +103,9 @@ public class ExternalRest {
 	
     @POST
     @Path("/url")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces({MediaType.APPLICATION_FORM_URLENCODED, "application/json"})
-    public String formConsumerURL(String  input){
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces("application/json")
+    public String formConsumerURL(@FormParam("value") String input){
     	
         String ret =  "http://"+ request.getServerName() +":" +request.getServerPort() + request.getServletContext().getContextPath() + "/formulario/display.xhtml?id=";
         String cod ="";
