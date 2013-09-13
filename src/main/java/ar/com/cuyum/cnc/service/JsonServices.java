@@ -1,13 +1,19 @@
 package ar.com.cuyum.cnc.service;
 
+import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Serializable;
 import java.util.Iterator;
+import java.util.UUID;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -22,13 +28,23 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import ar.com.cuyum.cnc.domain.Formulario;
+import ar.com.cuyum.cnc.domain.Xsl;
+import ar.com.cuyum.cnc.utils.FormRenderProperties;
 
 
+@Stateless
 public class JsonServices implements Serializable {
 
 
 	@Inject
 	private TransformationService ts;
+	
+	@Inject
+	private FormRenderProperties frp;
+	
+	@PersistenceContext(type = PersistenceContextType.EXTENDED)
+	private EntityManager entityManager;
+	
 
 	public String previewHtml(String jsonValue, ServletContext sc) throws Exception{
 		//InputStream xmlStream = null;
@@ -314,6 +330,65 @@ public class JsonServices implements Serializable {
 		/* h:html */out.writeEndElement();
 		out.writeEndDocument();
 
+	}
+	
+	
+	
+	//Persistimos en base y genermamos retornamos codigo que se utiliza para visualizar el documento
+	public String persistFormFromJson(String jsonValue) throws Exception{
+		
+
+		//Creamos y llenamos los atributos del nuevo formulario a persistir
+		Formulario formulario = new Formulario();
+
+		JSONParser parser = new JSONParser();
+		JSONObject header;
+
+		Object obj;
+		try {
+			obj = parser.parse(jsonValue);
+		} catch (ParseException e) {
+			throw new Exception("Error al parsear documento json "+ jsonValue, e);
+		}
+
+		try {
+			JSONObject jsonObject = (JSONObject) obj;
+	
+			header = (JSONObject) ((JSONObject) jsonObject.get("header"));
+			
+			formulario.setCodigo("J" + jsonObject.get("_id"));
+			formulario.setNombre("" + header.get("name"));
+		
+
+			String xmlString = jsonToXForm(jsonValue);
+			
+			String path = frp.getDestinationXml();
+			
+		
+			try {
+				  File xmlToSave = new File(path + System.getProperty("file.separator") + "J" + jsonObject.get("_id") + ".xml");
+		          BufferedWriter output = new BufferedWriter(new FileWriter(xmlToSave));
+		          output.write(xmlString);
+		          output.close();
+		        } catch ( IOException e ) {
+		           e.printStackTrace();
+		        }
+			
+		formulario.setArchivo("J" + jsonObject.get("_id") + ".xml");
+		formulario.setUrl(path);
+		Xsl xsl = entityManager.find(Xsl.class, 1L);
+		System.out.println("Xsl encontrado: " + xsl.getNombre());
+		formulario.setXslTransform(xsl);
+		entityManager.persist(formulario);
+		
+		
+		} catch (Exception e) {
+			throw new Exception("Error en conversión de JSON  a XML", e);
+		}
+
+		
+		
+		return formulario.getCodigo();
 	}
 
 

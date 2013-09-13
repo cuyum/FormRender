@@ -79,85 +79,130 @@ public class ExternalRest {
 		} 
 	}
 
-	@POST
-	@Path("/url")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces({ MediaType.APPLICATION_FORM_URLENCODED, "application/json" })
-	public String formConsumerURL(String input) {
-		
-		
-		try {
-			URL url = new URL("http://" + request.getServerName() + ":"+request.getServerPort()+"/"+request.getServletContext().getServletContextName()
-					+ "/formulario/display.xhtml?id=C1.1&repeat=1");
-			
-			return url.toString();
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return "URL INVALIDA";
+//	@POST
+//	@Path("/url")
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Produces({ MediaType.APPLICATION_FORM_URLENCODED, "application/json" })
+//	public String formConsumerURL(String input) {
+//		
+//		
+//		try {
+//			URL url = new URL("http://" + request.getServerName() + ":"+request.getServerPort()+"/"+request.getServletContext().getServletContextName()
+//					+ "/formulario/display.xhtml?id=C1.1&repeat=1");
+//			
+//			return url.toString();
+//		} catch (MalformedURLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//			return "URL INVALIDA";
+//		}
+//		
+//		
+//	}
+	
+	
+    @POST
+    @Path("/url")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_FORM_URLENCODED, "application/json"})
+    public String formConsumerURL(String  input){
+    	
+        String ret =  "http://"+ request.getServerName() +":" +request.getServerPort() + request.getServletContext().getContextPath() + "/formulario/display.xhtml?id=";
+        String cod ="";
+		try{
+			cod = jsonService.persistFormFromJson(input);
+			return ret + cod;
+		} catch (Exception e) {
+			//no se si es la mejor manera de mandar error
+			try {
+				response.sendError(400, "Error en conversion de json");
+				
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			return "ERROR AL POSTEAR FORM";
 		}
 		
-		
 	}
+	
 
 	
 	/// BORAR DESPUES ESE METODO/// solo para hacer prueba
 	@Inject
 	RelayService relay;
 
-	@POST
+
+	@GET
 	@Path("/preview2")
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	@Produces("text/html; charset=utf-8")
+	@Produces("text/html")
 	public String formConsumerHTML(@Context ServletContext servletContext,
 			@FormParam("value") String json) {
 		String builder = null;
 		System.out.println("value="+json);
-		// log.error(a.getHostAddress());
-		// log.error(sc.getContextPath());
-		// try {
-		// a = InetAddress.getLocalHost();
-		// } catch (UnknownHostException e1) {
-		// // TODO Auto-generated catch block
-		// e1.printStackTrace();
-		//
-		// }
-		//
 
 		try {
-			// String page ="<meta http-equiv='refresh' content='0;url="+
-			// context + "/formulario/display.xhtml?id=C1.1&repeat=1' /> ";
+
 
 			URL url = new URL("http://" + request.getServerName() + ":"+request.getServerPort()+"/"+request.getServletContext().getServletContextName()
 					+ "/formulario/display.xhtml?id=C1.1&repeat=1");
-			
-			
-			System.out.println("URL: "+url);
-//			System.out.println("request.getLocalAddr(): "+request.getLocalAddr());
-//			System.out.println("request.getLocalName(): "+request.getLocalName());
-//			System.out.println("request.getLocalPort(): "+request.getLocalPort());
-//			System.out.println("request.getRemoteAddr(): "+request.getRemoteAddr());
-//			System.out.println("request.getRemoteHost(): "+request.getRemoteHost());
-//			System.out.println("request.getRemotePort(): "+request.getRemotePort());
-//			System.out.println("request.getServerName(): "+request.getServerName());
-//			System.out.println("request.getServerPort(): "+ request.getServerPort());
-//			System.out.println("request.getServletPath(): "+request.getServletPath());
-//			System.out.println("request.getServletContext().getServletContextName(): "+request.getServletContext().getServletContextName());
-//			System.out.println("request.getServletContext().getContextPath(): "+request.getServletContext().getContextPath());
 
-			//relay.retrieve(remoteUrl)
 			builder = relay.retrieve(url);
 
 		} catch (Exception e) {
-			// Handle generic exceptions
-			//
-			// Map<String, String> responseObj = new HashMap<String, String>();
-			// responseObj.put("error", e.getMessage());
-			// builder =
-			// Response.status(Response.Status.BAD_REQUEST).entity(responseObj);
+			e.printStackTrace();
 		}
 
 		return builder;
 	}
+	
+
+	@GET
+	@Path("/previewUTF")
+	@Produces("text/html; charset=UTF-8")
+	public String formConsumerHTML3(@Context ServletContext servletContext,
+			@FormParam("value") String json) {
+		String builder = null;
+		System.out.println("value="+json);
+
+		try {
+
+
+			URL url = new URL("http://" + request.getServerName() + ":"+request.getServerPort()+"/"+request.getServletContext().getServletContextName()
+					+ "/formulario/display.xhtml?id=C1.1&repeat=1");
+
+			builder = relay.retrieve(url);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return builder;
+	}
+	
+
+	@GET
+	@Path("/previewISO")
+	@Produces("text/html; charset=ISO-8859-1")
+	public String formConsumerHTML4(@Context ServletContext servletContext,
+			@FormParam("value") String json) {
+		String builder = null;
+		System.out.println("value="+json);
+
+		try {
+
+
+			URL url = new URL("http://" + request.getServerName() + ":"+request.getServerPort()+"/"+request.getServletContext().getServletContextName()
+					+ "/formulario/display.xhtml?id=C1.1&repeat=1");
+
+			builder = relay.retrieve(url);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return builder;
+	}
+
 
 }
