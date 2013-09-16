@@ -29,7 +29,14 @@ Aplicaci&oacute;n web que permite on the fly leer un formulario definido en form
 	- [Listado de componentes necesarios](#51)
 	- [Requisitos m&iacute;nimos](#52)
 	- [Configuraci&oacute;n](#53)
-	- [Descarga, Compilaci&oacute;n y Ejecuci&oacute;n](#54)
+	- [Descarga, Compilaci&oacute;n y Ejecuci&oacute;n](#54)	
+6. [Uso FormRender](#6)
+	- [Subida de archivos XML](#61)
+	- [Subida de archivos XSL](#62)
+	- [Acceso / Llamada al servicio](#63)
+7. [Mantenimiento FormRender](#7)
+	- [Servicios](#71)
+
 
 ----------
 <span id="1"/></span>
@@ -335,5 +342,243 @@ Esto genera un archivo war en "FormRender/target/FormRender.war"
 	http://<localhost:8080>/FormRender/
 
 La p&aacute;gina de inicio muestra un listado de los formularios xml y html (columnas URL y XML respectivamente). Haciendo click en cada uno de ellos se pueden visualizar.
+
+
+<span id="6"/></span>
+
+##6. Uso FormRender <span style="font-size:8px;">([Arriba](#0))</span>
+En esta secci&oacute;n explicaremos la forma de subir archivos y la forma posterior de accederlos, una vez que la aplicaci&oacute;n ya est&aacute; levantada.
+
+<span id="61"/></span>
+####6.1 Subida de archivos XML
+En la p&aacute;gina de inicio: 
+http://<localhost:8080>/FormRender/
+
+Ir al men&uacute; ***Formularios***, muestra un listado de los formularios xml existentes actualmente. Permite tambi&eacute;n la b&uacute;squeda mediante filtros: c&oacute;digo, nombre y/o archivo.
+
+Ejemplo: 
+
+*Nombre*: Redes
+
+*C&oacute;digo*: C1.3
+
+*Archivo*: C1.3.xml 
+
+**bot&oacute;n Buscar** y retorna lista de formularios seg&uacute;n filtros aplicados.
+
+Para subir un formulario: dar click en **bot&oacute;n Nuevo**, lo que abrir&aacute; la pantalla de creaci&oacute;n con un formulario vac&iacute;o, por lo tanto completar con los datos correspondientes y Guardar. A modo de ejemplo:
+
+
+<table>
+<thead>
+<tr style="text-align:left;">
+<th colspan="3">Crear Formulario</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C&oacute;digo &uacute;nico:</td>
+<td>C1.1</td>
+</tr>
+<tr>
+<td>Nombre / Descripci&oacute;n:</td>
+<td>Áreas de prestación de servicios</td>
+</tr>
+<tr>
+<td>Versi&oacute;n:</td>
+<td>C1.001-V001-MAY13</td>
+</tr>
+<tr>
+<td >Archivo (xml) *</td>
+<td>|Examinar|  C1.1.xml</td>
+</tr>
+<tr>
+<td>Xsl **</td>
+<td>Seleccione ...</td>
+</tr>
+</table>
+<tbody>
+
+<table>
+<thead>
+<tr style="text-align:center;background-color:#507EA8;color:white;">
+<th>Guardar</th>
+<th>Cancelar</th>
+</tr>
+</thead>
+</table>
+
+*Nota*: 
+
+*El Archivo xml deseado a subir debe seleccionarlo mediante bot&oacute;n Examinar
+
+**El xsl que se usar&aacute; para la transformaci&oacute;n / renderizaci&oacute;n debe seleccionarlo de el/los xsls existentes.
+
+<span id="62"/></span>
+####6.2 Subida de archivos XSL
+En la p&aacute;gina de inicio: 
+http://<localhost:8080>/FormRender/
+
+Ir al men&uacute; ***Xsl***, muestra un listado de los xsl existentes actualmente. Permite tambi&eacute;n la b&uacute;squeda mediante filtros: nombre y/o archivo.
+
+Ejemplo: 
+
+*Nombre/Descripci&oacute;n*: Para uso
+
+
+*Archivo*: formCnc.xsl
+
+**bot&oacute;n Buscar** y retorna lista de xsls seg&uacute;n filtros aplicados.
+
+Para subir un nuevo xsl dar click en **bot&oacute;n Nuevo**, lo que abrir&aacute; la pantalla de creaci&oacute;n con un formulario vac&iacute;o, por lo tanto completar con los datos correspondientes y Guardar. A modo de ejemplo:
+
+
+<table>
+<thead>
+<tr style="text-align:left;">
+<th colspan="3">Crear Xsl</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nombre / Descripci&oacute;n:</td>
+<td>Xsl para uso de ...</td>
+</tr>
+<tr>
+<td>Xls Versi&oacute;n:</td>
+<td>C1.001-V001-MAY13</td>
+</tr>
+<tr>
+<td >Archivo (xsl) *</td>
+<td>|Examinar|  formCnc.xsl</td>
+</tr>
+</table>
+<tbody>
+
+<table>
+<thead>
+<tr style="text-align:center;background-color:#507EA8;color:white;">
+<th>Guardar</th>
+<th>Cancelar</th>
+</tr>
+</thead>
+</table>
+
+*Nota*: 
+
+*El Archivo xsl que se quiere subir debe seleccionarlo mediante bot&oacute;n Examinar
+
+
+<span id="63"/></span>
+####6.3 Acceso / Llamada al servicio
+
+* **Para llamar / renderizar un formulario desde la misma aplicaci&oacute;n** 
+
+ir a http://<localhost:8080>/FormRender/  
+
+Ir a Men&uacute; **Formularios**, de la lista ubicar la fila corespondiente al formulario del cual se se quiere visualizar el html y dar al **Bot&oacute;n Ver** de la columna **Html**, con lo cual se renderizar&aacute; el formulario seleccionado.  
+
+
+**Formularios**
+
+<table>
+<thead>
+<tr style="text-align:center;background-color:66CCFF;">
+<th>C&oacute;d</th>
+<th>Nombre</th>
+<th>Archivo</th>
+<th>Xml</th>
+<th>Html</th>
+</tr>
+</thead>
+<tr>
+<td>C1.1</td>
+<td>Áreas de prestaci&oacute;n de servicios</td>
+<td>C1.1.xml</td>
+<td>|Ver|</td>
+<td style="text-align:center;background-color:#507EA8;color:white">Ver</td>
+</tr>
+<tr>
+<td>C1.2</td>
+<td>Interconexi&oacute;n</td>
+<td>C1.2.xml</td>
+<td>|Ver|</td>
+<td style="text-align:center;background-color:#507EA8;color:white">Ver</td>
+</tr>
+</table>
+
+* **Para llamar / renderizar un formulario directamente**
+
+Acceder a la siguiente direcci&oacute;n básica, que renderiza el formulario seg&uacute;n su c&oacute;digo que lo identifica:
+
+http://<localhost:8080>/FormRender/formulario/display.xhtml?**id**=**C1.1**
+
+donde **id** es el par&aacute;metro **c&oacute;digo &uacute;nico de identificaci&oacute;n** del formulario, en este caso cuyo valor es C1.1
+
+
+Ahora bien, hay casos especiales a saber, que se detallar&aacute;n a a continuaci&oacute;n. Antes destacamos que cuando se haga referencia a la palabra ***grilla***, lo que significa es que el formulario contiene una tabla a la que se le van agregando registros, tantos como se quiera. Cuando se haga referencia a la palabra ***grupo*** significa que es que hay una agrupaci&oacute;n conceptual con título (fijo o variable) que internamente contiene cuadros de texto o listas de selecci&oacute;n que tienen relaci&oacute;n entre s&iacute;.   
+
+Entonces, según como haya sido definido el formulario en el XML:
+
+- Si el formulario no posee grilla y tampoco grupos que se repitan n veces, se har&aacute; una llamada normal, una llamada b&aacute;sica, es decir que s&oacute;lo necesitaremos el par&aacute;metro **id**:
+
+	*http://<localhost:8080>/FormRender/formulario/display.xhtml?id=C1.1*
+
+- Si el formulario xml a renderizar no posee grupos que se repitan n veces, pero s&iacute; tiene grilla, la llamada se har&aacute; como sigue:
+
+	*http://<localhost:8080>/FormRender/formulario/display.xhtml?id=C1.1&repeat=1*
+
+- Si el formulario xml a renderizar tiene agrupaciones que se repiten n veces con t&iacute;tulos variables y grilla, a la llamada se le deben agregar otros par&aacute;metros 
+
+	*http://<localhost:8080>/FormRender/formulario/display.xhtml?id=C1.1&title =Enero,Febrero,Marzo&repeat=3*
+
+	donde el significado de los par&aacute;metros es:
+	
+	**id** = C&oacute;digo &uacute;nico que identifica al formulario.
+	
+	**repeat**=cantidad de veces que se repite un bloque en un formulario.
+	
+	**title**=Lista separada por comas de los t&iacute;tulos que llevar&aacute;n los bloques que se repiten.
+
+
+- Igual que en el caso anterior, si se tratara de un formulario que tiene agrupaciones que se repiten n veces con t&iacute;tulos variables y no posee grilla:
+
+	*http://<localhost:8080>/FormRender/formulario/display.xhtml?id=C1.1&title =Enero,Febrero,Marzo&repeat=3*
+
+	donde, como antes, el significado de los par&aacute;metros es:
+	
+	**id** = C&oacute;digo &uacute;nico que identifica al formulario.
+	
+	**repeat**=cantidad de veces que se repite un bloque en un formulario.
+	
+	**title**=Lista separada por comas de los t&iacute;tulos que llevar&aacute;n los bloques que se repiten.
+
+Si se quiere mostrar la versi&oacute;n del formulario al renderizar, adicionalmente puede pasarse el par&aacute;metro con nombre **versi&oacute;n** y valor, el que corresponda. Si no se informa, el proceso de transformaci&oacute;n busca si el formulario guardado en BD tiene esa informaci&oacute;n y la tomar&aacute; de all&iacute;.
+
+<span id="7"/></span>
+
+##7. Mantenimiento FormRender <span style="font-size:8px;">([Arriba](#0))</span>
+Para futuras mejoras que se requieran o necesiten hacer a la aplicaci&oacute;n, indicamos la ubicaci&oacute;n de los servicios en el c&oacute;digo fuente de modo de facilitar su b&uacute;squeda
+
+<span id="71"/></span>
+####7.1 Servicios
+
+*TransformationService*: transformaci&oacute;n xml a html  v&iacute;a xsl.
+
+Ubicaci&oacute;n:
+
+	src/main/java/ar/com/cuyum/cnc/service/TransformationService
+
+*RelayService*: creada para llamada de servicios de listas externas. Principalmente para evitar limitaciones por CSRF.
+
+Ubicaci&oacute;n:
+
+	src/main/java/ar/com/cuyum/cnc/service/RelayService
+
+*RelayRest*: accede a datos de listas externas-remotas, submit y  recuperaci&oacute;n de formularios.
+
+Ubicaci&oacute;n: 
+
+	src/main/java/ar/com/cuyum/cnc/service/rest/RelayRest
 
 ------------	
