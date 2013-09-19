@@ -2,10 +2,7 @@ package ar.com.cuyum.cnc.service.rest;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.charset.Charset;
-import java.util.Locale;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
@@ -21,9 +18,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
-import org.jboss.logging.Param;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -123,27 +120,23 @@ public class ExternalRest {
 
 	
 	
-    @POST
+	@POST
     @Path("/url")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Produces("application/json")
-    public String formConsumerURL(@FormParam("value") String input){
-    	
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response formConsumerURL(@FormParam("value") String input){
+    	Response.ResponseBuilder builder = null;
         String ret =  "http://"+ request.getServerName() +":" +request.getServerPort() + request.getServletContext().getContextPath() + "/formulario/display.xhtml?id=";
         String cod ="";
-		try{
+		
+        try{
 			cod = jsonService.persistFormFromJson(input);
-			return ret + cod;
+			builder = Response.ok();
+			return builder.status(200).entity("{'success':'true','result': ' " + ret + cod +"'}").build();
 		} catch (Exception e) {
-			//no se si es la mejor manera de mandar error
-			try {
-				response.sendError(400, "Error en conversion de json");
-				
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			return "ERROR AL POSTEAR FORM";
+			builder = Response.serverError();
+			//				response.sendError(400, "Error en conversion de json");
+			return builder.status(400).entity("Error en conversion de json").build();
 		}
 		
 	}
