@@ -1,0 +1,102 @@
+{
+    "_id": "5229dd09e4b0329032e05c5a",
+    "header": {
+        "code": "C1.1",
+        "name": "Formulario C1.1 - Áreas de prestación de servicios",
+        "tooltip": "Debe informar todas las Áreas/Localidades donde presta servicio.",
+        "action": "/api/deposition/draft"
+    },
+    "payload": {
+        "components": {
+            "areasprest": {
+                "type": "group",
+                "properties": {
+                    "label": "",
+    				"grid": "true"
+                },
+                "components": {
+                    "areas": {
+                        "type": "group",
+                        "properties": {
+                            "label": "Areas de prestación",                            
+                            "appearance":"col4 well-white"
+                        },                        
+                        "components": {
+                            "provincia": {
+                                "properties": {
+                                    "label": "Provincia",
+                                    "tooltip":"Áreas de prestación",
+                                    "required": true,
+                                    "constraint": {
+                                        "url": "/localizacion/rest/localizaciones/provincias"
+                                    },									
+									"items": {
+                                        "label": "Seleccione una opción",
+                                        "value": "-1"									
+									}
+                                },
+                                "type": "selectOne"
+                            },
+                            "partido": {
+                                "properties": {
+                                    "label": "Partido / Departamento",
+                                    "tooltip":"Partido / Departamento",
+                                    "required": true,
+                                    "constraint": {
+                                        "url": "/localizacion/rest/localizaciones/provincias",
+                                        "depends": "areasprest/areas/provincia"
+                                    },
+									"field_text":{
+										"properties": {
+											"label": "Partido Otros",
+											"tooltip":"Partido Otros",
+											"relevant": "areasprest/areas/partido = 9999",
+											"required": true,
+										}
+									},
+									"items": {
+                                        "label": "Seleccione una opción",
+                                        "value": "-1"									
+									}
+								},
+                                "type": "selectOne"
+                            },
+                            "localidad": {
+                                "properties": {
+                                    "label": "Localidad",
+                                    "tooltip":"Localidad",
+                                    "required": true,
+                                    "constraint": {
+                                        "url": "/localizacion/rest/localizaciones/localidades",
+                                        "depends": "partido"
+                                    },
+									"items": {
+                                        "label": "Seleccione una opción",
+                                        "value": "-1"									
+									}
+                                },
+                                "type": "selectOne"
+                            },
+                            "area": {
+                                "properties": {
+                                    "label": "Área Local",
+                                    "tooltip":"Área Local",
+                                    "required": true,
+                                    "constraint": {
+                                        "url": "/localizacion/rest/localizaciones/areas",
+                                        "depends": "localidad"
+                                    },
+									"items": {
+                                        "label": "Seleccione una opción",
+                                        "value": "-1"									
+									}									
+                                },
+                                "type": "selectOne"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

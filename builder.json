@@ -1,0 +1,121 @@
+{
+    "_id": "5229dd09e4b0329032e05c5a",
+    "header": {
+        "code": "C1.1",
+        "name": "Formulario C1.1 - Áreas de prestación de servicios",
+        "tooltip": "Debe informar todas las Áreas/Localidades donde presta servicio.",
+        "action": "/api/deposition/draft"
+    },
+    "payload": {
+        "components": {
+            "areasprest": {
+                "type": "group",
+                "properties": {
+                    "label": "",
+    				"grid": "true"
+                },
+                "components": {
+                    "areas": {
+                        "type": "group",
+                        "properties": {
+                            "label": "Areas de prestación",                            
+                            "appearance":"col4 well-white"
+                        },                        
+                        "components": {
+                            "provincia": {
+                                "properties": {
+                                    "label": "Provincia",
+                                    "tooltip":"Áreas de prestación",
+                                    "required": true,
+                                    "constraint": {
+                                        "url": "/localizacion/rest/localizaciones/provincias"
+                                    },									
+									"items": {
+                                        "label": "Seleccione una opción",
+                                        "value": "-1"									
+									}
+                                },
+                                "type": "selectOne"
+                            },
+                            "partido": {
+                                "properties": {
+                                    "label": "Partido / Departamento",
+                                    "tooltip":"Partido / Departamento",
+                                    "required": true,
+                                    "constraint": {
+                                        "url": "/localizacion/rest/localizaciones/partidos",
+                                        "depends": "areasprest/areas/provincia"
+                                    },
+									"items": {
+                                        "label": "Seleccione una opción",
+                                        "value": "-1"									
+									}
+								},
+                                "type": "selectOne"
+                            },
+                            "partido_otro": {
+                                "properties": {
+                                    "label": "Partido Otros",
+                                    "tooltip":"Partido Otros",
+                                    "relevant": "areasprest/areas/partido =9999",
+                                    "required": true                                    
+                                },
+                                "type": "text"
+                            },
+                            "localidad": {
+                                "properties": {
+                                    "label": "Localidad",
+                                    "tooltip":"Localidad",
+                                    "required": true,
+                                    "constraint": {
+                                        "url": "/localizacion/rest/localizaciones/localidades",
+                                        "depends": "areasprest/areas/partido"
+                                    },
+									"items": {
+                                        "label": "Seleccione una opción",
+                                        "value": "-1"									
+									}
+                                },
+                                "type": "selectOne"
+                            },
+                            "localidad_otro": {
+                                "properties": {
+                                    "label": "Localidad Otros",
+                                    "tooltip":"Localidad Otros",
+                                    "relevant": "areasprest/areas/localidad =9999",
+                                    "required": true                                   
+                                },
+                                "type": "text"
+                            },
+                            "area": {
+                                "properties": {
+                                    "label": "Área Local",
+                                    "tooltip":"Área Local",
+                                    "required": true,
+                                    "constraint": {
+                                        "url": "/localizacion/rest/localizaciones/areas",
+                                        "depends": "areasprest/areas/localidad"
+                                    },
+									"items": {
+                                        "label": "Seleccione una opción",
+                                        "value": "-1"									
+									}									
+                                },
+                                "type": "selectOne"
+                            },
+                            "area_otro": {
+                                "properties": {
+                                    "label": "Área Otro",
+                                    "tooltip":"Área Local",
+                                    "relevant": "/areasprest/areas/area =9999",
+                                    "required": true                                   
+                                },
+                                "type": "text"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
