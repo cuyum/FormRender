@@ -772,6 +772,20 @@ public class JsonServices implements Serializable {
 		/* h:head */out.writeEndElement();
 	}
 
+	/** 
+	 * Crea el XML a partir de un objeto JSon 
+	 * 
+	 * @autor ltroconis
+	 * @see com.googlecode.json-simple
+	 * @param  title  titulo del formulario, es tomado del header.code
+	 * @param  action el valor del action del formulario 
+	 * @param  id  el id del formulario, es tomado del header.code
+	 * @param  tooltip lista de tags que van en la instancia
+	 * @param  jsonObject el objeto json que representa el tag components
+	 * @param  out el OutputStream del xml 
+	 * @return void
+	 * @throws Exception que puede provenir del XMLStreamWriter y del OutputStreamWriter
+	 */
 	private void createXML(String title, String action, String id,
 			String tooltip, JSONObject components, OutputStream outputStream)
 			throws Exception {
