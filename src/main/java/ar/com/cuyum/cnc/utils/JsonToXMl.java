@@ -3,6 +3,10 @@ package ar.com.cuyum.cnc.utils;
 import java.io.FileReader;
 import java.io.Reader;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 import ar.com.cuyum.cnc.service.JsonServices;
 
 /* 
@@ -21,8 +25,20 @@ import ar.com.cuyum.cnc.service.JsonServices;
 public class JsonToXMl {
 
 	public static void main(String[] args) throws Exception{
-		Reader fileJson = new FileReader("prueba.json");
-		String stringJson = ""; //TODO Pasat el contenido de a String Json
+		JSONParser parser = new JSONParser();
+		
+		Object fileJson;
+		JSONObject jsonObject;
+		try {
+			Object obj = parser.parse(new FileReader("builder.json"));
+			jsonObject = (JSONObject) obj;
+			
+			//System.out.print(jsonObject);
+		} catch (ParseException e) {
+			return;
+		}
+		
+		String stringJson = jsonObject.toString();//TODO Pasat el contenido de a String Json
 		//Se movió la logica de conversión a JsonServices 
 		JsonServices service = new JsonServices();
 		String xml = service.jsonToXForm(stringJson);
