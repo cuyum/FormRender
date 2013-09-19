@@ -60,10 +60,21 @@ var gui = new function(){
 		if(type==null || type==undefined || type.trim()==""){
 			type = "";
 		}
-		var alertDiv = $("<div data-dismiss='alert' class='fade alert "+type+"'><button  class='close' type='button'>×</button></div>");
-		var m = alertDiv.append(message);
-		$("#internal-messages").append(m).scrollTo();
-		alertDiv.addClass("in");
+		
+		var messageDiv = $("#internal-messages");
+		var insert = true;
+		$.each(messageDiv.children(),function(i,v){
+			if(insert == true && $(v).children("#msg-text").text()==message){
+				insert = false;
+			}
+		});
+		
+		if(insert){
+			var alertDiv = $("<div data-dismiss='alert' class='fade alert "+type+"'><button  class='close' type='button'>×</button></div>");
+			var m = alertDiv.append("<span id='msg-text'>"+message+"</span>");
+			messageDiv.append(m).scrollTo();
+			alertDiv.addClass("in");
+		}
 	};
 	this.displayWarning = function(message){
 		this.displayMessage(message);
@@ -620,10 +631,12 @@ var gui = new function(){
 			var fieldset = gui.fieldsets[fieldsetInstance];
 			var fields = [];
 			var record = $.extend(true,{},this.model);
-			if(gui.repeatCount && gui.repeatCount>1)
-				record.item = fieldset.title;
-			var commit = true;
 			var tmpHash = "";
+			if(gui.repeatCount && gui.repeatCount>1){
+				record.item = fieldset.title;
+				tmpHash += tmpHash + fieldset.title;
+			}
+			var commit = true;
 			var hash;
 			for ( var i = 0; i < fieldset.fields.length; i++) {
 				var field =$(fieldset.fields[i]);
