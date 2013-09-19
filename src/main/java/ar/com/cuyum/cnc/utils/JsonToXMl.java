@@ -9,10 +9,11 @@ import org.json.simple.parser.ParseException;
 
 import ar.com.cuyum.cnc.service.JsonServices;
 
-/* 
- * @autor ltroconis@cuyum.com
+/** 
  * 
- * Tipos validos en Json
+ * Permite probar por separado del render el convertidor de json a xml
+ * 
+ * Los tipos validos en Json
  *    
  * String (Cadenas de texto)
  * number (números)
@@ -21,6 +22,8 @@ import ar.com.cuyum.cnc.service.JsonServices;
  * array (Un arreglo o colección de valores)
  * null (nulo)
  * boolean (valores true o false)
+ * 
+ * @autor ltroconis@cuyum.com
  */
 public class JsonToXMl {
 
