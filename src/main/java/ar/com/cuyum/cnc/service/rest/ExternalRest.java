@@ -2,10 +2,7 @@ package ar.com.cuyum.cnc.service.rest;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.charset.Charset;
-import java.util.Locale;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
@@ -23,13 +20,13 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Logger;
-import org.jboss.logging.Param;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 import ar.com.cuyum.cnc.service.JsonServices;
 import ar.com.cuyum.cnc.service.RelayService;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Path("/external")
 @RequestScoped
@@ -43,12 +40,12 @@ public class ExternalRest {
 
 	@Inject
 	private JsonServices jsonService;
-	
-	
 
-	
+
+
+
 	private transient static Logger log = Logger.getLogger(ExternalRest.class);
-	
+
 	@PostConstruct
 	protected void init() {
 		//-Dfile.encoding="UTF-8"
@@ -56,16 +53,16 @@ public class ExternalRest {
 		log.info("file.encoding="+fileEncoding);
 		log.info("request encoding="+request.getCharacterEncoding());
 		log.info("response encoding="+response.getCharacterEncoding());
-		
+
 		if (	fileEncoding==null ||
 				fileEncoding.equals("")||
 				!(fileEncoding.equals("UTF-8")||
 				fileEncoding.toLowerCase().equals("UTF8"))) {
 			log.warn("La propiedad de sistema file.encoding no es UTF8 ni UTF-8, es: "+fileEncoding);
 		}
-		
+
 //		System.setProperty("file.encoding", "UTF-8");
-//		
+//
 //		boolean forceEncoding = true;
 //		String encoding = "UTF-8";
 //		if (forceEncoding) {
@@ -76,11 +73,11 @@ public class ExternalRest {
 //					log.warn("No se puede setear encoding "+encoding+ " a request");
 //				}
 //			}
-//			
+//
 //			response.setCharacterEncoding(encoding);
 //		}
 	}
-	
+
 
 	@POST
 	@Path("/preview")
@@ -88,21 +85,30 @@ public class ExternalRest {
 	@Produces("text/html;charset=UTF-8")
 	public String previewHtml(@Context ServletContext servletContext,
 			@FormParam("value") String json) {
-		
-		//formate el json antes de continuar
-		try {
-			JSONObject ojson = (JSONObject) ((new JSONParser()).parse(json));
-			json = ojson.toJSONString();
-		} catch (ParseException e2) {
-			log.error(e2);
-			try {
-				response.sendError(400, "Error en conversion de json");
-			} catch (IOException e) {
-				log.error(e);
-			}
-			return e2.getMessage();
-		}
-		
+
+	    ObjectMapper mapper = new ObjectMapper();
+
+	    JsonNode ojson;
+        try {
+            ojson = mapper.readTree(json);
+            json =  ojson.toString();
+        } catch (JsonProcessingException e2) {
+            log.error(e2);
+            try {
+                response.sendError(400, "Error en conversion de json");
+            } catch (IOException e) {
+                log.error(e);
+            }
+        } catch (IOException e2) {
+            log.error(e2);
+            try {
+                response.sendError(400, "Error en conversion de json");
+            } catch (IOException e) {
+                log.error(e);
+            }
+        }
+
+
 		System.out.println("value="+json);
 		String ret;
 		try {
@@ -118,17 +124,17 @@ public class ExternalRest {
 				log.error(e1);
 			}
 			return e.getMessage();
-		} 
+		}
 	}
 
-	
-	
+
+
     @POST
     @Path("/url")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces("application/json")
     public String formConsumerURL(@FormParam("value") String input){
-    	
+
         String ret =  "http://"+ request.getServerName() +":" +request.getServerPort() + request.getServletContext().getContextPath() + "/formulario/display.xhtml?id=";
         String cod ="";
 		try{
@@ -138,18 +144,18 @@ public class ExternalRest {
 			//no se si es la mejor manera de mandar error
 			try {
 				response.sendError(400, "Error en conversion de json");
-				
+
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			return "ERROR AL POSTEAR FORM";
 		}
-		
-	}
-	
 
-	
+	}
+
+
+
 	/// BORAR DESPUES ESE METODO/// solo para hacer prueba
 	@Inject
 	RelayService relay;
@@ -162,7 +168,7 @@ public class ExternalRest {
 			@FormParam("value") String json) {
 		String builder = null;
 		System.out.println("value="+json);
-		
+
 
 		try {
 
@@ -185,7 +191,7 @@ public class ExternalRest {
 		//System.out.println(builder);
 		return builder;
 	}
-	
+
 
 
 
