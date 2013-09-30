@@ -18,6 +18,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
 
@@ -41,7 +42,8 @@ public class ExternalRest {
 	@Inject
 	private JsonServices jsonService;
 
-
+	@Inject
+	RelayService relay;
 
 
 	private transient static Logger log = Logger.getLogger(ExternalRest.class);
@@ -129,36 +131,26 @@ public class ExternalRest {
 
 
 
-    @POST
+	@POST
     @Path("/url")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Produces("application/json")
-    public String formConsumerURL(@FormParam("value") String input){
-
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response formConsumerURL(@FormParam("value") String input){
+    	Response.ResponseBuilder builder = null;
         String ret =  "http://"+ request.getServerName() +":" +request.getServerPort() + request.getServletContext().getContextPath() + "/formulario/display.xhtml?id=";
         String cod ="";
-		try{
+		
+        try{
 			cod = jsonService.persistFormFromJson(input);
-			return ret + cod;
+			builder = Response.ok();
+			return builder.status(200).entity("{'success':'true','result': ' " + ret + cod +"'}").build();
 		} catch (Exception e) {
-			//no se si es la mejor manera de mandar error
-			try {
-				response.sendError(400, "Error en conversion de json");
-
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			return "ERROR AL POSTEAR FORM";
+			builder = Response.serverError();
+			//				response.sendError(400, "Error en conversion de json");
+			return builder.status(400).entity("Error en conversion de json").build();
 		}
-
+		
 	}
-
-
-
-	/// BORAR DESPUES ESE METODO/// solo para hacer prueba
-	@Inject
-	RelayService relay;
 
 
 	@GET
