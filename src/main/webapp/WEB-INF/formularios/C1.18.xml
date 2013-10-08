@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario C.1.18 - Calidad de servicio / Reclamos</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <C1.18 id="C1.18">
           <titulo/>

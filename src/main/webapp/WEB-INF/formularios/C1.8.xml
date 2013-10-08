@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario C1.8 - Clientes operativos (abonos)</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <C1.8 id="C1.8">
           <meses jr:template="">

@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario C1.35 - Ingresos / Tráfico horario reducido</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <C1.35 id="C1.35">
           <titulo/>

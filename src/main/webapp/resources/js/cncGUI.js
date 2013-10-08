@@ -250,14 +250,9 @@ var gui = new function(){
 		});
 	};
 	this.saveDraft = function(message){
-		/* FIXME: ISSUE:200
-		 * por ahora guarda drafts solamente, 
-		 * cuando se encuentre implementado servicio de presentacion 
-		 * final se podra probar este caso de prueba
-		 */
 		var thisForm = $(gui.form);
 		if(thisForm.attr("submit-url")){
-			this.executeSubmission(thisForm.attr("submit-url"), message);
+			this.executeSubmission(thisForm.attr("submit-url")+"/draft", message);
 		}else{
 			gui.displayError("Error local, contacte a su administrador.");
 			console.error("No se encuentra daclarada la URL de submission");

@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario E1.32 - Ingresos interconexión</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <E1.32 id="E1.32">
           <titulo/>

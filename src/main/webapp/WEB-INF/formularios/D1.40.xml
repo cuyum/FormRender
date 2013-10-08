@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario D1.40 - Costos de interconexión</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <D1.40 id="D1.40">
           <titulo/>

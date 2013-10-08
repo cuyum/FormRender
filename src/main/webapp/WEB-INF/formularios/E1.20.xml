@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario E1.20 - Calidad de servicio / Atención personalizada</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <E1.20 id="E1.20">
           <meses jr:template="">

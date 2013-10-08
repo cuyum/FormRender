@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario E1.10 - Tráfico hacia Redes fijas II (llamadas)</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <E1.10 id="E1.10">
           <titulo/>

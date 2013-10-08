@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario C1.27 - Tarifas / Planes líneas restringidas</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <C1.27 id="C1.27">
           <plan_plan jr:template="">

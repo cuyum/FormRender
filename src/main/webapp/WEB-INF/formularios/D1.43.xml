@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario D1.43 - Comercio exterior</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <D1.43 id="D1.43">
           <titulo/>

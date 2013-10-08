@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario C1.30 - Ingresos / Instalación de líneas</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <C1.30 id="C1.30">
           <titulo/>

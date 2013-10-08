@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario F1.17 - Tasa de interés</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <F1.17 id="F1.17">
           <tasa>

@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario D1.12 - Tráfico hacia Redes fijas I (minutos)</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <D1.12 id="D1.12">
           <titulo/>

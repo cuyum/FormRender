@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario C2.3 - Telefonía Pública</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <C2.3 id="C2.3">
           <areasprest jr:template="">

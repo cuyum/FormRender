@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario E1.8 - Tráfico III en llamadas</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <E1.8 id="E1.8">
           <titulo/>

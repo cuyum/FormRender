@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario E1.22 - Calidad del servicio / Atención web</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <E1.22 id="E1.22">
           <meses jr:template="">

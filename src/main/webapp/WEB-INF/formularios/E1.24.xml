@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario E1.24 - Tarifas / Planes pospago - mixto</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <E1.24 id="E1.24">
           <titulo/>

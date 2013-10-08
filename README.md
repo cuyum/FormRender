@@ -325,7 +325,10 @@ En la secci&oacute;n __<datasources>__ la siguiente entrada, especificando usuar
 		list.remote.context (Ej. list.remote.context=/)
 
 	- Estos mismos pasos deben realizarse para configurar tambi&eacute;n el servidor de persistencia de persistencia bajo el prefijo **submit.remote**.
+		- submit.remote.draft (Ej. /deposition/draft)
+		- submit.remote.final= (Ej. /deposition)
 	- El archivo modificado se deber&aacute; pegar en el directorio de configuraci&oacute;n de Jboss (**<jboss-as-7.1.0.Final>/standalone/configuration/**)
+	- Se debe evitar en todas las variables ubicar "slashes finales" (submit.remote.draft = /example <- INCORRECTO)
 
 - Situarse en la ra&iacute;z del directorio del c&oacute;digo y ejecutar 
 

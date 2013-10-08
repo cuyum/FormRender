@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario C1.36 - Ingresos / Larga distancia nacional horario normal</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <C1.36 id="C1.36">
           <meses jr:template="">

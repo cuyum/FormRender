@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario C1.42 - Ingresos interconexión a la red fija - internacional a 3°</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <C1.42 id="C1.42">
           <titulo/>

@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario H1.17 - Ingresos por provincia</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <H1.17 id="H1.17">
           <titulo/>

@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario F1.13 - Calidad de servicio / Atención personalizada</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <F1.13 id="F1.13">
           <meses jr:template="">

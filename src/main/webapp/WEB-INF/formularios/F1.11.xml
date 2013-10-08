@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario F1.11 - Calidad de servicio / Facturación</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <F1.11 id="F1.11">
           <meses jr:template="">
