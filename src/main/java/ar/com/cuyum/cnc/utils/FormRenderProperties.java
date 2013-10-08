@@ -77,6 +77,7 @@ public class FormRenderProperties extends Properties {
 				if(secure!= null && "true".equalsIgnoreCase(secure)){
 					rlh = "https://"+rlh;
 					port = "443";
+					port = null;
 				}else{
 					rlh = "http://"+rlh;
 				}
@@ -85,7 +86,8 @@ public class FormRenderProperties extends Properties {
 				rlh = rlh+":"+port;
 			}
 			if(context!=null && !"/".equals(context)){
-				rlh = rlh + context;
+				//FIXME: El contexto viene en el servicio que solicita el relay
+//				rlh = rlh + context;
 			}
 			return rlh; 
 			
@@ -105,13 +107,13 @@ public class FormRenderProperties extends Properties {
 			}
 			if(context!=null && !context.isEmpty() && context.length()>1 && context.charAt(context.length()-1)=='/'){
 				context = context.substring(0, context.length()-1);
-				context += context + (finalUrl!=null && !finalUrl.isEmpty()?finalUrl:"");
 			}
 			
 			if(rsh!=null && rsh.indexOf("http")==-1){
 				if(secure != null && "true".equalsIgnoreCase(secure)){
 					rsh = "https://"+rsh;
 					port = "443";
+					port = null;
 				}else{
 					rsh = "http://"+rsh;
 				}
@@ -121,6 +123,7 @@ public class FormRenderProperties extends Properties {
 			}
 			if(context!=null && !"/".equals(context)){
 				//FIXME: El contexto de la url de guardado viene en el formulario complementando el Dominio aportado por formrender
+				context += finalUrl!=null && !finalUrl.isEmpty()?finalUrl:"";
 				//rsh = rsh+context;
 			}
 			return rsh;
@@ -140,13 +143,13 @@ public class FormRenderProperties extends Properties {
 			}
 			if(context!=null && !context.isEmpty() && context.length()>1 && context.charAt(context.length()-1)=='/'){
 				context = context.substring(0, context.length()-1);
-				context += context + (draftUrl!=null && !draftUrl.isEmpty() && !draftUrl.trim().equals("/")?draftUrl:"");
 			}
 			
 			if(rsh!=null && rsh.indexOf("http")==-1){
 				if(secure != null && "true".equalsIgnoreCase(secure)){
 					rsh = "https://"+rsh;
 					port = "443";
+					port = null;
 				}else{
 					rsh = "http://"+rsh;
 				}
@@ -155,6 +158,7 @@ public class FormRenderProperties extends Properties {
 				rsh = rsh+":"+port;
 			}
 			if(context!=null && !"/".equals(context)){
+				context += draftUrl!=null && !draftUrl.isEmpty() && !draftUrl.trim().equals("/")?draftUrl:"";
 				rsh = rsh+context;
 			}
 			return rsh;
