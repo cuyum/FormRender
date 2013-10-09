@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario D1.23 - Calidad del servicio / Atención personalizada</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <D1.23 id="D1.23">
           <meses jr:template="">

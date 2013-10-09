@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario D1.20 - Calidad del servicio / Ratios</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <D1.20 id="D1.20">
           <meses jr:template="">

@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario F1.6 - Clientes Servicio y tecnología</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <F1.6 id="F1.6">
           <meses jr:template="">

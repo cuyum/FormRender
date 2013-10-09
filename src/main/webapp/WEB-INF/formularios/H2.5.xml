@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario H2.5 - Ingresos</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <H2.5 id="H2.5">
           <titulo/>

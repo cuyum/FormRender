@@ -77,6 +77,7 @@ public class FormRenderProperties extends Properties {
 				if(secure!= null && "true".equalsIgnoreCase(secure)){
 					rlh = "https://"+rlh;
 					port = "443";
+					port = null;
 				}else{
 					rlh = "http://"+rlh;
 				}
@@ -85,7 +86,8 @@ public class FormRenderProperties extends Properties {
 				rlh = rlh+":"+port;
 			}
 			if(context!=null && !"/".equals(context)){
-				rlh = rlh + context;
+				//FIXME: El contexto viene en el servicio que solicita el relay
+//				rlh = rlh + context;
 			}
 			return rlh; 
 			
@@ -96,6 +98,7 @@ public class FormRenderProperties extends Properties {
 		if(!this.isEmpty()){
 			String rsh = get("submit.remote.host");
 			String context = get("submit.remote.context");
+			String finalUrl = get("submit.remote.final");
 			String port = get("submit.remote.port");
 			String secure = get("submit.remote.secure");
 			//remove trailing slashes
@@ -110,6 +113,7 @@ public class FormRenderProperties extends Properties {
 				if(secure != null && "true".equalsIgnoreCase(secure)){
 					rsh = "https://"+rsh;
 					port = "443";
+					port = null;
 				}else{
 					rsh = "http://"+rsh;
 				}
@@ -118,6 +122,43 @@ public class FormRenderProperties extends Properties {
 				rsh = rsh+":"+port;
 			}
 			if(context!=null && !"/".equals(context)){
+				//FIXME: El contexto de la url de guardado viene en el formulario complementando el Dominio aportado por formrender
+				context += finalUrl!=null && !finalUrl.isEmpty()?finalUrl:"";
+				//rsh = rsh+context;
+			}
+			return rsh;
+		}else return null;
+	}
+	
+	public String getRemoteDraftHost(){
+		if(!this.isEmpty()){
+			String rsh = get("submit.remote.host");
+			String context = get("submit.remote.context");
+			String draftUrl = get("submit.remote.draft");
+			String port = get("submit.remote.port");
+			String secure = get("submit.remote.secure");
+			//remove trailing slashes
+			if(rsh!=null && !rsh.isEmpty() && rsh.charAt(rsh.length()-1)=='/'){
+				rsh = rsh.substring(0, rsh.length()-1);
+			}
+			if(context!=null && !context.isEmpty() && context.length()>1 && context.charAt(context.length()-1)=='/'){
+				context = context.substring(0, context.length()-1);
+			}
+			
+			if(rsh!=null && rsh.indexOf("http")==-1){
+				if(secure != null && "true".equalsIgnoreCase(secure)){
+					rsh = "https://"+rsh;
+					port = "443";
+					port = null;
+				}else{
+					rsh = "http://"+rsh;
+				}
+			}
+			if(port!=null && !"80".equals(port)){
+				rsh = rsh+":"+port;
+			}
+			if(context!=null && !"/".equals(context)){
+				context += draftUrl!=null && !draftUrl.isEmpty() && !draftUrl.trim().equals("/")?draftUrl:"";
 				rsh = rsh+context;
 			}
 			return rsh;

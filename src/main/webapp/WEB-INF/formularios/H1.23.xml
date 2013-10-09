@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario H1.23 - Observaciones</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <H1.23 id="H1.23">
           <nota>

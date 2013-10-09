@@ -105,7 +105,7 @@ public class RelayRest {
 		
 		String remoteResponse = "";
 		try {
-			URL url = new URL(frp.getRemoteSubmissionHost()+"/api/deposition/draft/"+recordId);
+			URL url = new URL(frp.getRemoteDraftHost()+"/"+recordId);
 			
 			remoteResponse = relay.retrieve(url);
 			return remoteResponse;

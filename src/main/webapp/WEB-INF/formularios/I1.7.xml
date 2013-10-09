@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario I1.7 - Tráfico Saliente</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <I1.7 id="I1.7">
           <titulo/>

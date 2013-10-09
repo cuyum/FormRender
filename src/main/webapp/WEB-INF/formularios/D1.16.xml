@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario D1.16 - Tráfico de datos</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <D1.16 id="D1.16">
           <areasprest jr:template="">

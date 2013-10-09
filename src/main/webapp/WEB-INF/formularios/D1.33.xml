@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario D1.33 - Ingresos prestación de servicios / Abonos telefonía móvil</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <D1.33 id="D1.33">
           <titulo/>

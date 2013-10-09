@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario D1.41 - Personal ocupado</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <D1.41 id="D1.41">
           <titulo/>

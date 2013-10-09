@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario F1.14 - Calidad de servicio / Atención telefónica</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <F1.14 id="F1.14">
           <meses jr:template="">

@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario H1.14 - Precios / Precios Servicios Adicionales</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <H1.14 id="H1.14">
           <titulo/>

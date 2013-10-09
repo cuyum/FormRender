@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario F1.12 - Calidad de servicio / Reclamo</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <F1.12 id="F1.12">
           <titulo/>

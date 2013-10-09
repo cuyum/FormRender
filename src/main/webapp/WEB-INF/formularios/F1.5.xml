@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario F1.5 - Accesos modalidad de pago</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <F1.5 id="F1.5">
           <titulo/>

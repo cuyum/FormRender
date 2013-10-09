@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario I1.6 - Tráfico (minutos)</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <I1.6 id="I1.6">
           <titulo/>

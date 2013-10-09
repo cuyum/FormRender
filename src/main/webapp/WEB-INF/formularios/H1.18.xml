@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario H1.18 - Ingresos interconexión a la red fija</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <H1.18 id="H1.18">
           <titulo/>
