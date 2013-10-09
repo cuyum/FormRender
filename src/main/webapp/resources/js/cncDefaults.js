@@ -139,3 +139,22 @@ if (jQuery.browser.msie) {
 	};
 }
 if (typeof window.console.debug == "undefined") {console.debug = console.log;}
+
+$.timepicker.regional['arg'] = { // Default regional settings
+	currentText: 'Ahora',
+	closeText: 'Listo',
+	amNames: ['AM', 'A'],
+	pmNames: ['PM', 'P'],
+	timeFormat: 'HH:mm',
+	timeSuffix: '',
+	timeOnlyTitle: 'Seleccionar hora',
+	timeText: 'Tiempo',
+	hourText: 'Hora',
+	minuteText: 'Minuto',
+	secondText: 'Segundo',
+	millisecText: 'Millisegundo',
+	microsecText: 'Microsegundo',
+	timezoneText: 'Zona Horaria',
+	isRTL: false
+};
+$.timepicker.setDefaults($.timepicker.regional['arg']);

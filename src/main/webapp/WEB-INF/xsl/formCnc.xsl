@@ -92,10 +92,10 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
             <head>
             	<meta charset="utf-8"/> 
             	<meta http-equiv="X-UA-Compatible" content="IE=9"/>
-            	<link rel="stylesheet" href="/FormRender/resources/css/jquery-ui.css" />           	
-            	<link rel="stylesheet" href="/FormRender/resources/css/main.css"/>
-            	<link rel="stylesheet" href="/FormRender/resources/css/style.css"/>            	
-            	<link rel="stylesheet" href="/FormRender/resources/css/select2.css"/>
+            	<link rel="stylesheet" href="/___context___/resources/css/jquery-ui.css" />
+            	<link rel="stylesheet" href="/___context___/resources/css/main.css"/>
+            	<link rel="stylesheet" href="/___context___/resources/css/style.css"/>            	
+            	<link rel="stylesheet" href="/___context___/resources/css/select2.css"/>
             	<script type="text/javascript">var formRenderContext = "___context___";</script>           	
 			  	<script type="text/javascript" src="/FormRender/resources/js/jquery-1.9.1.min.js">
             		<xsl:text>&#10;</xsl:text>
@@ -109,6 +109,9 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
             	<script type="text/javascript" src="/FormRender/resources/js/jquery-sdk.i18n-locale_es-AR.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
+            	<script type="text/javascript" src="/FormRender/resources/js/jquery-ui.min.js">
+            		<xsl:text>&#10;</xsl:text>
+            	</script>
 			  	<script type="text/javascript" src="/FormRender/resources/js/jquery.scrollTo.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
@@ -118,16 +121,16 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 			  	<script type="text/javascript" src="/FormRender/resources/js/jquery.validate.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
+            	<script type="text/javascript" src="/FormRender/resources/js/jquery.timepicker.js">
+            		<xsl:text>&#10;</xsl:text>
+            	</script>
 			  	<script type="text/javascript" src="/FormRender/resources/js/jquery.maskedinput.min.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
 			  	<script type="text/javascript" src="/FormRender/resources/js/jquery.select2.min.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
-			  	 <script type="text/javascript" src="/FormRender/resources/js/jquery-ui.min.js">
-            		<xsl:text>&#10;</xsl:text>
-            	</script>
-			  	 <script type="text/javascript" src="/FormRender/resources/js/bootstrap.min.js">
+			  	<script type="text/javascript" src="/FormRender/resources/js/bootstrap.min.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
 			  	 <script type="text/javascript" src="/FormRender/resources/js/bootbox.min.js">
@@ -1305,6 +1308,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
             <xsl:when
                 test="$xml_type = 'decimal' or $xml_type = 'float' or $xml_type = 'double' or $xml_type = 'int' or $xml_type = 'integer'"
                 >text</xsl:when>
+            <xsl:when test="$xml_type = 'hour'">text</xsl:when>
             <xsl:when test="$xml_type = 'string'">text</xsl:when>
             <!-- temporary -->
             <xsl:when test="$xml_type = 'barcode' or $xml_type = 'geopoint'" >

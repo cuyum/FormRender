@@ -50,6 +50,7 @@ var gui = new function(){
 	};
 	this.setupDefaults = function(){
 		$("select").select2();
+		$("input[type='time']").timepicker();
 		setupHints();
 	};
 	this.displayMessage = function(message,type){

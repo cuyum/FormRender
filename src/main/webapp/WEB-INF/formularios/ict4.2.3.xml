@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario 4.2.3. Cuadro A - TC</h:title>
+    <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <instance>
+        <ict4.2.3 id="ICT4.2.3">
+          <trimestres jr:template="">
+            <trimestre>
+              <provincia/>
+              <partido/>
+              <partido_otro/>
+              <localidad/>
+              <localidad_otro/>
+              <area/>
+              <area_otro/>
+              <hora_pico_inicio/>
+              <hora_pico_fin/>
+              <cant_recursos/>
+              <cant_total_recursos_asignado/>
+              <porcentaje/>
+            </trimestre>
+          </trimestres>
+          <meta>
+            <instanceID/>
+          </meta>
+        </ict4.2.3>
+      </instance>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/ict4.2.3/trimestres/trimestre/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/ict4.2.3/trimestres/trimestre/provincia" nodeset="/ict4.2.3/trimestres/trimestre/partido" required="true()" type="select1"/>
+      <bind nodeset="/ict4.2.3/trimestres/trimestre/partido_otro" relevant=" /ict4.2.3/trimestres/trimestre/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/ict4.2.3/trimestres/trimestre/partido" nodeset="/ict4.2.3/trimestres/trimestre/localidad" required="true()" type="select1"/>
+      <bind nodeset="/ict4.2.3/trimestres/trimestre/localidad_otro" relevant=" /ict4.2.3/trimestres/trimestre/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/ict4.2.3/trimestres/trimestre/localidad" nodeset="/ict4.2.3/trimestres/trimestre/area" required="true()" type="select1"/>
+      <bind nodeset="/ict4.2.3/trimestres/trimestre/area_otro" relevant=" /ict4.2.3/trimestres/trimestre/area =9999" required="true()" type="string"/>
+      <bind nodeset="/ict4.2.3/trimestres/trimestre/hora_pico_inicio" required="true()" type="time"/>
+      <bind nodeset="/ict4.2.3/trimestres/trimestre/hora_pico_fin" required="true()" type="time"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.2.3/trimestres/trimestre/cant_recursos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.2.3/trimestres/trimestre/cant_total_recursos_asignado" required="true()" type="int"/>
+      <bind nodeset="/ict4.2.3/trimestres/trimestre/porcentaje" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.2.3/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/ict4.2.3/trimestres">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/ict4.2.3/trimestres">
+        <group appearance="col3 well-white" ref="/ict4.2.3/trimestres/trimestre">
+          <label>Trimestre1-Año1</label>
+          <select1 appearance="minimal" ref="/ict4.2.3/trimestres/trimestre/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/ict4.2.3/trimestres/trimestre/partido">
+            <label>Departamento / Partido</label>
+            <hint>Departamento / Partido</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/ict4.2.3/trimestres/trimestre/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/ict4.2.3/trimestres/trimestre/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/ict4.2.3/trimestres/trimestre/localidad_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/ict4.2.3/trimestres/trimestre/area">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/ict4.2.3/trimestres/trimestre/area_otro">
+            <label>Área Otros</label>
+            <hint>Área Otros</hint>
+          </input>
+          <input ref="/ict4.2.3/trimestres/trimestre/hora_pico_inicio">
+            <label>Hora Pico Inicio</label>
+            <hint>Hora Pico Inicio</hint>
+          </input>
+          <input ref="/ict4.2.3/trimestres/trimestre/hora_pico_fin">
+            <label>Hora Pico Fin</label>
+            <hint>Hora Pico Fin</hint>
+          </input>
+          <input appearance="numerador" ref="/ict4.2.3/trimestres/trimestre/cant_recursos">
+            <label>Cant. de recursos asignados que se liberan por causas ajenas al usuario</label>
+            <hint>Cantidad de recursos asignados que se liberan por causas ajenas al usuario</hint>
+          </input>
+          <input appearance="denominador" ref="/ict4.2.3/trimestres/trimestre/cant_total_recursos_asignado">
+            <label>Cant. total de recursos asignados</label>
+            <hint>Cantidad total de recursos asignados</hint>
+          </input>
+          <input appearance="porcentaje" ref="/ict4.2.3/trimestres/trimestre/porcentaje">
+            <label>Resultado (%)</label>
+            <hint>Resultado del Indicador</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>
