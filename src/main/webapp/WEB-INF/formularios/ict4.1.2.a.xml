@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario 4.1.2 A Cuadro A - IRR</h:title>
+    <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <instance>
+        <ict4.1.2.a id="ICT4.1.2.A">
+          <meses jr:template="">
+            <mes>
+              <cant_usuario/>
+              <cant_usuario_reclamo/>
+              <porcentaje/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </ict4.1.2.a>
+      </instance>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.2.a/meses/mes/cant_usuario" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.2.a/meses/mes/cant_usuario_reclamo" required="true()" type="int"/>
+      <bind nodeset="/ict4.1.2.a/meses/mes/porcentaje" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.2.a/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/ict4.1.2.a/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/ict4.1.2.a/meses">
+        <group appearance="col3 well-white variable" ref="/ict4.1.2.a/meses/mes">
+          <label>{title}</label>
+          <input appearance="numerador" ref="/ict4.1.2.a/meses/mes/cant_usuario">
+            <label>Cant. usuarios con reiteración de un reclamo</label>
+            <hint>Cant. de usuarios que han reiterado un reclamo ante el Prestador en un mismo período</hint>
+          </input>
+          <input appearance="denominador" ref="/ict4.1.2.a/meses/mes/cant_usuario_reclamo">
+            <label>Cant. usuarios con reclamos</label>
+            <hint>Cantidad de usuarios que han realizado reclamos ante el Prestador</hint>
+          </input>
+          <input appearance="porcentaje" ref="/ict4.1.2.a/meses/mes/porcentaje">
+            <label>Resultado (%)</label>
+            <hint>Resultado del Indicador</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

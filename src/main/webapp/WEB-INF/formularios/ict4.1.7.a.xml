@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario 4.1.7.A Cuadro A - IDOSS</h:title>
+    <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <instance>
+        <ict4.1.7.a id="ICT4.1.7.a">
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <partido/>
+              <partido_otro/>
+              <localidad/>
+              <localidad_otro/>
+              <area/>
+              <area_otro/>
+              <cant_solicitud_resueltas/>
+              <solicitud_ingresadas/>
+              <porcentaje/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </ict4.1.7.a>
+      </instance>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/ict4.1.7.a/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/ict4.1.7.a/meses/mes/provincia" nodeset="/ict4.1.7.a/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.7.a/meses/mes/partido_otro" relevant=" /ict4.1.7.a/meses/mes/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/ict4.1.7.a/meses/mes/partido" nodeset="/ict4.1.7.a/meses/mes/localidad" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.7.a/meses/mes/localidad_otro" relevant=" /ict4.1.7.a/meses/mes/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/ict4.1.7.a/meses/mes/localidad" nodeset="/ict4.1.7.a/meses/mes/area" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.7.a/meses/mes/area_otro" relevant=" /ict4.1.7.a/meses/mes/area =9999" required="true()" type="string"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.7.a/meses/mes/cant_solicitud_resueltas" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.7.a/meses/mes/solicitud_ingresadas" required="true()" type="int"/>
+      <bind nodeset="/ict4.1.7.a/meses/mes/porcentaje" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.7.a/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/ict4.1.7.a/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/ict4.1.7.a/meses">
+        <group appearance="col3 well-white variable" ref="/ict4.1.7.a/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/ict4.1.7.a/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/ict4.1.7.a/meses/mes/partido">
+            <label>Departamento / Partido</label>
+            <hint>Departamento / Partido</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/ict4.1.7.a/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/ict4.1.7.a/meses/mes/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/ict4.1.7.a/meses/mes/localidad_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/ict4.1.7.a/meses/mes/area">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/ict4.1.7.a/meses/mes/area_otro">
+            <label>Área Otros</label>
+            <hint>Área Otros</hint>
+          </input>
+          <input appearance="numerador" ref="/ict4.1.7.a/meses/mes/cant_solicitud_resueltas">
+            <label>Cant. de solicitudes resueltas dentro del TMI</label>
+            <hint>Cantidad de solicitudes resueltas dentro del TMI</hint>
+          </input>
+          <input appearance="denominador" ref="/ict4.1.7.a/meses/mes/solicitud_ingresadas">
+            <label>Solicitudes ingresadas dentro del PC</label>
+            <hint>Solicitudes ingresadas dentro del PC</hint>
+          </input>
+          <input appearance="porcentaje" ref="/ict4.1.7.a/meses/mes/porcentaje">
+            <label>Resultado (%)</label>
+            <hint>Resultado del Indicador</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario 4.1.1.B Cuadro B - IRU</h:title>
+    <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <instance>
+        <ict4.1.1.b id="ICT4.1.1.B">
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <partido/>
+              <partido_otro/>
+              <localidad/>
+              <localidad_otro/>
+              <area/>
+              <area_otro/>
+              <aveia/>
+              <facturacion/>
+              <inst_serv_camb_domicilio/>
+              <saldo_cuentas_prepagas/>
+              <Incumpl_baja_servicio/>
+              <otros/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </ict4.1.1.b>
+      </instance>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/ict4.1.1.b/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/ict4.1.1.b/meses/mes/provincia" nodeset="/ict4.1.1.b/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.1.b/meses/mes/partido_otro" relevant=" /ict4.1.1.b/meses/mes/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/ict4.1.1.b/meses/mes/partido" nodeset="/ict4.1.1.b/meses/mes/localidad" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.1.b/meses/mes/localidad_otro" relevant=" /ict4.1.1.b/meses/mes/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/ict4.1.1.b/meses/mes/localidad" nodeset="/ict4.1.1.b/meses/mes/area" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.1.b/meses/mes/area_otro" relevant=" /ict4.1.1.b/meses/mes/area =9999" required="true()" type="string"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.1.b/meses/mes/aveia" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.1.b/meses/mes/facturacion" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.1.b/meses/mes/inst_serv_camb_domicilio" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.1.b/meses/mes/saldo_cuentas_prepagas" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.1.b/meses/mes/Incumpl_baja_servicio" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.1.b/meses/mes/otros" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.1.b/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/ict4.1.1.b/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/ict4.1.1.b/meses">
+        <group appearance="col4 well-white variable" ref="/ict4.1.1.b/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/ict4.1.1.b/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/ict4.1.1.b/meses/mes/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/ict4.1.1.b/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/ict4.1.1.b/meses/mes/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/ict4.1.1.b/meses/mes/localidad_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/ict4.1.1.b/meses/mes/area">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/ict4.1.1.b/meses/mes/area_otro">
+            <label>Área Otros</label>
+            <hint>Área Otros</hint>
+          </input>
+          <input ref="/ict4.1.1.b/meses/mes/aveia">
+            <label>Avería</label>
+            <hint>Número entero mayor o igual a 0.</hint>
+          </input>
+          <input ref="/ict4.1.1.b/meses/mes/facturacion">
+            <label>Facturación</label>
+            <hint>Número entero mayor o igual a 0.</hint>
+          </input>
+          <input ref="/ict4.1.1.b/meses/mes/inst_serv_camb_domicilio">
+            <label>Inst.de Servicio o cambio de domicilio</label>
+            <hint>Número entero mayor o igual a 0.</hint>
+          </input>
+          <input ref="/ict4.1.1.b/meses/mes/saldo_cuentas_prepagas">
+            <label>Saldo Cuentas Prepagas</label>
+            <hint>Número entero mayor o igual a 0.</hint>
+          </input>
+          <input ref="/ict4.1.1.b/meses/mes/Incumpl_baja_servicio">
+            <label>Incumplimiento baja de Servicio</label>
+            <hint>Número entero mayor o igual a 0.</hint>
+          </input>
+          <input ref="/ict4.1.1.b/meses/mes/otros">
+            <label>Otros</label>
+            <hint>Número entero mayor o igual a 0.</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

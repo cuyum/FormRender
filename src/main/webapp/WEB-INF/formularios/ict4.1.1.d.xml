@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario 4.1.1.D Cuadro D - IRU</h:title>
+    <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <instance>
+        <ict4.1.1.d id="ICT4.1.1.D">
+          <meses jr:template="">
+            <mes>
+              <contacto/>
+              <contacto_otros/>
+              <cantidad_contactos_usuario/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </ict4.1.1.d>
+      </instance>
+      <bind nodeset="/ict4.1.1.d/meses/mes/contacto" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.1.d/meses/mes/contacto_otros" relevant=" /ict4.1.1.d/meses/mes/contacto =Otro" required="true()" type="string"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.1.d/meses/mes/cantidad_contactos_usuario" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.1.d/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/ict4.1.1.d/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/ict4.1.1.d/meses">
+        <group appearance="col3 well-white variable" ref="/ict4.1.1.d/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/ict4.1.1.d/meses/mes/contacto">
+            <label>Tipos de Contactos del usuario ante el Prestador</label>
+            <hint>Tipos de Contactos del usuario ante el Prestador</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>Reclamo</label>
+              <value>Reclamo</value>
+            </item>
+            <item>
+              <label>Consulta</label>
+              <value>Consulta</value>
+            </item>
+            <item>
+              <label>Asistencia</label>
+              <value>Asistencia</value>
+            </item>
+            <item>
+              <label>Solicitud de alta de servicio</label>
+              <value>Solicitud_de_alta_de_servicio</value>
+            </item>
+            <item>
+              <label>Otro</label>
+              <value>Otro</value>
+            </item>
+          </select1>
+          <input ref="/ict4.1.1.d/meses/mes/contacto_otros">
+            <label>Contactos Otros</label>
+          </input>
+          <input ref="/ict4.1.1.d/meses/mes/cantidad_contactos_usuario">
+            <label>Cant. de Contactos del usuario ante el Prestador</label>
+            <hint>Cantidad de Contactos del usuario ante el Prestador</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

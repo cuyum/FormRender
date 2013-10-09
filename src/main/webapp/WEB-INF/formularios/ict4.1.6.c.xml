@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario 4.1.6 C Cuadro C - IRF</h:title>
+    <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <instance>
+        <ict4.1.6.c id="ICT4.1.6.C">
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <cant_fact_emitidas/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </ict4.1.6.c>
+      </instance>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/ict4.1.6.c/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.6.c/meses/mes/cant_fact_emitidas" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.6.c/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/ict4.1.6.c/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/ict4.1.6.c/meses">
+        <group appearance="col3 well-white variable" ref="/ict4.1.6.c/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/ict4.1.6.c/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/ict4.1.6.c/meses/mes/cant_fact_emitidas">
+            <label>Cant. de Facturas Emitidas</label>
+            <hint>Cantidad de Facturas Emitidas</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

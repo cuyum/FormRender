@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario 4.1.2 B Cuadro B - IRR</h:title>
+    <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <instance>
+        <ict4.1.2.b id="ICT4.1.2.B">
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <cant_usuarios_reiteracion/>
+              <cant_usuarios_reclamo/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </ict4.1.2.b>
+      </instance>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/ict4.1.2.b/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.2.b/meses/mes/cant_usuarios_reiteracion" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.2.b/meses/mes/cant_usuarios_reclamo" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.2.b/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/ict4.1.2.b/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/ict4.1.2.b/meses">
+        <group appearance="col3 well-white variable" ref="/ict4.1.2.b/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/ict4.1.2.b/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/ict4.1.2.b/meses/mes/cant_usuarios_reiteracion">
+            <label>Cant. de usuarios con reiteración de un reclamo</label>
+            <hint>Cant. de usuarios que han reiterado un reclamo ante el Prestador en un mismo período</hint>
+          </input>
+          <input ref="/ict4.1.2.b/meses/mes/cant_usuarios_reclamo">
+            <label>Cant. de usuarios con un reclamo</label>
+            <hint>Cant. de usuarios que han realizado un solo reclamo (por tipo) ante el Prestador en el período</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

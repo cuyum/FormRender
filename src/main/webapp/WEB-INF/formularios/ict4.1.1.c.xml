@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario 4.1.1.C Cuadro C - IRU</h:title>
+    <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <instance>
+        <ict4.1.1.c id="ICT4.1.1.C">
+          <meses jr:template="">
+            <mes>
+              <canales/>
+              <canales_otros/>
+              <cant_recl_ingresados/>
+              <cant_total_contacto_rec/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </ict4.1.1.c>
+      </instance>
+      <bind nodeset="/ict4.1.1.c/meses/mes/canales" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.1.c/meses/mes/canales_otros" relevant=" /ict4.1.1.c/meses/mes/canales =Otros" required="true()" type="string"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.1.c/meses/mes/cant_recl_ingresados" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.1.c/meses/mes/cant_total_contacto_rec" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.1.c/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/ict4.1.1.c/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/ict4.1.1.c/meses">
+        <group appearance="col3 well-white variable" ref="/ict4.1.1.c/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/ict4.1.1.c/meses/mes/canales">
+            <label>Canales de Atención al Usuario</label>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>Atención Telefónica</label>
+              <value>Atencion_Telefonica</value>
+            </item>
+            <item>
+              <label>Atención Personalizada - Sucursal</label>
+              <value>Atencion_Personalizada_Sucursal</value>
+            </item>
+            <item>
+              <label>Atención en Redes Sociales / Web / Mail / Postal u otros medios Escritos</label>
+              <value>Atencion_en_Redes_Sociales</value>
+            </item>
+            <item>
+              <label>Otros</label>
+              <value>Otros</value>
+            </item>
+          </select1>
+          <input ref="/ict4.1.1.c/meses/mes/canales_otros">
+            <label>Canales Otros</label>
+            <hint>Canales de Atencion al usuario Otros</hint>
+          </input>
+          <input ref="/ict4.1.1.c/meses/mes/cant_recl_ingresados">
+            <label>Cantidad de Reclamos ingresados</label>
+            <hint>Número entero mayor o igual a 0.</hint>
+          </input>
+          <input ref="/ict4.1.1.c/meses/mes/cant_total_contacto_rec">
+            <label>Cantidad total de Contactos recibido</label>
+            <hint>Número entero mayor o igual a 0.</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>
