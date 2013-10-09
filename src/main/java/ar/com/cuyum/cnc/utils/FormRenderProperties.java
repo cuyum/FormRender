@@ -64,6 +64,8 @@ public class FormRenderProperties extends Properties {
 		if(!this.isEmpty()){
 			String rlh = get("list.remote.host");
 			String context = get("list.remote.context");
+			String port = get("list.remote.port");
+			String secure = get("list.remote.secure");
 			//remove trailing slashes
 			if(rlh!=null && !rlh.isEmpty() && rlh.charAt(rlh.length()-1)=='/'){
 				rlh = rlh.substring(0, rlh.length()-1);
@@ -72,13 +74,13 @@ public class FormRenderProperties extends Properties {
 				context = context.substring(0, context.length()-1);
 			}
 			if(rlh!=null && rlh.indexOf("http")==-1){
-				if("false".equalsIgnoreCase(get("list.remote.secure"))){
-					rlh = "http://"+rlh;
-				}else{
+				if(secure!= null && "true".equalsIgnoreCase(secure)){
 					rlh = "https://"+rlh;
+					port = "443";
+				}else{
+					rlh = "http://"+rlh;
 				}
 			}
-			String port = get("list.remote.port");
 			if(port!=null && !"80".equals(port)){
 				rlh = rlh+":"+port;
 			}
@@ -94,6 +96,8 @@ public class FormRenderProperties extends Properties {
 		if(!this.isEmpty()){
 			String rsh = get("submit.remote.host");
 			String context = get("submit.remote.context");
+			String port = get("submit.remote.port");
+			String secure = get("submit.remote.secure");
 			//remove trailing slashes
 			if(rsh!=null && !rsh.isEmpty() && rsh.charAt(rsh.length()-1)=='/'){
 				rsh = rsh.substring(0, rsh.length()-1);
@@ -101,14 +105,15 @@ public class FormRenderProperties extends Properties {
 			if(context!=null && !context.isEmpty() && context.length()>1 && context.charAt(context.length()-1)=='/'){
 				context = context.substring(0, context.length()-1);
 			}
+			
 			if(rsh!=null && rsh.indexOf("http")==-1){
-				if("false".equalsIgnoreCase(get("submit.remote.secure"))){
-					rsh = "http://"+rsh;
-				}else{
+				if(secure != null && "true".equalsIgnoreCase(secure)){
 					rsh = "https://"+rsh;
+					port = "443";
+				}else{
+					rsh = "http://"+rsh;
 				}
 			}
-			String port = get("submit.remote.port");
 			if(port!=null && !"80".equals(port)){
 				rsh = rsh+":"+port;
 			}
