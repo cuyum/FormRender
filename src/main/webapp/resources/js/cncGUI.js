@@ -615,6 +615,9 @@ var gui = new function(){
 				var record = gui.grid.getRowData(rowIndex);
 				gui.grid.removeRow(rowIndex);				
 				var fields = gui.fieldsets[record.instance].fields;
+				if(gui.grid.editing > -1){
+					gui.grid.editing = -1;
+				}
 				gui.resetFields(fields);
 			});
 		},
