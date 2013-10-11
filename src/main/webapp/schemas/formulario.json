@@ -1,0 +1,35 @@
+{
+    "id": "http://localhost:8080/schemas/formulario.json#",
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"type":"object",
+    "required" : ["formulario"],
+	"properties":{
+		"formulario": {
+			"type":"object",
+                        "required" : ["id","data"],
+			"properties":{
+				"id": {
+					"type":"string"
+				},				
+				"data": {
+					"type":"array",
+                    "minItems": 0
+				}
+			}
+		}
+	},
+	"definitions":{
+		"combo" : {
+			"type" : "object",
+			"required": [ "label","value" ],
+			"properties" : {
+				"label" : {
+					"type":"string"
+				},
+				"value" : {
+					"type" : "string"
+				}
+			}
+		}
+	}
+}
