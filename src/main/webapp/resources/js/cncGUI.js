@@ -709,12 +709,12 @@ var gui = new function(){
 					this.element.dataTable().fnUpdate(record, this.editing);
 					this.editing = -1;
 				}
-				this.setupRowActions();
+//				this.setupRowActions();
 			}
 		},
 		addRows : function(dataArray){
 			this.element.dataTable().fnAddData(dataArray,true);
-			this.setupRowActions();
+//			this.setupRowActions();
 		},
 		removeRow : function(rowIndex){
 			this.element.dataTable().fnDeleteRow(rowIndex);
@@ -757,7 +757,7 @@ var gui = new function(){
 				}
 	        });
 			this.setupAddClick();
-			this.setupRowActions();
+//			this.setupRowActions();
 			this.element.dataTable({
 				"bJQueryUI": false,
 				"bAutoWidth": false,
@@ -782,7 +782,10 @@ var gui = new function(){
 				     }
 				},
 				"aaData": gui.grid.data,
-		        "aoColumns": gui.grid.headers
+				"aoColumns": gui.grid.headers,
+				"fnDrawCallback": function( oSettings ) {
+					gui.grid.setupRowActions();
+			    }
 		    });
 		}
 	};
