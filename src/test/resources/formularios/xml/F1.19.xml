@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario F1.19 - Planes / Otros</h:title>
+    <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <instance>
+        <F1.19 id="F1.19">
+          <titulo/>
+          <agregar jr:template="">
+            <planes>
+              <planesPlan/>
+              <planesAccesos/>
+              <planesAccesos_otro/>
+              <velocidad>
+                <velocidadSubida/>
+                <velocidadBajada/>
+              </velocidad>
+              <planesAbono/>
+              <planesVigencia/>
+              <planesPrecioFinal/>
+              <planesObs/>
+            </planes>
+          </agregar>
+          <meta>
+            <instanceID/>
+          </meta>
+        </F1.19>
+      </instance>
+      <bind nodeset="/F1.19/titulo" readonly="true()" type="string"/>
+      <bind nodeset="/F1.19/agregar/planes/planesPlan" required="true()" type="string"/>
+      <bind nodeset="/F1.19/agregar/planes/planesAccesos" required="true()" type="select1"/>
+      <bind nodeset="/F1.19/agregar/planes/planesAccesos_otro" relevant=" /F1.19/agregar/planes/planesAccesos =OTROS" required="true()" type="string"/>
+      <bind nodeset="/F1.19/agregar/planes/velocidad/velocidadSubida" required="true()" type="select1"/>
+      <bind nodeset="/F1.19/agregar/planes/velocidad/velocidadBajada" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/F1.19/agregar/planes/planesAbono" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/F1.19/agregar/planes/planesVigencia" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/F1.19/agregar/planes/planesPrecioFinal" required="true()" type="decimal"/>
+      <bind nodeset="/F1.19/agregar/planes/planesObs" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/F1.19/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/F1.19/titulo">
+      <hint>Informar el nombre comercial del plan.</hint>
+    </input>
+    <group ref="/F1.19/agregar">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/F1.19/agregar">
+        <group appearance="col4 well-white" ref="/F1.19/agregar/planes">
+          <label>Planes</label>
+          <input ref="/F1.19/agregar/planes/planesPlan">
+            <label>Plan</label>
+            <hint>Plan</hint>
+          </input>
+          <select1 appearance="minimal" ref="/F1.19/agregar/planes/planesAccesos">
+            <label>Accesos</label>
+            <hint>Accesos</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>DIAL UP</label>
+              <value>DIALUP</value>
+            </item>
+            <item>
+              <label>ADSL</label>
+              <value>ADSL</value>
+            </item>
+            <item>
+              <label>CABLEMODEN</label>
+              <value>CABLEMODEN</value>
+            </item>
+            <item>
+              <label>WIRELESS</label>
+              <value>WIRELESS</value>
+            </item>
+            <item>
+              <label>CELULAR</label>
+              <value>CELULAR</value>
+            </item>
+            <item>
+              <label>SATELITAL</label>
+              <value>SATELITAL</value>
+            </item>
+            <item>
+              <label>BPL</label>
+              <value>BPL</value>
+            </item>
+            <item>
+              <label>WIMAX</label>
+              <value>WIMAX</value>
+            </item>
+            <item>
+              <label>FIBRA OPTICA</label>
+              <value>FIBRAOPTICA</value>
+            </item>
+            <item>
+              <label>OTROS</label>
+              <value>OTROS</value>
+            </item>
+          </select1>
+          <input ref="/F1.19/agregar/planes/planesAccesos_otro">
+            <label>Acceso Otros</label>
+            <hint>Acceso Otros</hint>
+          </input>
+          <group appearance="col4" ref="/F1.19/agregar/planes/velocidad">
+            <label>Velocidad</label>
+            <select1 appearance="minimal" ref="/F1.19/agregar/planes/velocidad/velocidadSubida">
+              <label>Subida</label>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+              <item>
+                <label>HASTA 512 kbps</label>
+                <value>HASTA512kbps</value>
+              </item>
+              <item>
+                <label>+ 512 Kbps - 1 Mbps</label>
+                <value>512 Kbps_1Mbps</value>
+              </item>
+              <item>
+                <label>+ 1 Mbps - 6 Mbps</label>
+                <value>1Mbps_6Mbps</value>
+              </item>
+              <item>
+                <label>+ 6 Mbps - 10 Mbps</label>
+                <value>6Mbps_10Mbps</value>
+              </item>
+              <item>
+                <label>+ 10 Mbps - 20 Mbps</label>
+                <value>10Mbps_20Mbps</value>
+              </item>
+              <item>
+                <label>+ 20 Mbps - 30 Mbps</label>
+                <value>20Mbps_30Mbps</value>
+              </item>
+              <item>
+                <label>+ 30 Mbps</label>
+                <value>30Mbps</value>
+              </item>
+            </select1>
+            <select1 appearance="minimal" ref="/F1.19/agregar/planes/velocidad/velocidadBajada">
+              <label>Bajada</label>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+              <item>
+                <label>HASTA 512 kbps</label>
+                <value>HASTA512kbps</value>
+              </item>
+              <item>
+                <label>+ 512 Kbps - 1 Mbps</label>
+                <value>512 Kbps_1Mbps</value>
+              </item>
+              <item>
+                <label>+ 1 Mbps - 6 Mbps</label>
+                <value>1Mbps_6Mbps</value>
+              </item>
+              <item>
+                <label>+ 6 Mbps - 10 Mbps</label>
+                <value>6Mbps_10Mbps</value>
+              </item>
+              <item>
+                <label>+ 10 Mbps - 20 Mbps</label>
+                <value>10Mbps_20Mbps</value>
+              </item>
+              <item>
+                <label>+ 20 Mbps - 30 Mbps</label>
+                <value>20Mbps_30Mbps</value>
+              </item>
+              <item>
+                <label>+ 30 Mbps</label>
+                <value>30Mbps</value>
+              </item>
+            </select1>
+          </group>
+          <input ref="/F1.19/agregar/planes/planesAbono">
+            <label>Abono</label>
+            <hint>Consignar el precio por Mbps en pesos sin impuestos.</hint>
+          </input>
+          <input ref="/F1.19/agregar/planes/planesVigencia">
+            <label>Vigencia</label>
+            <hint>Período en el cual se mantienen las condiciones ofrecidas.</hint>
+          </input>
+          <input ref="/F1.19/agregar/planes/planesPrecioFinal">
+            <label>Precio Final</label>
+            <hint>Consignar el precio por Mbps en pesos final.</hint>
+          </input>
+          <input appearance="multiline" ref="/F1.19/agregar/planes/planesObs">
+            <label>Observaciones</label>
+            <hint>Campo de texto libre para realizar observaciones.</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

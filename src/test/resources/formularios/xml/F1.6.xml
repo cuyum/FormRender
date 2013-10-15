@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario F1.6 - Clientes Servicio y tecnología</h:title>
+    <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <instance>
+        <F1.6 id="F1.6">
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <partido/>
+              <partido_otro/>
+              <localidad/>
+              <localidad_otro/>
+              <servicio/>
+              <servicio_otro/>
+              <acceso/>
+              <acceso_otro/>
+              <cuentas/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </F1.6>
+      </instance>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/F1.6/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/F1.6/meses/mes/provincia" nodeset="/F1.6/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/F1.6/meses/mes/partido_otro" relevant=" /F1.6/meses/mes/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/F1.6/meses/mes/partido" nodeset="/F1.6/meses/mes/localidad" required="true()" type="select1"/>
+      <bind nodeset="/F1.6/meses/mes/localidad_otro" relevant=" /F1.6/meses/mes/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/servicios" nodeset="/F1.6/meses/mes/servicio" required="true()" type="select1"/>
+      <bind nodeset="/F1.6/meses/mes/servicio_otro" relevant=" /F1.6/meses/mes/servicio =OTROS" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/accesos and depends=/F1.6/meses/mes/servicio" nodeset="/F1.6/meses/mes/acceso" required="true()" type="select1"/>
+      <bind nodeset="/F1.6/meses/mes/acceso_otro" relevant=" /F1.6/meses/mes/acceso =OTROS" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/F1.6/meses/mes/cuentas" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/F1.6/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/F1.6/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/F1.6/meses">
+        <group appearance="col3 well-white variable" ref="/F1.6/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/F1.6/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/F1.6/meses/mes/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/F1.6/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/F1.6/meses/mes/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/F1.6/meses/mes/localidad_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/F1.6/meses/mes/servicio">
+            <label>Servicio</label>
+            <hint>Servicio</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>610</label>
+              <value>610</value>
+            </item>
+            <item>
+              <label>611</label>
+              <value>611</value>
+            </item>
+            <item>
+              <label>612</label>
+              <value>612</value>
+            </item>
+            <item>
+              <label>Nº GEOGRAFICO</label>
+              <value>NRO_GEOGRAFICO</value>
+            </item>
+            <item>
+              <label>OTROS</label>
+              <value>OTROS</value>
+            </item>
+            <item>
+              <label>BANDA ANCHA</label>
+              <value>BANDA_ANCHA</value>
+            </item>
+          </select1>
+          <input ref="/F1.6/meses/mes/servicio_otro">
+            <label>Servicio Otros</label>
+          </input>
+          <select1 appearance="minimal" ref="/F1.6/meses/mes/acceso">
+            <label>Accesos</label>
+            <hint>Accesos</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/F1.6/meses/mes/acceso_otro">
+            <label>Acceso Otros</label>
+          </input>
+          <input ref="/F1.6/meses/mes/cuentas">
+            <label>Cuentas</label>
+            <hint>Cuentas</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

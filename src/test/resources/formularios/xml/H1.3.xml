@@ -1,0 +1,298 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario H1.3 - Redes e Infraestructura</h:title>
+    <model>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <instance>
+        <H1.3 id="H1.3">
+          <titulo/>
+          <puntos jr:template="">
+            <ubicacionOrigen>
+              <provinciaOrigen/>
+              <partidoOrigen/>
+              <partidoOrigen_otro/>
+              <localidadOrigen/>
+              <localidadOrigen_otro/>
+              <areaOrigen/>
+              <areaOrigen_otro/>
+            </ubicacionOrigen>
+            <equipamiento>
+              <tecnologia/>
+              <tecnologia_otro/>
+              <equipCapacidadDisp/>
+              <equipCapacidadUtilizada/>
+            </equipamiento>
+            <tipomedio>
+              <medio/>
+              <medio_otro/>
+              <medioCapacidadDisp/>
+              <medioCapacidadUtilizada/>
+            </tipomedio>
+            <tipotendido>
+              <tendido/>
+              <tendido_otro/>
+              <tendidoCapacidadDisp/>
+              <tendidoCapacidadUtilizada/>
+            </tipotendido>
+            <ubicacionDestino>
+              <provinciaDestino/>
+              <partidoDestino/>
+              <partidoDestino_otro/>
+              <localidadDestino/>
+              <localidadDestino_otro/>
+              <areaDestino/>
+              <areaDestino_otro/>
+            </ubicacionDestino>
+          </puntos>
+          <meta>
+            <instanceID/>
+          </meta>
+        </H1.3>
+      </instance>
+      <bind nodeset="/H1.3/titulo" readonly="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/H1.3/puntos/ubicacionOrigen/provinciaOrigen" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/H1.3/puntos/ubicacionOrigen/provinciaOrigen" nodeset="/H1.3/puntos/ubicacionOrigen/partidoOrigen" required="true()" type="select1"/>
+      <bind nodeset="/H1.3/puntos/ubicacionOrigen/partidoOrigen_otro" relevant=" /H1.3/puntos/ubicacionOrigen/partidoOrigen =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/H1.3/puntos/ubicacionOrigen/partidoOrigen" nodeset="/H1.3/puntos/ubicacionOrigen/localidadOrigen" required="true()" type="select1"/>
+      <bind nodeset="/H1.3/puntos/ubicacionOrigen/localidadOrigen_otro" relevant=" /H1.3/puntos/ubicacionOrigen/localidadOrigen =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/H1.3/puntos/ubicacionOrigen/localidadOrigen" nodeset="/H1.3/puntos/ubicacionOrigen/areaOrigen" required="true()" type="select1"/>
+      <bind nodeset="/H1.3/puntos/ubicacionOrigen/areaOrigen_otro" relevant=" /H1.3/puntos/ubicacionOrigen/areaOrigen =9999" required="true()" type="string"/>
+      <bind nodeset="/H1.3/puntos/equipamiento/tecnologia" required="true()" type="select1"/>
+      <bind nodeset="/H1.3/puntos/equipamiento/tecnologia_otro" relevant=" /H1.3/puntos/equipamiento/tecnologia =Otros" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999" nodeset="/H1.3/puntos/equipamiento/equipCapacidadDisp" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999" nodeset="/H1.3/puntos/equipamiento/equipCapacidadUtilizada" required="true()" type="int"/>
+      <bind nodeset="/H1.3/puntos/tipomedio/medio" required="true()" type="select1"/>
+      <bind nodeset="/H1.3/puntos/tipomedio/medio_otro" relevant=" /H1.3/puntos/tipomedio/medio =Otros" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999" jr:constraintMsg="Ingrese entero entre 0 y 99999" nodeset="/H1.3/puntos/tipomedio/medioCapacidadDisp" relevant=" /H1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999" jr:constraintMsg="Ingrese entero entre 0 y 99999" nodeset="/H1.3/puntos/tipomedio/medioCapacidadUtilizada" relevant=" /H1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
+      <bind nodeset="/H1.3/puntos/tipotendido" relevant=" /H1.3/puntos/tipomedio/medio =FO or  /H1.3/puntos/tipomedio/medio =Otros"/>
+      <bind nodeset="/H1.3/puntos/tipotendido/tendido" relevant=" /H1.3/puntos/tipomedio/medio =FO or  /H1.3/puntos/tipomedio/medio =Otros" required="true()" type="select1"/>
+      <bind nodeset="/H1.3/puntos/tipotendido/tendido_otro" relevant=" /H1.3/puntos/tipotendido/tendido =Otros" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/H1.3/puntos/tipotendido/tendidoCapacidadDisp" relevant=" /H1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/H1.3/puntos/tipotendido/tendidoCapacidadUtilizada" relevant=" /H1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/H1.3/puntos/ubicacionDestino/provinciaDestino" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/H1.3/puntos/ubicacionDestino/provinciaDestino" nodeset="/H1.3/puntos/ubicacionDestino/partidoDestino" required="true()" type="select1"/>
+      <bind nodeset="/H1.3/puntos/ubicacionDestino/partidoDestino_otro" relevant=" /H1.3/puntos/ubicacionDestino/partidoDestino =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/H1.3/puntos/ubicacionDestino/partidoDestino" nodeset="/H1.3/puntos/ubicacionDestino/localidadDestino" required="true()" type="select1"/>
+      <bind nodeset="/H1.3/puntos/ubicacionDestino/localidadDestino_otro" relevant=" /H1.3/puntos/ubicacionDestino/localidadDestino =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/H1.3/puntos/ubicacionDestino/localidadDestino" nodeset="/H1.3/puntos/ubicacionDestino/areaDestino" required="true()" type="select1"/>
+      <bind nodeset="/H1.3/puntos/ubicacionDestino/areaDestino_otro" relevant=" /H1.3/puntos/ubicacionDestino/areaDestino =9999" required="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/H1.3/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/H1.3/titulo">
+      <hint>Se deben informar redes e infraestructura propia. Debe definir para cada uno de sus enlaces: punto de inicio, de fin, equipamiento, medio y tipo de tendido; de corresponder.</hint>
+    </input>
+    <group ref="/H1.3/puntos">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/H1.3/puntos">
+        <group appearance="col4 well-white" ref="/H1.3/puntos/ubicacionOrigen">
+          <label>Ubicación Origen</label>
+          <select1 appearance="minimal" ref="/H1.3/puntos/ubicacionOrigen/provinciaOrigen">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/H1.3/puntos/ubicacionOrigen/partidoOrigen">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/H1.3/puntos/ubicacionOrigen/partidoOrigen_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/H1.3/puntos/ubicacionOrigen/localidadOrigen">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/H1.3/puntos/ubicacionOrigen/localidadOrigen_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/H1.3/puntos/ubicacionOrigen/areaOrigen">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/H1.3/puntos/ubicacionOrigen/areaOrigen_otro">
+            <label>Área Otros</label>
+            <hint>Área Otros</hint>
+          </input>
+        </group>
+        <group appearance="col3 well-white" ref="/H1.3/puntos/equipamiento">
+          <label>Equipamiento</label>
+          <select1 appearance="minimal" ref="/H1.3/puntos/equipamiento/tecnologia">
+            <label>Tecnología</label>
+            <hint>Elegir desde la tabla el tipo de tecnología implementada. En el caso de no figurar, elegir la opción &quot;otros&quot; y completar manualmente.</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>SDH</label>
+              <value>SDH</value>
+            </item>
+            <item>
+              <label>DWDM</label>
+              <value>DWDM</value>
+            </item>
+            <item>
+              <label>PDH</label>
+              <value>PDH</value>
+            </item>
+            <item>
+              <label>IP</label>
+              <value>IP</value>
+            </item>
+            <item>
+              <label>Otros</label>
+              <value>Otros</value>
+            </item>
+          </select1>
+          <input ref="/H1.3/puntos/equipamiento/tecnologia_otro">
+            <label>Tec. Otros</label>
+          </input>
+          <input ref="/H1.3/puntos/equipamiento/equipCapacidadDisp">
+            <label>Capacidad Disponible</label>
+            <hint>Completar la capacidad máxima que es capaz de manejar el equipo en Mbps.</hint>
+          </input>
+          <input ref="/H1.3/puntos/equipamiento/equipCapacidadUtilizada">
+            <label>Capacidad Utilizada</label>
+            <hint>Completar la capacidad utilizada [Mbps]</hint>
+          </input>
+        </group>
+        <group appearance="col3 well-white" ref="/H1.3/puntos/tipomedio">
+          <label>Medio</label>
+          <select1 appearance="minimal" ref="/H1.3/puntos/tipomedio/medio">
+            <label>Tipo</label>
+            <hint>Completar el medio de transmisión, elegir desde tabla. Para enlaces de FO, completar la cantidad de hilos instalados y la cantidad en uso.</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>FO</label>
+              <value>FO</value>
+            </item>
+            <item>
+              <label>MW</label>
+              <value>MW</value>
+            </item>
+            <item>
+              <label>Otros</label>
+              <value>Otros</value>
+            </item>
+          </select1>
+          <input ref="/H1.3/puntos/tipomedio/medio_otro">
+            <label>Tipo Otros</label>
+          </input>
+          <input ref="/H1.3/puntos/tipomedio/medioCapacidadDisp">
+            <label>Capacidad Disponible</label>
+            <hint>Capacidad Disponible [Cantidad de pelos]</hint>
+          </input>
+          <input ref="/H1.3/puntos/tipomedio/medioCapacidadUtilizada">
+            <label>Capacidad Utilizada</label>
+            <hint>Capacidad Utilizada [Cantidad de pelos]</hint>
+          </input>
+        </group>
+        <group appearance="col3 well-white" ref="/H1.3/puntos/tipotendido">
+          <label>Tendido</label>
+          <select1 appearance="minimal" ref="/H1.3/puntos/tipotendido/tendido">
+            <label>Tipo</label>
+            <hint>Para el caso de FO, completar el tipo, la cantidad de ductos instalados y la cantidad de ductos en uso.</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>AÉREO</label>
+              <value>AÉREO</value>
+            </item>
+            <item>
+              <label>SUBTERRANEO</label>
+              <value>SUBTERRANEO</value>
+            </item>
+            <item>
+              <label>Otros</label>
+              <value>Otros</value>
+            </item>
+          </select1>
+          <input ref="/H1.3/puntos/tipotendido/tendido_otro">
+            <label>Tipo Otros</label>
+          </input>
+          <input ref="/H1.3/puntos/tipotendido/tendidoCapacidadDisp">
+            <label>Capacidad Disponible</label>
+            <hint>Capacidad Disponible [Cantidad de ductos]</hint>
+          </input>
+          <input ref="/H1.3/puntos/tipotendido/tendidoCapacidadUtilizada">
+            <label>Capacidad Utilizada</label>
+            <hint>Capacidad Utilizada [Cantidad de ductos]</hint>
+          </input>
+        </group>
+        <group appearance="col4 well-white" ref="/H1.3/puntos/ubicacionDestino">
+          <label>Ubicación Destino</label>
+          <select1 appearance="minimal" ref="/H1.3/puntos/ubicacionDestino/provinciaDestino">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/H1.3/puntos/ubicacionDestino/partidoDestino">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/H1.3/puntos/ubicacionDestino/partidoDestino_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/H1.3/puntos/ubicacionDestino/localidadDestino">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/H1.3/puntos/ubicacionDestino/localidadDestino_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/H1.3/puntos/ubicacionDestino/areaDestino">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/H1.3/puntos/ubicacionDestino/areaDestino_otro">
+            <label>Área Otros</label>
+            <hint>Área Local Otros</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>
