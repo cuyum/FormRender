@@ -1,0 +1,75 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "required": [
+        "formulario"
+    ],
+    "properties": {
+        "formulario": {
+            "type": "object",
+            "required": [
+                "id",
+                "data"
+            ],
+            "properties": {
+                "id": {
+                    "enum": [
+                        "C1.1"
+                    ]
+                },
+                "data": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "provincia",
+                            "partido",
+                            "localidad",
+                            "area"
+                        ],
+                        "properties": {
+                            "instance": {
+                                "type": "integer"
+                            },
+                            "provincia": {                                
+                                "$ref": "formulario.json#/definitions/combo"                               
+                            },
+                            "partido": {
+                                 "$ref": "formulario.json#/definitions/combo",
+                                 "url":"/localizacion/rest/localizaciones/partidos",
+                                 "depends":"provincia"
+                            },
+                            "partido_otro": {
+                                "$ref": "formulario.json#/definitions/string",
+                                "relevant":"partido=9999"
+                            },
+                            "localidad":{
+                            	"$ref": "formulario.json#/definitions/combo",
+                            	"url":"/localizacion/rest/localizaciones/localidades",
+                            	"depends":"partido"
+                           },
+                           "localidad_otro":{
+                                "$ref": "formulario.json#/definitions/string",
+                                "relevant":"localidad=9999"
+                           	},
+                           "area": {
+                  				"$ref": "formulario.json#/definitions/combo",
+                  				"url":"/localizacion/rest/localizaciones/areas"
+                		   },
+                           "area_otro": {
+                                "$ref": "formulario.json#/definitions/string",
+                                "relevant":"area=9999"	
+                           },
+                           "firma_digital":{
+                           	    "type": "string"
+                           }                           
+                        },                        
+                        "additionalProperties": false
+                    },
+                    "uniqueItems": true
+                }
+            }
+        }
+    }
+}

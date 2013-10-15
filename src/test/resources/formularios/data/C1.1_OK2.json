@@ -1,0 +1,49 @@
+{
+    "formulario": {
+        "data": [
+            {
+                "provincia": {
+                    "value": "2",
+                    "label": "BUENOS AIRES"
+                },
+                "partido": {
+                    "value": "442",
+                    "label": "Adolfo Alsina"
+                },
+                "partido_otro": "sdhajask",
+                "area": {
+                    "value": "9999",
+                    "label": "OTROS"
+                },
+                "area_otro": "123123123",
+                "localidad": {
+                    "value": "1085",
+                    "label": "EL JUNCAL"
+                },
+                "localidad_otro": " "
+            },
+            {
+                "provincia": {
+                    "value": "2",
+                    "label": "BUENOS AIRES"
+                },
+                "partido": {
+                    "value": "442",
+                    "label": "Adolfo Alsina"
+                },
+                "partido_otro": "sdhajask",
+                "area": {
+                    "value": "9999",
+                    "label": "OTROS"
+                },
+                "area_otro": "123123123",
+                "localidad": {
+                    "value": "9999",
+                    "label": "EL JUNCAL"
+                },
+                "localidad_otro": "Algun lugar"
+            }
+        ],
+        "id": "C1.1"
+    }
+}

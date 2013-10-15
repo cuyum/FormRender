@@ -1,0 +1,120 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Json esquema para FormBuilder y FormRender ",
+    "description": "Esquema que deben tener los Json para ser interpretados por FormRender y construir un formulario apropiado",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "number",
+            "description": "Identicador unico del formulario"
+        },
+        "header": {
+            "type": "object",
+            "description": "Sección de descripcion general del formulario",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "identificador corto del formulario"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "el título del formulario"
+                },
+                "tooltip": {
+                    "type": "string",
+                    "description": "el tooltip que va aparecer sobre el titulo del formulario"
+                },
+                "method": {
+                    "type": "string",
+                    "description": "El método como se va envíar el formulario, de momento siempre va ser form-data-post"
+                },
+                "action": {
+                    "type": "string",
+                    "description": "La acción que va suceder luego del summit al formulario"
+                }
+            },
+            "required": [
+                "code",
+                "title",
+                "method",
+                "acction"
+            ]
+        },
+        "payload": {
+            "type": "object",
+            "description": "Sección cuerpo del formulario",
+            "properties": {
+                "components": {
+                    "type": "array",
+                    "description": "Lista de componentes del formulario",
+                    "properties": {
+                        "items": {
+                            "type": "object",
+                            "description": "El componente del formulario",
+                            "properties": {
+                                "name": {
+                                    "description": "Nombre unico del componente en esa gerarquia"
+                                },
+                                "type": {
+                                    "description": "text/date/numeric/textArea/selectOne/group"
+                                },
+                                "properties": {
+                                    "type": "object",
+                                    "description": "Las propiedades del componente según sea el tipo",
+                                    "properties": {
+                                        "label": {
+                                            "type": "string",
+                                            "description": "Nombre del componente que se muestra al usuario"
+                                        },
+                                        "tooltip": {
+                                            "type": "string",
+                                            "description": "Lo que aparece al poner el mouse sobre el nombre del componente"
+                                        },
+                                        "required": {
+                                            "type": "boolean",
+                                            "description": "si el componente es requerido"
+                                        },
+                                        "constraint": {
+                                            "type": "object",
+                                            "properties": {
+                                                "url": {
+                                                    "type": "string",
+                                                    "description": "url de la lista del select remoto"
+                                                },
+                                                "depends": {
+                                                    "type": "string",
+                                                    "description": "referencia al objeto del cual depende la carga de la lista"
+                                                }
+                                            }
+                                        },
+                                        "relevant": {
+                                            "type": "string",
+                                            "description": "referencia al objeto del cual depende que se visualice o no este objeto"
+                                        }
+                                    }
+                                },
+                                "components": {
+                                    "type": "array",
+                                    "description": "Lista de componentes en caso de ser un group o un selecOne"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "type",
+                                "properties"
+                            ]
+                        }
+                    }
+                }
+            },
+            "required": [
+                "components"
+            ]
+        },
+        "required": [
+            "id",
+            "header",
+            "payload"
+        ]
+    }
+}

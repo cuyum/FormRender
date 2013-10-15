@@ -1,0 +1,24 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"type":"object",
+    "definitions":{
+		"combo" : {
+			"type" : "object",
+			"required":["label","value"],
+			"properties" : {
+				"label" : {
+					"type":"string"
+				},
+				"value" : {
+					"type":"string",
+					"pattern": "^\\d+$"
+				},
+				"url":{
+					"type":"string"
+				}
+			},			
+			"additionalProperties": false
+		},
+		"string":{"type":"string"}
+	}
+}

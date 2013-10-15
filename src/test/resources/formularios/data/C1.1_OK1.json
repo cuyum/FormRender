@@ -1,0 +1,28 @@
+{
+    "formulario": {
+        "data": [
+            {
+                "provincia": {
+                    "value": "2",
+                    "label": "BUENOS AIRES"
+                },
+                "partido": {
+                    "value": "442",
+                    "label": "Adolfo Alsina"
+                },
+                "partido_otro": "sdhajask",
+                "localidad": {
+                    "value": "1085",
+                    "label": "EL JUNCAL"
+                },
+                "localidad_otro": "otra cosa",
+                "area": {
+                    "value": "9999",
+                    "label": "OTROS"
+                },
+                "area_otro": "123123123"
+            }
+        ],
+        "id": "C1.1"
+    }
+}
