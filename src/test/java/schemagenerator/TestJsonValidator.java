@@ -4,7 +4,6 @@ import static org.fest.assertions.api.Assertions.assertThat;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.URI;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
@@ -24,12 +23,9 @@ import com.github.fge.jsonschema.report.ProcessingReport;
 public class TestJsonValidator {
 	private static Logger log = Logger.getLogger(TestJsonValidator.class);
 
-	static URI dir_actual = URI.create(System.getProperty("user.dir"));
-
 	@BeforeClass
 	public static void startup() {
 		BasicConfigurator.configure();
-
 	}
 
 	@Test
