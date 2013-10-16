@@ -21,8 +21,8 @@ import com.github.fge.jsonschema.main.JsonSchema;
 import com.github.fge.jsonschema.main.JsonSchemaFactory;
 import com.github.fge.jsonschema.report.ProcessingReport;
 
-public class TestJson {
-	private static Logger log = Logger.getLogger(TestJson.class);
+public class TestJsonValidator {
+	private static Logger log = Logger.getLogger(TestJsonValidator.class);
 
 	static URI dir_actual = URI.create(System.getProperty("user.dir"));
 
