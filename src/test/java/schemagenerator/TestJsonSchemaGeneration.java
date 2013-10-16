@@ -21,45 +21,48 @@ public class TestJsonSchemaGeneration {
 	@BeforeClass
 	public static void startup() {
 		BasicConfigurator.configure();
-	}
-	
-	@Before 
-	public void initTest(){
-	}
 
-	@Test
-	public final void testDummy() {
-		assertThat(true).isTrue();		
-	}
-	
-	/**
-	 * Recordar que el output es en FormRender/target/test-classes/formularios/schemas 
-	 */
-	@Test
-	public final void testGenerateJsonSchema() throws Exception {
-		
-		//creo el directorio de salida para los test si no existe		
-		File output = new File(this.getClass().getResource("/formularios/output").getPath());
-		output.mkdir();
+		// creo el directorio de salida para los test si no existe
+		File output = new File(TestJsonSchemaGeneration.class.getResource(
+				"/formularios/output").getPath());
 		if (output.exists()) {
-			//borro los archivos para la salida si existen
+			// borro los archivos para la salida si existen
 			File[] files = output.listFiles();
 			for (int i = 0; i < files.length; i++) {
 				files[i].delete();
 			}
 		}
+	}
+
+	@Before
+	public void initTest() {
+	}
+
+	@Test
+	public final void testDummy() {
+		assertThat(true).isTrue();
+	}
+
+	/**
+	 * Recordar que el output es en
+	 * FormRender/target/test-classes/formularios/schemas.
+	 */
+	@Test
+	public final void testGenerateJsonSchema() throws Exception {
 
 		log.info("Creando esquemas");
 
-		File schemasDir = new File(this.getClass().getResource("/formularios/output").getPath());
+		File schemasDir = new File(this.getClass()
+				.getResource("/formularios/output").getPath());
 
 		// El directorio no tiene esquemas
 		assertThat(schemasDir.listFiles().length).isLessThanOrEqualTo(0);
 
 		// Se generan los esquemas a partir de los xml JsonShemaGenerator
 		JsonShemaGenerator jsonShemas = new JsonShemaGenerator();
-				
-		File xmlDir = new File(this.getClass().getResource("/formularios/xml").getPath());
+
+		File xmlDir = new File(this.getClass().getResource("/formularios/xml")
+				.getPath());
 		jsonShemas.doSchemasFromDir(xmlDir.getPath(), schemasDir.getPath());
 
 		// El directorio tiene los esquemas generador
@@ -70,4 +73,6 @@ public class TestJsonSchemaGeneration {
 				schemasDir.listFiles().length);
 
 	}
+	
+	
 }
