@@ -1,13 +1,14 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario 4.1.4 B Cuadro B - IROAU</h:title>
+    <h:title>Formulario 4.1.4-B Indicador de Respuesta del Operador para Atención al Usuario - Cuadro B</h:title>
     <model>
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <ict4.1.4.b id="ICT4.1.4.B">
           <meses jr:template="">
             <mes>
+              <periodo_considerado/>
               <accesos/>
               <accesos_otros/>
               <contactos/>
@@ -21,6 +22,7 @@
           </meta>
         </ict4.1.4.b>
       </instance>
+      <bind nodeset="/ict4.1.4.b/meses/mes/periodo_considerado" required="true()" type="select1"/>
       <bind nodeset="/ict4.1.4.b/meses/mes/accesos" required="true()" type="select1"/>
       <bind nodeset="/ict4.1.4.b/meses/mes/accesos_otros" relevant=" /ict4.1.4.b/meses/mes/accesos =Otros" required="true()" type="string"/>
       <bind nodeset="/ict4.1.4.b/meses/mes/contactos" required="true()" type="select1"/>
@@ -34,8 +36,84 @@
     <group ref="/ict4.1.4.b/meses">
       <label></label>
       <repeat appearance="grilla" nodeset="/ict4.1.4.b/meses">
-        <group appearance="col3 well-white variable" ref="/ict4.1.4.b/meses/mes">
-          <label>{title}</label>
+        <group appearance="col3 well-white" ref="/ict4.1.4.b/meses/mes">
+          <label>Llamadas atendidas clasificadas por tipo de contacto y vía de ingreso</label>
+          <select1 appearance="minimal" ref="/ict4.1.4.b/meses/mes/periodo_considerado">
+            <label>Período Considerado</label>
+            <hint>Período Considerado</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>Enero</label>
+              <value>Enero</value>
+            </item>
+            <item>
+              <label>Febrero</label>
+              <value>Febrero</value>
+            </item>
+            <item>
+              <label>Marzo</label>
+              <value>Marzo</value>
+            </item>
+            <item>
+              <label>Abril</label>
+              <value>Abril</value>
+            </item>
+            <item>
+              <label>Mayo</label>
+              <value>Mayo</value>
+            </item>
+            <item>
+              <label>Junio</label>
+              <value>Junio</value>
+            </item>
+            <item>
+              <label>Julio</label>
+              <value>Julio</value>
+            </item>
+            <item>
+              <label>Agosto</label>
+              <value>Agosto</value>
+            </item>
+            <item>
+              <label>Septiembre</label>
+              <value>Septiembre</value>
+            </item>
+            <item>
+              <label>Octubre</label>
+              <value>Octubre</value>
+            </item>
+            <item>
+              <label>Noviembre</label>
+              <value>Noviembre</value>
+            </item>
+            <item>
+              <label>Diciembre</label>
+              <value>Diciembre</value>
+            </item>
+            <item>
+              <label>1º Trimestre</label>
+              <value>1º Trimestre</value>
+            </item>
+            <item>
+              <label>2º Trimestre</label>
+              <value>2º Trimestre</value>
+            </item>
+            <item>
+              <label>3º trimestre</label>
+              <value>3º trimestre</value>
+            </item>
+            <item>
+              <label>4º trimestre</label>
+              <value>4º trimestre</value>
+            </item>
+            <item>
+              <label>Anual</label>
+              <value>Anual</value>
+            </item>
+          </select1>
           <select1 appearance="minimal" ref="/ict4.1.4.b/meses/mes/accesos">
             <label>Accesos a la Atención Telefónica</label>
             <hint>Accesos a la Atención Telefónica</hint>

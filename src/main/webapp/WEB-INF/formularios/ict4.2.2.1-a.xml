@@ -5,9 +5,9 @@
     <model>
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
-        <ict4.2.2.1-a id="ICT4.2.2.1-A">
+        <ict4.2.2.1-a id="ICT4.2.2.1-a">
           <trimestres jr:template="">
-            <trimestre>
+            <relacion>
               <periodo_considerado/>
               <provincia/>
               <partido/>
@@ -21,26 +21,26 @@
               <cantidad_llamadas/>
               <cantidad_intentos/>
               <porcentaje/>
-            </trimestre>
+            </relacion>
           </trimestres>
           <meta>
             <instanceID/>
           </meta>
         </ict4.2.2.1-a>
       </instance>
-      <bind nodeset="/ict4.2.2.1-a/trimestres/trimestre/periodo_considerado" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/ict4.2.2.1-a/trimestres/trimestre/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/ict4.2.2.1-a/trimestres/trimestre/provincia" nodeset="/ict4.2.2.1-a/trimestres/trimestre/partido" required="true()" type="select1"/>
-      <bind nodeset="/ict4.2.2.1-a/trimestres/trimestre/partido_otro" relevant=" /ict4.2.2.1-a/trimestres/trimestre/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/ict4.2.2.1-a/trimestres/trimestre/partido" nodeset="/ict4.2.2.1-a/trimestres/trimestre/localidad" required="true()" type="select1"/>
-      <bind nodeset="/ict4.2.2.1-a/trimestres/trimestre/localidad_otro" relevant=" /ict4.2.2.1-a/trimestres/trimestre/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/ict4.2.2.1-a/trimestres/trimestre/localidad" nodeset="/ict4.2.2.1-a/trimestres/trimestre/area" required="true()" type="select1"/>
-      <bind nodeset="/ict4.2.2.1-a/trimestres/trimestre/area_otro" relevant=" /ict4.2.2.1-a/trimestres/trimestre/area =9999" required="true()" type="string"/>
-      <bind nodeset="/ict4.2.2.1-a/trimestres/trimestre/hora_pico_inicio" required="true()" type="string"/>
-      <bind nodeset="/ict4.2.2.1-a/trimestres/trimestre/hora_pico_fin" required="true()" type="string"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.2.2.1-a/trimestres/trimestre/cantidad_llamadas" required="true()" type="int"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.2.2.1-a/trimestres/trimestre/cantidad_intentos" required="true()" type="int"/>
-      <bind nodeset="/ict4.2.2.1-a/trimestres/trimestre/porcentaje" required="true()" type="decimal"/>
+      <bind nodeset="/ict4.2.2.1-a/trimestres/relacion/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/ict4.2.2.1-a/trimestres/relacion/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/ict4.2.2.1-a/trimestres/relacion/provincia" nodeset="/ict4.2.2.1-a/trimestres/relacion/partido" required="true()" type="select1"/>
+      <bind nodeset="/ict4.2.2.1-a/trimestres/relacion/partido_otro" relevant=" /ict4.2.2.1-a/trimestres/relacion/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/ict4.2.2.1-a/trimestres/relacion/partido" nodeset="/ict4.2.2.1-a/trimestres/relacion/localidad" required="true()" type="select1"/>
+      <bind nodeset="/ict4.2.2.1-a/trimestres/relacion/localidad_otro" relevant=" /ict4.2.2.1-a/trimestres/relacion/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/ict4.2.2.1-a/trimestres/relacion/localidad" nodeset="/ict4.2.2.1-a/trimestres/relacion/area" required="true()" type="select1"/>
+      <bind nodeset="/ict4.2.2.1-a/trimestres/relacion/area_otro" relevant=" /ict4.2.2.1-a/trimestres/relacion/area =9999" required="true()" type="string"/>
+      <bind nodeset="/ict4.2.2.1-a/trimestres/relacion/hora_pico_inicio" required="true()" type="time"/>
+      <bind nodeset="/ict4.2.2.1-a/trimestres/relacion/hora_pico_fin" required="true()" type="time"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.2.2.1-a/trimestres/relacion/cantidad_llamadas" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.2.2.1-a/trimestres/relacion/cantidad_intentos" required="true()" type="int"/>
+      <bind nodeset="/ict4.2.2.1-a/trimestres/relacion/porcentaje" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.2.2.1-a/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -48,9 +48,9 @@
     <group ref="/ict4.2.2.1-a/trimestres">
       <label></label>
       <repeat appearance="grilla" nodeset="/ict4.2.2.1-a/trimestres">
-        <group appearance="col3 well-white" ref="/ict4.2.2.1-a/trimestres/trimestre">
+        <group appearance="col3 well-white" ref="/ict4.2.2.1-a/trimestres/relacion">
           <label>Relación entre la cantidad de llamadas completadas y el total de intentos</label>
-          <select1 appearance="minimal" ref="/ict4.2.2.1-a/trimestres/trimestre/periodo_considerado">
+          <select1 appearance="minimal" ref="/ict4.2.2.1-a/trimestres/relacion/periodo_considerado">
             <label>Período Considerado</label>
             <hint>Período Considerado</hint>
             <item>
@@ -126,7 +126,7 @@
               <value>Anual</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/ict4.2.2.1-a/trimestres/trimestre/provincia">
+          <select1 appearance="minimal" ref="/ict4.2.2.1-a/trimestres/relacion/provincia">
             <label>Provincia</label>
             <hint>Provincia</hint>
             <item>
@@ -134,7 +134,7 @@
               <value>-1</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/ict4.2.2.1-a/trimestres/trimestre/partido">
+          <select1 appearance="minimal" ref="/ict4.2.2.1-a/trimestres/relacion/partido">
             <label>Departamento / Partido</label>
             <hint>Departamento / Partido</hint>
             <item>
@@ -142,11 +142,11 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/ict4.2.2.1-a/trimestres/trimestre/partido_otro">
+          <input ref="/ict4.2.2.1-a/trimestres/relacion/partido_otro">
             <label>Partido Otros</label>
             <hint>Partido Otros</hint>
           </input>
-          <select1 appearance="minimal" ref="/ict4.2.2.1-a/trimestres/trimestre/localidad">
+          <select1 appearance="minimal" ref="/ict4.2.2.1-a/trimestres/relacion/localidad">
             <label>Localidad</label>
             <hint>Localidad</hint>
             <item>
@@ -154,11 +154,11 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/ict4.2.2.1-a/trimestres/trimestre/localidad_otro">
+          <input ref="/ict4.2.2.1-a/trimestres/relacion/localidad_otro">
             <label>Localidad Otros</label>
             <hint>Localidad Otros</hint>
           </input>
-          <select1 appearance="minimal" ref="/ict4.2.2.1-a/trimestres/trimestre/area">
+          <select1 appearance="minimal" ref="/ict4.2.2.1-a/trimestres/relacion/area">
             <label>Área Local</label>
             <hint>Área Local</hint>
             <item>
@@ -166,27 +166,27 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/ict4.2.2.1-a/trimestres/trimestre/area_otro">
+          <input ref="/ict4.2.2.1-a/trimestres/relacion/area_otro">
             <label>Área Otros</label>
             <hint>Área Otros</hint>
           </input>
-          <input appearance="hour" ref="/ict4.2.2.1-a/trimestres/trimestre/hora_pico_inicio">
+          <input ref="/ict4.2.2.1-a/trimestres/relacion/hora_pico_inicio">
             <label>Hora Pico Inicio</label>
             <hint>Hora Pico Inicio</hint>
           </input>
-          <input appearance="hour" ref="/ict4.2.2.1-a/trimestres/trimestre/hora_pico_fin">
+          <input ref="/ict4.2.2.1-a/trimestres/relacion/hora_pico_fin">
             <label>Hora Pico Fin</label>
             <hint>Hora Pico Final</hint>
           </input>
-          <input appearance="numerador" ref="/ict4.2.2.1-a/trimestres/trimestre/cantidad_llamadas">
+          <input appearance="numerador" ref="/ict4.2.2.1-a/trimestres/relacion/cantidad_llamadas">
             <label>Cant. de llamadas completadas</label>
             <hint>Cantidad de llamadas completadas originadas en el Área Local</hint>
           </input>
-          <input appearance="denominador" ref="/ict4.2.2.1-a/trimestres/trimestre/cantidad_intentos">
-            <label>Cant. de intentos de llamadas excluyendo las &quot;No Contesta u Ocupado&quot;</label>
+          <input appearance="denominador" ref="/ict4.2.2.1-a/trimestres/relacion/cantidad_intentos">
+            <label>excluyendo las &quot;No Contesta u Ocupado&quot;</label>
             <hint>Cantidad de intentos de llamadas originadas en el Área Local excluyendo llamadas con retorno &quot;No Contesta u Ocupado&quot;</hint>
           </input>
-          <input appearance="porcentaje" ref="/ict4.2.2.1-a/trimestres/trimestre/porcentaje">
+          <input appearance="porcentaje" ref="/ict4.2.2.1-a/trimestres/relacion/porcentaje">
             <label>Resultado (%)</label>
             <hint>Resultado del Indicador</hint>
           </input>

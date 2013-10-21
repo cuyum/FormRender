@@ -283,4 +283,4 @@ INSERT INTO formulario (codigo, nombre, formVersion, archivo, version,xsltransfo
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version,xsltransform_id) VALUES ('ict4.2.4.3','ict4.2.4.3','ict4.2.4.3-V001-OCT09','ict4.2.4.3.xml', 0,1);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version,xsltransform_id) VALUES ('ict4.2.4.4','ict4.2.4.4','ict4.2.4.4-V001-OCT09','ict4.2.4.4.xml', 0,1);
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version,xsltransform_id) VALUES ('ict4.2.4.5','ict4.2.4.5','ict4.2.4.5-V001-OCT09','ict4.2.4.5.xml', 0,1);
-INSERT INTO formulario (codigo, nombre, formVersion, archivo, version,xsltransform_id) VALUES ('ict4.2.4.5-a','ict4.2.4.5-a','ict4.2.4.5-a-V001-OCT04','ict4.2.4.5-a.xml', 0,1);
+INSERT INTO formulario (codigo, nombre, formVersion, archivo, version,xsltransform_id) VALUES ('ict4.2.5','ict4.2.5','ict4.2.5-V002-OCT21','ict4.2.5.xml', 0,1);

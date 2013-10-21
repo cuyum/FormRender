@@ -1,13 +1,14 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario 4.2.2. Cuadro A - TAR</h:title>
+    <h:title>Formulario 4.2.2-A Accesibilidad del Servicio - Cuadro A</h:title>
     <model>
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <ict4.2.2 id="ICT4.2.2">
           <trimestres jr:template="">
-            <trimestre>
+            <tasa>
+              <periodo_considerado/>
               <provincia/>
               <partido/>
               <partido_otro/>
@@ -20,25 +21,26 @@
               <cantidad_asignada_ex/>
               <cantidad_total_tent/>
               <porcentaje/>
-            </trimestre>
+            </tasa>
           </trimestres>
           <meta>
             <instanceID/>
           </meta>
         </ict4.2.2>
       </instance>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/ict4.2.2/trimestres/trimestre/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/ict4.2.2/trimestres/trimestre/provincia" nodeset="/ict4.2.2/trimestres/trimestre/partido" required="true()" type="select1"/>
-      <bind nodeset="/ict4.2.2/trimestres/trimestre/partido_otro" relevant=" /ict4.2.2/trimestres/trimestre/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/ict4.2.2/trimestres/trimestre/partido" nodeset="/ict4.2.2/trimestres/trimestre/localidad" required="true()" type="select1"/>
-      <bind nodeset="/ict4.2.2/trimestres/trimestre/localidad_otro" relevant=" /ict4.2.2/trimestres/trimestre/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/ict4.2.2/trimestres/trimestre/localidad" nodeset="/ict4.2.2/trimestres/trimestre/area" required="true()" type="select1"/>
-      <bind nodeset="/ict4.2.2/trimestres/trimestre/area_otro" relevant=" /ict4.2.2/trimestres/trimestre/area =9999" required="true()" type="string"/>
-      <bind nodeset="/ict4.2.2/trimestres/trimestre/hora_pico_inicio" required="true()" type="time"/>
-      <bind nodeset="/ict4.2.2/trimestres/trimestre/hora_pico_fin" required="true()" type="time"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.2.2/trimestres/trimestre/cantidad_asignada_ex" required="true()" type="int"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.2.2/trimestres/trimestre/cantidad_total_tent" required="true()" type="int"/>
-      <bind nodeset="/ict4.2.2/trimestres/trimestre/porcentaje" required="true()" type="decimal"/>
+      <bind nodeset="/ict4.2.2/trimestres/tasa/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/ict4.2.2/trimestres/tasa/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/ict4.2.2/trimestres/tasa/provincia" nodeset="/ict4.2.2/trimestres/tasa/partido" required="true()" type="select1"/>
+      <bind nodeset="/ict4.2.2/trimestres/tasa/partido_otro" relevant=" /ict4.2.2/trimestres/tasa/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/ict4.2.2/trimestres/tasa/partido" nodeset="/ict4.2.2/trimestres/tasa/localidad" required="true()" type="select1"/>
+      <bind nodeset="/ict4.2.2/trimestres/tasa/localidad_otro" relevant=" /ict4.2.2/trimestres/tasa/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/ict4.2.2/trimestres/tasa/localidad" nodeset="/ict4.2.2/trimestres/tasa/area" required="true()" type="select1"/>
+      <bind nodeset="/ict4.2.2/trimestres/tasa/area_otro" relevant=" /ict4.2.2/trimestres/tasa/area =9999" required="true()" type="string"/>
+      <bind nodeset="/ict4.2.2/trimestres/tasa/hora_pico_inicio" required="true()" type="time"/>
+      <bind nodeset="/ict4.2.2/trimestres/tasa/hora_pico_fin" required="true()" type="time"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.2.2/trimestres/tasa/cantidad_asignada_ex" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.2.2/trimestres/tasa/cantidad_total_tent" required="true()" type="int"/>
+      <bind nodeset="/ict4.2.2/trimestres/tasa/porcentaje" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.2.2/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -46,9 +48,85 @@
     <group ref="/ict4.2.2/trimestres">
       <label></label>
       <repeat appearance="grilla" nodeset="/ict4.2.2/trimestres">
-        <group appearance="col3 well-white" ref="/ict4.2.2/trimestres/trimestre">
-          <label>Trimestre1-Año1</label>
-          <select1 appearance="minimal" ref="/ict4.2.2/trimestres/trimestre/provincia">
+        <group appearance="col3 well-white" ref="/ict4.2.2/trimestres/tasa">
+          <label>Tasa de Asignación de Recursos (TAR)</label>
+          <select1 appearance="minimal" ref="/ict4.2.2/trimestres/tasa/periodo_considerado">
+            <label>Período Considerado</label>
+            <hint>Período Considerado</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>Enero</label>
+              <value>Enero</value>
+            </item>
+            <item>
+              <label>Febrero</label>
+              <value>Febrero</value>
+            </item>
+            <item>
+              <label>Marzo</label>
+              <value>Marzo</value>
+            </item>
+            <item>
+              <label>Abril</label>
+              <value>Abril</value>
+            </item>
+            <item>
+              <label>Mayo</label>
+              <value>Mayo</value>
+            </item>
+            <item>
+              <label>Junio</label>
+              <value>Junio</value>
+            </item>
+            <item>
+              <label>Julio</label>
+              <value>Julio</value>
+            </item>
+            <item>
+              <label>Agosto</label>
+              <value>Agosto</value>
+            </item>
+            <item>
+              <label>Septiembre</label>
+              <value>Septiembre</value>
+            </item>
+            <item>
+              <label>Octubre</label>
+              <value>Octubre</value>
+            </item>
+            <item>
+              <label>Noviembre</label>
+              <value>Noviembre</value>
+            </item>
+            <item>
+              <label>Diciembre</label>
+              <value>Diciembre</value>
+            </item>
+            <item>
+              <label>1º Trimestre</label>
+              <value>1º Trimestre</value>
+            </item>
+            <item>
+              <label>2º Trimestre</label>
+              <value>2º Trimestre</value>
+            </item>
+            <item>
+              <label>3º trimestre</label>
+              <value>3º trimestre</value>
+            </item>
+            <item>
+              <label>4º trimestre</label>
+              <value>4º trimestre</value>
+            </item>
+            <item>
+              <label>Anual</label>
+              <value>Anual</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/ict4.2.2/trimestres/tasa/provincia">
             <label>Provincia</label>
             <hint>Provincia</hint>
             <item>
@@ -56,7 +134,7 @@
               <value>-1</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/ict4.2.2/trimestres/trimestre/partido">
+          <select1 appearance="minimal" ref="/ict4.2.2/trimestres/tasa/partido">
             <label>Departamento / Partido</label>
             <hint>Departamento / Partido</hint>
             <item>
@@ -64,11 +142,11 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/ict4.2.2/trimestres/trimestre/partido_otro">
+          <input ref="/ict4.2.2/trimestres/tasa/partido_otro">
             <label>Partido Otros</label>
             <hint>Partido Otros</hint>
           </input>
-          <select1 appearance="minimal" ref="/ict4.2.2/trimestres/trimestre/localidad">
+          <select1 appearance="minimal" ref="/ict4.2.2/trimestres/tasa/localidad">
             <label>Localidad</label>
             <hint>Localidad</hint>
             <item>
@@ -76,11 +154,11 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/ict4.2.2/trimestres/trimestre/localidad_otro">
+          <input ref="/ict4.2.2/trimestres/tasa/localidad_otro">
             <label>Localidad Otros</label>
             <hint>Localidad Otros</hint>
           </input>
-          <select1 appearance="minimal" ref="/ict4.2.2/trimestres/trimestre/area">
+          <select1 appearance="minimal" ref="/ict4.2.2/trimestres/tasa/area">
             <label>Área Local</label>
             <hint>Área Local</hint>
             <item>
@@ -88,27 +166,27 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/ict4.2.2/trimestres/trimestre/area_otro">
+          <input ref="/ict4.2.2/trimestres/tasa/area_otro">
             <label>Área Otros</label>
             <hint>Área Otros</hint>
           </input>
-          <input ref="/ict4.2.2/trimestres/trimestre/hora_pico_inicio">
+          <input ref="/ict4.2.2/trimestres/tasa/hora_pico_inicio">
             <label>Hora Pico Inicio</label>
             <hint>Hora Pico Inicio</hint>
           </input>
-          <input ref="/ict4.2.2/trimestres/trimestre/hora_pico_fin">
+          <input ref="/ict4.2.2/trimestres/tasa/hora_pico_fin">
             <label>Hora Pico Fin</label>
             <hint>Hora Pico Final</hint>
           </input>
-          <input appearance="numerador" ref="/ict4.2.2/trimestres/trimestre/cantidad_asignada_ex">
+          <input appearance="numerador" ref="/ict4.2.2/trimestres/tasa/cantidad_asignada_ex">
             <label>Cant. de asignaciones exitosas de los recursos</label>
             <hint>Cantidad de asignaciones exitosas de los recursos necesarios para gestionar la comunicación</hint>
           </input>
-          <input appearance="denominador" ref="/ict4.2.2/trimestres/trimestre/cantidad_total_tent">
-            <label>Cant. de tentativas de asignación de recursos realizadas</label>
+          <input appearance="denominador" ref="/ict4.2.2/trimestres/tasa/cantidad_total_tent">
+            <label>Cant. de tent. de asignación de recursos realizadas</label>
             <hint>Cantidad total de tentativas de asignación de recursos realizadas</hint>
           </input>
-          <input appearance="porcentaje" ref="/ict4.2.2/trimestres/trimestre/porcentaje">
+          <input appearance="porcentaje" ref="/ict4.2.2/trimestres/tasa/porcentaje">
             <label>Resultado (%)</label>
             <hint>Resultado del Indicador</hint>
           </input>

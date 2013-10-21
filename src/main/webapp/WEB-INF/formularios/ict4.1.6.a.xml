@@ -1,13 +1,14 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario 4.1.6 A Cuadro A - IRF</h:title>
+    <h:title>Formulario 4.1.6-A Indicador sobre Reclamos de Facturación - Cuadro A</h:title>
     <model>
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <ict4.1.6.a id="ICT4.1.6.A">
           <meses jr:template="">
             <mes>
+              <periodo_considerado/>
               <cant_reclamo_fac/>
               <factura_emitida/>
               <porcentaje/>
@@ -18,6 +19,7 @@
           </meta>
         </ict4.1.6.a>
       </instance>
+      <bind nodeset="/ict4.1.6.a/meses/mes/periodo_considerado" required="true()" type="select1"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.6.a/meses/mes/cant_reclamo_fac" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.6.a/meses/mes/factura_emitida" required="true()" type="int"/>
       <bind nodeset="/ict4.1.6.a/meses/mes/porcentaje" required="true()" type="decimal"/>
@@ -28,8 +30,84 @@
     <group ref="/ict4.1.6.a/meses">
       <label></label>
       <repeat appearance="grilla" nodeset="/ict4.1.6.a/meses">
-        <group appearance="col3 well-white variable" ref="/ict4.1.6.a/meses/mes">
-          <label>{title}</label>
+        <group appearance="col3 well-white" ref="/ict4.1.6.a/meses/mes">
+          <label>Relación entre reclamos sobre Facturación y Facturas emitidas</label>
+          <select1 appearance="minimal" ref="/ict4.1.6.a/meses/mes/periodo_considerado">
+            <label>Período Considerado</label>
+            <hint>Período Considerado</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>Enero</label>
+              <value>Enero</value>
+            </item>
+            <item>
+              <label>Febrero</label>
+              <value>Febrero</value>
+            </item>
+            <item>
+              <label>Marzo</label>
+              <value>Marzo</value>
+            </item>
+            <item>
+              <label>Abril</label>
+              <value>Abril</value>
+            </item>
+            <item>
+              <label>Mayo</label>
+              <value>Mayo</value>
+            </item>
+            <item>
+              <label>Junio</label>
+              <value>Junio</value>
+            </item>
+            <item>
+              <label>Julio</label>
+              <value>Julio</value>
+            </item>
+            <item>
+              <label>Agosto</label>
+              <value>Agosto</value>
+            </item>
+            <item>
+              <label>Septiembre</label>
+              <value>Septiembre</value>
+            </item>
+            <item>
+              <label>Octubre</label>
+              <value>Octubre</value>
+            </item>
+            <item>
+              <label>Noviembre</label>
+              <value>Noviembre</value>
+            </item>
+            <item>
+              <label>Diciembre</label>
+              <value>Diciembre</value>
+            </item>
+            <item>
+              <label>1º Trimestre</label>
+              <value>1º Trimestre</value>
+            </item>
+            <item>
+              <label>2º Trimestre</label>
+              <value>2º Trimestre</value>
+            </item>
+            <item>
+              <label>3º trimestre</label>
+              <value>3º trimestre</value>
+            </item>
+            <item>
+              <label>4º trimestre</label>
+              <value>4º trimestre</value>
+            </item>
+            <item>
+              <label>Anual</label>
+              <value>Anual</value>
+            </item>
+          </select1>
           <input appearance="numerador" ref="/ict4.1.6.a/meses/mes/cant_reclamo_fac">
             <label>Cant. de reclamos por Facturación</label>
             <hint>Cantidad de reclamos por Facturación</hint>
