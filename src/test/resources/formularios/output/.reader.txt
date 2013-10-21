@@ -1,0 +1,1 @@
+carpeta de salida de los json schemas data de los formularios, que se generan en el test
