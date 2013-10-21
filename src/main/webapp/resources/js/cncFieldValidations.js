@@ -452,13 +452,76 @@ var setupDataConstraints = function(field){
 			if(constraint.indexOf("mask=")!=-1){
 				var mask = constraint.substring(constraint.indexOf("mask=")+5);
 				field.data("jr:constraint:mask",mask);
-			}
+			}else
+			/*porcentual constraint*/
+			if(constraint.indexOf("porcentual=")!=-1){
+				var porcentual = constraint.substring(constraint.indexOf("porcentual=")+11);
+				field.data("jr:constraint:porcentual",porcentual);
+			}	
 			constraintContainer.push(constraint);
 		}
 		
 		field.data("jr:constraints",constraintContainer);
 	}
 //	console.groupEnd();
+};
+
+var setupPorcentual = function(field,fieldset){
+	if(field.data("jr:constraint:porcentual")!=undefined){
+		var porcentualVars = field.data("jr:constraint:porcentual").split(",");
+		if(porcentualVars.length==3){
+			var dividendo = gui.getField(porcentualVars[0],fieldset);
+			var divisor = gui.getField(porcentualVars[1],fieldset);
+			var porcentual = porcentualVars[2];
+			console.log(dividendo,divisor,porcentual);
+			if(dividendo.length == 1 && divisor.length == 1 && !isNaN(porcentual)){
+				
+				dividendo.on("change",{
+					divisor : divisor,
+					porcentual : porcentual,
+					total:field
+				},function(evt){
+					var divisor = evt.data.divisor;
+					var porcentual = evt.data.porcentual;
+					var total = evt.data.total;
+					
+					if(divisor.val()!=undefined && divisor.val().trim()!="" && !isNaN(divisor.val())
+							&& this.value!=undefined && this.value.trim()!="" && !isNaN(this.value)){
+						
+						if(divisor.val()>0){
+							total.val(this.value / divisor.val() * porcentual);
+						}else{
+							total.val(0);
+						}
+					}else console.log("error");
+				});
+
+				divisor.on("change",{
+					dividendo : dividendo,
+					porcentual : porcentual,
+					total:field
+				},function(evt){
+					var dividendo = evt.data.dividendo;
+					var porcentual = evt.data.porcentual;
+					var total = evt.data.total;
+					if(dividendo.val()!=undefined && dividendo.val().trim()!="" && !isNaN(dividendo.val())
+							&& this.value!=undefined && this.value.trim()!="" && !isNaN(this.value)){
+						
+						if(this.value>0){
+							total.val(dividendo.val() / this.value * porcentual);
+						}else{
+							total.val(0);
+						}
+					}else console.log("error");
+				});
+				
+			}else{
+				console.error("No se encontro el dividendo o el divisor para calcular porcentaje en "+field.attr("name"));
+			}
+		}else{
+			console.error("No se puede determinar el porcentaje de "+field.attr("name")+" ya que se declararon menos de 3 variables.");
+		}
+	}
 };
 
 var validationDecimal = function(field){
@@ -710,6 +773,7 @@ var setupValidations = function(f,fieldset){
 	validationCuit(field);
 	
 	/*Aditional field logic*/
+	setupPorcentual(field,fieldset);
 	setupCalculate(field,fieldset);
 	setupMask(field);
 	setupRelevantData(field,fieldset);
