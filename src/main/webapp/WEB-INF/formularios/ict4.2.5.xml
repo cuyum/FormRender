@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario 4.2.4.5-A Tasa de Cumplimiento de la Velocidad Efectiva Media de Transferencia - Cuadro A</h:title>
+    <h:title>Formulario 4.2.5-A Tasa de Entrega de Mensajes Cortos - Cuadro A</h:title>
     <model>
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
-        <ict4.2.4.5-a id="ICT4.2.4.5-A">
+        <ict4.2.5 id="ICT4.2.5">
           <trimestres jr:template="">
             <trimestre>
               <periodo_considerado/>
@@ -17,22 +17,22 @@
           <meta>
             <instanceID/>
           </meta>
-        </ict4.2.4.5-a>
+        </ict4.2.5>
       </instance>
-      <bind nodeset="/ict4.2.4.5-a/trimestres/trimestre/periodo_considerado" required="true()" type="select1"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.2.4.5-a/trimestres/trimestre/cantidad_mensajes_cortos" required="true()" type="int"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.2.4.5-a/trimestres/trimestre/cantidad_total_mensajes" required="true()" type="int"/>
-      <bind nodeset="/ict4.2.4.5-a/trimestres/trimestre/porcentaje" required="true()" type="decimal"/>
-      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.2.4.5-a/meta/instanceID" readonly="true()" type="string"/>
+      <bind nodeset="/ict4.2.5/trimestres/trimestre/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.2.5/trimestres/trimestre/cantidad_mensajes_cortos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.2.5/trimestres/trimestre/cantidad_total_mensajes" required="true()" type="int"/>
+      <bind nodeset="/ict4.2.5/trimestres/trimestre/porcentaje" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.2.5/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group ref="/ict4.2.4.5-a/trimestres">
+    <group ref="/ict4.2.5/trimestres">
       <label></label>
-      <repeat appearance="grilla" nodeset="/ict4.2.4.5-a/trimestres">
-        <group appearance="col3 well-white" ref="/ict4.2.4.5-a/trimestres/trimestre">
-          <label>Relación entre la Velocidad Efectiva Media de Transferencia y la Velocidad de Transferencia Nominal</label>
-          <select1 appearance="minimal" ref="/ict4.2.4.5-a/trimestres/trimestre/periodo_considerado">
+      <repeat appearance="grilla" nodeset="/ict4.2.5/trimestres">
+        <group appearance="col3 well-white" ref="/ict4.2.5/trimestres/trimestre">
+          <label>Relación entre la Cant. de mensajes cortos entregados por el SMSC y la Cant. total de mensajes cortos recibidos por el SMSC</label>
+          <select1 appearance="minimal" ref="/ict4.2.5/trimestres/trimestre/periodo_considerado">
             <label>Período Considerado</label>
             <hint>Período Considerado</hint>
             <item>
@@ -108,15 +108,15 @@
               <value>Anual</value>
             </item>
           </select1>
-          <input appearance="numerador" ref="/ict4.2.4.5-a/trimestres/trimestre/cantidad_mensajes_cortos">
+          <input appearance="numerador" ref="/ict4.2.5/trimestres/trimestre/cantidad_mensajes_cortos">
             <label>Cant. de mensajes cortos entregados por el SMSC</label>
             <hint>Cantidad de mensajes cortos entregados por el SMSC</hint>
           </input>
-          <input appearance="denominador" ref="/ict4.2.4.5-a/trimestres/trimestre/cantidad_total_mensajes">
+          <input appearance="denominador" ref="/ict4.2.5/trimestres/trimestre/cantidad_total_mensajes">
             <label>Cant. total de mensajes cortos recibidos por el SMSC</label>
             <hint>Cantidad total de mensajes cortos recibidos por el SMSC</hint>
           </input>
-          <input appearance="porcentaje" ref="/ict4.2.4.5-a/trimestres/trimestre/porcentaje">
+          <input appearance="porcentaje" ref="/ict4.2.5/trimestres/trimestre/porcentaje">
             <label>Resultado (%)</label>
             <hint>Resultado del Indicador</hint>
           </input>

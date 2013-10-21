@@ -1,13 +1,14 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario 4.1.1.E Cuadro E - IRU</h:title>
+    <h:title>Formulario 4.1.1-E Indicador de reclamos de usuarios - Cuadro E</h:title>
     <model>
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <ict4.1.1.e id="ICT4.1.1.e">
           <meses jr:template="">
             <mes>
+              <periodo_considerado/>
               <canales/>
               <canales_otros/>
               <id_bocas/>
@@ -26,6 +27,7 @@
           </meta>
         </ict4.1.1.e>
       </instance>
+      <bind nodeset="/ict4.1.1.e/meses/mes/periodo_considerado" required="true()" type="select1"/>
       <bind nodeset="/ict4.1.1.e/meses/mes/canales" required="true()" type="select1"/>
       <bind nodeset="/ict4.1.1.e/meses/mes/canales_otros" relevant=" /ict4.1.1.e/meses/mes/canales =Otros" required="true()" type="string"/>
       <bind nodeset="/ict4.1.1.e/meses/mes/id_bocas" required="true()" type="select1"/>
@@ -44,8 +46,84 @@
     <group ref="/ict4.1.1.e/meses">
       <label></label>
       <repeat appearance="grilla" nodeset="/ict4.1.1.e/meses">
-        <group appearance="col4 well-white variable" ref="/ict4.1.1.e/meses/mes">
-          <label>{title}</label>
+        <group appearance="col4 well-white" ref="/ict4.1.1.e/meses/mes">
+          <label>Información sobre los Canales de Atención al Usuario</label>
+          <select1 appearance="minimal" ref="/ict4.1.1.e/meses/mes/periodo_considerado">
+            <label>Período Considerado</label>
+            <hint>Período Considerado</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>Enero</label>
+              <value>Enero</value>
+            </item>
+            <item>
+              <label>Febrero</label>
+              <value>Febrero</value>
+            </item>
+            <item>
+              <label>Marzo</label>
+              <value>Marzo</value>
+            </item>
+            <item>
+              <label>Abril</label>
+              <value>Abril</value>
+            </item>
+            <item>
+              <label>Mayo</label>
+              <value>Mayo</value>
+            </item>
+            <item>
+              <label>Junio</label>
+              <value>Junio</value>
+            </item>
+            <item>
+              <label>Julio</label>
+              <value>Julio</value>
+            </item>
+            <item>
+              <label>Agosto</label>
+              <value>Agosto</value>
+            </item>
+            <item>
+              <label>Septiembre</label>
+              <value>Septiembre</value>
+            </item>
+            <item>
+              <label>Octubre</label>
+              <value>Octubre</value>
+            </item>
+            <item>
+              <label>Noviembre</label>
+              <value>Noviembre</value>
+            </item>
+            <item>
+              <label>Diciembre</label>
+              <value>Diciembre</value>
+            </item>
+            <item>
+              <label>1º Trimestre</label>
+              <value>1º Trimestre</value>
+            </item>
+            <item>
+              <label>2º Trimestre</label>
+              <value>2º Trimestre</value>
+            </item>
+            <item>
+              <label>3º trimestre</label>
+              <value>3º trimestre</value>
+            </item>
+            <item>
+              <label>4º trimestre</label>
+              <value>4º trimestre</value>
+            </item>
+            <item>
+              <label>Anual</label>
+              <value>Anual</value>
+            </item>
+          </select1>
           <select1 appearance="minimal" ref="/ict4.1.1.e/meses/mes/canales">
             <label>Canales de Atención al Usuario</label>
             <hint>Canales de Atención al Usuario</hint>
@@ -155,7 +233,7 @@
             <hint>Tiempo de espera promedio en atención al cliente</hint>
           </input>
           <input ref="/ict4.1.1.e/meses/mes/personal_afectado_reclamos">
-            <label>Personal afectado a la recepción de Reclamos</label>
+            <label>Pers. afectado a la recep. de Reclamos</label>
             <hint>Personal afectado a la recepción de Reclamos</hint>
           </input>
           <input ref="/ict4.1.1.e/meses/mes/personal_afectado_otras">

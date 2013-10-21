@@ -1,92 +1,154 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Formulario 4.2.1. Cuadro A - FNR</h:title>
+    <h:title>Formulario 4.2.1-A Factor Nominal de Reuso - Cuadro A</h:title>
     <model>
       <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
-        <ict4.2.1 id="ICT4.2.1">
-          <trimestres jr:template="">
-            <trimestre>
-              <provincia/>
-              <partido/>
-              <partido_otro/>
-              <localidad/>
-              <localidad_otro/>
-              <area/>
-              <area_otro/>
+        <ict4.2.1 id="ICT4.2.1-A">
+          <meses jr:template="">
+            <factor_nominal>
+              <periodo_considerado/>
+              <red_interna/>
+              <velocidad/>
+              <diferencia/>
               <fnr/>
-            </trimestre>
-          </trimestres>
+            </factor_nominal>
+          </meses>
           <meta>
             <instanceID/>
           </meta>
         </ict4.2.1>
       </instance>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/ict4.2.1/trimestres/trimestre/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/ict4.2.1/trimestres/trimestre/provincia" nodeset="/ict4.2.1/trimestres/trimestre/partido" required="true()" type="select1"/>
-      <bind nodeset="/ict4.2.1/trimestres/trimestre/partido_otro" relevant=" /ict4.2.1/trimestres/trimestre/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/ict4.2.1/trimestres/trimestre/partido" nodeset="/ict4.2.1/trimestres/trimestre/localidad" required="true()" type="select1"/>
-      <bind nodeset="/ict4.2.1/trimestres/trimestre/localidad_otro" relevant=" /ict4.2.1/trimestres/trimestre/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/ict4.2.1/trimestres/trimestre/localidad" nodeset="/ict4.2.1/trimestres/trimestre/area" required="true()" type="select1"/>
-      <bind nodeset="/ict4.2.1/trimestres/trimestre/area_otro" relevant=" /ict4.2.1/trimestres/trimestre/area =9999" required="true()" type="string"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.2.1/trimestres/trimestre/fnr" required="true()" type="int"/>
+      <bind nodeset="/ict4.2.1/meses/factor_nominal/periodo_considerado" required="true()" type="select1"/>
+      <bind nodeset="/ict4.2.1/meses/factor_nominal/red_interna" required="true()" type="select1"/>
+      <bind constraint=".&gt;0" nodeset="/ict4.2.1/meses/factor_nominal/velocidad" required="true()" type="int"/>
+      <bind constraint=".&gt;0" nodeset="/ict4.2.1/meses/factor_nominal/diferencia" required="true()" type="int"/>
+      <bind nodeset="/ict4.2.1/meses/factor_nominal/fnr" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.2.1/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group ref="/ict4.2.1/trimestres">
+    <group ref="/ict4.2.1/meses">
       <label></label>
-      <repeat appearance="grilla" nodeset="/ict4.2.1/trimestres">
-        <group appearance="col3 well-white" ref="/ict4.2.1/trimestres/trimestre">
-          <label>Trimestre1-Año1</label>
-          <select1 appearance="minimal" ref="/ict4.2.1/trimestres/trimestre/provincia">
-            <label>Provincia</label>
-            <hint>Provincia</hint>
+      <repeat appearance="grilla" nodeset="/ict4.2.1/meses">
+        <group appearance="col3 well-white" ref="/ict4.2.1/meses/factor_nominal">
+          <label>Factor Nominal de Reuso por Área de red interna</label>
+          <select1 appearance="minimal" ref="/ict4.2.1/meses/factor_nominal/periodo_considerado">
+            <label>Período Considerado</label>
+            <hint>Período Considerado</hint>
             <item>
               <label>Seleccione una opción</label>
               <value>-1</value>
             </item>
+            <item>
+              <label>Enero</label>
+              <value>Enero</value>
+            </item>
+            <item>
+              <label>Febrero</label>
+              <value>Febrero</value>
+            </item>
+            <item>
+              <label>Marzo</label>
+              <value>Marzo</value>
+            </item>
+            <item>
+              <label>Abril</label>
+              <value>Abril</value>
+            </item>
+            <item>
+              <label>Mayo</label>
+              <value>Mayo</value>
+            </item>
+            <item>
+              <label>Junio</label>
+              <value>Junio</value>
+            </item>
+            <item>
+              <label>Julio</label>
+              <value>Julio</value>
+            </item>
+            <item>
+              <label>Agosto</label>
+              <value>Agosto</value>
+            </item>
+            <item>
+              <label>Septiembre</label>
+              <value>Septiembre</value>
+            </item>
+            <item>
+              <label>Octubre</label>
+              <value>Octubre</value>
+            </item>
+            <item>
+              <label>Noviembre</label>
+              <value>Noviembre</value>
+            </item>
+            <item>
+              <label>Diciembre</label>
+              <value>Diciembre</value>
+            </item>
+            <item>
+              <label>1º Trimestre</label>
+              <value>1º Trimestre</value>
+            </item>
+            <item>
+              <label>2º Trimestre</label>
+              <value>2º Trimestre</value>
+            </item>
+            <item>
+              <label>3º trimestre</label>
+              <value>3º trimestre</value>
+            </item>
+            <item>
+              <label>4º trimestre</label>
+              <value>4º trimestre</value>
+            </item>
+            <item>
+              <label>Anual</label>
+              <value>Anual</value>
+            </item>
           </select1>
-          <select1 appearance="minimal" ref="/ict4.2.1/trimestres/trimestre/partido">
-            <label>Partido / Departamento</label>
-            <hint>Partido/Departamento</hint>
+          <select1 appearance="minimal" ref="/ict4.2.1/meses/factor_nominal/red_interna">
+            <label>Área de red interna</label>
+            <hint>Área de red interna</hint>
             <item>
               <label>Seleccione una opción</label>
               <value>-1</value>
             </item>
+            <item>
+              <label>Área de Red Interna 1</label>
+              <value>Área de Red Interna 1</value>
+            </item>
+            <item>
+              <label>Área de Red Interna 2</label>
+              <value>Área de Red Interna 2</value>
+            </item>
+            <item>
+              <label>Área de Red Interna 3</label>
+              <value>Área de Red Interna 3</value>
+            </item>
+            <item>
+              <label>Área de Red Interna 4</label>
+              <value>Área de Red Interna 4</value>
+            </item>
+            <item>
+              <label>Área de Red Interna 5</label>
+              <value>Área de Red Interna 5</value>
+            </item>
           </select1>
-          <input ref="/ict4.2.1/trimestres/trimestre/partido_otro">
-            <label>Partido Otros</label>
-            <hint>Partido Otros</hint>
+          <input ref="/ict4.2.1/meses/factor_nominal/velocidad">
+            <label>Velocidad nominal de transferencia (VNT) de bajada del usuario con acceso multiplexado</label>
+            <hint>Velocidad nominal de transferencia (VNT) de bajada del usuario con acceso multiplexado</hint>
           </input>
-          <select1 appearance="minimal" ref="/ict4.2.1/trimestres/trimestre/localidad">
-            <label>Localidad</label>
-            <hint>Localidad</hint>
-            <item>
-              <label>Seleccione una opción</label>
-              <value>-1</value>
-            </item>
-          </select1>
-          <input ref="/ict4.2.1/trimestres/trimestre/localidad_otro">
-            <label>Localidad Otros</label>
-            <hint>Localidad Otros</hint>
+          <input ref="/ict4.2.1/meses/factor_nominal/diferencia">
+            <label>Diferencia entre la suma de la VNT de los vínculos entre prestadores y la VNT de bajada de los usuarios con accesos dedicados</label>
+            <hint>Diferencia entre la suma de las velocidades nominales de transferencia de los vínculos entre prestadores y las velocidades de transferencia nominal de bajada de los usuarios con accesos dedicados</hint>
           </input>
-          <select1 appearance="minimal" ref="/ict4.2.1/trimestres/trimestre/area">
-            <label>Área Local</label>
-            <hint>Área Local</hint>
-            <item>
-              <label>Seleccione una opción</label>
-              <value>-1</value>
-            </item>
-          </select1>
-          <input ref="/ict4.2.1/trimestres/trimestre/area_otro">
-            <label>Área Otros</label>
-            <hint>Área Otros</hint>
-          </input>
-          <input ref="/ict4.2.1/trimestres/trimestre/fnr">
+          <input ref="/ict4.2.1/meses/factor_nominal/fnr">
             <label>FNR</label>
-            <hint>Número entero mayor o igual a 0</hint>
+            <hint>FNR</hint>
           </input>
         </group>
       </repeat>
