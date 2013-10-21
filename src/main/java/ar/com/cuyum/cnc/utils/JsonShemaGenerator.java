@@ -24,6 +24,7 @@ import ar.com.cuyum.cnc.exceptions.ExceptionParserJson;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.node.TextNode;
 
 /**
  * 
@@ -214,6 +215,23 @@ public class JsonShemaGenerator {
 				.getOwnerDocument().getElementsByTagName("bind");
 	}
 
+	
+	/**
+	 * Busca los bind del archivo xml
+	 * 
+	 * @author ltroconis
+	 * @param doc Document del archivo xml
+	 * 
+	 * @return la lista de nodos binsds del xml
+	 */
+	@VisibleForTesting
+	public static String getActionFromXml(Document doc) {
+		return doc.getDocumentElement().getElementsByTagName("h:head").item(0)
+				.getOwnerDocument().getElementsByTagName("model").item(0)
+				.getOwnerDocument().getElementsByTagName("submission").item(0)
+				.getAttributes().getNamedItem("action").getNodeValue();
+	}
+	
 	/**
 	 * Busca el id del formulario en el xml
 	 * 
@@ -262,7 +280,9 @@ public class JsonShemaGenerator {
 		Document doc = db.parse(fXmlFile);
 
 		NodeList binds = getBindsFromXml(doc);
-
+		
+		String action  = getActionFromXml(doc);
+		
 		String idformulario = getIdFormularioFromXml(doc);
 
 		log.info("Procesando formulario:" + idformulario);
@@ -310,6 +330,7 @@ public class JsonShemaGenerator {
 		}
 		returnNode.put("properties", properties);
 		returnNode.put("required", required);
+		returnNode.put("action", action);
 
 		return returnNode;
 	}
@@ -342,7 +363,7 @@ public class JsonShemaGenerator {
 	 * @return ObjectNode el objeto jsonschema final 
 	 */
 	@VisibleForTesting
-	private ObjectNode createJsonShemaObject(String id,
+	private ObjectNode createJsonShemaObject(String id,String action,
 			ArrayNode required, ObjectNode properties) {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode items = mapper.createObjectNode();
@@ -381,6 +402,9 @@ public class JsonShemaGenerator {
 		jsonSchema.put("type", "object");
 
 		jsonSchema.put("required", mapper.createArrayNode().add("formulario"));
+		
+		jsonSchemaProperties.put("action", action);
+		jsonSchemaProperties.put("method", "form-data-post");
 
 		jsonSchemaProperties.put("formulario", formulario);
 
@@ -412,8 +436,9 @@ public class JsonShemaGenerator {
 
 		ArrayNode required = (ArrayNode) propertiesNodes.get("required");
 		ObjectNode properties = (ObjectNode) propertiesNodes.get("properties");
-
-		ObjectNode jsonSchema = createJsonShemaObject(id, required, properties);
+		TextNode action = (TextNode) propertiesNodes.get("action"); 
+		
+		ObjectNode jsonSchema = createJsonShemaObject(id,action.asText(), required, properties);
 
 		String fileName = toDir + "/" + id + ".schema.json";
 
