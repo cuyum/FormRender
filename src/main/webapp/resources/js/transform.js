@@ -19,6 +19,8 @@ $(document).ready(function() {
 	var fs = $("fieldset.jr-repeat");
 	gui.repeatCount = gui.getURLParameter("repeat");
 	gui.renderGrid = fs.hasClass("grilla");
+	gui.renderTotal = fs.hasClass("totalizada");
+	gui.renderTotalizadores = fs.hasClass("agrupada");
 
 	/*building Form.fieldsets*/
 	if(fs.length>0 && gui.repeatCount>0){
@@ -75,7 +77,7 @@ $(document).ready(function() {
 		if(gui.renderGrid){
 			gui.grid.render(pfs);
 		}
-		
+
 		/*for each repeat instance*/
 		for ( var i = 0; i < gui.fieldsets.length; i++) {
 			/*for each field in instance*/
@@ -89,6 +91,7 @@ $(document).ready(function() {
 				setupCalculate(calculatedItems[j],fieldset);
 			}
 		}
+		
 		
 	}else if(fs.length>0 && gui.repeatCount==0){
 		console.error("Se encuentra repeat infinito");

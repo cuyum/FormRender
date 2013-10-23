@@ -457,7 +457,17 @@ var setupDataConstraints = function(field){
 			if(constraint.indexOf("porcentual=")!=-1){
 				var porcentual = constraint.substring(constraint.indexOf("porcentual=")+11);
 				field.data("jr:constraint:porcentual",porcentual);
-			}	
+			}else
+			/*agrupador constraint*/
+			if(constraint.indexOf("agrupador=")!=-1){
+				var agrupador = constraint.substring(constraint.indexOf("agrupador=")+10);
+				field.data("jr:constraint:agrupador",gui.toNumber(agrupador));
+			}else
+			/*totalizador constraint*/
+			if(constraint.indexOf("totalizador")!=-1){
+//				var totalizador = constraint.substring(constraint.indexOf("totalizador")+11);
+				field.data("jr:constraint:totalizador",true);
+			}
 			constraintContainer.push(constraint);
 		}
 		
@@ -473,7 +483,6 @@ var setupPorcentual = function(field,fieldset){
 			var dividendo = gui.getField(porcentualVars[0],fieldset);
 			var divisor = gui.getField(porcentualVars[1],fieldset);
 			var porcentual = porcentualVars[2];
-			console.log(dividendo,divisor,porcentual);
 			if(dividendo.length == 1 && divisor.length == 1 && !isNaN(porcentual)){
 				
 				dividendo.on("change",{
@@ -489,7 +498,7 @@ var setupPorcentual = function(field,fieldset){
 							&& this.value!=undefined && this.value.trim()!="" && !isNaN(this.value)){
 						
 						if(divisor.val()>0){
-							total.val(this.value / divisor.val() * porcentual);
+							total.val(cncFormNumber((this.value / divisor.val() * porcentual),2));
 						}else{
 							total.val(0);
 						}
@@ -508,7 +517,7 @@ var setupPorcentual = function(field,fieldset){
 							&& this.value!=undefined && this.value.trim()!="" && !isNaN(this.value)){
 						
 						if(this.value>0){
-							total.val(dividendo.val() / this.value * porcentual);
+							total.val(cncFromNumber((dividendo.val() / this.value * porcentual),2));
 						}else{
 							total.val(0);
 						}
