@@ -635,6 +635,9 @@ var gui = new function(){
 				record.item = fieldset.title;
 				tmpHash += tmpHash + fieldset.title;
 			}
+			if(gui.renderTotal){
+				record["rowTotal"] = 0;
+			}
 			var commit = true;
 			var hash;
 			for ( var i = 0; i < fieldset.fields.length; i++) {
@@ -663,8 +666,13 @@ var gui = new function(){
 								record[attribute] = {label:" ",value:null};
 							}
 						}else{
-							if(gui.isCNCNumberField(field)) 
+							if(gui.isCNCNumberField(field)){
 								value = gui.toNumber(value);
+								if(gui.renderTotal && field.data("jr:constraint:totalizador")==true){
+									record["rowTotal"] += value;
+								}
+							} 
+							
 							record[attribute] = value;
 							tmpHash = tmpHash + value;
 						}
@@ -729,8 +737,10 @@ var gui = new function(){
 			gridFieldset.appendTo(pfs);
 			$('<h4></h4>').append("<span>Resultados</span>").appendTo(gridFieldset);
 			$('<div class="table-overflow"></div>').append(this.element).appendTo(gridFieldset);
+			
 			if(gui.repeatCount && gui.repeatCount>1)
 				this.headers.push({"sTitle":"Meses","mData":"item"});
+			
 			for ( var i = 0 ; i<gui.fieldsets[0].fields.length;i++) {
 				var f = $(gui.fieldsets[0].fields[i]);
 				var attribute = gui.getCleanFieldName(f.attr("name"));
@@ -748,6 +758,13 @@ var gui = new function(){
 						"mData": ""+attribute
 					});
 				}
+			}
+			if(gui.renderTotal){
+				this.headers.push({
+					"sTitle":"Total",
+					"mData": "rowTotal",
+					"bSearchable": false,
+				});
 			}
 			this.headers.push({
 				"sTitle":"Acciones", 
