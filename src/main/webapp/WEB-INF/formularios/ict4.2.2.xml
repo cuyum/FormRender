@@ -40,7 +40,7 @@
       <bind nodeset="/ict4.2.2/trimestres/tasa/hora_pico_fin" required="true()" type="time"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.2.2/trimestres/tasa/cantidad_asignada_ex" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.2.2/trimestres/tasa/cantidad_total_tent" required="true()" type="int"/>
-      <bind constraint="porcentual= /ict4.2.2/trimestres/tasa/cantidad_asignada_ex , /ict4.2.2/trimestres/tasa/cantidad_total_tent ,100" nodeset="/ict4.2.2/trimestres/tasa/porcentaje" readonly="true()" type="string"/>
+      <bind constraint="porcentual= /ict4.2.2/trimestres/tasa/cantidad_asignada_ex , /ict4.2.2/trimestres/tasa/cantidad_total_tent ,100" nodeset="/ict4.2.2/trimestres/tasa/porcentaje" readonly="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.2.2/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
