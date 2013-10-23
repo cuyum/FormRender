@@ -40,7 +40,7 @@
       <bind nodeset="/ict4.2.2.1-a/trimestres/relacion/hora_pico_fin" required="true()" type="time"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.2.2.1-a/trimestres/relacion/cantidad_llamadas" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.2.2.1-a/trimestres/relacion/cantidad_intentos" required="true()" type="int"/>
-      <bind nodeset="/ict4.2.2.1-a/trimestres/relacion/porcentaje" required="true()" type="decimal"/>
+      <bind constraint="porcentual= /ict4.2.2.1-a/trimestres/relacion/cantidad_llamadas , /ict4.2.2.1-a/trimestres/relacion/cantidad_intentos ,100" nodeset="/ict4.2.2.1-a/trimestres/relacion/porcentaje" required="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.2.2.1-a/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -178,15 +178,15 @@
             <label>Hora Pico Fin</label>
             <hint>Hora Pico Final</hint>
           </input>
-          <input appearance="numerador" ref="/ict4.2.2.1-a/trimestres/relacion/cantidad_llamadas">
+          <input ref="/ict4.2.2.1-a/trimestres/relacion/cantidad_llamadas">
             <label>Cant. de llamadas completadas</label>
             <hint>Cantidad de llamadas completadas originadas en el Área Local</hint>
           </input>
-          <input appearance="denominador" ref="/ict4.2.2.1-a/trimestres/relacion/cantidad_intentos">
+          <input ref="/ict4.2.2.1-a/trimestres/relacion/cantidad_intentos">
             <label>excluyendo las &quot;No Contesta u Ocupado&quot;</label>
             <hint>Cantidad de intentos de llamadas originadas en el Área Local excluyendo llamadas con retorno &quot;No Contesta u Ocupado&quot;</hint>
           </input>
-          <input appearance="porcentaje" ref="/ict4.2.2.1-a/trimestres/relacion/porcentaje">
+          <input ref="/ict4.2.2.1-a/trimestres/relacion/porcentaje">
             <label>Resultado (%)</label>
             <hint>Resultado del Indicador</hint>
           </input>

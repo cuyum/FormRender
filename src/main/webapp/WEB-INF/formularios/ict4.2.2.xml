@@ -40,7 +40,7 @@
       <bind nodeset="/ict4.2.2/trimestres/tasa/hora_pico_fin" required="true()" type="time"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.2.2/trimestres/tasa/cantidad_asignada_ex" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.2.2/trimestres/tasa/cantidad_total_tent" required="true()" type="int"/>
-      <bind nodeset="/ict4.2.2/trimestres/tasa/porcentaje" required="true()" type="decimal"/>
+      <bind constraint="porcentual= /ict4.2.2/trimestres/tasa/cantidad_asignada_ex , /ict4.2.2/trimestres/tasa/cantidad_total_tent ,100" nodeset="/ict4.2.2/trimestres/tasa/porcentaje" readonly="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.2.2/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -178,15 +178,15 @@
             <label>Hora Pico Fin</label>
             <hint>Hora Pico Final</hint>
           </input>
-          <input appearance="numerador" ref="/ict4.2.2/trimestres/tasa/cantidad_asignada_ex">
+          <input ref="/ict4.2.2/trimestres/tasa/cantidad_asignada_ex">
             <label>Cant. de asignaciones exitosas de los recursos</label>
             <hint>Cantidad de asignaciones exitosas de los recursos necesarios para gestionar la comunicación</hint>
           </input>
-          <input appearance="denominador" ref="/ict4.2.2/trimestres/tasa/cantidad_total_tent">
+          <input ref="/ict4.2.2/trimestres/tasa/cantidad_total_tent">
             <label>Cant. de tent. de asignación de recursos realizadas</label>
             <hint>Cantidad total de tentativas de asignación de recursos realizadas</hint>
           </input>
-          <input appearance="porcentaje" ref="/ict4.2.2/trimestres/tasa/porcentaje">
+          <input ref="/ict4.2.2/trimestres/tasa/porcentaje">
             <label>Resultado (%)</label>
             <hint>Resultado del Indicador</hint>
           </input>

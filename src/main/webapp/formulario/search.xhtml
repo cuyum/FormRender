@@ -58,8 +58,7 @@
 					</p:panel>
 				</p:panel>
 			</f:validateBean>
-			
-			<p:dataTable id="formularioBeanPageItems" value="#{formularioBean.pageItems}" var="_item" style="font-size:12px;" rows="20" 
+						<p:dataTable id="formularioBeanPageItems" value="#{formularioBean.pageItems}" var="_item" style="font-size:12px;" rows="20" 
 			paginator="true" paginatorPosition="bottom" emptyMessage="No se encontraron resultados.">
 				<p:column headerText="Cod.">					
 					<h:link outcome="/formulario/view" styleClass="decoNone">
@@ -107,9 +106,13 @@
 					or _item.codigo eq 'C2.1' or _item.codigo eq 'F1.1' or _item.codigo eq 'F1.2' or _item.codigo eq 'F1.3' or _item.codigo eq 'F1.16' or _item.codigo eq 'F1.18' or _item.codigo eq 'F1.19' or _item.codigo eq 'F1.20' 
 					or _item.codigo eq 'G1.1' or _item.codigo eq 'G1.2' or _item.codigo eq 'H2.1' or _item.codigo eq 'H2.2' or _item.codigo eq 'H2.3' or _item.codigo eq 'E1.1' or _item.codigo eq 'E1.2' or _item.codigo eq 'E1.3' 
 					or _item.codigo eq 'E1.24' or _item.codigo eq 'E1.25' or _item.codigo eq 'E1.28' or _item.codigo eq 'H1.1' or _item.codigo eq 'H1.2' or _item.codigo eq 'H1.3' or _item.codigo eq 'H1.15' or _item.codigo eq 'I1.1' 
-					or _item.codigo eq 'I1.2' or _item.codigo eq 'I1.3' or _item.codigo eq 'I1.9'}">
+					or _item.codigo eq 'I1.2' or _item.codigo eq 'I1.3' or _item.codigo eq 'I1.9' or _item.codigo eq 'ict4.1.1.a' or _item.codigo eq 'ict4.1.1.b' or _item.codigo eq 'ict4.1.1.c' or _item.codigo eq 'ict4.1.1.d' or _item.codigo eq 'ict4.1.1.e'
+					or _item.codigo eq 'ict4.1.2.a' or _item.codigo eq 'ict4.1.2.b' or _item.codigo eq 'ict4.1.3.a' or _item.codigo eq 'ict4.1.3.b' or _item.codigo eq 'ict4.1.4.a' or _item.codigo eq 'ict4.1.4.b' or _item.codigo eq 'ict4.1.5.a' 
+					or _item.codigo eq 'ict4.1.5.b' or _item.codigo eq 'ict4.1.6.a' or _item.codigo eq 'ict4.1.6.b' or _item.codigo eq 'ict4.1.6.c' or _item.codigo eq 'ict4.1.7.a' or _item.codigo eq 'ict4.1.7.b' or _item.codigo eq 'ict4.2.1' 
+					or _item.codigo eq 'ict4.2.2' or _item.codigo eq 'ict4.2.2.1-a' or _item.codigo eq 'ict4.2.3' or _item.codigo eq 'ict4.2.4.1' or _item.codigo eq 'ict4.2.4.2' or _item.codigo eq 'ict4.2.4.3' or _item.codigo eq 'ict4.2.4.4' or _item.codigo eq 'ict4.2.4.5'
+					or _item.codigo eq 'ict4.2.5'}">
 						<f:param name="id" value="#{_item.codigo}"/>																	
-						<f:param name="repeat" value="1"/>
+						<f:param name="repeat" value="1"/>c
 					</h:link>
 					
 					<!-- mensualizados sin grilla -->		

@@ -40,7 +40,7 @@
       <bind nodeset="/ict4.2.3/trimestres/tasa/hora_pico_fin" required="true()" type="time"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.2.3/trimestres/tasa/cant_recursos" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.2.3/trimestres/tasa/cant_total_recursos_asignado" required="true()" type="int"/>
-      <bind nodeset="/ict4.2.3/trimestres/tasa/porcentaje" required="true()" type="decimal"/>
+      <bind constraint="porcentual= /ict4.2.3/trimestres/tasa/cant_recursos , /ict4.2.3/trimestres/tasa/cant_total_recursos_asignado ,100" nodeset="/ict4.2.3/trimestres/tasa/porcentaje" readonly="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.2.3/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -178,15 +178,15 @@
             <label>Hora Pico Fin</label>
             <hint>Hora Pico Fin</hint>
           </input>
-          <input appearance="numerador" ref="/ict4.2.3/trimestres/tasa/cant_recursos">
+          <input ref="/ict4.2.3/trimestres/tasa/cant_recursos">
             <label>Cant. de recursos asig. que se liberan por causas ajenas al usuario</label>
             <hint>Cantidad de recursos asignados que se liberan por causas ajenas al usuario</hint>
           </input>
-          <input appearance="denominador" ref="/ict4.2.3/trimestres/tasa/cant_total_recursos_asignado">
+          <input ref="/ict4.2.3/trimestres/tasa/cant_total_recursos_asignado">
             <label>Cant. total de recursos asignados</label>
             <hint>Cantidad total de recursos asignados</hint>
           </input>
-          <input appearance="porcentaje" ref="/ict4.2.3/trimestres/tasa/porcentaje">
+          <input ref="/ict4.2.3/trimestres/tasa/porcentaje">
             <label>Resultado (%)</label>
             <hint>Resultado del Indicador</hint>
           </input>

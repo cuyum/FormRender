@@ -22,7 +22,7 @@
       <bind nodeset="/ict4.2.5/trimestres/trimestre/periodo_considerado" required="true()" type="select1"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.2.5/trimestres/trimestre/cantidad_mensajes_cortos" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.2.5/trimestres/trimestre/cantidad_total_mensajes" required="true()" type="int"/>
-      <bind nodeset="/ict4.2.5/trimestres/trimestre/porcentaje" required="true()" type="decimal"/>
+      <bind constraint="porcentual= /ict4.2.5/trimestres/trimestre/cantidad_mensajes_cortos , /ict4.2.5/trimestres/trimestre/cantidad_total_mensajes ,100" nodeset="/ict4.2.5/trimestres/trimestre/porcentaje" readonly="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.2.5/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -108,15 +108,15 @@
               <value>Anual</value>
             </item>
           </select1>
-          <input appearance="numerador" ref="/ict4.2.5/trimestres/trimestre/cantidad_mensajes_cortos">
+          <input ref="/ict4.2.5/trimestres/trimestre/cantidad_mensajes_cortos">
             <label>Cant. de mensajes cortos entregados por el SMSC</label>
             <hint>Cantidad de mensajes cortos entregados por el SMSC</hint>
           </input>
-          <input appearance="denominador" ref="/ict4.2.5/trimestres/trimestre/cantidad_total_mensajes">
+          <input ref="/ict4.2.5/trimestres/trimestre/cantidad_total_mensajes">
             <label>Cant. total de mensajes cortos recibidos por el SMSC</label>
             <hint>Cantidad total de mensajes cortos recibidos por el SMSC</hint>
           </input>
-          <input appearance="porcentaje" ref="/ict4.2.5/trimestres/trimestre/porcentaje">
+          <input ref="/ict4.2.5/trimestres/trimestre/porcentaje">
             <label>Resultado (%)</label>
             <hint>Resultado del Indicador</hint>
           </input>
