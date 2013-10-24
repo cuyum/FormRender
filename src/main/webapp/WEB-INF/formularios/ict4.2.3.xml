@@ -28,18 +28,18 @@
           </meta>
         </ict4.2.3>
       </instance>
-      <bind nodeset="/ict4.2.3/trimestres/tasa/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="agrupador=1" nodeset="/ict4.2.3/trimestres/tasa/periodo_considerado" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/ict4.2.3/trimestres/tasa/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/ict4.2.3/trimestres/tasa/provincia" nodeset="/ict4.2.3/trimestres/tasa/partido" required="true()" type="select1"/>
       <bind nodeset="/ict4.2.3/trimestres/tasa/partido_otro" relevant=" /ict4.2.3/trimestres/tasa/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/ict4.2.3/trimestres/tasa/partido" nodeset="/ict4.2.3/trimestres/tasa/localidad" required="true()" type="select1"/>
       <bind nodeset="/ict4.2.3/trimestres/tasa/localidad_otro" relevant=" /ict4.2.3/trimestres/tasa/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/ict4.2.3/trimestres/tasa/localidad" nodeset="/ict4.2.3/trimestres/tasa/area" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/ict4.2.3/trimestres/tasa/localidad and agrupador=2" nodeset="/ict4.2.3/trimestres/tasa/area" required="true()" type="select1"/>
       <bind nodeset="/ict4.2.3/trimestres/tasa/area_otro" relevant=" /ict4.2.3/trimestres/tasa/area =9999" required="true()" type="string"/>
-      <bind nodeset="/ict4.2.3/trimestres/tasa/hora_pico_inicio" required="true()" type="time"/>
-      <bind nodeset="/ict4.2.3/trimestres/tasa/hora_pico_fin" required="true()" type="time"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.2.3/trimestres/tasa/cant_recursos" required="true()" type="int"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.2.3/trimestres/tasa/cant_total_recursos_asignado" required="true()" type="int"/>
+      <bind constraint="agrupador=3" nodeset="/ict4.2.3/trimestres/tasa/hora_pico_inicio" required="true()" type="time"/>
+      <bind nodeset="/ict4.2.3/trimestres/tasa/hora_pico_fin" readonly="true()" type="time"/>
+      <bind constraint=".&gt;=0 and and totalizador" nodeset="/ict4.2.3/trimestres/tasa/cant_recursos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.2.3/trimestres/tasa/cant_total_recursos_asignado" required="true()" type="int"/>
       <bind constraint="porcentual= /ict4.2.3/trimestres/tasa/cant_recursos , /ict4.2.3/trimestres/tasa/cant_total_recursos_asignado ,100" nodeset="/ict4.2.3/trimestres/tasa/porcentaje" readonly="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.2.3/meta/instanceID" readonly="true()" type="string"/>
     </model>
@@ -47,7 +47,7 @@
   <h:body>
     <group ref="/ict4.2.3/trimestres">
       <label></label>
-      <repeat appearance="grilla" nodeset="/ict4.2.3/trimestres">
+      <repeat appearance="grilla agrupada totalizada" nodeset="/ict4.2.3/trimestres">
         <group appearance="col3 well-white" ref="/ict4.2.3/trimestres/tasa">
           <label>Tasa de Corte: Relación entre la cantidad de recursos asignados que se liberan y total de recursos asignados</label>
           <select1 appearance="minimal" ref="/ict4.2.3/trimestres/tasa/periodo_considerado">

@@ -28,18 +28,18 @@
           </meta>
         </ict4.2.4.5>
       </instance>
-      <bind nodeset="/ict4.2.4.5/trimestres/relacion/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="agrupador=1" nodeset="/ict4.2.4.5/trimestres/relacion/periodo_considerado" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/ict4.2.4.5/trimestres/relacion/provincia" required="true()" type="select1"/>
       <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/ict4.2.4.5/trimestres/relacion/provincia" nodeset="/ict4.2.4.5/trimestres/relacion/partido" required="true()" type="select1"/>
       <bind nodeset="/ict4.2.4.5/trimestres/relacion/partido_otro" relevant=" /ict4.2.4.5/trimestres/relacion/partido =9999" required="true()" type="string"/>
       <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/ict4.2.4.5/trimestres/relacion/partido" nodeset="/ict4.2.4.5/trimestres/relacion/localidad" required="true()" type="select1"/>
       <bind nodeset="/ict4.2.4.5/trimestres/relacion/localidad_otro" relevant=" /ict4.2.4.5/trimestres/relacion/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/ict4.2.4.5/trimestres/relacion/localidad" nodeset="/ict4.2.4.5/trimestres/relacion/area" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/ict4.2.4.5/trimestres/relacion/localidad and agrupador=2" nodeset="/ict4.2.4.5/trimestres/relacion/area" required="true()" type="select1"/>
       <bind nodeset="/ict4.2.4.5/trimestres/relacion/area_otro" relevant=" /ict4.2.4.5/trimestres/relacion/area =9999" required="true()" type="string"/>
-      <bind nodeset="/ict4.2.4.5/trimestres/relacion/hora_pico_inicio" required="true()" type="time"/>
-      <bind nodeset="/ict4.2.4.5/trimestres/relacion/hora_pico_fin" required="true()" type="time"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.2.4.5/trimestres/relacion/velocidad_efectiva_media_transferencia" required="true()" type="int"/>
-      <bind constraint=".&gt;0" nodeset="/ict4.2.4.5/trimestres/relacion/velocidad_transferencia_nominal" required="true()" type="int"/>
+      <bind constraint="agrupador=3" nodeset="/ict4.2.4.5/trimestres/relacion/hora_pico_inicio" required="true()" type="time"/>
+      <bind nodeset="/ict4.2.4.5/trimestres/relacion/hora_pico_fin" readonly="true()" type="time"/>
+      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.2.4.5/trimestres/relacion/velocidad_efectiva_media_transferencia" required="true()" type="int"/>
+      <bind constraint=".&gt;0 and totalizador" nodeset="/ict4.2.4.5/trimestres/relacion/velocidad_transferencia_nominal" required="true()" type="int"/>
       <bind constraint="porcentual= /ict4.2.4.5/trimestres/relacion/velocidad_efectiva_media_transferencia , /ict4.2.4.5/trimestres/relacion/velocidad_transferencia_nominal ,100" nodeset="/ict4.2.4.5/trimestres/relacion/porcentaje" readonly="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.2.4.5/meta/instanceID" readonly="true()" type="string"/>
     </model>
@@ -47,7 +47,7 @@
   <h:body>
     <group ref="/ict4.2.4.5/trimestres">
       <label></label>
-      <repeat appearance="grilla" nodeset="/ict4.2.4.5/trimestres">
+      <repeat appearance="grilla agrupada totalizada" nodeset="/ict4.2.4.5/trimestres">
         <group appearance="col3 well-white" ref="/ict4.2.4.5/trimestres/relacion">
           <label>Relación entre la Velocidad Efectiva Media de Transferencia y la Velocidad de Transferencia Nominal</label>
           <select1 appearance="minimal" ref="/ict4.2.4.5/trimestres/relacion/periodo_considerado">
