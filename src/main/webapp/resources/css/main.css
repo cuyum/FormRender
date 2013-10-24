@@ -4210,3 +4210,27 @@ h3 {
 		width: 750px;
 	}
 }
+
+@media ( max-width : 1280px) {
+	.dataTables_scroll {
+		clear: both;
+		overflow-x: scroll;
+		width: 1070px;
+	}
+}
+
+@media ( max-width : 1800px) {
+	.dataTables_scroll {
+		clear: both;
+		overflow-x: scroll;
+		width: 1500px;
+	}
+}
+
+@media ( max-width : 1440px) {
+	.dataTables_scroll {
+		clear: both;
+		overflow-x: scroll;
+		width: 1143px;
+	}
+}
