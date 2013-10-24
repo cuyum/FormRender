@@ -22,7 +22,7 @@
       <bind nodeset="/ict4.1.5.a/meses/mes/periodo_considerado" required="true()" type="select1"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.5.a/meses/mes/cant_reclamo_prepaga" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.5.a/meses/mes/total_accesos" required="true()" type="int"/>
-      <bind constraint="porcentual= /ict4.1.5.a/meses/mes/cant_reclamo_prepaga , /ict4.1.5.a/meses/mes/total_accesos ,100" nodeset="/ict4.1.5.a/meses/mes/porcentaje" readonly="true()" type="string"/>
+      <bind constraint="porcentual= /ict4.1.5.a/meses/mes/cant_reclamo_prepaga , /ict4.1.5.a/meses/mes/total_accesos ,100" nodeset="/ict4.1.5.a/meses/mes/porcentaje" readonly="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.5.a/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
