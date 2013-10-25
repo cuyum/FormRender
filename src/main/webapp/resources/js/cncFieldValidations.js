@@ -495,6 +495,7 @@ var setupPorcentual = function(field,fieldset){
 	if(field.data("jr:constraint:porcentual")!=undefined){
 		var porcentualVars = field.data("jr:constraint:porcentual").split(",");
 		if(porcentualVars.length==3){
+			
 			var dividendo = gui.getField(porcentualVars[0],fieldset);
 			var divisor = gui.getField(porcentualVars[1],fieldset);
 			var porcentual = porcentualVars[2];
@@ -509,15 +510,19 @@ var setupPorcentual = function(field,fieldset){
 					var porcentual = evt.data.porcentual;
 					var total = evt.data.total;
 					
-					if(divisor.val()!=undefined && divisor.val().trim()!="" && !isNaN(divisor.val())
-							&& this.value!=undefined && this.value.trim()!="" && !isNaN(this.value)){
+					if(this.value==undefined || this.value.trim()=="" || isNaN(this.value)){
+						console.warn("El dividendo ("+$(this).attr("name")+") no tiene un valor v\u00E1lido ("+this.value+")");
+						return;
+					}
+					
+					if(divisor.val()!=undefined && divisor.val().trim()!="" && !isNaN(divisor.val())){
 						
-						if(divisor.val()>0){
+						if(this.value>0 && divisor.val()>0){
 							total.val(cncFromNumber((this.value / divisor.val() * porcentual),2));
 						}else{
 							total.val(0);
 						}
-					}else console.warn("El divisor ("+divisor.attr("name")+") no tiene un valor v\u00E1lido");
+					}else console.warn("El divisor ("+divisor.attr("name")+") no tiene un valor v\u00E1lido ("+divisor.val()+")");
 				});
 
 				divisor.on("change",{
@@ -528,15 +533,20 @@ var setupPorcentual = function(field,fieldset){
 					var dividendo = evt.data.dividendo;
 					var porcentual = evt.data.porcentual;
 					var total = evt.data.total;
-					if(dividendo.val()!=undefined && dividendo.val().trim()!="" && !isNaN(dividendo.val())
-							&& this.value!=undefined && this.value.trim()!="" && !isNaN(this.value)){
+					
+					if(this.value==undefined || this.value.trim()=="" || isNaN(this.value)){
+						console.warn("El divisor ("+$(this).attr("name")+") no tiene un valor v\u00E1lido ("+this.value+")");
+						return;
+					}
+					
+					if(dividendo.val()!=undefined && dividendo.val().trim()!="" && !isNaN(dividendo.val())){
 						
-						if(this.value>0){
+						if(this.value>0 && dividendo.val()>0){
 							total.val(cncFromNumber((dividendo.val() / this.value * porcentual),2));
 						}else{
 							total.val(0);
 						}
-					}else console.log("El dividendo ("+dividendo.attr("name")+") no tiene un valor v\u00E1lido");
+					}else console.warn("El dividendo ("+dividendo.attr("name")+") no tiene un valor v\u00E1lido ("+dividendo.val()+")");
 				});
 				
 			}else{
