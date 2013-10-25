@@ -92,6 +92,10 @@ $(document).ready(function() {
 			}
 		}
 		
+		if(gui.renderTotalizadores){
+			gui.gridTotalizadora.render(pfs);
+		}
+		
 		
 	}else if(fs.length>0 && gui.repeatCount==0){
 		console.error("Se encuentra repeat infinito");

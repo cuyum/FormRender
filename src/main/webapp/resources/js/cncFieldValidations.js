@@ -377,7 +377,7 @@ var setupRemoteData = function(field,fieldset){
 	}
 };
 
-var setupDataConstraints = function(field){
+var setupDataConstraints = function(field,fieldset){
 	var data_constraints = field.attr("data-constraint");
 //	console.group("CAMPO:"+field.attr("name"));
 	if(data_constraints){
@@ -462,11 +462,26 @@ var setupDataConstraints = function(field){
 			if(constraint.indexOf("agrupador=")!=-1){
 				var agrupador = constraint.substring(constraint.indexOf("agrupador=")+10);
 				field.data("jr:constraint:agrupador",gui.toNumber(agrupador));
+				if(gui.renderTotalizadores){
+					var header = field.siblings("span.jr-label");
+					gui.gridTotalizadora.agrupadores.push({
+						"nombre":gui.getCleanFieldName(field.attr("name"),fieldset.instance),
+						"nivel":gui.toNumber(agrupador),
+						"titulo":header.text()
+					});
+				}
 			}else
 			/*totalizador constraint*/
 			if(constraint.indexOf("totalizador")!=-1){
 //				var totalizador = constraint.substring(constraint.indexOf("totalizador")+11);
 				field.data("jr:constraint:totalizador",true);
+				if(gui.renderTotalizadores){
+					var header = field.siblings("span.jr-label");
+					gui.gridTotalizadora.totalizadores.push({
+						"nombre":gui.getCleanFieldName(field.attr("name"),fieldset.instance),
+						"titulo":header.text()
+					});
+				}
 			}
 			constraintContainer.push(constraint);
 		}
@@ -480,6 +495,7 @@ var setupPorcentual = function(field,fieldset){
 	if(field.data("jr:constraint:porcentual")!=undefined){
 		var porcentualVars = field.data("jr:constraint:porcentual").split(",");
 		if(porcentualVars.length==3){
+			
 			var dividendo = gui.getField(porcentualVars[0],fieldset);
 			var divisor = gui.getField(porcentualVars[1],fieldset);
 			var porcentual = porcentualVars[2];
@@ -494,15 +510,19 @@ var setupPorcentual = function(field,fieldset){
 					var porcentual = evt.data.porcentual;
 					var total = evt.data.total;
 					
-					if(divisor.val()!=undefined && divisor.val().trim()!="" && !isNaN(divisor.val())
-							&& this.value!=undefined && this.value.trim()!="" && !isNaN(this.value)){
+					if(this.value==undefined || this.value.trim()=="" || isNaN(this.value)){
+						console.warn("El dividendo ("+$(this).attr("name")+") no tiene un valor v\u00E1lido ("+this.value+")");
+						return;
+					}
+					
+					if(divisor.val()!=undefined && divisor.val().trim()!="" && !isNaN(divisor.val())){
 						
-						if(divisor.val()>0){
-							total.val(cncFormNumber((this.value / divisor.val() * porcentual),2));
+						if(this.value>0 && divisor.val()>0){
+							total.val(cncFromNumber((this.value / divisor.val() * porcentual),2));
 						}else{
 							total.val(0);
 						}
-					}else console.log("error");
+					}else console.warn("El divisor ("+divisor.attr("name")+") no tiene un valor v\u00E1lido ("+divisor.val()+")");
 				});
 
 				divisor.on("change",{
@@ -513,15 +533,20 @@ var setupPorcentual = function(field,fieldset){
 					var dividendo = evt.data.dividendo;
 					var porcentual = evt.data.porcentual;
 					var total = evt.data.total;
-					if(dividendo.val()!=undefined && dividendo.val().trim()!="" && !isNaN(dividendo.val())
-							&& this.value!=undefined && this.value.trim()!="" && !isNaN(this.value)){
+					
+					if(this.value==undefined || this.value.trim()=="" || isNaN(this.value)){
+						console.warn("El divisor ("+$(this).attr("name")+") no tiene un valor v\u00E1lido ("+this.value+")");
+						return;
+					}
+					
+					if(dividendo.val()!=undefined && dividendo.val().trim()!="" && !isNaN(dividendo.val())){
 						
-						if(this.value>0){
+						if(this.value>0 && dividendo.val()>0){
 							total.val(cncFromNumber((dividendo.val() / this.value * porcentual),2));
 						}else{
 							total.val(0);
 						}
-					}else console.log("error");
+					}else console.warn("El dividendo ("+dividendo.attr("name")+") no tiene un valor v\u00E1lido ("+dividendo.val()+")");
 				});
 				
 			}else{
@@ -768,7 +793,7 @@ var setupValidations = function(f,fieldset){
 	}
 	
 	/*Data constraints*/
-	setupDataConstraints(field);
+	setupDataConstraints(field, fieldset);
 	addVisualizationLogic(field);
 	
 	/*Validations*/
