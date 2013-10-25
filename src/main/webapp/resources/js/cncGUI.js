@@ -676,13 +676,7 @@ var gui = new function(){
 				return true;
 			}
 		},
-		/**
-		 * Procesa el registro ingresado en la grilla principal identificando el registro totalizado al 
-		 * que pertenece si es que este se encontrase ya totalizado y prepara el objeto de registro totalizado
-		 * para su correcto totalizado
-		 * */
-		processGroups : function(record){
-			var totalizados = this.getData();
+		prepareTotalizado : function(record){
 			var totalizado = {};
 			var tmpHash = "";
 			for ( var i = 1; i <= this.agrupadores.length; i++) {
@@ -699,6 +693,18 @@ var gui = new function(){
 			hash = new jsSHA(tmpHash,"TEXT");
 			totalizado["firma_digital"] = hash.getHash("SHA-1","HEX");
 			
+			return totalizado;
+		},
+		/**
+		 * Procesa el registro ingresado en la grilla principal identificando el registro totalizado al 
+		 * que pertenece si es que este se encontrase ya totalizado y prepara el objeto de registro totalizado
+		 * para su correcto totalizado
+		 * */
+		processGroups : function(record){
+			var totalizados = this.getData();
+			
+			var totalizado = this.prepareTotalizado(record);
+			
 			this.accountedFor = false;
 			for ( var i = 0; i < totalizados.length; i++) {
 				if(totalizados[i].firma_digital == totalizado.firma_digital){
@@ -714,9 +720,8 @@ var gui = new function(){
 		/**
 		 * Procesa la inclusi&oacute;n de un registro en la grilla principal totalizando sus valores totalizadores.
 		 */
-		processRecord:function(record,edit){
-			var editing = edit || false;
-			console.log("NUEVO RECORD PARA TOTALIZAR:",record);
+		processRecord:function(record){
+//			console.log("NUEVO RECORD PARA TOTALIZAR:",record);
 			
 			var totalizado = this.processGroups(record);
 			
@@ -733,6 +738,63 @@ var gui = new function(){
 			this.resetProcessVars();
 		},
 		/**
+		 * Procesa la edici&oacute;n de un registro de la grilla principal. La edici&oacute;n no implica 
+		 * solamente cambios en los totalizadores, sin&oacute; en sus otros campos tambi&eacute;n lo que 
+		 * debe procesarse de manera &iacute;ntegra ya que se puede dar el caso de agregar un registro 
+		 * totalizado nuevo si no se encuentra en la grilla de totalizados. 
+		 */
+		processEdition:function(record){
+			console.log("RECORD PARA EDITAR EL TOTALIZADO:",record,record.original);
+			var totalizadoNuevo = this.prepareTotalizado(record);
+			var totalizadoOrig = this.prepareTotalizado(record.original);
+			
+			if(totalizadoNuevo.firma_digital == totalizadoOrig.firma_digital){
+				var totalizado = this.processGroups(record);
+				/*si las firmas son las mismas, han cambiado los totalizadores solamente*/
+				console.log("ES EL MISMO REGISTRO TOTALIZADO");
+				
+				for ( var i = 0; i < this.totalizadores.length; i++) {
+					var r = record[this.totalizadores[i].nombre];
+					totalizadoNuevo[this.totalizadores[i].nombre] = r;
+				}
+				console.log("nuevo",totalizadoNuevo);
+				
+				for ( var i = 0; i < this.totalizadores.length; i++) {
+					var r = record.original[this.totalizadores[i].nombre];
+					totalizadoOrig[this.totalizadores[i].nombre] = r;
+				}
+				console.log("original",totalizadoOrig);
+				
+				var totalizadoDelta = totalizadoNuevo;
+				
+				for ( var i = 0; i < this.totalizadores.length; i++) {
+					totalizadoDelta[this.totalizadores[i].nombre] = totalizadoNuevo[this.totalizadores[i].nombre] - totalizadoOrig[this.totalizadores[i].nombre];
+				}
+				console.log("delta",totalizadoDelta);
+				
+				
+				for ( var i = 0; i < this.totalizadores.length; i++) {
+					totalizado[this.totalizadores[i].nombre] = totalizado[this.totalizadores[i].nombre] + totalizadoDelta[this.totalizadores[i].nombre];
+					console.log(totalizado[this.totalizadores[i].nombre] +"+"+totalizadoDelta[this.totalizadores[i].nombre]+"="+totalizado[this.totalizadores[i].nombre] + totalizadoDelta[this.totalizadores[i].nombre]);
+				}
+//				console.log(totalizado,totalizadoNuevo,totalizadoOrig,this.totalizadoIdx);
+				
+				this.updateRow(totalizado,this.totalizadoIdx);
+			}else{
+				/*si las firmas no son las mismas, han cambiado todo el registro, procesar integramente 
+				 * y restar los valores originales de la lista de totalizados*/
+				/*si es nuevo hay que actualizar/eliminar el anterior e incluir este*/
+				console.log("ES OTRO REGISTRO TOTALIZADO, puede ser nuevo o estar contabilizado");
+				/*
+				 *  probar:
+				 */
+				this.processRemoval(record.original);
+				this.processRecord(record);
+			}
+			this.resetProcessVars();
+			
+		},
+		/**
 		 * Procesa la eliminaci&oacute;n de un registro de la grilla principal actualizando sus valores totalizadores correspondientes
 		 * en la grilla de totalizadores.
 		 */
@@ -743,7 +805,7 @@ var gui = new function(){
 			for ( var i = 0; i < this.totalizadores.length; i++) {
 				var r = record[this.totalizadores[i].nombre];
 				totalizado[this.totalizadores[i].nombre] = totalizado[this.totalizadores[i].nombre] - r;
-				total +=totalizado[this.totalizadores[i].nombre];
+				total += totalizado[this.totalizadores[i].nombre];
 			}
 			
 			//si la sumatoria es menor igual que cero se elimina el registro
@@ -907,8 +969,11 @@ var gui = new function(){
 						gui.gridTotalizadora.processRecord(record);
 					this.element.dataTable().fnAddData(record,true);
 				}else{
-					if(gui.renderTotalizadores)
-						gui.gridTotalizadora.processRecord(record,true);
+					if(gui.renderTotalizadores){
+						var r = record;
+						r["original"] = this.getRowData(this.editing);
+						gui.gridTotalizadora.processEdition(r);
+					}
 					this.element.dataTable().fnUpdate(record, this.editing);
 					this.editing = -1;
 				}
@@ -1017,8 +1082,9 @@ var cncToNumber = function(value){
 	}
 };
 
-var cncFromNumber = function(value,decimals){
+var cncFromNumber = function(value,dec){
 	var vStr = ""+value;
+	var decimals = dec;
 	if(decimals==undefined){
 		var d = 0;
 		if(vStr.indexOf(".")>0){
@@ -1030,6 +1096,15 @@ var cncFromNumber = function(value,decimals){
 	}
 	
 	if(value && !isNaN(value)){
+		/*FIX de librería i18n que tiene problemas para formatear el 0*/
+		if(value==0){
+			var val = "0";
+			for ( var i = 0; i < dec; i++) {
+				if(i==0)val = val + ",";
+				val = val + "0";
+			}
+			return val;
+		}
 		var formated = $.i18n.formatNumber( value, decimals, {region:'es-AR'} );
 		return formated;
 	}else if(isNaN(value)){
