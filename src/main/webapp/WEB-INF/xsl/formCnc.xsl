@@ -136,7 +136,7 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 			  	 <script type="text/javascript" src="/FormRender/resources/js/bootbox.min.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
-			  	 <script type="text/javascript" src="/FormRender/resources/js/jquery.dataTables.min.js">
+			  	<script type="text/javascript" src="/FormRender/resources/js/jquery.dataTables.min.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
             	<script type="text/javascript" src="/FormRender/resources/js/sha.js">
@@ -262,8 +262,10 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
                     <fieldset>
 						<div class="well block">
 							<div>
-								<div class="form-actions align-left">		
-									<input type="button" class="btn " value="Guardar Borrador" action="submit" draft="true" />						
+								<div class="form-actions align-left">
+									 <a  data-toggle="modal" href="#modal-agrupadora" class="btn hovertip"  data-original-title="Totalizadores">Total Calculado</a>
+									<input class="btn hovertip" title="Totalizadores" value="Total Ingresado" type="button" style="display:none;"/>		
+									<input type="button" class="btn" value="Guardar Borrador" action="submit" draft="true" />
 									<input type="button" class="btn btn-success confirm" value="Listo" action="submit" draft="false" />
 								</div>
 							</div>
@@ -272,6 +274,30 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 	            </form>
 	            <div class="separator-doubled"/>  
 	            </div>
+	            <!-- Modal -->
+				  <div id="modal-agrupadora" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+				  	style="width:700px;margin-left:-350px;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							X
+						</button>
+						<h5 id="myModalLabel">Total Calculado</h5>
+					</div>
+					<div class="modal-body" id="modal-totalizadora">
+						<div class="block well">
+							<div class="navbar">
+								<div class="navbar-inner">
+									<h5>Totales</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button class="btn" data-dismiss="modal">
+							Cerrar
+						</button>
+					</div>
+				</div>
 	            </body>
             </html> 
         </xsl:template>

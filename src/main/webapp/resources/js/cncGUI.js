@@ -3,6 +3,8 @@ var gui = new function(){
 	this.fieldsets = [];
 	this.repeatCount = undefined;
 	this.renderGrid = false;
+	this.renderTotal = false;
+	this.renderTotalizadores = false;
 	this.MESSAGES = {
 		INFO : "alert-info",
 		WARN : "",
@@ -52,6 +54,9 @@ var gui = new function(){
 		$("select").select2();
 		$("input[type='time']").timepicker();
 		setupHints();
+		if(gui.renderTotalizadores){
+			$("div[class~='form-actions']").children().not(":visible").show();
+		}
 	};
 	this.displayMessage = function(message,type){
 		if(message==undefined || message==null){
@@ -142,7 +147,7 @@ var gui = new function(){
 	    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
 	};
 	this.cleanFormValidations = function(){
-		console.info("Cleaning Form Validations");
+//		console.info("Cleaning Form Validations");
 		$("[class~='error']").siblings("label[class='error']").remove();
 		$("[class~='error']").removeClass("error");
 	};
@@ -568,6 +573,191 @@ var gui = new function(){
 			field.trigger("change");
 		}
 	};
+	this.gridTotalizadora ={
+		agrupadores : [],
+		totalizadores : [],
+		headers : [],
+		data : [],
+		accountedFor:false,
+		totalizadoIdx:0,
+		element:$('<table id="agrupadora-grid" class="table table-striped"></table>'),
+		resetProcessVars : function(){
+			this.accountedFor = false;
+			this. totalizadoIdx = 0;
+		},
+		render:function(fieldset){
+			if(!gui.gridTotalizadora.checkNiveles()) return;
+			
+			var modalBody = $("#modal-totalizadora").children("[class='block well']");
+			$('<div class="table-overflow"></div>').append(this.element).appendTo(modalBody);
+			
+			for ( var i = 1; i <= this.agrupadores.length; i++) {
+				this.headers.push({ 
+					"sTitle": this.getTituloNivel(i),
+					"mData": ""+this.getNombreNivel(i)
+				});
+			}
+			
+			for ( var i = 0; i < this.totalizadores.length; i++) {
+				this.headers.push({ 
+					"sTitle": this.totalizadores[i].titulo,
+					"mData": ""+this.totalizadores[i].nombre
+				});
+			}
+			
+			this.element.dataTable({
+				"bJQueryUI": false,
+			    "bScrollCollapse": true,			    
+				"sPaginationType": "full_numbers",
+				"sDom": '<"datatable-header"fl>t<"datatable-footer"ip>',
+				"oLanguage": {
+					"sSearch":"Buscar:",
+					"sZeroRecords":"Ning&uacute;n registro resultante",
+					"sLengthMenu": "<span>Filas _MENU_</span>",
+					"sEmptyTable": "No hay datos",
+					"sInfoFiltered": "(filtrado de _MAX_ registros)",
+					"sInfoEmpty": "No hay registros cargados",
+					"sInfo": "Mostrando _START_ a _END_, de _TOTAL_ registros",
+					"oPaginate": {
+				        "sFirst": "Primera",
+				        "sLast" : "&Uacute;ltima",
+				        "sNext" : "Siguiente",
+				        "sPrevious" : "Anterior"
+				     }
+				},
+				"aaData": gui.gridTotalizadora.data,
+				"aoColumns": gui.gridTotalizadora.headers
+		    });
+		},
+		getNombreNivel : function(nivel){
+			if(isNaN(nivel)) return;
+			if(nivel > this.agrupadores.length) return;
+			for ( var i = 0; i < this.agrupadores.length; i++) {
+				if(this.agrupadores[i].nivel == nivel) return this.agrupadores[i].nombre;
+			}
+		},
+		getTituloNivel : function(nivel){
+			if(isNaN(nivel)) return;
+			if(nivel > this.agrupadores.length) return;
+			for ( var i = 0; i < this.agrupadores.length; i++) {
+				if(this.agrupadores[i].nivel == nivel) return this.agrupadores[i].titulo;
+			}
+		},
+		getData : function(){
+			return this.element.dataTable().fnGetData();
+		},
+		getRowData : function(rowIndex){
+			return this.element.dataTable().fnGetData(rowIndex);
+		},
+		addRows : function(dataArray){
+			this.element.dataTable().fnAddData(dataArray,true);
+		},
+		removeRow : function(rowIndex){
+			this.element.dataTable().fnDeleteRow(rowIndex);
+		},
+		addRow : function(data){
+			this.element.dataTable().fnAddData(data,true);
+		},
+		updateRow : function(data,index){
+			this.element.dataTable().fnUpdate(data,index);
+		},
+		checkNiveles : function(){
+			var niveles = 0;
+			for ( var i = 0; i < this.agrupadores.length; i++) {
+				if(niveles < this.agrupadores[i].nivel){
+					niveles = this.agrupadores[i].nivel;
+				}
+			}
+			if(niveles != this.agrupadores.length){
+				console.error("La cantidad de agrupadores es diferente a los niveles expresados de agrupamiento, declarados="+niveles+" encontrados="+this.agrupadores.length);
+				return false;
+			}else{
+				console.log("Se encontraron "+niveles+" niveles de agrupamiento correctamente declarados");
+				return true;
+			}
+		},
+		/**
+		 * Procesa el registro ingresado en la grilla principal identificando el registro totalizado al 
+		 * que pertenece si es que este se encontrase ya totalizado y prepara el objeto de registro totalizado
+		 * para su correcto totalizado
+		 * */
+		processGroups : function(record){
+			var totalizados = this.getData();
+			var totalizado = {};
+			var tmpHash = "";
+			for ( var i = 1; i <= this.agrupadores.length; i++) {
+				var r = record[this.getNombreNivel(i)];
+				if( typeof r == "object"){
+					totalizado[this.getNombreNivel(i)] = r.label;
+					tmpHash += r.label;
+				}else{
+					totalizado[this.getNivel(i)] = r;
+					tmpHash += r;
+				}
+			}
+			
+			hash = new jsSHA(tmpHash,"TEXT");
+			totalizado["firma_digital"] = hash.getHash("SHA-1","HEX");
+			
+			this.accountedFor = false;
+			for ( var i = 0; i < totalizados.length; i++) {
+				if(totalizados[i].firma_digital == totalizado.firma_digital){
+					this.totalizadoIdx = i;
+					this.accountedFor = true;
+					totalizado = totalizados[i];
+					break;
+				}
+			}
+			
+			return totalizado;
+		},
+		/**
+		 * Procesa la inclusi&oacute;n de un registro en la grilla principal totalizando sus valores totalizadores.
+		 */
+		processRecord:function(record,edit){
+			var editing = edit || false;
+			console.log("NUEVO RECORD PARA TOTALIZAR:",record);
+			
+			var totalizado = this.processGroups(record);
+			
+			for ( var i = 0; i < this.totalizadores.length; i++) {
+				var r = record[this.totalizadores[i].nombre];
+				totalizado[this.totalizadores[i].nombre] = this.accountedFor? totalizado[this.totalizadores[i].nombre] + r : r;
+			}
+
+			if(this.accountedFor){
+				this.updateRow(totalizado,this.totalizadoIdx);
+			}else{
+				this.addRow(totalizado);
+			}
+			this.resetProcessVars();
+		},
+		/**
+		 * Procesa la eliminaci&oacute;n de un registro de la grilla principal actualizando sus valores totalizadores correspondientes
+		 * en la grilla de totalizadores.
+		 */
+		processRemoval:function(record){
+			var totalizado = this.processGroups(record);
+			
+			var total = 0;
+			for ( var i = 0; i < this.totalizadores.length; i++) {
+				var r = record[this.totalizadores[i].nombre];
+				totalizado[this.totalizadores[i].nombre] = totalizado[this.totalizadores[i].nombre] - r;
+				total +=totalizado[this.totalizadores[i].nombre];
+			}
+			
+			//si la sumatoria es menor igual que cero se elimina el registro
+			if(total<=0){
+				this.removeRow(this.totalizadoIdx);
+			}else{
+				this.updateRow(totalizado,this.totalizadoIdx);
+			}
+			this.resetProcessVars();
+		},
+		processTable:function(data){
+			console.log("PROCESANDO TODA LA TABLA");
+		}
+	};
 	this.grid = {
 		editing : -1,
 		headers : [],
@@ -614,7 +804,8 @@ var gui = new function(){
 			$("input[type~='button'][repeat-action='remove']").click(function(evt){
 				var rowIndex =  gui.grid.element.dataTable().fnGetPosition($(evt.target).closest('tr').get(0));				
 				var record = gui.grid.getRowData(rowIndex);
-				gui.grid.removeRow(rowIndex);				
+				gui.grid.removeRow(rowIndex);
+				gui.gridTotalizadora.processRemoval(record);
 				var fields = gui.fieldsets[record.instance].fields;
 				if(gui.grid.editing > -1){
 					gui.grid.editing = -1;
@@ -654,7 +845,7 @@ var gui = new function(){
 								record[attribute] = {label:o.text(),value:value};
 								tmpHash = tmpHash + value; 
 							}else{
-								record[attribute] = {label:" ",value:null};
+								record[attribute] = {label:"",value:null};
 							}
 						}else if(field.attr("data-type-xml")=="select2"){
 							var data; 
@@ -663,7 +854,7 @@ var gui = new function(){
 								record[attribute] = {label:data.text,value:data.id};
 								tmpHash = tmpHash + data.id;
 							}else{
-								record[attribute] = {label:" ",value:null};
+								record[attribute] = {label:"",value:null};
 							}
 						}else{
 							if(gui.isCNCNumberField(field)){
@@ -686,15 +877,14 @@ var gui = new function(){
 						console.warn("Could not commit due to field",field);
 						break;
 					}
-				}else{
-					if(field.is("select")) record[attribute] = {label:" "};
-					else record[attribute] = " ";
+				}else{//si no es visible poner valores por defecto
+					if(field.is("select")) record[attribute] = {label:""};
+					else record[attribute] = "";
 				}
 			}
 			record.instance = fieldset.instance;
 			var storedData = this.getData();
 //			console.info("new record",record.signature);
-			console.info(record);
 			for ( var i = 0; i < storedData.length; i++) {
 				var storedRecord = storedData[i];
 //				console.info("stored record",storedRecord.signature);
@@ -713,8 +903,12 @@ var gui = new function(){
 					af.data("renderLogic")(af);
 				}
 				if(this.editing==-1){
+					if(gui.renderTotalizadores)
+						gui.gridTotalizadora.processRecord(record);
 					this.element.dataTable().fnAddData(record,true);
 				}else{
+					if(gui.renderTotalizadores)
+						gui.gridTotalizadora.processRecord(record,true);
 					this.element.dataTable().fnUpdate(record, this.editing);
 					this.editing = -1;
 				}
