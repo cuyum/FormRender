@@ -1,3 +1,7 @@
+-- PARAMETROS -- 
+INSERT INTO parametros(id, nombre, valor, version) VALUES (1, 'minutos_hora','60', 0);
+
+-- TRANSFORMACIONES --
 INSERT INTO xsl(nombre, archivo, xlsversion, version) VALUES ('Para uso de la CNC','formCnc.xsl', 'V1.0', 0);
 
 -- ANEXO C --
