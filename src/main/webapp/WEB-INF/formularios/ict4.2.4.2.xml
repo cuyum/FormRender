@@ -109,19 +109,19 @@
             </item>
             <item>
               <label>1º Trimestre</label>
-              <value>1º Trimestre</value>
+              <value>Trimestre_1</value>
             </item>
             <item>
               <label>2º Trimestre</label>
-              <value>2º Trimestre</value>
+              <value>Trimestre_2</value>
             </item>
             <item>
               <label>3º trimestre</label>
-              <value>3º trimestre</value>
+              <value>Trimestre_3</value>
             </item>
             <item>
               <label>4º trimestre</label>
-              <value>4º trimestre</value>
+              <value>Trimestre_4</value>
             </item>
             <item>
               <label>Anual</label>
