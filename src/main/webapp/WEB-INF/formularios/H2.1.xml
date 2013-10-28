@@ -24,12 +24,12 @@
         </H2.1>
       </instance>
       <bind nodeset="/H2.1/titulo" readonly="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/H2.1/areasprest/areas/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/H2.1/areasprest/areas/provincia" nodeset="/H2.1/areasprest/areas/partido" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/H2.1/areasprest/areas/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/H2.1/areasprest/areas/provincia" nodeset="/H2.1/areasprest/areas/partido" required="true()" type="select1"/>
       <bind nodeset="/H2.1/areasprest/areas/partido_otro" relevant=" /H2.1/areasprest/areas/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/H2.1/areasprest/areas/partido" nodeset="/H2.1/areasprest/areas/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/H2.1/areasprest/areas/partido" nodeset="/H2.1/areasprest/areas/localidad" required="true()" type="select1"/>
       <bind nodeset="/H2.1/areasprest/areas/localidad_otro" relevant=" /H2.1/areasprest/areas/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/H2.1/areasprest/areas/localidad" nodeset="/H2.1/areasprest/areas/area" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/H2.1/areasprest/areas/localidad" nodeset="/H2.1/areasprest/areas/area" required="true()" type="select1"/>
       <bind nodeset="/H2.1/areasprest/areas/area_otro" relevant=" /H2.1/areasprest/areas/area =9999" required="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/H2.1/meta/instanceID" readonly="true()" type="string"/>
     </model>

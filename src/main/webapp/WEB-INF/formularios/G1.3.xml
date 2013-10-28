@@ -25,12 +25,12 @@
         </G1.3>
       </instance>
       <bind nodeset="/G1.3/titulo" readonly="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/G1.3/meses/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/G1.3/meses/mes/provincia" nodeset="/G1.3/meses/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/G1.3/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/G1.3/meses/mes/provincia" nodeset="/G1.3/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/G1.3/meses/mes/partido_otro" relevant=" /G1.3/meses/mes/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/G1.3/meses/mes/partido" nodeset="/G1.3/meses/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/G1.3/meses/mes/partido" nodeset="/G1.3/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/G1.3/meses/mes/localidad_otro" relevant=" /G1.3/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/G1.3/meses/mes/localidad" nodeset="/G1.3/meses/mes/area" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/G1.3/meses/mes/localidad" nodeset="/G1.3/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/G1.3/meses/mes/area_otro" relevant=" /G1.3/meses/mes/area =9999" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/G1.3/meses/mes/clientes" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/G1.3/meta/instanceID" readonly="true()" type="string"/>

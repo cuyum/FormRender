@@ -36,12 +36,12 @@
         </H1.8>
       </instance>
       <bind nodeset="/H1.8/titulo" readonly="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/H1.8/meses/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/H1.8/meses/mes/provincia" nodeset="/H1.8/meses/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/H1.8/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/H1.8/meses/mes/provincia" nodeset="/H1.8/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/H1.8/meses/mes/partido_otro" relevant=" /H1.8/meses/mes/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/H1.8/meses/mes/partido" nodeset="/H1.8/meses/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/H1.8/meses/mes/partido" nodeset="/H1.8/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/H1.8/meses/mes/localidad_otro" relevant=" /H1.8/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/H1.8/meses/mes/localidad" nodeset="/H1.8/meses/mes/area" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/H1.8/meses/mes/localidad" nodeset="/H1.8/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/H1.8/meses/mes/area_otro" relevant=" /H1.8/meses/mes/area =9999" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/H1.8/meses/mes/ll/llEntrante" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/H1.8/meses/mes/ll/llSaliente" required="true()" type="decimal"/>

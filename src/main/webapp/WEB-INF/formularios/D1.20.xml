@@ -29,10 +29,10 @@
           </meta>
         </D1.20>
       </instance>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/D1.20/meses/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/D1.20/meses/mes/provincia" nodeset="/D1.20/meses/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/D1.20/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/D1.20/meses/mes/provincia" nodeset="/D1.20/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/D1.20/meses/mes/partido_otro" relevant=" /D1.20/meses/mes/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/D1.20/meses/mes/partido" nodeset="/D1.20/meses/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/D1.20/meses/mes/partido" nodeset="/D1.20/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/D1.20/meses/mes/localidad_otro" relevant=" /D1.20/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/D1.20/meses/mes/trp" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/D1.20/meses/mes/trcp" required="true()" type="decimal"/>

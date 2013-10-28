@@ -19,10 +19,10 @@
           </meta>
         </E1.13>
       </instance>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/E1.13/areas/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/E1.13/areas/provincia" nodeset="/E1.13/areas/partido" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/E1.13/areas/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/E1.13/areas/provincia" nodeset="/E1.13/areas/partido" required="true()" type="select1"/>
       <bind nodeset="/E1.13/areas/partido_otro" relevant=" /E1.13/areas/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/E1.13/areas/partido" nodeset="/E1.13/areas/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/E1.13/areas/partido" nodeset="/E1.13/areas/localidad" required="true()" type="select1"/>
       <bind nodeset="/E1.13/areas/localidad_otro" relevant=" /E1.13/areas/localidad =9999" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/E1.13/areas/datos" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/E1.13/meta/instanceID" readonly="true()" type="string"/>

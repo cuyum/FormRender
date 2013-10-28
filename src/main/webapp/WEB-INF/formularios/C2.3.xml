@@ -38,12 +38,12 @@
           </meta>
         </C2.3>
       </instance>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/C2.3/areasprest/areas/cobertura/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/C2.3/areasprest/areas/cobertura/provincia" nodeset="/C2.3/areasprest/areas/cobertura/partido" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/C2.3/areasprest/areas/cobertura/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/C2.3/areasprest/areas/cobertura/provincia" nodeset="/C2.3/areasprest/areas/cobertura/partido" required="true()" type="select1"/>
       <bind nodeset="/C2.3/areasprest/areas/cobertura/partido_otro" relevant=" /C2.3/areasprest/areas/cobertura/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/C2.3/areasprest/areas/cobertura/partido" nodeset="/C2.3/areasprest/areas/cobertura/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/C2.3/areasprest/areas/cobertura/partido" nodeset="/C2.3/areasprest/areas/cobertura/localidad" required="true()" type="select1"/>
       <bind nodeset="/C2.3/areasprest/areas/cobertura/localidad_otro" relevant=" /C2.3/areasprest/areas/cobertura/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C2.3/areasprest/areas/cobertura/localidad" nodeset="/C2.3/areasprest/areas/cobertura/area" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/C2.3/areasprest/areas/cobertura/localidad" nodeset="/C2.3/areasprest/areas/cobertura/area" required="true()" type="select1"/>
       <bind nodeset="/C2.3/areasprest/areas/cobertura/area_otro" relevant=" /C2.3/areasprest/areas/cobertura/area =9999" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/C2.3/areasprest/areas/cobertura/telefViaPublica" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/C2.3/areasprest/areas/cobertura/lineasTelefoniaPublica" required="true()" type="int"/>

@@ -24,12 +24,12 @@
         </I1.2>
       </instance>
       <bind nodeset="/I1.2/titulo" readonly="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/I1.2/inter/interconexion/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/I1.2/inter/interconexion/provincia" nodeset="/I1.2/inter/interconexion/partido" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/I1.2/inter/interconexion/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/I1.2/inter/interconexion/provincia" nodeset="/I1.2/inter/interconexion/partido" required="true()" type="select1"/>
       <bind nodeset="/I1.2/inter/interconexion/partido_otro" relevant=" /I1.2/inter/interconexion/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/I1.2/inter/interconexion/partido" nodeset="/I1.2/inter/interconexion/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/I1.2/inter/interconexion/partido" nodeset="/I1.2/inter/interconexion/localidad" required="true()" type="select1"/>
       <bind nodeset="/I1.2/inter/interconexion/localidad_otro" relevant=" /I1.2/inter/interconexion/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="Datos no válidos" nodeset="/I1.2/inter/interconexion/prestador" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" jr:constraintMsg="Datos no válidos" nodeset="/I1.2/inter/interconexion/prestador" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999" nodeset="/I1.2/inter/interconexion/capacidad" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/I1.2/meta/instanceID" readonly="true()" type="string"/>
     </model>

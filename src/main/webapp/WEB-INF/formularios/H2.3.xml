@@ -38,12 +38,12 @@
         </H2.3>
       </instance>
       <bind nodeset="/H2.3/telefonia/lineas/anio" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/H2.3/telefonia/lineas/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/H2.3/telefonia/lineas/provincia" nodeset="/H2.3/telefonia/lineas/partido" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/H2.3/telefonia/lineas/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/H2.3/telefonia/lineas/provincia" nodeset="/H2.3/telefonia/lineas/partido" required="true()" type="select1"/>
       <bind nodeset="/H2.3/telefonia/lineas/partido_otro" relevant=" /H2.3/telefonia/lineas/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/H2.3/telefonia/lineas/partido" nodeset="/H2.3/telefonia/lineas/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/H2.3/telefonia/lineas/partido" nodeset="/H2.3/telefonia/lineas/localidad" required="true()" type="select1"/>
       <bind nodeset="/H2.3/telefonia/lineas/localidad_otro" relevant=" /H2.3/telefonia/lineas/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/H2.3/telefonia/lineas/localidad" nodeset="/H2.3/telefonia/lineas/area" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/H2.3/telefonia/lineas/localidad" nodeset="/H2.3/telefonia/lineas/area" required="true()" type="select1"/>
       <bind nodeset="/H2.3/telefonia/lineas/area_otro" relevant=" /H2.3/telefonia/lineas/area =9999" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/H2.3/telefonia/lineas/telefViaPublica" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/H2.3/telefonia/lineas/lineasTelefoniaPublica" required="true()" type="int"/>

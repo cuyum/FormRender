@@ -22,10 +22,10 @@
         </E1.1>
       </instance>
       <bind nodeset="/E1.1/titulo" readonly="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/E1.1/areasprest/areas/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/E1.1/areasprest/areas/provincia" nodeset="/E1.1/areasprest/areas/partido" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/E1.1/areasprest/areas/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/E1.1/areasprest/areas/provincia" nodeset="/E1.1/areasprest/areas/partido" required="true()" type="select1"/>
       <bind nodeset="/E1.1/areasprest/areas/partido_otro" relevant=" /E1.1/areasprest/areas/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/E1.1/areasprest/areas/partido" nodeset="/E1.1/areasprest/areas/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/E1.1/areasprest/areas/partido" nodeset="/E1.1/areasprest/areas/localidad" required="true()" type="select1"/>
       <bind nodeset="/E1.1/areasprest/areas/localidad_otro" relevant=" /E1.1/areasprest/areas/localidad =9999" required="true()" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/E1.1/meta/instanceID" readonly="true()" type="string"/>
     </model>
