@@ -30,12 +30,12 @@
         </ict4.1.1.b>
       </instance>
       <bind constraint="agrupador=1" nodeset="/ict4.1.1.b/meses/mes/periodo_considerado" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/ict4.1.1.b/meses/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/ict4.1.1.b/meses/mes/provincia" nodeset="/ict4.1.1.b/meses/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.1.b/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/ict4.1.1.b/meses/mes/provincia" nodeset="/ict4.1.1.b/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/ict4.1.1.b/meses/mes/partido_otro" relevant=" /ict4.1.1.b/meses/mes/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/ict4.1.1.b/meses/mes/partido" nodeset="/ict4.1.1.b/meses/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/ict4.1.1.b/meses/mes/partido" nodeset="/ict4.1.1.b/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/ict4.1.1.b/meses/mes/localidad_otro" relevant=" /ict4.1.1.b/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/ict4.1.1.b/meses/mes/localidad and agrupador=2" nodeset="/ict4.1.1.b/meses/mes/area" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/ict4.1.1.b/meses/mes/localidad and agrupador=2" nodeset="/ict4.1.1.b/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/ict4.1.1.b/meses/mes/area_otro" relevant=" /ict4.1.1.b/meses/mes/area =9999" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.1.1.b/meses/mes/aveia" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.1.1.b/meses/mes/facturacion" required="true()" type="int"/>
@@ -49,7 +49,7 @@
   <h:body>
     <group ref="/ict4.1.1.b/meses">
       <label></label>
-      <repeat appearance="grilla agrupada totalizada" nodeset="/ict4.1.1.b/meses">
+      <repeat appearance="grilla sumarizada calculados" nodeset="/ict4.1.1.b/meses">
         <group appearance="col4 well-white" ref="/ict4.1.1.b/meses/mes">
           <label>Clasificación de los Reclamos ingresados</label>
           <select1 appearance="minimal" ref="/ict4.1.1.b/meses/mes/periodo_considerado">

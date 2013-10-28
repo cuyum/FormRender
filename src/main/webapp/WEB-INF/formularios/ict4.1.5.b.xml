@@ -23,7 +23,7 @@
         </ict4.1.5.b>
       </instance>
       <bind nodeset="/ict4.1.5.b/meses/mes/periodo_considerado" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/ict4.1.5.b/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.5.b/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.5.b/meses/mes/venc_saldos" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.5.b/meses/mes/promociones" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.5.b/meses/mes/acreditaciones" required="true()" type="int"/>

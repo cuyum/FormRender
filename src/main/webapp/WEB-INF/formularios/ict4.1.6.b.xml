@@ -27,7 +27,7 @@
         </ict4.1.6.b>
       </instance>
       <bind nodeset="/ict4.1.6.b/meses/mes/periodo_considerado" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/ict4.1.6.b/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.6.b/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.6.b/meses/mes/desconoc_llamadas" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.6.b/meses/mes/conceptos_orden_tercero" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.6.b/meses/mes/falta_reintegro" required="true()" type="int"/>
