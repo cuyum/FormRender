@@ -84,6 +84,55 @@ var gui = new function(){
 		if(this.renderTotalizadoresIngresados){
 			this.renderTotalizadores = true;
 		}
+		
+		/********* SETUP GUI JQUERY PLUGIN FUNCTIONALITY *********/
+		this.setupPlugins();
+		
+	};
+	this.setupPlugins = function(){
+		/************ SCROLL TO **************/
+	    $.fn.scrollTo = function() {
+	    	var object = $(this);
+	    	if(object.attr("data-type-xml")!=undefined && object.attr("data-type-xml")=="select2"){
+	    		object = object.parent();
+	    	}
+	        console.info("scrolling top from",object.offset().top + 'px');
+	    	$('html, body').animate({
+	            scrollTop: object.offset().top + 'px'
+	        }, 'fast');
+	        return this; // for chaining...
+	    };
+		
+		/************ MARK INVALID **************/
+	    $.fn.markInvalid = function(message) {
+	    	var field = $(this);
+	    	if(field.is("input")){
+	    		console.log("MARK INVALID CALLED ON ",field.attr("name"));
+	    		if(!field.hasClass("error"))
+	    			field.addClass("error");
+	    		field.removeClass("valid");
+	    		if(message && message.trim()!=""){
+	    			var messageLabel = $(this).siblings("label.error");
+	    			
+	    			if(messageLabel.length>1){
+	    				$.each(messageLabel,function(i,el){
+	    					el.remove();
+	    				});
+	    				messageLabel = [];
+	    			}
+	    			
+	    			if(messageLabel.length==1){
+	    				messageLabel.text(message);
+	    			}else{
+	    				messageLabel = $('<label for="'+field.attr("name")+'" class="error"></label>');
+	    				messageLabel.text(message);
+	    				field.parent().append(messageLabel);
+	    			}
+	    		}
+	    	}
+	        return this; // for chaining...
+	    };
+		
 	};
 	this.setupDefaults = function(){
 		$("select").select2();
@@ -235,7 +284,7 @@ var gui = new function(){
 		return data;
 	};
 	this.validateRemoteSelects = function(){
-		var selectFields = $("input[class~='select2-offscreen']:hidden");
+		var selectFields = $("input[class~='select2-offscreen']:hidden").not(".select2-focusser");
 		var valid = true;
 		for ( var i = 0; i < selectFields.length; i++) {
 			if(!$(gui.form).validate().element(selectFields[i]) && valid){

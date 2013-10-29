@@ -112,9 +112,6 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
             	<script type="text/javascript" src="/FormRender/resources/js/jquery-ui.min.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
-			  	<script type="text/javascript" src="/FormRender/resources/js/jquery.scrollTo.js">
-            		<xsl:text>&#10;</xsl:text>
-            	</script>
 			  	<script type="text/javascript" src="/FormRender/resources/js/jquery.blockUI.js">
             		<xsl:text>&#10;</xsl:text>
             	</script>
