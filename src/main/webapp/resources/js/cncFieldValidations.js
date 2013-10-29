@@ -458,6 +458,11 @@ var setupDataConstraints = function(field,fieldset){
 				var porcentual = constraint.substring(constraint.indexOf("porcentual=")+11);
 				field.data("jr:constraint:porcentual",porcentual);
 			}else
+			/*porcentual constraint*/
+			if(constraint.indexOf("divisor=")!=-1){
+				var divisor = constraint.substring(constraint.indexOf("divisor=")+8);
+				field.data("jr:constraint:divisor", divisor);
+			}else
 			/*agrupador constraint*/
 			if(constraint.indexOf("agrupador=")!=-1){
 				var agrupador = constraint.substring(constraint.indexOf("agrupador=")+10);
@@ -554,6 +559,68 @@ var setupPorcentual = function(field,fieldset){
 			}
 		}else{
 			console.error("No se puede determinar el porcentaje de "+field.attr("name")+" ya que se declararon menos de 3 variables.");
+		}
+	}
+};
+
+var setupDivisor = function(field,fieldset){
+	if(field.data("jr:constraint:divisor")!=undefined){
+		var divisorVars = field.data("jr:constraint:divisor").split(",");
+		if(divisorVars.length==2){
+			
+			var dividendo = gui.getField(divisorVars[0],fieldset);
+			var divisor = gui.getField(divisorVars[1],fieldset);
+			if(dividendo.length == 1 && divisor.length == 1){
+				
+				dividendo.on("change",{
+					divisor : divisor,
+					total:field
+				},function(evt){
+					var divisor = evt.data.divisor;
+					var total = evt.data.total;
+					
+					if(this.value==undefined || this.value.trim()=="" || isNaN(this.value)){
+						console.warn("El dividendo ("+$(this).attr("name")+") no tiene un valor v\u00E1lido ("+this.value+")");
+						return;
+					}
+					
+					if(divisor.val()!=undefined && divisor.val().trim()!="" && !isNaN(divisor.val())){
+						
+						if(this.value>0 && divisor.val()>0){
+							total.val(cncFromNumber((this.value / divisor.val() ),2));
+						}else{
+							total.val(0);
+						}
+					}else console.warn("El divisor ("+divisor.attr("name")+") no tiene un valor v\u00E1lido ("+divisor.val()+")");
+				});
+
+				divisor.on("change",{
+					dividendo : dividendo,
+					total:field
+				},function(evt){
+					var dividendo = evt.data.dividendo;
+					var total = evt.data.total;
+					
+					if(this.value==undefined || this.value.trim()=="" || isNaN(this.value)){
+						console.warn("El divisor ("+$(this).attr("name")+") no tiene un valor v\u00E1lido ("+this.value+")");
+						return;
+					}
+					
+					if(dividendo.val()!=undefined && dividendo.val().trim()!="" && !isNaN(dividendo.val())){
+						
+						if(this.value>0 && dividendo.val()>0){
+							total.val(cncFromNumber((dividendo.val() / this.value),2));
+						}else{
+							total.val(0);
+						}
+					}else console.warn("El dividendo ("+dividendo.attr("name")+") no tiene un valor v\u00E1lido ("+dividendo.val()+")");
+				});
+				
+			}else{
+				console.error("No se encontro el divisor para calcular divisi\u00F3n en "+field.attr("name"));
+			}
+		}else{
+			console.error("No se puede determinar el divisor de "+field.attr("name")+" ya que se declararon menos de 2 variables.");
 		}
 	}
 };
@@ -808,6 +875,7 @@ var setupValidations = function(f,fieldset){
 	
 	/*Aditional field logic*/
 	setupPorcentual(field,fieldset);
+	setupDivisor(field,fieldset);
 	setupCalculate(field,fieldset);
 	setupMask(field);
 	setupRelevantData(field,fieldset);
