@@ -78,9 +78,9 @@ var gui = new function(){
 		this.renderTotalizadores = this.initialFieldset.hasClass("calculados");
 		this.renderTotalizadoresIngresados = this.initialFieldset.hasClass("ingresados");
 		
-		if(this.renderTotalizadores){
-			$("div[class~='form-actions']").find("[totalizador-action='calculados']").not(":visible").show();
-		}
+//		if(this.renderTotalizadores){
+//			$("div[class~='form-actions']").find("[totalizador-action='calculados']").not(":visible").show();
+//		}
 		if(this.renderTotalizadoresIngresados){
 			this.renderTotalizadores = true;
 		}
@@ -798,9 +798,16 @@ var gui = new function(){
 			this.buttons.push({type:"calculados",btnEl:calculadoBtn});
 			var ingresadoBtn = $("div[class~='form-actions']").find("[totalizador-action='ingresados']");
 			this.buttons.push({type:"ingresados",btnEl:ingresadoBtn});
+			
 			/*Mostrar los botones disparadores que inicialmente vienen ocultados*/
 			$.each(this.buttons,function(i,element){
-				element.btnEl.show();
+				if(gui.renderTotalizadoresIngresados){
+					element.btnEl.show();
+				}else{
+					if(gui.renderTotalizadores && element.type=="calculados"){
+						element.btnEl.show();
+					}	
+				}
 			});
 			
 			this.getButton("calculados").click(function(evt){
