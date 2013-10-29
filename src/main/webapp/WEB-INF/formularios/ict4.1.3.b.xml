@@ -25,7 +25,7 @@
         </ict4.1.3.b>
       </instance>
       <bind nodeset="/ict4.1.3.b/meses/mes/periodo_considerado" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/ict4.1.3.b/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.3.b/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.3.b/meses/mes/cant_usuarios_reiteracion" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.3.b/meses/mes/cant_usuarios_reclamo" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.3.b/meses/mes/inst_ser_o_cambio_dom" required="true()" type="int"/>

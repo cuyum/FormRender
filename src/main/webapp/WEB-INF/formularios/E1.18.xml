@@ -23,10 +23,10 @@
           </meta>
         </E1.18>
       </instance>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/E1.18/meses/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/E1.18/meses/mes/provincia" nodeset="/E1.18/meses/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/E1.18/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/E1.18/meses/mes/provincia" nodeset="/E1.18/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/E1.18/meses/mes/partido_otro" relevant=" /E1.18/meses/mes/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/E1.18/meses/mes/partido" nodeset="/E1.18/meses/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/E1.18/meses/mes/partido" nodeset="/E1.18/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/E1.18/meses/mes/localidad_otro" relevant=" /E1.18/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/E1.18/meses/mes/contratosVigentes" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/E1.18/meses/mes/facturacionPapel" required="true()" type="int"/>

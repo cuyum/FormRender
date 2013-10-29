@@ -42,12 +42,12 @@
         </C1.10>
       </instance>
       <bind nodeset="/C1.10/titulo" readonly="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/C1.10/meses/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/C1.10/meses/mes/provincia" nodeset="/C1.10/meses/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/C1.10/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/C1.10/meses/mes/provincia" nodeset="/C1.10/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/C1.10/meses/mes/partido_otro" relevant=" /C1.10/meses/mes/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/C1.10/meses/mes/partido" nodeset="/C1.10/meses/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/C1.10/meses/mes/partido" nodeset="/C1.10/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/C1.10/meses/mes/localidad_otro" relevant=" /C1.10/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C1.10/meses/mes/localidad" nodeset="/C1.10/meses/mes/area" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/C1.10/meses/mes/localidad" nodeset="/C1.10/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/C1.10/meses/mes/area_otro" relevant=" /C1.10/meses/mes/area =9999" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 99999999.99" nodeset="/C1.10/meses/mes/ll/llHogar" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 99999999.99" nodeset="/C1.10/meses/mes/ll/llEmpresa" required="true()" type="decimal"/>

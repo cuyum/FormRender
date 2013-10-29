@@ -24,10 +24,10 @@
         </F1.4>
       </instance>
       <bind nodeset="/F1.4/titulo" readonly="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/F1.4/meses/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/F1.4/meses/mes/provincia" nodeset="/F1.4/meses/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/F1.4/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/F1.4/meses/mes/provincia" nodeset="/F1.4/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/F1.4/meses/mes/partido_otro" relevant=" /F1.4/meses/mes/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/F1.4/meses/mes/partido" nodeset="/F1.4/meses/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/F1.4/meses/mes/partido" nodeset="/F1.4/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/F1.4/meses/mes/localidad_otro" relevant=" /F1.4/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind jr:constraintMsg="Datos no válidos" nodeset="/F1.4/meses/mes/institucion" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/F1.4/meses/mes/capacidad" type="int"/>

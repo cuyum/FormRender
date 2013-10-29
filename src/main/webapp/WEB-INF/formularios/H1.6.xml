@@ -28,12 +28,12 @@
         </H1.6>
       </instance>
       <bind nodeset="/H1.6/titulo" readonly="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/H1.6/meses/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/H1.6/meses/mes/provincia" nodeset="/H1.6/meses/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/H1.6/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/H1.6/meses/mes/provincia" nodeset="/H1.6/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/H1.6/meses/mes/partido_otro" relevant=" /H1.6/meses/mes/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/H1.6/meses/mes/partido" nodeset="/H1.6/meses/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/H1.6/meses/mes/partido" nodeset="/H1.6/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/H1.6/meses/mes/localidad_otro" relevant=" /H1.6/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/H1.6/meses/mes/localidad" nodeset="/H1.6/meses/mes/area" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/H1.6/meses/mes/localidad" nodeset="/H1.6/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/H1.6/meses/mes/area_otro" relevant=" /H1.6/meses/mes/area =9999" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/H1.6/meses/mes/clientes" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/H1.6/meses/mes/abonoLocal" required="true()" type="int"/>
