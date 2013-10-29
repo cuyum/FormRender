@@ -49,7 +49,7 @@
   <h:body>
     <group ref="/ict4.2.4.2/trimestres">
       <label></label>
-      <repeat appearance="grilla sumarizada calculado" nodeset="/ict4.2.4.2/trimestres">
+      <repeat appearance="grilla calculado" nodeset="/ict4.2.4.2/trimestres">
         <group appearance="col3 well-white" ref="/ict4.2.4.2/trimestres/relacion">
           <label>Relación entre la cantidad de paquetes perdidos y el total de paquetes transmitidos</label>
           <select1 appearance="minimal" ref="/ict4.2.4.2/trimestres/relacion/periodo_considerado">

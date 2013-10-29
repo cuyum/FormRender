@@ -47,7 +47,7 @@
   <h:body>
     <group ref="/ict4.2.2.1-a/trimestres">
       <label></label>
-      <repeat appearance="grilla sumarizada calculado" nodeset="/ict4.2.2.1-a/trimestres">
+      <repeat appearance="grilla calculado" nodeset="/ict4.2.2.1-a/trimestres">
         <group appearance="col3 well-white" ref="/ict4.2.2.1-a/trimestres/relacion">
           <label>Relación entre la cantidad de llamadas completadas y el total de intentos</label>
           <select1 appearance="minimal" ref="/ict4.2.2.1-a/trimestres/relacion/periodo_considerado">
