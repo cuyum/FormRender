@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario 4.1.4-B Indicador de Respuesta del Operador para Atención al Usuario - Cuadro B</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <ict4.1.4.b id="ICT4.1.4.B">
           <meses jr:template="">

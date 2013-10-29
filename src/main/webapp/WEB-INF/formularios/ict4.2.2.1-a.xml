@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario 4.2.2.1-A Eficiencia de llamada - Cuadro A</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <ict4.2.2.1-a id="ICT4.2.2.1-a">
           <trimestres jr:template="">

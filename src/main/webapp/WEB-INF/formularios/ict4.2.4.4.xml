@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario 4.2.4.4-A Tasa de Cumplimiento del Sincronismo - Cuadro A</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <ict4.2.4.4 id="ICT4.2.4.4">
           <trimestres jr:template="">

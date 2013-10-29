@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario 4.1.2-A Indicador de reiteración de reclamos - Cuadro A</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <ict4.1.2.a id="ICT4.1.2.A">
           <meses jr:template="">

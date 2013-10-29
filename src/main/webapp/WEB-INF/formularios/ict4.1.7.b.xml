@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario 4.1.7-B Indicador de Demora en Operatividad de Servicio Solicitado - Cuadro B</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <ict4.1.7.b id="ICT4.1.7.B">
           <meses jr:template="">

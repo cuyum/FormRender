@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario 4.2.3-A Retenibilidad del Servicio - Cuadro A</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <ict4.2.3 id="ICT4.2.3">
           <trimestres jr:template="">

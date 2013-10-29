@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario 4.1.1-E Indicador de reclamos de usuarios - Cuadro E</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <ict4.1.1.e id="ICT4.1.1.e">
           <meses jr:template="">
