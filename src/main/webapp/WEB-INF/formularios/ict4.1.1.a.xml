@@ -43,7 +43,7 @@
   <h:body>
     <group ref="/ict4.1.1.a/trimestres">
       <label></label>
-      <repeat appearance="grilla agrupada totalizada" nodeset="/ict4.1.1.a/trimestres">
+      <repeat appearance="grilla sumarizada ingresados" nodeset="/ict4.1.1.a/trimestres">
         <group appearance="col4 well-white" ref="/ict4.1.1.a/trimestres/relacion">
           <label>Relación entre Reclamos y Accesos Operativos</label>
           <select1 appearance="minimal" ref="/ict4.1.1.a/trimestres/relacion/periodo_considerado">

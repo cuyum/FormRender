@@ -263,8 +263,16 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 						<div class="well block">
 							<div>
 								<div class="form-actions align-left">
-									 <a  data-toggle="modal" href="#modal-agrupadora" class="btn hovertip"  data-original-title="Totalizadores">Total Calculado</a>
-									<input class="btn hovertip" title="Totalizadores" value="Total Ingresado" type="button" style="display:none;"/>		
+									<a href="#modal-agrupadora" class="btn hovertip"
+										 data-toggle="modal" data-original-title="Totalizadores"  
+										 totalizador-action="calculados" style="display:none;">
+									 		Total Calculado
+									</a>
+									<a href="#modal-agrupadora" class="btn hovertip"
+										data-toggle="modal" data-original-title="Totalizadores" 
+										totalizador-action="ingresados" style="display:none;">
+											Total Ingresado
+									</a>
 									<input type="button" class="btn" value="Guardar Borrador" action="submit" draft="true" />
 									<input type="button" class="btn btn-success confirm" value="Listo" action="submit" draft="false" />
 								</div>

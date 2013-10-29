@@ -1,10 +1,12 @@
 /*Singleton GUI logic*/
 var gui = new function(){
+	this.initialFieldset = undefined;
 	this.fieldsets = [];
 	this.repeatCount = undefined;
 	this.renderGrid = false;
 	this.renderTotal = false;
 	this.renderTotalizadores = false;
+	this.renderTotalizadoresIngresados = false;
 	this.MESSAGES = {
 		INFO : "alert-info",
 		WARN : "",
@@ -50,13 +52,43 @@ var gui = new function(){
 		return validFields && validSelects;
 			
 	};
+	this.boot = function(){
+		this.form = document.forms[0];
+		
+		setupValidationDefaults();
+		
+		/*Setup Version
+		var versionElement = $("#version");
+		var versionValue = gui.getURLParameter("version");
+		if(versionElement && versionValue) versionElement.text("Versi\u00F3n: "+versionValue);
+		*/
+		
+		/*
+		 * Para repeat se necesitará duplicar todo lo que se encuentre dentro del fieldset.jr-repeat
+		 * actualmente se está pasando un listado de campos al setup de validaciones y se están buscando 
+		 * globalmente los campos por nombres. Se deberá pasar los campos de un fieldset específico y las
+		 * búsquedas internas deberán dejar de hacerse globalmente y deberán buscarse dentro del fieldset
+		 * suministrado. 
+		 */
+		this.initialFieldset = $("fieldset.jr-repeat");
+		
+		this.repeatCount = this.getURLParameter("repeat");
+		this.renderGrid = this.initialFieldset.hasClass("grilla");
+		this.renderTotal = this.initialFieldset.hasClass("sumarizada");
+		this.renderTotalizadores = this.initialFieldset.hasClass("calculados");
+		this.renderTotalizadoresIngresados = this.initialFieldset.hasClass("ingresados");
+		
+		if(this.renderTotalizadores){
+			$("div[class~='form-actions']").find("[totalizador-action='calculados']").not(":visible").show();
+		}
+		if(this.renderTotalizadoresIngresados){
+			this.renderTotalizadores = true;
+		}
+	};
 	this.setupDefaults = function(){
 		$("select").select2();
 		$("input[type='time']").timepicker();
 		setupHints();
-		if(gui.renderTotalizadores){
-			$("div[class~='form-actions']").children().not(":visible").show();
-		}
 	};
 	this.displayMessage = function(message,type){
 		if(message==undefined || message==null){
@@ -328,6 +360,7 @@ var gui = new function(){
 			var dl = gui.grid.element.dataTable().fnGetData();
 			if(dl.length>0){
 				var dataList = [];
+				var dataFinal = null;
 				for ( var i = 0; i < dl.length; i++) {
 					var data = dl[i];
 					if(data["values"] != undefined)
@@ -340,7 +373,46 @@ var gui = new function(){
 					}
 					dataList.push(data);
 				}
-				message.payload.formulario.data = dataList;
+				
+				if(gui.renderTotalizadores){
+					var totalizados = gui.gridTotalizadora.getData();
+					console.log("totalizados",totalizados);
+					/*si hay totalizadores ingresado debe validarse que se hayan ingresado todos, 
+					 * de lo contrario se debe levantar la ventana con un mensaje que obligue a agregar 
+					 * todos los totalizadores ingresados*/
+					if(gui.renderTotalizadoresIngresados){
+						
+						var totalizadores = gui.gridTotalizadora.totalizadores;
+						console.log("totalizadores",totalizadores);
+						var fail = true;
+						/*se verifica que todos los totalizados tengan un valor ingresado*/
+						for ( var i = 0; i < totalizados.length; i++) {
+							console.log("(i) totalizado:",i);
+							for ( var j = 0; j < totalizadores.length; j++) {
+								console.log("(j) totalizador:",j);
+								var ingresado = totalizados[i][totalizadores[j].nombre+"_ingresado"];
+								fail = (ingresado=="-" || isNaN(ingresado));
+								console.log(totalizados[i],"fail "+fail);
+							}
+						}
+						
+						if(fail){
+							gui.gridTotalizadora.getButton("ingresados").click();
+							$(btn).removeAttr("disabled");
+							return;
+						}
+					}
+					
+					dataFinal = {
+						registros:dataList,
+						sumarizados:totalizados
+					};
+				}else{
+					dataFinal = dataList;
+				}
+				
+				message.payload.formulario.data = dataFinal;
+				console.log(message);
 				draft==true?gui.saveDraft(message):gui.saveFinal(message);
 			} else {
 				gui.displayWarning("No se encuentran registros para guardar.");
@@ -348,7 +420,7 @@ var gui = new function(){
 				gui.validateForm();
 			}
 			
-		/* si no hay grilla es necesario se deben extraer los datos
+		/* si no hay grilla es necesario extraer los datos
 		 * del formulario crudo y si es un draft, no hace falta validar
 		 * caso contrario se debera validar todo el formulario antes de
 		 * realizar el submit
@@ -580,12 +652,122 @@ var gui = new function(){
 		data : [],
 		accountedFor:false,
 		totalizadoIdx:0,
+		buttons:[],
 		element:$('<table id="agrupadora-grid" class="table table-striped"></table>'),
+		getDataTable:function(){
+			return this.element.dataTable();
+		},
+		getData : function(){
+			return this.getDataTable().fnGetData();
+		},
+		getRowData : function(rowIndex){
+			return this.getDataTable().fnGetData(rowIndex);
+		},
+		addRows : function(dataArray){
+			this.getDataTable().fnAddData(dataArray,true);
+		},
+		removeRow : function(rowIndex){
+			this.element.dataTable().fnDeleteRow(rowIndex);
+		},
+		addRow : function(data){
+			this.getDataTable().fnAddData(data,true);
+		},
+		updateRow : function(data,index){
+			this.getDataTable().fnUpdate(data,index);
+		},
 		resetProcessVars : function(){
 			this.accountedFor = false;
 			this. totalizadoIdx = 0;
 		},
+		checkCorrectTotalizadores:function(list){
+			console.log("list totalizadores",list);
+		},
+		getButton : function(type){
+			for ( var i = 0; i < this.buttons.length; i++) {
+				if(this.buttons[i].type == type) return this.buttons[i].btnEl;
+			}
+			return undefined;
+		},
+		getNombreNivel : function(nivel){
+			if(isNaN(nivel)) return;
+			if(nivel > this.agrupadores.length) return;
+			for ( var i = 0; i < this.agrupadores.length; i++) {
+				if(this.agrupadores[i].nivel == nivel) return this.agrupadores[i].nombre;
+			}
+		},
+		getTituloNivel : function(nivel){
+			if(isNaN(nivel)) return;
+			if(nivel > this.agrupadores.length) return;
+			for ( var i = 0; i < this.agrupadores.length; i++) {
+				if(this.agrupadores[i].nivel == nivel) return this.agrupadores[i].titulo;
+			}
+		},
+		checkNiveles : function(){
+			var niveles = 0;
+			for ( var i = 0; i < this.agrupadores.length; i++) {
+				if(niveles < this.agrupadores[i].nivel){
+					niveles = this.agrupadores[i].nivel;
+				}
+			}
+			if(niveles != this.agrupadores.length){
+				console.error("La cantidad de agrupadores es diferente a los niveles expresados de agrupamiento, declarados="+niveles+" encontrados="+this.agrupadores.length);
+				return false;
+			}else{
+				console.log("Se encontraron "+niveles+" niveles de agrupamiento correctamente declarados");
+				return true;
+			}
+		},
+		onInputChange:function(el){
+			var table = this.getDataTable();
+			/*recupero las coordenadas en donde se ha cambiado el valor del input*/
+			var td = $(el).closest('td').get(0);
+			/*
+			 * 0: row 
+			 * 1: column idx (visible)
+			 * 2: column idx (all)
+			 */
+			var coords = table.fnGetPosition(td);
+			/* recupero la informacion de la columna de la tabla en la que se cambio el valor 
+			 * del input para poder recuperar la info del campo*/
+			var column = table.fnSettings().aoColumns[coords[2]];
+			
+			/*recupero el registro de la fila completo para actualizar el valor*/
+			var record = this.getRowData(coords[0]);
+			
+			record[column["field_name"]] = gui.toNumber(el.value);
+			
+			this.updateRow(record,coords[0]);
+			
+		},
 		render:function(fieldset){
+			var calculadoBtn = $("div[class~='form-actions']").find("[totalizador-action='calculados']");
+			this.buttons.push({type:"calculados",btnEl:calculadoBtn});
+			var ingresadoBtn = $("div[class~='form-actions']").find("[totalizador-action='ingresados']");
+			this.buttons.push({type:"ingresados",btnEl:ingresadoBtn});
+			/*Mostrar los botones disparadores que inicialmente vienen ocultados*/
+			$.each(this.buttons,function(i,element){
+				element.btnEl.show();
+			});
+			
+			this.getButton("calculados").click(function(evt){
+				var table = gui.gridTotalizadora.element.dataTable();
+				var cols = table.fnSettings().aoColumns;
+				$.each(cols,function(i,col){
+					if(col.ingresada){
+						table.fnSetColumnVis(i,false);
+					}
+				});
+			});
+			this.getButton("ingresados").click(function(evt){
+				var table = gui.gridTotalizadora.element.dataTable();
+				var cols = table.fnSettings().aoColumns;
+				$.each(cols,function(i,col){
+					if(col.ingresada){
+						table.fnSetColumnVis(i,true);
+					}
+				});
+			});
+			
 			if(!gui.gridTotalizadora.checkNiveles()) return;
 			
 			var modalBody = $("#modal-totalizadora").children("[class='block well']");
@@ -599,10 +781,24 @@ var gui = new function(){
 			}
 			
 			for ( var i = 0; i < this.totalizadores.length; i++) {
+				var tot = this.totalizadores[i];
 				this.headers.push({ 
-					"sTitle": this.totalizadores[i].titulo,
-					"mData": ""+this.totalizadores[i].nombre
+					"sTitle": tot.titulo,
+					"mData": ""+tot.nombre
 				});
+
+				if(gui.renderTotalizadoresIngresados){
+					this.headers.push({
+						"sTitle": tot.titulo +" (Ingresado)",
+						"mData": ""+tot.nombre+"_ingresado",
+						"mRender":function(data,type,row){
+							return '<input type="text" value="'+data+'" onchange="gui.gridTotalizadora.onInputChange(this);"/>';
+						},
+						"bVisible": false,
+						"field_name":tot.nombre+'_ingresado',
+						"ingresada":true
+					});
+				}
 			}
 			
 			this.element.dataTable({
@@ -629,53 +825,6 @@ var gui = new function(){
 				"aoColumns": gui.gridTotalizadora.headers
 		    });
 		},
-		getNombreNivel : function(nivel){
-			if(isNaN(nivel)) return;
-			if(nivel > this.agrupadores.length) return;
-			for ( var i = 0; i < this.agrupadores.length; i++) {
-				if(this.agrupadores[i].nivel == nivel) return this.agrupadores[i].nombre;
-			}
-		},
-		getTituloNivel : function(nivel){
-			if(isNaN(nivel)) return;
-			if(nivel > this.agrupadores.length) return;
-			for ( var i = 0; i < this.agrupadores.length; i++) {
-				if(this.agrupadores[i].nivel == nivel) return this.agrupadores[i].titulo;
-			}
-		},
-		getData : function(){
-			return this.element.dataTable().fnGetData();
-		},
-		getRowData : function(rowIndex){
-			return this.element.dataTable().fnGetData(rowIndex);
-		},
-		addRows : function(dataArray){
-			this.element.dataTable().fnAddData(dataArray,true);
-		},
-		removeRow : function(rowIndex){
-			this.element.dataTable().fnDeleteRow(rowIndex);
-		},
-		addRow : function(data){
-			this.element.dataTable().fnAddData(data,true);
-		},
-		updateRow : function(data,index){
-			this.element.dataTable().fnUpdate(data,index);
-		},
-		checkNiveles : function(){
-			var niveles = 0;
-			for ( var i = 0; i < this.agrupadores.length; i++) {
-				if(niveles < this.agrupadores[i].nivel){
-					niveles = this.agrupadores[i].nivel;
-				}
-			}
-			if(niveles != this.agrupadores.length){
-				console.error("La cantidad de agrupadores es diferente a los niveles expresados de agrupamiento, declarados="+niveles+" encontrados="+this.agrupadores.length);
-				return false;
-			}else{
-				console.log("Se encontraron "+niveles+" niveles de agrupamiento correctamente declarados");
-				return true;
-			}
-		},
 		prepareTotalizado : function(record){
 			var totalizado = {};
 			var tmpHash = "";
@@ -692,6 +841,14 @@ var gui = new function(){
 			
 			hash = new jsSHA(tmpHash,"TEXT");
 			totalizado["firma_digital"] = hash.getHash("SHA-1","HEX");
+			
+			/*set totalizadores if not already there*/
+			for ( var i = 0; i < this.totalizadores.length; i++) {
+				totalizado[this.totalizadores[i].nombre] = null;
+				if(gui.renderTotalizadoresIngresados){
+					totalizado[this.totalizadores[i].nombre+"_ingresado"] = "-";
+				}
+			}
 			
 			return totalizado;
 		},
@@ -748,51 +905,41 @@ var gui = new function(){
 			var totalizadoNuevo = this.prepareTotalizado(record);
 			var totalizadoOrig = this.prepareTotalizado(record.original);
 			
+			/*si las firmas son las mismas, han cambiado los totalizadores solamente*/
 			if(totalizadoNuevo.firma_digital == totalizadoOrig.firma_digital){
 				var totalizado = this.processGroups(record);
-				/*si las firmas son las mismas, han cambiado los totalizadores solamente*/
-				console.log("ES EL MISMO REGISTRO TOTALIZADO");
+				
 				
 				for ( var i = 0; i < this.totalizadores.length; i++) {
 					var r = record[this.totalizadores[i].nombre];
 					totalizadoNuevo[this.totalizadores[i].nombre] = r;
 				}
-				console.log("nuevo",totalizadoNuevo);
 				
 				for ( var i = 0; i < this.totalizadores.length; i++) {
 					var r = record.original[this.totalizadores[i].nombre];
 					totalizadoOrig[this.totalizadores[i].nombre] = r;
 				}
-				console.log("original",totalizadoOrig);
 				
 				var totalizadoDelta = totalizadoNuevo;
 				
 				for ( var i = 0; i < this.totalizadores.length; i++) {
 					totalizadoDelta[this.totalizadores[i].nombre] = totalizadoNuevo[this.totalizadores[i].nombre] - totalizadoOrig[this.totalizadores[i].nombre];
 				}
-				console.log("delta",totalizadoDelta);
 				
 				
 				for ( var i = 0; i < this.totalizadores.length; i++) {
 					totalizado[this.totalizadores[i].nombre] = totalizado[this.totalizadores[i].nombre] + totalizadoDelta[this.totalizadores[i].nombre];
-					console.log(totalizado[this.totalizadores[i].nombre] +"+"+totalizadoDelta[this.totalizadores[i].nombre]+"="+totalizado[this.totalizadores[i].nombre] + totalizadoDelta[this.totalizadores[i].nombre]);
 				}
-//				console.log(totalizado,totalizadoNuevo,totalizadoOrig,this.totalizadoIdx);
 				
 				this.updateRow(totalizado,this.totalizadoIdx);
+				this.resetProcessVars();
 			}else{
 				/*si las firmas no son las mismas, han cambiado todo el registro, procesar integramente 
 				 * y restar los valores originales de la lista de totalizados*/
-				/*si es nuevo hay que actualizar/eliminar el anterior e incluir este*/
 				console.log("ES OTRO REGISTRO TOTALIZADO, puede ser nuevo o estar contabilizado");
-				/*
-				 *  probar:
-				 */
 				this.processRemoval(record.original);
 				this.processRecord(record);
 			}
-			this.resetProcessVars();
-			
 		},
 		/**
 		 * Procesa la eliminaci&oacute;n de un registro de la grilla principal actualizando sus valores totalizadores correspondientes
@@ -837,6 +984,11 @@ var gui = new function(){
 		getRowData : function(rowIndex){
 			return this.element.dataTable().fnGetData(rowIndex);
 		},
+		setupAddClick: function(){
+			$("input[type~='button'][repeat-action='add']").click(this,function(evt){
+				gui.grid.addRow($(evt.target).parent().attr("repeat-instance"));
+			});
+		},
 		setupEditClck: function(){
 			$("input[type~='button'][repeat-action='edit']").unbind("click");
 			$("input[type~='button'][repeat-action='edit']").click(function(evt){
@@ -854,11 +1006,6 @@ var gui = new function(){
 				gui.grid.editing = rowIndex;
 				gui.unblockUI(true);
 				$(gui.fieldsets[record.instance].dom).scrollTo();
-			});
-		},
-		setupAddClick: function(){
-			$("input[type~='button'][repeat-action='add']").click(this,function(evt){
-				gui.grid.addRow($(evt.target).parent().attr("repeat-instance"));
 			});
 		},
 		setupRemoveClick: function(){

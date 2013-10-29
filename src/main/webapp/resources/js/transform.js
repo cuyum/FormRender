@@ -1,41 +1,23 @@
 $(document).ready(function() {
-	gui.form = document.forms[0];
-	// override these in your code to change the default behavior and style
-	setupValidationDefaults();
-	
-	/*Setup Version
-	var versionElement = $("#version");
-	var versionValue = gui.getURLParameter("version");
-	if(versionElement && versionValue) versionElement.text("Versi\u00F3n: "+versionValue);
-	*/
-	
-	/*
-	 * Para repeat se necesitará duplicar todo lo que se encuentre dentro del fieldset.jr-repeat
-	 * actualmente se está pasando un listado de campos al setup de validaciones y se están buscando 
-	 * globalmente los campos por nombres. Se deberá pasar los campos de un fieldset específico y las
-	 * búsquedas internas deberán dejar de hacerse globalmente y deberán buscarse dentro del fieldset
-	 * suministrado. 
-	 */
-	var fs = $("fieldset.jr-repeat");
-	gui.repeatCount = gui.getURLParameter("repeat");
-	gui.renderGrid = fs.hasClass("grilla");
-	gui.renderTotal = fs.hasClass("totalizada");
-	gui.renderTotalizadores = fs.hasClass("agrupada");
 
+	/**
+	 * Boot up FormRender GUI
+	 */
+	gui.boot();
 	/*building Form.fieldsets*/
-	if(fs.length>0 && gui.repeatCount>0){
-		var pfs = fs.parent();
+	if(gui.initialFieldset.length>0 && gui.repeatCount>0){
+		var pfs = gui.initialFieldset.parent();
 		var calculatedItems = $("fieldset[name~='"+pfs.attr("name")+"']").siblings("#jr-calculated-items").find("[name]");
 		/* iteracion normal, siguientes instancias de repeats */
 		for ( var i = 0; i < gui.repeatCount; i++) {
 			var fieldset = {};
-			var fsRepeat = fs.clone();
+			var fsRepeat = gui.initialFieldset.clone();
 			fieldset.instance = i;
 			fsRepeat.attr("repeat-instance",fieldset.instance);
 			/* Duplicacion de campos */
 			
 			/* logica de diferenciacion */
-			fieldset.name = fs.attr("name")+"_"+i;
+			fieldset.name = gui.initialFieldset.attr("name")+"_"+i;
 			fsRepeat.attr("name",fieldset.name);
 			
 			/*identificacion de variable de repeticion*/
@@ -71,7 +53,7 @@ $(document).ready(function() {
 			
 		}
 		
-		fs.remove();
+		gui.initialFieldset.remove();
 		$(gui.form).validate();
 		
 		if(gui.renderGrid){
@@ -92,12 +74,12 @@ $(document).ready(function() {
 			}
 		}
 		
+		
 		if(gui.renderTotalizadores){
 			gui.gridTotalizadora.render(pfs);
 		}
 		
-		
-	}else if(fs.length>0 && gui.repeatCount==0){
+	}else if(gui.initialFieldset.length>0 && gui.repeatCount==0){
 		console.error("Se encuentra repeat infinito");
 	}else{
 		$(gui.form).validate();
