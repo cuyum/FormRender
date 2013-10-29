@@ -47,7 +47,7 @@
   <h:body>
     <group ref="/ict4.2.2/trimestres">
       <label></label>
-      <repeat appearance="grilla sumarizada calculado" nodeset="/ict4.2.2/trimestres">
+      <repeat appearance="grilla calculados" nodeset="/ict4.2.2/trimestres">
         <group appearance="col3 well-white" ref="/ict4.2.2/trimestres/tasa">
           <label>Tasa de Asignación de Recursos (TAR)</label>
           <select1 appearance="minimal" ref="/ict4.2.2/trimestres/tasa/periodo_considerado">
