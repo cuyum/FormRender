@@ -113,9 +113,14 @@ $(document).ready(function() {
 				}else{//success retrieval
 //					console.log(data);
 					var dataArray = data.payload.formulario.data;
-					if(gui.renderGrid)
-						gui.grid.addRows(dataArray);
-					else{
+					if(gui.renderGrid){
+						if(gui.renderTotalizadores || gui.renderTotalizadoresIngresados){
+							gui.grid.addRows(dataArray.registros);
+							gui.gridTotalizadora.addRows(dataArray.sumarizados);
+						}else{
+							gui.grid.addRows(dataArray);
+						}
+					}else{
 						for ( var i = 0; i < dataArray.length; i++) {
 							var record = dataArray[i];
 //							console.group("CAMPOS INSTANCIA "+i);

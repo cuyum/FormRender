@@ -675,6 +675,11 @@ var gui = new function(){
 		updateRow : function(data,index){
 			this.getDataTable().fnUpdate(data,index);
 		},
+		updateRows : function(list){
+			for ( var i = 0; i < list.length; i++) {
+				this.updateRow(list[i],i);
+			}
+		},
 		resetProcessVars : function(){
 			this.accountedFor = false;
 			this. totalizadoIdx = 0;
