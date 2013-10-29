@@ -49,7 +49,7 @@
   <h:body>
     <group ref="/ict4.2.4.1/trimestres">
       <label></label>
-      <repeat appearance="grilla calculado" nodeset="/ict4.2.4.1/trimestres">
+      <repeat appearance="grilla calculados" nodeset="/ict4.2.4.1/trimestres">
         <group appearance="col3 well-white" ref="/ict4.2.4.1/trimestres/relacion">
           <label>Relación entre la cantidad de paquetes recibidos en un tiempo T1 y el total de paquetes recibidos</label>
           <select1 appearance="minimal" ref="/ict4.2.4.1/trimestres/relacion/periodo_considerado">

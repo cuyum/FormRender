@@ -47,7 +47,7 @@
   <h:body>
     <group ref="/ict4.2.4.5/trimestres">
       <label></label>
-      <repeat appearance="grilla totalizada" nodeset="/ict4.2.4.5/trimestres">
+      <repeat appearance="grilla calculados" nodeset="/ict4.2.4.5/trimestres">
         <group appearance="col3 well-white" ref="/ict4.2.4.5/trimestres/relacion">
           <label>Relación entre la Velocidad Efectiva Media de Transferencia y la Velocidad de Transferencia Nominal</label>
           <select1 appearance="minimal" ref="/ict4.2.4.5/trimestres/relacion/periodo_considerado">

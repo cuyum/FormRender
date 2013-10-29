@@ -43,7 +43,7 @@
   <h:body>
     <group ref="/ict4.1.7.a/meses">
       <label></label>
-      <repeat appearance="grilla calculado" nodeset="/ict4.1.7.a/meses">
+      <repeat appearance="grilla calculados" nodeset="/ict4.1.7.a/meses">
         <group appearance="col3 well-white" ref="/ict4.1.7.a/meses/mes">
           <label>Relación entre solicitudes resueltas dentro del TMI y solicitudes ingresadas</label>
           <select1 appearance="minimal" ref="/ict4.1.7.a/meses/mes/periodo_considerado">
