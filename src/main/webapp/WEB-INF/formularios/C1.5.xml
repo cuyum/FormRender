@@ -27,12 +27,12 @@
           </meta>
         </C1.5>
       </instance>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/C1.5/meses/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/C1.5/meses/mes/provincia" nodeset="/C1.5/meses/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/C1.5/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/C1.5/meses/mes/provincia" nodeset="/C1.5/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/C1.5/meses/mes/partido_otro" relevant=" /C1.5/meses/mes/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/C1.5/meses/mes/partido" nodeset="/C1.5/meses/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/C1.5/meses/mes/partido" nodeset="/C1.5/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/C1.5/meses/mes/localidad_otro" relevant=" /C1.5/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C1.5/meses/mes/localidad" nodeset="/C1.5/meses/mes/area" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/C1.5/meses/mes/localidad" nodeset="/C1.5/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/C1.5/meses/mes/area_otro" relevant=" /C1.5/meses/mes/area =9999" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/C1.5/meses/mes/accesos" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999" nodeset="/C1.5/meses/mes/tramasE1" required="true()" type="int"/>

@@ -42,18 +42,18 @@
         </C1.48>
       </instance>
       <bind nodeset="/C1.48/titulo" readonly="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.48/meses/mes/redMovil/redMovilProveedor1" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.48/meses/mes/redMovil/redMovilProveedor1" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.48/meses/mes/redMovil/redMovilCosto1" required="true()" type="int"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.48/meses/mes/redMovil/redMovilProveedor2" type="select1"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.48/meses/mes/redMovil/redMovilProveedor2" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.48/meses/mes/redMovil/redMovilCosto2" type="int"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.48/meses/mes/redMovil/redMovilProveedor3" type="select1"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.48/meses/mes/redMovil/redMovilProveedor3" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.48/meses/mes/redMovil/redMovilCosto3" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.48/meses/mes/redMovil/redMovilCostoOtros" type="int"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.48/meses/mes/redFija/redFijaProveedor1" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.48/meses/mes/redFija/redFijaProveedor1" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.48/meses/mes/redFija/redFijaCosto1" required="true()" type="int"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.48/meses/mes/redFija/redFijaProveedor2" type="select1"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.48/meses/mes/redFija/redFijaProveedor2" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.48/meses/mes/redFija/redFijaCosto2" type="int"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.48/meses/mes/redFija/redFijaProveedor3" type="select1"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C1.48/meses/mes/redFija/redFijaProveedor3" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.48/meses/mes/redFija/redFijaCosto3" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.48/meses/mes/redFija/redFijaCostoOtros" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.48/meses/mes/otros/mantenimiento" required="true()" type="int"/>

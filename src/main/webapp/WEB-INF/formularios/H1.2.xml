@@ -27,14 +27,14 @@
         </H1.2>
       </instance>
       <bind nodeset="/H1.2/titulo" readonly="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/H1.2/inter/interconexion/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/H1.2/inter/interconexion/provincia" nodeset="/H1.2/inter/interconexion/partido" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/H1.2/inter/interconexion/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/H1.2/inter/interconexion/provincia" nodeset="/H1.2/inter/interconexion/partido" required="true()" type="select1"/>
       <bind nodeset="/H1.2/inter/interconexion/partido_otro" relevant=" /H1.2/inter/interconexion/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/H1.2/inter/interconexion/partido" nodeset="/H1.2/inter/interconexion/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/H1.2/inter/interconexion/partido" nodeset="/H1.2/inter/interconexion/localidad" required="true()" type="select1"/>
       <bind nodeset="/H1.2/inter/interconexion/localidad_otro" relevant=" /H1.2/inter/interconexion/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/H1.2/inter/interconexion/localidad" nodeset="/H1.2/inter/interconexion/area" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/H1.2/inter/interconexion/localidad" nodeset="/H1.2/inter/interconexion/area" required="true()" type="select1"/>
       <bind nodeset="/H1.2/inter/interconexion/area_otro" relevant=" /H1.2/inter/interconexion/area =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/H1.2/inter/interconexion/prestador" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/H1.2/inter/interconexion/prestador" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999" nodeset="/H1.2/inter/interconexion/capacidad" required="true()" type="int"/>
       <bind nodeset="/H1.2/inter/interconexion/unidad" required="true()" type="select1"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/H1.2/meta/instanceID" readonly="true()" type="string"/>
