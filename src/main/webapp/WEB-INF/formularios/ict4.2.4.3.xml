@@ -38,7 +38,7 @@
       <bind constraint="url=/servicios/rest/localizaciones/areas2 and depends=/ict4.2.4.3/trimestres/relacion/localidad and agrupador=2" nodeset="/ict4.2.4.3/trimestres/relacion/area" required="true()" type="select1"/>
       <bind nodeset="/ict4.2.4.3/trimestres/relacion/area_otro" relevant=" /ict4.2.4.3/trimestres/relacion/area =9999" required="true()" type="string"/>
       <bind constraint="agrupador=3" nodeset="/ict4.2.4.3/trimestres/relacion/hora_pico_inicio" required="true()" type="time"/>
-      <bind constraint="url=/servicios/rest/parametros/minuto_hora and hora_delta= /ict4.2.4.3/trimestres/relacion/hora_pico_inicio " nodeset="/ict4.2.4.3/trimestres/relacion/hora_pico_fin" readonly="true()" type="time"/>
+      <bind constraint="url=/servicios/rest/parameter?name=minutos_hora and hora_delta= /ict4.2.4.3/trimestres/relacion/hora_pico_inicio " nodeset="/ict4.2.4.3/trimestres/relacion/hora_pico_fin" readonly="true()" type="time"/>
       <bind constraint="agrupador=4" nodeset="/ict4.2.4.3/trimestres/relacion/tipo_informacion" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.2.4.3/trimestres/relacion/cant_paquetes_recibidos" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.2.4.3/trimestres/relacion/cant_total_paquetes_recibidos" required="true()" type="int"/>
@@ -51,7 +51,7 @@
       <label></label>
       <repeat appearance="grilla calculados" nodeset="/ict4.2.4.3/trimestres">
         <group appearance="col3 well-white" ref="/ict4.2.4.3/trimestres/relacion">
-          <label>Relación entre la cantidad de paquetes recibidos con fluctuación máxima ∆T1 y el total de recibidos</label>
+          <label>Relación entre la cantidad de paquetes recibidos con fluctuación máxima ?T1 y el total de recibidos</label>
           <select1 appearance="minimal" ref="/ict4.2.4.3/trimestres/relacion/periodo_considerado">
             <label>Período Considerado</label>
             <hint>Período Considerado</hint>
@@ -141,8 +141,8 @@
             </item>
           </select1>
           <input ref="/ict4.2.4.3/trimestres/relacion/cant_paquetes_recibidos">
-            <label>Cant. de paquetes recibidos con una fluctuación máxima ∆T1</label>
-            <hint>Cantidad de paquetes recibidos con una fluctuación máxima ∆T1</hint>
+            <label>Cant. de paquetes recibidos con una fluctuación máxima ?T1</label>
+            <hint>Cantidad de paquetes recibidos con una fluctuación máxima ?T1</hint>
           </input>
           <input ref="/ict4.2.4.3/trimestres/relacion/cant_total_paquetes_recibidos">
             <label>Cant. de paquetes recibidos</label>
