@@ -37,7 +37,7 @@
       <bind constraint="url=/servicios/rest/localizaciones/areas2 and depends=/ict4.2.2/trimestres/tasa/localidad and agrupador=2" nodeset="/ict4.2.2/trimestres/tasa/area" required="true()" type="select1"/>
       <bind nodeset="/ict4.2.2/trimestres/tasa/area_otro" relevant=" /ict4.2.2/trimestres/tasa/area =9999" required="true()" type="string"/>
       <bind constraint="agrupador=3" nodeset="/ict4.2.2/trimestres/tasa/hora_pico_inicio" required="true()" type="time"/>
-      <bind constraint="url=/servicios/rest/parameter?name=minutos_hora and hora_delta= /ict4.2.2/trimestres/tasa/hora_pico_inicio " nodeset="/ict4.2.2/trimestres/tasa/hora_pico_fin" readonly="true()" type="time"/>
+      <bind constraint="url=/servicios/rest/parameter?name=minutos_hora and hora_delta= /ict4.2.2/trimestres/tasa/hora_pico_inicio " nodeset="/ict4.2.2/trimestres/tasa/hora_pico_fin" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.2.2/trimestres/tasa/cantidad_asignada_ex" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.2.2/trimestres/tasa/cantidad_total_tent" required="true()" type="int"/>
       <bind constraint="porcentual= /ict4.2.2/trimestres/tasa/cantidad_asignada_ex , /ict4.2.2/trimestres/tasa/cantidad_total_tent ,100" nodeset="/ict4.2.2/trimestres/tasa/porcentaje" readonly="true()" type="decimal"/>
