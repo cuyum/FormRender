@@ -440,7 +440,7 @@ var gui = new function(){
 							for ( var j = 0; j < totalizadores.length; j++) {
 								console.log("(j) totalizador:",j);
 								var ingresado = totalizados[i][totalizadores[j].nombre+"_ingresado"];
-								fail = (ingresado=="-" || isNaN(ingresado));
+								fail = (ingresado==null || ingresado=="-" || isNaN(ingresado) || ingresado.trim()=="");
 								console.log(totalizados[i],"fail "+fail);
 							}
 						}
@@ -461,7 +461,6 @@ var gui = new function(){
 				}
 				
 				message.payload.formulario.data = dataFinal;
-				console.log(message);
 				draft==true?gui.saveDraft(message):gui.saveFinal(message);
 			} else {
 				gui.displayWarning("No se encuentran registros para guardar.");
