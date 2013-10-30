@@ -952,6 +952,19 @@ var setupHoraDelta = function(field,fieldset){
 	
 	if(field.data("jr:constraint:remote")!=undefined){
 		
+			var cargarHoraCero = function() {
+		    	horaDeltaField.on("change",{cmpInicio:horaDeltaField},function(evt){
+		    		var date;
+					if(evt.data.cmpInicio.val()!=undefined){
+			    		date = (evt.data.cmpInicio.val()).split(":");
+					}else{
+						date = ["00","00"];
+					}
+					field.val(String(date[0]) + ":" + String(date[1]));
+		    	});
+		    	
+			};
+		
 			var url = field.data("jr:constraint:remote");
 			var horaDelta = field.data("jr:constraint:hora_delta");
 			var horaDeltaField = gui.getField(horaDelta,fieldset);;
@@ -964,30 +977,42 @@ var setupHoraDelta = function(field,fieldset){
 			    	remoteUrl:url
 	    		},
 			    success: function(data) {
-			    	
-			    	horaDeltaField.on("change",{cmpInicio:horaDeltaField},function(evt){
-						var date = (evt.data.cmpInicio.val()).split(":");
-						var minutes = (parseInt(date[0])*60+parseInt(data.result)) + parseInt(date[1]);
-						var resultado = parseInt(parseInt(minutes)/60);
-						minutes = minutes%60;
-						
-						var hourRes= String(resultado);
-						var minRes= String(minutes);
-						if(hourRes.length==1)
-							hourRes = "0" + hourRes;
-						if(minRes.length==1)
-							minRes = "0" + minRes;
-						if(hourRes=="24")
-							hourRes="00";
-						field.val(hourRes + ":" + minRes);
-					});
-			    },
-			    error: function(data) {
-			    	
+			    	if(data.success){
+				    	horaDeltaField.on("change",{cmpInicio:horaDeltaField},function(evt){
+							if((evt.data.cmpInicio.val()!=undefined)){
+					    		var date = (evt.data.cmpInicio.val()).split(":");
+								var minutes = (parseInt(date[0])*60+parseInt(data.result)) + parseInt(date[1]);
+								var resultado = parseInt(parseInt(minutes)/60);
+								minutes = minutes%60;
+								
+								var hourRes= String(resultado);
+								var minRes= String(minutes);
+								if(hourRes.length==1)
+									hourRes = "0" + hourRes;
+								if(minRes.length==1)
+									minRes = "0" + minRes;
+								if(hourRes=="24")
+									hourRes="00";
+								field.val(hourRes + ":" + minRes);
+							}else{
+								console.error("Valor incorrecto de la hora de inicio.");
+							}
+						});
+			    	}
+			    	else{
+				    		cargarHoraCero();
+					    	gui.displayWarning("Se ha encontrado un error al intentar recuperar valor en servicios remotos");
+					    	console.error("Se ha encontrado un error al intentar recuperar valor en servicios remotos.");				    		
+				    	}
+				    },
+			    error: function() {
+			    	cargarHoraCero();
+			    	gui.displayWarning("Se ha encontrado un error al intentar recuperar valor en servicios remotos");
+			    	console.error("Se ha encontrado un error al intentar recuperar valor en servicios remotos.");
 			    }
 			});
-			
 	};
+	
 };
 
 var setupValidations = function(f,fieldset){
