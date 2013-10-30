@@ -22,7 +22,7 @@
       <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.1.6.a/meses/mes/periodo_considerado" required="true()" type="select1"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.6.a/meses/mes/cant_reclamo_fac" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.6.a/meses/mes/factura_emitida" required="true()" type="int"/>
-      <bind constraint="porcentual= /ict4.1.6.a/meses/mes/cant_reclamo_fac , /ict4.1.6.a/meses/mes/factura_emitida ,100" nodeset="/ict4.1.6.a/meses/mes/porcentaje" readonly="true()" type="decimal"/>
+      <bind constraint="porcentual= /ict4.1.6.a/meses/mes/cant_reclamo_fac , /ict4.1.6.a/meses/mes/factura_emitida ,1000" nodeset="/ict4.1.6.a/meses/mes/porcentaje" readonly="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.6.a/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
