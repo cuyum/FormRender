@@ -3,7 +3,7 @@
   <h:head>
     <h:title>Formulario 4.1.1-D Indicador de reclamos de usuarios - Cuadro D</h:title>
     <model>
-      <submission action="/api/deposition" method="form-data-post"/>
+      <submission action="/api/deposition/draft" method="form-data-post"/>
       <instance>
         <ict4.1.1.d id="ICT4.1.1.D">
           <meses jr:template="">
@@ -19,7 +19,7 @@
           </meta>
         </ict4.1.1.d>
       </instance>
-      <bind nodeset="/ict4.1.1.d/meses/mes/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.1.1.d/meses/mes/periodo_considerado" required="true()" type="select1"/>
       <bind nodeset="/ict4.1.1.d/meses/mes/contacto" required="true()" type="select1"/>
       <bind nodeset="/ict4.1.1.d/meses/mes/contacto_otros" relevant=" /ict4.1.1.d/meses/mes/contacto =Otro" required="true()" type="string"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.1.d/meses/mes/cantidad_contactos_usuario" required="true()" type="int"/>
@@ -38,74 +38,6 @@
             <item>
               <label>Seleccione una opción</label>
               <value>-1</value>
-            </item>
-            <item>
-              <label>Enero</label>
-              <value>Enero</value>
-            </item>
-            <item>
-              <label>Febrero</label>
-              <value>Febrero</value>
-            </item>
-            <item>
-              <label>Marzo</label>
-              <value>Marzo</value>
-            </item>
-            <item>
-              <label>Abril</label>
-              <value>Abril</value>
-            </item>
-            <item>
-              <label>Mayo</label>
-              <value>Mayo</value>
-            </item>
-            <item>
-              <label>Junio</label>
-              <value>Junio</value>
-            </item>
-            <item>
-              <label>Julio</label>
-              <value>Julio</value>
-            </item>
-            <item>
-              <label>Agosto</label>
-              <value>Agosto</value>
-            </item>
-            <item>
-              <label>Septiembre</label>
-              <value>Septiembre</value>
-            </item>
-            <item>
-              <label>Octubre</label>
-              <value>Octubre</value>
-            </item>
-            <item>
-              <label>Noviembre</label>
-              <value>Noviembre</value>
-            </item>
-            <item>
-              <label>Diciembre</label>
-              <value>Diciembre</value>
-            </item>
-            <item>
-              <label>1º Trimestre</label>
-              <value>Trimestre_1</value>
-            </item>
-            <item>
-              <label>2º Trimestre</label>
-              <value>Trimestre_2</value>
-            </item>
-            <item>
-              <label>3º trimestre</label>
-              <value>Trimestre_3</value>
-            </item>
-            <item>
-              <label>4º trimestre</label>
-              <value>Trimestre_4</value>
-            </item>
-            <item>
-              <label>Anual</label>
-              <value>Anual</value>
             </item>
           </select1>
           <select1 appearance="minimal" ref="/ict4.1.1.d/meses/mes/contacto">
