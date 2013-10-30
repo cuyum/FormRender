@@ -487,6 +487,11 @@ var setupDataConstraints = function(field,fieldset){
 						"titulo":header.text()
 					});
 				}
+			}else
+			/*query_param*/
+			if(constraint.indexOf("periodicidad")!=-1){
+				var params = constraint.substring(constraint.indexOf("periodicidad=")+13);
+				field.data("jr:constraint:periodicidad",params);
 			}
 			constraintContainer.push(constraint);
 		}
@@ -494,6 +499,62 @@ var setupDataConstraints = function(field,fieldset){
 		field.data("jr:constraints",constraintContainer);
 	}
 //	console.groupEnd();
+};
+
+var setupPeriodicidad = function(field,fieldset){
+	
+	var fieldName = field.attr("name");
+	if(field.data("jr:constraint:periodicidad")!=undefined && field.is("select")){
+		var url = field.data("jr:constraint:periodicidad");
+		var periodicidad = gui.getURLParameter("periodicidad");
+		console.log("periodicidad "+periodicidad);
+		if(periodicidad!=null){
+			/*
+			 * Select2 has a documented limitation when it concernes ajax remote loading
+			 * It has to be attached to a hidden input element instead of a select
+			 */
+			var attrs = field.get()[0].attributes; //we retrieve all attributes
+			var newField = $("<input type='hidden'/>"); //reference the new element
+			$.each(attrs,function(key,value){
+				newField.attr(attrs[key].name,attrs[key].value); //assign all previous attributes to new element
+			});
+			field.after(newField); //insert the new element in the same position as the old select element
+			gui.replaceFieldInFieldset(newField, field, fieldset);
+			newField.attr("data-type-xml","select2");
+			newField.data(field.data());
+			setupRelevantData(newField,fieldset, field);//vuelvo a setear dependencia relevante
+			field.remove(); //and finally remove the select element
+			
+			newField.select2({
+				allowClear: true,
+				placeholder:"Seleccione una opci\u00f3n",
+				ajax:{
+					url:"/FormRender/rest/service/relay",
+					dataType:"json",
+					type:"POST",
+					quietMillis:300,
+					data: function (term, page) { // page is the one-based page number tracked by Select2
+						term = term.trim();
+						if(term.length>0){
+							term = encodeURIComponent(term); 
+						}
+						return {
+							fkey: gui.getURLParameter("periodicidad") || "anual",
+							remoteUrl:url+"?limit=20&page="+page+(term && term.length>0?"&term="+term.toLowerCase():"") //remote service url
+						};
+					},
+					results: function (data, page) {
+						var more = (page * 10) < data.total; // whether or not there are more results available
+						// notice we return the value of more so Select2 knows if more results can be loaded
+						return {results: data.result, more: more};
+					}
+				},
+				formatSelection:function(record){
+					return record.text.length>40?record.text.substring(0,40)+"...":record.text;
+				}
+			});
+		}
+	}
 };
 
 var setupPorcentual = function(field,fieldset){
@@ -873,7 +934,7 @@ var setupValidationDefaults = function(){
 	,"Cuit no v&aacute;lido");
 	
 	$.validator.addMethod('ltf', function(value, element, param) {
-	      return this.optional(element) || gui.toNumber(value) < gui.toNumber(param.val());
+		return this.optional(element) || gui.toNumber(value) < gui.toNumber(param.val());
 	}, 'Valor Inv\u00E1lido');
 	
 	$.validator.addMethod('gtf', function(value, element, param) {
@@ -913,5 +974,6 @@ var setupValidations = function(f,fieldset){
 	setupRelevantData(field,fieldset);
 	setupDependency(field,fieldset);
 	setupRemoteData(field,fieldset);
+	setupPeriodicidad(field,fieldset);
 	
 };
