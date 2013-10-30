@@ -19,6 +19,7 @@ $(document).ready(function() {
 	var fs = $("fieldset.jr-repeat");
 	gui.repeatCount = gui.getURLParameter("repeat");
 	gui.renderGrid = fs.hasClass("grilla");
+	gui.readonly = gui.getURLParameter("readonly");
 
 	/*building Form.fieldsets*/
 	if(fs.length>0 && gui.repeatCount>0){
@@ -123,6 +124,7 @@ $(document).ready(function() {
 					gui.displayError("Error remoto: "+data.result.msg);
 				}else{//success retrieval
 //					console.log(data);
+					gui.readOnly = data.header.readonly;
 					var dataArray = data.payload.formulario.data;
 					if(gui.renderGrid)
 						gui.grid.addRows(dataArray);

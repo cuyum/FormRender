@@ -3,6 +3,7 @@ var gui = new function(){
 	this.fieldsets = [];
 	this.repeatCount = undefined;
 	this.renderGrid = false;
+	this.readonly = false;
 	this.MESSAGES = {
 		INFO : "alert-info",
 		WARN : "",
@@ -51,6 +52,9 @@ var gui = new function(){
 	this.setupDefaults = function(){
 		$("select").select2();
 		setupHints();
+		if(this.readonly){
+			$("input[type='button'][draft]").parents("fieldset").remove();
+		}
 	};
 	this.displayMessage = function(message,type){
 		if(message==undefined || message==null){
@@ -138,7 +142,8 @@ var gui = new function(){
 		}
 	};
 	this.getURLParameter = function(name) {
-	    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+		var par = decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+	    return par;
 	};
 	this.cleanFormValidations = function(){
 		console.info("Cleaning Form Validations");
@@ -724,7 +729,9 @@ var gui = new function(){
 		 */
 		render : function(pfs){
 			var gridFieldset = $('<fieldset class="jr-group well-white col1"></fieldset>');
-			$("fieldset[repeat-instance]").append('<input type="button" class="btn" value="Agregar" repeat-action="add"/>');
+			if(!gui.readonly){
+				$("fieldset[repeat-instance]").append('<input type="button" class="btn" value="Agregar" repeat-action="add"/>');
+			}
 			gridFieldset.appendTo(pfs);
 			$('<h4></h4>').append("<span>Resultados</span>").appendTo(gridFieldset);
 			$('<div class="table-overflow"></div>').append(this.element).appendTo(gridFieldset);
@@ -748,14 +755,16 @@ var gui = new function(){
 					});
 				}
 			}
-			this.headers.push({
-				"sTitle":"Acciones", 
-				"bSearchable": false, 
-				"mData": function ( data, type, full ) {
-					return '<input type="button" repeat-action="edit" class="btn" value="Editar"/>&#10;'+
-					'<input type="button" repeat-action="remove" class="btn" value="Borrar"/>';
-				}
-	        });
+			if(!gui.readonly){
+				this.headers.push({
+					"sTitle":"Acciones", 
+					"bSearchable": false, 
+					"mData": function ( data, type, full ) {
+						return '<input type="button" repeat-action="edit" class="btn" value="Editar"/>&#10;'+
+						'<input type="button" repeat-action="remove" class="btn" value="Borrar"/>';
+					}
+				});
+			}
 			this.setupAddClick();
 //			this.setupRowActions();
 			this.element.dataTable({
