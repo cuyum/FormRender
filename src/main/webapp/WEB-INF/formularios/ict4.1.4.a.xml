@@ -19,7 +19,7 @@
           </meta>
         </ict4.1.4.a>
       </instance>
-      <bind constraint="url=/servicios/rest/periodicidad" nodeset="/ict4.1.4.a/meses/mes/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.1.4.a/meses/mes/periodo_considerado" required="true()" type="select1"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.4.a/meses/mes/cant_llamada_perdida" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.4.a/meses/mes/cant_req_atencion" required="true()" type="int"/>
       <bind constraint="porcentual= /ict4.1.4.a/meses/mes/cant_llamada_perdida , /ict4.1.4.a/meses/mes/cant_req_atencion ,100" nodeset="/ict4.1.4.a/meses/mes/porcentaje" readonly="true()" type="decimal"/>

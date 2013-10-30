@@ -18,7 +18,7 @@
           </meta>
         </ict4.1.6.c>
       </instance>
-      <bind constraint="url=/servicios/rest/periodicidad" nodeset="/ict4.1.6.c/meses/mes/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.1.6.c/meses/mes/periodo_considerado" required="true()" type="select1"/>
       <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.6.c/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.6.c/meses/mes/cant_fact_emitidas" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.6.c/meta/instanceID" readonly="true()" type="string"/>

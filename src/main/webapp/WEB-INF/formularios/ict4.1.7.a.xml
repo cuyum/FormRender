@@ -26,7 +26,7 @@
           </meta>
         </ict4.1.7.a>
       </instance>
-      <bind constraint="url=/servicios/rest/periodicidad and agrupador=1" nodeset="/ict4.1.7.a/meses/mes/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad and agrupador=1" nodeset="/ict4.1.7.a/meses/mes/periodo_considerado" required="true()" type="select1"/>
       <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.7.a/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/ict4.1.7.a/meses/mes/provincia" nodeset="/ict4.1.7.a/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/ict4.1.7.a/meses/mes/partido_otro" relevant=" /ict4.1.7.a/meses/mes/partido =9999" required="true()" type="string"/>
