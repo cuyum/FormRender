@@ -19,8 +19,11 @@ public class TestJsonSchemaGeneration {
 	static URI dir_actual = URI.create(System.getProperty("user.dir"));
 
 	@BeforeClass
-	public static void startup() {
-		BasicConfigurator.configure();
+	public static void startup() 
+	{
+		if(!log.isDebugEnabled()){
+		   BasicConfigurator.configure();
+		}
 
 		// creo el directorio de salida para los test si no existe
 		File output = new File(TestJsonSchemaGeneration.class.getResource(

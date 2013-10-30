@@ -1,0 +1,41 @@
+{
+    "formulario": {
+        "id": "C1.10",
+        "data": [
+            {
+                "item": "Enero",
+                "provincia": {
+                    "label": "BUENOS AIRES",
+                    "value": "2"
+                },
+                "partido": {
+                    "label": "25 de Mayo",
+                    "value": "43"
+                },
+                "partido_otro": " ",
+                "localidad": {
+                    "label": "Agustín Mosconi",
+                    "value": "55"
+                },
+                "localidad_otro": " ",
+                "area": {
+                    "label": "MOSCONI",
+                    "value": "268"
+                },
+                "area_otro": " ",
+                "llHogar": 0.25,
+                "llEmpresa": 0.999,
+                "llGobierno": 3,
+                "llOtros": 9.9,
+                "lldnHogar": 0.3,
+                "lldnEmpresa": 40,
+                "lldnGobierno": 0.36,
+                "lldnOtros": 55,
+                "lldiHogar": 45,
+                "lldiEmpresa": 6.66,
+                "lldiGobierno": 4.33,
+                "lldiOtros": 5
+            }
+        ]
+    }
+}

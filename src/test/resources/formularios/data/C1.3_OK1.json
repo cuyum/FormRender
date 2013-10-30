@@ -1,0 +1,68 @@
+{
+    "formulario": {
+        "id": "C1.3",
+        "data": [
+            {
+                "provinciaOrigen": {
+                    "label": "BUENOS AIRES",
+                    "value": "2"
+                },
+                "partidoOrigen": {
+                    "label": "25 de Mayo",
+                    "value": "43"
+                },
+                "partidoOrigen_otro": " ",
+                "localidadOrigen": {
+                    "label": "Del Valle",
+                    "value": "964"
+                },
+                "localidadOrigen_otro": " ",
+                "areaOrigen": {
+                    "label": "PUEBLO DEL VALLE",
+                    "value": "269"
+                },
+                "area_otro": " ",
+                "tecnologia": {
+                    "label": "DWDM",
+                    "value": "DWDM"
+                },
+                "tecnologia_otro": " ",
+                "equipCapacidadDisp": 1,
+                "equipCapacidadUtilizada": 2,
+                "medio": {
+                    "label": "FO",
+                    "value": "FO"
+                },
+                "medio_otro": " ",
+                "medioCapacidadDisp": 3,
+                "medioCapacidadUtilizada": 4,
+                "tendido": {
+                    "label": "Otros",
+                    "value": "Otros"
+                },
+                "tendido_otro": "3",
+                "tendidoCapacidadDisp": 9,
+                "tendidoCapacidadUtilizada": 23,
+                "provinciaDestino": {
+                    "label": "CHACO",
+                    "value": "14"
+                },
+                "partidoDestino": {
+                    "label": "2 de Abril",
+                    "value": "161"
+                },
+                "partidoDestino_otro": " ",
+                "localidadDestino": {
+                    "label": "OTROS",
+                    "value": "9999"
+                },
+                "localidadDestino_otro": "wewe",
+                "areaDestino": {
+                    "label": "OTROS",
+                    "value": "9999"
+                },
+                "areaDestino_otro": "222"
+            }
+        ]
+    }
+}

@@ -1,0 +1,77 @@
+{
+    "formulario": {
+        "id": "C1.14",
+        "data": [
+            {
+                "item": "Enero",
+                "provincia": {
+                    "label": "CABA",
+                    "value": "1"
+                },
+                "partido": {
+                    "label": "Ciudad Autónoma de Buenos Aires",
+                    "value": "193"
+                },
+                "partido_otro": " ",
+                "localidad": {
+                    "label": "Ciudad Autónoma de Buenos Aires",
+                    "value": "3667"
+                },
+                "localidad_otro": " ",
+                "area": {
+                    "label": "AMBA",
+                    "value": "1"
+                },
+                "area_otro": " ",
+                "llSalientes1": 0.9,
+                "llOperador1": {
+                    "label": "ABIB ANTONIO ANGEL",
+                    "value": "23174506779"
+                },
+                "llSalientes2": 999,
+                "llOperador2": {
+                    "label": "ABIB ANTONIO ANGEL",
+                    "value": "23174506779"
+                },
+                "llSalientes3": 3.02,
+                "llOperador3": {
+                    "label": "AERIS DE ARGENTINA S.A.",
+                    "value": "30707013385"
+                },
+                "llSalientesOtros": 99.88,
+                "lldnSalientes1": 3.3,
+                "lldnOperador1": {
+                    "label": "A & B S.R.L.",
+                    "value": "30660918821"
+                },
+                "lldnSalientes2": 4.4,
+                "lldnOperador2": {
+                    "label": "AERIS DE ARGENTINA S.A.",
+                    "value": "30707013385"
+                },
+                "lldnSalientes3": 2.2,
+                "lldnOperador3": {
+                    "label": "AERIS DE ARGENTINA S.A.",
+                    "value": "30707013385"
+                },
+                "lldnSalientesOtros": 5.5,
+                "lldiSalientes1": 22.22,
+                "lldiOperador1": {
+                    "label": "ABDONI S.R.L.",
+                    "value": "30708438967"
+                },
+                "lldiSalientes2": 6.33,
+                "lldiOperador2": {
+                    "label": "AEROTAX S.R.L.",
+                    "value": "30707240527"
+                },
+                "lldiSalientes3": 9.99,
+                "lldiOperador3": {
+                    "label": "ALCAIN GUSTAVO",
+                    "value": "20130430466"
+                },
+                "lldiSalientesOtros": 77.99
+            }
+        ]
+    }
+}

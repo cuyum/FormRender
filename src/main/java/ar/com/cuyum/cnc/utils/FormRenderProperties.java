@@ -7,12 +7,14 @@ import java.util.Properties;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
 
 import org.apache.log4j.Logger;
 
 
 @SuppressWarnings("serial")
 @ApplicationScoped
+@Named("formRenderProperties")
 public class FormRenderProperties extends Properties {
 
 	public static final String DEFAULT_FILE_NAME = "formrender.properties";

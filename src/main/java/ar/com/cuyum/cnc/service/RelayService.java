@@ -3,6 +3,7 @@
  */
 package ar.com.cuyum.cnc.service;
 
+import java.io.IOException;
 import java.net.URL;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
@@ -12,9 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -34,6 +37,21 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 
+
+import ar.com.cuyum.cnc.utils.FormRenderProperties;
+//import ar.com.cuyum.cnc.domain.jsonsla.Item;
+//import ar.com.cuyum.cnc.utils.FormRenderProperties;
+import ar.com.cuyum.cnc.utils.JsonUtils;
+
+
+//import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
+//import com.fasterxml.jackson.core.type.TypeReference;
+//import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+
 /**
  * Clase creada para llamada de servicios de listas externas.<br />
  * Principalmente creada para evitar limitaciones por CSRF.
@@ -42,8 +60,14 @@ import org.apache.log4j.Logger;
  */
 @Stateless
 public class RelayService {
-
-	public transient Logger log = Logger.getLogger(RelayService.class);
+	
+	@Inject
+	private JsonUtils jsonUtils;
+	
+    @Inject
+    private FormRenderProperties frp;
+	
+	public transient static Logger log = Logger.getLogger(RelayService.class);
 
 	private HttpClient client = new DefaultHttpClient();
 	
@@ -86,6 +110,27 @@ public class RelayService {
 		return performSubmission(remoteUrl,data);
 	}
 	
+	public String massiveSubmit(URL remoteUrl, String data, HttpServletRequest request){
+		setupSSLContext();
+		
+		JsonNode success = jsonUtils.proccessDataValidation(data, request, this,frp);
+		if (!success.get("success").asBoolean()) return success.toString();
+		
+		ObjectMapper mapper = new ObjectMapper();
+		JsonNode listData = null;
+		try {			
+			listData = mapper.readTree(success.get("msg").toString());
+		} catch (JsonProcessingException e) {	
+			log.error(e);
+		} catch (IOException e) {
+			log.error(e);
+		}
+		
+		return JsonUtils.msg(true,"ok").toString();
+		
+		//return performMassiveSubmission(remoteUrl,listData,request);
+	}
+	
 	public String retrieve(URL remoteUrl){
 		setupSSLContext();
 		return performRetrieval(remoteUrl);
@@ -101,6 +146,20 @@ public class RelayService {
 		HttpResponse rawResponse = execute(request);
 		String responseStr = processResponse(rawResponse);
 		return responseStr;
+	}
+	
+	 private String performMassiveSubmission(URL url,ArrayNode data, HttpServletRequest request){
+
+		StringBuilder respon = new StringBuilder();
+		 
+		for (int i = 0, n = data.size(); i < n; i++) {
+				JsonNode item = data.get(i);			
+				HttpPost requestPost = buildSubmission(url,item.toString());
+				HttpResponse rawResponse = execute(requestPost);
+				respon.append(processResponse(rawResponse));
+		}
+	
+		return JsonUtils.msg(true,respon.toString()).toString();
 	}
 	
 	private String performRetrieval(URL url){
@@ -177,4 +236,10 @@ public class RelayService {
 		}
 		return entity;
 	}
+	
+	public FormRenderProperties getFormRenderProperties(){
+		return frp;
+	}
+
 }
+
