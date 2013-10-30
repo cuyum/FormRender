@@ -574,9 +574,9 @@ var setupPorcentual = function(field,fieldset){
 					
 					/*El divisor tiene que ser mayor o igual que el dividendo por regla*/
 					dividendo.rules( "add", {
-						ltf:divisor
+						letf:divisor
 						,messages:{
-							ltf: message,
+							letf: message,
 						}
 					});
 					
@@ -933,12 +933,12 @@ var setupValidationDefaults = function(){
 		}
 	,"Cuit no v&aacute;lido");
 	
-	$.validator.addMethod('ltf', function(value, element, param) {
-		return this.optional(element) || gui.toNumber(value) < gui.toNumber(param.val());
+	$.validator.addMethod('letf', function(value, element, param) {
+		return this.optional(element) || gui.toNumber(value) <= gui.toNumber(param.val());
 	}, 'Valor Inv\u00E1lido');
 	
-	$.validator.addMethod('gtf', function(value, element, param) {
-	      return this.optional(element) || gui.toNumber(value) > gui.toNumber(param.val());
+	$.validator.addMethod('getf', function(value, element, param) {
+	      return this.optional(element) || gui.toNumber(value) >= gui.toNumber(param.val());
 	}, 'Valor Inv\u00E1lido');
 	
 };
