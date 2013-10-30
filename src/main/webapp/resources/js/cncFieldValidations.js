@@ -955,35 +955,38 @@ var setupHoraDelta = function(field,fieldset){
 			var url = field.data("jr:constraint:remote");
 			var horaDelta = field.data("jr:constraint:hora_delta");
 			var horaDeltaField = gui.getField(horaDelta,fieldset);;
-			var restValue = null;
 			
 			$.ajax({
+				async:false,
 			    type: "POST",
 			    url: "/FormRender/rest/service/relay",
 			    data: {
 			    	remoteUrl:url
 	    		},
-			    success: function(data) {restValue=data.result;},
-			    error: function(data) {},
+			    success: function(data) {
+			    	
+			    	horaDeltaField.on("change",{cmpInicio:horaDeltaField},function(evt){
+						var date = (evt.data.cmpInicio.val()).split(":");
+						var minutes = (parseInt(date[0])*60+parseInt(data.result)) + parseInt(date[1]);
+						var resultado = parseInt(parseInt(minutes)/60);
+						minutes = minutes%60;
+						
+						var hourRes= String(resultado);
+						var minRes= String(minutes);
+						if(hourRes.length==1)
+							hourRes = "0" + hourRes;
+						if(minRes.length==1)
+							minRes = "0" + minRes;
+						if(hourRes=="24")
+							hourRes="00";
+						field.val(hourRes + ":" + minRes);
+					});
+			    },
+			    error: function(data) {
+			    	
+			    }
 			});
 			
-			horaDeltaField.on("change",function(evt){
-				var date = ($("input[name='/ict4.2.2/trimestres/tasa/hora_pico_inicio_0']").val()).split(":");
-				var minutes = (parseInt(date[0])*60+parseInt(restValue)) + parseInt(date[1]);
-				var resultado = parseInt(parseInt(minutes)/60);
-				minutes = minutes%60;
-				
-				var hourRes= String(resultado);
-				var minRes= String(minutes);
-				if(hourRes.length==1)
-					hourRes = "0" + hourRes;
-				if(minRes.length==1)
-					minRes = "0" + minRes;
-				if(hourRes=="24")
-					hourRes="00";
-				field.val(hourRes + ":" + minRes);
-
-			});
 	};
 };
 
