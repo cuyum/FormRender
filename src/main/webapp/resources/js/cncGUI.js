@@ -4,11 +4,64 @@ var gui = new function(){
 	this.repeatCount = undefined;
 	this.renderGrid = false;
 	this.readonly = false;
+	this.booted = false;
+	this.preloaded =false;
 	this.MESSAGES = {
 		INFO : "alert-info",
 		WARN : "",
 		SUCCESS: "alert-success",
 		ERROR: "alert-error"
+	};
+	this.loadData = function(recordId){
+		if(this.preloaded==false && recordId && recordId.trim()!=""){
+			$.blockUI({message:"Cargando...<br>Espere por favor..."});
+			$.ajax({
+				async : false,
+				type: "GET",
+				url: "/"+formRenderContext+"/rest/service/retrieve",
+				data: {"recordId":recordId},
+				success:function(data, statusStr, xhr){
+					if(data.result && data.result.type && data.result.type=="ERROR"){
+						gui.displayError("Error remoto: "+data.result.msg);
+					}else{//success retrieval
+//						console.log(data);
+						gui.readonly = data.header.readonly;
+						gui.readonly = true;
+						
+						
+//						var dataArray = data.payload.formulario.data;
+						gui.preloaded = data.payload.formulario.data;
+						
+//						if(gui.renderGrid)
+//							gui.grid.addRows(dataArray);
+//						else{
+//							for ( var i = 0; i < dataArray.length; i++) {
+//								var record = dataArray[i];
+////								console.group("CAMPOS INSTANCIA "+i);
+//								gui.completeForm(record,gui.fieldsets[i].fields);
+////								console.groupEnd();
+//							}
+//						}
+					}
+				},
+				error:function(xhr,statusStr,errorStr){
+					console.error(data);
+				}
+			});
+			$.unblockUI();
+		}else{
+			var dataArray = this.preloaded;
+			if(this.renderGrid && this.grid.rendered)
+				this.grid.addRows(dataArray);
+			else{
+				for ( var i = 0; i < dataArray.length; i++) {
+					var record = dataArray[i];
+//					console.group("CAMPOS INSTANCIA "+i);
+					this.completeForm(record,this.fieldsets[i].fields);
+//					console.groupEnd();
+				}
+			}
+		}
 	};
 	this.toNumber = function(value){
 		if(value && !isNaN(value)){
@@ -52,9 +105,13 @@ var gui = new function(){
 	this.setupDefaults = function(){
 		$("select").select2();
 		setupHints();
+		if(this.preloaded!=false && typeof this.preloaded == "object"){
+			this.loadData();
+		}
 		if(this.readonly){
 			$("input[type='button'][draft]").parents("fieldset").remove();
 		}
+		this.booted = true;
 	};
 	this.displayMessage = function(message,type){
 		if(message==undefined || message==null){
@@ -573,6 +630,7 @@ var gui = new function(){
 		}
 	};
 	this.grid = {
+		rendered:false,
 		editing : -1,
 		headers : [],
 		data : [],
@@ -796,6 +854,7 @@ var gui = new function(){
 					gui.grid.setupRowActions();
 			    }
 		    });
+			this.rendered = true;
 		}
 	};
 };

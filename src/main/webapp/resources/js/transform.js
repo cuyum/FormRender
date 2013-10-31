@@ -21,6 +21,8 @@ $(document).ready(function() {
 	gui.renderGrid = fs.hasClass("grilla");
 	gui.readonly = gui.getURLParameter("readonly");
 
+	gui.loadData(gui.getURLParameter("recordId"));
+	
 	/*building Form.fieldsets*/
 	if(fs.length>0 && gui.repeatCount>0){
 		var pfs = fs.parent();
@@ -111,38 +113,5 @@ $(document).ready(function() {
 		}
 	}
 	
-	gui.loadDataId = gui.getURLParameter("recordId");
-	
-	if(gui.loadDataId && gui.loadDataId.trim()!=""){
-		$.blockUI({message:"Cargando...<br>Espere por favor..."});
-		$.ajax({
-			type: "GET",
-			url: "/"+formRenderContext+"/rest/service/retrieve",
-			data: {"recordId":gui.loadDataId},
-			success:function(data, statusStr, xhr){
-				if(data.result && data.result.type && data.result.type=="ERROR"){
-					gui.displayError("Error remoto: "+data.result.msg);
-				}else{//success retrieval
-//					console.log(data);
-					gui.readOnly = data.header.readonly;
-					var dataArray = data.payload.formulario.data;
-					if(gui.renderGrid)
-						gui.grid.addRows(dataArray);
-					else{
-						for ( var i = 0; i < dataArray.length; i++) {
-							var record = dataArray[i];
-//							console.group("CAMPOS INSTANCIA "+i);
-							gui.completeForm(record,gui.fieldsets[i].fields);
-//							console.groupEnd();
-						}
-					}
-				}
-			},
-			error:function(xhr,statusStr,errorStr){
-				console.error(data);
-			}
-		});
-		$.unblockUI();
-	}
 	gui.setupDefaults();
 });
