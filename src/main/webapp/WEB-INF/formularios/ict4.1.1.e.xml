@@ -93,39 +93,39 @@
             </item>
             <item>
               <label>Call Center 1</label>
-              <value>Call Center 1</value>
+              <value>Call_Center_1</value>
             </item>
             <item>
               <label>Call Center 2</label>
-              <value>Call Center 2</value>
+              <value>Call_Center_2</value>
             </item>
             <item>
               <label>Área 1</label>
-              <value>Área 1</value>
+              <value>Área_1</value>
             </item>
             <item>
               <label>Sucursal 1</label>
-              <value>Sucursal 1</value>
+              <value>Sucursal_1</value>
             </item>
             <item>
               <label>Sucursal 2</label>
-              <value>Sucursal 2</value>
+              <value>Sucursal_2</value>
             </item>
             <item>
               <label>Sucursal 3</label>
-              <value>Sucursal 3</value>
+              <value>Sucursal_3</value>
             </item>
             <item>
               <label>Sucursal 4</label>
-              <value>Sucursal 4</value>
+              <value>Sucursal_4</value>
             </item>
             <item>
               <label>Sucursal 5</label>
-              <value>Sucursal 5</value>
+              <value>Sucursal_5</value>
             </item>
             <item>
               <label>Sucursal 6</label>
-              <value>Sucursal 6</value>
+              <value>Sucursal_6</value>
             </item>
           </select1>
           <select1 appearance="minimal" ref="/ict4.1.1.e/meses/mes/provincia">
