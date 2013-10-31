@@ -894,7 +894,7 @@ var gui = new function(){
 					totalizado[this.getNombreNivel(i)] = r.label;
 					tmpHash += r.label;
 				}else{
-					totalizado[this.getNivel(i)] = r;
+					totalizado[this.getNombreNivel(i)] = r;
 					tmpHash += r;
 				}
 			}
