@@ -127,18 +127,7 @@
               <label>Audio</label>
               <value>Audio</value>
             </item>
-            <item>
-              <label>Audio Bidireccional</label>
-              <value>Audio_Bidireccional</value>
-            </item>
-            <item>
-              <label>Audio</label>
-              <value>Audio</value>
-            </item>
-            <item>
-              <label>Audio Bidireccional</label>
-              <value>Audio_Bidireccional</value>
-            </item>
+           
           </select1>
           <input ref="/ict4.2.4.3/trimestres/relacion/cant_paquetes_recibidos">
             <label>Cant. de paquetes recibidos con una fluctuación máxima ∆T1</label>
