@@ -121,7 +121,7 @@
             </item>
             <item>
               <label>Audio Bidireccional</label>
-              <value>Audio Bidireccional</value>
+              <value>Audio_Bidireccional</value>
             </item>
             <item>
               <label>Audio</label>
@@ -129,7 +129,7 @@
             </item>
             <item>
               <label>Audio Bidireccional</label>
-              <value>Audio Bidireccional</value>
+              <value>Audio_Bidireccional</value>
             </item>
             <item>
               <label>Audio</label>
@@ -137,7 +137,7 @@
             </item>
             <item>
               <label>Audio Bidireccional</label>
-              <value>Audio Bidireccional</value>
+              <value>Audio_Bidireccional</value>
             </item>
           </select1>
           <input ref="/ict4.2.4.3/trimestres/relacion/cant_paquetes_recibidos">

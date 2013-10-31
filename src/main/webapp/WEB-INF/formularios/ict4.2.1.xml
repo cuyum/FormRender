@@ -51,23 +51,23 @@
             </item>
             <item>
               <label>Área de Red Interna 1</label>
-              <value>Área de Red Interna 1</value>
+              <value>Area_de_Red_Interna_1</value>
             </item>
             <item>
               <label>Área de Red Interna 2</label>
-              <value>Área de Red Interna 2</value>
+              <value>Area_de_Red_Interna_2</value>
             </item>
             <item>
               <label>Área de Red Interna 3</label>
-              <value>Área de Red Interna 3</value>
+              <value>Area_de_Red_Interna_3</value>
             </item>
             <item>
               <label>Área de Red Interna 4</label>
-              <value>Área de Red Interna 4</value>
+              <value>Area_de_Red_Interna_4</value>
             </item>
             <item>
               <label>Área de Red Interna 5</label>
-              <value>Área de Red Interna 5</value>
+              <value>Area_de_Red_Interna_5</value>
             </item>
           </select1>
           <input ref="/ict4.2.1/meses/factor_nominal/velocidad">

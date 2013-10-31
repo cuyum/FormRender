@@ -121,7 +121,7 @@
             </item>
             <item>
               <label>Audio Bidireccional</label>
-              <value>Audio Bidireccional</value>
+              <value>Audio_Bidireccional</value>
             </item>
             <item>
               <label>Audio</label>
@@ -129,11 +129,11 @@
             </item>
             <item>
               <label>Video Bidireccional</label>
-              <value>Video Bidireccional</value>
+              <value>Video_Bidireccional</value>
             </item>
             <item>
               <label>Video Unidireccional</label>
-              <value>Video Unidireccional</value>
+              <value>Video_Unidireccional</value>
             </item>
             <item>
               <label>Datos</label>
