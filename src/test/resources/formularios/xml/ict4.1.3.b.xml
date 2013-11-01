@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario 4.1.3-B Indicador de Reclamos ante la Autoridad de Aplicación - Cuadro B</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <ict4.1.3.b id="ICT4.1.3.B">
+          <meses jr:template="">
+            <mes>
+              <periodo_considerado/>
+              <provincia/>
+              <cant_usuarios_reiteracion/>
+              <cant_usuarios_reclamo/>
+              <inst_ser_o_cambio_dom/>
+              <saldo_prepaga/>
+              <incump_baja_ser/>
+              <otros/>
+              <usuario_mas_reclamo/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </ict4.1.3.b>
+      </instance>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.1.3.b/meses/mes/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.3.b/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.3.b/meses/mes/cant_usuarios_reiteracion" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.3.b/meses/mes/cant_usuarios_reclamo" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.3.b/meses/mes/inst_ser_o_cambio_dom" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.3.b/meses/mes/saldo_prepaga" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.3.b/meses/mes/incump_baja_ser" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.3.b/meses/mes/otros" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.3.b/meses/mes/usuario_mas_reclamo" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.3.b/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/ict4.1.3.b/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/ict4.1.3.b/meses">
+        <group appearance="col3 well-white" ref="/ict4.1.3.b/meses/mes">
+          <label>Cantidad de usuarios que presentaron reclamos ante la CNC por tipo y por Provincia</label>
+          <select1 appearance="minimal" ref="/ict4.1.3.b/meses/mes/periodo_considerado">
+            <label>Período Considerado</label>
+            <hint>Período Considerado</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/ict4.1.3.b/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/ict4.1.3.b/meses/mes/cant_usuarios_reiteracion">
+            <label>Avería</label>
+            <hint>Cantidad de usuarios que han realizado reclamos ante CNC del tipo:</hint>
+          </input>
+          <input ref="/ict4.1.3.b/meses/mes/cant_usuarios_reclamo">
+            <label>Facturación</label>
+            <hint>Cantidad de usuarios que han realizado reclamos ante CNC del tipo:</hint>
+          </input>
+          <input ref="/ict4.1.3.b/meses/mes/inst_ser_o_cambio_dom">
+            <label>Inst. de Servicio o cambio de domicilio</label>
+            <hint>Cantidad de usuarios que han realizado reclamos ante CNC del tipo:</hint>
+          </input>
+          <input ref="/ict4.1.3.b/meses/mes/saldo_prepaga">
+            <label>Saldo Cuentas Prepagas</label>
+            <hint>Cantidad de usuarios que han realizado reclamos ante CNC del tipo:</hint>
+          </input>
+          <input ref="/ict4.1.3.b/meses/mes/incump_baja_ser">
+            <label>Incump. baja de Servicio</label>
+            <hint>Cantidad de usuarios que han realizado reclamos ante CNC del tipo:</hint>
+          </input>
+          <input ref="/ict4.1.3.b/meses/mes/otros">
+            <label>Otros</label>
+            <hint>Cantidad de usuarios que han realizado reclamos ante CNC del tipo:</hint>
+          </input>
+          <input ref="/ict4.1.3.b/meses/mes/usuario_mas_reclamo">
+            <label>Usuarios con más de un reclamo</label>
+            <hint>Cantidad de usuarios que han realizado más de un reclamo ante CNC</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

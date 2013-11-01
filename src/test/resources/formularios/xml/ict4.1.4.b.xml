@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario 4.1.4-B Indicador de Respuesta del Operador para Atención al Usuario - Cuadro B</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <ict4.1.4.b id="ICT4.1.4.B">
+          <meses jr:template="">
+            <mes>
+              <periodo_considerado/>
+              <accesos/>
+              <accesos_otros/>
+              <contactos/>
+              <contacto_otros/>
+              <dentro_30/>
+              <despues_30/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </ict4.1.4.b>
+      </instance>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.1.4.b/meses/mes/periodo_considerado" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.4.b/meses/mes/accesos" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.4.b/meses/mes/accesos_otros" relevant=" /ict4.1.4.b/meses/mes/accesos =Otros" required="true()" type="string"/>
+      <bind nodeset="/ict4.1.4.b/meses/mes/contactos" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.4.b/meses/mes/contacto_otros" relevant=" /ict4.1.4.b/meses/mes/contactos =Otros" required="true()" type="string"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.4.b/meses/mes/dentro_30" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.4.b/meses/mes/despues_30" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.4.b/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/ict4.1.4.b/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/ict4.1.4.b/meses">
+        <group appearance="col3 well-white" ref="/ict4.1.4.b/meses/mes">
+          <label>Llamadas atendidas clasificadas por tipo de contacto y vía de ingreso</label>
+          <select1 appearance="minimal" ref="/ict4.1.4.b/meses/mes/periodo_considerado">
+            <label>Período Considerado</label>
+            <hint>Período Considerado</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/ict4.1.4.b/meses/mes/accesos">
+            <label>Accesos a la Atención Telefónica</label>
+            <hint>Accesos a la Atención Telefónica</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>111</label>
+              <value>111</value>
+            </item>
+            <item>
+              <label>112</label>
+              <value>112</value>
+            </item>
+            <item>
+              <label>114</label>
+              <value>114</value>
+            </item>
+            <item>
+              <label>800</label>
+              <value>800</value>
+            </item>
+            <item>
+              <label>Otros</label>
+              <value>Otros</value>
+            </item>
+          </select1>
+          <input ref="/ict4.1.4.b/meses/mes/accesos_otros">
+            <label>Accesos Otros</label>
+          </input>
+          <select1 appearance="minimal" ref="/ict4.1.4.b/meses/mes/contactos">
+            <label>Tipo de contacto</label>
+            <hint>Tipo de contacto</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>Reclamo</label>
+              <value>Reclamo</value>
+            </item>
+            <item>
+              <label>Consulta</label>
+              <value>Consulta</value>
+            </item>
+            <item>
+              <label>Asistencia</label>
+              <value>Asistencia</value>
+            </item>
+            <item>
+              <label>Solicitud de alta de servicio</label>
+              <value>Solicitud de alta de servicio</value>
+            </item>
+            <item>
+              <label>Otros</label>
+              <value>Otros</value>
+            </item>
+          </select1>
+          <input ref="/ict4.1.4.b/meses/mes/contacto_otros">
+            <label>Tipo Contacto Otros</label>
+          </input>
+          <input ref="/ict4.1.4.b/meses/mes/dentro_30">
+            <label>Llamadas atendidas dentro de los 30&quot;</label>
+            <hint>Llamadas atendidas dentro de los 30&quot;</hint>
+          </input>
+          <input ref="/ict4.1.4.b/meses/mes/despues_30">
+            <label>Llamadas atendidas después de los 30&quot;</label>
+            <hint>Llamadas atendidas después de los 30&quot;</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

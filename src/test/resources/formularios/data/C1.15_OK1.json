@@ -1,0 +1,108 @@
+{
+    "formulario": {
+        "id": "C1.15",
+        "formularios": [
+            {
+                "data": [
+                    {
+                        "item": "Enero",
+                        "instance": 0,
+                        "provincia": {
+                            "label": "CATAMARCA",
+                            "value": "21"
+                        },
+                        "partido": {
+                            "label": "Andalgalá",
+                            "value": "141"
+                        },
+                        "partido_otro": "",
+                        "localidad": {
+                            "label": "Chaquiago",
+                            "value": "665"
+                        },
+                        "localidad_otro": "",
+                        "area": {
+                            "label": "CHAQUIAGO",
+                            "value": "2512"
+                        },
+                        "area_otro": "",
+                        "salientes1": 999999999999.9,
+                        "operador1": {
+                            "label": "ABIB ANTONIO ANGEL",
+                            "value": "23174506779"
+                        },
+                        "salientes2": 0.1,
+                        "operador2": {
+                            "label": "AERIS DE ARGENTINA S.A.",
+                            "value": "30707013385"
+                        },
+                        "salientes3": 0.5,
+                        "operador3": {
+                            "label": "AEROTAX S.R.L.",
+                            "value": "30707240527"
+                        },
+                        "firma_digital": "c8d38cbc2e6ce181411e8493a7282aa5893032ab"
+                    },
+                    {
+                        "item": "Febrero",
+                        "instance": 1,
+                        "provincia": {
+                            "label": "CHACO",
+                            "value": "14"
+                        },
+                        "partido": {
+                            "label": "25 de Mayo",
+                            "value": "168"
+                        },
+                        "partido_otro": "",
+                        "localidad": {
+                            "label": "Napalpí",
+                            "value": "2254"
+                        },
+                        "localidad_otro": "",
+                        "area": {
+                            "label": "QUITILIPI",
+                            "value": "2152"
+                        },
+                        "area_otro": "",
+                        "salientes1": 0.22,
+                        "operador1": {
+                            "label": "AERIS DE ARGENTINA S.A.",
+                            "value": "30707013385"
+                        },                   
+                        "firma_digital": "a39847cedcbebf3d298c670ce167b98a5e94d116"
+                    },
+                    {
+                        "item": "Marzo",
+                        "instance": 2,
+                        "provincia": {
+                            "label": "JUJUY",
+                            "value": "16"
+                        },
+                        "partido": {
+                            "label": "Humahuaca",
+                            "value": "212"
+                        },
+                        "partido_otro": "",
+                        "localidad": {
+                            "label": "Humahuaca",
+                            "value": "1486"
+                        },
+                        "localidad_otro": "",
+                        "area": {
+                            "label": "HUMAHUACA",
+                            "value": "2875"
+                        },
+                        "area_otro": "",
+                        "salientes1": 20.33,
+                        "operador1": {
+                            "label": "ALTEC S.E.",
+                            "value": "33608605989"
+                        },                       
+                        "firma_digital": "0bc463a10c9ebf36a2d528459f199a3c514d17d0"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,171 @@
+{
+    "formulario": {
+        "id": "C1.14",
+        "formularios": [
+            {
+                 "data": [
+                    {
+                        "item": "Enero",
+                        "instance": 0,
+                        "provincia": {
+                            "label": "CORDOBA",
+                            "value": "3"
+                        },
+                        "partido": {
+                            "label": "Juárez Celman",
+                            "value": "250"
+                        },
+                        "partido_otro": "",
+                        "localidad": {
+                            "label": "General Deheza",
+                            "value": "1332"
+                        },
+                        "localidad_otro": "",
+                        "area": {
+                            "label": "GENERAL DEHEZA",
+                            "value": "2012"
+                        },
+                        "area_otro": "",
+                        "llSalientes1": 0.1,
+                        "llOperador1": {
+                            "label": "AIKONET S.R.L.",
+                            "value": "30702352874"
+                        },
+                        "lldnSalientes1": 0.2,
+                        "lldnOperador1": {
+                            "label": "AGINET S.A.",
+                            "value": "30707830324"
+                        },                       
+                        "lldiSalientes1": 0.2,
+                        "lldiOperador1": {
+                            "label": "ALDEA GLOBAL S.A.",
+                            "value": "30707503250"
+                        },
+                        "firma_digital": "d6b3ecb79fd3595030be0e5cba58cc9803fa9917"
+                    },
+                    {
+                        "item": "Febrero",
+                        "instance": 1,
+                        "provincia": {
+                            "label": "CHACO",
+                            "value": "14"
+                        },
+                        "partido": {
+                            "label": "25 de Mayo",
+                            "value": "168"
+                        },
+                        "partido_otro": "",
+                        "localidad": {
+                            "label": "Napalpí",
+                            "value": "2254"
+                        },
+                        "localidad_otro": "",
+                        "area": {
+                            "label": "COLONIA ABORIGEN CHACO",
+                            "value": "2143"
+                        },
+                        "area_otro": "",
+                        "llSalientes1": 0.1,
+                        "llOperador1": {
+                            "label": "ABDONI S.R.L.",
+                            "value": "30708438967"
+                        },
+                        "lldnSalientes1": 0.2,
+                        "lldnOperador1": {
+                            "label": "AERIS DE ARGENTINA S.A.",
+                            "value": "30707013385"
+                        },                        
+                        "lldiSalientes1": 0.3,
+                        "lldiOperador1": {
+                            "label": "AGUIRRE, NICOLAS GUSTAVO",
+                            "value": "20333809320"
+                        },
+                        "firma_digital": "9a9d8cdecd39aace36823eec8f52ebbb64e585dc"
+                    }
+                ]
+            },
+            {
+                "data": [
+                    {
+                        "item": "Marzo",
+                        "instance": 2,
+                        "provincia": {
+                            "label": "FORMOSA",
+                            "value": "23"
+                        },
+                        "partido": {
+                            "label": "Laishi",
+                            "value": "300"
+                        },
+                        "partido_otro": "",
+                        "localidad": {
+                            "label": "OTROS",
+                            "value": "9999"
+                        },
+                        "localidad_otro": "otralocalidad",
+                        "area": {
+                            "label": "OTROS",
+                            "value": "9999"
+                        },
+                        "area_otro": "otraarea",
+                        "llSalientes1": 999.99,
+                        "llOperador1": {
+                            "label": "ALARMAS ARGENTINAS S.R.L.",
+                            "value": "30708974311"
+                        },
+                        "lldnSalientes1": 33.33,
+                        "lldnOperador1": {
+                            "label": "ALO S.R.L.",
+                            "value": "30707327762"
+                        },
+                        "lldiSalientes1": 96,
+                        "lldiOperador1": {
+                            "label": "ALL KOM S.A.",
+                            "value": "30707677305"
+                        },
+                        "firma_digital": "014f493a24bfcfbdaac1e1da84fe54bdebd645f3"
+                    },
+                    {
+                        "item": "Marzo",
+                        "instance": 2,
+                        "provincia": {
+                            "label": "CHUBUT",
+                            "value": "12"
+                        },
+                        "partido": {
+                            "label": "Río Senguer",
+                            "value": "179"
+                        },
+                        "partido_otro": "",
+                        "localidad": {
+                            "label": "Lago Blanco",
+                            "value": "1774"
+                        },
+                        "localidad_otro": "",
+                        "area": {
+                            "label": "PASO HUEMULES",
+                            "value": "644"
+                        },
+                        "area_otro": "",
+                        "llSalientes1": 0.69,
+                        "llOperador1": {
+                            "label": "AGINET S.A.",
+                            "value": "30707830324"
+                        },
+                        "lldnSalientes1": 0.87,
+                        "lldnOperador1": {
+                            "label": "ALDEA GLOBAL S.A.",
+                            "value": "30707503250"
+                        },
+                        "lldiSalientes1": 85.88,
+                        "lldiOperador1": {
+                            "label": "ALDEA GLOBAL S.A.",
+                            "value": "30707503250"
+                        },
+                        "firma_digital": "3d8b8a6389db932633827f6b654ee020b4a0eae9"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario 4.1.6-B Indicador sobre Reclamos de Facturación - Cuadro B</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <ict4.1.6.b id="ICT4.1.6.B">
+          <meses jr:template="">
+            <mes>
+              <periodo_considerado/>
+              <provincia/>
+              <desconoc_llamadas/>
+              <conceptos_orden_tercero/>
+              <falta_reintegro/>
+              <servicio_no_solicitados/>
+              <incumplimiento_plan_ofrecido/>
+              <abono_mal_facturado/>
+              <no_aplicacion_descuento/>
+              <cargo_reconexion/>
+              <otros/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </ict4.1.6.b>
+      </instance>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.1.6.b/meses/mes/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.6.b/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.6.b/meses/mes/desconoc_llamadas" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.6.b/meses/mes/conceptos_orden_tercero" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.6.b/meses/mes/falta_reintegro" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.6.b/meses/mes/servicio_no_solicitados" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.6.b/meses/mes/incumplimiento_plan_ofrecido" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.6.b/meses/mes/abono_mal_facturado" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.6.b/meses/mes/no_aplicacion_descuento" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.6.b/meses/mes/cargo_reconexion" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.6.b/meses/mes/otros" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.6.b/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/ict4.1.6.b/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/ict4.1.6.b/meses">
+        <group appearance="col3 well-white" ref="/ict4.1.6.b/meses/mes">
+          <label>Reclamos por Facturación clasificados por subtipo y provincia</label>
+          <select1 appearance="minimal" ref="/ict4.1.6.b/meses/mes/periodo_considerado">
+            <label>Período Considerado</label>
+            <hint>Período Considerado</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/ict4.1.6.b/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/ict4.1.6.b/meses/mes/desconoc_llamadas">
+            <label>Desconocimiento de llamadas</label>
+            <hint>Cantidad de Reclamos por Facturación del tipo:</hint>
+          </input>
+          <input ref="/ict4.1.6.b/meses/mes/conceptos_orden_tercero">
+            <label>Conceptos por cuenta y orden de terceros</label>
+            <hint>Cantidad de Reclamos por Facturación del tipo:</hint>
+          </input>
+          <input ref="/ict4.1.6.b/meses/mes/falta_reintegro">
+            <label>Falta reintegro de días sin servicio</label>
+            <hint>Cantidad de Reclamos por Facturación del tipo:</hint>
+          </input>
+          <input ref="/ict4.1.6.b/meses/mes/servicio_no_solicitados">
+            <label>Servicios adicionales no solicitados</label>
+            <hint>Cantidad de Reclamos por Facturación del tipo:</hint>
+          </input>
+          <input ref="/ict4.1.6.b/meses/mes/incumplimiento_plan_ofrecido">
+            <label>Incumplimiento de plan ofrecido</label>
+            <hint>Cantidad de Reclamos por Facturación del tipo:</hint>
+          </input>
+          <input ref="/ict4.1.6.b/meses/mes/abono_mal_facturado">
+            <label>Abono y/o cargos mal facturados</label>
+            <hint>Cantidad de Reclamos por Facturación del tipo:</hint>
+          </input>
+          <input ref="/ict4.1.6.b/meses/mes/no_aplicacion_descuento">
+            <label>No aplicación de descuentos</label>
+            <hint>Cantidad de Reclamos por Facturación del tipo:</hint>
+          </input>
+          <input ref="/ict4.1.6.b/meses/mes/cargo_reconexion">
+            <label>Cargo de reconexion</label>
+            <hint>Cantidad de Reclamos por Facturación del tipo:</hint>
+          </input>
+          <input ref="/ict4.1.6.b/meses/mes/otros">
+            <label>Otros</label>
+            <hint>Cantidad de Reclamos por Facturación del tipo:</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

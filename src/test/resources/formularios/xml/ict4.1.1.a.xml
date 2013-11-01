@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario 4.1.1-A Indicador de reclamos de usuarios - Cuadro A</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <ict4.1.1.a id="ICT4.1.1.A">
+          <trimestres jr:template="">
+            <relacion>
+              <periodo_considerado/>
+              <provincia/>
+              <partido/>
+              <partido_otro/>
+              <localidad/>
+              <localidad_otro/>
+              <area/>
+              <area_otro/>
+              <cant_reclamos/>
+              <cant_accesos_operativos/>
+              <porcentaje/>
+            </relacion>
+          </trimestres>
+          <meta>
+            <instanceID/>
+          </meta>
+        </ict4.1.1.a>
+      </instance>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad and agrupador=1" nodeset="/ict4.1.1.a/trimestres/relacion/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.1.a/trimestres/relacion/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/ict4.1.1.a/trimestres/relacion/provincia" nodeset="/ict4.1.1.a/trimestres/relacion/partido" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.1.a/trimestres/relacion/partido_otro" relevant=" /ict4.1.1.a/trimestres/relacion/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/ict4.1.1.a/trimestres/relacion/partido" nodeset="/ict4.1.1.a/trimestres/relacion/localidad" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.1.a/trimestres/relacion/localidad_otro" relevant=" /ict4.1.1.a/trimestres/relacion/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/ict4.1.1.a/trimestres/relacion/localidad and agrupador=2" nodeset="/ict4.1.1.a/trimestres/relacion/area" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.1.a/trimestres/relacion/area_otro" relevant=" /ict4.1.1.a/trimestres/relacion/area =9999" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.1.1.a/trimestres/relacion/cant_reclamos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.1.1.a/trimestres/relacion/cant_accesos_operativos" required="true()" type="int"/>
+      <bind constraint="porcentual= /ict4.1.1.a/trimestres/relacion/cant_reclamos , /ict4.1.1.a/trimestres/relacion/cant_accesos_operativos ,100" nodeset="/ict4.1.1.a/trimestres/relacion/porcentaje" readonly="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.1.a/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/ict4.1.1.a/trimestres">
+      <label></label>
+      <repeat appearance="grilla ingresados" nodeset="/ict4.1.1.a/trimestres">
+        <group appearance="col4 well-white" ref="/ict4.1.1.a/trimestres/relacion">
+          <label>Relación entre Reclamos y Accesos Operativos</label>
+          <select1 appearance="minimal" ref="/ict4.1.1.a/trimestres/relacion/periodo_considerado">
+            <label>Período Considerado</label>
+            <hint>Período Considerado</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/ict4.1.1.a/trimestres/relacion/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/ict4.1.1.a/trimestres/relacion/partido">
+            <label>Departamento / Partido</label>
+            <hint>Departamento / Partido</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/ict4.1.1.a/trimestres/relacion/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/ict4.1.1.a/trimestres/relacion/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/ict4.1.1.a/trimestres/relacion/localidad_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/ict4.1.1.a/trimestres/relacion/area">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/ict4.1.1.a/trimestres/relacion/area_otro">
+            <label>Área Otros</label>
+            <hint>Área Otros</hint>
+          </input>
+          <input ref="/ict4.1.1.a/trimestres/relacion/cant_reclamos">
+            <label>Cantidad de reclamos</label>
+            <hint>Cantidad de reclamos</hint>
+          </input>
+          <input ref="/ict4.1.1.a/trimestres/relacion/cant_accesos_operativos">
+            <label>Cantidad de accesos operativos</label>
+            <hint>Cantidad de accesos operativos</hint>
+          </input>
+          <input ref="/ict4.1.1.a/trimestres/relacion/porcentaje">
+            <label>Resultado (%)</label>
+            <hint>Resultado del Indicador</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

@@ -1,0 +1,195 @@
+{
+    "formulario": {
+        "id": "C1.10",
+        "formularios": [
+            {
+                "data": [
+                    {
+                        "item": "Enero",
+                        "instance": 0,
+                        "provincia": {
+                            "label": "CABA",
+                            "value": "1"
+                        },
+                        "partido": {
+                            "label": "Ciudad Autónoma de Buenos Aires",
+                            "value": "193"
+                        },
+                        "partido_otro": "",
+                        "localidad": {
+                            "label": "Ciudad Autónoma de Buenos Aires",
+                            "value": "3667"
+                        },
+                        "localidad_otro": "",
+                        "area": {
+                            "label": "AMBA",
+                            "value": "1"
+                        },
+                        "area_otro": "",
+                        "llHogar": 99999999.99,
+                        "llEmpresa": 0.99,
+                        "llGobierno": 76,
+                        "llOtros": 89.8,
+                        "lldnHogar": 0.1,
+                        "lldnEmpresa": 0.2,
+                        "lldnGobierno": 0.3,
+                        "lldnOtros": 0.4,
+                        "lldiHogar": 0.5,
+                        "lldiEmpresa": 0.6,
+                        "lldiGobierno": 0.7,
+                        "lldiOtros": 0.8,
+                        "firma_digital": "1f63d2af2556b06f6fe635cb82b0a85bd755f539"
+                    },
+                    {
+                        "item": "Enero",
+                        "instance": 0,
+                        "provincia": {
+                            "label": "CATAMARCA",
+                            "value": "21"
+                        },
+                        "partido": {
+                            "label": "Antofagasta de la Sierra",
+                            "value": "139"
+                        },
+                        "partido_otro": "",
+                        "localidad": {
+                            "label": "El Peñón",
+                            "value": "1111"
+                        },
+                        "localidad_otro": "",
+                        "area": {
+                            "label": "EL PEÑON",
+                            "value": "2518"
+                        },
+                        "area_otro": "",
+                        "llHogar": 0.1,
+                        "llEmpresa": 0.2,
+                        "llGobierno": 0.3,
+                        "llOtros": 0.4,
+                        "lldnHogar": 0.5,
+                        "lldnEmpresa": 0.6,
+                        "lldnGobierno": 0.7,
+                        "lldnOtros": 0.8,
+                        "lldiHogar": 0.9,
+                        "lldiEmpresa": 0.1,
+                        "lldiGobierno": 0.11,
+                        "lldiOtros": 0.12,
+                        "firma_digital": "fb45563510a2935cfec41156bfa63ff61560cbff"
+                    },
+                    {
+                        "item": "Marzo",
+                        "instance": 2,
+                        "provincia": {
+                            "label": "CHACO",
+                            "value": "14"
+                        },
+                        "partido": {
+                            "label": "9 de Julio",
+                            "value": "165"
+                        },
+                        "partido_otro": "",
+                        "localidad": {
+                            "label": "Las Breñas",
+                            "value": "1818"
+                        },
+                        "localidad_otro": "",
+                        "area": {
+                            "label": "LAS BREÑAS",
+                            "value": "2140"
+                        },
+                        "area_otro": "",
+                        "llHogar": 0.1,
+                        "llEmpresa": 0.2,
+                        "llGobierno": 0.3,
+                        "llOtros": 0.4,
+                        "lldnHogar": 0.5,
+                        "lldnEmpresa": 0.6,
+                        "lldnGobierno": 0.7,
+                        "lldnOtros": 0.8,
+                        "lldiHogar": 0.9,
+                        "lldiEmpresa": 0.1,
+                        "lldiGobierno": 0.11,
+                        "lldiOtros": 0.12,
+                        "firma_digital": "5061e9706934b239f6a854834dfc0a87b1a41bce"
+                    }
+                ]
+            },
+            {
+                "data": [
+                    {
+                        "item": "Febrero",
+                        "instance": 1,
+                        "provincia": {
+                            "label": "CATAMARCA",
+                            "value": "21"
+                        },
+                        "partido": {
+                            "label": "Andalgalá",
+                            "value": "141"
+                        },
+                        "partido_otro": "",
+                        "localidad": {
+                            "label": "El Alamito",
+                            "value": "1020"
+                        },
+                        "localidad_otro": "",
+                        "area": {
+                            "label": "EL ALAMITO (PROV. CATAMARCA)",
+                            "value": "2514"
+                        },
+                        "area_otro": "",
+                        "llHogar": 0.1,
+                        "llEmpresa": 0.2,
+                        "llGobierno": 0.3,
+                        "llOtros": 0.4,
+                        "lldnHogar": 0.5,
+                        "lldnEmpresa": 0.6,
+                        "lldnGobierno": 0.7,
+                        "lldnOtros": 0.8,
+                        "lldiHogar": 0.9,
+                        "lldiEmpresa": 0.1,
+                        "lldiGobierno": 0.11,
+                        "lldiOtros": 0.12,
+                        "firma_digital": "ec3ae10c5819af3f8fbb1f93d0f2303b797f2abc"
+                    },
+                    {
+                        "item": "Enero",
+                        "instance": 0,
+                        "provincia": {
+                            "label": "CHUBUT",
+                            "value": "12"
+                        },
+                        "partido": {
+                            "label": "Futaleufú",
+                            "value": "192"
+                        },
+                        "partido_otro": "",
+                        "localidad": {
+                            "label": "Lago Rosario",
+                            "value": "1777"
+                        },
+                        "localidad_otro": "",
+                        "area": {
+                            "label": "LAGO ROSARIO",
+                            "value": "809"
+                        },
+                        "area_otro": "",
+                        "llHogar": 0.1,
+                        "llEmpresa": 0.2,
+                        "llGobierno": 0.2,
+                        "llOtros": 0.3,
+                        "lldnHogar": 0.4,
+                        "lldnEmpresa": 0.5,
+                        "lldnGobierno": 0.6,
+                        "lldnOtros": 0.6,
+                        "lldiHogar": 0.7,
+                        "lldiEmpresa": 0.8,
+                        "lldiGobierno": 0.9,
+                        "lldiOtros": 0.1,
+                        "firma_digital": "a40aeb7a7215bf95df3fef9ca69c2bf69ebcb8bc"
+                    }
+                ]
+            }
+        ]
+    }
+}

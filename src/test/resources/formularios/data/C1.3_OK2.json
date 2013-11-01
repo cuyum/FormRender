@@ -1,0 +1,251 @@
+{
+    "formulario": {
+        "id": "C1.3",
+        "formularios": [
+            {
+                "data": [
+                    {
+                        "instance": 0,
+                        "provinciaOrigen": {
+                            "label": "BUENOS AIRES",
+                            "value": "2"
+                        },
+                        "partidoOrigen": {
+                            "label": "9 de Julio",
+                            "value": "88"
+                        },
+                        "partidoOrigen_otro": "",
+                        "localidadOrigen": {
+                            "label": "9 de Julio",
+                            "value": "19"
+                        },
+                        "localidadOrigen_otro": "",
+                        "areaOrigen": {
+                            "label": "TROPEZON",
+                            "value": "176"
+                        },
+                        "area_otro": "",
+                        "tecnologia": {
+                            "label": "DWDM",
+                            "value": "DWDM"
+                        },
+                        "tecnologia_otro": "",
+                        "equipCapacidadDisp": 9999999,
+                        "equipCapacidadUtilizada": 9999999,
+                        "medio": {
+                            "label": "FO",
+                            "value": "FO"
+                        },
+                        "medio_otro": "",
+                        "medioCapacidadDisp": 888,
+                        "medioCapacidadUtilizada": 77,
+                        "tendido": {
+                            "label": "SUBTERRANEO",
+                            "value": "SUBTERRANEO"
+                        },
+                        "tendido_otro": "",
+                        "tendidoCapacidadDisp": 89,
+                        "tendidoCapacidadUtilizada": 56,
+                        "provinciaDestino": {
+                            "label": "LA PAMPA",
+                            "value": "19"
+                        },
+                        "partidoDestino": {
+                            "label": "Chical Co",
+                            "value": "225"
+                        },
+                        "partidoDestino_otro": "",
+                        "localidadDestino": {
+                            "label": "La Humada",
+                            "value": "1683"
+                        },
+                        "localidadDestino_otro": "",
+                        "areaDestino": {
+                            "label": "LA HUMADA",
+                            "value": "245"
+                        },
+                        "areaDestino_otro": "",
+                        "firma_digital": "2705e7ab2f57f7682ab6633d11a3ddf01c44fdbb"
+                    },
+                    {
+                        "instance": 0,
+                        "provinciaOrigen": {
+                            "label": "SAN JUAN",
+                            "value": "10"
+                        },
+                        "partidoOrigen": {
+                            "label": "Albardón",
+                            "value": "482"
+                        },
+                        "partidoOrigen_otro": "",
+                        "localidadOrigen": {
+                            "label": "El Rincón",
+                            "value": "1133"
+                        },
+                        "localidadOrigen_otro": "",
+                        "areaOrigen": {
+                            "label": "ESTACION ALBARDON",
+                            "value": "508"
+                        },
+                        "area_otro": "",
+                        "tecnologia": {
+                            "label": "IP",
+                            "value": "IP"
+                        },
+                        "tecnologia_otro": "",
+                        "equipCapacidadDisp": 5000,
+                        "equipCapacidadUtilizada": 400,
+                        "medio": {
+                            "label": "MW",
+                            "value": "MW"
+                        },
+                        "medio_otro": "",
+                        "tendido_otro": "",
+                        "provinciaDestino": {
+                            "label": "CORDOBA",
+                            "value": "3"
+                        },
+                        "partidoDestino": {
+                            "label": "Colón",
+                            "value": "197"
+                        },
+                        "partidoDestino_otro": "",
+                        "localidadDestino": {
+                            "label": "Casa Bamba",
+                            "value": "587"
+                        },
+                        "localidadDestino_otro": "",
+                        "areaDestino": {
+                            "label": "LA CALERA (PROV. CORDOBA)",
+                            "value": "1765"
+                        },
+                        "areaDestino_otro": "",
+                        "firma_digital": "0ea9e7202dc4d344bddb9d4571875d6d0cb88d83"
+                    }
+                ]
+            },
+            {
+                "data": [
+                    {
+                        "instance": 0,
+                        "provinciaOrigen": {
+                            "label": "BUENOS AIRES",
+                            "value": "2"
+                        },
+                        "partidoOrigen": {
+                            "label": "9 de Julio",
+                            "value": "88"
+                        },
+                        "partidoOrigen_otro": "",
+                        "localidadOrigen": {
+                            "label": "9 de Julio",
+                            "value": "19"
+                        },
+                        "localidadOrigen_otro": "",
+                        "areaOrigen": {
+                            "label": "TROPEZON",
+                            "value": "176"
+                        },
+                        "area_otro": "",
+                        "tecnologia": {
+                            "label": "DWDM",
+                            "value": "DWDM"
+                        },
+                        "tecnologia_otro": "",
+                        "equipCapacidadDisp": 9999999,
+                        "equipCapacidadUtilizada": 9999999,
+                        "medio": {
+                            "label": "FO",
+                            "value": "FO"
+                        },
+                        "medio_otro": "",
+                        "medioCapacidadDisp": 888,
+                        "medioCapacidadUtilizada": 77,
+                        "tendido": {
+                            "label": "SUBTERRANEO",
+                            "value": "SUBTERRANEO"
+                        },
+                        "tendido_otro": "",
+                        "tendidoCapacidadDisp": 89,
+                        "tendidoCapacidadUtilizada": 56,
+                        "provinciaDestino": {
+                            "label": "LA PAMPA",
+                            "value": "19"
+                        },
+                        "partidoDestino": {
+                            "label": "Chical Co",
+                            "value": "225"
+                        },
+                        "partidoDestino_otro": "",
+                        "localidadDestino": {
+                            "label": "La Humada",
+                            "value": "1683"
+                        },
+                        "localidadDestino_otro": "",
+                        "areaDestino": {
+                            "label": "LA HUMADA",
+                            "value": "245"
+                        },
+                        "areaDestino_otro": "",
+                        "firma_digital": "2705e7ab2f57f7682ab6633d11a3ddf01c44fdbb"
+                    },
+                    {
+                        "instance": 0,
+                        "provinciaOrigen": {
+                            "label": "SAN JUAN",
+                            "value": "10"
+                        },
+                        "partidoOrigen": {
+                            "label": "Albardón",
+                            "value": "482"
+                        },
+                        "partidoOrigen_otro": "",
+                        "localidadOrigen": {
+                            "label": "El Rincón",
+                            "value": "1133"
+                        },
+                        "localidadOrigen_otro": "",
+                        "areaOrigen": {
+                            "label": "ESTACION ALBARDON",
+                            "value": "508"
+                        },
+                        "area_otro": "",
+                        "tecnologia": {
+                            "label": "IP",
+                            "value": "IP"
+                        },
+                        "tecnologia_otro": "",
+                        "equipCapacidadDisp": 5000,
+                        "equipCapacidadUtilizada": 400,
+                        "medio": {
+                            "label": "MW",
+                            "value": "MW"
+                        },
+                        "medio_otro": "",
+                        "tendido_otro": "",
+                        "provinciaDestino": {
+                            "label": "CORDOBA",
+                            "value": "3"
+                        },
+                        "partidoDestino": {
+                            "label": "Colón",
+                            "value": "197"
+                        },
+                        "partidoDestino_otro": "",
+                        "localidadDestino": {
+                            "label": "Casa Bamba",
+                            "value": "587"
+                        },
+                        "localidadDestino_otro": "",
+                        "areaDestino": {
+                            "label": "LA CALERA (PROV. CORDOBA)",
+                            "value": "1765"
+                        },
+                        "areaDestino_otro": "",
+                        "firma_digital": "0ea9e7202dc4d344bddb9d4571875d6d0cb88d83"
+                    }
+                ]
+            }
+        ]
+    }
+}
