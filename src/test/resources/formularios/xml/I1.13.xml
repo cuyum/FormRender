@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario I1.13 - Personal ocupado</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <I1.13 id="I1.13">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <hombres/>
+              <mujeres/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </I1.13>
+      </instance>
+      <bind nodeset="/I1.13/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999" jr:constraintMsg="Ingrese entero entre 0 y 99999" nodeset="/I1.13/meses/mes/hombres" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999" jr:constraintMsg="Ingrese entero entre 0 y 99999" nodeset="/I1.13/meses/mes/mujeres" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/I1.13/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/I1.13/titulo">
+      <hint>Cantidad de empleados, normalizada de acuerdo al criterio explicitado en el Manual.</hint>
+    </input>
+    <group ref="/I1.13/meses">
+      <label></label>
+      <repeat nodeset="/I1.13/meses">
+        <group appearance="col4 well-white variable" ref="/I1.13/meses/mes">
+          <label>{title}</label>
+          <input ref="/I1.13/meses/mes/hombres">
+            <label>Hombres</label>
+            <hint>Hombres</hint>
+          </input>
+          <input ref="/I1.13/meses/mes/mujeres">
+            <label>Mujeres</label>
+            <hint>Mujeres</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

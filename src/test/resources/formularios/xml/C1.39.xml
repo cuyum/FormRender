@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.39 - Ingresos / larga distancia internacional horario reducido</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <C1.39 id="C1.39">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <ddi/>
+              <operadora/>
+              <otros/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.39>
+      </instance>
+      <bind nodeset="/C1.39/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.39/meses/mes/ddi" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.39/meses/mes/operadora" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.39/meses/mes/otros" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.39/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/C1.39/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
+    <group ref="/C1.39/meses">
+      <label></label>
+      <repeat nodeset="/C1.39/meses">
+        <group appearance="col3 well-white variable" ref="/C1.39/meses/mes">
+          <label>{title}</label>
+          <input ref="/C1.39/meses/mes/ddi">
+            <label>DDI</label>
+            <hint>DDI [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.39/meses/mes/operadora">
+            <label>Operadora</label>
+            <hint>Operadora [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.39/meses/mes/otros">
+            <label>Otros</label>
+            <hint>Consignar los ingresos por larga distancia internacional no incluidos en los campos precedentes [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

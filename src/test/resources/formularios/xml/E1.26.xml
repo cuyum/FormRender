@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario E1.26 - Tarifas / Roaming - LDN</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <E1.26 id="E1.26">
+          <titulo/>
+          <hasta110>
+            <roaming110>
+              <roamingPrepago110/>
+              <roamingPospago110/>
+            </roaming110>
+            <ldn110>
+              <ldnPrepago110/>
+              <ldnPospago110/>
+            </ldn110>
+          </hasta110>
+          <de110A240>
+            <roaming240>
+              <roamingPrepago240/>
+              <roamingPospago240/>
+            </roaming240>
+            <ldn240>
+              <ldnPrepago240/>
+              <ldnPospago240/>
+            </ldn240>
+          </de110A240>
+          <mas240>
+            <roamMas240>
+              <roamPrepagoMas240/>
+              <roamPospagoMas240/>
+            </roamMas240>
+            <ldnMas240>
+              <ldnPrepagoMas240/>
+              <ldnPospagoMas240/>
+            </ldnMas240>
+          </mas240>
+          <meta>
+            <instanceID/>
+          </meta>
+        </E1.26>
+      </instance>
+      <bind nodeset="/E1.26/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/hasta110/roaming110/roamingPrepago110" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/hasta110/roaming110/roamingPospago110" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/hasta110/ldn110/ldnPrepago110" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/hasta110/ldn110/ldnPospago110" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/de110A240/roaming240/roamingPrepago240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/de110A240/roaming240/roamingPospago240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/de110A240/ldn240/ldnPrepago240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/de110A240/ldn240/ldnPospago240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/mas240/roamMas240/roamPrepagoMas240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/mas240/roamMas240/roamPospagoMas240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/mas240/ldnMas240/ldnPrepagoMas240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/mas240/ldnMas240/ldnPospagoMas240" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/E1.26/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/E1.26/titulo">
+      <hint>Informar importes en pesos sin impuestos. Último dato vigente al final del período considerado.</hint>
+    </input>
+    <group appearance="col1 well-white" ref="/E1.26/hasta110">
+      <label>Hasta 110 km</label>
+      <group appearance="col2 well-white" ref="/E1.26/hasta110/roaming110">
+        <label>Roaming LDN precio</label>
+        <input ref="/E1.26/hasta110/roaming110/roamingPrepago110">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/E1.26/hasta110/roaming110/roamingPospago110">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/E1.26/hasta110/ldn110">
+        <label>LDN precio minuto</label>
+        <input ref="/E1.26/hasta110/ldn110/ldnPrepago110">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/E1.26/hasta110/ldn110/ldnPospago110">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/E1.26/de110A240">
+      <label>De 110 km a 240 km</label>
+      <group appearance="col2 well-white" ref="/E1.26/de110A240/roaming240">
+        <label>Roaming LDN precio</label>
+        <input ref="/E1.26/de110A240/roaming240/roamingPrepago240">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/E1.26/de110A240/roaming240/roamingPospago240">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/E1.26/de110A240/ldn240">
+        <label>LDN precio minuto</label>
+        <input ref="/E1.26/de110A240/ldn240/ldnPrepago240">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/E1.26/de110A240/ldn240/ldnPospago240">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/E1.26/mas240">
+      <label>Más de 240 km</label>
+      <group appearance="col2 well-white" ref="/E1.26/mas240/roamMas240">
+        <label>Roaming LDN precio</label>
+        <input ref="/E1.26/mas240/roamMas240/roamPrepagoMas240">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/E1.26/mas240/roamMas240/roamPospagoMas240">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/E1.26/mas240/ldnMas240">
+        <label>LDN precio minuto</label>
+        <input ref="/E1.26/mas240/ldnMas240/ldnPrepagoMas240">
+          <label>Prepago</label>
+          <hint>Prepago</hint>
+        </input>
+        <input ref="/E1.26/mas240/ldnMas240/ldnPospagoMas240">
+          <label>Pospago</label>
+          <hint>Pospago</hint>
+        </input>
+      </group>
+    </group>
+  </h:body>
+</h:html>

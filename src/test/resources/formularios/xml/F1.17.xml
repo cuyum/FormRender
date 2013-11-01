@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario F1.17 - Tasa de interés</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <F1.17 id="F1.17">
+          <tasa>
+            <tasaInteres/>
+          </tasa>
+          <meta>
+            <instanceID/>
+          </meta>
+        </F1.17>
+      </instance>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/F1.17/tasa/tasaInteres" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/F1.17/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col1 well-white" ref="/F1.17/tasa">
+      <label>Tasa</label>
+      <input ref="/F1.17/tasa/tasaInteres">
+        <label>Tasa de Interés</label>
+        <hint>Tasa de Interés [%]</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario H1.11 - Tarifas / Precio vigente</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <H1.11 id="H1.11">
+          <titulo/>
+          <instalacion>
+            <instalacionFamilia/>
+            <instalacionComercial/>
+            <instalacionGobierno/>
+            <instalacionJubilados/>
+            <instalacionProfesional/>
+            <instalacionOtros/>
+          </instalacion>
+          <abono>
+            <abonoFamilia/>
+            <abonoComercial/>
+            <abonoGobierno/>
+            <abonoJubilados/>
+            <abonoProfesional/>
+            <abonoOtros/>
+          </abono>
+          <abono_entrante>
+            <entranteFamilia/>
+            <entranteComercial/>
+            <entranteGobierno/>
+            <entranteJubilados/>
+            <entranteProfesional/>
+            <entranteOtros/>
+          </abono_entrante>
+          <meta>
+            <instanceID/>
+          </meta>
+        </H1.11>
+      </instance>
+      <bind nodeset="/H1.11/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/H1.11/instalacion/instalacionFamilia" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/H1.11/instalacion/instalacionComercial" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/H1.11/instalacion/instalacionGobierno" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/H1.11/instalacion/instalacionJubilados" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/H1.11/instalacion/instalacionProfesional" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/H1.11/instalacion/instalacionOtros" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/H1.11/abono/abonoFamilia" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/H1.11/abono/abonoComercial" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/H1.11/abono/abonoGobierno" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/H1.11/abono/abonoJubilados" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/H1.11/abono/abonoProfesional" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/H1.11/abono/abonoOtros" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/H1.11/abono_entrante/entranteFamilia" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/H1.11/abono_entrante/entranteComercial" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/H1.11/abono_entrante/entranteGobierno" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/H1.11/abono_entrante/entranteJubilados" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/H1.11/abono_entrante/entranteProfesional" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/H1.11/abono_entrante/entranteOtros" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/H1.11/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/H1.11/titulo">
+      <hint>Informar datos al final del período. Todos los valores monetarios deben ser expresados sin IVA.</hint>
+    </input>
+    <group appearance="col6 well-white" ref="/H1.11/instalacion">
+      <label>Instalación</label>
+      <input ref="/H1.11/instalacion/instalacionFamilia">
+        <label>Hogares</label>
+        <hint>Hogares [en pesos]</hint>
+      </input>
+      <input ref="/H1.11/instalacion/instalacionComercial">
+        <label>Comercial</label>
+        <hint>Comercial [en pesos]</hint>
+      </input>
+      <input ref="/H1.11/instalacion/instalacionGobierno">
+        <label>Gobierno</label>
+        <hint>Gobierno [en pesos]</hint>
+      </input>
+      <input ref="/H1.11/instalacion/instalacionJubilados">
+        <label>Jubilados</label>
+        <hint>Jubilados [en pesos]</hint>
+      </input>
+      <input ref="/H1.11/instalacion/instalacionProfesional">
+        <label>Profesional</label>
+        <hint>Profesional [en pesos]</hint>
+      </input>
+      <input ref="/H1.11/instalacion/instalacionOtros">
+        <label>Otros</label>
+        <hint>Otros [en pesos]</hint>
+      </input>
+    </group>
+    <group appearance="col6 well-white" ref="/H1.11/abono">
+      <label>Abono</label>
+      <input ref="/H1.11/abono/abonoFamilia">
+        <label>Hogares</label>
+        <hint>Hogares [en pesos]</hint>
+      </input>
+      <input ref="/H1.11/abono/abonoComercial">
+        <label>Comercial</label>
+        <hint>Comercial [en pesos]</hint>
+      </input>
+      <input ref="/H1.11/abono/abonoGobierno">
+        <label>Gobierno</label>
+        <hint>Gobierno [en pesos]</hint>
+      </input>
+      <input ref="/H1.11/abono/abonoJubilados">
+        <label>Jubilados</label>
+        <hint>Jubilados [en pesos]</hint>
+      </input>
+      <input ref="/H1.11/abono/abonoProfesional">
+        <label>Profesional</label>
+        <hint>Profesional [en pesos]</hint>
+      </input>
+      <input ref="/H1.11/abono/abonoOtros">
+        <label>Otros</label>
+        <hint>Otros [en pesos]</hint>
+      </input>
+    </group>
+    <group appearance="col6 well-white" ref="/H1.11/abono_entrante">
+      <label>Abono Entrante</label>
+      <input ref="/H1.11/abono_entrante/entranteFamilia">
+        <label>Hogares</label>
+        <hint>Hogares [en pesos]</hint>
+      </input>
+      <input ref="/H1.11/abono_entrante/entranteComercial">
+        <label>Comercial</label>
+        <hint>Comercial [en pesos]</hint>
+      </input>
+      <input ref="/H1.11/abono_entrante/entranteGobierno">
+        <label>Gobierno</label>
+        <hint>Gobierno [en pesos]</hint>
+      </input>
+      <input ref="/H1.11/abono_entrante/entranteJubilados">
+        <label>Jubilados</label>
+        <hint>Jubilados [en pesos]</hint>
+      </input>
+      <input ref="/H1.11/abono_entrante/entranteProfesional">
+        <label>Profesional</label>
+        <hint>Profesional [en pesos]</hint>
+      </input>
+      <input ref="/H1.11/abono_entrante/entranteOtros">
+        <label>Otros</label>
+        <hint>Otros [en pesos]</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario E1.36 - Gastos II</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <E1.36 id="E1.36">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <id/>
+              <impuestos/>
+              <amortBienesUso/>
+              <amortIntangibles/>
+              <publicidad/>
+              <costoEquipos/>
+              <otrosComerciales/>
+              <otrosFinancieros/>
+              <otrosAdminist/>
+              <total/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </E1.36>
+      </instance>
+      <bind nodeset="/E1.36/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.36/meses/mes/id" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.36/meses/mes/impuestos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.36/meses/mes/amortBienesUso" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.36/meses/mes/amortIntangibles" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.36/meses/mes/publicidad" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.36/meses/mes/costoEquipos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.36/meses/mes/otrosComerciales" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.36/meses/mes/otrosFinancieros" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.36/meses/mes/otrosAdminist" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.36/meses/mes/total" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/E1.36/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/E1.36/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC. Los campos &quot;Otros …&quot; deben ser completados de forma tal que el total del formulario coincida con lo informado en los EECC.</hint>
+    </input>
+    <group ref="/E1.36/meses">
+      <label></label>
+      <repeat nodeset="/E1.36/meses">
+        <group appearance="col4 well-white variable" ref="/E1.36/meses/mes">
+          <label>{title}</label>
+          <input ref="/E1.36/meses/mes/id">
+            <label>I &amp; D</label>
+            <hint>I &amp; D [en miles de pesos]</hint>
+          </input>
+          <input ref="/E1.36/meses/mes/impuestos">
+            <label>lmpuestos</label>
+            <hint>lmpuestos [en miles de pesos]</hint>
+          </input>
+          <input ref="/E1.36/meses/mes/amortBienesUso">
+            <label>Amortización Bienes de Uso</label>
+            <hint>Amortización de Bienes de uso [en miles de pesos]</hint>
+          </input>
+          <input ref="/E1.36/meses/mes/amortIntangibles">
+            <label>Amortiz. Intangibles</label>
+            <hint>Amortización de Intangibles [en miles de pesos]</hint>
+          </input>
+          <input ref="/E1.36/meses/mes/publicidad">
+            <label>Publicidad</label>
+            <hint>Publicidad [en miles de pesos]</hint>
+          </input>
+          <input ref="/E1.36/meses/mes/costoEquipos">
+            <label>Costo Equipos</label>
+            <hint>Costo de Equipos [en miles de pesos]</hint>
+          </input>
+          <input ref="/E1.36/meses/mes/otrosComerciales">
+            <label>Otros Comerciales</label>
+            <hint>Otros Comerciales [en miles de pesos]</hint>
+          </input>
+          <input ref="/E1.36/meses/mes/otrosFinancieros">
+            <label>Otros Financieros</label>
+            <hint>Otros Financieros [en miles de pesos]</hint>
+          </input>
+          <input ref="/E1.36/meses/mes/otrosAdminist">
+            <label>Otros Administrativos</label>
+            <hint>Otros Administrativos [en miles de pesos]</hint>
+          </input>
+          <input ref="/E1.36/meses/mes/total">
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

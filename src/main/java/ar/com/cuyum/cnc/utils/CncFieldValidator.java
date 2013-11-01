@@ -1,6 +1,7 @@
 package ar.com.cuyum.cnc.utils;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
 
@@ -58,9 +59,11 @@ public class CncFieldValidator {
 				// propiedad
 				// exclusiveMinimum=true
 				if(type.equals("integer")){
-					constraintResult.put("maximum",new Integer(number));
+					constraintResult.put("maximum",new Long(number));
 				}else if(type.equals("decimal")){
-					constraintResult.put("maximum",new Double(number));	
+					BigDecimal bd = new BigDecimal(number);
+					bd = bd.setScale(2, BigDecimal.ROUND_DOWN);
+					constraintResult.put("maximum",bd);	
 				}
 			} else if (constraint.indexOf(".>=") != -1
 					|| constraint.indexOf(".&gt;=") != -1) {
@@ -110,9 +113,23 @@ public class CncFieldValidator {
 			} else if (constraint.indexOf("mask=") != -1) {
 				String[] mask = constraint.split("=");
 				constraintResult.put(mask[0], mask[1]);
-			} else {
+			}  else if (constraint.indexOf("periodicidad") != -1) {
+				String[] periodicidad = constraint.split("=");
+				constraintResult.put(periodicidad[0], periodicidad[1]);			
+			}else if (constraint.indexOf("agrupador") != -1) {
+				String[] agrupador = constraint.split("=");
+				constraintResult.put(agrupador[0], agrupador[1]);			
+			}else if (constraint.indexOf("porcentual") != -1) {
+				String[] porcentual = constraint.split("=");
+				constraintResult.put(porcentual[0], porcentual[1]);
+			}else if (constraint.indexOf("totalizador") != -1) {				
+				constraintResult.put("totalizador",true);
+			}else if (constraint.indexOf("hora_delta") != -1){
+				String[] porcentual = constraint.split("=");
+				constraintResult.put(porcentual[0], porcentual[1]);
+			}else {
 				throw new ExceptionParserJson(
-						"Constraint propertie no reconocido");
+						"Constraint propertie no reconocida: "+ constraint);
 			}
 		}
 

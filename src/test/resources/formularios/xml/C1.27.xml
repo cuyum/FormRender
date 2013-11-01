@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.27 - Tarifas / Planes líneas restringidas</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <C1.27 id="C1.27">
+          <plan_plan jr:template="">
+            <planes>
+              <plan/>
+              <aplicacion/>
+              <segmento/>
+              <segmento_otro/>
+              <abono/>
+              <minutos/>
+              <precio/>
+              <observacion/>
+            </planes>
+          </plan_plan>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.27>
+      </instance>
+      <bind nodeset="/C1.27/plan_plan/planes/plan" required="true()" type="string"/>
+      <bind nodeset="/C1.27/plan_plan/planes/aplicacion" required="true()" type="select1"/>
+      <bind nodeset="/C1.27/plan_plan/planes/segmento" required="true()" type="select1"/>
+      <bind nodeset="/C1.27/plan_plan/planes/segmento_otro" relevant=" /C1.27/plan_plan/planes/segmento =OTROS" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/C1.27/plan_plan/planes/abono" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999" jr:constraintMsg="Ingrese entero entre 0 y 999999" nodeset="/C1.27/plan_plan/planes/minutos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/C1.27/plan_plan/planes/precio" required="true()" type="decimal"/>
+      <bind nodeset="/C1.27/plan_plan/planes/observacion" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.27/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/C1.27/plan_plan">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/C1.27/plan_plan">
+        <group appearance="col4 well-white" ref="/C1.27/plan_plan/planes">
+          <label>Planes</label>
+          <input ref="/C1.27/plan_plan/planes/plan">
+            <label>Plan</label>
+            <hint>Ingresar el nombre comercial del plan.</hint>
+          </input>
+          <select1 appearance="minimal" ref="/C1.27/plan_plan/planes/aplicacion">
+            <label>Aplicación</label>
+            <hint>Aplicación</hint>
+            <item>
+              <label>Seleccione opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>MASIVA</label>
+              <value>MASIVA</value>
+            </item>
+            <item>
+              <label>POR ADHESION</label>
+              <value>POR_ADHESION</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C1.27/plan_plan/planes/segmento">
+            <label>Segmento</label>
+            <hint>Seleccionar desde la lista desplegable a qué segmento corresponde.</hint>
+            <item>
+              <label>Seleccione opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>HOGARES</label>
+              <value>HOGARES</value>
+            </item>
+            <item>
+              <label>COMERCIAL</label>
+              <value>COMERCIAL</value>
+            </item>
+            <item>
+              <label>JUBILADOS</label>
+              <value>JUBILADOS</value>
+            </item>
+            <item>
+              <label>GOBIERNO</label>
+              <value>GOBIERNO</value>
+            </item>
+            <item>
+              <label>PROFESIONALES</label>
+              <value>PROFESIONALES</value>
+            </item>
+            <item>
+              <label>OTROS</label>
+              <value>OTROS</value>
+            </item>
+          </select1>
+          <input ref="/C1.27/plan_plan/planes/segmento_otro">
+            <label>Segmento Otros</label>
+            <hint>Segmento Otros</hint>
+          </input>
+          <input ref="/C1.27/plan_plan/planes/abono">
+            <label>Abono</label>
+            <hint>Informar el monto del abono en pesos, sin IVA.</hint>
+          </input>
+          <input ref="/C1.27/plan_plan/planes/minutos">
+            <label>Minutos</label>
+            <hint>Informar minutos incluidos en el abono.</hint>
+          </input>
+          <input ref="/C1.27/plan_plan/planes/precio">
+            <label>Precio</label>
+            <hint>Informar precio promedio del minuto excedente.</hint>
+          </input>
+          <input appearance="multiline" ref="/C1.27/plan_plan/planes/observacion">
+            <label>Observaciones</label>
+            <hint>En caso de ofrecer planes que empaquetan distintos servicios, consignar los servicios adicionales en este campo.</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

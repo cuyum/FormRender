@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario D1.34 - Ingresos prestación de servicios / Tráfico telefonía móvil</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <D1.34 id="D1.34">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <traficoPospago/>
+              <traficoPrepago/>
+              <excedPospago/>
+              <usoOtrasRedes/>
+              <trunking/>
+              <roaming/>
+              <smmMms/>
+              <internet/>
+              <otrosValorAgregado/>
+              <total/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </D1.34>
+      </instance>
+      <bind nodeset="/D1.34/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.34/meses/mes/traficoPospago" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.34/meses/mes/traficoPrepago" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.34/meses/mes/excedPospago" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.34/meses/mes/usoOtrasRedes" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.34/meses/mes/trunking" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.34/meses/mes/roaming" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.34/meses/mes/smmMms" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.34/meses/mes/internet" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.34/meses/mes/otrosValorAgregado" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.34/meses/mes/total" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/D1.34/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/D1.34/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
+    <group ref="/D1.34/meses">
+      <label></label>
+      <repeat nodeset="/D1.34/meses">
+        <group appearance="col4 well-white variable" ref="/D1.34/meses/mes">
+          <label>{title}</label>
+          <input ref="/D1.34/meses/mes/traficoPospago">
+            <label>Tráfico pospago</label>
+            <hint>Tráfico pospago [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.34/meses/mes/traficoPrepago">
+            <label>Tráfico prepago</label>
+            <hint>Tráfico prepago [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.34/meses/mes/excedPospago">
+            <label>Tráfico excedente pospago</label>
+            <hint>Tráfico excedente pospago [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.34/meses/mes/usoOtrasRedes">
+            <label>Uso de otras redes</label>
+            <hint>Uso de otras redes [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.34/meses/mes/trunking">
+            <label>Trunking</label>
+            <hint>Trunking [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.34/meses/mes/roaming">
+            <label>Roaming</label>
+            <hint>Roaming [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.34/meses/mes/smmMms">
+            <label>SMS/MMS</label>
+            <hint>SMS/MMS [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.34/meses/mes/internet">
+            <label>Internet</label>
+            <hint>Internet [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.34/meses/mes/otrosValorAgregado">
+            <label>Otros servicios valor agregado</label>
+            <hint>Informar lo que no está incluido en los campos precedentes.</hint>
+          </input>
+          <input ref="/D1.34/meses/mes/total">
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

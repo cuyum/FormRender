@@ -3,7 +3,7 @@
   <h:head>
     <h:title>C1.14 - Tráfico hacia móviles (minutos)</h:title>
     <model>
-      <submission action="/api/deposition/draft" method="form-data-post"/>
+      <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <C1.14 id="C1.14">
           <titulo/>
@@ -51,33 +51,33 @@
         </C1.14>
       </instance>
       <bind nodeset="/C1.14/titulo" readonly="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/C1.14/meses/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/C1.14/meses/mes/provincia" nodeset="/C1.14/meses/mes/partido" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/C1.14/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/C1.14/meses/mes/provincia" nodeset="/C1.14/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/C1.14/meses/mes/partido_otro" relevant=" /C1.14/meses/mes/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/C1.14/meses/mes/partido" nodeset="/C1.14/meses/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/C1.14/meses/mes/partido" nodeset="/C1.14/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/C1.14/meses/mes/localidad_otro" relevant=" /C1.14/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/areas and depends=/C1.14/meses/mes/localidad" nodeset="/C1.14/meses/mes/area" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/C1.14/meses/mes/localidad" nodeset="/C1.14/meses/mes/area" required="true()" type="select1"/>
       <bind nodeset="/C1.14/meses/mes/area_otro" relevant=" /C1.14/meses/mes/area =9999" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.14/meses/mes/ll/llSalientes1" required="true()" type="decimal"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" nodeset="/C1.14/meses/mes/ll/llOperador1" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" nodeset="/C1.14/meses/mes/ll/llOperador1" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.14/meses/mes/ll/llSalientes2" type="decimal"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" nodeset="/C1.14/meses/mes/ll/llOperador2" type="select1"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" nodeset="/C1.14/meses/mes/ll/llOperador2" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.14/meses/mes/ll/llSalientes3" type="decimal"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" nodeset="/C1.14/meses/mes/ll/llOperador3" type="select1"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" nodeset="/C1.14/meses/mes/ll/llOperador3" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.14/meses/mes/ll/llSalientesOtros" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.14/meses/mes/lldn/lldnSalientes1" required="true()" type="decimal"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" nodeset="/C1.14/meses/mes/lldn/lldnOperador1" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" nodeset="/C1.14/meses/mes/lldn/lldnOperador1" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.14/meses/mes/lldn/lldnSalientes2" type="decimal"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" nodeset="/C1.14/meses/mes/lldn/lldnOperador2" type="select1"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" nodeset="/C1.14/meses/mes/lldn/lldnOperador2" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.14/meses/mes/lldn/lldnSalientes3" type="decimal"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" nodeset="/C1.14/meses/mes/lldn/lldnOperador3" type="select1"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" nodeset="/C1.14/meses/mes/lldn/lldnOperador3" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.14/meses/mes/lldn/lldnSalientesOtros" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.14/meses/mes/lldi/lldiSalientes1" required="true()" type="decimal"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" nodeset="/C1.14/meses/mes/lldi/lldiOperador1" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" nodeset="/C1.14/meses/mes/lldi/lldiOperador1" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.14/meses/mes/lldi/lldiSalientes2" type="decimal"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" nodeset="/C1.14/meses/mes/lldi/lldiOperador2" type="select1"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" nodeset="/C1.14/meses/mes/lldi/lldiOperador2" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.14/meses/mes/lldi/lldiSalientes3" type="decimal"/>
-      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" nodeset="/C1.14/meses/mes/lldi/lldiOperador3" type="select1"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" nodeset="/C1.14/meses/mes/lldi/lldiOperador3" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.14/meses/mes/lldi/lldiSalientesOtros" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.14/meta/instanceID" readonly="true()" type="string"/>
     </model>

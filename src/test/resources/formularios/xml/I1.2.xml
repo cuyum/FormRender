@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario I1.2 - Interconexión</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <I1.2 id="I1.2">
+          <titulo/>
+          <inter jr:template="">
+            <interconexion>
+              <provincia/>
+              <partido/>
+              <partido_otro/>
+              <localidad/>
+              <localidad_otro/>
+              <prestador/>
+              <capacidad/>
+            </interconexion>
+          </inter>
+          <meta>
+            <instanceID/>
+          </meta>
+        </I1.2>
+      </instance>
+      <bind nodeset="/I1.2/titulo" readonly="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/I1.2/inter/interconexion/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/I1.2/inter/interconexion/provincia" nodeset="/I1.2/inter/interconexion/partido" required="true()" type="select1"/>
+      <bind nodeset="/I1.2/inter/interconexion/partido_otro" relevant=" /I1.2/inter/interconexion/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/I1.2/inter/interconexion/partido" nodeset="/I1.2/inter/interconexion/localidad" required="true()" type="select1"/>
+      <bind nodeset="/I1.2/inter/interconexion/localidad_otro" relevant=" /I1.2/inter/interconexion/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" jr:constraintMsg="Datos no válidos" nodeset="/I1.2/inter/interconexion/prestador" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999" nodeset="/I1.2/inter/interconexion/capacidad" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/I1.2/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/I1.2/titulo">
+      <hint>Debe informar cada uno de sus puntos de interconexión: ubicación geográfica de origen y destino, capacidad y prestador con el cual se conecta.</hint>
+    </input>
+    <group ref="/I1.2/inter">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/I1.2/inter">
+        <group appearance="col3 well-white" ref="/I1.2/inter/interconexion">
+          <label>Interconexión</label>
+          <select1 appearance="minimal" ref="/I1.2/inter/interconexion/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/I1.2/inter/interconexion/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/I1.2/inter/interconexion/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/I1.2/inter/interconexion/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/I1.2/inter/interconexion/localidad_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/I1.2/inter/interconexion/prestador">
+            <label>Prestador</label>
+            <hint>Prestador con el cual se interconecta.</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/I1.2/inter/interconexion/capacidad">
+            <label>Capacidad</label>
+            <hint>Capacidad expresada en MBPS del enlace de intercambio de tráfico.</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

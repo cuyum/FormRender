@@ -38,10 +38,18 @@ public class Texto extends Componente {
 	}
 
 	public boolean equals(Object o) {
-		if (!(o instanceof Combo) || o == null)
+		if (!(o instanceof Texto) || o == null)
 			return false;
 
-		return super.equals(((Componente) o));
+		Texto other = ((Texto) o);
+
+		if (value == null) {
+			if (other.value != null)
+				return false;
+		} else if (!value.equals(other.id))
+			return false;
+
+		return true;
 	}
 
 	public List<String> getRelevant() {
@@ -88,6 +96,13 @@ public class Texto extends Componente {
 
 	@Override
 	public Boolean isDataValid() throws ExceptionValidation {
+		// Si el valor es nulo pero hay relevant con los valores seteados
+		if (value == null) {
+			if (relevant != null && value != null) {
+				if (!super.isOkRelevant(relevantMap))
+					return false;
+			}
+		}
 		// De momento cualquier texto es valido
 		return true;
 	}
@@ -102,7 +117,7 @@ public class Texto extends Componente {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode nodo = mapper.createObjectNode();
 		nodo.put("string", value);
-		return nodo.get("string");
+		return (value==null)?null:nodo.get("string");
 	}
 
 }

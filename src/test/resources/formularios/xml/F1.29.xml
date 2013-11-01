@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario F1.29 - Rentas</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <F1.29 id="F1.29">
+          <rentas>
+            <remision/>
+            <distribucion/>
+          </rentas>
+          <meta>
+            <instanceID/>
+          </meta>
+        </F1.29>
+      </instance>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.29/rentas/remision" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.29/rentas/distribucion" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/F1.29/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col4 well-white" ref="/F1.29/rentas">
+      <label>Rentas</label>
+      <input ref="/F1.29/rentas/remision">
+        <label>Remisión de utilidades</label>
+        <hint>Remisión de Utilidades [en miles de pesos]</hint>
+      </input>
+      <input ref="/F1.29/rentas/distribucion">
+        <label>Distribución de dividendos</label>
+        <hint>Distribución de Dividendos [en miles de pesos]</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

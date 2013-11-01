@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C2.1 - Áreas de prestación de servicios</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <C2.1 id="C2.1">
+          <titulo/>
+          <areasprest jr:template="">
+            <areas>
+              <provincia/>
+              <partido/>
+              <partido_otro/>
+              <localidad/>
+              <localidad_otro/>
+              <area/>
+              <area_otro/>
+            </areas>
+          </areasprest>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C2.1>
+      </instance>
+      <bind nodeset="/C2.1/titulo" readonly="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/C2.1/areasprest/areas/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/C2.1/areasprest/areas/provincia" nodeset="/C2.1/areasprest/areas/partido" required="true()" type="select1"/>
+      <bind nodeset="/C2.1/areasprest/areas/partido_otro" relevant=" /C2.1/areasprest/areas/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/C2.1/areasprest/areas/partido" nodeset="/C2.1/areasprest/areas/localidad" required="true()" type="select1"/>
+      <bind nodeset="/C2.1/areasprest/areas/localidad_otro" relevant=" /C2.1/areasprest/areas/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/C2.1/areasprest/areas/localidad" nodeset="/C2.1/areasprest/areas/area" required="true()" type="select1"/>
+      <bind nodeset="/C2.1/areasprest/areas/area_otro" relevant=" /C2.1/areasprest/areas/area =9999" required="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C2.1/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/C2.1/titulo">
+      <hint>Debe informar todas las Areas/localidades donde presta servicio.</hint>
+    </input>
+    <group ref="/C2.1/areasprest">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/C2.1/areasprest">
+        <group appearance="col4 well-white" ref="/C2.1/areasprest/areas">
+          <label>Áreas de prestación</label>
+          <select1 appearance="minimal" ref="/C2.1/areasprest/areas/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C2.1/areasprest/areas/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/C2.1/areasprest/areas/partido_otro">
+            <label>Partido Otros</label>
+          </input>
+          <select1 appearance="minimal" ref="/C2.1/areasprest/areas/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/C2.1/areasprest/areas/localidad_otro">
+            <label>Localidad Otros</label>
+          </input>
+          <select1 appearance="minimal" ref="/C2.1/areasprest/areas/area">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/C2.1/areasprest/areas/area_otro">
+            <label>Área Otros</label>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

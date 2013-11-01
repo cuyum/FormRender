@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario H1.21 - Personal Ocupado</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <H1.21 id="H1.21">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <hombres/>
+              <mujeres/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </H1.21>
+      </instance>
+      <bind nodeset="/H1.21/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/H1.21/meses/mes/hombres" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/H1.21/meses/mes/mujeres" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/H1.21/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/H1.21/titulo">
+      <hint>Cantidad de empleados, normalizada de acuerdo al criterio explicitado en el Manual.</hint>
+    </input>
+    <group ref="/H1.21/meses">
+      <label></label>
+      <repeat nodeset="/H1.21/meses">
+        <group appearance="col4 well-white variable" ref="/H1.21/meses/mes">
+          <label>{title}</label>
+          <input ref="/H1.21/meses/mes/hombres">
+            <label>Hombres</label>
+            <hint>Hombres</hint>
+          </input>
+          <input ref="/H1.21/meses/mes/mujeres">
+            <label>Mujeres</label>
+            <hint>Mujeres</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

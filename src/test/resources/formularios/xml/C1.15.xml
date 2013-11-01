@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>C1.15 - Tráfico hacia móviles (llamadas)</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <C1.15 id="C1.15">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <partido/>
+              <partido_otro/>
+              <localidad/>
+              <localidad_otro/>
+              <area/>
+              <area_otro/>
+              <salientes>
+                <salientes1/>
+                <operador1/>
+                <salientes2/>
+                <operador2/>
+                <salientes3/>
+                <operador3/>
+                <salientesOtros/>
+              </salientes>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.15>
+      </instance>
+      <bind nodeset="/C1.15/titulo" readonly="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/C1.15/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/C1.15/meses/mes/provincia" nodeset="/C1.15/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/C1.15/meses/mes/partido_otro" relevant=" /C1.15/meses/mes/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/C1.15/meses/mes/partido" nodeset="/C1.15/meses/mes/localidad" required="true()" type="select1"/>
+      <bind nodeset="/C1.15/meses/mes/localidad_otro" relevant=" /C1.15/meses/mes/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/C1.15/meses/mes/localidad" nodeset="/C1.15/meses/mes/area" required="true()" type="select1"/>
+      <bind nodeset="/C1.15/meses/mes/area_otro" relevant=" /C1.15/meses/mes/area =9999" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.15/meses/mes/salientes/salientes1" required="true()" type="decimal"/>
+      <bind constraint="url=/servicios/rest/prestadores" nodeset="/C1.15/meses/mes/salientes/operador1" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.15/meses/mes/salientes/salientes2" type="decimal"/>
+      <bind constraint="url=/servicios/rest/prestadores" nodeset="/C1.15/meses/mes/salientes/operador2" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.15/meses/mes/salientes/salientes3" type="decimal"/>
+      <bind constraint="url=/servicios/rest/prestadores" nodeset="/C1.15/meses/mes/salientes/operador3" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.15/meses/mes/salientes/salientesOtros" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.15/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/C1.15/titulo">
+      <hint>Incluye el tráfico dentro de la red propia (on-net) y el tráfico hacia redes de terceros (off-net), en cantidad de llamadas.</hint>
+    </input>
+    <group ref="/C1.15/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/C1.15/meses">
+        <group appearance="col4 well-white variable" ref="/C1.15/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/C1.15/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C1.15/meses/mes/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/C1.15/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/C1.15/meses/mes/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/C1.15/meses/mes/localidad_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/C1.15/meses/mes/area">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/C1.15/meses/mes/area_otro">
+            <label>Área Otros</label>
+            <hint>Área Otros</hint>
+          </input>
+          <group appearance="col2 well-white" ref="/C1.15/meses/mes/salientes">
+            <input ref="/C1.15/meses/mes/salientes/salientes1">
+              <label>Salientes</label>
+              <hint>Salientes [en miles]</hint>
+            </input>
+            <select1 appearance="minimal" ref="/C1.15/meses/mes/salientes/operador1">
+              <label>Operador 1</label>
+              <hint>Operador 1</hint>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+            </select1>
+            <input ref="/C1.15/meses/mes/salientes/salientes2">
+              <label>Salientes</label>
+              <hint>Salientes [en miles]</hint>
+            </input>
+            <select1 appearance="minimal" ref="/C1.15/meses/mes/salientes/operador2">
+              <label>Operador 2</label>
+              <hint>Operador 2</hint>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+            </select1>
+            <input ref="/C1.15/meses/mes/salientes/salientes3">
+              <label>Salientes</label>
+              <hint>Salientes [en miles]</hint>
+            </input>
+            <select1 appearance="minimal" ref="/C1.15/meses/mes/salientes/operador3">
+              <label>Operador 3</label>
+              <hint>Operador 3</hint>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+            </select1>
+            <input ref="/C1.15/meses/mes/salientes/salientesOtros">
+              <label>Salientes Operador Otros</label>
+              <hint>Salientes Operador Otros [en miles]</hint>
+            </input>
+          </group>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

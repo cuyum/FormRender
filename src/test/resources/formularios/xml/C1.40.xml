@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.40 - Ingresos interconexión a la red fija - local a 3°</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <C1.40 id="C1.40">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <origenYTerminacionFijo/>
+              <origenYTerminacionMovil/>
+              <puertos/>
+              <coubicacion/>
+              <transito/>
+              <otras/>
+              <facturacion/>
+              <otros/>
+              <total/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.40>
+      </instance>
+      <bind nodeset="/C1.40/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.40/meses/mes/origenYTerminacionFijo" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.40/meses/mes/origenYTerminacionMovil" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.40/meses/mes/puertos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.40/meses/mes/coubicacion" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.40/meses/mes/transito" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.40/meses/mes/otras" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.40/meses/mes/facturacion" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.40/meses/mes/otros" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.40/meses/mes/total" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.40/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/C1.40/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
+    <group ref="/C1.40/meses">
+      <label></label>
+      <repeat nodeset="/C1.40/meses">
+        <group appearance="col3 well-white variable" ref="/C1.40/meses/mes">
+          <label>{title}</label>
+          <input ref="/C1.40/meses/mes/origenYTerminacionFijo">
+            <label>Origen y Terminación Local Fijo</label>
+            <hint>Origen y Terminación Local Fijo [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.40/meses/mes/origenYTerminacionMovil">
+            <label>Origen y Terminación Móvil</label>
+            <hint>Origen y Terminación Móvil [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.40/meses/mes/puertos">
+            <label>Puertos</label>
+            <hint>Puertos [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.40/meses/mes/coubicacion">
+            <label>Coubicación</label>
+            <hint>Coubicación [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.40/meses/mes/transito">
+            <label>Tránsito Local</label>
+            <hint>Tránsito Local [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.40/meses/mes/otras">
+            <label>Otras Facilidades Esenciales</label>
+            <hint>Otras Facilidades Esenciales [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.40/meses/mes/facturacion">
+            <label>Facturación y Cobranzas</label>
+            <hint>Facturación y Cobranzas [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.40/meses/mes/otros">
+            <label>Otros</label>
+            <hint>Consignar los ingresos por interconexión a la red fija no incluidos en los campos precedentes [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.40/meses/mes/total">
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.28 - Ingresos</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <C1.28 id="C1.28">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <stl/>
+              <ldn/>
+              <ldi/>
+              <lineas/>
+              <otros/>
+              <total/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.28>
+      </instance>
+      <bind nodeset="/C1.28/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.28/meses/mes/stl" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.28/meses/mes/ldn" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.28/meses/mes/ldi" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.28/meses/mes/lineas" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.28/meses/mes/otros" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.28/meses/mes/total" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.28/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/C1.28/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
+    <group ref="/C1.28/meses">
+      <label></label>
+      <repeat nodeset="/C1.28/meses">
+        <group appearance="col4 well-white variable" ref="/C1.28/meses/mes">
+          <label>{title}</label>
+          <input ref="/C1.28/meses/mes/stl">
+            <label>STL</label>
+            <hint>STL [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.28/meses/mes/ldn">
+            <label>LDN</label>
+            <hint>LDN [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.28/meses/mes/ldi">
+            <label>LDI</label>
+            <hint>LDI [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.28/meses/mes/lineas">
+            <label>Líneas Directas</label>
+            <hint>Líneas Directas [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.28/meses/mes/otros">
+            <label>Otros</label>
+            <hint>Informar lo que no está incluido en los campos precedentes de manera que el total sea coincidente con lo consignado en los EECC [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.28/meses/mes/total">
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

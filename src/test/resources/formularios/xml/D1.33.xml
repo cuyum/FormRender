@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario D1.33 - Ingresos prestación de servicios / Abonos telefonía móvil</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <D1.33 id="D1.33">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <cargosConexion/>
+              <abonosPospagos/>
+              <abonosMixtos/>
+              <otrosAbonos/>
+              <gastosAdminist/>
+              <seguros/>
+              <cargosReconexion/>
+              <otros/>
+              <total/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </D1.33>
+      </instance>
+      <bind nodeset="/D1.33/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.33/meses/mes/cargosConexion" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.33/meses/mes/abonosPospagos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.33/meses/mes/abonosMixtos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.33/meses/mes/otrosAbonos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.33/meses/mes/gastosAdminist" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.33/meses/mes/seguros" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.33/meses/mes/cargosReconexion" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.33/meses/mes/otros" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.33/meses/mes/total" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/D1.33/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/D1.33/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
+    <group ref="/D1.33/meses">
+      <label></label>
+      <repeat nodeset="/D1.33/meses">
+        <group appearance="col3 well-white variable" ref="/D1.33/meses/mes">
+          <label>{title}</label>
+          <input ref="/D1.33/meses/mes/cargosConexion">
+            <label>Cargos de Conexión</label>
+            <hint>Cargos de conexión [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.33/meses/mes/abonosPospagos">
+            <label>Abonos Pospagos</label>
+            <hint>Abonos Pospagos [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.33/meses/mes/abonosMixtos">
+            <label>Abonos Mixtos</label>
+            <hint>Abonos Mixtos [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.33/meses/mes/otrosAbonos">
+            <label>Otros Abonos / Servicios</label>
+            <hint>Otros Abonos / Servicios [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.33/meses/mes/gastosAdminist">
+            <label>Gastos Administrativos</label>
+            <hint>Gastos Administrativos [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.33/meses/mes/seguros">
+            <label>Seguros</label>
+            <hint>Seguros [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.33/meses/mes/cargosReconexion">
+            <label>Cargos de Reconexión / Rehabilitación</label>
+            <hint>Cargos de Reconexión / Rehabilitación [en miles de pesos]</hint>
+          </input>
+          <input ref="/D1.33/meses/mes/otros">
+            <label>Otros</label>
+            <hint>Informar lo que no está incluido en los campos precedentes.</hint>
+          </input>
+          <input ref="/D1.33/meses/mes/total">
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

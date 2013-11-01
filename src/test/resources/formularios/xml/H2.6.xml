@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario H2.6 - Ingresos por provincia</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <H2.6 id="H2.6">
+          <titulo/>
+          <provincias>
+            <caba/>
+            <buenos_Aires/>
+            <catamarca/>
+            <chaco/>
+            <chubut/>
+            <cordoba/>
+            <corrientes/>
+            <entre_rios/>
+            <formosa/>
+            <jujuy/>
+            <la_Pampa/>
+            <la_Rioja/>
+            <mendoza/>
+            <misiones/>
+            <neuquen/>
+            <rio_Negro/>
+            <salta/>
+            <san_Juan/>
+            <san_Luis/>
+            <santa_Cruz/>
+            <santa_Fe/>
+            <santiago_Estero/>
+            <tierra_Fuego/>
+            <tucuman/>
+            <total/>
+          </provincias>
+          <meta>
+            <instanceID/>
+          </meta>
+        </H2.6>
+      </instance>
+      <bind nodeset="/H2.6/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/caba" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/buenos_Aires" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/catamarca" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/chaco" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/chubut" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/cordoba" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/corrientes" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/entre_rios" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/formosa" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/jujuy" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/la_Pampa" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/la_Rioja" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/mendoza" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/misiones" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/neuquen" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/rio_Negro" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/salta" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/san_Juan" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/san_Luis" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/santa_Cruz" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/santa_Fe" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/santiago_Estero" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/tierra_Fuego" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/tucuman" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H2.6/provincias/total" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/H2.6/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/H2.6/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
+    <group appearance="col6 well-white" ref="/H2.6/provincias">
+      <label>Provincias</label>
+      <input ref="/H2.6/provincias/caba">
+        <label>CABA</label>
+        <hint>CABA [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/buenos_Aires">
+        <label>Buenos Aires</label>
+        <hint>Buenos Aires [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/catamarca">
+        <label>Catamarca</label>
+        <hint>Catamarca [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/chaco">
+        <label>Chaco</label>
+        <hint>Chaco [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/chubut">
+        <label>Chubut</label>
+        <hint>Chubut [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/cordoba">
+        <label>Córdoba</label>
+        <hint>Córdoba [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/corrientes">
+        <label>Corrientes</label>
+        <hint>Corrientes [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/entre_rios">
+        <label>Entre Ríos</label>
+        <hint>Entre Ríos [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/formosa">
+        <label>Formosa</label>
+        <hint>Formosa [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/jujuy">
+        <label>Jujuy</label>
+        <hint>Jujuy [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/la_Pampa">
+        <label>La Pampa</label>
+        <hint>La Pampa [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/la_Rioja">
+        <label>La Rioja</label>
+        <hint>La Rioja [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/mendoza">
+        <label>Mendoza</label>
+        <hint>Mendoza [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/misiones">
+        <label>Misiones</label>
+        <hint>Misiones [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/neuquen">
+        <label>Neuquén</label>
+        <hint>Neuquén [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/rio_Negro">
+        <label>Río Negro</label>
+        <hint>Río Negro [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/salta">
+        <label>Salta</label>
+        <hint>Salta [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/san_Juan">
+        <label>San Juan</label>
+        <hint>San Juan [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/san_Luis">
+        <label>San Luis</label>
+        <hint>San Luis [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/santa_Cruz">
+        <label>Santa Cruz</label>
+        <hint>Santa Cruz [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/santa_Fe">
+        <label>Santa Fe</label>
+        <hint>Santa Fe [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/santiago_Estero">
+        <label>Santiago del Estero</label>
+        <hint>Santiago del Estero [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/tierra_Fuego">
+        <label>Tierra del Fuego</label>
+        <hint>Tierra del Fuego [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/tucuman">
+        <label>Tucumán</label>
+        <hint>Tucumán [en miles de pesos]</hint>
+      </input>
+      <input ref="/H2.6/provincias/total">
+        <label>Total</label>
+        <hint>Total [en miles de pesos]</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

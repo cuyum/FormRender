@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario E1.29 - Tarifas / Servicios adicionales</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <E1.29 id="E1.29">
+          <servicios>
+            <transfLlamada/>
+            <llamadaEspera/>
+            <confTripartita/>
+            <confMultipartita/>
+            <idLlamadaEntrante/>
+            <contestador/>
+            <servicioInfNoticias/>
+            <mensajeriaTexto/>
+            <mensajeriaDatos/>
+            <smsAFijo/>
+            <restriccionNroEnvio/>
+            <restriccionDdiDdn/>
+            <facturaDetallada/>
+            <facturaDetalladaUnaVez/>
+            <otrosServicios1/>
+            <otrosServicios2/>
+            <otrosServicios3/>
+          </servicios>
+          <meta>
+            <instanceID/>
+          </meta>
+        </E1.29>
+      </instance>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/E1.29/servicios/transfLlamada" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/E1.29/servicios/llamadaEspera" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/E1.29/servicios/confTripartita" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/E1.29/servicios/confMultipartita" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/E1.29/servicios/idLlamadaEntrante" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/E1.29/servicios/contestador" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/E1.29/servicios/servicioInfNoticias" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/E1.29/servicios/mensajeriaTexto" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/E1.29/servicios/mensajeriaDatos" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/E1.29/servicios/smsAFijo" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/E1.29/servicios/restriccionNroEnvio" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/E1.29/servicios/restriccionDdiDdn" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/E1.29/servicios/facturaDetallada" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/E1.29/servicios/facturaDetalladaUnaVez" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/E1.29/servicios/otrosServicios1" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/E1.29/servicios/otrosServicios2" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/E1.29/servicios/otrosServicios3" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/E1.29/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col6 well-white" ref="/E1.29/servicios">
+      <label>Servicios</label>
+      <input ref="/E1.29/servicios/transfLlamada">
+        <label>Transferencia de llamada</label>
+        <hint>Transferencia de Llamada</hint>
+      </input>
+      <input ref="/E1.29/servicios/llamadaEspera">
+        <label>Llamada en espera</label>
+        <hint>Llamada en Espera</hint>
+      </input>
+      <input ref="/E1.29/servicios/confTripartita">
+        <label>Conferencia Tripartita</label>
+        <hint>Conferencia Tripartita</hint>
+      </input>
+      <input ref="/E1.29/servicios/confMultipartita">
+        <label>Conferencia Multipartita</label>
+        <hint>Conferencia Multipartita</hint>
+      </input>
+      <input ref="/E1.29/servicios/idLlamadaEntrante">
+        <label>ID Llamada Entrante</label>
+        <hint>ID Llamada Entrante</hint>
+      </input>
+      <input ref="/E1.29/servicios/contestador">
+        <label>Contestador</label>
+        <hint>Contestador</hint>
+      </input>
+      <input ref="/E1.29/servicios/servicioInfNoticias">
+        <label>S. información de noticias</label>
+        <hint>Servicio de Información de Noticias</hint>
+      </input>
+      <input ref="/E1.29/servicios/mensajeriaTexto">
+        <label>Mensajería de texto</label>
+        <hint>Mensajería de Texto</hint>
+      </input>
+      <input ref="/E1.29/servicios/mensajeriaDatos">
+        <label>Mensajería de datos</label>
+        <hint>Mensajería de Datos</hint>
+      </input>
+      <input ref="/E1.29/servicios/smsAFijo">
+        <label>Envío de SMS a Fijo</label>
+        <hint>Envío de SMS a Fijo</hint>
+      </input>
+      <input ref="/E1.29/servicios/restriccionNroEnvio">
+        <label>Restricción envío Núm.</label>
+        <hint>Restricción de Envío de Número</hint>
+      </input>
+      <input ref="/E1.29/servicios/restriccionDdiDdn">
+        <label>Restricción DDI / DDN</label>
+        <hint>Restricción DDI/DDN</hint>
+      </input>
+      <input ref="/E1.29/servicios/facturaDetallada">
+        <label>Facturación detallada</label>
+        <hint>Facturación Detallada</hint>
+      </input>
+      <input ref="/E1.29/servicios/facturaDetalladaUnaVez">
+        <label>Fact. detallada única vez</label>
+        <hint>Facturación Detallada por única vez</hint>
+      </input>
+      <input ref="/E1.29/servicios/otrosServicios1">
+        <label>Otros servicios</label>
+        <hint>Otros servicios: Especificar</hint>
+      </input>
+      <input ref="/E1.29/servicios/otrosServicios2">
+        <label>Otros servicios</label>
+        <hint>Otros servicios: Especificar</hint>
+      </input>
+      <input ref="/E1.29/servicios/otrosServicios3">
+        <label>Otros servicios</label>
+        <hint>Otros servicios: Especificar</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

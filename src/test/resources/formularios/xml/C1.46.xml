@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.46 - Gastos en Personal</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <C1.46 id="C1.46">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <gastosPersonal/>
+              <cargasSocialesyOtrosLaborales/>
+              <materialesyTrabajoTerceros/>
+              <otros/>
+              <total/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.46>
+      </instance>
+      <bind nodeset="/C1.46/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.46/meses/mes/gastosPersonal" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.46/meses/mes/cargasSocialesyOtrosLaborales" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.46/meses/mes/materialesyTrabajoTerceros" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.46/meses/mes/otros" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.46/meses/mes/total" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.46/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/C1.46/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
+    <group ref="/C1.46/meses">
+      <label></label>
+      <repeat nodeset="/C1.46/meses">
+        <group appearance="col3 well-white variable" ref="/C1.46/meses/mes">
+          <label>{title}</label>
+          <input ref="/C1.46/meses/mes/gastosPersonal">
+            <label>Gastos en Personal (remuneraciones)</label>
+            <hint>Gastos en Personal [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.46/meses/mes/cargasSocialesyOtrosLaborales">
+            <label>Cargas Soc. y otros costos laborales</label>
+            <hint>Cargas Sociales [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.46/meses/mes/materialesyTrabajoTerceros">
+            <label>Materiales y trabajo de terceros</label>
+            <hint>Terceros [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.46/meses/mes/otros">
+            <label>Otros</label>
+            <hint>Consignar los gastos no incluidos en los campos precedentes [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.46/meses/mes/total">
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

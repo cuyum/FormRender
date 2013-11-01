@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario H1.13 - Precio Números Especiales</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <H1.13 id="H1.13">
+          <titulo/>
+          <numeros>
+            <numeros110/>
+            <numeros113/>
+            <numerosOtros/>
+          </numeros>
+          <meta>
+            <instanceID/>
+          </meta>
+        </H1.13>
+      </instance>
+      <bind nodeset="/H1.13/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.13/numeros/numeros110" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.13/numeros/numeros113" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.13/numeros/numerosOtros" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/H1.13/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/H1.13/titulo">
+      <hint>Informar datos al final del período. Todos los valores monetarios deben ser expresados sin IVA.</hint>
+    </input>
+    <group appearance="col3 well-white" ref="/H1.13/numeros">
+      <label>Números</label>
+      <input ref="/H1.13/numeros/numeros110">
+        <label>110</label>
+        <hint>110 [en pesos]</hint>
+      </input>
+      <input ref="/H1.13/numeros/numeros113">
+        <label>113</label>
+        <hint>113 [en pesos]</hint>
+      </input>
+      <input ref="/H1.13/numeros/numerosOtros">
+        <label>Otros</label>
+        <hint>Otros [en pesos]</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

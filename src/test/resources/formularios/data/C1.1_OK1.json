@@ -1,28 +1,29 @@
 {
-    "formulario": {
-        "data": [
-            {
-                "provincia": {
-                    "value": "2",
-                    "label": "BUENOS AIRES"
-                },
-                "partido": {
-                    "value": "442",
-                    "label": "Adolfo Alsina"
-                },
-                "partido_otro": "sdhajask",
-                "localidad": {
-                    "value": "1085",
-                    "label": "EL JUNCAL"
-                },
-                "localidad_otro": "otra cosa",
-                "area": {
-                    "value": "9999",
-                    "label": "OTROS"
-                },
-                "area_otro": "123123123"
-            }
-        ],
-        "id": "C1.1"
+        "formulario": {
+            "id": "C1.1",
+            "data": [
+                {
+                    "provincia": {
+                        "label": "RIO NEGRO",
+                        "value": "11"
+                    },
+                    "partido": {
+                        "label": "Adolfo Alsina",
+                        "value": "442"
+                    },
+                    "partido_otro": "",
+                    "localidad": {
+                        "label": "El Juncal",
+                        "value": "1085"
+                    },
+                    "localidad_otro": "",
+                    "area": {
+                        "label": "OTROS",
+                        "value": "9999"
+                    },
+                    "area_otro": "blabla"
+                }
+            ]
+        }
     }
 }

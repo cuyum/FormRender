@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario E1.15 - Interconexión (minutos)</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <E1.15 id="E1.15">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <partido/>
+              <partido_otro/>
+              <localidad/>
+              <localidad_otro/>
+              <cppNacional/>
+              <cppInternacional/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </E1.15>
+      </instance>
+      <bind nodeset="/E1.15/titulo" readonly="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/E1.15/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/E1.15/meses/mes/provincia" nodeset="/E1.15/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/E1.15/meses/mes/partido_otro" relevant=" /E1.15/meses/mes/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/E1.15/meses/mes/partido" nodeset="/E1.15/meses/mes/localidad" required="true()" type="select1"/>
+      <bind nodeset="/E1.15/meses/mes/localidad_otro" relevant=" /E1.15/meses/mes/localidad =9999" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/E1.15/meses/mes/cppNacional" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/E1.15/meses/mes/cppInternacional" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/E1.15/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/E1.15/titulo">
+      <hint>Informar el tráfico CPP (Abonado llamante paga) en minutos.</hint>
+    </input>
+    <group ref="/E1.15/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/E1.15/meses">
+        <group appearance="col3 well-white variable" ref="/E1.15/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/E1.15/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/E1.15/meses/mes/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/E1.15/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/E1.15/meses/mes/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/E1.15/meses/mes/localidad_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+          <input ref="/E1.15/meses/mes/cppNacional">
+            <label>CPP Nacional</label>
+            <hint>CPP Nacional</hint>
+          </input>
+          <input ref="/E1.15/meses/mes/cppInternacional">
+            <label>CPP Internacional</label>
+            <hint>CPP Internacional</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

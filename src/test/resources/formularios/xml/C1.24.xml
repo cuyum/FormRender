@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.24 - Tarifas / Precio minuto servicios especiales</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <C1.24 id="C1.24">
+          <titulo/>
+          <precio>
+            <tarifa110/>
+            <tarifa113/>
+            <tarifaOtros/>
+          </precio>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.24>
+      </instance>
+      <bind nodeset="/C1.24/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/C1.24/precio/tarifa110" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/C1.24/precio/tarifa113" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/C1.24/precio/tarifaOtros" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.24/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/C1.24/titulo">
+      <hint>Informar datos al final del período. Todos los valores monetarios deben ser expresados sin IVA.</hint>
+    </input>
+    <group appearance="col3 well-white" ref="/C1.24/precio">
+      <label>Precio</label>
+      <input ref="/C1.24/precio/tarifa110">
+        <label>110</label>
+        <hint>Precio [en pesos]</hint>
+      </input>
+      <input ref="/C1.24/precio/tarifa113">
+        <label>113</label>
+        <hint>Precio [en pesos]</hint>
+      </input>
+      <input ref="/C1.24/precio/tarifaOtros">
+        <label>Otros</label>
+        <hint>Precio [en pesos]</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

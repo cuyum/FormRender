@@ -43,10 +43,14 @@ public class Entero extends Componente {
 	}
 
 	public boolean equals(Object o) {
-		if (!(o instanceof Combo) || o == null)
-			return false;
-
-		return super.equals(((Componente) o));
+		if (!(o instanceof Entero) || o == null)	return false;
+		Entero other = ((Entero)o);
+		
+		if (value == null) {
+	            if (other.value != null) return false;
+	    } else if (!value.equals(other.id)) return false;
+	   
+	    return true;		
 	}
 
 	public List<String> getRelevant() {
@@ -109,20 +113,25 @@ public class Entero extends Componente {
 
 	@Override
 	public Boolean isDataValid() throws ExceptionValidation {
-		// si el campo es obligatorio el valor no puede ser nulo
-		// esto hay que pensarlo mejor
-		if (value == null)
-			return null;
 
-		if (minimum != null && value.compareTo(minimum) < 0) {
+		//Si el valor es nulo pero hay relevant con los valores seteados
+		if (value == null){
+			log.info("validando si hay datos para que el objeto sea relevante");
+			if (relevant!=null && value!=null){
+				if(!super.isOkRelevant(relevantMap)) return false;
+			}
+		}
+		
+		if (minimum != null && value!=null && value.compareTo(minimum) < 0) {
 			throw new ExceptionValidation("Decimal menor al minimo (" + minimum
 					+ ")+ permitido");
 		}
-		if (maximum != null && value.compareTo(maximum) > 0) {
+		if (maximum != null && value!=null && value.compareTo(maximum) > 0) {
 
 			throw new ExceptionValidation("Decimal mayor al maximo (" + maximum
 					+ ")+ permitido");
 		}
+				
 		return true;
 	}
 
@@ -136,7 +145,7 @@ public class Entero extends Componente {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode nodo = mapper.createObjectNode();
 		nodo.put("Integer", value);
-		return nodo.get("Integer");
+		return (value==null)?null:nodo.get("Integer");
 	}
 
 }

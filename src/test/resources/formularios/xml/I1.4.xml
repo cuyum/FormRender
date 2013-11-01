@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario I1.4 - Accesos</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <I1.4 id="I1.4">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <partido/>
+              <partido_otro/>
+              <localidad/>
+              <localidad_otro/>
+              <disponibles/>
+              <operativos/>
+              <prepago/>
+              <pospago/>
+              <mixto/>
+              <altas/>
+              <bajas/>
+              <terminalesID/>
+              <terminalesRTPC/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </I1.4>
+      </instance>
+      <bind nodeset="/I1.4/titulo" readonly="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/I1.4/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/I1.4/meses/mes/provincia" nodeset="/I1.4/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/I1.4/meses/mes/partido_otro" relevant=" /I1.4/meses/mes/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/I1.4/meses/mes/partido" nodeset="/I1.4/meses/mes/localidad" required="true()" type="select1"/>
+      <bind nodeset="/I1.4/meses/mes/localidad_otro" relevant=" /I1.4/meses/mes/localidad =9999" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/I1.4/meses/mes/disponibles" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/I1.4/meses/mes/operativos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/I1.4/meses/mes/prepago" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/I1.4/meses/mes/pospago" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/I1.4/meses/mes/mixto" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/I1.4/meses/mes/altas" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/I1.4/meses/mes/bajas" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/I1.4/meses/mes/terminalesID" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/I1.4/meses/mes/terminalesRTPC" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/I1.4/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/I1.4/titulo">
+      <hint>Se define como la infraestructura que permite la conexión directa del usuario a la red del prestador. Debe consignar las cantidades de acuerdo a la segmentación solicitada.</hint>
+    </input>
+    <group ref="/I1.4/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/I1.4/meses">
+        <group appearance="col4 well-white variable" ref="/I1.4/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/I1.4/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/I1.4/meses/mes/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/I1.4/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/I1.4/meses/mes/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/I1.4/meses/mes/localidad_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+          <input ref="/I1.4/meses/mes/disponibles">
+            <label>Disponibles</label>
+            <hint>Disponibles</hint>
+          </input>
+          <input ref="/I1.4/meses/mes/operativos">
+            <label>Operativos</label>
+            <hint>Operativos</hint>
+          </input>
+          <input ref="/I1.4/meses/mes/prepago">
+            <label>Prepago</label>
+            <hint>Prepago</hint>
+          </input>
+          <input ref="/I1.4/meses/mes/pospago">
+            <label>Pospago</label>
+            <hint>Pospago</hint>
+          </input>
+          <input ref="/I1.4/meses/mes/mixto">
+            <label>Mixto</label>
+            <hint>Mixto</hint>
+          </input>
+          <input ref="/I1.4/meses/mes/altas">
+            <label>Altas</label>
+            <hint>Informar total de altas producidas en el período.</hint>
+          </input>
+          <input ref="/I1.4/meses/mes/bajas">
+            <label>Bajas</label>
+            <hint>Informar total de bajas producidas en el período.</hint>
+          </input>
+          <input ref="/I1.4/meses/mes/terminalesID">
+            <label>Terminales con ID</label>
+            <hint>Debe informar la cantidad de terminales con capacidad de operar el servicio de radioconcentración de enlaces.</hint>
+          </input>
+          <input ref="/I1.4/meses/mes/terminalesRTPC">
+            <label>Terminales con acceso a la RTPC</label>
+            <hint>Debe informar la cantidad de terminales con acesso a la Red Telefónica Pública Conmutada.</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

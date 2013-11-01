@@ -2,7 +2,6 @@ package ar.com.cuyum.cnc.domain.jsonsla;
 
 import java.io.Serializable;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -14,7 +13,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * los valores id y txt porque cuando mapeo el objeto json de las listas remotas esos son los campos
  *
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
+/*@JsonIgnoreProperties(ignoreUnknown = true)*/
 public class Item implements Serializable{
 
 	private static final long serialVersionUID = 3222976116448464628L;
@@ -22,15 +21,15 @@ public class Item implements Serializable{
 	private String id;
 	private String text;
 
-	public Item() {
-	}
 
-	public Item(JsonNode item) {
-		this.id = (item.has("value")) ? item.get("value").asText() : item
-				.get("clave").asText();
-		this.text = (item.has("label")) ? item.get("label").asText() : item
-				.get("valor").asText();
-	}
+   public static Item getItemFromJson(JsonNode jsonItem){
+	   Item item = new Item();
+	   item.setId((jsonItem.has("value")) ? jsonItem.get("value").asText() : jsonItem
+				.get("clave").asText());
+	   item.setText((jsonItem.has("label")) ? jsonItem.get("label").asText() : jsonItem
+				.get("valor").asText());
+	   return item;
+   }
 	
 	public String toString(){
 		ObjectMapper mapper = new ObjectMapper();
@@ -48,9 +47,17 @@ public class Item implements Serializable{
 		return valueAsString;
 	}
 	
-	public boolean equals(Object o) {
-		if(!(o instanceof Item)) return false;		
-		return (id ==(((Item) o).id) && text==(((Item) o).text));
+	public boolean equals(Object o) {		
+		if(!(o instanceof Item)) return false;
+		Item other = ((Item)o);		
+		if (id == null) {
+	            if (other.id != null) return false;
+	    } else if (!id.equals(other.id)) return false;
+	    if (text == null) {
+	            if (other.text != null) return false;
+	    } else if (!text.equals(other.text)) return false;
+		
+	    return true;
 	}
 	
 	public String getId() {

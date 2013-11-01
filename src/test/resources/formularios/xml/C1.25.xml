@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.25 - Tarifas / Precio servicios adicionales</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <C1.25 id="C1.25">
+          <titulo/>
+          <servicios>
+            <llamadaConferencia/>
+            <bloqueoTraficoLocal/>
+            <bloqueoTraficoLdn/>
+            <desvioOcupado/>
+            <desvioNoContesta/>
+            <desvioCambioDomicilio/>
+            <desvioPorBaja/>
+            <bloqueoTraficoLdi/>
+            <llamadaSinSeleccion/>
+            <callerId/>
+            <restriccionCallerId/>
+            <facturacionDetallada/>
+            <noFigurar/>
+            <despertador/>
+            <noMolestar/>
+            <clienteAbonadoAusente/>
+            <numeracionAbreviada/>
+            <senialLlamadaEspera/>
+            <desvioDirecto/>
+            <memoLlamada/>
+            <amplificadorPRadiodifusion/>
+            <timbreLlamadas/>
+            <bloqueoLlamadasMasivas/>
+            <telelectura/>
+            <manteimientoDomiciliario/>
+            <datosInquilinoFactura/>
+            <bloqueoModoLlamantePaga/>
+            <bloqueoAudiotexto/>
+            <otrosServicios/>
+          </servicios>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.25>
+      </instance>
+      <bind nodeset="/C1.25/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/llamadaConferencia" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/bloqueoTraficoLocal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/bloqueoTraficoLdn" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/desvioOcupado" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/desvioNoContesta" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/desvioCambioDomicilio" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/desvioPorBaja" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/bloqueoTraficoLdi" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/llamadaSinSeleccion" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/callerId" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/restriccionCallerId" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/facturacionDetallada" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/noFigurar" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/despertador" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/noMolestar" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/clienteAbonadoAusente" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/numeracionAbreviada" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/senialLlamadaEspera" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/desvioDirecto" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/memoLlamada" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/amplificadorPRadiodifusion" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/timbreLlamadas" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/bloqueoLlamadasMasivas" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/telelectura" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/manteimientoDomiciliario" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/datosInquilinoFactura" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/bloqueoModoLlamantePaga" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/bloqueoAudiotexto" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.99" nodeset="/C1.25/servicios/otrosServicios" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.25/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/C1.25/titulo">
+      <hint>Informar dato al final del período. Todos los valores monetarios deben ser expresados sin IVA.</hint>
+    </input>
+    <group appearance="col4 well-white" ref="/C1.25/servicios">
+      <label>Servicios</label>
+      <input ref="/C1.25/servicios/llamadaConferencia">
+        <label>Llamada en Conferencia</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/bloqueoTraficoLocal">
+        <label>Bloqueo de Tráfico Local</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/bloqueoTraficoLdn">
+        <label>Bloqueo de Tráfico LDN</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/desvioOcupado">
+        <label>Desvío por Ocupado</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/desvioNoContesta">
+        <label>Desvío por No contesta</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/desvioCambioDomicilio">
+        <label>Desvío por Cambio de Domicilio</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/desvioPorBaja">
+        <label>Desvío por Baja</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/bloqueoTraficoLdi">
+        <label>Bloqueo de Tráfico LDI</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/llamadaSinSeleccion">
+        <label>Llamada sin Selección</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/callerId">
+        <label>Identificador de llamadas (Caller ID)</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/restriccionCallerId">
+        <label>Restricción Caller ID permanente</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/facturacionDetallada">
+        <label>Facturación detallada</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/noFigurar">
+        <label>No figurar / Publicar en guía</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/despertador">
+        <label>Servicio de Despertador (cronoalarma)</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/noMolestar">
+        <label>No Molestar</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/clienteAbonadoAusente">
+        <label>Cliente / Abonado Ausente</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/numeracionAbreviada">
+        <label>Numeración Abreviada</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/senialLlamadaEspera">
+        <label>Señal de Llamada en Espera</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/desvioDirecto">
+        <label>Desvío Directo / Transferencia de Llamadas</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/memoLlamada">
+        <label>Memo Llamada / Contestador</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/amplificadorPRadiodifusion">
+        <label>Amplificador para Radiodifusión</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/timbreLlamadas">
+        <label>Timbre distintivo de Llamadas (Multiring)</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/bloqueoLlamadasMasivas">
+        <label>Bloqueo de Llamadas Masivas</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/telelectura">
+        <label>Servicio de Telelectura</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/manteimientoDomiciliario">
+        <label>Servicio de Mantenimiento Domiciliario</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/datosInquilinoFactura">
+        <label>Datos del Inquilino en la facturación</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/bloqueoModoLlamantePaga">
+        <label>Bloqueo modalidad abonado llamante paga (CPP)</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/bloqueoAudiotexto">
+        <label>Bloqueo de Audiotexto</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+      <input ref="/C1.25/servicios/otrosServicios">
+        <label>Otros Servicios / Especificar</label>
+        <hint>Mensual [en pesos]</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

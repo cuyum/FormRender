@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.12 - Tráfico II (minutos)</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <C1.12 id="C1.12">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <partido/>
+              <partido_otro/>
+              <localidad/>
+              <localidad_otro/>
+              <area/>
+              <area_otro/>
+              <ll>
+                <llHorarioNormal/>
+                <llHorarioReducido/>
+              </ll>
+              <lldn>
+                <lldnHorarioNormal/>
+                <lldnHorarioReducido/>
+              </lldn>
+              <lldi>
+                <lldiHorarioNormal/>
+                <lldiHorarioReducido/>
+              </lldi>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.12>
+      </instance>
+      <bind nodeset="/C1.12/titulo" readonly="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/C1.12/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/C1.12/meses/mes/provincia" nodeset="/C1.12/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/C1.12/meses/mes/partido_otro" relevant=" /C1.12/meses/mes/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/C1.12/meses/mes/partido" nodeset="/C1.12/meses/mes/localidad" required="true()" type="select1"/>
+      <bind nodeset="/C1.12/meses/mes/localidad_otro" relevant=" /C1.12/meses/mes/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/C1.12/meses/mes/localidad" nodeset="/C1.12/meses/mes/area" required="true()" type="select1"/>
+      <bind nodeset="/C1.12/meses/mes/area_otro" relevant=" /C1.12/meses/mes/area =9999" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.12/meses/mes/ll/llHorarioNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.12/meses/mes/ll/llHorarioReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.12/meses/mes/lldn/lldnHorarioNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.12/meses/mes/lldn/lldnHorarioReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.12/meses/mes/lldi/lldiHorarioNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999.9" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999999999.9" nodeset="/C1.12/meses/mes/lldi/lldiHorarioReducido" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.12/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/C1.12/titulo">
+      <hint>Consignar tráfico saliente, en cantidad de minutos, con la desagregación solicitada.</hint>
+    </input>
+    <group ref="/C1.12/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/C1.12/meses">
+        <group appearance="col4 well-white variable" ref="/C1.12/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/C1.12/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C1.12/meses/mes/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/C1.12/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/C1.12/meses/mes/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/C1.12/meses/mes/localidad_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/C1.12/meses/mes/area">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/C1.12/meses/mes/area_otro">
+            <label>Área Otros</label>
+            <hint>Área Otros</hint>
+          </input>
+          <group appearance="col2 well-white" ref="/C1.12/meses/mes/ll">
+            <label>L-L</label>
+            <input ref="/C1.12/meses/mes/ll/llHorarioNormal">
+              <label>HN</label>
+              <hint>HN [en miles]</hint>
+            </input>
+            <input ref="/C1.12/meses/mes/ll/llHorarioReducido">
+              <label>HR</label>
+              <hint>HR [en miles]</hint>
+            </input>
+          </group>
+          <group appearance="col2 well-white" ref="/C1.12/meses/mes/lldn">
+            <label>L-LDN</label>
+            <input ref="/C1.12/meses/mes/lldn/lldnHorarioNormal">
+              <label>HN</label>
+              <hint>HN [en miles]</hint>
+            </input>
+            <input ref="/C1.12/meses/mes/lldn/lldnHorarioReducido">
+              <label>HR</label>
+              <hint>HR [en miles]</hint>
+            </input>
+          </group>
+          <group appearance="col2 well-white" ref="/C1.12/meses/mes/lldi">
+            <label>L-LDI</label>
+            <input ref="/C1.12/meses/mes/lldi/lldiHorarioNormal">
+              <label>HN</label>
+              <hint>HN [en miles]</hint>
+            </input>
+            <input ref="/C1.12/meses/mes/lldi/lldiHorarioReducido">
+              <label>HR</label>
+              <hint>HR [en miles]</hint>
+            </input>
+          </group>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

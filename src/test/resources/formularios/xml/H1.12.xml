@@ -1,0 +1,726 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario H1.12 - Precio minuto según Distancia</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <H1.12 id="H1.12">
+          <titulo/>
+          <localUrbano>
+            <localUrbanoPospago>
+              <localUrbanoPospagoHNormal/>
+              <localUrbanoPospagoHReducido/>
+            </localUrbanoPospago>
+            <localUrbanoPrepago>
+              <localUrbanoPrepagoHNormal/>
+              <localUrbanoPrepagoHReducido/>
+            </localUrbanoPrepago>
+          </localUrbano>
+          <ldnClave1>
+            <ldnClave1Pospago>
+              <ldnClave1PospagoHNormal/>
+              <ldnClave1PospagoHReducido/>
+            </ldnClave1Pospago>
+            <ldnClave1Prepago>
+              <ldnClave1PrepagoHNormal/>
+              <ldnClave1PrepagoHReducido/>
+            </ldnClave1Prepago>
+          </ldnClave1>
+          <ldnClave2>
+            <ldnClave2Pospago>
+              <ldnClave2PospagoHNormal/>
+              <ldnClave2PospagoHReducido/>
+            </ldnClave2Pospago>
+            <ldnClave2Prepago>
+              <ldnClave2PrepagoHNormal/>
+              <ldnClave2PrepagoHReducido/>
+            </ldnClave2Prepago>
+          </ldnClave2>
+          <ldnClave3>
+            <ldnClave3Pospago>
+              <ldnClave3PospagoHNormal/>
+              <ldnClave3PospagoHReducido/>
+            </ldnClave3Pospago>
+            <ldnClave3Prepago>
+              <ldnClave3PrepagoHNormal/>
+              <ldnClave3PrepagoHReducido/>
+            </ldnClave3Prepago>
+          </ldnClave3>
+          <ldnClave4>
+            <ldnClave4Pospago>
+              <ldnClave4PospagoHNormal/>
+              <ldnClave4PospagoHReducido/>
+            </ldnClave4Pospago>
+            <ldnClave4Prepago>
+              <ldnClave4PrepagoHNormal/>
+              <ldnClave4PrepagoHReducido/>
+            </ldnClave4Prepago>
+          </ldnClave4>
+          <ldnClave5>
+            <ldnClave5Pospago>
+              <ldnClave5PospagoHNormal/>
+              <ldnClave5PospagoHReducido/>
+            </ldnClave5Pospago>
+            <ldnClave5Prepago>
+              <ldnClave5PrepagoHNormal/>
+              <ldnClave5PrepagoHReducido/>
+            </ldnClave5Prepago>
+          </ldnClave5>
+          <ldnClave6>
+            <ldnClave6Pospago>
+              <ldnClave6PospagoHNormal/>
+              <ldnClave6PospagoHReducido/>
+            </ldnClave6Pospago>
+            <ldnClave6Prepago>
+              <ldnClave6PrepagoHNormal/>
+              <ldnClave6PrepagoHReducido/>
+            </ldnClave6Prepago>
+          </ldnClave6>
+          <ldiFronterizo>
+            <ldiFronterizoPospago>
+              <ldiFronterizoPospagoHNormal/>
+              <ldiFronterizoPospagoHReducido/>
+            </ldiFronterizoPospago>
+            <ldiFronterizoPrepago>
+              <ldiFronterizoPrepagoHNormal/>
+              <ldiFronterizoPrepagoHReducido/>
+            </ldiFronterizoPrepago>
+          </ldiFronterizo>
+          <ldiAmericaSur>
+            <ldiAmericaSurPospago>
+              <ldiAmericaSurPospagoHNormal/>
+              <ldiAmericaSurPospagoHReducido/>
+            </ldiAmericaSurPospago>
+            <ldiAmericaSurPrepago>
+              <ldiAmericaSurPrepagoHNormal/>
+              <ldiAmericaSurPrepagoHReducido/>
+            </ldiAmericaSurPrepago>
+          </ldiAmericaSur>
+          <ldiAmCentral>
+            <ldiAmCentralPospago>
+              <ldiAmCentralPospagoHNormal/>
+              <ldiAmCentralPospagoHReducido/>
+            </ldiAmCentralPospago>
+            <ldiAmCentralPrepago>
+              <ldiAmCentralPrepagoHNormal/>
+              <ldiAmCentralPrepagoHReducido/>
+            </ldiAmCentralPrepago>
+          </ldiAmCentral>
+          <ldiAmNorte>
+            <ldiAmNortePospago>
+              <ldiAmNortePospagoHNormal/>
+              <ldiAmNortePospagoHReducido/>
+            </ldiAmNortePospago>
+            <ldiAmNortePrepago>
+              <ldiAmNortePrepagoHNormal/>
+              <ldiAmNortePrepagoHReducido/>
+            </ldiAmNortePrepago>
+          </ldiAmNorte>
+          <ldiEuropa>
+            <ldiEuropaPospago>
+              <ldiEuropaPospagoHNormal/>
+              <ldiEuropaPospagoHReducido/>
+            </ldiEuropaPospago>
+            <ldiEuropaPrepago>
+              <ldiEuropaPrepagoHNormal/>
+              <ldiEuropaPrepagoHReducido/>
+            </ldiEuropaPrepago>
+          </ldiEuropa>
+          <ldiAfrica>
+            <ldiAfricaPospago>
+              <ldiAfricaPospagoHNormal/>
+              <ldiAfricaPospagoHReducido/>
+            </ldiAfricaPospago>
+            <ldiAfricaPrepago>
+              <ldiAfricaPrepagoHNormal/>
+              <ldiAfricaPrepagoHReducido/>
+            </ldiAfricaPrepago>
+          </ldiAfrica>
+          <ldiAsia>
+            <ldiAsiaPospago>
+              <ldiAsiaPospagoHNormal/>
+              <ldiAsiaPospagoHReducido/>
+            </ldiAsiaPospago>
+            <ldiAsiaPrepago>
+              <ldiAsiaPrepagoHNormal/>
+              <ldiAsiaPrepagoHReducido/>
+            </ldiAsiaPrepago>
+          </ldiAsia>
+          <ldiOceania>
+            <ldiOceaniaPospago>
+              <ldiOceaniaPospagoHNormal/>
+              <ldiOceaniaPospagoHReducido/>
+            </ldiOceaniaPospago>
+            <ldiOceaniaPrepago>
+              <ldiOceaniaPrepagoHNormal/>
+              <ldiOceaniaPrepagoHReducido/>
+            </ldiOceaniaPrepago>
+          </ldiOceania>
+          <revertidoLocal>
+            <revertidoLocalPospago>
+              <revertidoLocalPospagoHNormal/>
+              <revertidoLocalPospagoHReducido/>
+            </revertidoLocalPospago>
+            <revertidoLocalPrepago>
+              <revertidoLocalPrepagoHNormal/>
+              <revertidoLocalPrepagoHReducido/>
+            </revertidoLocalPrepago>
+          </revertidoLocal>
+          <revertidoLdn>
+            <revertidoLdnPospago>
+              <revertidoLdnPospagoHNormal/>
+              <revertidoLdnPospagoHReducido/>
+            </revertidoLdnPospago>
+            <revertidoLdnPrepago>
+              <revertidoLdnPrepagoHNormal/>
+              <revertidoLdnPrepagoHReducido/>
+            </revertidoLdnPrepago>
+          </revertidoLdn>
+          <revertidoLdi>
+            <revertidoLdiPospago>
+              <revertidoLdiPospagoHNormal/>
+              <revertidoLdiPospagoHReducido/>
+            </revertidoLdiPospago>
+            <revertidoLdiPrepago>
+              <revertidoLdiPrepagoHNormal/>
+              <revertidoLdiPrepagoHReducido/>
+            </revertidoLdiPrepago>
+          </revertidoLdi>
+          <meta>
+            <instanceID/>
+          </meta>
+        </H1.12>
+      </instance>
+      <bind nodeset="/H1.12/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/localUrbano/localUrbanoPospago/localUrbanoPospagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/localUrbano/localUrbanoPospago/localUrbanoPospagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/localUrbano/localUrbanoPrepago/localUrbanoPrepagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/localUrbano/localUrbanoPrepago/localUrbanoPrepagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave1/ldnClave1Pospago/ldnClave1PospagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave1/ldnClave1Pospago/ldnClave1PospagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave1/ldnClave1Prepago/ldnClave1PrepagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave1/ldnClave1Prepago/ldnClave1PrepagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave2/ldnClave2Pospago/ldnClave2PospagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave2/ldnClave2Pospago/ldnClave2PospagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave2/ldnClave2Prepago/ldnClave2PrepagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave2/ldnClave2Prepago/ldnClave2PrepagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave3/ldnClave3Pospago/ldnClave3PospagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave3/ldnClave3Pospago/ldnClave3PospagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave3/ldnClave3Prepago/ldnClave3PrepagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave3/ldnClave3Prepago/ldnClave3PrepagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave4/ldnClave4Pospago/ldnClave4PospagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave4/ldnClave4Pospago/ldnClave4PospagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave4/ldnClave4Prepago/ldnClave4PrepagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave4/ldnClave4Prepago/ldnClave4PrepagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave5/ldnClave5Pospago/ldnClave5PospagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave5/ldnClave5Pospago/ldnClave5PospagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave5/ldnClave5Prepago/ldnClave5PrepagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave5/ldnClave5Prepago/ldnClave5PrepagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave6/ldnClave6Pospago/ldnClave6PospagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave6/ldnClave6Pospago/ldnClave6PospagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave6/ldnClave6Prepago/ldnClave6PrepagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldnClave6/ldnClave6Prepago/ldnClave6PrepagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiFronterizo/ldiFronterizoPospago/ldiFronterizoPospagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiFronterizo/ldiFronterizoPospago/ldiFronterizoPospagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiFronterizo/ldiFronterizoPrepago/ldiFronterizoPrepagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiFronterizo/ldiFronterizoPrepago/ldiFronterizoPrepagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiAmericaSur/ldiAmericaSurPospago/ldiAmericaSurPospagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiAmericaSur/ldiAmericaSurPospago/ldiAmericaSurPospagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiAmericaSur/ldiAmericaSurPrepago/ldiAmericaSurPrepagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiAmericaSur/ldiAmericaSurPrepago/ldiAmericaSurPrepagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiAmCentral/ldiAmCentralPospago/ldiAmCentralPospagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiAmCentral/ldiAmCentralPospago/ldiAmCentralPospagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiAmCentral/ldiAmCentralPrepago/ldiAmCentralPrepagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiAmCentral/ldiAmCentralPrepago/ldiAmCentralPrepagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiAmNorte/ldiAmNortePospago/ldiAmNortePospagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiAmNorte/ldiAmNortePospago/ldiAmNortePospagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiAmNorte/ldiAmNortePrepago/ldiAmNortePrepagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiAmNorte/ldiAmNortePrepago/ldiAmNortePrepagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiEuropa/ldiEuropaPospago/ldiEuropaPospagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiEuropa/ldiEuropaPospago/ldiEuropaPospagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiEuropa/ldiEuropaPrepago/ldiEuropaPrepagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiEuropa/ldiEuropaPrepago/ldiEuropaPrepagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiAfrica/ldiAfricaPospago/ldiAfricaPospagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiAfrica/ldiAfricaPospago/ldiAfricaPospagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiAfrica/ldiAfricaPrepago/ldiAfricaPrepagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiAfrica/ldiAfricaPrepago/ldiAfricaPrepagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiAsia/ldiAsiaPospago/ldiAsiaPospagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiAsia/ldiAsiaPospago/ldiAsiaPospagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiAsia/ldiAsiaPrepago/ldiAsiaPrepagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiAsia/ldiAsiaPrepago/ldiAsiaPrepagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiOceania/ldiOceaniaPospago/ldiOceaniaPospagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiOceania/ldiOceaniaPospago/ldiOceaniaPospagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiOceania/ldiOceaniaPrepago/ldiOceaniaPrepagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/ldiOceania/ldiOceaniaPrepago/ldiOceaniaPrepagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/revertidoLocal/revertidoLocalPospago/revertidoLocalPospagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/revertidoLocal/revertidoLocalPospago/revertidoLocalPospagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/revertidoLocal/revertidoLocalPrepago/revertidoLocalPrepagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/revertidoLocal/revertidoLocalPrepago/revertidoLocalPrepagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/revertidoLdn/revertidoLdnPospago/revertidoLdnPospagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/revertidoLdn/revertidoLdnPospago/revertidoLdnPospagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/revertidoLdn/revertidoLdnPrepago/revertidoLdnPrepagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/revertidoLdn/revertidoLdnPrepago/revertidoLdnPrepagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/revertidoLdi/revertidoLdiPospago/revertidoLdiPospagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/revertidoLdi/revertidoLdiPospago/revertidoLdiPospagoHReducido" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/revertidoLdi/revertidoLdiPrepago/revertidoLdiPrepagoHNormal" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 999999.999" nodeset="/H1.12/revertidoLdi/revertidoLdiPrepago/revertidoLdiPrepagoHReducido" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/H1.12/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/H1.12/titulo">
+      <hint>Informar datos al final del período. Todos los valores monetarios deben ser expresados sin IVA.</hint>
+    </input>
+    <group appearance="col1 well-white" ref="/H1.12/localUrbano">
+      <label>Minuto Local/Urbano</label>
+      <group appearance="col2" ref="/H1.12/localUrbano/localUrbanoPospago">
+        <label>Pospago</label>
+        <input ref="/H1.12/localUrbano/localUrbanoPospago/localUrbanoPospagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/localUrbano/localUrbanoPospago/localUrbanoPospagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/H1.12/localUrbano/localUrbanoPrepago">
+        <label>Prepago</label>
+        <input ref="/H1.12/localUrbano/localUrbanoPrepago/localUrbanoPrepagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/localUrbano/localUrbanoPrepago/localUrbanoPrepagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/H1.12/ldnClave1">
+      <label>Minuto LDN Clave 1 (hasta 30 km)</label>
+      <group appearance="col2 well-white" ref="/H1.12/ldnClave1/ldnClave1Pospago">
+        <label>Pospago</label>
+        <input ref="/H1.12/ldnClave1/ldnClave1Pospago/ldnClave1PospagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldnClave1/ldnClave1Pospago/ldnClave1PospagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/H1.12/ldnClave1/ldnClave1Prepago">
+        <label>Prepago</label>
+        <input ref="/H1.12/ldnClave1/ldnClave1Prepago/ldnClave1PrepagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldnClave1/ldnClave1Prepago/ldnClave1PrepagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/H1.12/ldnClave2">
+      <label>Minuto LDN Clave 2 (hasta 55 km)</label>
+      <group appearance="col2 well-white" ref="/H1.12/ldnClave2/ldnClave2Pospago">
+        <label>Pospago</label>
+        <input ref="/H1.12/ldnClave2/ldnClave2Pospago/ldnClave2PospagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldnClave2/ldnClave2Pospago/ldnClave2PospagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/H1.12/ldnClave2/ldnClave2Prepago">
+        <label>Prepago</label>
+        <input ref="/H1.12/ldnClave2/ldnClave2Prepago/ldnClave2PrepagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldnClave2/ldnClave2Prepago/ldnClave2PrepagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/H1.12/ldnClave3">
+      <label>Minuto LDN Clave 3 (hasta 110 km)</label>
+      <group appearance="col2 well-white" ref="/H1.12/ldnClave3/ldnClave3Pospago">
+        <label>Pospago</label>
+        <input ref="/H1.12/ldnClave3/ldnClave3Pospago/ldnClave3PospagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldnClave3/ldnClave3Pospago/ldnClave3PospagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/H1.12/ldnClave3/ldnClave3Prepago">
+        <label>Prepago</label>
+        <input ref="/H1.12/ldnClave3/ldnClave3Prepago/ldnClave3PrepagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldnClave3/ldnClave3Prepago/ldnClave3PrepagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/H1.12/ldnClave4">
+      <label>Minuto LDN Clave 4 (hasta 170 km)</label>
+      <group appearance="col2 well-white" ref="/H1.12/ldnClave4/ldnClave4Pospago">
+        <label>Pospago</label>
+        <input ref="/H1.12/ldnClave4/ldnClave4Pospago/ldnClave4PospagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldnClave4/ldnClave4Pospago/ldnClave4PospagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/H1.12/ldnClave4/ldnClave4Prepago">
+        <label>Prepago</label>
+        <input ref="/H1.12/ldnClave4/ldnClave4Prepago/ldnClave4PrepagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldnClave4/ldnClave4Prepago/ldnClave4PrepagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/H1.12/ldnClave5">
+      <label>Minuto LDN Clave 5 (hasta 240 km)</label>
+      <group appearance="col2 well-white" ref="/H1.12/ldnClave5/ldnClave5Pospago">
+        <label>Pospago</label>
+        <input ref="/H1.12/ldnClave5/ldnClave5Pospago/ldnClave5PospagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldnClave5/ldnClave5Pospago/ldnClave5PospagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/H1.12/ldnClave5/ldnClave5Prepago">
+        <label>Prepago</label>
+        <input ref="/H1.12/ldnClave5/ldnClave5Prepago/ldnClave5PrepagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldnClave5/ldnClave5Prepago/ldnClave5PrepagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/H1.12/ldnClave6">
+      <label>Minuto LDN Clave 6-12 (más de 240 km)</label>
+      <group appearance="col2 well-white" ref="/H1.12/ldnClave6/ldnClave6Pospago">
+        <label>Pospago</label>
+        <input ref="/H1.12/ldnClave6/ldnClave6Pospago/ldnClave6PospagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldnClave6/ldnClave6Pospago/ldnClave6PospagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/H1.12/ldnClave6/ldnClave6Prepago">
+        <label>Prepago</label>
+        <input ref="/H1.12/ldnClave6/ldnClave6Prepago/ldnClave6PrepagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldnClave6/ldnClave6Prepago/ldnClave6PrepagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/H1.12/ldiFronterizo">
+      <label>Minuto LDI Promedio Fronterizo</label>
+      <group appearance="col2 well-white" ref="/H1.12/ldiFronterizo/ldiFronterizoPospago">
+        <label>Pospago</label>
+        <input ref="/H1.12/ldiFronterizo/ldiFronterizoPospago/ldiFronterizoPospagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldiFronterizo/ldiFronterizoPospago/ldiFronterizoPospagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/H1.12/ldiFronterizo/ldiFronterizoPrepago">
+        <label>Prepago</label>
+        <input ref="/H1.12/ldiFronterizo/ldiFronterizoPrepago/ldiFronterizoPrepagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldiFronterizo/ldiFronterizoPrepago/ldiFronterizoPrepagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/H1.12/ldiAmericaSur">
+      <label>Minuto LDI Promedio América del Sur</label>
+      <group appearance="col2 well-white" ref="/H1.12/ldiAmericaSur/ldiAmericaSurPospago">
+        <label>Pospago</label>
+        <input ref="/H1.12/ldiAmericaSur/ldiAmericaSurPospago/ldiAmericaSurPospagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldiAmericaSur/ldiAmericaSurPospago/ldiAmericaSurPospagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/H1.12/ldiAmericaSur/ldiAmericaSurPrepago">
+        <label>Prepago</label>
+        <input ref="/H1.12/ldiAmericaSur/ldiAmericaSurPrepago/ldiAmericaSurPrepagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldiAmericaSur/ldiAmericaSurPrepago/ldiAmericaSurPrepagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/H1.12/ldiAmCentral">
+      <label>Minuto LDI Promedio América Central</label>
+      <group appearance="col2 well-white" ref="/H1.12/ldiAmCentral/ldiAmCentralPospago">
+        <label>Pospago</label>
+        <input ref="/H1.12/ldiAmCentral/ldiAmCentralPospago/ldiAmCentralPospagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldiAmCentral/ldiAmCentralPospago/ldiAmCentralPospagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/H1.12/ldiAmCentral/ldiAmCentralPrepago">
+        <label>Prepago</label>
+        <input ref="/H1.12/ldiAmCentral/ldiAmCentralPrepago/ldiAmCentralPrepagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldiAmCentral/ldiAmCentralPrepago/ldiAmCentralPrepagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/H1.12/ldiAmNorte">
+      <label>Minuto LDI Promedio América del Norte</label>
+      <group appearance="col2 well-white" ref="/H1.12/ldiAmNorte/ldiAmNortePospago">
+        <label>Pospago</label>
+        <input ref="/H1.12/ldiAmNorte/ldiAmNortePospago/ldiAmNortePospagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldiAmNorte/ldiAmNortePospago/ldiAmNortePospagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/H1.12/ldiAmNorte/ldiAmNortePrepago">
+        <label>Prepago</label>
+        <input ref="/H1.12/ldiAmNorte/ldiAmNortePrepago/ldiAmNortePrepagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldiAmNorte/ldiAmNortePrepago/ldiAmNortePrepagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/H1.12/ldiEuropa">
+      <label>Minuto LDI Promedio Europa</label>
+      <group appearance="col2 well-white" ref="/H1.12/ldiEuropa/ldiEuropaPospago">
+        <label>Pospago</label>
+        <input ref="/H1.12/ldiEuropa/ldiEuropaPospago/ldiEuropaPospagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldiEuropa/ldiEuropaPospago/ldiEuropaPospagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/H1.12/ldiEuropa/ldiEuropaPrepago">
+        <label>Prepago</label>
+        <input ref="/H1.12/ldiEuropa/ldiEuropaPrepago/ldiEuropaPrepagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldiEuropa/ldiEuropaPrepago/ldiEuropaPrepagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/H1.12/ldiAfrica">
+      <label>Minuto LDI Promedio África</label>
+      <group appearance="col2 well-white" ref="/H1.12/ldiAfrica/ldiAfricaPospago">
+        <label>Pospago</label>
+        <input ref="/H1.12/ldiAfrica/ldiAfricaPospago/ldiAfricaPospagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldiAfrica/ldiAfricaPospago/ldiAfricaPospagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/H1.12/ldiAfrica/ldiAfricaPrepago">
+        <label>Prepago</label>
+        <input ref="/H1.12/ldiAfrica/ldiAfricaPrepago/ldiAfricaPrepagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldiAfrica/ldiAfricaPrepago/ldiAfricaPrepagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/H1.12/ldiAsia">
+      <label>Minuto LDI Promedio Asia</label>
+      <group appearance="col2 well-white" ref="/H1.12/ldiAsia/ldiAsiaPospago">
+        <label>Pospago</label>
+        <input ref="/H1.12/ldiAsia/ldiAsiaPospago/ldiAsiaPospagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldiAsia/ldiAsiaPospago/ldiAsiaPospagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/H1.12/ldiAsia/ldiAsiaPrepago">
+        <label>Prepago</label>
+        <input ref="/H1.12/ldiAsia/ldiAsiaPrepago/ldiAsiaPrepagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldiAsia/ldiAsiaPrepago/ldiAsiaPrepagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/H1.12/ldiOceania">
+      <label>Minuto LDI Promedio Oceanía</label>
+      <group appearance="col2 well-white" ref="/H1.12/ldiOceania/ldiOceaniaPospago">
+        <label>Pospago</label>
+        <input ref="/H1.12/ldiOceania/ldiOceaniaPospago/ldiOceaniaPospagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldiOceania/ldiOceaniaPospago/ldiOceaniaPospagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/H1.12/ldiOceania/ldiOceaniaPrepago">
+        <label>Prepago</label>
+        <input ref="/H1.12/ldiOceania/ldiOceaniaPrepago/ldiOceaniaPrepagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/ldiOceania/ldiOceaniaPrepago/ldiOceaniaPrepagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/H1.12/revertidoLocal">
+      <label>Minuto Llamada por Cobro Revertido Local</label>
+      <group appearance="col2 well-white" ref="/H1.12/revertidoLocal/revertidoLocalPospago">
+        <label>Pospago</label>
+        <input ref="/H1.12/revertidoLocal/revertidoLocalPospago/revertidoLocalPospagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/revertidoLocal/revertidoLocalPospago/revertidoLocalPospagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/H1.12/revertidoLocal/revertidoLocalPrepago">
+        <label>Prepago</label>
+        <input ref="/H1.12/revertidoLocal/revertidoLocalPrepago/revertidoLocalPrepagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/revertidoLocal/revertidoLocalPrepago/revertidoLocalPrepagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/H1.12/revertidoLdn">
+      <label>Minuto Llamada por Cobro Revertido LDN</label>
+      <group appearance="col2 well-white" ref="/H1.12/revertidoLdn/revertidoLdnPospago">
+        <label>Pospago</label>
+        <input ref="/H1.12/revertidoLdn/revertidoLdnPospago/revertidoLdnPospagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/revertidoLdn/revertidoLdnPospago/revertidoLdnPospagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/H1.12/revertidoLdn/revertidoLdnPrepago">
+        <label>Prepago</label>
+        <input ref="/H1.12/revertidoLdn/revertidoLdnPrepago/revertidoLdnPrepagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/revertidoLdn/revertidoLdnPrepago/revertidoLdnPrepagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/H1.12/revertidoLdi">
+      <label>Minuto Llamada por Cobro Revertido LDI de Salida</label>
+      <group appearance="col2 well-white" ref="/H1.12/revertidoLdi/revertidoLdiPospago">
+        <label>Pospago</label>
+        <input ref="/H1.12/revertidoLdi/revertidoLdiPospago/revertidoLdiPospagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/revertidoLdi/revertidoLdiPospago/revertidoLdiPospagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/H1.12/revertidoLdi/revertidoLdiPrepago">
+        <label>Prepago</label>
+        <input ref="/H1.12/revertidoLdi/revertidoLdiPrepago/revertidoLdiPrepagoHNormal">
+          <label>HN</label>
+          <hint>Horario Normal [en pesos]</hint>
+        </input>
+        <input ref="/H1.12/revertidoLdi/revertidoLdiPrepago/revertidoLdiPrepagoHReducido">
+          <label>HR</label>
+          <hint>Horario Reducido [en pesos]</hint>
+        </input>
+      </group>
+    </group>
+  </h:body>
+</h:html>

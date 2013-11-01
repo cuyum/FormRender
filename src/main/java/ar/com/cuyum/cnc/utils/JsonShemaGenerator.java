@@ -50,7 +50,6 @@ class DirComparator implements Comparator<File> {
 public class JsonShemaGenerator {
 	private static Logger log = Logger.getLogger(JsonShemaGenerator.class);
 
-
 	/**
 	 * Crea el arreglo de elementos a los cuales un objeto es pertinente
 	 * 
@@ -76,8 +75,6 @@ public class JsonShemaGenerator {
 		return relevantArray;
 	}
 
-
-
 	/**
 	 * @author ltroconis
 	 * 
@@ -91,15 +88,17 @@ public class JsonShemaGenerator {
 		List<String> validConstraints = new ArrayList<String>();
 
 		if ("combo".equals(type)) {
-			validConstraints = Arrays.asList("url", "depends", "cuit");
+			validConstraints = Arrays.asList("url", "depends", "cuit","periodicidad","agrupador");
 		} else if ("string".equals(type)) {
-			; // No se evaluán constrains por los momentos
+			validConstraints = Arrays.asList("url","hora_delta");
 		} else if ("integer".equals(type)) {
 			validConstraints = Arrays.asList(".&gt;", ".&lt;", ".>", ".<",
-					"mask");
+					"mask","minimum","maximum","totalizador","exclusiveMaximum","exclusiveMaximum");
 		} else if ("decimal".equals(type)) {
-			validConstraints = Arrays.asList(".&gt;", ".&lt;", ".>", ".<");
-		} else {
+			validConstraints = Arrays.asList(".&gt;", ".&lt;", ".>", ".<","minimum","maximum","exclusiveMaximum","exclusiveMaximum");
+		}else if ("time".equals(type)){
+			validConstraints = Arrays.asList("agrupador");
+		}else {
 			throw new ExceptionParserJson(" type no reconocido para parser ");
 		}
 
@@ -107,9 +106,10 @@ public class JsonShemaGenerator {
 
 		while (fields.hasNext()) {
 			String field = fields.next();
-			if (!validConstraints.contains(field))
-				JsonUtils.msg(false, "constraint " + field
+			if (!validConstraints.contains(field)){
+				return JsonUtils.msg(false, "constraint " + field
 						+ " no reconocido para el tipo " + type);
+			}	
 		}
 
 		return JsonUtils.msg(true, "es valido");
@@ -127,14 +127,15 @@ public class JsonShemaGenerator {
 	 *             error de parser
 	 */
 	@VisibleForTesting
-	private ObjectNode createJsonNodeSelec1(Node node,Element select)
+	private ObjectNode createJsonNodeSelec1(Node node, Element selectXml)
 			throws ExceptionParserJson {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode select1 = mapper.createObjectNode();
 
 		select1.put("$ref", "formulario.json#/definitions/combo");
 
-		ObjectNode constraints = CncFieldValidator.setConstraints(node,"combo");
+		ObjectNode constraints = CncFieldValidator
+				.setConstraints(node, "combo");
 		if (constraints != null) {
 			JsonNode response = isValidConstraintToType("combo", constraints);
 			if (!response.get("success").asBoolean())
@@ -147,23 +148,33 @@ public class JsonShemaGenerator {
 
 		if (relevant != null)
 			select1.put("relevant", relevant);
-		
-		select1.put("label",select.getElementsByTagName("label").item(0).getTextContent());
-		
-		select1.put("hint",select.getElementsByTagName("hint").item(0).getTextContent());
-		
+
+		select1.put("title", selectXml.getElementsByTagName("label").item(0)
+				.getTextContent());
+
+		Node hint = selectXml.getElementsByTagName("hint").item(0);
+		if (hint != null)
+			select1.put("hint", hint.getTextContent());
+
 		ArrayNode values = mapper.createArrayNode();
-		
-		Element item = (Element) select.getElementsByTagName("item").item(0);
-		
-		ObjectNode itemSelect = mapper.createObjectNode();
-		itemSelect.put("label",item.getElementsByTagName("label").item(0).getTextContent());
-		itemSelect.put("value",item.getElementsByTagName("value").item(0).getTextContent());
-		
-		values.add(itemSelect);
-		
-		select1.put("values",values);
-		
+
+		NodeList items = selectXml.getElementsByTagName("item");
+
+		for (int i = 0, n = items.getLength(); i < n; i++) {
+			Element item = (Element) selectXml.getElementsByTagName("item")
+					.item(i);
+
+			ObjectNode itemSelect = mapper.createObjectNode();
+			itemSelect.put("label", item.getElementsByTagName("label").item(0)
+					.getTextContent());
+			itemSelect.put("value", item.getElementsByTagName("value").item(0)
+					.getTextContent());
+			
+			values.add(itemSelect);
+		}
+
+		select1.put("values", values);
+
 		return select1;
 	}
 
@@ -179,14 +190,15 @@ public class JsonShemaGenerator {
 	 *             error de parser
 	 */
 	@VisibleForTesting
-	private ObjectNode createJsonNodeString(Node node)
+	private ObjectNode createJsonNodeString(Node node, Element inputXml)
 			throws ExceptionParserJson {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode input = mapper.createObjectNode();
 
 		input.put("$ref", "formulario.json#/definitions/string");
 
-		ObjectNode constraints = CncFieldValidator.setConstraints(node,"string");
+		ObjectNode constraints = CncFieldValidator.setConstraints(node,
+				"string");
 		if (constraints != null) {
 			JsonNode response = isValidConstraintToType("string", constraints);
 			if (!response.get("success").asBoolean())
@@ -197,6 +209,45 @@ public class JsonShemaGenerator {
 		ArrayNode relevant = setRelevant(node);
 		if (relevant != null)
 			input.put("relevant", relevant);
+		
+		input.put("title", inputXml.getElementsByTagName("label").item(0)
+				.getTextContent());
+
+		Node hint = inputXml.getElementsByTagName("hint").item(0);
+		if (hint != null)
+			input.put("hint", hint.getTextContent());
+
+		return input;
+	}
+	
+	
+	@VisibleForTesting
+	private ObjectNode createJsonNodeTime(Node node, Element inputXml)
+			throws ExceptionParserJson {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode input = mapper.createObjectNode();
+
+		input.put("$ref", "formulario.json#/definitions/time");
+
+		ObjectNode constraints = CncFieldValidator.setConstraints(node,
+				"time");
+		if (constraints != null) {
+			JsonNode response = isValidConstraintToType("time", constraints);
+			if (!response.get("success").asBoolean())
+				throw new ExceptionParserJson(response.get("msg").toString());
+			input.putAll(constraints);
+		}
+
+		ArrayNode relevant = setRelevant(node);
+		if (relevant != null)
+			input.put("relevant", relevant);
+		
+		input.put("title", inputXml.getElementsByTagName("label").item(0)
+				.getTextContent());
+
+		Node hint = inputXml.getElementsByTagName("hint").item(0);
+		if (hint != null)
+			input.put("hint", hint.getTextContent());
 
 		return input;
 	}
@@ -206,18 +257,20 @@ public class JsonShemaGenerator {
 	 * 
 	 * @param node
 	 *            el nodo que corresponde al bind del xml
+	 * @param inputXml 
 	 * @return el objeto json schema de los selec1
 	 * @throws ExceptionParserJson
 	 *             error de parser
 	 */
 	@VisibleForTesting
-	private ObjectNode createJsonNodeInt(Node node) throws ExceptionParserJson {
+	private ObjectNode createJsonNodeInt(Node node, Element inputXml) throws ExceptionParserJson {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode input = mapper.createObjectNode();
 
 		input.put("$ref", "formulario.json#/definitions/integer");
 
-		ObjectNode constraints = CncFieldValidator.setConstraints(node,"integer");
+		ObjectNode constraints = CncFieldValidator.setConstraints(node,
+				"integer");
 		if (constraints != null) {
 			JsonNode response = isValidConstraintToType("integer", constraints);
 			if (!response.get("success").asBoolean())
@@ -228,6 +281,34 @@ public class JsonShemaGenerator {
 		ArrayNode relevant = setRelevant(node);
 		if (relevant != null)
 			input.put("relevant", relevant);
+		
+		input.put("title", inputXml.getElementsByTagName("label").item(0)
+				.getTextContent());
+
+		Node hint = inputXml.getElementsByTagName("hint").item(0);
+		if (hint != null)
+			input.put("hint", hint.getTextContent());
+
+		return input;
+	}
+	
+	@VisibleForTesting
+	private ObjectNode createJsonNodeInstance() throws ExceptionParserJson {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode input = mapper.createObjectNode();
+
+		input.put("$ref", "formulario.json#/definitions/integer");
+
+		return input;
+	}
+	
+	
+	@VisibleForTesting
+	private ObjectNode createJsonNodeFirmaDigital() throws ExceptionParserJson {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode input = mapper.createObjectNode();
+
+		input.put("$ref", "formulario.json#/definitions/string");
 
 		return input;
 	}
@@ -243,14 +324,15 @@ public class JsonShemaGenerator {
 	 *             error de parser
 	 */
 	@VisibleForTesting
-	private ObjectNode createJsonNodeDecimal(Node node)
+	private ObjectNode createJsonNodeDecimal(Node node, Element inputXml)
 			throws ExceptionParserJson {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode input = mapper.createObjectNode();
 
 		input.put("$ref", "formulario.json#/definitions/decimal");
 
-		ObjectNode constraints = CncFieldValidator.setConstraints(node,"decimal");
+		ObjectNode constraints = CncFieldValidator.setConstraints(node,
+				"decimal");
 		if (constraints != null) {
 			JsonNode response = isValidConstraintToType("decimal", constraints);
 			if (!response.get("success").asBoolean())
@@ -261,6 +343,13 @@ public class JsonShemaGenerator {
 		ArrayNode relevant = setRelevant(node);
 		if (relevant != null)
 			input.put("relevant", relevant);
+		
+		input.put("title", inputXml.getElementsByTagName("label").item(0)
+				.getTextContent());
+
+		Node hint = inputXml.getElementsByTagName("hint").item(0);
+		if (hint != null)
+			input.put("hint", hint.getTextContent());
 
 		return input;
 	}
@@ -290,8 +379,8 @@ public class JsonShemaGenerator {
 	 */
 	@VisibleForTesting
 	public static String getActionFromXml(Document doc) {
-		return   doc.getElementsByTagName("submission").item(0)
-				.getAttributes().getNamedItem("action").getNodeValue();
+		return doc.getElementsByTagName("submission").item(0).getAttributes()
+				.getNamedItem("action").getNodeValue();
 	}
 
 	/**
@@ -305,9 +394,8 @@ public class JsonShemaGenerator {
 	 */
 	@VisibleForTesting
 	private String getIdFormularioFromXml(Document doc) {
-		return  doc.getElementsByTagName("instance").item(0)
-				.getChildNodes().item(1).getAttributes().getNamedItem("id")
-				.getNodeValue();
+		return doc.getElementsByTagName("instance").item(0).getChildNodes()
+				.item(1).getAttributes().getNamedItem("id").getNodeValue();
 	}
 
 	/**
@@ -316,40 +404,41 @@ public class JsonShemaGenerator {
 	 * @param doc
 	 * @return
 	 */
-	private Map<String,Element> setMapSelect1(Document doc){
-		NodeList listSelectNode = doc.getElementsByTagName("select1");
-		Map<String,Element> listSelect = new HashMap<String,Element>();
-		
-		for(int i=0,n=listSelectNode.getLength();i<n;i++){
-			Node nodoSelect = listSelectNode.item(i);
+	private Map<String, Element> setMapElement(Document doc,String type) {
+		NodeList listNode = doc.getElementsByTagName(type);
+		Map<String, Element> map = new HashMap<String, Element>();
+
+		for (int i = 0, n = listNode.getLength(); i < n; i++) {
+			Node nodoSelect = listNode.item(i);
 			if (nodoSelect.getNodeType() == Node.ELEMENT_NODE) {
 				Element dato = (Element) nodoSelect;
 				String ref = dato.getAttribute("ref");
-				listSelect.put(ref, dato);
+				map.put(ref, dato);
 			}
 		}
-		
-		return listSelect;
-	} 
-	
-	private ObjectNode createJsonNodeItem(Document doc) throws ExceptionParserJson{
-		
+
+		return map;
+	}
+
+	private ObjectNode createJsonNodeItem(Document doc)
+			throws ExceptionParserJson {
+
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode item = null;
-		
+
 		NodeList listSelectNode = doc.getElementsByTagName("label");
-		for(int i=0,n=listSelectNode.getLength();i<n;i++){
-           String value = listSelectNode.item(i).getTextContent();
-			if ("{title}".equals(value)){
+		for (int i = 0, n = listSelectNode.getLength(); i < n; i++) {
+			String value = listSelectNode.item(i).getTextContent();
+			if ("{title}".equals(value)) {
 				item = mapper.createObjectNode();
 				item.put("$ref", "formulario.json#/definitions/item");
 				break;
 			}
 		}
-		
+
 		return item;
-	} 
-	
+	}
+
 	/**
 	 * Busca el id del formulario en el xml
 	 * 
@@ -384,21 +473,24 @@ public class JsonShemaGenerator {
 		NodeList binds = getBindsFromXml(doc);
 
 		String action = getActionFromXml(doc);
-		
-		Map<String,Element> listSelect = setMapSelect1(doc);
-		
+
+		Map<String, Element> listSelect = setMapElement(doc,"select1");
+		Map<String, Element> listInput = setMapElement(doc,"input");
+
 		ObjectNode item = createJsonNodeItem(doc);
-		if(item!=null) properties.put("item", item);
+		if (item != null)
+			properties.put("item", item);
 
 		String idformulario = getIdFormularioFromXml(doc);
 
 		log.info("Procesando formulario:" + idformulario);
 
 		ArrayNode required = mapper.createArrayNode();
-		
-		//Lista de nombres de los que ciertos elementos dependen		
+
+		// Lista de nombres de los que ciertos elementos dependen
 		List<String> depends = new ArrayList<String>();
 
+		properties.set("instance",createJsonNodeInstance());
 		for (int i = 0, n = binds.getLength(); i < n; i++) {
 			Node node = binds.item(i);
 			Node readonly = node.getAttributes().getNamedItem("readonly");
@@ -407,7 +499,7 @@ public class JsonShemaGenerator {
 			Node nodeset = node.getAttributes().getNamedItem("nodeset");
 			Node type = node.getAttributes().getNamedItem("type");
 
-			if (type == null) {
+			if (type == null || "time".equals(type)) { //time no implementado aun
 				log.warn(node.getNodeName()
 						+ "-"
 						+ nodeset.getNodeValue()
@@ -415,42 +507,48 @@ public class JsonShemaGenerator {
 				// busci el siguiente bind
 				continue;
 			}
-			
+
 			Node relevant = node.getAttributes().getNamedItem("relevant");
 
 			int leng = nodeset.getNodeValue().split("/").length;
 			String name = nodeset.getNodeValue().split("/")[leng - 1];
+			
+			Node req =  node.getAttributes().getNamedItem("required");
 
-			if (relevant == null)
+			if (relevant == null && req!=null && req.getNodeValue().equals("true()"))
 				required.add(name);
 
 			ObjectNode object = null;
 			try {
 
-				if (type != null && "select1".equals(type.getNodeValue())) {	
+				if (type != null && "select1".equals(type.getNodeValue())) {
 					Element select = listSelect.get(nodeset.getNodeValue());
-					
-					object = createJsonNodeSelec1(node,select);
-					
-				} else if (type != null && "int".equals(type.getNodeValue())) {
+					object = createJsonNodeSelec1(node, select);
 
-					object = createJsonNodeInt(node);
+				} else if (type != null && "int".equals(type.getNodeValue())) {
+					Element input = listInput.get(nodeset.getNodeValue());
+					object = createJsonNodeInt(node,input);
 				} else if (type != null
 						&& "decimal".equals(type.getNodeValue())) {
-					object = createJsonNodeDecimal(node);
+					Element input = listInput.get(nodeset.getNodeValue());
+					object = createJsonNodeDecimal(node,input);
 				} else if (type == null || "string".equals(type.getNodeValue())) {
-					object = createJsonNodeString(node);
+					Element input = listInput.get(nodeset.getNodeValue());
+					object = createJsonNodeString(node,input);
+				} else if (type == null || "time".equals(type.getNodeValue())) {
+					Element input = listInput.get(nodeset.getNodeValue());
+					object = createJsonNodeTime(node,input);
 				}
 
 			} catch (ExceptionParserJson e) {
 				throw new ExceptionParserJson(fXmlFile.getAbsoluteFile() + ":"
 						+ e.getMessage());
 			}
-			
-			if(object.has("depends")){
-				if (name.equals(object.get("depends").asText())){
-					throw new ExceptionParserJson(fXmlFile.getAbsoluteFile() +
-							": el elemento "+name+" depende de si mismo");
+
+			if (object.has("depends")) {
+				if (name.equals(object.get("depends").asText())) {
+					throw new ExceptionParserJson(fXmlFile.getAbsoluteFile()
+							+ ": el elemento " + name + " depende de si mismo");
 				}
 				depends.add(object.get("depends").asText());
 			}
@@ -458,11 +556,13 @@ public class JsonShemaGenerator {
 			if (object != null)
 				properties.put(name, object);
 		}
+		properties.put("firma_digital",createJsonNodeFirmaDigital()); 
 		
-		for(int i=0,n=depends.size();i<n;i++){
-			if(!properties.has(depends.get(i)))
-				throw new ExceptionParserJson(fXmlFile.getAbsoluteFile() +
-						": posee un elemento que depende de "+depends.get(i)+" pero este elemento no existe");	
+		for (int i = 0, n = depends.size(); i < n; i++) {
+			if (!properties.has(depends.get(i)))
+				throw new ExceptionParserJson(fXmlFile.getAbsoluteFile()
+						+ ": posee un elemento que depende de "
+						+ depends.get(i) + " pero este elemento no existe");
 		}
 		
 		returnNode.put("properties", properties);
@@ -510,8 +610,11 @@ public class JsonShemaGenerator {
 	private ObjectNode createJsonShemaObject(String id, String action,
 			ArrayNode required, ObjectNode properties) {
 		ObjectMapper mapper = new ObjectMapper();
-		ObjectNode items = mapper.createObjectNode();
+		ObjectNode dataItems = mapper.createObjectNode();
 		ObjectNode data = mapper.createObjectNode();
+		ObjectNode formularios = mapper.createObjectNode();
+		ObjectNode formulariosItems = mapper.createObjectNode();
+		ObjectNode formulariosItemsProperties = mapper.createObjectNode();
 		ObjectNode formulario = mapper.createObjectNode();
 		ObjectNode formularioProperties = mapper.createObjectNode();
 		ObjectNode idFormulario = mapper.createObjectNode();
@@ -519,25 +622,35 @@ public class JsonShemaGenerator {
 		ObjectNode jsonSchema = mapper.createObjectNode();
 		ArrayNode requiredForm = mapper.createArrayNode();
 
-		items.put("type", "object");
-		items.put("required", required);
-		items.put("properties", properties);
-		items.put("additionalProperties", false);
+		dataItems.put("type", "object");
+		dataItems.put("required", required);
+		dataItems.put("properties", properties);
+		dataItems.put("additionalProperties", false);
 
 		data.put("type", "array");
 		data.put("minItems", 1);
-		data.put("items", items);
+		data.put("items", dataItems);
 		data.put("uniqueItems", true);
 
-		idFormulario.put("enum", mapper.createArrayNode().add(id));
+		formulariosItemsProperties.put("data",data);
+		
+		formulariosItems.put("type","object");
+		formulariosItems.put("required", mapper.createArrayNode().add("data"));
 
+		formulariosItems.put("properties",formulariosItemsProperties);
+		formularios.put("type","array");
+		formularios.put("minItems",1); 
+		formularios.put("items",formulariosItems);
+		
 		formularioProperties.put("id", idFormulario);
-		formularioProperties.put("data", data);
-
+		formularioProperties.put("formularios", formularios);
+		
+		idFormulario.put("enum", mapper.createArrayNode().add(id));		
+		
 		formulario.put("type", "object");
 
 		requiredForm.add("id");
-		requiredForm.add("data");
+		requiredForm.add("formularios");
 
 		formulario.put("required", requiredForm);
 		formulario.put("properties", formularioProperties);

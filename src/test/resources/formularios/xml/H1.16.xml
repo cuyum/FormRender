@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario H1.16 - Ingresos</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <H1.16 id="H1.16">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <instalacion/>
+              <abono/>
+              <trafico>
+                <traficoUrbano/>
+                <traficoInterurbano/>
+                <traficoInternacional/>
+              </trafico>
+              <otros/>
+              <total/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </H1.16>
+      </instance>
+      <bind nodeset="/H1.16/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H1.16/meses/mes/instalacion" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H1.16/meses/mes/abono" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H1.16/meses/mes/trafico/traficoUrbano" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H1.16/meses/mes/trafico/traficoInterurbano" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H1.16/meses/mes/trafico/traficoInternacional" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H1.16/meses/mes/otros" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/H1.16/meses/mes/total" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/H1.16/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/H1.16/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
+    <group ref="/H1.16/meses">
+      <label></label>
+      <repeat nodeset="/H1.16/meses">
+        <group appearance="col4 well-white variable" ref="/H1.16/meses/mes">
+          <label>{title}</label>
+          <input ref="/H1.16/meses/mes/instalacion">
+            <label>Instalación de Líneas</label>
+            <hint>Instalación de Líneas [en miles de pesos]</hint>
+          </input>
+          <input ref="/H1.16/meses/mes/abono">
+            <label>Abono</label>
+            <hint>Abono [en miles de pesos]</hint>
+          </input>
+          <group appearance="col4" ref="/H1.16/meses/mes/trafico">
+            <label>Tráfico</label>
+            <input ref="/H1.16/meses/mes/trafico/traficoUrbano">
+              <label>Urbano</label>
+              <hint>Urbano [en miles de pesos]</hint>
+            </input>
+            <input ref="/H1.16/meses/mes/trafico/traficoInterurbano">
+              <label>Interurbano</label>
+              <hint>Interurbano [en miles de pesos]</hint>
+            </input>
+            <input ref="/H1.16/meses/mes/trafico/traficoInternacional">
+              <label>Internacional</label>
+              <hint>Internacional [en miles de pesos]</hint>
+            </input>
+          </group>
+          <input ref="/H1.16/meses/mes/otros">
+            <label>Otros</label>
+            <hint>Informar lo que no está incluido en los campos precedentes de manera que el total sea coincidente con lo consignado en los EECC [en miles de pesos]</hint>
+          </input>
+          <input ref="/H1.16/meses/mes/total">
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

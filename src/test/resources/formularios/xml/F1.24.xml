@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario F1.24 - Gastos y Costos</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <F1.24 id="F1.24">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <id/>
+              <imp/>
+              <amortizBienesUso/>
+              <amortizIntangibles/>
+              <publicidad/>
+              <costoEquipos/>
+              <otrosExplotacion/>
+              <otrosComerciales/>
+              <otrosFinancieros/>
+              <otrosAdministrativos/>
+              <total/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </F1.24>
+      </instance>
+      <bind nodeset="/F1.24/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.24/meses/mes/id" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.24/meses/mes/imp" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.24/meses/mes/amortizBienesUso" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.24/meses/mes/amortizIntangibles" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.24/meses/mes/publicidad" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.24/meses/mes/costoEquipos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.24/meses/mes/otrosExplotacion" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.24/meses/mes/otrosComerciales" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.24/meses/mes/otrosFinancieros" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.24/meses/mes/otrosAdministrativos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.24/meses/mes/total" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/F1.24/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/F1.24/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC. Los campos &quot;Otros …&quot; deben ser completados de forma tal que el total del formulario coincida con lo informado en los EECC.</hint>
+    </input>
+    <group ref="/F1.24/meses">
+      <label></label>
+      <repeat nodeset="/F1.24/meses">
+        <group appearance="col4 well-white variable" ref="/F1.24/meses/mes">
+          <label>{title}</label>
+          <input ref="/F1.24/meses/mes/id">
+            <label>I &amp; D</label>
+            <hint>I &amp; D [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.24/meses/mes/imp">
+            <label>Imp</label>
+            <hint>Imp [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.24/meses/mes/amortizBienesUso">
+            <label>Amortización Bienes de Uso</label>
+            <hint>Amortización Bienes de Uso [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.24/meses/mes/amortizIntangibles">
+            <label>Amortiz. Intangibles</label>
+            <hint>Amortiz. Intangibles [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.24/meses/mes/publicidad">
+            <label>Publicidad</label>
+            <hint>Publicidad [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.24/meses/mes/costoEquipos">
+            <label>Costo Equipos</label>
+            <hint>Costo Equipos [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.24/meses/mes/otrosExplotacion">
+            <label>Otros Gastos Explotación</label>
+            <hint>Otros Gastos Explotación [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.24/meses/mes/otrosComerciales">
+            <label>Otros Comerciales</label>
+            <hint>Otros Comerciales [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.24/meses/mes/otrosFinancieros">
+            <label>Otros Financieros</label>
+            <hint>Otros Financieros [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.24/meses/mes/otrosAdministrativos">
+            <label>Otros Administrativos</label>
+            <hint>Otros Administrativos [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.24/meses/mes/total">
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

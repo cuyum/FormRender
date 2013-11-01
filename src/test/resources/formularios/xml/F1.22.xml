@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario F1.22 - Ingresos por provincia</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <F1.22 id="F1.22">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <caba/>
+              <buenosAires/>
+              <catamarca/>
+              <chaco/>
+              <chubut/>
+              <cordoba/>
+              <corrientes/>
+              <entreRios/>
+              <formosa/>
+              <jujuy/>
+              <laPampa/>
+              <laRioja/>
+              <mendoza/>
+              <misiones/>
+              <neuquen/>
+              <rioNegro/>
+              <salta/>
+              <sanJuan/>
+              <sanLuis/>
+              <santaCruz/>
+              <santaFe/>
+              <santiagoEstero/>
+              <tierraFuego/>
+              <tucuman/>
+              <total/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </F1.22>
+      </instance>
+      <bind nodeset="/F1.22/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/caba" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/buenosAires" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/catamarca" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/chaco" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/chubut" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/cordoba" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/corrientes" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/entreRios" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/formosa" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/jujuy" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/laPampa" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/laRioja" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/mendoza" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/misiones" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/neuquen" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/rioNegro" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/salta" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/sanJuan" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/sanLuis" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/santaCruz" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/santaFe" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/santiagoEstero" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/tierraFuego" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/tucuman" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.22/meses/mes/total" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/F1.22/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/F1.22/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
+    <group ref="/F1.22/meses">
+      <label></label>
+      <repeat nodeset="/F1.22/meses">
+        <group appearance="col6 well-white variable" ref="/F1.22/meses/mes">
+          <label>{title}</label>
+          <input ref="/F1.22/meses/mes/caba">
+            <label>CABA</label>
+            <hint>CABA [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/buenosAires">
+            <label>Buenos Aires</label>
+            <hint>Buenos Aires [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/catamarca">
+            <label>Catamarca</label>
+            <hint>Catamarca [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/chaco">
+            <label>Chaco</label>
+            <hint>Chaco [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/chubut">
+            <label>Chubut</label>
+            <hint>Chubut [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/cordoba">
+            <label>Córdoba</label>
+            <hint>Córdoba [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/corrientes">
+            <label>Corrientes</label>
+            <hint>Corrientes [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/entreRios">
+            <label>Entre Ríos</label>
+            <hint>Entre Ríos [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/formosa">
+            <label>Formosa</label>
+            <hint>Formosa [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/jujuy">
+            <label>Jujuy</label>
+            <hint>Jujuy [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/laPampa">
+            <label>La Pampa</label>
+            <hint>La Pampa [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/laRioja">
+            <label>La Rioja</label>
+            <hint>La Rioja [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/mendoza">
+            <label>Mendoza</label>
+            <hint>Mendoza [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/misiones">
+            <label>Misiones</label>
+            <hint>Misiones [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/neuquen">
+            <label>Neuquén</label>
+            <hint>Neuquén [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/rioNegro">
+            <label>Río Negro</label>
+            <hint>Río Negro [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/salta">
+            <label>Salta</label>
+            <hint>Salta [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/sanJuan">
+            <label>San Juan</label>
+            <hint>San Juan [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/sanLuis">
+            <label>San Luis</label>
+            <hint>San Luis [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/santaCruz">
+            <label>Santa Cruz</label>
+            <hint>Santa Cruz [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/santaFe">
+            <label>Santa Fe</label>
+            <hint>Santa Fe [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/santiagoEstero">
+            <label>Santiago del Estero</label>
+            <hint>Santiago del Estero [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/tierraFuego">
+            <label>Tierra del Fuego</label>
+            <hint>Tierra del Fuego [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/tucuman">
+            <label>Tucumán</label>
+            <hint>Tucumán [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.22/meses/mes/total">
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

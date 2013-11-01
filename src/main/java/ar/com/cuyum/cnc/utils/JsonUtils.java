@@ -113,27 +113,29 @@ public class JsonUtils {
 		return schemas;	
 	}
 	
-	private static JsonNode processingMessagesReport(ProcessingReport report){
-		Iterator<ProcessingMessage> messages = report.iterator();
+	private static ObjectNode processingMessagesReport(ProcessingReport report){
 		ObjectMapper mapper = new ObjectMapper();
-		ArrayNode message = mapper.createArrayNode();
+		ObjectNode msg = mapper.createObjectNode();
+		ObjectNode error = mapper.createObjectNode();
+		Iterator<ProcessingMessage> messages = report.iterator();
 		while (messages.hasNext()) {
 			ProcessingMessage msj = messages.next();
-			if (LogLevel.ERROR.equals(msj.getLogLevel())) {	
-				message.add(msj.asJson());
+			if (LogLevel.ERROR.equals(msj.getLogLevel())) {
+				error.put(msj.asJson().get("instance").get("pointer").asText(),msj.getMessage());
 			}
 		}
-		return message;
+	   msg.put("errores",error);
+	   return msg;
 	}
 	
 	public static JsonNode checkSchema(JsonNode schemas,JsonNode data) {
-		
-		log.info(">>>>"+schemas);
 		
 		final LoadingConfigurationBuilder builder = LoadingConfiguration.newBuilder();
 		builder.preloadSchema(schemas.get("schema-url").asText(), schemas.get("schema"));
 		builder.preloadSchema(schemas.get("schema-form-url").asText(), schemas.get("schema-form"));
 
+		log.debug(schemas.get("schema"));
+		
 		final JsonSchemaFactory factory = JsonSchemaFactory.newBuilder()
 				.setLoadingConfiguration(builder.freeze()).freeze();
 		
@@ -147,9 +149,12 @@ public class JsonUtils {
 			String msg = "Error checkeando json, url de jsonschema mal formado";
 			log.error(msg+e.getProcessingMessage().asJson());
 			return msg(false,msg);
-		}
+		}		
 		
-		if(!report.isSuccess()) return msg(report.isSuccess(),processingMessagesReport(report).toString());
+		if(!report.isSuccess()){
+			ObjectNode msg = processingMessagesReport(report);
+			return JsonUtils.msg(false,msg.asText());
+		} 
 		
 		return JsonUtils.msg(report.isSuccess(),schemas.get("schema").toString());
 	}
@@ -196,33 +201,48 @@ public class JsonUtils {
 		JsonNode success = checkSchema(schemas, validJson);
 
 		// si no es un json data valido segun el json schema correspondiente
-		if (!success.get("success").asBoolean()) return success;
-		
+		if (!success.get("success").asBoolean()) return success;		
 		
 		//si ya pasó las validaciones de jsonschema se pasa a la segunda etapa de validación
-		// del formulario
-		ArrayNode data = (ArrayNode) validJson.get("formulario").get("data");
+		// de cada formulario
+		ArrayNode listForms = (ArrayNode) validJson.get("formulario").get("formularios");
+		
+		// se obtienen los campos del formulario a partir del json schema, para
+		// ser validados
+		JsonNode formularios = schemas.get("schema").get("properties")
+				.get("formulario").get("properties").get("formularios")
+				.get("items").get("properties");
+		JsonNode schemaItemsProperties = formularios.get("data").get("items")
+				.get("properties");
 
-		//se obtienen los campos del formulario a partir del json schema, para ser validados
-		JsonNode schemaItemsProperties = schemas.get("schema")
-				.get("properties").get("formulario").get("properties")
-				.get("data").get("items").get("properties");
-		
-		Formulario formulario = new Formulario(idForm,schemaItemsProperties,relayService);		
-		
 		// validando cada item de datos del formularios
-		for (int i = 0, n = data.size(); i < n; i++) {
-			JsonNode item = data.get(i);			
-			try {
-				formulario.setDataByJson(item);
-				log.info(formulario.getId()+"="+formulario.toString());
-				formulario.isDataValid();
-			} catch (ExceptionValidation e) {
-				return msg(false,"error procesando data masiva en el item ("+i+") :"+e.getMessage());		
+		for (int j = 0, n = listForms.size(); j < n; j++) {
+			JsonNode formNode = listForms.get(j);
+			//si ya pasó las validaciones de jsonschema se pasa a la segunda etapa de validación
+			// del formulario
+			ArrayNode data = (ArrayNode) formNode.get("data");
+			Formulario form = new Formulario(idForm,schemaItemsProperties,relayService);
+			// validando cada item de datos del formularios
+			for (int i = 0, nf = data.size(); i < nf; i++) {
+				JsonNode item = data.get(i);			
+				try {
+					form.setDataByJson(item);
+					log.info(form.getId()+"="+form.toString());
+					form.isDataValid();
+				} catch (ExceptionValidation e) {
+					return msg(false,"error procesando data masiva en el formulario:("+j+") item:("+i+") :"+e.getMessage());		
+				}
 			}
-		}		
+		}
+				
+		//return msg(true,data.toString());
 		
-		return msg(true,data.toString());	
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode response = mapper.createObjectNode();
+		response.put("id",idForm);
+		response.put("listDataForm",listForms);
+		
+		return JsonUtils.msg(true,response.toString());
 	}
 
 }

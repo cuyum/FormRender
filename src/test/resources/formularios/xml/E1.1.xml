@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario E1.1 - Áreas de prestación de servicio</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <E1.1 id="E1.1">
+          <titulo/>
+          <areasprest jr:template="">
+            <areas>
+              <provincia/>
+              <partido/>
+              <partido_otro/>
+              <localidad/>
+              <localidad_otro/>
+            </areas>
+          </areasprest>
+          <meta>
+            <instanceID/>
+          </meta>
+        </E1.1>
+      </instance>
+      <bind nodeset="/E1.1/titulo" readonly="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/E1.1/areasprest/areas/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/E1.1/areasprest/areas/provincia" nodeset="/E1.1/areasprest/areas/partido" required="true()" type="select1"/>
+      <bind nodeset="/E1.1/areasprest/areas/partido_otro" relevant=" /E1.1/areasprest/areas/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/E1.1/areasprest/areas/partido" nodeset="/E1.1/areasprest/areas/localidad" required="true()" type="select1"/>
+      <bind nodeset="/E1.1/areasprest/areas/localidad_otro" relevant=" /E1.1/areasprest/areas/localidad =9999" required="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/E1.1/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/E1.1/titulo">
+      <hint>Debe informar todas las localidades donde presta servicio.</hint>
+    </input>
+    <group ref="/E1.1/areasprest">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/E1.1/areasprest">
+        <group appearance="col3 well-white" ref="/E1.1/areasprest/areas">
+          <label>Áreas de prestación</label>
+          <select1 appearance="minimal" ref="/E1.1/areasprest/areas/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/E1.1/areasprest/areas/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/E1.1/areasprest/areas/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/E1.1/areasprest/areas/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/E1.1/areasprest/areas/localidad_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario E1.7 - Tráfico II en minutos</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <E1.7 id="E1.7">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <partido/>
+              <partido_otro/>
+              <localidad/>
+              <localidad_otro/>
+              <prepago>
+                <prepagoEntrante/>
+                <prepagoSaliente/>
+              </prepago>
+              <pospago>
+                <pospagoEntrante/>
+                <pospagoSaliente/>
+              </pospago>
+              <mixto>
+                <mixtoEntrante/>
+                <mixtoSaliente/>
+              </mixto>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </E1.7>
+      </instance>
+      <bind nodeset="/E1.7/titulo" readonly="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/E1.7/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/E1.7/meses/mes/provincia" nodeset="/E1.7/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/E1.7/meses/mes/partido_otro" relevant=" /E1.7/meses/mes/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/E1.7/meses/mes/partido" nodeset="/E1.7/meses/mes/localidad" required="true()" type="select1"/>
+      <bind nodeset="/E1.7/meses/mes/localidad_otro" relevant=" /E1.7/meses/mes/localidad =9999" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.7/meses/mes/prepago/prepagoEntrante" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.7/meses/mes/prepago/prepagoSaliente" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.7/meses/mes/pospago/pospagoEntrante" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.7/meses/mes/pospago/pospagoSaliente" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.7/meses/mes/mixto/mixtoEntrante" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.7/meses/mes/mixto/mixtoSaliente" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/E1.7/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/E1.7/titulo">
+      <hint>Consignar el tráfico entrante y saliente, en cantidad de minutos, desagregado por modalidad de contratación. Sólo referido al servicio de telefonía móvil y fija, no debe incluir el atribuido a SRCE.</hint>
+    </input>
+    <group ref="/E1.7/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/E1.7/meses">
+        <group appearance="col3 well-white variable" ref="/E1.7/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/E1.7/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/E1.7/meses/mes/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/E1.7/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/E1.7/meses/mes/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/E1.7/meses/mes/localidad_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+          <group appearance="col2 well-white" ref="/E1.7/meses/mes/prepago">
+            <label>Prepago</label>
+            <input ref="/E1.7/meses/mes/prepago/prepagoEntrante">
+              <label>Entrante</label>
+              <hint>Entrante [en miles]</hint>
+            </input>
+            <input ref="/E1.7/meses/mes/prepago/prepagoSaliente">
+              <label>Saliente</label>
+              <hint>Saliente [en miles]</hint>
+            </input>
+          </group>
+          <group appearance="col2 well-white" ref="/E1.7/meses/mes/pospago">
+            <label>Pospago</label>
+            <input ref="/E1.7/meses/mes/pospago/pospagoEntrante">
+              <label>Entrante</label>
+              <hint>Entrante [en miles]</hint>
+            </input>
+            <input ref="/E1.7/meses/mes/pospago/pospagoSaliente">
+              <label>Saliente</label>
+              <hint>Saliente [en miles]</hint>
+            </input>
+          </group>
+          <group appearance="col2 well-white" ref="/E1.7/meses/mes/mixto">
+            <label>Mixto</label>
+            <input ref="/E1.7/meses/mes/mixto/mixtoEntrante">
+              <label>Entrante</label>
+              <hint>Entrante [en miles]</hint>
+            </input>
+            <input ref="/E1.7/meses/mes/mixto/mixtoSaliente">
+              <label>Saliente</label>
+              <hint>Saliente [en miles]</hint>
+            </input>
+          </group>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

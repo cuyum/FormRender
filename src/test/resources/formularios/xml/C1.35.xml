@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.35 - Ingresos / Tráfico horario reducido</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <C1.35 id="C1.35">
+          <titulo/>
+          <meses jr:template="">
+            <Enero>
+              <hogares/>
+              <comercial/>
+              <gobierno/>
+              <jubilados/>
+              <profesional/>
+              <otros/>
+            </Enero>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.35>
+      </instance>
+      <bind nodeset="/C1.35/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.35/meses/Enero/hogares" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.35/meses/Enero/comercial" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.35/meses/Enero/gobierno" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.35/meses/Enero/jubilados" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.35/meses/Enero/profesional" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.35/meses/Enero/otros" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.35/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/C1.35/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
+    <group ref="/C1.35/meses">
+      <label></label>
+      <repeat nodeset="/C1.35/meses">
+        <group appearance="col4 well-white variable" ref="/C1.35/meses/Enero">
+          <label>{title}</label>
+          <input ref="/C1.35/meses/Enero/hogares">
+            <label>Hogares</label>
+            <hint>Hogares [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.35/meses/Enero/comercial">
+            <label>Comercial</label>
+            <hint>Comercial [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.35/meses/Enero/gobierno">
+            <label>Gobierno</label>
+            <hint>Gobierno [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.35/meses/Enero/jubilados">
+            <label>Jubilados</label>
+            <hint>Jubilados [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.35/meses/Enero/profesional">
+            <label>Profesional</label>
+            <hint>Profesional [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.35/meses/Enero/otros">
+            <label>Otros</label>
+            <hint>Consignar los ingresos por tráfico en horario reducido no incluidos en los campos precedentes [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

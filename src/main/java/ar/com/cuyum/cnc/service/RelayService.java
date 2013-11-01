@@ -37,12 +37,10 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 
-
 import ar.com.cuyum.cnc.utils.FormRenderProperties;
 //import ar.com.cuyum.cnc.domain.jsonsla.Item;
 //import ar.com.cuyum.cnc.utils.FormRenderProperties;
 import ar.com.cuyum.cnc.utils.JsonUtils;
-
 
 //import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -51,48 +49,54 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /**
  * Clase creada para llamada de servicios de listas externas.<br />
  * Principalmente creada para evitar limitaciones por CSRF.
+ * 
  * @author Jorge Morando
  * 
  */
 @Stateless
 public class RelayService {
-	
+
 	@Inject
 	private JsonUtils jsonUtils;
-	
-    @Inject
-    private FormRenderProperties frp;
-	
+
+	@Inject
+	private FormRenderProperties frp;
+
 	public transient static Logger log = Logger.getLogger(RelayService.class);
 
 	private HttpClient client = new DefaultHttpClient();
-	
-	/*========================SSL=========================*/
-	
+
+	/* ========================SSL========================= */
+
 	private void setupSSLContext() {
 		SSLContext ctx;
 		try {
 			ctx = SSLContext.getInstance("TLS");
-			 X509TrustManager tm = new X509TrustManager() {
-		            public void checkClientTrusted(X509Certificate[] xcs, String string) throws CertificateException { }
-		 
-		            public void checkServerTrusted(X509Certificate[] xcs, String string) throws CertificateException { }
-		 
-		            public X509Certificate[] getAcceptedIssuers() {
-		                return null;
-		            }
-		        };
-	        ctx.init(null, new TrustManager[]{tm}, null);
-	        SSLSocketFactory ssf = new SSLSocketFactory(ctx);
-	        ssf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
-	        ClientConnectionManager ccm = client.getConnectionManager();
-	        SchemeRegistry sr = ccm.getSchemeRegistry();
-	        sr.register(new Scheme("https", ssf, 443));
-	        client = new DefaultHttpClient(ccm, client.getParams()); 
+			X509TrustManager tm = new X509TrustManager() {
+				public void checkClientTrusted(X509Certificate[] xcs,
+						String string) throws CertificateException {
+				}
+
+				public void checkServerTrusted(X509Certificate[] xcs,
+						String string) throws CertificateException {
+				}
+
+				public X509Certificate[] getAcceptedIssuers() {
+					return null;
+				}
+			};
+			ctx.init(null, new TrustManager[] { tm }, null);
+			SSLSocketFactory ssf = new SSLSocketFactory(ctx);
+			ssf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+			ClientConnectionManager ccm = client.getConnectionManager();
+			SchemeRegistry sr = ccm.getSchemeRegistry();
+			sr.register(new Scheme("https", ssf, 443));
+			client = new DefaultHttpClient(ccm, client.getParams());
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -100,121 +104,169 @@ public class RelayService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-       
+
 	}
-	
-	/*================ POINT OF ENTRANCE =================*/
-	
-	public String submit(URL remoteUrl, String data){
+
+	/* ================ POINT OF ENTRANCE ================= */
+
+	public String submit(URL remoteUrl, String data) {
 		setupSSLContext();
-		return performSubmission(remoteUrl,data);
+		return performSubmission(remoteUrl, data);
 	}
-	
-	public String massiveSubmit(URL remoteUrl, String data, HttpServletRequest request){
+
+	public String massiveSubmit(URL remoteUrl, String data,
+			HttpServletRequest request) {
 		setupSSLContext();
-		
-		JsonNode success = jsonUtils.proccessDataValidation(data, request, this,frp);
-		if (!success.get("success").asBoolean()) return success.toString();
-		
+
+		JsonNode success = jsonUtils.proccessDataValidation(data, request,
+				this, frp);
+		if (!success.get("success").asBoolean())
+			return success.toString();
+
 		ObjectMapper mapper = new ObjectMapper();
-		JsonNode listData = null;
-		try {			
-			listData = mapper.readTree(success.get("msg").toString());
-		} catch (JsonProcessingException e) {	
+		JsonNode dataForm = null;
+
+		try {
+			dataForm = mapper.readTree(success.get("msg").asText());
+		} catch (JsonProcessingException e) {
 			log.error(e);
 		} catch (IOException e) {
 			log.error(e);
 		}
-		
-		return JsonUtils.msg(true,"ok").toString();
-		
-		//return performMassiveSubmission(remoteUrl,listData,request);
+
+		String id = dataForm.get("id").asText();
+
+		ArrayNode listData = (ArrayNode) dataForm.get("listDataForm");
+
+		if (listData == null)
+			return JsonUtils.msg(false,
+					"Lista de datos nulla, error desconocido").toString();
+
+		return performMassiveSubmission(remoteUrl, id, listData, request);
 	}
-	
-	public String retrieve(URL remoteUrl){
+
+	public String retrieve(URL remoteUrl) {
 		setupSSLContext();
 		return performRetrieval(remoteUrl);
 	}
-	
-	public String request(URL remoteUrl, String fkey){
+
+	public String request(URL remoteUrl, String fkey) {
 		setupSSLContext();
-		return performRequest(remoteUrl,fkey);
+		return performRequest(remoteUrl, fkey);
 	}
 
-	private String performSubmission(URL url,String data){
-		HttpPost request = buildSubmission(url,data);
+	private String performSubmission(URL url, String data) {
+		HttpPost request = buildSubmission(url, data);
 		HttpResponse rawResponse = execute(request);
 		String responseStr = processResponse(rawResponse);
 		return responseStr;
 	}
-	
-	 private String performMassiveSubmission(URL url,ArrayNode data, HttpServletRequest request){
 
-		StringBuilder respon = new StringBuilder();
-		 
-		for (int i = 0, n = data.size(); i < n; i++) {
-				JsonNode item = data.get(i);			
-				HttpPost requestPost = buildSubmission(url,item.toString());
-				HttpResponse rawResponse = execute(requestPost);
-				respon.append(processResponse(rawResponse));
+	private ObjectNode formData(String id, ArrayNode data) {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode form = mapper.createObjectNode();
+		ObjectNode header = mapper.createObjectNode();
+		ObjectNode payload = mapper.createObjectNode();
+		ObjectNode formulario = mapper.createObjectNode();
+		header.put("callback_id", "");
+		formulario.put("id", id);
+		formulario.put("data", data);
+		payload.put("formulario", formulario);
+		form.put("header", header);
+		form.put("payload", payload);
+		return form;
+	}
+
+	private String performMassiveSubmission(URL url, String idForm,
+			ArrayNode formularios, HttpServletRequest request) {
+
+		//StringBuilder respon = new StringBuilder();
+		ObjectMapper mapper = new ObjectMapper();
+		
+		ObjectNode respon = mapper.createObjectNode();
+
+		for (int i = 0, n = formularios.size(); i < n; i++) {
+			ArrayNode dataNode = (ArrayNode) formularios.get(i).get("data");
+			ObjectNode formData = formData(idForm, dataNode);
+			log.info("Persistiendo:" + formData);
+
+			HttpPost requestPost = buildSubmission(url, formData.toString());
+			HttpResponse rawResponse = execute(requestPost);
+			
+			JsonNode response = null;
+
+			try {
+				response = mapper.readTree(processResponse(rawResponse));
+			} catch (JsonProcessingException e) {
+				log.error(e);
+			} catch (IOException e) {
+				log.error(e);
+			}
+			
+			if(!response.get("success").asBoolean()){
+				respon.put(""+i+"","Error guardando datos formulario ("+i+") "+response.get("result").asText());			
+			}else{
+				respon.put(""+i+"","Guardado formulario ("+i+") "+response.get("result").asText());
+			}
 		}
-	
+
 		return JsonUtils.msg(true,respon.toString()).toString();
 	}
-	
-	private String performRetrieval(URL url){
+
+	private String performRetrieval(URL url) {
 		HttpGet request = buildRetrieval(url);
 		HttpResponse rawResponse = execute(request);
 		String responseStr = processResponse(rawResponse);
 		return responseStr;
 	}
-	
-	private String performRequest(URL url,String fkey){
-		HttpPost request = buildRequest(url,fkey);
+
+	private String performRequest(URL url, String fkey) {
+		HttpPost request = buildRequest(url, fkey);
 		HttpResponse rawResponse = execute(request);
 		String responseStr = processResponse(rawResponse);
 		return responseStr;
 	}
-	
-	/*=============== HTTP REQUEST======================*/
-	
-	private final HttpPost buildSubmission(URL url,String data) {
+
+	/* =============== HTTP REQUEST====================== */
+
+	private final HttpPost buildSubmission(URL url, String data) {
 		HttpPost method = null;
 		try {
 			method = new HttpPost(url.toURI());
-			method.setEntity(new StringEntity(data, ContentType.APPLICATION_JSON));
+			method.setEntity(new StringEntity(data,
+					ContentType.APPLICATION_JSON));
 		} catch (Exception e) {
-			log.error("No se pudo construir el request",e);
+			log.error("No se pudo construir el request", e);
 		}
 		return method;
 	}
-	
+
 	private final HttpGet buildRetrieval(URL url) {
 		HttpGet method = null;
 		try {
 			method = new HttpGet(url.toURI());
 		} catch (Exception e) {
-			log.error("No se pudo construir el request",e);
+			log.error("No se pudo construir el request", e);
 		}
 		return method;
 	}
-	
-	private final HttpPost buildRequest(URL url,String fkey) {
+
+	private final HttpPost buildRequest(URL url, String fkey) {
 		HttpPost method = null;
 		try {
 			method = new HttpPost(url.toURI());
-			
-			List <NameValuePair> params = new ArrayList <NameValuePair>();
-		    params.add(new BasicNameValuePair("fkey", fkey));
 
-		    method.setEntity(new UrlEncodedFormEntity(params));
-			
+			List<NameValuePair> params = new ArrayList<NameValuePair>();
+			params.add(new BasicNameValuePair("fkey", fkey));
+
+			method.setEntity(new UrlEncodedFormEntity(params));
+
 		} catch (Exception e) {
-			log.error("No se pudo construir el request",e);
+			log.error("No se pudo construir el request", e);
 		}
 		return method;
 	}
-	
+
 	private HttpResponse execute(HttpRequestBase method) {
 		HttpResponse resp = null;
 		try {
@@ -225,10 +277,11 @@ public class RelayService {
 		}
 		return resp;
 	}
-	
+
 	private final String processResponse(HttpResponse rawResponse) {
 		String entity = "{\"success\":false,\"msg\":\"Empty response received.\"}";
-		if(rawResponse==null)return entity;
+		if (rawResponse == null)
+			return entity;
 		try {
 			entity = EntityUtils.toString(rawResponse.getEntity());
 		} catch (Exception e) {
@@ -236,10 +289,9 @@ public class RelayService {
 		}
 		return entity;
 	}
-	
-	public FormRenderProperties getFormRenderProperties(){
+
+	public FormRenderProperties getFormRenderProperties() {
 		return frp;
 	}
 
 }
-

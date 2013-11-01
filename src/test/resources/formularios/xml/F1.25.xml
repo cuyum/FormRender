@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario F1.25 - Otros Costos</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <F1.25 id="F1.25">
+          <meses jr:template="">
+            <mes>
+              <costosConexion/>
+              <mantenimiento/>
+              <otros/>
+              <total/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </F1.25>
+      </instance>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.25/meses/mes/costosConexion" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.25/meses/mes/mantenimiento" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.25/meses/mes/otros" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.25/meses/mes/total" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/F1.25/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/F1.25/meses">
+      <label></label>
+      <repeat nodeset="/F1.25/meses">
+        <group appearance="col4 well-white variable" ref="/F1.25/meses/mes">
+          <label>{title}</label>
+          <input ref="/F1.25/meses/mes/costosConexion">
+            <label>Costos de Conexión</label>
+            <hint>Costos de Conexión [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.25/meses/mes/mantenimiento">
+            <label>Mantenimiento</label>
+            <hint>Mantenimiento [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.25/meses/mes/otros">
+            <label>Otros</label>
+            <hint>Otros [en miles de pesos]</hint>
+          </input>
+          <input ref="/F1.25/meses/mes/total">
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

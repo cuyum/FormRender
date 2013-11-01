@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario D1.7 - Tráfico II (minutos)</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <D1.7 id="D1.7">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <partido/>
+              <partido_otro/>
+              <localidad/>
+              <localidad_otro/>
+              <ll>
+                <llHp/>
+                <llHnp/>
+              </ll>
+              <lldn>
+                <lldnHp/>
+                <lldnHnp/>
+              </lldn>
+              <lldi>
+                <lldiHp/>
+                <lldiHnp/>
+              </lldi>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </D1.7>
+      </instance>
+      <bind nodeset="/D1.7/titulo" readonly="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/D1.7/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/D1.7/meses/mes/provincia" nodeset="/D1.7/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/D1.7/meses/mes/partido_otro" relevant=" /D1.7/meses/mes/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/D1.7/meses/mes/partido" nodeset="/D1.7/meses/mes/localidad" required="true()" type="select1"/>
+      <bind nodeset="/D1.7/meses/mes/localidad_otro" relevant=" /D1.7/meses/mes/localidad =9999" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.7/meses/mes/ll/llHp" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.7/meses/mes/ll/llHnp" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.7/meses/mes/lldn/lldnHp" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.7/meses/mes/lldn/lldnHnp" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.7/meses/mes/lldi/lldiHp" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.7/meses/mes/lldi/lldiHnp" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/D1.7/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/D1.7/titulo">
+      <hint>Consignar tráfico saliente con la desagregación solicitada, en minutos. Incluir trafico on-net y off-net.</hint>
+    </input>
+    <group ref="/D1.7/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/D1.7/meses">
+        <group appearance="col3 well-white variable" ref="/D1.7/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/D1.7/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/D1.7/meses/mes/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/D1.7/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/D1.7/meses/mes/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/D1.7/meses/mes/localidad_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+          <group appearance="col2 well-white" ref="/D1.7/meses/mes/ll">
+            <label>L-L</label>
+            <input ref="/D1.7/meses/mes/ll/llHp">
+              <label>HP</label>
+              <hint>HP [en miles]</hint>
+            </input>
+            <input ref="/D1.7/meses/mes/ll/llHnp">
+              <label>HNP</label>
+              <hint>HNP [en miles]</hint>
+            </input>
+          </group>
+          <group appearance="col2 well-white" ref="/D1.7/meses/mes/lldn">
+            <label>L-LDN</label>
+            <input ref="/D1.7/meses/mes/lldn/lldnHp">
+              <label>HP</label>
+              <hint>HP [en miles]</hint>
+            </input>
+            <input ref="/D1.7/meses/mes/lldn/lldnHnp">
+              <label>HNP</label>
+              <hint>HNP [en miles]</hint>
+            </input>
+          </group>
+          <group appearance="col2 well-white" ref="/D1.7/meses/mes/lldi">
+            <label>L-LDI</label>
+            <input ref="/D1.7/meses/mes/lldi/lldiHp">
+              <label>HP</label>
+              <hint>HP [en miles]</hint>
+            </input>
+            <input ref="/D1.7/meses/mes/lldi/lldiHnp">
+              <label>HNP</label>
+              <hint>HNP [en miles]</hint>
+            </input>
+          </group>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

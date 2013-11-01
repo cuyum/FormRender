@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C2.2 - Provisión de líneas</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <C2.2 id="C2.2">
+          <titulo/>
+          <areasprest jr:template="">
+            <areas>
+              <provincia/>
+              <partido/>
+              <partido_otro/>
+              <localidad/>
+              <localidad_otro/>
+              <area/>
+              <area_otro/>
+              <operador/>
+              <lineas/>
+            </areas>
+          </areasprest>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C2.2>
+      </instance>
+      <bind nodeset="/C2.2/titulo" readonly="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/C2.2/areasprest/areas/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/C2.2/areasprest/areas/provincia" nodeset="/C2.2/areasprest/areas/partido" required="true()" type="select1"/>
+      <bind nodeset="/C2.2/areasprest/areas/partido_otro" relevant=" /C2.2/areasprest/areas/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/C2.2/areasprest/areas/partido" nodeset="/C2.2/areasprest/areas/localidad" required="true()" type="select1"/>
+      <bind nodeset="/C2.2/areasprest/areas/localidad_otro" relevant=" /C2.2/areasprest/areas/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/C2.2/areasprest/areas/localidad" nodeset="/C2.2/areasprest/areas/area" required="true()" type="select1"/>
+      <bind nodeset="/C2.2/areasprest/areas/area_otro" relevant=" /C2.2/areasprest/areas/area =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/C2.2/areasprest/areas/operador" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/C2.2/areasprest/areas/lineas" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C2.2/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/C2.2/titulo">
+      <hint>Cantidad de líneas provistas por período, por área local.</hint>
+    </input>
+    <group ref="/C2.2/areasprest">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/C2.2/areasprest">
+        <group appearance="col4 well-white variable" ref="/C2.2/areasprest/areas">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/C2.2/areasprest/areas/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/C2.2/areasprest/areas/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/C2.2/areasprest/areas/partido_otro">
+            <label>Partido Otros</label>
+          </input>
+          <select1 appearance="minimal" ref="/C2.2/areasprest/areas/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/C2.2/areasprest/areas/localidad_otro">
+            <label>Localidad Otros</label>
+          </input>
+          <select1 appearance="minimal" ref="/C2.2/areasprest/areas/area">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/C2.2/areasprest/areas/area_otro">
+            <label>Área Otros</label>
+          </input>
+          <select1 appearance="minimal" ref="/C2.2/areasprest/areas/operador">
+            <label>Operador Local</label>
+            <hint>Operador Local</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/C2.2/areasprest/areas/lineas">
+            <label># Líneas</label>
+            <hint># Líneas</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

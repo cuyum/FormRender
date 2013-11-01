@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario F1.16 - Tarifas</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <F1.16 id="F1.16">
+          <titulo/>
+          <agregar jr:template="">
+            <tarifas>
+              <tarifasAcceso/>
+              <tarifasAcceso_otro/>
+              <tarifasInstalacion/>
+              <tarifasModem/>
+              <tarifasReconexion/>
+            </tarifas>
+          </agregar>
+          <meta>
+            <instanceID/>
+          </meta>
+        </F1.16>
+      </instance>
+      <bind nodeset="/F1.16/titulo" readonly="true()" type="string"/>
+      <bind nodeset="/F1.16/agregar/tarifas/tarifasAcceso" required="true()" type="select1"/>
+      <bind nodeset="/F1.16/agregar/tarifas/tarifasAcceso_otro" relevant=" /F1.16/agregar/tarifas/tarifasAcceso =OTROS" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/F1.16/agregar/tarifas/tarifasInstalacion" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/F1.16/agregar/tarifas/tarifasModem" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/F1.16/agregar/tarifas/tarifasReconexion" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/F1.16/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/F1.16/titulo">
+      <hint>Informar importes promedio en pesos sin IVA. Último dato vigente al final del período considerado.</hint>
+    </input>
+    <group ref="/F1.16/agregar">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/F1.16/agregar">
+        <group appearance="col4 well-white" ref="/F1.16/agregar/tarifas">
+          <label>Tarifas</label>
+          <select1 appearance="minimal" ref="/F1.16/agregar/tarifas/tarifasAcceso">
+            <label>Acceso</label>
+            <hint>Acceso</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>DIAL UP</label>
+              <value>DIALUP</value>
+            </item>
+            <item>
+              <label>ADSL</label>
+              <value>ADSL</value>
+            </item>
+            <item>
+              <label>CABLEMODEN</label>
+              <value>CABLEMODEN</value>
+            </item>
+            <item>
+              <label>WIRELESS</label>
+              <value>WIRELESS</value>
+            </item>
+            <item>
+              <label>CELULAR</label>
+              <value>CELULAR</value>
+            </item>
+            <item>
+              <label>SATELITAL</label>
+              <value>SATELITAL</value>
+            </item>
+            <item>
+              <label>BPL</label>
+              <value>BPL</value>
+            </item>
+            <item>
+              <label>WIMAX</label>
+              <value>WIMAX</value>
+            </item>
+            <item>
+              <label>FIBRA OPTICA</label>
+              <value>FIBRAOPTICA</value>
+            </item>
+            <item>
+              <label>OTROS</label>
+              <value>OTROS</value>
+            </item>
+          </select1>
+          <input ref="/F1.16/agregar/tarifas/tarifasAcceso_otro">
+            <label>Acceso Otros</label>
+            <hint>Acceso Otros</hint>
+          </input>
+          <input ref="/F1.16/agregar/tarifas/tarifasInstalacion">
+            <label>Instalación</label>
+            <hint>Instalación</hint>
+          </input>
+          <input ref="/F1.16/agregar/tarifas/tarifasModem">
+            <label>Módem</label>
+            <hint>Módem</hint>
+          </input>
+          <input ref="/F1.16/agregar/tarifas/tarifasReconexion">
+            <label>Reconexión</label>
+            <hint>Reconexión</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

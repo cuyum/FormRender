@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario H2.3 - Telefonía Pública</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <H2.3 id="H2.3">
+          <telefonia jr:template="">
+            <lineas>
+              <anio/>
+              <provincia/>
+              <partido/>
+              <partido_otro/>
+              <localidad/>
+              <localidad_otro/>
+              <area/>
+              <area_otro/>
+              <telefViaPublica/>
+              <lineasTelefoniaPublica/>
+              <telPublica>
+                <telefSemiPublicos/>
+                <locutorios/>
+                <locuroriosCabinas/>
+              </telPublica>
+            </lineas>
+            <telefonosPublicos>
+              <tpa/>
+              <tpu/>
+              <tsp/>
+              <thih/>
+              <sspld/>
+            </telefonosPublicos>
+          </telefonia>
+          <meta>
+            <instanceID/>
+          </meta>
+        </H2.3>
+      </instance>
+      <bind nodeset="/H2.3/telefonia/lineas/anio" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/H2.3/telefonia/lineas/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/H2.3/telefonia/lineas/provincia" nodeset="/H2.3/telefonia/lineas/partido" required="true()" type="select1"/>
+      <bind nodeset="/H2.3/telefonia/lineas/partido_otro" relevant=" /H2.3/telefonia/lineas/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/H2.3/telefonia/lineas/partido" nodeset="/H2.3/telefonia/lineas/localidad" required="true()" type="select1"/>
+      <bind nodeset="/H2.3/telefonia/lineas/localidad_otro" relevant=" /H2.3/telefonia/lineas/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/H2.3/telefonia/lineas/localidad" nodeset="/H2.3/telefonia/lineas/area" required="true()" type="select1"/>
+      <bind nodeset="/H2.3/telefonia/lineas/area_otro" relevant=" /H2.3/telefonia/lineas/area =9999" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/H2.3/telefonia/lineas/telefViaPublica" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/H2.3/telefonia/lineas/lineasTelefoniaPublica" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/H2.3/telefonia/lineas/telPublica/telefSemiPublicos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/H2.3/telefonia/lineas/telPublica/locutorios" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/H2.3/telefonia/lineas/telPublica/locuroriosCabinas" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/H2.3/telefonia/telefonosPublicos/tpa" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/H2.3/telefonia/telefonosPublicos/tpu" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/H2.3/telefonia/telefonosPublicos/tsp" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/H2.3/telefonia/telefonosPublicos/thih" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/H2.3/telefonia/telefonosPublicos/sspld" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/H2.3/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/H2.3/telefonia">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/H2.3/telefonia">
+        <group appearance="col4 well-white" ref="/H2.3/telefonia/lineas">
+          <label>Líneas</label>
+          <select1 appearance="minimal" ref="/H2.3/telefonia/lineas/anio">
+            <label>Año</label>
+            <hint>Año</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>2010</label>
+              <value>2010</value>
+            </item>
+            <item>
+              <label>2011</label>
+              <value>2011</value>
+            </item>
+            <item>
+              <label>2012</label>
+              <value>2012</value>
+            </item>
+            <item>
+              <label>2013</label>
+              <value>2013</value>
+            </item>
+            <item>
+              <label>2014</label>
+              <value>2014</value>
+            </item>
+            <item>
+              <label>2015</label>
+              <value>2015</value>
+            </item>
+            <item>
+              <label>2016</label>
+              <value>2016</value>
+            </item>
+            <item>
+              <label>2017</label>
+              <value>2017</value>
+            </item>
+            <item>
+              <label>2018</label>
+              <value>2018</value>
+            </item>
+            <item>
+              <label>2019</label>
+              <value>2019</value>
+            </item>
+            <item>
+              <label>2020</label>
+              <value>2020</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/H2.3/telefonia/lineas/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/H2.3/telefonia/lineas/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/H2.3/telefonia/lineas/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/H2.3/telefonia/lineas/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/H2.3/telefonia/lineas/localidad_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/H2.3/telefonia/lineas/area">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/H2.3/telefonia/lineas/area_otro">
+            <label>Área Local Otros</label>
+            <hint>Área Local Otros</hint>
+          </input>
+          <input ref="/H2.3/telefonia/lineas/telefViaPublica">
+            <label>Teléfonos en vía pública</label>
+            <hint>Teléfonos en vía pública</hint>
+          </input>
+          <input ref="/H2.3/telefonia/lineas/lineasTelefoniaPublica">
+            <label>Líneas telefonía pública</label>
+            <hint>Líneas telefonía pública</hint>
+          </input>
+          <group appearance="col3" ref="/H2.3/telefonia/lineas/telPublica">
+            <label>Líneas Tel. Pública</label>
+            <input ref="/H2.3/telefonia/lineas/telPublica/telefSemiPublicos">
+              <label>Teléfonos semi-públicos</label>
+              <hint>Teléfonos semi-públicos</hint>
+            </input>
+            <input ref="/H2.3/telefonia/lineas/telPublica/locutorios">
+              <label>Locutorios</label>
+              <hint>Locutorios</hint>
+            </input>
+            <input ref="/H2.3/telefonia/lineas/telPublica/locuroriosCabinas">
+              <label>Locutorios / Cabinas públicas</label>
+              <hint>Locutorios / Cabinas públicas</hint>
+            </input>
+          </group>
+        </group>
+        <group appearance="col6 well-white" ref="/H2.3/telefonia/telefonosPublicos">
+          <label>Teléfonos Públicos</label>
+          <input ref="/H2.3/telefonia/telefonosPublicos/tpa">
+            <label>TPA (24 hs)</label>
+            <hint>Teléfono Público Alcancía disponible las 24 horas</hint>
+          </input>
+          <input ref="/H2.3/telefonia/telefonosPublicos/tpu">
+            <label>TPU</label>
+            <hint>Teléfono Público Urbano</hint>
+          </input>
+          <input ref="/H2.3/telefonia/telefonosPublicos/tsp">
+            <label>TSP</label>
+            <hint>Teléfono Social Público</hint>
+          </input>
+          <input ref="/H2.3/telefonia/telefonosPublicos/thih">
+            <label>THIH</label>
+            <hint>Teléfono para Hipoacúsicos e Impedidos del Habla</hint>
+          </input>
+          <input ref="/H2.3/telefonia/telefonosPublicos/sspld">
+            <label>SSPLD</label>
+            <hint>Servicio Semipúblico de Larga Distancia</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

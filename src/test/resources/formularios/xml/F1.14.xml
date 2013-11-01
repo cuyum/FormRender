@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario F1.14 - Calidad de servicio / Atención telefónica</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <F1.14 id="F1.14">
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <partido/>
+              <partido_otro/>
+              <localidad/>
+              <localidad_otro/>
+              <personal/>
+              <esperaPromedio/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </F1.14>
+      </instance>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/F1.14/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/F1.14/meses/mes/provincia" nodeset="/F1.14/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/F1.14/meses/mes/partido_otro" relevant=" /F1.14/meses/mes/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/F1.14/meses/mes/partido" nodeset="/F1.14/meses/mes/localidad" required="true()" type="select1"/>
+      <bind nodeset="/F1.14/meses/mes/localidad_otro" relevant=" /F1.14/meses/mes/localidad =9999" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999" jr:constraintMsg="Ingrese entero entre 0 y 999999" nodeset="/F1.14/meses/mes/personal" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999" jr:constraintMsg="Ingrese entero entre 0 y 999999" nodeset="/F1.14/meses/mes/esperaPromedio" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/F1.14/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/F1.14/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/F1.14/meses">
+        <group appearance="col3 well-white variable" ref="/F1.14/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/F1.14/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/F1.14/meses/mes/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/F1.14/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/F1.14/meses/mes/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/F1.14/meses/mes/localidad_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+          <input ref="/F1.14/meses/mes/personal">
+            <label>Personal</label>
+            <hint>Cantidad de empleados dedicados a la atención telefónica, normalizada de acuerdo al criterio explicitado en el Manual.</hint>
+          </input>
+          <input ref="/F1.14/meses/mes/esperaPromedio">
+            <label>Espera Promedio</label>
+            <hint>Minutos de espera promedio en la atención al cliente</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario G1.3 - Clientes operativos</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <G1.3 id="G1.3">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <partido/>
+              <partido_otro/>
+              <localidad/>
+              <localidad_otro/>
+              <area/>
+              <area_otro/>
+              <clientes/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </G1.3>
+      </instance>
+      <bind nodeset="/G1.3/titulo" readonly="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/G1.3/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/G1.3/meses/mes/provincia" nodeset="/G1.3/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/G1.3/meses/mes/partido_otro" relevant=" /G1.3/meses/mes/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/G1.3/meses/mes/partido" nodeset="/G1.3/meses/mes/localidad" required="true()" type="select1"/>
+      <bind nodeset="/G1.3/meses/mes/localidad_otro" relevant=" /G1.3/meses/mes/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/G1.3/meses/mes/localidad" nodeset="/G1.3/meses/mes/area" required="true()" type="select1"/>
+      <bind nodeset="/G1.3/meses/mes/area_otro" relevant=" /G1.3/meses/mes/area =9999" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/G1.3/meses/mes/clientes" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/G1.3/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/G1.3/titulo">
+      <hint>Informar datos al final del período considerado.</hint>
+    </input>
+    <group ref="/G1.3/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/G1.3/meses">
+        <group appearance="col6 well-white variable" ref="/G1.3/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/G1.3/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/G1.3/meses/mes/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/G1.3/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/G1.3/meses/mes/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/G1.3/meses/mes/localidad_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/G1.3/meses/mes/area">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/G1.3/meses/mes/area_otro">
+            <label>Área Otros</label>
+            <hint>Área Otros</hint>
+          </input>
+          <input ref="/G1.3/meses/mes/clientes">
+            <label>Clientes</label>
+            <hint>Clientes</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

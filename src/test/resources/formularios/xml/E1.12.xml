@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario E1.12 - Tráfico hacia Redes móviles II (# Llamadas)</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <E1.12 id="E1.12">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <partido/>
+              <partido_otro/>
+              <localidad/>
+              <localidad_otro/>
+              <ll>
+                <llOperador1/>
+                <llSaliente1/>
+                <llOperador2/>
+                <llSaliente2/>
+                <llOperador3/>
+                <llSaliente3/>
+                <llSalienteOtros/>
+              </ll>
+              <lldn>
+                <lldnOperador1/>
+                <lldnSaliente1/>
+                <lldnOperador2/>
+                <lldnSaliente2/>
+                <lldnOperador3/>
+                <lldnSaliente3/>
+                <lldnSalienteOtros/>
+              </lldn>
+              <lldi>
+                <lldiOperador1/>
+                <lldiSaliente1/>
+                <lldiOperador2/>
+                <lldiSaliente2/>
+                <lldiOperador3/>
+                <lldiSaliente3/>
+                <lldiSalienteOtros/>
+              </lldi>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </E1.12>
+      </instance>
+      <bind nodeset="/E1.12/titulo" readonly="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/E1.12/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/E1.12/meses/mes/provincia" nodeset="/E1.12/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/E1.12/meses/mes/partido_otro" relevant=" /E1.12/meses/mes/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/E1.12/meses/mes/partido" nodeset="/E1.12/meses/mes/localidad" required="true()" type="select1"/>
+      <bind nodeset="/E1.12/meses/mes/localidad_otro" relevant=" /E1.12/meses/mes/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/E1.12/meses/mes/ll/llOperador1" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.12/meses/mes/ll/llSaliente1" required="true()" type="int"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/E1.12/meses/mes/ll/llOperador2" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.12/meses/mes/ll/llSaliente2" type="int"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/E1.12/meses/mes/ll/llOperador3" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.12/meses/mes/ll/llSaliente3" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.12/meses/mes/ll/llSalienteOtros" type="int"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/E1.12/meses/mes/lldn/lldnOperador1" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.12/meses/mes/lldn/lldnSaliente1" required="true()" type="int"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/E1.12/meses/mes/lldn/lldnOperador2" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.12/meses/mes/lldn/lldnSaliente2" type="int"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/E1.12/meses/mes/lldn/lldnOperador3" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.12/meses/mes/lldn/lldnSaliente3" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.12/meses/mes/lldn/lldnSalienteOtros" type="int"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/E1.12/meses/mes/lldi/lldiOperador1" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.12/meses/mes/lldi/lldiSaliente1" required="true()" type="int"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/E1.12/meses/mes/lldi/lldiOperador2" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.12/meses/mes/lldi/lldiSaliente2" type="int"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/E1.12/meses/mes/lldi/lldiOperador3" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.12/meses/mes/lldi/lldiSaliente3" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.12/meses/mes/lldi/lldiSalienteOtros" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/E1.12/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/E1.12/titulo">
+      <hint>Consignar el tráfico saliente hacia redes móviles, en cantidad de llamadas, desagregado por operador y distancia. Seleccionar los operadores de mayor a menor en función del tráfico.</hint>
+    </input>
+    <group ref="/E1.12/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/E1.12/meses">
+        <group appearance="col3 well-white variable" ref="/E1.12/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/E1.12/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/E1.12/meses/mes/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/E1.12/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/E1.12/meses/mes/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/E1.12/meses/mes/localidad_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+          <group appearance="col2 well-white" ref="/E1.12/meses/mes/ll">
+            <label>L-L</label>
+            <select1 appearance="minimal" ref="/E1.12/meses/mes/ll/llOperador1">
+              <label>Operador 1</label>
+              <hint>Operador 1</hint>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+            </select1>
+            <input ref="/E1.12/meses/mes/ll/llSaliente1">
+              <label>Saliente 1</label>
+              <hint>Saliente 1 [en miles]</hint>
+            </input>
+            <select1 appearance="minimal" ref="/E1.12/meses/mes/ll/llOperador2">
+              <label>Operador 2</label>
+              <hint>Operador 2</hint>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+            </select1>
+            <input ref="/E1.12/meses/mes/ll/llSaliente2">
+              <label>Saliente 2</label>
+              <hint>Saliente 2 [en miles]</hint>
+            </input>
+            <select1 appearance="minimal" ref="/E1.12/meses/mes/ll/llOperador3">
+              <label>Operador 3</label>
+              <hint>Operador 3</hint>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+            </select1>
+            <input ref="/E1.12/meses/mes/ll/llSaliente3">
+              <label>Saliente 3</label>
+              <hint>Saliente 3 [en miles]</hint>
+            </input>
+            <input ref="/E1.12/meses/mes/ll/llSalienteOtros">
+              <label>Salientes Operador Otros</label>
+              <hint>Consignar el tráfico saliente no incluido en los campos precedentes [en miles]</hint>
+            </input>
+          </group>
+          <group appearance="col2 well-white" ref="/E1.12/meses/mes/lldn">
+            <label>L-LDN</label>
+            <select1 appearance="minimal" ref="/E1.12/meses/mes/lldn/lldnOperador1">
+              <label>Operador 1</label>
+              <hint>Operador 1</hint>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+            </select1>
+            <input ref="/E1.12/meses/mes/lldn/lldnSaliente1">
+              <label>Saliente 1</label>
+              <hint>Saliente 1 [en miles]</hint>
+            </input>
+            <select1 appearance="minimal" ref="/E1.12/meses/mes/lldn/lldnOperador2">
+              <label>Operador 2</label>
+              <hint>Operador 2</hint>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+            </select1>
+            <input ref="/E1.12/meses/mes/lldn/lldnSaliente2">
+              <label>Saliente 2</label>
+              <hint>Saliente 2 [en miles]</hint>
+            </input>
+            <select1 appearance="minimal" ref="/E1.12/meses/mes/lldn/lldnOperador3">
+              <label>Operador 3</label>
+              <hint>Operador 3</hint>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+            </select1>
+            <input ref="/E1.12/meses/mes/lldn/lldnSaliente3">
+              <label>Saliente 3</label>
+              <hint>Saliente 3 [en miles]</hint>
+            </input>
+            <input ref="/E1.12/meses/mes/lldn/lldnSalienteOtros">
+              <label>Salientes Operador Otros</label>
+              <hint>Consignar el tráfico saliente no incluido en los campos precedentes [en miles]</hint>
+            </input>
+          </group>
+          <group appearance="col2 well-white" ref="/E1.12/meses/mes/lldi">
+            <label>L-LDI</label>
+            <select1 appearance="minimal" ref="/E1.12/meses/mes/lldi/lldiOperador1">
+              <label>Operador 1</label>
+              <hint>Operador 1</hint>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+            </select1>
+            <input ref="/E1.12/meses/mes/lldi/lldiSaliente1">
+              <label>Saliente 1</label>
+              <hint>Saliente 1 [en miles]</hint>
+            </input>
+            <select1 appearance="minimal" ref="/E1.12/meses/mes/lldi/lldiOperador2">
+              <label>Operador 2</label>
+              <hint>Operador 2</hint>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+            </select1>
+            <input ref="/E1.12/meses/mes/lldi/lldiSaliente2">
+              <label>Saliente 2</label>
+              <hint>Saliente 2 [en miles]</hint>
+            </input>
+            <select1 appearance="minimal" ref="/E1.12/meses/mes/lldi/lldiOperador3">
+              <label>Operador 3</label>
+              <hint>Operador 3</hint>
+              <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
+            </select1>
+            <input ref="/E1.12/meses/mes/lldi/lldiSaliente3">
+              <label>Saliente 3</label>
+              <hint>Saliente 3 [en miles]</hint>
+            </input>
+            <input ref="/E1.12/meses/mes/lldi/lldiSalienteOtros">
+              <label>Salientes Operador Otros</label>
+              <hint>Consignar el tráfico saliente no incluido en los campos precedentes [en miles]</hint>
+            </input>
+          </group>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

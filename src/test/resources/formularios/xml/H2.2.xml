@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario H2.2 - Provisión de líneas</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <H2.2 id="H2.2">
+          <titulo/>
+          <areasprest jr:template="">
+            <lineas>
+              <anio/>
+              <provincia/>
+              <partido/>
+              <partido_otro/>
+              <localidad/>
+              <localidad_otro/>
+              <area/>
+              <area_otro/>
+              <operador/>
+              <lineas/>
+            </lineas>
+          </areasprest>
+          <meta>
+            <instanceID/>
+          </meta>
+        </H2.2>
+      </instance>
+      <bind nodeset="/H2.2/titulo" readonly="true()" type="string"/>
+      <bind nodeset="/H2.2/areasprest/lineas/anio" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/H2.2/areasprest/lineas/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/H2.2/areasprest/lineas/provincia" nodeset="/H2.2/areasprest/lineas/partido" required="true()" type="select1"/>
+      <bind nodeset="/H2.2/areasprest/lineas/partido_otro" relevant=" /H2.2/areasprest/lineas/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/H2.2/areasprest/lineas/partido" nodeset="/H2.2/areasprest/lineas/localidad" required="true()" type="select1"/>
+      <bind nodeset="/H2.2/areasprest/lineas/localidad_otro" relevant=" /H2.2/areasprest/lineas/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/H2.2/areasprest/lineas/localidad" nodeset="/H2.2/areasprest/lineas/area" required="true()" type="select1"/>
+      <bind nodeset="/H2.2/areasprest/lineas/area_otro" relevant=" /H2.2/areasprest/lineas/area =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/H2.2/areasprest/lineas/operador" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/H2.2/areasprest/lineas/lineas" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/H2.2/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/H2.2/titulo">
+      <hint>Cantidad de líneas provistas por período, por área local.</hint>
+    </input>
+    <group ref="/H2.2/areasprest">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/H2.2/areasprest">
+        <group appearance="col4 well-white" ref="/H2.2/areasprest/lineas">
+          <label>Líneas</label>
+          <select1 appearance="minimal" ref="/H2.2/areasprest/lineas/anio">
+            <label>Año</label>
+            <hint>Año</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>2010</label>
+              <value>2010</value>
+            </item>
+            <item>
+              <label>2011</label>
+              <value>2011</value>
+            </item>
+            <item>
+              <label>2012</label>
+              <value>2012</value>
+            </item>
+            <item>
+              <label>2013</label>
+              <value>2013</value>
+            </item>
+            <item>
+              <label>2014</label>
+              <value>2014</value>
+            </item>
+            <item>
+              <label>2015</label>
+              <value>2015</value>
+            </item>
+            <item>
+              <label>2016</label>
+              <value>2016</value>
+            </item>
+            <item>
+              <label>2017</label>
+              <value>2017</value>
+            </item>
+            <item>
+              <label>2018</label>
+              <value>2018</value>
+            </item>
+            <item>
+              <label>2019</label>
+              <value>2019</value>
+            </item>
+            <item>
+              <label>2020</label>
+              <value>2020</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/H2.2/areasprest/lineas/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/H2.2/areasprest/lineas/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/H2.2/areasprest/lineas/partido_otro">
+            <label>Partido Otros</label>
+          </input>
+          <select1 appearance="minimal" ref="/H2.2/areasprest/lineas/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/H2.2/areasprest/lineas/localidad_otro">
+            <label>Localidad Otros</label>
+          </input>
+          <select1 appearance="minimal" ref="/H2.2/areasprest/lineas/area">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/H2.2/areasprest/lineas/area_otro">
+            <label>Área Otros</label>
+          </input>
+          <select1 appearance="minimal" ref="/H2.2/areasprest/lineas/operador">
+            <label>Operador Local</label>
+            <hint>Operador Local</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/H2.2/areasprest/lineas/lineas">
+            <label># Líneas</label>
+            <hint># Líneas</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

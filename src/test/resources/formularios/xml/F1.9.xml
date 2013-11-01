@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario F1.9 - Tráfico internacional</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <F1.9 id="F1.9">
+          <meses jr:template="">
+            <mes>
+              <entrante/>
+              <saliente/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </F1.9>
+      </instance>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.9/meses/mes/entrante" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.9/meses/mes/saliente" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/F1.9/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/F1.9/meses">
+      <label></label>
+      <repeat nodeset="/F1.9/meses">
+        <group appearance="col1 well-white variable" ref="/F1.9/meses/mes">
+          <label>{title}</label>
+          <input ref="/F1.9/meses/mes/entrante">
+            <label>Entrante</label>
+            <hint>Entrante [Mbps]</hint>
+          </input>
+          <input ref="/F1.9/meses/mes/saliente">
+            <label>Saliente</label>
+            <hint>Saliente [Mbps]</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario E1.13 - Tráfico de datos</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <E1.13 id="E1.13">
+          <areas>
+            <provincia/>
+            <partido/>
+            <partido_otro/>
+            <localidad/>
+            <localidad_otro/>
+            <datos/>
+          </areas>
+          <meta>
+            <instanceID/>
+          </meta>
+        </E1.13>
+      </instance>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/E1.13/areas/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/E1.13/areas/provincia" nodeset="/E1.13/areas/partido" required="true()" type="select1"/>
+      <bind nodeset="/E1.13/areas/partido_otro" relevant=" /E1.13/areas/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/E1.13/areas/partido" nodeset="/E1.13/areas/localidad" required="true()" type="select1"/>
+      <bind nodeset="/E1.13/areas/localidad_otro" relevant=" /E1.13/areas/localidad =9999" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/E1.13/areas/datos" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/E1.13/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col4 well-white" ref="/E1.13/areas">
+      <label>Áreas de prestación</label>
+      <select1 appearance="minimal" ref="/E1.13/areas/provincia">
+        <label>Provincia</label>
+        <hint>Provincia</hint>
+        <item>
+          <label>Seleccione una opción</label>
+          <value>-1</value>
+        </item>
+      </select1>
+      <select1 appearance="minimal" ref="/E1.13/areas/partido">
+        <label>Partido / Departamento</label>
+        <hint>Partido/Departamento</hint>
+        <item>
+          <label>Seleccione una opción</label>
+          <value>-1</value>
+        </item>
+      </select1>
+      <input ref="/E1.13/areas/partido_otro">
+        <label>Partido Otros</label>
+        <hint>Partido Otros</hint>
+      </input>
+      <select1 appearance="minimal" ref="/E1.13/areas/localidad">
+        <label>Localidad</label>
+        <hint>Localidad</hint>
+        <item>
+          <label>Seleccione una opción</label>
+          <value>-1</value>
+        </item>
+      </select1>
+      <input ref="/E1.13/areas/localidad_otro">
+        <label>Localidad Otros</label>
+        <hint>Localidad Otros</hint>
+      </input>
+      <input ref="/E1.13/areas/datos">
+        <label>Datos</label>
+        <hint>Mbts</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

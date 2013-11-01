@@ -54,7 +54,7 @@ public class RepeatItem extends Componente {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode nodo = mapper.createObjectNode();
 		nodo.put("string", value);
-		return nodo.get("string");
+		return (value==null)?null:nodo.get("string");
 	}
 
 }

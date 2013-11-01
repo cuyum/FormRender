@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.53 - Financiamiento SU / Subsidios</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <C1.53 id="C1.53">
+          <titulo/>
+          <financ>
+            <financiamientoSu/>
+            <subsidiosTasaInteres/>
+            <subsidiosImpositivos/>
+            <subsidiosOtros/>
+          </financ>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.53>
+      </instance>
+      <bind nodeset="/C1.53/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.53/financ/financiamientoSu" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.53/financ/subsidiosTasaInteres" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.53/financ/subsidiosImpositivos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.53/financ/subsidiosOtros" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.53/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/C1.53/titulo">
+      <hint>Completar en base a la contabilidad del prestador. Comprende el monto anual recibido en concepto de subsidios incluyendo subsidios de tasas de interés, impositivos y servicio universal, entre otros.</hint>
+    </input>
+    <group appearance="col4 well-white" ref="/C1.53/financ">
+      <label>Financiamiento</label>
+      <input ref="/C1.53/financ/financiamientoSu">
+        <label>Financiamiento con SU</label>
+        <hint>Financiamiento con SU [en miles de pesos]</hint>
+      </input>
+      <input ref="/C1.53/financ/subsidiosTasaInteres">
+        <label>Subsidios tasa de Interés</label>
+        <hint>Subsidios tasa de Interés [en miles de pesos]</hint>
+      </input>
+      <input ref="/C1.53/financ/subsidiosImpositivos">
+        <label>Subsidios Impositivos</label>
+        <hint>Subsidios Impositivos [en miles de pesos]</hint>
+      </input>
+      <input ref="/C1.53/financ/subsidiosOtros">
+        <label>Otros Subsidios</label>
+        <hint>Consignar el resto de subsidios hasta completar el total [en miles de pesos]</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

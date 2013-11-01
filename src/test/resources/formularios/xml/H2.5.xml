@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario H2.5 - Ingresos</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <H2.5 id="H2.5">
+          <titulo/>
+          <ingresos>
+            <abono/>
+            <trafico>
+              <urbano/>
+              <interurbano/>
+              <internacional/>
+            </trafico>
+            <tot>
+              <total/>
+            </tot>
+          </ingresos>
+          <meta>
+            <instanceID/>
+          </meta>
+        </H2.5>
+      </instance>
+      <bind nodeset="/H2.5/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999999" nodeset="/H2.5/ingresos/abono" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999999" nodeset="/H2.5/ingresos/trafico/urbano" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999999" nodeset="/H2.5/ingresos/trafico/interurbano" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999999" nodeset="/H2.5/ingresos/trafico/internacional" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999999" nodeset="/H2.5/ingresos/tot/total" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/H2.5/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/H2.5/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
+    <group appearance="col4 well-white" ref="/H2.5/ingresos">
+      <label>Ingresos</label>
+      <input ref="/H2.5/ingresos/abono">
+        <label>Abono</label>
+        <hint>Abono</hint>
+      </input>
+      <group appearance="col3 well-white" ref="/H2.5/ingresos/trafico">
+        <label>Tráfico</label>
+        <input ref="/H2.5/ingresos/trafico/urbano">
+          <label>Urbano</label>
+          <hint>Urbano</hint>
+        </input>
+        <input ref="/H2.5/ingresos/trafico/interurbano">
+          <label>Interurbano</label>
+          <hint>Interurbano</hint>
+        </input>
+        <input ref="/H2.5/ingresos/trafico/internacional">
+          <label>Internacional</label>
+          <hint>Internacional</hint>
+        </input>
+      </group>
+      
+        <input ref="/H2.5/ingresos/tot/total">
+          <label>Total</label>
+          <hint>Total</hint>
+        </input>
+      
+    </group>
+  </h:body>
+</h:html>

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario D1.17 - Roaming (minutos)</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <D1.17 id="D1.17">
+          <roaming>
+            <nacional>
+              <nacionalEntrante/>
+              <nacionalSaliente/>
+            </nacional>
+            <internacional>
+              <internacEntrante/>
+              <internacSaliente/>
+            </internacional>
+          </roaming>
+          <meta>
+            <instanceID/>
+          </meta>
+        </D1.17>
+      </instance>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/D1.17/roaming/nacional/nacionalEntrante" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/D1.17/roaming/nacional/nacionalSaliente" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/D1.17/roaming/internacional/internacEntrante" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/D1.17/roaming/internacional/internacSaliente" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/D1.17/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col1 well-white" ref="/D1.17/roaming">
+      <group appearance="col2 well-white" ref="/D1.17/roaming/nacional">
+        <label>Nacional</label>
+        <input ref="/D1.17/roaming/nacional/nacionalEntrante">
+          <label>Entrante</label>
+          <hint>Entrante</hint>
+        </input>
+        <input ref="/D1.17/roaming/nacional/nacionalSaliente">
+          <label>Saliente</label>
+          <hint>Saliente</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/D1.17/roaming/internacional">
+        <label>Internacional</label>
+        <input ref="/D1.17/roaming/internacional/internacEntrante">
+          <label>Entrante</label>
+          <hint>Entrante</hint>
+        </input>
+        <input ref="/D1.17/roaming/internacional/internacSaliente">
+          <label>Saliente</label>
+          <hint>Saliente</hint>
+        </input>
+      </group>
+    </group>
+  </h:body>
+</h:html>

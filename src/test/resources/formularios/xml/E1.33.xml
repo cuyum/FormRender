@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario E1.33 - Otros ingresos</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <E1.33 id="E1.33">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <alquilerSitios/>
+              <cpp/>
+              <ventaEquipos/>
+              <ventaAccesorios/>
+              <otrosIngresos/>
+              <total/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </E1.33>
+      </instance>
+      <bind nodeset="/E1.33/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.33/meses/mes/alquilerSitios" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.33/meses/mes/cpp" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.33/meses/mes/ventaEquipos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.33/meses/mes/ventaAccesorios" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.33/meses/mes/otrosIngresos" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/E1.33/meses/mes/total" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/E1.33/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/E1.33/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
+    <group ref="/E1.33/meses">
+      <label></label>
+      <repeat nodeset="/E1.33/meses">
+        <group appearance="col3 well-white variable" ref="/E1.33/meses/mes">
+          <label>{title}</label>
+          <input ref="/E1.33/meses/mes/alquilerSitios">
+            <label>Ventas SIM cards</label>
+            <hint>Ventas SIM cards [en miles de pesos]</hint>
+          </input>
+          <input ref="/E1.33/meses/mes/cpp">
+            <label>Venta tarj. prepagas / otras modalidades</label>
+            <hint>Venta de tarjetas Prepagas u otras modalidades [en miles de pesos]</hint>
+          </input>
+          <input ref="/E1.33/meses/mes/ventaEquipos">
+            <label>Ventas de equipos</label>
+            <hint>Venta de equipos [en miles de pesos]</hint>
+          </input>
+          <input ref="/E1.33/meses/mes/ventaAccesorios">
+            <label>Ventas de accesorios</label>
+            <hint>Venta de accesorios [en miles de pesos]</hint>
+          </input>
+          <input ref="/E1.33/meses/mes/otrosIngresos">
+            <label>Otros ingresos</label>
+            <hint>Informar lo que no está incluído en los campos precedentes y los formulairos E1.30 / E1.31 y E1.32 [en miles de pesos]</hint>
+          </input>
+          <input ref="/E1.33/meses/mes/total">
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

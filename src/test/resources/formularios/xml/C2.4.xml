@@ -1,0 +1,609 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C2.4 - Tarifa / Precio minuto de comunicación telefonía pública</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <C2.4 id="C2.4">
+          <titulo/>
+          <local>
+            <tarifaLocal>
+              <tarifaLocalHN/>
+              <tarifaLocalHR/>
+            </tarifaLocal>
+            <ritmoLocal>
+              <ritmoLocalHN/>
+              <ritmoLocalHR/>
+            </ritmoLocal>
+          </local>
+          <ldnClave1>
+            <tarifaClave1>
+              <tarifaClave1HN/>
+              <tarifaClave1HR/>
+            </tarifaClave1>
+            <ritmoClave1>
+              <ritmoClave1HN/>
+              <ritmoClave1HR/>
+            </ritmoClave1>
+          </ldnClave1>
+          <ldnClave2>
+            <tarifaClave2>
+              <tarifaClave2HN/>
+              <tarifaClave2HR/>
+            </tarifaClave2>
+            <ritmoClave2>
+              <ritmoClave2HN/>
+              <ritmoClave2HR/>
+            </ritmoClave2>
+          </ldnClave2>
+          <ldnClave3>
+            <tarifaClave3>
+              <tarifaClave3HN/>
+              <tarifaClave3HR/>
+            </tarifaClave3>
+            <ritmoClave3>
+              <ritmoClave3HN/>
+              <ritmoClave3HR/>
+            </ritmoClave3>
+          </ldnClave3>
+          <ldnClave4>
+            <tarifaClave4>
+              <tarifaClave4HN/>
+              <tarifaClave4HR/>
+            </tarifaClave4>
+            <ritmoClave4>
+              <ritmoClave4HN/>
+              <ritmoClave4HR/>
+            </ritmoClave4>
+          </ldnClave4>
+          <ldnClave5>
+            <tarifaClave5>
+              <tarifaClave5HN/>
+              <tarifaClave5HR/>
+            </tarifaClave5>
+            <ritmoClave5>
+              <ritmoClave5HN/>
+              <ritmoClave5HR/>
+            </ritmoClave5>
+          </ldnClave5>
+          <ldnClave6>
+            <tarifaClave6>
+              <tarifaClave6HN/>
+              <tarifaClave6HR/>
+            </tarifaClave6>
+            <ritmoClave6>
+              <ritmoClave6HN/>
+              <ritmoClave6HR/>
+            </ritmoClave6>
+          </ldnClave6>
+          <ldiFronterizo>
+            <tarifaLdiFronterizo>
+              <tarifaLdiFronterizoHN/>
+              <tarifaLdiFronterizoHR/>
+            </tarifaLdiFronterizo>
+            <ritmoLdiFronterizo>
+              <ritmoLdiFronterizoHN/>
+              <ritmoLdiFronterizoHR/>
+            </ritmoLdiFronterizo>
+          </ldiFronterizo>
+          <ldiAmericaSur>
+            <tarifaAmericaSur>
+              <tarifaAmericaSurHN/>
+              <tarifaAmericaSurHR/>
+            </tarifaAmericaSur>
+            <ritmoAmericaSur>
+              <ritmoAmericaSurHN/>
+              <ritmoAmericaSurHR/>
+            </ritmoAmericaSur>
+          </ldiAmericaSur>
+          <ldiAmCentral>
+            <tarifaAmCentral>
+              <tarifaAmCentralHN/>
+              <tarifaAmCentralHR/>
+            </tarifaAmCentral>
+            <ritmoAmCentral>
+              <ritmoAmCentralHN/>
+              <ritmoAmCentralHR/>
+            </ritmoAmCentral>
+          </ldiAmCentral>
+          <ldiAmNorte>
+            <tarifaAmNorte>
+              <tarifaAmNorteHN/>
+              <tarifaAmNorteHR/>
+            </tarifaAmNorte>
+            <ritmoAmNorte>
+              <ritmoAmNorteHN/>
+              <ritmoAmNorteHR/>
+            </ritmoAmNorte>
+          </ldiAmNorte>
+          <ldiEuropa>
+            <tarifaEuropa>
+              <tarifaEuropaHN/>
+              <tarifaEuropaHR/>
+            </tarifaEuropa>
+            <ritmoEuropa>
+              <ritmoEuropaHN/>
+              <ritmoEuropaHR/>
+            </ritmoEuropa>
+          </ldiEuropa>
+          <ldiAfrica>
+            <tarifaAfrica>
+              <tarifaAfricaHN/>
+              <tarifaAfricaHR/>
+            </tarifaAfrica>
+            <ritmoAfrica>
+              <ritmoAfricaHN/>
+              <ritmoAfricaHR/>
+            </ritmoAfrica>
+          </ldiAfrica>
+          <ldiAsia>
+            <tarifaAsia>
+              <tarifaAsiaHN/>
+              <tarifaAsiaHR/>
+            </tarifaAsia>
+            <ritmoAsia>
+              <ritmoAsiaHN/>
+              <ritmoAsiaHR/>
+            </ritmoAsia>
+          </ldiAsia>
+          <ldiOceania>
+            <tarifaOceania>
+              <tarifaOceaniaHN/>
+              <tarifaOceaniaHR/>
+            </tarifaOceania>
+            <ritmoOceania>
+              <ritmoOceaniaHN/>
+              <ritmoOceaniaHR/>
+            </ritmoOceania>
+          </ldiOceania>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C2.4>
+      </instance>
+      <bind nodeset="/C2.4/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/local/tarifaLocal/tarifaLocalHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/local/tarifaLocal/tarifaLocalHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/local/ritmoLocal/ritmoLocalHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/local/ritmoLocal/ritmoLocalHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave1/tarifaClave1/tarifaClave1HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave1/tarifaClave1/tarifaClave1HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave1/ritmoClave1/ritmoClave1HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave1/ritmoClave1/ritmoClave1HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave2/tarifaClave2/tarifaClave2HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave2/tarifaClave2/tarifaClave2HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave2/ritmoClave2/ritmoClave2HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave2/ritmoClave2/ritmoClave2HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave3/tarifaClave3/tarifaClave3HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave3/tarifaClave3/tarifaClave3HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave3/ritmoClave3/ritmoClave3HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave3/ritmoClave3/ritmoClave3HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave4/tarifaClave4/tarifaClave4HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave4/tarifaClave4/tarifaClave4HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave4/ritmoClave4/ritmoClave4HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave4/ritmoClave4/ritmoClave4HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave5/tarifaClave5/tarifaClave5HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave5/tarifaClave5/tarifaClave5HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave5/ritmoClave5/ritmoClave5HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave5/ritmoClave5/ritmoClave5HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave6/tarifaClave6/tarifaClave6HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave6/tarifaClave6/tarifaClave6HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave6/ritmoClave6/ritmoClave6HN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldnClave6/ritmoClave6/ritmoClave6HR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiFronterizo/tarifaLdiFronterizo/tarifaLdiFronterizoHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiFronterizo/tarifaLdiFronterizo/tarifaLdiFronterizoHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiFronterizo/ritmoLdiFronterizo/ritmoLdiFronterizoHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiFronterizo/ritmoLdiFronterizo/ritmoLdiFronterizoHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiAmericaSur/tarifaAmericaSur/tarifaAmericaSurHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiAmericaSur/tarifaAmericaSur/tarifaAmericaSurHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiAmericaSur/ritmoAmericaSur/ritmoAmericaSurHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiAmericaSur/ritmoAmericaSur/ritmoAmericaSurHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiAmCentral/tarifaAmCentral/tarifaAmCentralHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiAmCentral/tarifaAmCentral/tarifaAmCentralHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiAmCentral/ritmoAmCentral/ritmoAmCentralHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiAmCentral/ritmoAmCentral/ritmoAmCentralHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiAmNorte/tarifaAmNorte/tarifaAmNorteHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiAmNorte/tarifaAmNorte/tarifaAmNorteHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiAmNorte/ritmoAmNorte/ritmoAmNorteHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiAmNorte/ritmoAmNorte/ritmoAmNorteHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiEuropa/tarifaEuropa/tarifaEuropaHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiEuropa/tarifaEuropa/tarifaEuropaHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiEuropa/ritmoEuropa/ritmoEuropaHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiEuropa/ritmoEuropa/ritmoEuropaHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiAfrica/tarifaAfrica/tarifaAfricaHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiAfrica/tarifaAfrica/tarifaAfricaHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiAfrica/ritmoAfrica/ritmoAfricaHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiAfrica/ritmoAfrica/ritmoAfricaHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiAsia/tarifaAsia/tarifaAsiaHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiAsia/tarifaAsia/tarifaAsiaHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiAsia/ritmoAsia/ritmoAsiaHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiAsia/ritmoAsia/ritmoAsiaHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiOceania/tarifaOceania/tarifaOceaniaHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiOceania/tarifaOceania/tarifaOceaniaHR" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiOceania/ritmoOceania/ritmoOceaniaHN" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.999" nodeset="/C2.4/ldiOceania/ritmoOceania/ritmoOceaniaHR" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C2.4/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/C2.4/titulo">
+      <hint>Informar datos al final del período. Todos los valores monetarios deben ser expresados sin IVA.</hint>
+    </input>
+    <group appearance="col1 well-white" ref="/C2.4/local">
+      <label>Ficha / Unidad / Minuto local</label>
+      <group appearance="col2 well-white" ref="/C2.4/local/tarifaLocal">
+        <label>Tarifa / Precio</label>
+        <input ref="/C2.4/local/tarifaLocal/tarifaLocalHN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/local/tarifaLocal/tarifaLocalHR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/C2.4/local/ritmoLocal">
+        <label>Ritmo de Tasación / Duración unidad</label>
+        <input ref="/C2.4/local/ritmoLocal/ritmoLocalHN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/local/ritmoLocal/ritmoLocalHR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/C2.4/ldnClave1">
+      <label>Ficha / Unidad / Minuto LDN Clave 1 (hasta 30 km)</label>
+      <group appearance="col2 well-white" ref="/C2.4/ldnClave1/tarifaClave1">
+        <label>Tarifa / Precio</label>
+        <input ref="/C2.4/ldnClave1/tarifaClave1/tarifaClave1HN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldnClave1/tarifaClave1/tarifaClave1HR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/C2.4/ldnClave1/ritmoClave1">
+        <label>Ritmo de Tasación / Duración unidad</label>
+        <input ref="/C2.4/ldnClave1/ritmoClave1/ritmoClave1HN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldnClave1/ritmoClave1/ritmoClave1HR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/C2.4/ldnClave2">
+      <label>Ficha / Unidad / Minuto LDN Clave 2 (hasta 55 km)</label>
+      <group appearance="col2 well-white" ref="/C2.4/ldnClave2/tarifaClave2">
+        <label>Tarifa / Precio</label>
+        <input ref="/C2.4/ldnClave2/tarifaClave2/tarifaClave2HN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldnClave2/tarifaClave2/tarifaClave2HR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/C2.4/ldnClave2/ritmoClave2">
+        <label>Ritmo de Tasación / Duración unidad</label>
+        <input ref="/C2.4/ldnClave2/ritmoClave2/ritmoClave2HN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldnClave2/ritmoClave2/ritmoClave2HR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/C2.4/ldnClave3">
+      <label>Ficha / Unidad / Minuto LDN Clave 3 (hasta 110 km)</label>
+      <group appearance="col2 well-white" ref="/C2.4/ldnClave3/tarifaClave3">
+        <label>Tarifa / Precio</label>
+        <input ref="/C2.4/ldnClave3/tarifaClave3/tarifaClave3HN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldnClave3/tarifaClave3/tarifaClave3HR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/C2.4/ldnClave3/ritmoClave3">
+        <label>Ritmo de Tasación / Duración unidad</label>
+        <input ref="/C2.4/ldnClave3/ritmoClave3/ritmoClave3HN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldnClave3/ritmoClave3/ritmoClave3HR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/C2.4/ldnClave4">
+      <label>Ficha / Unidad / Minuto LDN Clave 4 (hasta 170 km)</label>
+      <group appearance="col2 well-white" ref="/C2.4/ldnClave4/tarifaClave4">
+        <label>Tarifa / Precio</label>
+        <input ref="/C2.4/ldnClave4/tarifaClave4/tarifaClave4HN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldnClave4/tarifaClave4/tarifaClave4HR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/C2.4/ldnClave4/ritmoClave4">
+        <label>Ritmo de Tasación / Duración unidad</label>
+        <input ref="/C2.4/ldnClave4/ritmoClave4/ritmoClave4HN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldnClave4/ritmoClave4/ritmoClave4HR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/C2.4/ldnClave5">
+      <label>Ficha / Unidad / Minuto LDN Clave 5 (hasta 240 km)</label>
+      <group appearance="col2 well-white" ref="/C2.4/ldnClave5/tarifaClave5">
+        <label>Tarifa / Precio</label>
+        <input ref="/C2.4/ldnClave5/tarifaClave5/tarifaClave5HN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldnClave5/tarifaClave5/tarifaClave5HR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/C2.4/ldnClave5/ritmoClave5">
+        <label>Ritmo de Tasación / Duración unidad</label>
+        <input ref="/C2.4/ldnClave5/ritmoClave5/ritmoClave5HN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldnClave5/ritmoClave5/ritmoClave5HR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/C2.4/ldnClave6">
+      <label>Ficha / Unidad / Minuto LDN Clave 6-12 (más de 240 km)</label>
+      <group appearance="col2 well-white" ref="/C2.4/ldnClave6/tarifaClave6">
+        <label>Tarifa / Precio</label>
+        <input ref="/C2.4/ldnClave6/tarifaClave6/tarifaClave6HN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldnClave6/tarifaClave6/tarifaClave6HR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/C2.4/ldnClave6/ritmoClave6">
+        <label>Ritmo de Tasación / Duración unidad</label>
+        <input ref="/C2.4/ldnClave6/ritmoClave6/ritmoClave6HN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldnClave6/ritmoClave6/ritmoClave6HR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/C2.4/ldiFronterizo">
+      <label>Ficha / Unidad / Minuto LDI de salida promedio fronterizo</label>
+      <group appearance="col2 well-white" ref="/C2.4/ldiFronterizo/tarifaLdiFronterizo">
+        <label>Tarifa / Precio</label>
+        <input ref="/C2.4/ldiFronterizo/tarifaLdiFronterizo/tarifaLdiFronterizoHN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldiFronterizo/tarifaLdiFronterizo/tarifaLdiFronterizoHR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/C2.4/ldiFronterizo/ritmoLdiFronterizo">
+        <label>Ritmo de Tasación / Duración unidad</label>
+        <input ref="/C2.4/ldiFronterizo/ritmoLdiFronterizo/ritmoLdiFronterizoHN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldiFronterizo/ritmoLdiFronterizo/ritmoLdiFronterizoHR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/C2.4/ldiAmericaSur">
+      <label>Ficha / Unidad / Minuto LDI de salida promedio América del Sur</label>
+      <group appearance="col2 well-white" ref="/C2.4/ldiAmericaSur/tarifaAmericaSur">
+        <label>Tarifa / Precio</label>
+        <input ref="/C2.4/ldiAmericaSur/tarifaAmericaSur/tarifaAmericaSurHN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldiAmericaSur/tarifaAmericaSur/tarifaAmericaSurHR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/C2.4/ldiAmericaSur/ritmoAmericaSur">
+        <label>Ritmo de Tasación / Duración unidad</label>
+        <input ref="/C2.4/ldiAmericaSur/ritmoAmericaSur/ritmoAmericaSurHN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldiAmericaSur/ritmoAmericaSur/ritmoAmericaSurHR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/C2.4/ldiAmCentral">
+      <label>Ficha / Unidad / Minuto LDI de salida promedio América Central</label>
+      <group appearance="col2 well-white" ref="/C2.4/ldiAmCentral/tarifaAmCentral">
+        <label>Tarifa / Precio</label>
+        <input ref="/C2.4/ldiAmCentral/tarifaAmCentral/tarifaAmCentralHN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldiAmCentral/tarifaAmCentral/tarifaAmCentralHR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/C2.4/ldiAmCentral/ritmoAmCentral">
+        <label>Ritmo de Tasación / Duración unidad</label>
+        <input ref="/C2.4/ldiAmCentral/ritmoAmCentral/ritmoAmCentralHN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldiAmCentral/ritmoAmCentral/ritmoAmCentralHR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/C2.4/ldiAmNorte">
+      <label>Ficha / Unidad / Minuto LDI de salida promedio América del Norte</label>
+      <group appearance="col2 well-white" ref="/C2.4/ldiAmNorte/tarifaAmNorte">
+        <label>Tarifa / Precio</label>
+        <input ref="/C2.4/ldiAmNorte/tarifaAmNorte/tarifaAmNorteHN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldiAmNorte/tarifaAmNorte/tarifaAmNorteHR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/C2.4/ldiAmNorte/ritmoAmNorte">
+        <label>Ritmo de Tasación / Duración unidad</label>
+        <input ref="/C2.4/ldiAmNorte/ritmoAmNorte/ritmoAmNorteHN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldiAmNorte/ritmoAmNorte/ritmoAmNorteHR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/C2.4/ldiEuropa">
+      <label>Ficha / Unidad / Minuto LDI de salida promedio Europa</label>
+      <group appearance="col2 well-white" ref="/C2.4/ldiEuropa/tarifaEuropa">
+        <label>Tarifa / Precio</label>
+        <input ref="/C2.4/ldiEuropa/tarifaEuropa/tarifaEuropaHN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldiEuropa/tarifaEuropa/tarifaEuropaHR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/C2.4/ldiEuropa/ritmoEuropa">
+        <label>Ritmo de Tasación / Duración unidad</label>
+        <input ref="/C2.4/ldiEuropa/ritmoEuropa/ritmoEuropaHN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldiEuropa/ritmoEuropa/ritmoEuropaHR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/C2.4/ldiAfrica">
+      <label>Ficha / Unidad / Minuto LDI de salida promedio África</label>
+      <group appearance="col2 well-white" ref="/C2.4/ldiAfrica/tarifaAfrica">
+        <label>Tarifa / Precio</label>
+        <input ref="/C2.4/ldiAfrica/tarifaAfrica/tarifaAfricaHN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldiAfrica/tarifaAfrica/tarifaAfricaHR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/C2.4/ldiAfrica/ritmoAfrica">
+        <label>Ritmo de Tasación / Duración unidad</label>
+        <input ref="/C2.4/ldiAfrica/ritmoAfrica/ritmoAfricaHN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldiAfrica/ritmoAfrica/ritmoAfricaHR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/C2.4/ldiAsia">
+      <label>Ficha / Unidad / Minuto LDI de salida promedio Asia</label>
+      <group appearance="col2 well-white" ref="/C2.4/ldiAsia/tarifaAsia">
+        <label>Tarifa / Precio</label>
+        <input ref="/C2.4/ldiAsia/tarifaAsia/tarifaAsiaHN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldiAsia/tarifaAsia/tarifaAsiaHR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/C2.4/ldiAsia/ritmoAsia">
+        <label>Ritmo de Tasación / Duración unidad</label>
+        <input ref="/C2.4/ldiAsia/ritmoAsia/ritmoAsiaHN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldiAsia/ritmoAsia/ritmoAsiaHR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+    </group>
+    <group appearance="col1 well-white" ref="/C2.4/ldiOceania">
+      <label>Ficha / Unidad / Minuto LDI de salida promedio Oceanía</label>
+      <group appearance="col2 well-white" ref="/C2.4/ldiOceania/tarifaOceania">
+        <label>Tarifa / Precio</label>
+        <input ref="/C2.4/ldiOceania/tarifaOceania/tarifaOceaniaHN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldiOceania/tarifaOceania/tarifaOceaniaHR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/C2.4/ldiOceania/ritmoOceania">
+        <label>Ritmo de Tasación / Duración unidad</label>
+        <input ref="/C2.4/ldiOceania/ritmoOceania/ritmoOceaniaHN">
+          <label>HN</label>
+          <hint>HN</hint>
+        </input>
+        <input ref="/C2.4/ldiOceania/ritmoOceania/ritmoOceaniaHR">
+          <label>HR</label>
+          <hint>HR</hint>
+        </input>
+      </group>
+    </group>
+  </h:body>
+</h:html>

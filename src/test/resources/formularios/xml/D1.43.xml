@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario D1.43 - Comercio exterior</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <D1.43 id="D1.43">
+          <titulo/>
+          <importaciones>
+            <importacionTelecomunic/>
+            <importacionServicios/>
+            <importacionBienesCapital/>
+            <importacionPiezas/>
+            <importacionTotal/>
+          </importaciones>
+          <exportaciones>
+            <exportacionTelecomunic/>
+            <exportacionServicios/>
+            <exportacionTotal/>
+          </exportaciones>
+          <grupoRegalias>
+            <regalias/>
+          </grupoRegalias>
+          <meta>
+            <instanceID/>
+          </meta>
+        </D1.43>
+      </instance>
+      <bind nodeset="/D1.43/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.43/importaciones/importacionTelecomunic" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.43/importaciones/importacionServicios" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.43/importaciones/importacionBienesCapital" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.43/importaciones/importacionPiezas" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.43/importaciones/importacionTotal" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.43/exportaciones/exportacionTelecomunic" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.43/exportaciones/exportacionServicios" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.43/exportaciones/exportacionTotal" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/D1.43/grupoRegalias/regalias" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/D1.43/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/D1.43/titulo">
+      <hint>Completar en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
+    <group appearance="col4 well-white" ref="/D1.43/importaciones">
+      <label>Importaciones</label>
+      <input ref="/D1.43/importaciones/importacionTelecomunic">
+        <label>Telecomunicaciones</label>
+        <hint>Comercialización internacional de servicios de comunicaciones [en miles de pesos]</hint>
+      </input>
+      <input ref="/D1.43/importaciones/importacionServicios">
+        <label>Servicios</label>
+        <hint>Incluye honorarios por servicios jurídicos, contables, de asesoramiento, de publicidad, investigación de mercado y encuestas, consultoría, servicios de investigación y desarrollo, servicios de ingeniería u otros servicios técnicos, etc [en miles de pesos]</hint>
+      </input>
+      <input ref="/D1.43/importaciones/importacionBienesCapital">
+        <label>Bienes de Capital</label>
+        <hint>Equipos que se utilizan para producir otros bienes y servicios [en miles de pesos]</hint>
+      </input>
+      <input ref="/D1.43/importaciones/importacionPiezas">
+        <label>Piezas</label>
+        <hint>Partes y piezas de de herramientas, maquinarias o equipos [en miles de pesos]</hint>
+      </input>
+      <input ref="/D1.43/importaciones/importacionTotal">
+        <label>Total</label>
+        <hint>Total [en miles de pesos]</hint>
+      </input>
+    </group>
+    <group appearance="col4 well-white" ref="/D1.43/exportaciones">
+      <label>Exportaciones</label>
+      <input ref="/D1.43/exportaciones/exportacionTelecomunic">
+        <label>Telecomunicaciones</label>
+        <hint>Comercialización internacional de servicios de comunicaciones [en miles de pesos]</hint>
+      </input>
+      <input ref="/D1.43/exportaciones/exportacionServicios">
+        <label>Servicios</label>
+        <hint>Incluye honorarios por servicios jurídicos, contables, de asesoramiento, de publicidad, investigación de mercado y encuestas, consultoría, servicios de investigación y desarrollo, servicios de ingeniería u otros servicios técnicos, etc [en miles de pesos]</hint>
+      </input>
+      <input ref="/D1.43/exportaciones/exportacionTotal">
+        <label>Total</label>
+        <hint>Total [en miles de pesos]</hint>
+      </input>
+    </group>
+    <group appearance="col4 well-white" ref="/D1.43/grupoRegalias">
+      <label>Regalías</label>
+      <input ref="/D1.43/grupoRegalias/regalias">
+        <label>Regalías</label>
+        <hint>Son pagos por el uso autorizado de activos intangibles no financieros no producidos y derechos de propiedad (patentes, derechos de autor, marcas registradas, procesos industriales, concesiones, etc.) [en miles de pesos]</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

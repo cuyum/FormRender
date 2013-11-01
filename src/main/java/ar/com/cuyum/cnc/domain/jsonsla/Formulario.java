@@ -110,6 +110,7 @@ public class Formulario  implements Serializable{
 					((Combo)componente.getValue()).setRelayService(relayService);
 				}
 				componente.getValue().setAllComponet(listComponets);
+				log.info("validando:"+componente.getKey());
 				componente.getValue().isDataValid();
 			} catch (ExceptionValidation e) {
 				String msg = "Error validando componente "+componente.getKey()+",";
@@ -129,7 +130,7 @@ public class Formulario  implements Serializable{
 		while (iterListComponent.hasNext()) {
 			Map.Entry<String,Componente> componente = (Map.Entry<String,Componente>) iterListComponent
 					.next();
-			formulario.put(componente.getKey(),componente.getValue().valueToJson());
+			formulario.put(componente.getKey(),(componente.getValue()==null)?null:componente.getValue().valueToJson());
 		}
 		return formulario.toString();
 	} 

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario I1.8 - Tasas generales</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <I1.8 id="I1.8">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <cargoActivacion/>
+              <cargoReconexion/>
+              <tasaMora/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </I1.8>
+      </instance>
+      <bind nodeset="/I1.8/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/I1.8/meses/mes/cargoActivacion" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/I1.8/meses/mes/cargoReconexion" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/I1.8/meses/mes/tasaMora" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/I1.8/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/I1.8/titulo">
+      <hint>Informar importes en pesos sin IVA. Ultimo dato vigente al final del período considerado.</hint>
+    </input>
+    <group ref="/I1.8/meses">
+      <label></label>
+      <repeat nodeset="/I1.8/meses">
+        <group appearance="col3 well-white variable" ref="/I1.8/meses/mes">
+          <label>{title}</label>
+          <input ref="/I1.8/meses/mes/cargoActivacion">
+            <label>Cargo de Activación</label>
+            <hint>Cargo de Activación</hint>
+          </input>
+          <input ref="/I1.8/meses/mes/cargoReconexion">
+            <label>Cargo de Reconexión</label>
+            <hint>Cargo de Reconexión</hint>
+          </input>
+          <input ref="/I1.8/meses/mes/tasaMora">
+            <label>Tasa por Mora</label>
+            <hint>Tasa por Mora [en %]</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

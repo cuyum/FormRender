@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario H1.7 - Tráfico I (# llamadas)</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <H1.7 id="H1.7">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <provincia/>
+              <partido/>
+              <partido_otro/>
+              <localidad/>
+              <localidad_otro/>
+              <area/>
+              <area_otro/>
+              <ll>
+                <llEntrante/>
+                <llSaliente/>
+              </ll>
+              <lldn>
+                <lldnEntrante/>
+                <lldnSaliente/>
+              </lldn>
+              <lldi>
+                <lldiEntrante/>
+                <lldiSaliente/>
+              </lldi>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </H1.7>
+      </instance>
+      <bind nodeset="/H1.7/titulo" readonly="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/H1.7/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/H1.7/meses/mes/provincia" nodeset="/H1.7/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/H1.7/meses/mes/partido_otro" relevant=" /H1.7/meses/mes/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/H1.7/meses/mes/partido" nodeset="/H1.7/meses/mes/localidad" required="true()" type="select1"/>
+      <bind nodeset="/H1.7/meses/mes/localidad_otro" relevant=" /H1.7/meses/mes/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/H1.7/meses/mes/localidad" nodeset="/H1.7/meses/mes/area" required="true()" type="select1"/>
+      <bind nodeset="/H1.7/meses/mes/area_otro" relevant=" /H1.7/meses/mes/area =9999" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 99999999.99" nodeset="/H1.7/meses/mes/ll/llEntrante" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 99999999.99" nodeset="/H1.7/meses/mes/ll/llSaliente" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 99999999.99" nodeset="/H1.7/meses/mes/lldn/lldnEntrante" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 99999999.99" nodeset="/H1.7/meses/mes/lldn/lldnSaliente" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 99999999.99" nodeset="/H1.7/meses/mes/lldi/lldiEntrante" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99999999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 99999999.99" nodeset="/H1.7/meses/mes/lldi/lldiSaliente" required="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/H1.7/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/H1.7/titulo">
+      <hint>Consignar el tráfico entrante y saliente, en cantidad de llamadas, desagregado por distancia.</hint>
+    </input>
+    <group ref="/H1.7/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/H1.7/meses">
+        <group appearance="col4 well-white variable" ref="/H1.7/meses/mes">
+          <label>{title}</label>
+          <select1 appearance="minimal" ref="/H1.7/meses/mes/provincia">
+            <label>Provincia</label>
+            <hint>Provincia</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/H1.7/meses/mes/partido">
+            <label>Partido / Departamento</label>
+            <hint>Partido/Departamento</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/H1.7/meses/mes/partido_otro">
+            <label>Partido Otros</label>
+            <hint>Partido Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/H1.7/meses/mes/localidad">
+            <label>Localidad</label>
+            <hint>Localidad</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/H1.7/meses/mes/localidad_otro">
+            <label>Localidad Otros</label>
+            <hint>Localidad Otros</hint>
+          </input>
+          <select1 appearance="minimal" ref="/H1.7/meses/mes/area">
+            <label>Área Local</label>
+            <hint>Área Local</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/H1.7/meses/mes/area_otro">
+            <label>Área Otros</label>
+            <hint>Área Otros</hint>
+          </input>
+          <group appearance="col2 well-white" ref="/H1.7/meses/mes/ll">
+            <label>L-L</label>
+            <input ref="/H1.7/meses/mes/ll/llEntrante">
+              <label>Entrante</label>
+              <hint>Entrante [en miles]</hint>
+            </input>
+            <input ref="/H1.7/meses/mes/ll/llSaliente">
+              <label>Saliente</label>
+              <hint>Saliente [en miles]</hint>
+            </input>
+          </group>
+          <group appearance="col2 well-white" ref="/H1.7/meses/mes/lldn">
+            <label>L-LDN</label>
+            <input ref="/H1.7/meses/mes/lldn/lldnEntrante">
+              <label>Entrante</label>
+              <hint>Entrante [en miles]</hint>
+            </input>
+            <input ref="/H1.7/meses/mes/lldn/lldnSaliente">
+              <label>Saliente</label>
+              <hint>Saliente [en miles]</hint>
+            </input>
+          </group>
+          <group appearance="col2 well-white" ref="/H1.7/meses/mes/lldi">
+            <label>L-LDI</label>
+            <input ref="/H1.7/meses/mes/lldi/lldiEntrante">
+              <label>Entrante</label>
+              <hint>Entrante [en miles]</hint>
+            </input>
+            <input ref="/H1.7/meses/mes/lldi/lldiSaliente">
+              <label>Saliente</label>
+              <hint>Saliente [en miles]</hint>
+            </input>
+          </group>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

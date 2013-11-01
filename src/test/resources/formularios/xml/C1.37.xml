@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.37 - Ingresos / larga distancia nacional horario reducido</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <C1.37 id="C1.37">
+          <meses jr:template="">
+            <mes>
+              <clave1/>
+              <clave2y3/>
+              <clave4y5/>
+              <clave6a12/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.37>
+      </instance>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.37/meses/mes/clave1" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.37/meses/mes/clave2y3" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.37/meses/mes/clave4y5" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.37/meses/mes/clave6a12" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.37/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/C1.37/meses">
+      <label></label>
+      <repeat nodeset="/C1.37/meses">
+        <group appearance="col4 well-white variable" ref="/C1.37/meses/mes">
+          <label>{title}</label>
+          <input ref="/C1.37/meses/mes/clave1">
+            <label>Clave 1</label>
+            <hint>Clave 1 [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.37/meses/mes/clave2y3">
+            <label>Clave 2 y 3</label>
+            <hint>Clave 2 y 3 [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.37/meses/mes/clave4y5">
+            <label>Clave 4 y 5</label>
+            <hint>Clave 4 y 5 [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.37/meses/mes/clave6a12">
+            <label>Clave 6 a 12</label>
+            <hint>Clave 6 a 12 [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

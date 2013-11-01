@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.51 - Comercio exterior</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <C1.51 id="C1.51">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <telecomunicExpo/>
+              <telecomunicImpo/>
+              <serviciosExpo/>
+              <serviciosImpo/>
+              <importacBienesCapital/>
+              <importacionesPiezas/>
+              <regalias/>
+              <total>
+                <totalExpo/>
+                <totalImpo/>
+              </total>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.51>
+      </instance>
+      <bind nodeset="/C1.51/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.51/meses/mes/telecomunicExpo" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.51/meses/mes/telecomunicImpo" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.51/meses/mes/serviciosExpo" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.51/meses/mes/serviciosImpo" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.51/meses/mes/importacBienesCapital" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.51/meses/mes/importacionesPiezas" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.51/meses/mes/regalias" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.51/meses/mes/total/totalExpo" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.51/meses/mes/total/totalImpo" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.51/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/C1.51/titulo">
+      <hint>Completar en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
+    <group ref="/C1.51/meses">
+      <label></label>
+      <repeat nodeset="/C1.51/meses">
+        <group appearance="col4 well-white variable" ref="/C1.51/meses/mes">
+          <label>{title}</label>
+          <input ref="/C1.51/meses/mes/telecomunicExpo">
+            <label>Telecomunicaciones Expo.</label>
+            <hint>Comercialización internacional de servicios de comunicaciones [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.51/meses/mes/telecomunicImpo">
+            <label>Telecomunicaciones Impo.</label>
+            <hint>Comercialización internacional de servicios de comunicaciones [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.51/meses/mes/serviciosExpo">
+            <label>Servicios Expo.</label>
+            <hint>Incluye honorarios por servicios jurídicos, contables, de asesoramiento, de publicidad, investigación de mercado y encuestas, consultoría, servicios de investigación y desarrollo, servicios de ingeniería u otros servicios técnicos, etc. [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.51/meses/mes/serviciosImpo">
+            <label>Servicios Impo.</label>
+            <hint>Incluye honorarios por servicios jurídicos, contables, de asesoramiento, de publicidad, investigación de mercado y encuestas, consultoría, servicios de investigación y desarrollo, servicios de ingeniería u otros servicios técnicos, etc. [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.51/meses/mes/importacBienesCapital">
+            <label>Importaciones Bienes Capital</label>
+            <hint>Equipos que se utilizan para producir otros bienes y servicios [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.51/meses/mes/importacionesPiezas">
+            <label>Importaciones de Piezas</label>
+            <hint>Partes y piezas de de herramientas, maquinarias o equipos [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.51/meses/mes/regalias">
+            <label>Regalías</label>
+            <hint>Son pagos por el uso autorizado de activos intangibles no financieros no producidos y derechos de propiedad (patentes, derechos de autor, marcas registradas, procesos industriales, concesiones, etc.) [en miles de pesos]</hint>
+          </input>
+          <group appearance="col4 well-white" ref="/C1.51/meses/mes/total">
+            <input ref="/C1.51/meses/mes/total/totalExpo">
+              <label>Totales expo.</label>
+              <hint>Total Expo [en miles de pesos]</hint>
+            </input>
+            <input ref="/C1.51/meses/mes/total/totalImpo">
+              <label>Totales impo.</label>
+              <hint>Total Impo [en miles de pesos]</hint>
+            </input>
+          </group>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

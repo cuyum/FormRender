@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario H2.7 - Observaciones</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <H2.7 id="H2.7">
+          <nota>
+            <obsAnexoH2/>
+          </nota>
+          <meta>
+            <instanceID/>
+          </meta>
+        </H2.7>
+      </instance>
+      <bind nodeset="/H2.7/nota/obsAnexoH2" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/H2.7/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="textarea" ref="/H2.7/nota">
+      <label>Observaciones</label>
+      <input appearance="multiline" ref="/H2.7/nota/obsAnexoH2">
+        <label>Observaciones</label>
+        <hint>Observaciones</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

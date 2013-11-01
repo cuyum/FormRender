@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.54 - Observaciones</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <C1.54 id="C1.54">
+          <nota>
+            <obsAnexoC/>
+          </nota>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.54>
+      </instance>
+      <bind nodeset="/C1.54/nota/obsAnexoC" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.54/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="textarea" ref="/C1.54/nota">
+      <label>Observaciones</label>
+      <input appearance="multiline" ref="/C1.54/nota/obsAnexoC">
+        <label>Observaciones</label>
+        <hint>Observaciones</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

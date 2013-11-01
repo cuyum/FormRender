@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario C1.44 - Ingresos interconexión a la red fija - LDN a vinculadas</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <C1.44 id="C1.44">
+          <titulo/>
+          <meses jr:template="">
+            <mes>
+              <arriendoLdn/>
+              <transporteLdn/>
+              <otros/>
+              <total/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </C1.44>
+      </instance>
+      <bind nodeset="/C1.44/titulo" readonly="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.44/meses/mes/arriendoLdn" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.44/meses/mes/transporteLdn" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.44/meses/mes/otros" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999999" nodeset="/C1.44/meses/mes/total" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/C1.44/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input appearance="tooltip" ref="/C1.44/titulo">
+      <hint>Toda la información económica-financiera debe ser completada en base a los mismos criterios utilizados en los EECC.</hint>
+    </input>
+    <group ref="/C1.44/meses">
+      <label></label>
+      <repeat nodeset="/C1.44/meses">
+        <group appearance="col4 well-white variable" ref="/C1.44/meses/mes">
+          <label>{title}</label>
+          <input ref="/C1.44/meses/mes/arriendoLdn">
+            <label>Arriendo de Circuitos LDN</label>
+            <hint>Arriendo de Circuitos LDN [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.44/meses/mes/transporteLdn">
+            <label>Transporte LDN</label>
+            <hint>Transporte LDN [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.44/meses/mes/otros">
+            <label>Otros</label>
+            <hint>Consignar los ingresos por interconexión a la red fija no incluidos en los campos precedentes [en miles de pesos]</hint>
+          </input>
+          <input ref="/C1.44/meses/mes/total">
+            <label>Total</label>
+            <hint>Total [en miles de pesos]</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>
