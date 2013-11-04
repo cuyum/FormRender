@@ -193,7 +193,7 @@ public class RelayService {
 			HttpPost requestPost = buildSubmission(url, formData.toString());
 			HttpResponse rawResponse = execute(requestPost);
 			
-			JsonNode response = null;
+			JsonNode response = null, result=null;
 
 			try {
 				response = mapper.readTree(processResponse(rawResponse));
@@ -203,10 +203,18 @@ public class RelayService {
 				log.error(e);
 			}
 			
+			try {
+				result = mapper.readTree(response.get("result").toString());
+			} catch (JsonProcessingException e) {
+				log.error(e);
+			} catch (IOException e) {
+				log.error(e);
+			}
+			
 			if(!response.get("success").asBoolean()){
-				respon.put(""+i+"","Error guardando datos formulario ("+i+") "+response.get("result").asText());			
+				respon.put("Formulario-"+i+"",result);			
 			}else{
-				respon.put(""+i+"","Guardado formulario ("+i+") "+response.get("result").asText());
+				respon.put("Formulario-"+i+"",result);
 			}
 		}
 
