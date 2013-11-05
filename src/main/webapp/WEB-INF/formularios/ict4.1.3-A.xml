@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario 4.1.3-A Indicador de Reclamos ante la Autoridad de Aplicación - Cuadro A</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <ict4.1.3-A id="ict4.1.3-A">
+          <meses jr:template="">
+            <mes>
+              <periodo_considerado/>
+              <cant_usuario/>
+              <cant_usuario_reclamo/>
+              <porcentaje/>
+            </mes>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </ict4.1.3-A>
+      </instance>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.1.3-A/meses/mes/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.3-A/meses/mes/cant_usuario" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.3-A/meses/mes/cant_usuario_reclamo" required="true()" type="int"/>
+      <bind constraint="porcentual= /ict4.1.3-A/meses/mes/cant_usuario , /ict4.1.3-A/meses/mes/cant_usuario_reclamo ,1000" nodeset="/ict4.1.3-A/meses/mes/porcentaje" readonly="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.3-A/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/ict4.1.3-A/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/ict4.1.3-A/meses">
+        <group appearance="col3 well-white" ref="/ict4.1.3-A/meses/mes">
+          <label>Usuarios que reclamaron ante la CNC</label>
+          <select1 appearance="minimal" ref="/ict4.1.3-A/meses/mes/periodo_considerado">
+            <label>Período Considerado</label>
+            <hint>Período Considerado</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <input ref="/ict4.1.3-A/meses/mes/cant_usuario">
+            <label>Cant. usuarios con rec. ante CNC</label>
+            <hint>Cantidad de usuarios que han realizado reclamos ante la Autoridad de Aplicación</hint>
+          </input>
+          <input ref="/ict4.1.3-A/meses/mes/cant_usuario_reclamo">
+            <label>Cant. usuarios con rec. ante Prestador en PA</label>
+            <hint>Cantidad de usuarios que han realizado reclamos ante el Prestador en el período inmediato anterior al PC</hint>
+          </input>
+          <input ref="/ict4.1.3-A/meses/mes/porcentaje">
+            <label>Resultado (%)</label>
+            <hint>Resultado del Indicador</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>
