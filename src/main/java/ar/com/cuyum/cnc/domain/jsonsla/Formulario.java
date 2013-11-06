@@ -11,7 +11,6 @@ import org.apache.log4j.Logger;
 
 import ar.com.cuyum.cnc.exceptions.ExceptionValidation;
 import ar.com.cuyum.cnc.service.RelayService;
-import ar.com.cuyum.cnc.utils.FormRenderProperties;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -35,15 +34,6 @@ public class Formulario  implements Serializable{
 	//No lo injecto porque me daba problemas de recursividad 
 	//tal vez hay que pensar mejor esta parte
 	private RelayService relayService;
-	
-	private <T> Class<T> getTypeClass(String type){		
-		if("string".equals(type)) return (Class<T>) Texto.class;
-		if("combo".equals(type)) return (Class<T>) Combo.class;
-		if("integer".equals(type)) return (Class<T>) Entero.class;
-		if("decimal".equals(type)) return (Class<T>) Decimal.class;
-		if("item".equals(type)) return (Class<T>) RepeatItem.class;
-		return null; //explota si se incorpora un nuevo tipo 
-	}	
 	
 	public Formulario(String idForm, JsonNode schemaItemsProperties,RelayService relayService){
 		this.init(schemaItemsProperties);
@@ -72,7 +62,7 @@ public class Formulario  implements Serializable{
 			
 			Componente component = null;
 			try {
-				component = (Componente) mapper.readValue(nodePropertie.toString(), getTypeClass(type));
+				component = (Componente) mapper.readValue(nodePropertie.toString(), Componente.getTypeClass(type));
 				listComponets.put(name,component);					
 			} catch (JsonParseException e) {
 				log.error("el schema propertie tiene formato inavalido",e);
@@ -106,9 +96,8 @@ public class Formulario  implements Serializable{
 			Map.Entry<String,Componente> componente = (Map.Entry<String,Componente>) iterListComponent
 					.next();
 			try {
-				if("combo".equals(componente.getValue().getType())){
-					((Combo)componente.getValue()).setRelayService(relayService);
-				}
+				if(Componente.COMBO.equals( componente.getValue().getType()))
+					((Combo) componente.getValue()).setRelayService(relayService);				
 				componente.getValue().setAllComponet(listComponets);
 				log.info("validando:"+componente.getKey());
 				componente.getValue().isDataValid();

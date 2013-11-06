@@ -28,6 +28,7 @@ public class Texto extends Componente {
 	private List<String> relevant = new ArrayList<String>();
 
 	private String value;
+	private String url;
 
 	public String toString() {
 		return super.toString()
@@ -118,6 +119,14 @@ public class Texto extends Componente {
 		ObjectNode nodo = mapper.createObjectNode();
 		nodo.put("string", value);
 		return (value==null)?null:nodo.get("string");
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 }

@@ -27,10 +27,10 @@ public class Entero extends Componente {
 
 	private List<String> relevant = new ArrayList<String>();
 
-	private Integer value;
+	private Long value;
 
-	private Integer minimum;
-	private Integer maximum;
+	private Long minimum;
+	private Long maximum;
 
 	public String toString() {
 		return super.toString()
@@ -87,27 +87,27 @@ public class Entero extends Componente {
 		return entry.toString();
 	}
 
-	public Integer getValue() {
+	public Long getValue() {
 		return value;
 	}
 
-	public void setValue(Integer value) {
+	public void setValue(Long value) {
 		this.value = value;
 	}
 
-	public Integer getMinimum() {
+	public Long getMinimum() {
 		return minimum;
 	}
 
-	public void setMinimum(Integer minimum) {
+	public void setMinimum(Long minimum) {
 		this.minimum = minimum;
 	}
 
-	public Integer getMaximum() {
+	public Long getMaximum() {
 		return maximum;
 	}
 
-	public void setMaximum(Integer maximum) {
+	public void setMaximum(Long maximum) {
 		this.maximum = maximum;
 	}
 
@@ -137,7 +137,7 @@ public class Entero extends Componente {
 
 	@Override
 	public void setValueFromJson(JsonNode value) throws ExceptionValidation {
-		this.value = new Integer(value.asText());
+		this.value = new Long(value.asText());
 	}
 
 	@Override
