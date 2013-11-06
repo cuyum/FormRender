@@ -18,7 +18,7 @@
           <meta>
             <instanceID/>
           </meta>
-        </ict4.2.1>
+        </ict4.2.1-A>
       </instance>
       <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.2.1-A/meses/factor_nominal/periodo_considerado" required="true()" type="select1"/>
       <bind nodeset="/ict4.2.1-A/meses/factor_nominal/red_interna" required="true()" type="select1"/>
