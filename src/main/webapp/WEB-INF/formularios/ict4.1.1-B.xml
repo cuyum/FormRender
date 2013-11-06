@@ -5,7 +5,7 @@
     <model>
       <submission action="/api/deposition" method="form-data-post"/>
       <instance>
-        <ict4.1.1.b id="ICT4.1.1.B">
+        <ict4.1.1-B id="ict4.1.1-B">
           <meses jr:template="">
             <mes>
               <periodo_considerado/>
@@ -27,32 +27,32 @@
           <meta>
             <instanceID/>
           </meta>
-        </ict4.1.1.b>
+        </ict4.1.1-B>
       </instance>
-      <bind constraint="periodicidad=/servicios/rest/periodicidad and agrupador=1" nodeset="/ict4.1.1.b/meses/mes/periodo_considerado" required="true()" type="select1"/>
-      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.1.b/meses/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/ict4.1.1.b/meses/mes/provincia" nodeset="/ict4.1.1.b/meses/mes/partido" required="true()" type="select1"/>
-      <bind nodeset="/ict4.1.1.b/meses/mes/partido_otro" relevant=" /ict4.1.1.b/meses/mes/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/ict4.1.1.b/meses/mes/partido" nodeset="/ict4.1.1.b/meses/mes/localidad" required="true()" type="select1"/>
-      <bind nodeset="/ict4.1.1.b/meses/mes/localidad_otro" relevant=" /ict4.1.1.b/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/ict4.1.1.b/meses/mes/localidad and agrupador=2" nodeset="/ict4.1.1.b/meses/mes/area" required="true()" type="select1"/>
-      <bind nodeset="/ict4.1.1.b/meses/mes/area_otro" relevant=" /ict4.1.1.b/meses/mes/area =9999" required="true()" type="string"/>
-      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.1.1.b/meses/mes/aveia" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.1.1.b/meses/mes/facturacion" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.1.1.b/meses/mes/inst_serv_camb_domicilio" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.1.1.b/meses/mes/saldo_cuentas_prepagas" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.1.1.b/meses/mes/incump_baja_servicio" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.1.1.b/meses/mes/otros" required="true()" type="int"/>
-      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.1.b/meta/instanceID" readonly="true()" type="string"/>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad and agrupador=1" nodeset="/ict4.1.1-B/meses/mes/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.1-B/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/ict4.1.1-B/meses/mes/provincia" nodeset="/ict4.1.1-B/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.1-B/meses/mes/partido_otro" relevant=" /ict4.1.1-B/meses/mes/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/ict4.1.1-B/meses/mes/partido" nodeset="/ict4.1.1-B/meses/mes/localidad" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.1-B/meses/mes/localidad_otro" relevant=" /ict4.1.1-B/meses/mes/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/ict4.1.1-B/meses/mes/localidad and agrupador=2" nodeset="/ict4.1.1-B/meses/mes/area" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.1-B/meses/mes/area_otro" relevant=" /ict4.1.1-B/meses/mes/area =9999" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.1.1-B/meses/mes/aveia" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.1.1-B/meses/mes/facturacion" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.1.1-B/meses/mes/inst_serv_camb_domicilio" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.1.1-B/meses/mes/saldo_cuentas_prepagas" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.1.1-B/meses/mes/incump_baja_servicio" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.1.1-B/meses/mes/otros" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.1-B/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group ref="/ict4.1.1.b/meses">
+    <group ref="/ict4.1.1-B/meses">
       <label></label>
-      <repeat appearance="grilla sumarizada calculados" nodeset="/ict4.1.1.b/meses">
-        <group appearance="col4 well-white" ref="/ict4.1.1.b/meses/mes">
+      <repeat appearance="grilla sumarizada calculados" nodeset="/ict4.1.1-B/meses">
+        <group appearance="col4 well-white" ref="/ict4.1.1-B/meses/mes">
           <label>Clasificación de los Reclamos ingresados</label>
-          <select1 appearance="minimal" ref="/ict4.1.1.b/meses/mes/periodo_considerado">
+          <select1 appearance="minimal" ref="/ict4.1.1-B/meses/mes/periodo_considerado">
             <label>Período Considerado</label>
             <hint>Período Considerado</hint>
             <item>
@@ -60,7 +60,7 @@
               <value>-1</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/ict4.1.1.b/meses/mes/provincia">
+          <select1 appearance="minimal" ref="/ict4.1.1-B/meses/mes/provincia">
             <label>Provincia</label>
             <hint>Provincia</hint>
             <item>
@@ -68,7 +68,7 @@
               <value>-1</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/ict4.1.1.b/meses/mes/partido">
+          <select1 appearance="minimal" ref="/ict4.1.1-B/meses/mes/partido">
             <label>Departamento / Partido</label>
             <hint>Departamento / Partido</hint>
             <item>
@@ -76,11 +76,11 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/ict4.1.1.b/meses/mes/partido_otro">
+          <input ref="/ict4.1.1-B/meses/mes/partido_otro">
             <label>Partido Otros</label>
             <hint>Partido Otros</hint>
           </input>
-          <select1 appearance="minimal" ref="/ict4.1.1.b/meses/mes/localidad">
+          <select1 appearance="minimal" ref="/ict4.1.1-B/meses/mes/localidad">
             <label>Localidad</label>
             <hint>Localidad</hint>
             <item>
@@ -88,11 +88,11 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/ict4.1.1.b/meses/mes/localidad_otro">
+          <input ref="/ict4.1.1-B/meses/mes/localidad_otro">
             <label>Localidad Otros</label>
             <hint>Localidad Otros</hint>
           </input>
-          <select1 appearance="minimal" ref="/ict4.1.1.b/meses/mes/area">
+          <select1 appearance="minimal" ref="/ict4.1.1-B/meses/mes/area">
             <label>Área Local</label>
             <hint>Área Local</hint>
             <item>
@@ -100,31 +100,31 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/ict4.1.1.b/meses/mes/area_otro">
+          <input ref="/ict4.1.1-B/meses/mes/area_otro">
             <label>Área Otros</label>
             <hint>Área Otros</hint>
           </input>
-          <input ref="/ict4.1.1.b/meses/mes/aveia">
+          <input ref="/ict4.1.1-B/meses/mes/aveia">
             <label>Avería</label>
             <hint>Cantidad de Reclamos ingresados del Tipo:</hint>
           </input>
-          <input ref="/ict4.1.1.b/meses/mes/facturacion">
+          <input ref="/ict4.1.1-B/meses/mes/facturacion">
             <label>Facturación</label>
             <hint>Cantidad de Reclamos ingresados del Tipo:</hint>
           </input>
-          <input ref="/ict4.1.1.b/meses/mes/inst_serv_camb_domicilio">
+          <input ref="/ict4.1.1-B/meses/mes/inst_serv_camb_domicilio">
             <label>Inst.de Servicio o cambio de domicilio</label>
             <hint>Cantidad de Reclamos ingresados del Tipo:</hint>
           </input>
-          <input ref="/ict4.1.1.b/meses/mes/saldo_cuentas_prepagas">
+          <input ref="/ict4.1.1-B/meses/mes/saldo_cuentas_prepagas">
             <label>Saldo Cuentas Prepagas</label>
             <hint>Cantidad de Reclamos ingresados del Tipo:</hint>
           </input>
-          <input ref="/ict4.1.1.b/meses/mes/incump_baja_servicio">
+          <input ref="/ict4.1.1-B/meses/mes/incump_baja_servicio">
             <label>Incump. baja de Servicio</label>
             <hint>Cantidad de Reclamos ingresados del Tipo:</hint>
           </input>
-          <input ref="/ict4.1.1.b/meses/mes/otros">
+          <input ref="/ict4.1.1-B/meses/mes/otros">
             <label>Otros</label>
             <hint>Cantidad de Reclamos ingresados del Tipo:</hint>
           </input>

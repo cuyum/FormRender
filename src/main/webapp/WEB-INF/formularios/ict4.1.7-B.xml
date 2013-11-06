@@ -5,7 +5,7 @@
     <model>
       <submission action="/api/deposition" method="form-data-post"/>
       <instance>
-        <ict4.1.7.b id="ICT4.1.7.B">
+        <ict4.1.7-B id="ict4.1.7-B">
           <meses jr:template="">
             <mes>
               <periodo_considerado/>
@@ -22,27 +22,27 @@
           <meta>
             <instanceID/>
           </meta>
-        </ict4.1.7.b>
+        </ict4.1.7-B>
       </instance>
-      <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.1.7.b/meses/mes/periodo_considerado" required="true()" type="select1"/>
-      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.7.b/meses/mes/provincia" required="true()" type="select1"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.1.7.b/meses/mes/solicitud_por_accesibilidad" required="true()" type="int"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.1.7.b/meses/mes/solicitud_por_rechazo" required="true()" type="int"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.1.7.b/meses/mes/solicitud_dentro_plazo_maximo" required="true()" type="int"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.1.7.b/meses/mes/solicitud_plazo_maximo" required="true()" type="int"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.1.7.b/meses/mes/solicitud_pendiente_dentro_tmi" required="true()" type="int"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.1.7.b/meses/mes/solicitud_pendiente_fuera_tmi_plazo_maximo" required="true()" type="int"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.1.7.b/meses/mes/solicitdud_pendiente_fuerza_plazo_maximo" required="true()" type="int"/>
-      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.7.b/meta/instanceID" readonly="true()" type="string"/>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.1.7-B/meses/mes/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.7-B/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.7-B/meses/mes/solicitud_por_accesibilidad" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.7-B/meses/mes/solicitud_por_rechazo" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.7-B/meses/mes/solicitud_dentro_plazo_maximo" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.7-B/meses/mes/solicitud_plazo_maximo" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.7-B/meses/mes/solicitud_pendiente_dentro_tmi" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.7-B/meses/mes/solicitud_pendiente_fuera_tmi_plazo_maximo" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.7-B/meses/mes/solicitdud_pendiente_fuerza_plazo_maximo" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.7-B/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group ref="/ict4.1.7.b/meses">
+    <group ref="/ict4.1.7-B/meses">
       <label></label>
-      <repeat appearance="grilla" nodeset="/ict4.1.7.b/meses">
-        <group appearance="col3 well-white" ref="/ict4.1.7.b/meses/mes">
+      <repeat appearance="grilla" nodeset="/ict4.1.7-B/meses">
+        <group appearance="col3 well-white" ref="/ict4.1.7-B/meses/mes">
           <label>Solicitudes de servicio atendidas (dentro y fuera del TMI) y pendientes por Provincia</label>
-          <select1 appearance="minimal" ref="/ict4.1.7.b/meses/mes/periodo_considerado">
+          <select1 appearance="minimal" ref="/ict4.1.7-B/meses/mes/periodo_considerado">
             <label>Período Considerado</label>
             <hint>Período Considerado</hint>
             <item>
@@ -50,7 +50,7 @@
               <value>-1</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/ict4.1.7.b/meses/mes/provincia">
+          <select1 appearance="minimal" ref="/ict4.1.7-B/meses/mes/provincia">
             <label>Provincia</label>
             <hint>Provincia</hint>
             <item>
@@ -58,31 +58,31 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/ict4.1.7.b/meses/mes/solicitud_por_accesibilidad">
+          <input ref="/ict4.1.7-B/meses/mes/solicitud_por_accesibilidad">
             <label>Por accesibilidad</label>
             <hint>Solicitud de servicio atendida dentro del TMI: Por accesibilidad</hint>
           </input>
-          <input ref="/ict4.1.7.b/meses/mes/solicitud_por_rechazo">
+          <input ref="/ict4.1.7-B/meses/mes/solicitud_por_rechazo">
             <label>Por rechazo de solicitud</label>
             <hint>Solicitud de servicio atendida dentro del TMI: Por rechazo</hint>
           </input>
-          <input ref="/ict4.1.7.b/meses/mes/solicitud_dentro_plazo_maximo">
+          <input ref="/ict4.1.7-B/meses/mes/solicitud_dentro_plazo_maximo">
             <label>Solicitud atendida fuera del TMI</label>
             <hint>Solicitud de servicio atendida fuera del TMI, dentro del plazo máximo</hint>
           </input>
-          <input ref="/ict4.1.7.b/meses/mes/solicitud_plazo_maximo">
+          <input ref="/ict4.1.7-B/meses/mes/solicitud_plazo_maximo">
             <label>Sol. de serv. atendida fuera del TMI plazo máximo</label>
             <hint>Solicitud de servicio atendida fuera del TMI y del plazo máximo</hint>
           </input>
-          <input ref="/ict4.1.7.b/meses/mes/solicitud_pendiente_dentro_tmi">
+          <input ref="/ict4.1.7-B/meses/mes/solicitud_pendiente_dentro_tmi">
             <label>Sol. pendiente Dentro del TMI</label>
             <hint>Solicitud de servicio pendiente de instalación: Dentro del TMI</hint>
           </input>
-          <input ref="/ict4.1.7.b/meses/mes/solicitud_pendiente_fuera_tmi_plazo_maximo">
+          <input ref="/ict4.1.7-B/meses/mes/solicitud_pendiente_fuera_tmi_plazo_maximo">
             <label>Fuera del TMI dentro del plazo máximo</label>
             <hint>Solicitud de servicio pendiente de instalación: Fuera del TMI dentro del plazo máximo</hint>
           </input>
-          <input ref="/ict4.1.7.b/meses/mes/solicitdud_pendiente_fuerza_plazo_maximo">
+          <input ref="/ict4.1.7-B/meses/mes/solicitdud_pendiente_fuerza_plazo_maximo">
             <label>Fuera del plazo máximo</label>
             <hint>Solicitud de servicio pendiente de instalación: Fuera del plazo máximo</hint>
           </input>

@@ -46,6 +46,9 @@ public class Formulario implements Serializable
    @NotEmpty(message="El xml de definici\u00F3n del formulario es obligatorio")
    private String archivo;
 
+   @Column(name = "parametrosurl")
+   private String parametrosUrl;
+   
    @Column
    private String formVersion;
    
@@ -159,8 +162,18 @@ public class Formulario implements Serializable
    public void setUrl(String url) {
 		this.url = url;
 	}
+   
+   
 
-   @Override
+   public String getParametrosUrl() {
+	return parametrosUrl;
+}
+
+public void setParametrosUrl(String parametrosUrl) {
+	this.parametrosUrl = parametrosUrl;
+}
+
+@Override
    public String toString()
    {
       String result = getClass().getSimpleName() + " ";

@@ -5,7 +5,7 @@
     <model>
       <submission action="/api/deposition" method="form-data-post"/>
       <instance>
-        <ict4.1.1.e id="ICT4.1.1.e">
+        <ict4.1.1-E id="ict4.1.1-E">
           <meses jr:template="">
             <mes>
               <periodo_considerado/>
@@ -25,30 +25,30 @@
           <meta>
             <instanceID/>
           </meta>
-        </ict4.1.1.e>
+        </ict4.1.1-E>
       </instance>
-      <bind constraint="periodicidad=/servicios/rest/periodicidad and agrupador=1" nodeset="/ict4.1.1.e/meses/mes/periodo_considerado" required="true()" type="select1"/>
-      <bind constraint="agrupador=2" nodeset="/ict4.1.1.e/meses/mes/canales" required="true()" type="select1"/>
-      <bind nodeset="/ict4.1.1.e/meses/mes/canales_otros" relevant=" /ict4.1.1.e/meses/mes/canales =Otros" required="true()" type="string"/>
-      <bind nodeset="/ict4.1.1.e/meses/mes/id_bocas" required="true()" type="select1"/>
-      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.1.e/meses/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/ict4.1.1.e/meses/mes/provincia" nodeset="/ict4.1.1.e/meses/mes/partido" required="true()" type="select1"/>
-      <bind nodeset="/ict4.1.1.e/meses/mes/partido_otro" relevant=" /ict4.1.1.e/meses/mes/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/ict4.1.1.e/meses/mes/partido" nodeset="/ict4.1.1.e/meses/mes/localidad" required="true()" type="select1"/>
-      <bind nodeset="/ict4.1.1.e/meses/mes/localidad_otro" relevant=" /ict4.1.1.e/meses/mes/localidad =9999" required="true()" type="string"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.1.1.e/meses/mes/tiempo_espera" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.1.1.e/meses/mes/personal_afectado_reclamos" required="true()" type="int"/>
-      <bind constraint=".&gt;0 and totalizador" nodeset="/ict4.1.1.e/meses/mes/personal_afectado_otras" required="true()" type="int"/>
-      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.1.e/meta/instanceID" readonly="true()" type="string"/>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad and agrupador=1" nodeset="/ict4.1.1-E/meses/mes/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="agrupador=2" nodeset="/ict4.1.1-E/meses/mes/canales" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.1-E/meses/mes/canales_otros" relevant=" /ict4.1.1-E/meses/mes/canales =Otros" required="true()" type="string"/>
+      <bind nodeset="/ict4.1.1-E/meses/mes/id_bocas" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.1-E/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/ict4.1.1-E/meses/mes/provincia" nodeset="/ict4.1.1-E/meses/mes/partido" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.1-E/meses/mes/partido_otro" relevant=" /ict4.1.1-E/meses/mes/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/ict4.1.1-E/meses/mes/partido" nodeset="/ict4.1.1-E/meses/mes/localidad" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.1-E/meses/mes/localidad_otro" relevant=" /ict4.1.1-E/meses/mes/localidad =9999" required="true()" type="string"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.1-E/meses/mes/tiempo_espera" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.1.1-E/meses/mes/personal_afectado_reclamos" required="true()" type="int"/>
+      <bind constraint=".&gt;0 and totalizador" nodeset="/ict4.1.1-E/meses/mes/personal_afectado_otras" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.1-E/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group ref="/ict4.1.1.e/meses">
+    <group ref="/ict4.1.1-E/meses">
       <label></label>
-      <repeat appearance="grilla sumarizada calculados" nodeset="/ict4.1.1.e/meses">
-        <group appearance="col4 well-white" ref="/ict4.1.1.e/meses/mes">
+      <repeat appearance="grilla sumarizada calculados" nodeset="/ict4.1.1-E/meses">
+        <group appearance="col4 well-white" ref="/ict4.1.1-E/meses/mes">
           <label>Información sobre los Canales de Atención al Usuario</label>
-          <select1 appearance="minimal" ref="/ict4.1.1.e/meses/mes/periodo_considerado">
+          <select1 appearance="minimal" ref="/ict4.1.1-E/meses/mes/periodo_considerado">
             <label>Período Considerado</label>
             <hint>Período Considerado</hint>
             <item>
@@ -56,7 +56,7 @@
               <value>-1</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/ict4.1.1.e/meses/mes/canales">
+          <select1 appearance="minimal" ref="/ict4.1.1-E/meses/mes/canales">
             <label>Canales de Atención al Usuario</label>
             <hint>Canales de Atención al Usuario</hint>
             <item>
@@ -80,11 +80,11 @@
               <value>Otros</value>
             </item>
           </select1>
-          <input ref="/ict4.1.1.e/meses/mes/canales_otros">
+          <input ref="/ict4.1.1-E/meses/mes/canales_otros">
             <label>Canales Otros</label>
             <hint>Canales de Atencion al usuario Otros</hint>
           </input>
-          <select1 appearance="minimal" ref="/ict4.1.1.e/meses/mes/id_bocas">
+          <select1 appearance="minimal" ref="/ict4.1.1-E/meses/mes/id_bocas">
             <label>ID Bocas de atención</label>
             <hint>ID Bocas de atención</hint>
             <item>
@@ -128,7 +128,7 @@
               <value>Sucursal_6</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/ict4.1.1.e/meses/mes/provincia">
+          <select1 appearance="minimal" ref="/ict4.1.1-E/meses/mes/provincia">
             <label>Provincia</label>
             <hint>Provincia</hint>
             <item>
@@ -136,7 +136,7 @@
               <value>-1</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/ict4.1.1.e/meses/mes/partido">
+          <select1 appearance="minimal" ref="/ict4.1.1-E/meses/mes/partido">
             <label>Departamento / Partido</label>
             <hint>Departamento / Partido</hint>
             <item>
@@ -144,11 +144,11 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/ict4.1.1.e/meses/mes/partido_otro">
+          <input ref="/ict4.1.1-E/meses/mes/partido_otro">
             <label>Partido Otros</label>
             <hint>Partido Otros</hint>
           </input>
-          <select1 appearance="minimal" ref="/ict4.1.1.e/meses/mes/localidad">
+          <select1 appearance="minimal" ref="/ict4.1.1-E/meses/mes/localidad">
             <label>Localidad</label>
             <hint>Localidad</hint>
             <item>
@@ -156,19 +156,19 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/ict4.1.1.e/meses/mes/localidad_otro">
+          <input ref="/ict4.1.1-E/meses/mes/localidad_otro">
             <label>Localidad Otros</label>
             <hint>Localidad Otros</hint>
           </input>
-          <input ref="/ict4.1.1.e/meses/mes/tiempo_espera">
+          <input ref="/ict4.1.1-E/meses/mes/tiempo_espera">
             <label>Espera promedio en atención al cliente</label>
             <hint>Tiempo de espera promedio en atención al cliente</hint>
           </input>
-          <input ref="/ict4.1.1.e/meses/mes/personal_afectado_reclamos">
+          <input ref="/ict4.1.1-E/meses/mes/personal_afectado_reclamos">
             <label>Pers. afectado a la recep. de Reclamos</label>
             <hint>Personal afectado a la recepción de Reclamos</hint>
           </input>
-          <input ref="/ict4.1.1.e/meses/mes/personal_afectado_otras">
+          <input ref="/ict4.1.1-E/meses/mes/personal_afectado_otras">
             <label>Personal afectado a otras tareas</label>
             <hint>Personal afectado a otras tareas</hint>
           </input>

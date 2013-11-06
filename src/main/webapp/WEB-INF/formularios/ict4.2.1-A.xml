@@ -5,7 +5,7 @@
     <model>
       <submission action="/api/deposition" method="form-data-post"/>
       <instance>
-        <ict4.2.1 id="ICT4.2.1-A">
+        <ict4.2.1-A id="ict4.2.1-A">
           <meses jr:template="">
             <factor_nominal>
               <periodo_considerado/>
@@ -18,23 +18,23 @@
           <meta>
             <instanceID/>
           </meta>
-        </ict4.2.1>
+        </ict4.2.1-A>
       </instance>
-      <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.2.1/meses/factor_nominal/periodo_considerado" required="true()" type="select1"/>
-      <bind nodeset="/ict4.2.1/meses/factor_nominal/red_interna" required="true()" type="select1"/>
-      <bind constraint=".&gt;0" nodeset="/ict4.2.1/meses/factor_nominal/velocidad" required="true()" type="int"/>
-      <bind constraint=".&gt;0" nodeset="/ict4.2.1/meses/factor_nominal/diferencia" required="true()" type="int"/>
-      <bind constraint="divisor= /ict4.2.1/meses/factor_nominal/velocidad , /ict4.2.1/meses/factor_nominal/diferencia " nodeset="/ict4.2.1/meses/factor_nominal/fnr" readonly="true()" type="decimal"/>
-      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.2.1/meta/instanceID" readonly="true()" type="string"/>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.2.1-A/meses/factor_nominal/periodo_considerado" required="true()" type="select1"/>
+      <bind nodeset="/ict4.2.1-A/meses/factor_nominal/red_interna" required="true()" type="select1"/>
+      <bind constraint=".&gt;0" nodeset="/ict4.2.1-A/meses/factor_nominal/velocidad" required="true()" type="int"/>
+      <bind constraint=".&gt;0" nodeset="/ict4.2.1-A/meses/factor_nominal/diferencia" required="true()" type="int"/>
+      <bind constraint="divisor= /ict4.2.1-A/meses/factor_nominal/velocidad , /ict4.2.1-A/meses/factor_nominal/diferencia " nodeset="/ict4.2.1-A/meses/factor_nominal/fnr" readonly="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.2.1-A/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group ref="/ict4.2.1/meses">
+    <group ref="/ict4.2.1-A/meses">
       <label></label>
-      <repeat appearance="grilla" nodeset="/ict4.2.1/meses">
-        <group appearance="col3 well-white" ref="/ict4.2.1/meses/factor_nominal">
+      <repeat appearance="grilla" nodeset="/ict4.2.1-A/meses">
+        <group appearance="col3 well-white" ref="/ict4.2.1-A/meses/factor_nominal">
           <label>Factor Nominal de Reuso por Área de red interna</label>
-          <select1 appearance="minimal" ref="/ict4.2.1/meses/factor_nominal/periodo_considerado">
+          <select1 appearance="minimal" ref="/ict4.2.1-A/meses/factor_nominal/periodo_considerado">
             <label>Período Considerado</label>
             <hint>Período Considerado</hint>
             <item>
@@ -42,7 +42,7 @@
               <value>-1</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/ict4.2.1/meses/factor_nominal/red_interna">
+          <select1 appearance="minimal" ref="/ict4.2.1-A/meses/factor_nominal/red_interna">
             <label>Área de red interna</label>
             <hint>Área de red interna</hint>
             <item>
@@ -70,15 +70,15 @@
               <value>Area_de_Red_Interna_5</value>
             </item>
           </select1>
-          <input ref="/ict4.2.1/meses/factor_nominal/velocidad">
+          <input ref="/ict4.2.1-A/meses/factor_nominal/velocidad">
             <label>Velocidad nominal de transferencia (VNT) de bajada del usuario con acceso multiplexado</label>
             <hint>Velocidad nominal de transferencia (VNT) de bajada del usuario con acceso multiplexado</hint>
           </input>
-          <input ref="/ict4.2.1/meses/factor_nominal/diferencia">
+          <input ref="/ict4.2.1-A/meses/factor_nominal/diferencia">
             <label>Diferencia entre la suma de la VNT de los vínculos entre prestadores y la VNT de bajada de los usuarios con accesos dedicados</label>
             <hint>Diferencia entre la suma de las velocidades nominales de transferencia de los vínculos entre prestadores y las velocidades de transferencia nominal de bajada de los usuarios con accesos dedicados</hint>
           </input>
-          <input ref="/ict4.2.1/meses/factor_nominal/fnr">
+          <input ref="/ict4.2.1-A/meses/factor_nominal/fnr">
             <label>FNR</label>
             <hint>FNR</hint>
           </input>

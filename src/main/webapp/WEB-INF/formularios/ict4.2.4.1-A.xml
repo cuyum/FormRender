@@ -5,7 +5,7 @@
     <model>
       <submission action="/api/deposition" method="form-data-post"/>
       <instance>
-        <ict4.2.4.1 id="ICT4.2.4.1">
+        <ict4.2.4.1-A id="ict4.2.4.1-A">
           <trimestres jr:template="">
             <relacion>
               <periodo_considerado/>
@@ -27,32 +27,32 @@
           <meta>
             <instanceID/>
           </meta>
-        </ict4.2.4.1>
+        </ict4.2.4.1-A>
       </instance>
-      <bind constraint="periodicidad=/servicios/rest/periodicidad and agrupador=1" nodeset="/ict4.2.4.1/trimestres/relacion/periodo_considerado" required="true()" type="select1"/>
-      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.2.4.1/trimestres/relacion/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/ict4.2.4.1/trimestres/relacion/provincia" nodeset="/ict4.2.4.1/trimestres/relacion/partido" required="true()" type="select1"/>
-      <bind nodeset="/ict4.2.4.1/trimestres/relacion/partido_otro" relevant=" /ict4.2.4.1/trimestres/relacion/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/ict4.2.4.1/trimestres/relacion/partido" nodeset="/ict4.2.4.1/trimestres/relacion/localidad" required="true()" type="select1"/>
-      <bind nodeset="/ict4.2.4.1/trimestres/relacion/localidad_otro" relevant=" /ict4.2.4.1/trimestres/relacion/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/localizaciones/areas2 and depends=/ict4.2.4.1/trimestres/relacion/localidad and agrupador=2" nodeset="/ict4.2.4.1/trimestres/relacion/area" required="true()" type="select1"/>
-      <bind nodeset="/ict4.2.4.1/trimestres/relacion/area_otro" relevant=" /ict4.2.4.1/trimestres/relacion/area =9999" required="true()" type="string"/>
-      <bind constraint="agrupador=3" nodeset="/ict4.2.4.1/trimestres/relacion/hora_pico_inicio" required="true()" type="time"/>
-      <bind constraint="url=/servicios/rest/parameter?name=minutos_hora and hora_delta= /ict4.2.4.1/trimestres/relacion/hora_pico_inicio " nodeset="/ict4.2.4.1/trimestres/relacion/hora_pico_fin" readonly="true()" type="string"/>
-      <bind constraint="agrupador=4" nodeset="/ict4.2.4.1/trimestres/relacion/tipo_informacion" required="true()" type="select1"/>
-      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.2.4.1/trimestres/relacion/cant_paquetes" required="true()" type="int"/>
-      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.2.4.1/trimestres/relacion/cant_total_paquetes_recibidos" required="true()" type="int"/>
-      <bind constraint="porcentual= /ict4.2.4.1/trimestres/relacion/cant_paquetes , /ict4.2.4.1/trimestres/relacion/cant_total_paquetes_recibidos ,100" nodeset="/ict4.2.4.1/trimestres/relacion/porcentaje" readonly="true()" type="decimal"/>
-      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.2.4.1/meta/instanceID" readonly="true()" type="string"/>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad and agrupador=1" nodeset="/ict4.2.4.1-A/trimestres/relacion/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.2.4.1-A/trimestres/relacion/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/ict4.2.4.1-A/trimestres/relacion/provincia" nodeset="/ict4.2.4.1-A/trimestres/relacion/partido" required="true()" type="select1"/>
+      <bind nodeset="/ict4.2.4.1-A/trimestres/relacion/partido_otro" relevant=" /ict4.2.4.1-A/trimestres/relacion/partido =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/ict4.2.4.1-A/trimestres/relacion/partido" nodeset="/ict4.2.4.1-A/trimestres/relacion/localidad" required="true()" type="select1"/>
+      <bind nodeset="/ict4.2.4.1-A/trimestres/relacion/localidad_otro" relevant=" /ict4.2.4.1-A/trimestres/relacion/localidad =9999" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas2 and depends=/ict4.2.4.1-A/trimestres/relacion/localidad and agrupador=2" nodeset="/ict4.2.4.1-A/trimestres/relacion/area" required="true()" type="select1"/>
+      <bind nodeset="/ict4.2.4.1-A/trimestres/relacion/area_otro" relevant=" /ict4.2.4.1-A/trimestres/relacion/area =9999" required="true()" type="string"/>
+      <bind constraint="agrupador=3" nodeset="/ict4.2.4.1-A/trimestres/relacion/hora_pico_inicio" required="true()" type="time"/>
+      <bind constraint="url=/servicios/rest/parameter?name=minutos_hora and hora_delta= /ict4.2.4.1-A/trimestres/relacion/hora_pico_inicio " nodeset="/ict4.2.4.1-A/trimestres/relacion/hora_pico_fin" readonly="true()" type="string"/>
+      <bind constraint="agrupador=4" nodeset="/ict4.2.4.1-A/trimestres/relacion/tipo_informacion" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.2.4.1-A/trimestres/relacion/cant_paquetes" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.2.4.1-A/trimestres/relacion/cant_total_paquetes_recibidos" required="true()" type="int"/>
+      <bind constraint="porcentual= /ict4.2.4.1-A/trimestres/relacion/cant_paquetes , /ict4.2.4.1-A/trimestres/relacion/cant_total_paquetes_recibidos ,100" nodeset="/ict4.2.4.1-A/trimestres/relacion/porcentaje" readonly="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.2.4.1-A/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group ref="/ict4.2.4.1/trimestres">
+    <group ref="/ict4.2.4.1-A/trimestres">
       <label></label>
-      <repeat appearance="grilla calculados" nodeset="/ict4.2.4.1/trimestres">
-        <group appearance="col3 well-white" ref="/ict4.2.4.1/trimestres/relacion">
+      <repeat appearance="grilla calculados" nodeset="/ict4.2.4.1-A/trimestres">
+        <group appearance="col3 well-white" ref="/ict4.2.4.1-A/trimestres/relacion">
           <label>Relación entre la cantidad de paquetes recibidos en un tiempo T1 y el total de paquetes recibidos</label>
-          <select1 appearance="minimal" ref="/ict4.2.4.1/trimestres/relacion/periodo_considerado">
+          <select1 appearance="minimal" ref="/ict4.2.4.1-A/trimestres/relacion/periodo_considerado">
             <label>Período Considerado</label>
             <hint>Período Considerado</hint>
             <item>
@@ -60,7 +60,7 @@
               <value>-1</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/ict4.2.4.1/trimestres/relacion/provincia">
+          <select1 appearance="minimal" ref="/ict4.2.4.1-A/trimestres/relacion/provincia">
             <label>Provincia</label>
             <hint>Provincia</hint>
             <item>
@@ -68,7 +68,7 @@
               <value>-1</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/ict4.2.4.1/trimestres/relacion/partido">
+          <select1 appearance="minimal" ref="/ict4.2.4.1-A/trimestres/relacion/partido">
             <label>Departamento / Partido</label>
             <hint>Departamento / Partido</hint>
             <item>
@@ -76,11 +76,11 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/ict4.2.4.1/trimestres/relacion/partido_otro">
+          <input ref="/ict4.2.4.1-A/trimestres/relacion/partido_otro">
             <label>Partido Otros</label>
             <hint>Partido Otros</hint>
           </input>
-          <select1 appearance="minimal" ref="/ict4.2.4.1/trimestres/relacion/localidad">
+          <select1 appearance="minimal" ref="/ict4.2.4.1-A/trimestres/relacion/localidad">
             <label>Localidad</label>
             <hint>Localidad</hint>
             <item>
@@ -88,11 +88,11 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/ict4.2.4.1/trimestres/relacion/localidad_otro">
+          <input ref="/ict4.2.4.1-A/trimestres/relacion/localidad_otro">
             <label>Localidad Otros</label>
             <hint>Localidad Otros</hint>
           </input>
-          <select1 appearance="minimal" ref="/ict4.2.4.1/trimestres/relacion/area">
+          <select1 appearance="minimal" ref="/ict4.2.4.1-A/trimestres/relacion/area">
             <label>Área Local</label>
             <hint>Área Local</hint>
             <item>
@@ -100,19 +100,19 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/ict4.2.4.1/trimestres/relacion/area_otro">
+          <input ref="/ict4.2.4.1-A/trimestres/relacion/area_otro">
             <label>Área Otros</label>
             <hint>Área Otros</hint>
           </input>
-          <input ref="/ict4.2.4.1/trimestres/relacion/hora_pico_inicio">
+          <input ref="/ict4.2.4.1-A/trimestres/relacion/hora_pico_inicio">
             <label>Hora Pico Inicio</label>
             <hint>Hora Pico Inicio</hint>
           </input>
-          <input ref="/ict4.2.4.1/trimestres/relacion/hora_pico_fin">
+          <input ref="/ict4.2.4.1-A/trimestres/relacion/hora_pico_fin">
             <label>Hora Pico Fin</label>
             <hint>Hora Pico Fin</hint>
           </input>
-          <select1 appearance="minimal" ref="/ict4.2.4.1/trimestres/relacion/tipo_informacion">
+          <select1 appearance="minimal" ref="/ict4.2.4.1-A/trimestres/relacion/tipo_informacion">
             <label>Tipo de información</label>
             <hint>Tipo de información</hint>
             <item>
@@ -140,15 +140,15 @@
               <value>Datos</value>
             </item>
           </select1>
-          <input ref="/ict4.2.4.1/trimestres/relacion/cant_paquetes">
+          <input ref="/ict4.2.4.1-A/trimestres/relacion/cant_paquetes">
             <label>Cant. de paquetes recibidos dentro de un tiempo (T1)</label>
             <hint>Cantidad de paquetes recibidos dentro de un tiempo (T1)</hint>
           </input>
-          <input ref="/ict4.2.4.1/trimestres/relacion/cant_total_paquetes_recibidos">
+          <input ref="/ict4.2.4.1-A/trimestres/relacion/cant_total_paquetes_recibidos">
             <label>Cant. total de paquetes recibidos</label>
             <hint>Cantidad total de paquetes recibidos</hint>
           </input>
-          <input ref="/ict4.2.4.1/trimestres/relacion/porcentaje">
+          <input ref="/ict4.2.4.1-A/trimestres/relacion/porcentaje">
             <label>Resultado (%)</label>
             <hint>Resultado del Indicador</hint>
           </input>
