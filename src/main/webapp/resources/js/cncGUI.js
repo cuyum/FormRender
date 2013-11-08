@@ -185,16 +185,26 @@ var gui = new function(){
 	this.retrieveFormFieldData = function(){
 		var data = [];
 		for ( var i = 0; i < gui.fieldsets.length; i++) {
-			var kvpair = {};
+			var kvpair = {instance:i};
 			for ( var j = 0; j < gui.fieldsets[i].fields.length; j++) {
 				var field = $(gui.fieldsets[i].fields[j]);
-				var key = gui.getCleanFieldName(field.attr("name"));
+				var key = gui.getCleanFieldName(field.attr("name"),kvpair.instance);
 				var val;
-				if(this.isCNCNumberField(field)){
-					val = this.toNumber(field.val());
+				
+				if(field.is("select")){
+					o = field.children("option:selected");
+					val = {label:o.text(),value: field.val()};
+				}else if(field.attr("data-type-xml")=="select2"){
+					data = field.select2("data");
+					val = {label:data.text,value:data.id};
 				}else{
-					val = field.val();
+					if(this.isCNCNumberField(field)){
+						val = this.toNumber(field.val());
+					}else{
+						val = field.val();
+					}
 				}
+				
 				kvpair[key] = val;
 			}
 			data.push(kvpair);
