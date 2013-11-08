@@ -153,7 +153,7 @@ public class JsonUtils {
 		
 		if(!report.isSuccess()){
 			ObjectNode msg = processingMessagesReport(report);
-			return JsonUtils.msg(false,msg.asText());
+			return JsonUtils.msg(false,msg.toString());
 		} 
 		
 		return JsonUtils.msg(report.isSuccess(),schemas.get("schema").toString());

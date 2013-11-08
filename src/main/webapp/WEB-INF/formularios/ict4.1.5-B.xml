@@ -5,7 +5,7 @@
     <model>
       <submission action="/api/deposition" method="form-data-post"/>
       <instance>
-        <ict4.1.5.b id="ICT4.1.5.B">
+        <ict4.1.5-B id="ict4.1.5-B">
           <meses jr:template="">
             <mes>
               <periodo_considerado/>
@@ -20,25 +20,25 @@
           <meta>
             <instanceID/>
           </meta>
-        </ict4.1.5.b>
+        </ict4.1.5-B>
       </instance>
-      <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.1.5.b/meses/mes/periodo_considerado" required="true()" type="select1"/>
-      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.5.b/meses/mes/provincia" required="true()" type="select1"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.1.5.b/meses/mes/venc_saldos" required="true()" type="int"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.1.5.b/meses/mes/promociones" required="true()" type="int"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.1.5.b/meses/mes/acreditaciones" required="true()" type="int"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.1.5.b/meses/mes/consumo_debito" required="true()" type="int"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.1.5.b/meses/mes/otros" required="true()" type="int"/>
-      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.5.b/meta/instanceID" readonly="true()" type="string"/>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.1.5-B/meses/mes/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.5-B/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.5-B/meses/mes/venc_saldos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.5-B/meses/mes/promociones" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.5-B/meses/mes/acreditaciones" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.5-B/meses/mes/consumo_debito" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.5-B/meses/mes/otros" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.5-B/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group ref="/ict4.1.5.b/meses">
+    <group ref="/ict4.1.5-B/meses">
       <label></label>
-      <repeat appearance="grilla" nodeset="/ict4.1.5.b/meses">
-        <group appearance="col3 well-white" ref="/ict4.1.5.b/meses/mes">
+      <repeat appearance="grilla" nodeset="/ict4.1.5-B/meses">
+        <group appearance="col3 well-white" ref="/ict4.1.5-B/meses/mes">
           <label>Reclamos por Saldo Cuentas Prepagas clasificados por subtipo y provincia</label>
-          <select1 appearance="minimal" ref="/ict4.1.5.b/meses/mes/periodo_considerado">
+          <select1 appearance="minimal" ref="/ict4.1.5-B/meses/mes/periodo_considerado">
             <label>Período Considerado</label>
             <hint>Período Considerado</hint>
             <item>
@@ -46,7 +46,7 @@
               <value>-1</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/ict4.1.5.b/meses/mes/provincia">
+          <select1 appearance="minimal" ref="/ict4.1.5-B/meses/mes/provincia">
             <label>Provincia</label>
             <hint>Provincia</hint>
             <item>
@@ -54,23 +54,23 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/ict4.1.5.b/meses/mes/venc_saldos">
+          <input ref="/ict4.1.5-B/meses/mes/venc_saldos">
             <label>Vencimiento de saldos</label>
             <hint>Cant. de Reclamos por Saldo Cuentas Prepagas del tipo:</hint>
           </input>
-          <input ref="/ict4.1.5.b/meses/mes/promociones">
+          <input ref="/ict4.1.5-B/meses/mes/promociones">
             <label>Promociones</label>
             <hint>Cant. de Reclamos por Saldo Cuentas Prepagas del tipo:</hint>
           </input>
-          <input ref="/ict4.1.5.b/meses/mes/acreditaciones">
+          <input ref="/ict4.1.5-B/meses/mes/acreditaciones">
             <label>Acreditaciones</label>
             <hint>Cant. de Reclamos por Saldo Cuentas Prepagas del tipo:</hint>
           </input>
-          <input ref="/ict4.1.5.b/meses/mes/consumo_debito">
+          <input ref="/ict4.1.5-B/meses/mes/consumo_debito">
             <label>Consumos/Débitos</label>
             <hint>Cant. de Reclamos por Saldo Cuentas Prepagas del tipo:</hint>
           </input>
-          <input ref="/ict4.1.5.b/meses/mes/otros">
+          <input ref="/ict4.1.5-B/meses/mes/otros">
             <label>Otros</label>
             <hint>Cant. de Reclamos por Saldo Cuentas Prepagas del tipo:</hint>
           </input>

@@ -5,7 +5,7 @@
     <model>
       <submission action="/api/deposition" method="form-data-post"/>
       <instance>
-        <ict4.1.1.d id="ICT4.1.1.D">
+        <ict4.1.1-D id="ict4.1.1-D">
           <meses jr:template="">
             <mes>
               <periodo_considerado/>
@@ -17,22 +17,22 @@
           <meta>
             <instanceID/>
           </meta>
-        </ict4.1.1.d>
+        </ict4.1.1-D>
       </instance>
-      <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.1.1.d/meses/mes/periodo_considerado" required="true()" type="select1"/>
-      <bind nodeset="/ict4.1.1.d/meses/mes/contacto" required="true()" type="select1"/>
-      <bind nodeset="/ict4.1.1.d/meses/mes/contacto_otros" relevant=" /ict4.1.1.d/meses/mes/contacto =Otro" required="true()" type="string"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.1.1.d/meses/mes/cantidad_contactos_usuario" required="true()" type="int"/>
-      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.1.d/meta/instanceID" readonly="true()" type="string"/>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.1.1-D/meses/mes/periodo_considerado" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.1-D/meses/mes/contacto" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.1-D/meses/mes/contacto_otros" relevant=" /ict4.1.1-D/meses/mes/contacto =Otro" required="true()" type="string"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.1-D/meses/mes/cantidad_contactos_usuario" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.1-D/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group ref="/ict4.1.1.d/meses">
+    <group ref="/ict4.1.1-D/meses">
       <label></label>
-      <repeat appearance="grilla" nodeset="/ict4.1.1.d/meses">
-        <group appearance="col3 well-white" ref="/ict4.1.1.d/meses/mes">
+      <repeat appearance="grilla" nodeset="/ict4.1.1-D/meses">
+        <group appearance="col3 well-white" ref="/ict4.1.1-D/meses/mes">
           <label>Tipos de Contactos del usuario ante el Prestador</label>
-          <select1 appearance="minimal" ref="/ict4.1.1.d/meses/mes/periodo_considerado">
+          <select1 appearance="minimal" ref="/ict4.1.1-D/meses/mes/periodo_considerado">
             <label>Período Considerado</label>
             <hint>Período Considerado</hint>
             <item>
@@ -40,7 +40,7 @@
               <value>-1</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/ict4.1.1.d/meses/mes/contacto">
+          <select1 appearance="minimal" ref="/ict4.1.1-D/meses/mes/contacto">
             <label>Tipos de Contactos del usuario ante el Prestador</label>
             <hint>Tipos de Contactos del usuario ante el Prestador</hint>
             <item>
@@ -68,10 +68,10 @@
               <value>Otro</value>
             </item>
           </select1>
-          <input ref="/ict4.1.1.d/meses/mes/contacto_otros">
+          <input ref="/ict4.1.1-D/meses/mes/contacto_otros">
             <label>Otros Tipos de Contactos</label>
           </input>
-          <input ref="/ict4.1.1.d/meses/mes/cantidad_contactos_usuario">
+          <input ref="/ict4.1.1-D/meses/mes/cantidad_contactos_usuario">
             <label>Cant. de Contactos del usuario ante el Prestador</label>
             <hint>Cantidad de Contactos del usuario ante el Prestador</hint>
           </input>
