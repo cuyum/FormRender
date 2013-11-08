@@ -41,9 +41,9 @@ public class Item implements Serializable{
 	
 	public JsonNode toJson(){
 		ObjectMapper mapper = new ObjectMapper();
-		ObjectNode valueAsString = mapper.createObjectNode();
-		valueAsString.put("clave",id);
-		valueAsString.put("valor",text);
+		ObjectNode valueAsString = mapper.createObjectNode();		
+		valueAsString.put("label",text);
+		valueAsString.put("value",id);
 		return valueAsString;
 	}
 	

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
 
 import ar.com.cuyum.cnc.domain.jsonsla.Formulario;
+import ar.com.cuyum.cnc.domain.jsonsla.Row;
 import ar.com.cuyum.cnc.exceptions.ExceptionValidation;
 import ar.com.cuyum.cnc.service.RelayService;
 
@@ -173,6 +174,7 @@ public class JsonUtils {
 	}
 
 	public JsonNode proccessDataValidation(String submit_data, HttpServletRequest request, RelayService relayService,FormRenderProperties frp) {
+		ObjectMapper mapper = new ObjectMapper();
 		JsonNode validJson = doJson(submit_data);
 
 		//if el json no es un json valido y por eso no fue creado
@@ -212,35 +214,44 @@ public class JsonUtils {
 		JsonNode formularios = schemas.get("schema").get("properties")
 				.get("formulario").get("properties").get("formularios")
 				.get("items").get("properties");
-		JsonNode schemaItemsProperties = formularios.get("data").get("items")
-				.get("properties");
-
-		// validando cada item de datos del formularios
+		
+		
+		JsonNode schemaItemsDescription =  formularios.get("data").get("items");		
+		
+		ArrayNode listDataForm = mapper.createArrayNode();
+   
 		for (int j = 0, n = listForms.size(); j < n; j++) {
+			
 			JsonNode formNode = listForms.get(j);
+			
 			//si ya pasó las validaciones de jsonschema se pasa a la segunda etapa de validación
 			// del formulario
-			ArrayNode data = (ArrayNode) formNode.get("data");
-			Formulario form = new Formulario(idForm,schemaItemsProperties,relayService);
-			// validando cada item de datos del formularios
-			for (int i = 0, nf = data.size(); i < nf; i++) {
-				JsonNode item = data.get(i);			
-				try {
-					form.setDataByJson(item);
-					log.info(form.getId()+"="+form.toString());
-					form.isDataValid();
-				} catch (ExceptionValidation e) {
-					return msg(false,"error procesando data masiva en el formulario:("+j+") item:("+i+") :"+e.getMessage());		
-				}
-			}
-		}
-				
-		//return msg(true,data.toString());
+			
+			Formulario formulario = new Formulario(idForm,schemaItemsDescription,relayService);
+			ArrayNode data = (ArrayNode) formNode.get("data");	
+			formulario.addDataFromJson(data);
+			log.info(formulario.valuesToJson());
+			System.out.print("esto");
+			
+			Boolean isOk = false;
+			try {
+			    isOk = formulario.processData();
+			} catch (ExceptionValidation e) {
+				log.error(e);
+				return msg(false,"error procesando data masiva en el formulario:("+j+") "+e.getMessage());	
+			}			
+			
+			//if(isOk){
+				ObjectNode form = mapper.createObjectNode();
+				form.put("data",formulario.valuesToJson());
+				listDataForm.add(form);
+			//}
 		
-		ObjectMapper mapper = new ObjectMapper();
+		}
+		
 		ObjectNode response = mapper.createObjectNode();
 		response.put("id",idForm);
-		response.put("listDataForm",listForms);
+		response.put("listDataForm",listDataForm);
 		
 		return JsonUtils.msg(true,response.toString());
 	}

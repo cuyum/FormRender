@@ -136,13 +136,13 @@ public class RelayService {
 
 		String id = dataForm.get("id").asText();
 
-		ArrayNode listData = (ArrayNode) dataForm.get("listDataForm");
+		ArrayNode listDataForm = (ArrayNode) dataForm.get("listDataForm");
 
-		if (listData == null)
+		if (listDataForm == null)
 			return JsonUtils.msg(false,
 					"Lista de datos nulla, error desconocido").toString();
 
-		return performMassiveSubmission(remoteUrl, id, listData, request);
+		return performMassiveSubmission(remoteUrl, id, listDataForm, request);
 	}
 
 	public String retrieve(URL remoteUrl) {
@@ -178,19 +178,19 @@ public class RelayService {
 	}
 
 	private String performMassiveSubmission(URL url, String idForm,
-			ArrayNode formularios, HttpServletRequest request) {
+			ArrayNode form, HttpServletRequest request) {
 
 		//StringBuilder respon = new StringBuilder();
 		ObjectMapper mapper = new ObjectMapper();
 		
 		ObjectNode respon = mapper.createObjectNode();
 
-		for (int i = 0, n = formularios.size(); i < n; i++) {
-			ArrayNode dataNode = (ArrayNode) formularios.get(i).get("data");
+		for (int i = 0, n = form.size(); i < n; i++) {
+			ArrayNode dataNode = (ArrayNode) form.get(i).get("data");
 			ObjectNode formData = formData(idForm, dataNode);
 			log.info("Persistiendo:" + formData);
 
-			HttpPost requestPost = buildSubmission(url, formData.toString());
+			/*HttpPost requestPost = buildSubmission(url, formData.toString());
 			HttpResponse rawResponse = execute(requestPost);
 			
 			JsonNode response = null, result=null;
@@ -215,7 +215,7 @@ public class RelayService {
 				respon.put("Formulario-"+i+"",result);			
 			}else{
 				respon.put("Formulario-"+i+"",result);
-			}
+			}*/
 		}
 
 		return JsonUtils.msg(true,respon.toString()).toString();

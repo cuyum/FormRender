@@ -1,0 +1,15 @@
+{
+    "formulario": {
+        "id": "ict4.2.2.1-ax",
+        "formularios": [
+            {
+                "data": [
+                    {
+                        "instance": 0,
+                        "hora_pico_inicio": "09:00"
+                    }
+                ]
+            }
+        ]
+    }
+}
