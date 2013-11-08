@@ -1,6 +1,6 @@
-UPDATE formulario SET parametrosurl = 'id=C1.1'  WHERE (codigo = 'C1.1');
-UPDATE formulario SET parametrosurl = 'id=C1.2' WHERE (codigo = 'C1.2');
-UPDATE formulario SET parametrosurl = 'id=C1.3'  WHERE (codigo = 'C1.3');
+UPDATE formulario SET parametrosurl = 'id=C1.1&repeat=1'  WHERE (codigo = 'C1.1');
+UPDATE formulario SET parametrosurl = 'id=C1.2&repeat=1' WHERE (codigo = 'C1.2');
+UPDATE formulario SET parametrosurl = 'id=C1.3&repeat=1'  WHERE (codigo = 'C1.3');
 UPDATE formulario SET parametrosurl = 'id=C1.4&title=Enero,Febrero,Marzo&repeat=3'  WHERE (codigo = 'C1.4');
 UPDATE formulario SET parametrosurl = 'id=C1.5&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'C1.5');
 UPDATE formulario SET parametrosurl = 'id=C1.6&title=Enero,Febrero,Marzo&repeat=3'  WHERE (codigo = 'C1.6');      
@@ -23,8 +23,8 @@ UPDATE formulario SET parametrosurl = 'id=C1.22' WHERE (codigo = 'C1.22');
 UPDATE formulario SET parametrosurl = 'id=C1.23' WHERE (codigo = 'C1.23');
 UPDATE formulario SET parametrosurl = 'id=C1.24' WHERE (codigo = 'C1.24');
 UPDATE formulario SET parametrosurl = 'id=C1.25' WHERE (codigo = 'C1.25');                                        
-UPDATE formulario SET parametrosurl = 'id=C1.26' WHERE (codigo = 'C1.26');
-UPDATE formulario SET parametrosurl = 'id=C1.27' WHERE (codigo = 'C1.27');
+UPDATE formulario SET parametrosurl = 'id=C1.26&repeat=1' WHERE (codigo = 'C1.26');
+UPDATE formulario SET parametrosurl = 'id=C1.27&repeat=1' WHERE (codigo = 'C1.27');
 UPDATE formulario SET parametrosurl = 'id=C1.28&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'C1.28');
 UPDATE formulario SET parametrosurl = 'id=C1.29&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'C1.29');
 UPDATE formulario SET parametrosurl = 'id=C1.30&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'C1.30');
@@ -55,9 +55,9 @@ UPDATE formulario SET parametrosurl = 'id=C1.54' WHERE (codigo = 'C1.54');
                                                                       
 -- ANEXO D --                                                            
                                                                        
-UPDATE formulario SET parametrosurl = 'id=D1.1' WHERE (codigo = 'D1.1');                               
-UPDATE formulario SET parametrosurl = 'id=D1.2' WHERE (codigo = 'D1.2');
-UPDATE formulario SET parametrosurl = 'id=D1.3' WHERE (codigo = 'D1.3');
+UPDATE formulario SET parametrosurl = 'id=D1.1&repeat=1' WHERE (codigo = 'D1.1');                               
+UPDATE formulario SET parametrosurl = 'id=D1.2&repeat=1' WHERE (codigo = 'D1.2');
+UPDATE formulario SET parametrosurl = 'id=D1.3&repeat=1' WHERE (codigo = 'D1.3');
 UPDATE formulario SET parametrosurl = 'id=D1.4&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'D1.4');
 UPDATE formulario SET parametrosurl = 'id=D1.5&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'D1.5');
 UPDATE formulario SET parametrosurl = 'id=D1.6&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'D1.6');
@@ -70,7 +70,7 @@ UPDATE formulario SET parametrosurl = 'id=D1.12&title=Enero,Febrero,Marzo&repeat
 UPDATE formulario SET parametrosurl = 'id=D1.13&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'D1.13');
 UPDATE formulario SET parametrosurl = 'id=D1.14&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'D1.14');
 UPDATE formulario SET parametrosurl = 'id=D1.15&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'D1.15');
-UPDATE formulario SET parametrosurl = 'id=D1.16' WHERE (codigo = 'D1.16');
+UPDATE formulario SET parametrosurl = 'id=D1.16&repeat=1' WHERE (codigo = 'D1.16');
 UPDATE formulario SET parametrosurl = 'id=D1.17' WHERE (codigo = 'D1.17');
 UPDATE formulario SET parametrosurl = 'id=D1.18&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'D1.18');
 UPDATE formulario SET parametrosurl = 'id=D1.19&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'D1.19');
@@ -81,11 +81,11 @@ UPDATE formulario SET parametrosurl = 'id=D1.23&title=Enero,Febrero,Marzo&repeat
 UPDATE formulario SET parametrosurl = 'id=D1.24&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'D1.24');
 UPDATE formulario SET parametrosurl = 'id=D1.25&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'D1.25');
 UPDATE formulario SET parametrosurl = 'id=D1.26&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'D1.26');
-UPDATE formulario SET parametrosurl = 'id=D1.27' WHERE (codigo = 'D1.27');
-UPDATE formulario SET parametrosurl = 'id=D1.28' WHERE (codigo = 'D1.28');
+UPDATE formulario SET parametrosurl = 'id=D1.27&repeat=1' WHERE (codigo = 'D1.27');
+UPDATE formulario SET parametrosurl = 'id=D1.28&repeat=1' WHERE (codigo = 'D1.28');
 UPDATE formulario SET parametrosurl = 'id=D1.29' WHERE (codigo = 'D1.29');
 UPDATE formulario SET parametrosurl = 'id=D1.30' WHERE (codigo = 'D1.30');
-UPDATE formulario SET parametrosurl = 'id=D1.31' WHERE (codigo = 'D1.31');
+UPDATE formulario SET parametrosurl = 'id=D1.31&repeat=1' WHERE (codigo = 'D1.31');
 UPDATE formulario SET parametrosurl = 'id=D1.32' WHERE (codigo = 'D1.32');
 UPDATE formulario SET parametrosurl = 'id=D1.33&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'D1.33');
 UPDATE formulario SET parametrosurl = 'id=D1.34&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'D1.34');
@@ -103,7 +103,7 @@ UPDATE formulario SET parametrosurl = 'id=D1.45' WHERE (codigo = 'D1.45');
 UPDATE formulario SET parametrosurl = 'id=D1.46' WHERE (codigo = 'D1.46');
                                                                           
 -- Anexo C2 --                                                            
-UPDATE formulario SET parametrosurl = 'id=C2.1' WHERE (codigo = 'C2.1');
+UPDATE formulario SET parametrosurl = 'id=C2.1&repeat=1' WHERE (codigo = 'C2.1');
 UPDATE formulario SET parametrosurl = 'id=C2.2&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'C2.2');
 UPDATE formulario SET parametrosurl = 'id=C2.3&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'C2.3');
 UPDATE formulario SET parametrosurl = 'id=C2.4' WHERE (codigo = 'C2.4');
@@ -112,24 +112,24 @@ UPDATE formulario SET parametrosurl = 'id=C2.6&title=Enero,Febrero,Marzo&repeat=
 UPDATE formulario SET parametrosurl = 'id=C2.7' WHERE (codigo = 'C2.7');
                                                                          
 -- Anexo G --                                                            
-UPDATE formulario SET parametrosurl = 'id=G1.1' WHERE (codigo = 'G1.1');
-UPDATE formulario SET parametrosurl = 'id=G1.2' WHERE (codigo = 'G1.2');
+UPDATE formulario SET parametrosurl = 'id=G1.1&repeat=1' WHERE (codigo = 'G1.1');
+UPDATE formulario SET parametrosurl = 'id=G1.2&repeat=1' WHERE (codigo = 'G1.2');
 UPDATE formulario SET parametrosurl = 'id=G1.3&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'G1.3');
 UPDATE formulario SET parametrosurl = 'id=G1.4' WHERE (codigo = 'G1.4');
                                                                          
 -- Anexo H2 --                                                           
-UPDATE formulario SET parametrosurl = 'id=H2.1' WHERE (codigo = 'H2.1');
-UPDATE formulario SET parametrosurl = 'id=H2.2' WHERE (codigo = 'H2.2');
-UPDATE formulario SET parametrosurl = 'id=H2.3' WHERE (codigo = 'H2.3');
+UPDATE formulario SET parametrosurl = 'id=H2.1&repeat=1' WHERE (codigo = 'H2.1');
+UPDATE formulario SET parametrosurl = 'id=H2.2&repeat=1' WHERE (codigo = 'H2.2');
+UPDATE formulario SET parametrosurl = 'id=H2.3&repeat=1' WHERE (codigo = 'H2.3');
 UPDATE formulario SET parametrosurl = 'id=H2.4' WHERE (codigo = 'H2.4');
 UPDATE formulario SET parametrosurl = 'id=H2.5' WHERE (codigo = 'H2.5');
 UPDATE formulario SET parametrosurl = 'id=H2.6' WHERE (codigo = 'H2.6');
 UPDATE formulario SET parametrosurl = 'id=H2.7' WHERE (codigo = 'H2.7');
                                                                      
 -- Anexo F --                                                        
-UPDATE formulario SET parametrosurl = 'id=F1.1' WHERE (codigo = 'F1.1');
-UPDATE formulario SET parametrosurl = 'id=F1.2' WHERE (codigo = 'F1.2');
-UPDATE formulario SET parametrosurl = 'id=F1.3' WHERE (codigo = 'F1.3');
+UPDATE formulario SET parametrosurl = 'id=F1.1&repeat=1' WHERE (codigo = 'F1.1');
+UPDATE formulario SET parametrosurl = 'id=F1.2&repeat=1' WHERE (codigo = 'F1.2');
+UPDATE formulario SET parametrosurl = 'id=F1.3&repeat=1' WHERE (codigo = 'F1.3');
 UPDATE formulario SET parametrosurl = 'id=F1.4&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'F1.4');
 UPDATE formulario SET parametrosurl = 'id=F1.5&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'F1.5');
 UPDATE formulario SET parametrosurl = 'id=F1.6&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'F1.6');
@@ -142,11 +142,11 @@ UPDATE formulario SET parametrosurl = 'id=F1.12&title=Enero,Febrero,Marzo&repeat
 UPDATE formulario SET parametrosurl = 'id=F1.13&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'F1.13');
 UPDATE formulario SET parametrosurl = 'id=F1.14&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'F1.14');
 UPDATE formulario SET parametrosurl = 'id=F1.15&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'F1.15');
-UPDATE formulario SET parametrosurl = 'id=F1.16' WHERE (codigo = 'F1.16');
+UPDATE formulario SET parametrosurl = 'id=F1.16&repeat=1' WHERE (codigo = 'F1.16');
 UPDATE formulario SET parametrosurl = 'id=F1.17' WHERE (codigo = 'F1.17');
-UPDATE formulario SET parametrosurl = 'id=F1.18' WHERE (codigo = 'F1.18');
-UPDATE formulario SET parametrosurl = 'id=F1.19' WHERE (codigo = 'F1.19');
-UPDATE formulario SET parametrosurl = 'id=F1.20' WHERE (codigo = 'F1.20');
+UPDATE formulario SET parametrosurl = 'id=F1.18&repeat=1' WHERE (codigo = 'F1.18');
+UPDATE formulario SET parametrosurl = 'id=F1.19&repeat=1' WHERE (codigo = 'F1.19');
+UPDATE formulario SET parametrosurl = 'id=F1.20&repeat=1' WHERE (codigo = 'F1.20');
 UPDATE formulario SET parametrosurl = 'id=F1.21&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'F1.21');
 UPDATE formulario SET parametrosurl = 'id=F1.22&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'F1.22');
 UPDATE formulario SET parametrosurl = 'id=F1.23&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'F1.23');
@@ -160,9 +160,9 @@ UPDATE formulario SET parametrosurl = 'id=F1.30' WHERE (codigo = 'F1.30');
 UPDATE formulario SET parametrosurl = 'id=F1.31' WHERE (codigo = 'F1.31');
                                                                       
 -- Anexo E --                                                          
-UPDATE formulario SET parametrosurl = 'id=E1.1' WHERE (codigo = 'E1.1');
-UPDATE formulario SET parametrosurl = 'id=E1.2' WHERE (codigo = 'E1.2');
-UPDATE formulario SET parametrosurl = 'id=E1.3' WHERE (codigo = 'E1.3');
+UPDATE formulario SET parametrosurl = 'id=E1.1&repeat=1' WHERE (codigo = 'E1.1');
+UPDATE formulario SET parametrosurl = 'id=E1.2&repeat=1' WHERE (codigo = 'E1.2');
+UPDATE formulario SET parametrosurl = 'id=E1.3&repeat=1' WHERE (codigo = 'E1.3');
 UPDATE formulario SET parametrosurl = 'id=E1.4&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'E1.4');
 UPDATE formulario SET parametrosurl = 'id=E1.5&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'E1.5');
 UPDATE formulario SET parametrosurl = 'id=E1.6&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'E1.6');
@@ -172,7 +172,7 @@ UPDATE formulario SET parametrosurl = 'id=E1.9&title=Enero,Febrero,Marzo&repeat=
 UPDATE formulario SET parametrosurl = 'id=E1.10&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'E1.10');
 UPDATE formulario SET parametrosurl = 'id=E1.11&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'E1.11');
 UPDATE formulario SET parametrosurl = 'id=E1.12&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'E1.12');
-UPDATE formulario SET parametrosurl = 'id=E1.13' WHERE (codigo = 'E1.13');
+UPDATE formulario SET parametrosurl = 'id=E1.13&repeat=1' WHERE (codigo = 'E1.13');
 UPDATE formulario SET parametrosurl = 'id=E1.14' WHERE (codigo = 'E1.14');
 UPDATE formulario SET parametrosurl = 'id=E1.15&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'E1.15');
 UPDATE formulario SET parametrosurl = 'id=E1.16&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'E1.16');
@@ -183,11 +183,11 @@ UPDATE formulario SET parametrosurl = 'id=E1.20&title=Enero,Febrero,Marzo&repeat
 UPDATE formulario SET parametrosurl = 'id=E1.21&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'E1.21');
 UPDATE formulario SET parametrosurl = 'id=E1.22&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'E1.22');
 UPDATE formulario SET parametrosurl = 'id=E1.23&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'E1.23');
-UPDATE formulario SET parametrosurl = 'id=E1.24' WHERE (codigo = 'E1.24');
-UPDATE formulario SET parametrosurl = 'id=E1.25' WHERE (codigo = 'E1.25');
+UPDATE formulario SET parametrosurl = 'id=E1.24&repeat=1' WHERE (codigo = 'E1.24');
+UPDATE formulario SET parametrosurl = 'id=E1.25&repeat=1' WHERE (codigo = 'E1.25');
 UPDATE formulario SET parametrosurl = 'id=E1.26' WHERE (codigo = 'E1.26');
 UPDATE formulario SET parametrosurl = 'id=E1.27' WHERE (codigo = 'E1.27');
-UPDATE formulario SET parametrosurl = 'id=E1.28' WHERE (codigo = 'E1.28');
+UPDATE formulario SET parametrosurl = 'id=E1.28&repeat=1' WHERE (codigo = 'E1.28');
 UPDATE formulario SET parametrosurl = 'id=E1.29' WHERE (codigo = 'E1.29');
 UPDATE formulario SET parametrosurl = 'id=E1.30&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'E1.30');
 UPDATE formulario SET parametrosurl = 'id=E1.31&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'E1.31');
@@ -207,9 +207,9 @@ UPDATE formulario SET parametrosurl = 'id=E1.43' WHERE (codigo = 'E1.43');
                                                                        
 -- Anexo H1 --                                                         
                                                                        
-UPDATE formulario SET parametrosurl = 'id=H1.1' WHERE (codigo = 'H1.1');
-UPDATE formulario SET parametrosurl = 'id=H1.2' WHERE (codigo = 'H1.2');
-UPDATE formulario SET parametrosurl = 'id=H1.3' WHERE (codigo = 'H1.3');
+UPDATE formulario SET parametrosurl = 'id=H1.1&repeat=1' WHERE (codigo = 'H1.1');
+UPDATE formulario SET parametrosurl = 'id=H1.2&repeat=1' WHERE (codigo = 'H1.2');
+UPDATE formulario SET parametrosurl = 'id=H1.3&repeat=1' WHERE (codigo = 'H1.3');
 UPDATE formulario SET parametrosurl = 'id=H1.4&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'H1.4');
 UPDATE formulario SET parametrosurl = 'id=H1.5&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'H1.5');
 UPDATE formulario SET parametrosurl = 'id=H1.6&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'H1.6');
@@ -221,7 +221,7 @@ UPDATE formulario SET parametrosurl = 'id=H1.11' WHERE (codigo = 'H1.11');
 UPDATE formulario SET parametrosurl = 'id=H1.12' WHERE (codigo = 'H1.12');
 UPDATE formulario SET parametrosurl = 'id=H1.13' WHERE (codigo = 'H1.13');
 UPDATE formulario SET parametrosurl = 'id=H1.14' WHERE (codigo = 'H1.14');
-UPDATE formulario SET parametrosurl = 'id=H1.15' WHERE (codigo = 'H1.15');
+UPDATE formulario SET parametrosurl = 'id=H1.15&repeat=1' WHERE (codigo = 'H1.15');
 UPDATE formulario SET parametrosurl = 'id=H1.16&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'H1.16');
 UPDATE formulario SET parametrosurl = 'id=H1.17&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'H1.17');
 UPDATE formulario SET parametrosurl = 'id=H1.18&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'H1.18');
@@ -233,15 +233,15 @@ UPDATE formulario SET parametrosurl = 'id=H1.23' WHERE (codigo = 'H1.23');
                                                                       
 -- Anexo I --                                                         
                                                                        
-UPDATE formulario SET parametrosurl = 'id=I1.1' WHERE (codigo = 'I1.1');
-UPDATE formulario SET parametrosurl = 'id=I1.2' WHERE (codigo = 'I1.2');
-UPDATE formulario SET parametrosurl = 'id=I1.3' WHERE (codigo = 'I1.3');
+UPDATE formulario SET parametrosurl = 'id=I1.1&repeat=1' WHERE (codigo = 'I1.1');
+UPDATE formulario SET parametrosurl = 'id=I1.2&repeat=1' WHERE (codigo = 'I1.2');
+UPDATE formulario SET parametrosurl = 'id=I1.3&repeat=1' WHERE (codigo = 'I1.3');
 UPDATE formulario SET parametrosurl = 'id=I1.4&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'I1.4');
 UPDATE formulario SET parametrosurl = 'id=I1.5&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'I1.5');
 UPDATE formulario SET parametrosurl = 'id=I1.6&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'I1.6');
 UPDATE formulario SET parametrosurl = 'id=I1.7&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'I1.7');
 UPDATE formulario SET parametrosurl = 'id=I1.8&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'I1.8');
-UPDATE formulario SET parametrosurl = 'id=I1.9' WHERE (codigo = 'I1.9');
+UPDATE formulario SET parametrosurl = 'id=I1.9&repeat=1' WHERE (codigo = 'I1.9');
 UPDATE formulario SET parametrosurl = 'id=I1.10&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'I1.10');
 UPDATE formulario SET parametrosurl = 'id=I1.11&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'I1.11');
 UPDATE formulario SET parametrosurl = 'id=I1.12&title=Enero,Febrero,Marzo&repeat=3' WHERE (codigo = 'I1.12');
