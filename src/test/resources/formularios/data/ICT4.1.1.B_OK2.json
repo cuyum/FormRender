@@ -1,0 +1,78 @@
+{
+    "formulario": {
+        "id": "ict4.1.1-B",
+        "formularios": [
+            {
+                "data": [
+                    {
+
+                            "instance": 0,
+                            "periodo_considerado": {
+                                "label": "Enero",
+                                "value": "1"
+                            },
+                            "provincia": {
+                                "label": "BUENOS AIRES",
+                                "value": "2"
+                            },
+                            "partido": {
+                                "label": "9 de Julio",
+                                "value": "88"
+                            },
+                            "partido_otro": "",
+                            "localidad": {
+                                "label": "9 de Julio",
+                                "value": "19"
+                            },
+                            "localidad_otro": "",
+                            "area": {
+                                "label": "9 DE JULIO (PROV. BUENOS AIRES)",
+                                "value": "166"
+                            },
+                            "area_otro": "",
+                            "aveia": 10,
+                            "facturacion": 20,
+                            "inst_serv_camb_domicilio": 30,
+                            "saldo_cuentas_prepagas": 40,
+                            "incump_baja_servicio": 50,
+                            "otros": 60,
+                            "firma_digital": "cd279aceb755f072be18b94fdfe9ef96a1be47d5"
+                        },
+                        {
+                            "instance": 0,
+                            "periodo_considerado": {
+                                "label": "Enero",
+                                "value": "1"
+                            },
+                            "provincia": {
+                                "label": "BUENOS AIRES",
+                                "value": "2"
+                            },
+                            "partido": {
+                                "label": "9 de Julio",
+                                "value": "88"
+                            },
+                            "partido_otro": "",
+                            "localidad": {
+                                "label": "9 de Julio",
+                                "value": "19"
+                            },
+                            "localidad_otro": "",
+                            "area": {
+                                "label": "9 DE JULIO (PROV. BUENOS AIRES)",
+                                "value": "166"
+                            },
+                            "area_otro": "",
+                            "aveia": 50,
+                            "facturacion": 60,
+                            "inst_serv_camb_domicilio": 70,
+                            "saldo_cuentas_prepagas": 80,
+                            "incump_baja_servicio": 90,
+                            "otros": 100,
+                            "firma_digital": "e6beab4c5a1669930f4b0e5a5a1b0e56ecbda77b"
+                        }
+                ]
+            }
+        ]
+    }
+}
