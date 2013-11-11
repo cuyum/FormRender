@@ -120,4 +120,14 @@ public class Time extends Componente {
 		return (value==null)?null:nodo.get("string");
 	}
 
+	@Override
+	public String getValueToString() {
+		if (value!=null) return value.toString();
+		return null;
+	}
+	
+	@Override
+	public String getType() {		
+		return Componente.TIME;
+	}
 }

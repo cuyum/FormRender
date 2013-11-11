@@ -1,5 +1,7 @@
 package ar.com.cuyum.cnc.domain.jsonsla;
 
+import java.io.IOException;
+import java.io.InvalidObjectException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -150,5 +152,50 @@ public class Decimal extends Componente {
 		ObjectNode nodo = mapper.createObjectNode();
 		nodo.put("Decimal", value);
 		return (value==null)?null:nodo.get("Decimal");
+	}
+	
+	@Override
+	public String getValueToString() {
+		if (value!=null) return value.toString();
+		return null;
+	}
+	
+	@Override
+	public String getType() {		
+		return Componente.DECIMAL;
+	}
+	
+	public Componente sum(Entero otro){
+		Decimal sum = new Decimal();
+		sum.setValue(this.value);
+		if (otro==null || otro.getValue()==null) return sum; 
+		if(value==null){
+			sum.setValue(BigDecimal.valueOf(otro.getValue()));
+		}else{
+			sum.value.add(BigDecimal.valueOf(otro.getValue()));
+		}
+		return sum;
+	}
+	
+	public Componente sum(Decimal otro){
+		Decimal sum = new Decimal();
+		sum.setValue(this.value);
+		if (otro==null || otro.getValue()==null) return sum;
+		if(value==null){
+			sum.setValue(otro.getValue());
+		}else{			
+			sum.value.add(otro.getValue());
+		}
+		return sum;
+	}
+	
+	public Componente sum(Componente otro) throws IOException {
+		if(Componente.INTEGER.equals(otro.getType())){
+			return sum((Entero)otro);
+		}else if(Componente.DECIMAL.equals(otro.getType())){
+			return sum((Decimal)otro);
+		}else {
+			throw new IOException("Valor invalido para la operacion de suma");
+		}
 	}
 }

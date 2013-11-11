@@ -452,10 +452,10 @@ var gui = new function(){
 						}
 					}
 					
-					dataFinal = {
+					dataFinal = [{
 						registros:dataList,
 						sumarizados:totalizados
-					};
+					}];
 				}else{
 					dataFinal = dataList;
 				}

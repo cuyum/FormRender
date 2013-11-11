@@ -171,5 +171,16 @@ public class Combo extends Componente {
 	   return (value==null)?null:value.toJson();
 	}
 
+	@Override
+	public String getValueToString() {
+		if (value!=null) return value.getLabel();
+		return null;
+	}
+
+	@Override
+	public String getType() {		
+		return Componente.COMBO;
+	}
+
 
 }

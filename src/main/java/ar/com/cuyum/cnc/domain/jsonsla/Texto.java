@@ -129,4 +129,14 @@ public class Texto extends Componente {
 		this.url = url;
 	}
 
+	@Override
+	public String getValueToString() {
+		if (value!=null) return value.toString();
+		return null;
+	}
+	
+	@Override
+	public String getType() {		
+		return Componente.STRING;
+	}
 }

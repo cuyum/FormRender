@@ -33,20 +33,56 @@ public class Row implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Map<String, Componente> mapComponets = new HashMap<String, Componente>();
-	private List<String> sumarizados = new ArrayList<String>();
-	//private Boolean totalizar;	
-	//private RelayService relayService;
-
-	public Row(Map<String, Componente> listComponets/*,RelayService relayService*/) {
-		this.mapComponets.putAll(listComponets);		
-		Iterator<Entry<String, Componente>> iterListComponent = this.mapComponets
+	
+	public Row(Map<String, Componente> mapComponents) {	
+		
+		Iterator<Entry<String, Componente>> iterListComponent = mapComponents
 				.entrySet().iterator();
+		
+		//Asigno los componentes
+		while (iterListComponent.hasNext()) {
+			Map.Entry<String, Componente> componente = (Map.Entry<String, Componente>) iterListComponent
+					.next();			
+			Componente clon = (Componente) componente.getValue().clone();
+			this.mapComponets.put(componente.getKey(),clon);
+		}
+		
+		initAllComponents();
+	}
+	
+	public void sumarizar(List<String> sumarizados) throws IOException{
+		Componente total=null;
+		for (int i = 0, n = sumarizados.size(); i < n; i++) {
+			String name = sumarizados.get(i);
+			Componente aSumar = this.mapComponets.get(name);
+			
+			if(!Componente.INTEGER.equals(aSumar.getType()) && 
+			   !Componente.DECIMAL.equals(aSumar.getType())) 
+				throw new IOException("Valores invalidos para totalizar"); 
+			
+			if(total==null){
+				total = (Componente) aSumar.clone();
+			}else{
+				if(Componente.INTEGER.equals(total.getType())){
+					total = ((Entero)total).sum(aSumar);
+				}else{
+					total = ((Decimal)total).sum(aSumar);
+				}
+			}		
+		}
+		this.mapComponets.put("rowTotal", total);
+	}
+	
+	private void initAllComponents(){
+		Iterator<Entry<String, Componente>>  iterListComponent = this.mapComponets.entrySet().iterator();
+
+		//A cada componente le paso la lista de todos los componentes, para las validaciones
 		while (iterListComponent.hasNext()) {
 			Map.Entry<String, Componente> componente = (Map.Entry<String, Componente>) iterListComponent
 					.next();
-			componente.getValue().setAllComponet(listComponets);
+			componente.getValue().setAllComponet(mapComponets);
 		}
-	}
+	}	
 	
 	public void setDataByJson(JsonNode data) throws ExceptionValidation {
 		Iterator<String> keys = data.fieldNames();
@@ -54,32 +90,9 @@ public class Row implements Serializable {
 			String name = keys.next();
 			JsonNode value = data.get(name);
 			Componente componente = mapComponets.get(name);
-			componente.setValueFromJson(value);
-			
-			/*if(Componente.COMBO.equals(componente.getType())){
-				((Combo)componente).setRelayService(relayService);
-			}**/
+			componente.setValueFromJson(value);			
 		}
 	}
-
-/*	public void totalizar() {
-		if (totalizar) {
-			Entero total = new Entero();
-			for (int i = 0, n = sumarizados.size(); i < n; i++) {
-				String name = sumarizados.get(i);
-				Componente aSumar = listComponets.get(name);
-				if (Componente.INTEGER.equals(aSumar.getType())) {
-					Long sum = (total.getValue() == null) ? 0 : total
-							.getValue();
-					Long value = ((Entero) aSumar).getValue();
-					if (value != null) {
-						total.setValue(sum = sum + value);
-					}
-				}
-			}
-			listComponets.put("rowTotal", total);
-		}
-	}*/
 
 	public Boolean isDataValid() throws ExceptionValidation {
 
@@ -90,13 +103,9 @@ public class Row implements Serializable {
 			Map.Entry<String, Componente> componente = (Map.Entry<String, Componente>) iterListComponent
 					.next();
 			try {
-				/*if (Componente.COMBO.equals(componente.getValue().getType()))
-					((Combo) componente.getValue())
-							.setRelayService(relayService);*/
-				
-				log.info("validando:" + componente.getKey());
+				log.info("validando " + componente.getKey()+" de tipo: "+componente.getValue().getType());
 				componente.getValue().isDataValid();
-				log.info(componente.getKey()+" tipo "+componente.getValue().getType()+": es valido");
+				log.info(componente.getKey()+": es valido");
 			} catch (ExceptionValidation e) {
 				String msg = "Error validando componente "
 						+ componente.getKey() + ",";
@@ -121,6 +130,10 @@ public class Row implements Serializable {
 						.valueToJson());
 		}
 		return row;
+	}
+	
+	public Componente getFieldByName(String name){
+		return this.mapComponets.get(name);
 	}
 
 }

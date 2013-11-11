@@ -1,5 +1,7 @@
 package ar.com.cuyum.cnc.domain.jsonsla;
 
+import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -148,4 +150,48 @@ public class Entero extends Componente {
 		return (value==null)?null:nodo.get("Integer");
 	}
 
+	@Override
+	public String getValueToString() {
+		if (value!=null) return value.toString();
+		return null;
+	}
+	
+	@Override
+	public String getType() {		
+		return Componente.INTEGER;
+	}
+	
+	public Componente sum(Entero otro){
+		Entero sum = new Entero();
+		sum.setValue(this.value);
+		if (otro==null || otro.value==null) return sum; 
+		if(value==null){
+			sum.setValue(otro.value);
+		}else{
+			sum.setValue(value + otro.value);
+		}
+		return sum;
+	}
+	
+	public Componente sum(Decimal otro){
+		Decimal sum = new Decimal();
+		sum.setValue(BigDecimal.valueOf(this.value));
+		if (otro==null || otro.getValue()==null) return sum;
+		if(value==null){
+			sum.setValue(otro.getValue());
+		}else{			
+			sum.getValue().add(otro.getValue());
+		}
+		return sum;
+	}
+	
+	public Componente sum(Componente otro) throws IOException {
+		if(Componente.INTEGER.equals(otro.getType())){
+			return sum((Entero)otro);
+		}else if(Componente.DECIMAL.equals(otro.getType())){
+			return sum((Decimal)otro);
+		}else {
+			throw new IOException("Valor invalido para la operacion de suma");
+		}
+	}
 }

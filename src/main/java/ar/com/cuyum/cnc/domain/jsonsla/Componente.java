@@ -33,7 +33,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public abstract class Componente implements Serializable {
+public abstract class Componente implements Serializable, Cloneable {
 
 	public transient static Logger log = Logger.getLogger(Componente.class);
 
@@ -101,6 +101,8 @@ public abstract class Componente implements Serializable {
 			Arrays.asList(Componente.CONSTRAINT_AGRUPADOR);	
 
 	protected Map<String, Componente> listComponets = new HashMap<String, Componente>();
+	
+	abstract public String getType();
 
 	abstract public Boolean isDataValid() throws ExceptionValidation;
 
@@ -124,6 +126,7 @@ public abstract class Componente implements Serializable {
 	}
 
 	abstract public JsonNode valueToJson();
+	abstract public String getValueToString();
 
 	protected void setAllComponet(Map<String, Componente> listComponets) {
 		this.listComponets = listComponets;
@@ -210,9 +213,6 @@ public abstract class Componente implements Serializable {
 				+ ((label != null) ? " label =" + label : "");
 	}
 
-	public String getType() {
-		return ref.split("#/definitions/")[1];
-	}
 
 	protected Boolean isOkRelevant(Map<String, List<String>> relevantMap)
 			throws ExceptionValidation {
@@ -447,4 +447,13 @@ public abstract class Componente implements Serializable {
 
 	}
 
+	public Object clone(){
+        Object obj=null;
+        try{
+            obj=super.clone();
+        }catch(CloneNotSupportedException ex){
+            System.out.println(" no se puede duplicar");
+        }
+        return obj;
+    }
 }

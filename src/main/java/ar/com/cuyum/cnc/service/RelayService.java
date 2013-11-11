@@ -180,9 +180,8 @@ public class RelayService {
 	private String performMassiveSubmission(URL url, String idForm,
 			ArrayNode form, HttpServletRequest request) {
 
-		//StringBuilder respon = new StringBuilder();
 		ObjectMapper mapper = new ObjectMapper();
-		
+
 		ObjectNode respon = mapper.createObjectNode();
 
 		for (int i = 0, n = form.size(); i < n; i++) {
@@ -190,10 +189,10 @@ public class RelayService {
 			ObjectNode formData = formData(idForm, dataNode);
 			log.info("Persistiendo:" + formData);
 
-			/*HttpPost requestPost = buildSubmission(url, formData.toString());
+			HttpPost requestPost = buildSubmission(url, formData.toString());
 			HttpResponse rawResponse = execute(requestPost);
-			
-			JsonNode response = null, result=null;
+
+			JsonNode response = null, result = null;
 
 			try {
 				response = mapper.readTree(processResponse(rawResponse));
@@ -202,7 +201,7 @@ public class RelayService {
 			} catch (IOException e) {
 				log.error(e);
 			}
-			
+
 			try {
 				result = mapper.readTree(response.get("result").toString());
 			} catch (JsonProcessingException e) {
@@ -210,15 +209,15 @@ public class RelayService {
 			} catch (IOException e) {
 				log.error(e);
 			}
-			
-			if(!response.get("success").asBoolean()){
-				respon.put("Formulario-"+i+"",result);			
-			}else{
-				respon.put("Formulario-"+i+"",result);
-			}*/
+
+			if (!response.get("success").asBoolean()) {
+				respon.put("Formulario-" + i + "", result);
+			} else {
+				respon.put("Formulario-" + i + "", result);
+			}
 		}
 
-		return JsonUtils.msg(true,respon.toString()).toString();
+		return JsonUtils.msg(true, respon.toString()).toString();
 	}
 
 	private String performRetrieval(URL url) {
