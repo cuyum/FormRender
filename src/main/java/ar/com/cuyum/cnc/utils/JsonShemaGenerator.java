@@ -478,6 +478,7 @@ public class JsonShemaGenerator {
 					}
 					if(appearance.getNodeValue().contains("ingresados")){
 						grid.put("ingresados", true);
+						grid.put("calculados", true);
 					}else{
 						grid.put("ingresados", false);
 					}
