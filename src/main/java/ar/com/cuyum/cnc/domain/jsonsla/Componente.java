@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
+import org.primefaces.json.JSONObject;
 import org.w3c.dom.Node;
 
 import ar.com.cuyum.cnc.exceptions.ExceptionComboRelayUrl;
@@ -338,8 +339,8 @@ public abstract class Componente implements Serializable, Cloneable {
 						.put(depends[0],
 								depends[1].split("/")[depends[1].split("/").length - 1]);
 			} else if (constraint.indexOf(CONSTRAINT_URL+"=") != -1) {
-				String[] url = constraint.split("=");
-				constraintResult.put(url[0], url[1]);
+				String url = constraint.substring(constraint.indexOf(CONSTRAINT_URL+"=")+4);
+				constraintResult.put(CONSTRAINT_URL, url);
 			} else if (constraint.indexOf(CONSTRAINT_CUIT) != -1) {
 				constraintResult.put(CONSTRAINT_CUIT, true);
 			} else if (constraint.indexOf(CONSTRAINT_MASK+"=") != -1) {
@@ -403,6 +404,43 @@ public abstract class Componente implements Serializable, Cloneable {
 		return false;
 	}
 
+	
+	protected JsonNode getFromUrl(RelayService relayService,
+			String fkey, String url) throws ExceptionComboRelayUrl {
+
+		JsonNode remoteMsg = null;
+		
+		if (relayService == null)
+			throw new ExceptionComboRelayUrl(
+					"No se puede cargar valores a partir de la URL, el servicio no está disponible");
+		FormRenderProperties frp = relayService.getFormRenderProperties();
+		if (frp == null)
+			throw new ExceptionComboRelayUrl(
+					"No se puede cargar valores a partir de la URL, propiedades no disponibles");
+		String msg_error = "No se pudo generar la respuesta json en relay service ya que "
+				+ "el servicio remoto ha respondido en un objeto JSON inv&aacute;lid";
+		try {
+			
+			String remoteHost = frp.getRemoteListHost();
+			URL urlRemote = new URL(remoteHost + url);
+			String remoteResponse = relayService.request(urlRemote, fkey);
+			ObjectMapper mapper = new ObjectMapper();
+			remoteMsg = mapper.readTree(remoteResponse);
+			
+		} catch (JsonParseException e) {
+			log.error(msg_error, e);
+		} catch (JsonMappingException e) {
+			log.error(msg_error, e);
+		} catch (JsonProcessingException e) {
+			log.error(msg_error, e);
+		} catch (IOException e) {
+			log.error(msg_error, e);
+		}
+
+		return remoteMsg;
+
+	}
+	
 	/**
 	 * @author ltroconis
 	 * 
@@ -413,7 +451,32 @@ public abstract class Componente implements Serializable, Cloneable {
 	 * @return
 	 * @throws ExceptionComboRelayUrl
 	 */
+	
 	protected List<Item> getValuesFromUrl(RelayService relayService,
+			String fkey, String url) throws ExceptionComboRelayUrl {
+		List<Item> items = new ArrayList<Item>();
+		ObjectMapper mapper = new ObjectMapper();
+		JsonNode remoteMsg = getFromUrl(relayService, fkey, url);
+		ArrayNode result = (ArrayNode) remoteMsg.get("result");
+		String msg_error = "No se pudo generar la respuesta json en relay service ya que "
+				+ "el servicio remoto ha respondido en un objeto JSON inv&aacute;lid";
+		try {
+			items = mapper.readValue(result.toString(),
+					new TypeReference<List<Item>>() {
+					});
+		} catch (JsonParseException e) {
+			log.error(msg_error, e);
+		} catch (JsonMappingException e) {
+			log.error(msg_error, e);
+		} catch (IOException e) {
+			log.error(msg_error, e);
+		}
+
+		return items;
+	}
+
+	
+	/*protected List<Item> getValuesFromUrl(RelayService relayService,
 			String fkey, String url) throws ExceptionComboRelayUrl {
 
 		if (relayService == null)
@@ -448,7 +511,9 @@ public abstract class Componente implements Serializable, Cloneable {
 
 		return items;
 
-	}
+	}*/
+	
+	
 
 	public Object clone(){
         Object obj=null;
