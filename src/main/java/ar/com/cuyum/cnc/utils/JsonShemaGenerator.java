@@ -628,6 +628,7 @@ public class JsonShemaGenerator {
 					totalizadores.add(name);
 					if(grid.has("ingresados")){
 						properties.put(name+"_ingresados", createJsonNodeIngresados());
+						required.add(name+"_ingresados");
 					}
 				}
 			}
