@@ -222,6 +222,16 @@ public class JsonShemaGenerator {
 
 		return input;
 	}
+	
+	
+	@VisibleForTesting
+	private ObjectNode createJsonNodeIngresados()
+			throws ExceptionParserJson {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode input = mapper.createObjectNode();
+		input.put("$ref", "formulario.json#/definitions/" + Componente.STRING);
+		return input;
+	}
 
 	@VisibleForTesting
 	private ObjectNode createJsonNodeTime(Node node, Element inputXml)
@@ -527,8 +537,9 @@ public class JsonShemaGenerator {
 
 		String idformulario = getIdFormularioFromXml(doc);
 
-		log.info("Procesando formulario:" + idformulario);
-
+		ObjectNode grid = createJsonNodeGrid(doc);
+		
+		log.info("Procesando formulario:" + idformulario);		
 		ArrayNode required = mapper.createArrayNode();
 		ArrayNode agrupadores = mapper.createArrayNode();
 		ArrayNode totalizadores = mapper.createArrayNode();
@@ -615,6 +626,9 @@ public class JsonShemaGenerator {
 
 				if (object.has("totalizador")) {
 					totalizadores.add(name);
+					if(grid.has("ingresados")){
+						properties.put(name+"_ingresados", createJsonNodeIngresados());
+					}
 				}
 			}
 		}
@@ -632,7 +646,7 @@ public class JsonShemaGenerator {
 		returnNode.put("action", action);
 		if(otherFields.size()>0) 
 			returnNode.put("otherFields", otherFields);	
-		ObjectNode grid = createJsonNodeGrid(doc);
+		
 		if (grid != null) {
 			if (agrupadores.size() > 0)
 				grid.put("agrupadores", agrupadores);

@@ -23,6 +23,8 @@ public class Grid implements Serializable {
 
 	private Boolean sumarizada;
 	private Boolean calculados;
+	private Boolean ingresados;
+	
 	private List<String> agrupadores;
 	private List<String> totalizadores;
 
@@ -70,6 +72,14 @@ public class Grid implements Serializable {
 		}
 
 		return grid;
+	}
+
+	public Boolean getIngresados() {
+		return ingresados;
+	}
+
+	public void setIngresados(Boolean ingresados) {
+		this.ingresados = ingresados;
 	}
 
 }
