@@ -249,23 +249,16 @@ public class JsonUtils {
 			log.info(formulario.valuesToJson());
 			System.out.print("esto");
 
-			Boolean isOk = false;
 			try {
-				isOk = formulario.processData();
+				formulario.processData();
 			} catch (ExceptionValidation e) {
 				log.error(e);
 				return msg(false,
 						"error procesando data masiva en el formulario:(" + j
 								+ ") " + e.getMessage());
-			} catch (IOException e) {
-				log.error(e);
-				return msg(false,
-						"error procesando data masiva en el formulario:(" + j
-								+ ") " + e.getMessage());
-			}
+			} 
 
 			listDataForm.add(formulario.valuesToJson());
-
 		}
 
 		ObjectNode response = mapper.createObjectNode();

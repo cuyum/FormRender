@@ -1,6 +1,5 @@
 package ar.com.cuyum.cnc.domain.jsonsla;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,7 +20,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * @author ltroconis
  */
 // @JsonIgnoreProperties(ignoreUnknown = true)
-public class Entero extends Componente {
+public class Entero extends Componente implements Numero {
 
 	private static final long serialVersionUID = 4270231775586991982L;
 
@@ -33,6 +32,12 @@ public class Entero extends Componente {
 
 	private Long minimum;
 	private Long maximum;
+	
+	Entero(){}
+	
+	Entero(Long value){
+		this.value = value;
+	}
 
 	public String toString() {
 		return super.toString()
@@ -161,7 +166,7 @@ public class Entero extends Componente {
 		return Componente.INTEGER;
 	}
 	
-	public Componente sum(Entero otro){
+	public Numero sum(Entero otro){
 		Entero sum = new Entero();
 		sum.setValue(this.value);
 		if (otro==null || otro.value==null) return sum; 
@@ -173,7 +178,7 @@ public class Entero extends Componente {
 		return sum;
 	}
 	
-	public Componente sum(Decimal otro){
+	public Numero sum(Decimal otro){
 		Decimal sum = new Decimal();
 		sum.setValue(BigDecimal.valueOf(this.value));
 		if (otro==null || otro.getValue()==null) return sum;
@@ -185,13 +190,72 @@ public class Entero extends Componente {
 		return sum;
 	}
 	
-	public Componente sum(Componente otro) throws IOException {
-		if(Componente.INTEGER.equals(otro.getType())){
+	public Numero sum(Numero otro) {		
+		if(Componente.INTEGER.equals(((Componente)otro).getType())){
 			return sum((Entero)otro);
-		}else if(Componente.DECIMAL.equals(otro.getType())){
-			return sum((Decimal)otro);
 		}else {
-			throw new IOException("Valor invalido para la operacion de suma");
+			return sum((Decimal)otro);
 		}
 	}
+
+
+	public Boolean lessThanOrEqual(Entero otro){
+		return this.value < otro.value; 
+	}
+	
+	public Boolean lessThanOrEqual(Decimal otro){
+		BigDecimal actual = BigDecimal.valueOf(this.value);
+		return (actual.compareTo(otro.getValue()) <=0 );
+	}
+	
+	public Boolean lessThanOrEqual(Numero otro){
+		if(Componente.INTEGER.equals(((Componente)otro).getType())){
+			return lessThanOrEqual((Entero)otro);
+		}else {
+			return lessThanOrEqual((Decimal)otro);
+		}
+	}
+
+	@Override
+	public Numero multiply(Numero otro) {
+		if(Componente.INTEGER.equals(((Componente)otro).getType())){
+			return multiply((Entero)otro);
+		}else {
+			return multiply((Decimal)otro);
+		}
+	}
+	
+	public Numero multiply(Entero otro){
+		Entero mult = new Entero();
+		mult.setValue(this.value*otro.value);
+		return mult;
+	}
+	
+	public Numero multiply(Decimal otro){
+		Decimal mult = new Decimal();
+		mult.setValue(BigDecimal.valueOf(this.value).multiply(otro.getValue()));		
+		return mult;
+	}
+	
+	public Numero divide(Entero otro){
+		Decimal div = new Decimal();
+		div.setValue(BigDecimal.valueOf(this.value).divide(BigDecimal.valueOf(otro.getValue())));
+		return div;
+	}
+	
+	public Numero divide(Decimal otro){
+		Decimal div = new Decimal();
+		div.setValue(BigDecimal.valueOf(this.value).divide(otro.getValue()));
+		return div;
+	}
+
+	@Override
+	public Numero divide(Numero otro) {
+		if(Componente.INTEGER.equals(((Componente)otro).getType())){
+			return divide((Entero)otro);
+		}else {
+			return divide((Decimal)otro);
+		}
+	}
+		
 }

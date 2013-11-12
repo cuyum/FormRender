@@ -63,12 +63,9 @@ public class Formulario implements Serializable {
 			}
 		}
 	}
-
-	private void init() {
-		initGridFromSchema();
-
+	
+	private void initComponent(JsonNode schemaItemsProperties){
 		ObjectMapper mapper = new ObjectMapper();
-		JsonNode schemaItemsProperties = schema.get("properties");
 		Iterator<String> names = schemaItemsProperties.fieldNames();
 		mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY,
 				true);
@@ -97,8 +94,17 @@ public class Formulario implements Serializable {
 				log.error("el schema propertie tiene formato inavalido", e);
 			}
 
-			log.info("objeto mappeado " + component);
+			log.info("objeto mappeado name:"+name+" "+component);
 		}
+	}
+
+	private void init() {
+		initGridFromSchema();
+		JsonNode schemaItemsProperties = schema.get("properties");
+		initComponent(schemaItemsProperties);
+		JsonNode schemaOtherFields = schema.get("otherFields");
+		if (schemaOtherFields != null)
+			initComponent(schemaOtherFields);
 	}
 
 	public String getId() {
@@ -157,7 +163,7 @@ public class Formulario implements Serializable {
 
 	}
 
-	public Boolean processData() throws ExceptionValidation, IOException {
+	public Boolean processData() throws ExceptionValidation {
 		Map<String, Map<String, Componente>> iterMapRowTotal = new HashMap<String, Map<String, Componente>>();
 
 		for (int i = 0, n = data.size(); i < n; i++) {
@@ -185,26 +191,15 @@ public class Formulario implements Serializable {
 				log.info(key);
 
 				for (int j = 0, at = totalizadores.size(); j < at; j++) {
-					Componente total = sumarizados.get(totalizadores.get(j));
-					Componente aSumar = this.data.get(i).getFieldByName(
-							totalizadores.get(j));
-
-					if (!Componente.INTEGER.equals(aSumar.getType())
-							&& !Componente.DECIMAL.equals(aSumar.getType())) {
-						throw new IOException(
-								"Valores invalidos para totalizar");
-					}
-
+					Numero total = (Numero) sumarizados.get(totalizadores.get(j));
+					Numero aSumar = (Numero) this.data.get(i).getFieldByName(totalizadores.get(j));
+					
 					if (total == null) {
-						total = (Componente) aSumar.clone();
+						total = ((Numero)(((Componente) aSumar).clone()));
 					} else {
-						if (Componente.INTEGER.equals(total.getType())) {
-							total = ((Entero) total).sum(aSumar);
-						} else {
-							total = ((Decimal) total).sum(aSumar);
-						}
-					}
-					sumarizados.put(totalizadores.get(j), total);
+							total = total.sum(aSumar);
+					}					
+					sumarizados.put(totalizadores.get(j), (Componente) total);
 				}
 
 				iterMapRowTotal.put(key, sumarizados);

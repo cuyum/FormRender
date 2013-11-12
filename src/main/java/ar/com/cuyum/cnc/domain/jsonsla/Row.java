@@ -50,27 +50,18 @@ public class Row implements Serializable {
 		initAllComponents();
 	}
 	
-	public void sumarizar(List<String> sumarizados) throws IOException{
-		Componente total=null;
+	public void sumarizar(List<String> sumarizados){
+		Numero total = null;
 		for (int i = 0, n = sumarizados.size(); i < n; i++) {
 			String name = sumarizados.get(i);
-			Componente aSumar = this.mapComponets.get(name);
-			
-			if(!Componente.INTEGER.equals(aSumar.getType()) && 
-			   !Componente.DECIMAL.equals(aSumar.getType())) 
-				throw new IOException("Valores invalidos para totalizar"); 
-			
-			if(total==null){
-				total = (Componente) aSumar.clone();
-			}else{
-				if(Componente.INTEGER.equals(total.getType())){
-					total = ((Entero)total).sum(aSumar);
-				}else{
-					total = ((Decimal)total).sum(aSumar);
-				}
-			}		
+			Numero aSumar = (Numero) this.mapComponets.get(name);
+			if (total == null) {
+				total = (Numero) ((Componente) aSumar).clone();
+			} else {
+				total = total.sum(aSumar);
+			}
 		}
-		this.mapComponets.put("rowTotal", total);
+		this.mapComponets.put("rowTotal", (Componente) total);
 	}
 	
 	private void initAllComponents(){
