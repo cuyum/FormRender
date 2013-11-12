@@ -229,7 +229,7 @@ public class JsonShemaGenerator {
 			throws ExceptionParserJson {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode input = mapper.createObjectNode();
-		input.put("$ref", "formulario.json#/definitions/" + Componente.STRING);
+		input.put("$ref", "formulario.json#/definitions/" + Componente.INTEGER);
 		return input;
 	}
 
