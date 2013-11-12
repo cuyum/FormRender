@@ -368,7 +368,10 @@ public abstract class Componente implements Serializable, Cloneable {
 										.split("/").length - 1].trim());
 			} else if (constraint.indexOf(CONSTRAINT_DIVISOR) != -1) {
 				String[] porcentual = constraint.split("=");
-				constraintResult.put(porcentual[0], porcentual[1]);
+				String[] valores = porcentual[1].split(",");
+				String dividendo = valores[0].split("/")[valores[0].split("/").length - 1];
+				String divisor = valores[1].split("/")[valores[1].split("/").length - 1];
+				constraintResult.put(porcentual[0], dividendo.trim() + ","+ divisor.trim());
 			} else {
 				throw new ExceptionParserJson(
 						"Constraint propertie no reconocida: " + constraint);

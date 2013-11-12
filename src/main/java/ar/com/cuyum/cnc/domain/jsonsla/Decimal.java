@@ -31,6 +31,7 @@ public class Decimal extends Componente implements Numero {
 	private BigDecimal minimum;
 	private BigDecimal maximum;
 	private String porcentual;
+	private String divisor;
 
 	private BigDecimal value;
 
@@ -130,6 +131,18 @@ public class Decimal extends Componente implements Numero {
 				throw new ExceptionValidation(
 						"Primer operando debe ser menor o igual que el segundo operando");
 			oper1 = oper1.multiply(oper3);
+			oper1 = oper1.divide(oper2);
+			this.value = ((Decimal)oper1).getValue();
+		}
+		
+		if(divisor!=null){
+			String[] operandos = divisor.split(",");
+			Numero oper1 = (Numero) this.listComponets.get(operandos[0]);
+			Numero oper2 = (Numero) this.listComponets.get(operandos[1]);
+
+			if (this.lessThanOrEqual(oper1))
+				throw new ExceptionValidation(
+						"Primer operando debe ser menor o igual que el segundo operando");
 			oper1 = oper1.divide(oper2);
 			this.value = ((Decimal)oper1).getValue();
 		}
