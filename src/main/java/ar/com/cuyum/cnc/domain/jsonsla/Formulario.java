@@ -81,9 +81,11 @@ public class Formulario implements Serializable {
 						.readValue(nodePropertie.toString(),
 								Componente.getTypeClass(type));
 
-				if (Componente.COMBO.equals(type)) {
+				if (Componente.COMBO.equals(type)){
 					((Combo) component).setRelayService(relayService);
-				}
+				}else if( Componente.STRING.equals(type)) {
+					((Texto) component).setRelayService(relayService);
+				}  
 
 				mapComponets.put(name, component);
 			} catch (JsonParseException e) {

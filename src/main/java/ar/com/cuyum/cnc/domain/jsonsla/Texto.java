@@ -12,7 +12,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import ar.com.cuyum.cnc.exceptions.ExceptionComboRelayUrl;
 import ar.com.cuyum.cnc.exceptions.ExceptionValidation;
+import ar.com.cuyum.cnc.service.RelayService;
 
 /**
  * 
@@ -26,9 +28,15 @@ public class Texto extends Componente {
 	private Map<String, List<String>> relevantMap = new HashMap<String, List<String>>();
 
 	private List<String> relevant = new ArrayList<String>();
+	private RelayService relayService;
+	
+	protected void setRelayService(RelayService relayService) {
+		this.relayService = relayService;		
+	}
 
 	private String value;
 	private String url;
+	private String hora_delta;
 
 	public String toString() {
 		return super.toString()
@@ -104,6 +112,39 @@ public class Texto extends Componente {
 					return false;
 			}
 		}
+		
+		if (url != null && hora_delta!=null) {
+			log.info("opteniendo valor de la url");
+			if (relayService == null)
+				throw new ExceptionValidation(
+						"Servicio remoto no disponible, para el string");
+			JsonNode data;
+			try {
+				data = getFromUrl(relayService,null,url);
+			} catch (ExceptionComboRelayUrl e) {				
+				log.error(e);
+				throw new ExceptionValidation(
+						"Error en servicio remoto "+e.getMessage());
+			}
+			log.info(data.toString());
+			Time horaDelta = (Time) this.listComponets.get(hora_delta);
+			String[] date = horaDelta.getValue().split(":");
+			Integer minutes = ((Integer.valueOf(date[0])*60+Integer.valueOf(data.get("result").asText()))+Integer.valueOf(date[1])); 
+			Integer resultado = Integer.valueOf(minutes/60);
+			minutes = minutes%60;			
+			
+			String hourRes= String.valueOf(resultado);
+			String minRes= String.valueOf(minutes);
+			if(hourRes.length()==1)
+				hourRes = "0" + hourRes;
+			if(minRes.length()==1)
+				minRes = "0" + minRes;
+			if(hourRes=="24")
+				hourRes="00";
+			
+			this.value = hourRes + ":" + minRes;
+		}
+		
 		// De momento cualquier texto es valido
 		return true;
 	}
@@ -138,5 +179,13 @@ public class Texto extends Componente {
 	@Override
 	public String getType() {		
 		return Componente.STRING;
+	}
+
+	public String getHora_delta() {
+		return hora_delta;
+	}
+
+	public void setHora_delta(String hora_delta) {
+		this.hora_delta = hora_delta;
 	}
 }

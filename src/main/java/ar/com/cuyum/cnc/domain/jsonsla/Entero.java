@@ -200,7 +200,7 @@ public class Entero extends Componente implements Numero {
 
 
 	public Boolean lessThanOrEqual(Entero otro){
-		return this.getValue() < otro.getValue(); 
+		return this.getValue() <= otro.getValue(); 
 	}
 	
 	public Boolean lessThanOrEqual(Decimal otro){
