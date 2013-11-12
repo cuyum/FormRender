@@ -316,22 +316,22 @@ public abstract class Componente implements Serializable, Cloneable {
 				String number = constraint.substring(
 						constraint.indexOf(".<") + 2, constraint.length());
 				if (INTEGER.equals(type)) {
-					constraintResult.put(CONSTRAINT_MINIMO, new Long(number));
+					constraintResult.put(CONSTRAINT_MAXIMO, new Long(number));
 				} else if (DECIMAL.equals(type)) {
 					BigDecimal bd = new BigDecimal(number);
-					constraintResult.put(CONSTRAINT_MINIMO, bd);
+					constraintResult.put(CONSTRAINT_MAXIMO, bd);
 				}
-				constraintResult.put(CONSTRAINT_EXCLUSIVE_MIN, true);
+				constraintResult.put(CONSTRAINT_EXCLUSIVE_MAX, true);
 			} else if (constraint.indexOf(".>") != -1
 					|| constraint.indexOf(".&gt;") != -1) {
 				String number = constraint.substring(
 						constraint.indexOf(".>") + 2, constraint.length());
 				if (INTEGER.equals(type)) {
-					constraintResult.put(CONSTRAINT_MAXIMO, new Long(number));
+					constraintResult.put(CONSTRAINT_MINIMO, new Long(number));
 				} else if (type.equals("decimal")) {
-					constraintResult.put(CONSTRAINT_MAXIMO, new Double(number));
+					constraintResult.put(CONSTRAINT_MINIMO, new Double(number));
 				}
-				constraintResult.put(CONSTRAINT_EXCLUSIVE_MAX, true);
+				constraintResult.put(CONSTRAINT_EXCLUSIVE_MIN, true);
 			} else if (constraint.indexOf("depends=") != -1) {
 				String[] depends = constraint.split("=");
 				constraintResult

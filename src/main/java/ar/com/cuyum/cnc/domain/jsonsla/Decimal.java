@@ -127,7 +127,7 @@ public class Decimal extends Componente implements Numero {
 			Numero oper2 = (Numero) this.listComponets.get(operandos[1]);
 			Numero oper3 = new Entero(Long.valueOf(operandos[2]));
 
-			if (this.lessThanOrEqual(oper1))
+			if (!oper1.lessThanOrEqual(oper2))
 				throw new ExceptionValidation(
 						"Primer operando debe ser menor o igual que el segundo operando");
 			oper1 = oper1.multiply(oper3);
@@ -140,7 +140,7 @@ public class Decimal extends Componente implements Numero {
 			Numero oper1 = (Numero) this.listComponets.get(operandos[0]);
 			Numero oper2 = (Numero) this.listComponets.get(operandos[1]);
 
-			if (this.lessThanOrEqual(oper1))
+			if (!oper1.lessThanOrEqual(oper2))
 				throw new ExceptionValidation(
 						"Primer operando debe ser menor o igual que el segundo operando");
 			oper1 = oper1.divide(oper2);
@@ -296,6 +296,14 @@ public class Decimal extends Componente implements Numero {
 		}else {
 			return divide((Decimal)otro);
 		}
+	}
+
+	public String getDivisor() {
+		return divisor;
+	}
+
+	public void setDivisor(String divisor) {
+		this.divisor = divisor;
 	}
 
 }

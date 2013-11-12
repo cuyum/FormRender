@@ -130,12 +130,12 @@ public class Entero extends Componente implements Numero {
 		}
 		
 		if (minimum != null && value!=null && value.compareTo(minimum) < 0) {
-			throw new ExceptionValidation("Decimal menor al minimo (" + minimum
+			throw new ExceptionValidation("Entero menor al minimo (" + minimum
 					+ ")+ permitido");
 		}
 		if (maximum != null && value!=null && value.compareTo(maximum) > 0) {
 
-			throw new ExceptionValidation("Decimal mayor al maximo (" + maximum
+			throw new ExceptionValidation("Entero mayor al maximo (" + maximum
 					+ ")+ permitido");
 		}
 				
@@ -200,7 +200,7 @@ public class Entero extends Componente implements Numero {
 
 
 	public Boolean lessThanOrEqual(Entero otro){
-		return this.value < otro.value; 
+		return this.getValue() < otro.getValue(); 
 	}
 	
 	public Boolean lessThanOrEqual(Decimal otro){
@@ -239,13 +239,19 @@ public class Entero extends Componente implements Numero {
 	
 	public Numero divide(Entero otro){
 		Decimal div = new Decimal();
-		div.setValue(BigDecimal.valueOf(this.value).divide(BigDecimal.valueOf(otro.getValue())));
+		BigDecimal oper1 = BigDecimal.valueOf(this.value);
+		BigDecimal oper2 = BigDecimal.valueOf(otro.getValue());
+		BigDecimal result = oper1.divide(oper2,2,BigDecimal.ROUND_FLOOR);
+		div.setValue(result);
 		return div;
 	}
 	
 	public Numero divide(Decimal otro){
 		Decimal div = new Decimal();
-		div.setValue(BigDecimal.valueOf(this.value).divide(otro.getValue()));
+		BigDecimal oper1 = BigDecimal.valueOf(this.value);
+		BigDecimal oper2 = otro.getValue();
+		BigDecimal result = oper1.divide(oper2,2,BigDecimal.ROUND_FLOOR);
+		div.setValue(result);
 		return div;
 	}
 
