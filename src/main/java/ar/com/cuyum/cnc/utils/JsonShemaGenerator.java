@@ -627,7 +627,7 @@ public class JsonShemaGenerator {
 
 				if (object.has("totalizador")) {
 					totalizadores.add(name);
-					if(grid.has("ingresados")){
+					if(grid.has("ingresados") && grid.get("ingresados").asBoolean()){
 						properties.put(name+"_ingresados", createJsonNodeIngresados());
 						required.add(name+"_ingresados");
 					}
