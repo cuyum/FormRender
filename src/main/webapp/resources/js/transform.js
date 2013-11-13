@@ -112,6 +112,7 @@ $(document).ready(function() {
 					gui.displayError("Error remoto: "+data.result.msg);
 				}else{//success retrieval
 //					console.log(data);
+					gui.readonly = data.header.readonly;
 					var dataArray = data.payload.formulario.data;
 					if(gui.renderGrid){
 						if(gui.renderTotalizadores || gui.renderTotalizadoresIngresados){						
