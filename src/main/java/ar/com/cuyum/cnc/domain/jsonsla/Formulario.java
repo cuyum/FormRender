@@ -2,8 +2,10 @@ package ar.com.cuyum.cnc.domain.jsonsla;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -11,128 +13,236 @@ import org.apache.log4j.Logger;
 
 import ar.com.cuyum.cnc.exceptions.ExceptionValidation;
 import ar.com.cuyum.cnc.service.RelayService;
-import ar.com.cuyum.cnc.utils.FormRenderProperties;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /**
  * 
  * @author ltroconis
- *
+ * 
  */
-public class Formulario  implements Serializable{
-	public transient static Logger log = Logger.getLogger(Formulario.class);
+public class Formulario implements Serializable {
+	public transient static Logger log = Logger.getLogger(Row.class);
 
 	private static final long serialVersionUID = 1L;
-	private Map<String,Componente> listComponets= new HashMap<String,Componente>();
-	private String id;
-	
-	//No lo injecto porque me daba problemas de recursividad 
-	//tal vez hay que pensar mejor esta parte
-	private RelayService relayService;
-	
-	private <T> Class<T> getTypeClass(String type){		
-		if("string".equals(type)) return (Class<T>) Texto.class;
-		if("combo".equals(type)) return (Class<T>) Combo.class;
-		if("integer".equals(type)) return (Class<T>) Entero.class;
-		if("decimal".equals(type)) return (Class<T>) Decimal.class;
-		if("item".equals(type)) return (Class<T>) RepeatItem.class;
-		return null; //explota si se incorpora un nuevo tipo 
-	}	
-	
-	public Formulario(String idForm, JsonNode schemaItemsProperties,RelayService relayService){
-		this.init(schemaItemsProperties);
-		this.relayService = relayService;
-		this.id=idForm;
-	}
-	
-	public String getId(){
-		return id;
-	}
-	
-	/**
-	 * Inicializa mapas para validacion del json.
-	 * Los campos requeridos no son tomados en cuenta, pues ya se validaron con el jsonschema. 
-	 * 
-	 * @param schemaItemsProperties
-	 */
-	private void init(JsonNode schemaItemsProperties){
-		Iterator<String> names = schemaItemsProperties.fieldNames();
-		ObjectMapper mapper = new ObjectMapper();
-		mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
-		while(names.hasNext()){
-			String name = names.next();
-			JsonNode nodePropertie = schemaItemsProperties.get(name);
-			String type = nodePropertie.get("$ref").asText().split("#/definitions/")[1];
-			
-			Componente component = null;
-			try {
-				component = (Componente) mapper.readValue(nodePropertie.toString(), getTypeClass(type));
-				listComponets.put(name,component);					
-			} catch (JsonParseException e) {
-				log.error("el schema propertie tiene formato inavalido",e);
-			} catch (JsonMappingException e) {
-				log.error("el schema propertie tiene formato inavalido",e);
-			} catch (IOException e) {
-				log.error("el schema propertie tiene formato inavalido",e);
-			}	
-			
-			log.info("objeto mappeado "+component);
-		}
-		
-	}
-	
-	public void setDataByJson(JsonNode data) throws ExceptionValidation  {
-		Iterator<String> keys = data.fieldNames();
-		while (keys.hasNext()) {
-			String name = keys.next();
-			JsonNode value = data.get(name);
-			Componente componente = listComponets.get(name);
-			componente.setValueFromJson(value);
-		}
-	}
-	
-	public Boolean isDataValid() throws ExceptionValidation {
 
-		Iterator<Entry<String,Componente>> iterListComponent = listComponets.entrySet()
-				.iterator();
-		
-		while (iterListComponent.hasNext()) {
-			Map.Entry<String,Componente> componente = (Map.Entry<String,Componente>) iterListComponent
-					.next();
+	private String id;
+	private JsonNode schema;
+	private Grid grid;
+	private Map<String, Componente> mapComponets = new HashMap<String, Componente>();
+	private List<Row> data = new ArrayList<Row>();
+	private RelayService relayService;
+	private ArrayNode sumarizadosJson;
+
+	// Solo la parte del esquema que interesa los items
+	public Formulario(String id, JsonNode schema, RelayService relayService) {
+		this.id = id;
+		this.schema = schema;
+		this.relayService = relayService;
+		init();
+	}
+
+	private void initGridFromSchema() {
+		ObjectMapper mapper = new ObjectMapper();
+		if (this.schema.has("grid")) {
 			try {
-				if("combo".equals(componente.getValue().getType())){
-					((Combo)componente.getValue()).setRelayService(relayService);
-				}
-				componente.getValue().setAllComponet(listComponets);
-				log.info("validando:"+componente.getKey());
-				componente.getValue().isDataValid();
-			} catch (ExceptionValidation e) {
-				String msg = "Error validando componente "+componente.getKey()+",";
-				log.error(msg+" "+e.getMessage());
-				throw new ExceptionValidation(msg+" "+e.getMessage());
+				setGrid(mapper.readValue(this.schema.get("grid").toString(),
+						Grid.class));
+			} catch (JsonParseException e) {
+				log.error("el schema grid tiene formato inavalido", e);
+			} catch (JsonMappingException e) {
+				log.error("el schema grid tiene formato inavalido", e);
+			} catch (IOException e) {
+				log.error("el schema grid tiene formato inavalido", e);
 			}
 		}
-
-		return true;
 	}
 	
-	public String toString(){
+	private void initComponent(JsonNode schemaItemsProperties){
 		ObjectMapper mapper = new ObjectMapper();
-		ObjectNode formulario = mapper.createObjectNode();
-		Iterator<Entry<String,Componente>> iterListComponent = listComponets.entrySet()
-				.iterator();		
-		while (iterListComponent.hasNext()) {
-			Map.Entry<String,Componente> componente = (Map.Entry<String,Componente>) iterListComponent
-					.next();
-			formulario.put(componente.getKey(),(componente.getValue()==null)?null:componente.getValue().valueToJson());
+		Iterator<String> names = schemaItemsProperties.fieldNames();
+		mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY,
+				true);
+		while (names.hasNext()) {
+			String name = names.next();
+			JsonNode nodePropertie = schemaItemsProperties.get(name);
+			String type = nodePropertie.get("$ref").asText()
+					.split("#/definitions/")[1];
+
+			Componente component = null;
+			try {
+				component = (Componente) mapper
+						.readValue(nodePropertie.toString(),
+								Componente.getTypeClass(type));
+
+				if (Componente.COMBO.equals(type)){
+					((Combo) component).setRelayService(relayService);
+				}else if( Componente.STRING.equals(type)) {
+					((Texto) component).setRelayService(relayService);
+				}  
+
+				mapComponets.put(name, component);
+			} catch (JsonParseException e) {
+				log.error("el schema propertie tiene formato inavalido", e);
+			} catch (JsonMappingException e) {
+				log.error("el schema propertie tiene formato inavalido", e);
+			} catch (IOException e) {
+				log.error("el schema propertie tiene formato inavalido", e);
+			}
+
+			log.info("objeto mappeado name:"+name+" "+component);
 		}
-		return formulario.toString();
-	} 
-	
+	}
+
+	private void init() {
+		initGridFromSchema();
+		JsonNode schemaItemsProperties = schema.get("properties");
+		initComponent(schemaItemsProperties);
+		JsonNode schemaOtherFields = schema.get("otherFields");
+		if (schemaOtherFields != null)
+			initComponent(schemaOtherFields);
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	private Row createDataItemFromJson(JsonNode item) {
+		Row row = new Row(mapComponets/* ,relayService */);
+		try {
+			row.setDataByJson(item);
+		} catch (ExceptionValidation e) {
+			log.error("json invalido", e);
+		}
+		return row;
+	}
+
+	public void addDataFromJson(ArrayNode data) {
+		for (int i = 0, nf = data.size(); i < nf; i++) {
+			JsonNode item = data.get(i);
+			this.data.add(createDataItemFromJson(item));
+		}
+	}
+
+	private void createAutorizadosJson(
+			Map<String, Map<String, Componente>> mapRowTotals) {
+		ObjectMapper mapper = new ObjectMapper();
+
+		sumarizadosJson = mapper.createArrayNode();
+
+		Iterator<Entry<String, Map<String, Componente>>> iterMapRowTotal = mapRowTotals
+				.entrySet().iterator();
+
+		while (iterMapRowTotal.hasNext()) {
+			Entry<String, Map<String, Componente>> mapRow = iterMapRowTotal
+					.next();
+
+			log.info(mapRow.getKey());
+
+			Iterator<Entry<String, Componente>> iterMapRow = mapRow.getValue()
+					.entrySet().iterator();
+
+			ObjectNode record = mapper.createObjectNode();
+			while (iterMapRow.hasNext()) {
+				Entry<String, Componente> field = iterMapRow.next();
+				log.info(field.getKey() + " = "
+						+ field.getValue().getValueToString());
+				record.put(field.getKey(), field.getValue().getValueToString());
+			}
+
+			sumarizadosJson.add(record);
+		}
+
+	}
+
+	public Boolean processData() throws ExceptionValidation {
+		Map<String, Map<String, Componente>> iterMapRowTotal = new HashMap<String, Map<String, Componente>>();
+
+		for (int i = 0, n = data.size(); i < n; i++) {
+			this.data.get(i).isDataValid();
+
+			if (this.grid != null && grid.getSumarizada()) {
+				this.data.get(i).sumarizar(grid.getTotalizadores());
+			}
+
+			if (this.grid != null && grid.getCalculados()) {
+				List<String> agrupadores = grid.getAgrupadores();
+				List<String> totalizadores = grid.getTotalizadores();
+				String key = "", coma = "";
+				Map<String, Componente> sumarizados = new HashMap<String, Componente>();
+				for (int j = 0, an = agrupadores.size(); j < an; j++) {
+					String value = this.data.get(i)
+							.getFieldByName(agrupadores.get(j))
+							.getValueToString();
+					key = key + coma + value;
+					coma = ",";
+					Texto agrupador = new Texto();
+					agrupador.setValue(value);
+					sumarizados.put(agrupadores.get(j), agrupador);
+				}
+				log.info(key);
+
+				for (int j = 0, at = totalizadores.size(); j < at; j++) {
+					Numero total = (Numero) sumarizados.get(totalizadores.get(j));
+					Numero aSumar = (Numero) this.data.get(i).getFieldByName(totalizadores.get(j));
+					
+					if (total == null) {
+						total = ((Numero)(((Componente) aSumar).clone()));
+					} else {
+							total = total.sum(aSumar);
+					}					
+					sumarizados.put(totalizadores.get(j), (Componente) total);
+				}
+
+				iterMapRowTotal.put(key, sumarizados);
+
+			}
+			createAutorizadosJson(iterMapRowTotal);
+		}
+		
+		return true;
+	}
+
+	public Grid getGrid() {
+		return grid;
+	}
+
+	public void setGrid(Grid grid) {
+		this.grid = grid;
+	}
+
+	public JsonNode valuesToJson() {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode data = mapper.createObjectNode();
+		
+		ArrayNode items = mapper.createArrayNode();
+
+		for (int i = 0, nf = this.data.size(); i < nf; i++) {
+			items.add(this.data.get(i).valuesToJson());
+		}
+
+		if (sumarizadosJson != null && grid.getCalculados()) {
+			ArrayNode items2 =  mapper.createArrayNode();
+			ObjectNode item = mapper.createObjectNode();
+			item.put("registros",items);
+			item.put("sumarizados",sumarizadosJson);
+			items2.add(item);
+			data.put("data",items2);
+		}else{
+    	   data.put("data",items);
+		}
+		
+		return data;
+	}
+
 }

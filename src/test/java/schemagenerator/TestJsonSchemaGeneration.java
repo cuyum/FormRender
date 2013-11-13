@@ -19,10 +19,9 @@ public class TestJsonSchemaGeneration {
 	static URI dir_actual = URI.create(System.getProperty("user.dir"));
 
 	@BeforeClass
-	public static void startup() 
-	{
-		if(!log.isDebugEnabled()){
-		   BasicConfigurator.configure();
+	public static void startup() {
+		if (!log.isDebugEnabled()) {
+			BasicConfigurator.configure();
 		}
 
 		// creo el directorio de salida para los test si no existe
@@ -32,7 +31,9 @@ public class TestJsonSchemaGeneration {
 			// borro los archivos para la salida si existen
 			File[] files = output.listFiles();
 			for (int i = 0; i < files.length; i++) {
-				files[i].delete();
+				if (files[i].getName().contains("-schema.json")) {
+					files[i].delete();
+				}
 			}
 		}
 	}
@@ -59,7 +60,7 @@ public class TestJsonSchemaGeneration {
 				.getResource("/formularios/output").getPath());
 
 		// El directorio no tiene esquemas
-		assertThat(schemasDir.listFiles().length).isLessThanOrEqualTo(0);
+		assertThat(schemasDir.listFiles().length).isLessThanOrEqualTo(1);
 
 		// Se generan los esquemas a partir de los xml JsonShemaGenerator
 		JsonShemaGenerator jsonShemas = new JsonShemaGenerator();
@@ -73,9 +74,8 @@ public class TestJsonSchemaGeneration {
 
 		// Se generaron tantos esquemas como xml hay
 		assertThat(xmlDir.list().length).isEqualTo(
-				schemasDir.listFiles().length);
+				schemasDir.listFiles().length-1);
 
 	}
-	
-	
+
 }

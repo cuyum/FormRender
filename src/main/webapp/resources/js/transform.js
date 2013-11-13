@@ -115,9 +115,9 @@ $(document).ready(function() {
 					gui.readonly = data.header.readonly;
 					var dataArray = data.payload.formulario.data;
 					if(gui.renderGrid){
-						if(gui.renderTotalizadores || gui.renderTotalizadoresIngresados){
-							gui.grid.addRows(dataArray.registros);
-							gui.gridTotalizadora.addRows(dataArray.sumarizados);
+						if(gui.renderTotalizadores || gui.renderTotalizadoresIngresados){						
+							gui.grid.addRows(dataArray[0].registros);
+							gui.gridTotalizadora.addRows(dataArray[0].sumarizados);
 						}else{
 							gui.grid.addRows(dataArray);
 						}

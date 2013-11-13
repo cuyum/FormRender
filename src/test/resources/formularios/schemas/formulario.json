@@ -25,6 +25,10 @@
 		},
 		"item": {
 		    "type":"string"
+		},
+		"time":{
+		    "type":"string",
+		    "pattern" : "^\\d{2}:\\d{2}$"
 		}
 	}
 }

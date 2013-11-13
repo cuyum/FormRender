@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Formulario 4.2.1-A Factor Nominal de Reuso - Cuadro A</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <ict4.2.1-A id="ict4.2.1-A">
+          <meses jr:template="">
+            <factor_nominal>
+              <periodo_considerado/>
+              <red_interna/>
+              <velocidad/>
+              <diferencia/>
+              <fnr/>
+            </factor_nominal>
+          </meses>
+          <meta>
+            <instanceID/>
+          </meta>
+        </ict4.2.1-A>
+      </instance>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.2.1-A/meses/factor_nominal/periodo_considerado" required="true()" type="select1"/>
+      <bind nodeset="/ict4.2.1-A/meses/factor_nominal/red_interna" required="true()" type="select1"/>
+      <bind constraint=".&gt;0" nodeset="/ict4.2.1-A/meses/factor_nominal/velocidad" required="true()" type="int"/>
+      <bind constraint=".&gt;0" nodeset="/ict4.2.1-A/meses/factor_nominal/diferencia" required="true()" type="int"/>
+      <bind constraint="divisor= /ict4.2.1-A/meses/factor_nominal/velocidad , /ict4.2.1-A/meses/factor_nominal/diferencia " nodeset="/ict4.2.1-A/meses/factor_nominal/fnr" readonly="true()" type="decimal"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.2.1-A/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/ict4.2.1-A/meses">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/ict4.2.1-A/meses">
+        <group appearance="col3 well-white" ref="/ict4.2.1-A/meses/factor_nominal">
+          <label>Factor Nominal de Reuso por Área de red interna</label>
+          <select1 appearance="minimal" ref="/ict4.2.1-A/meses/factor_nominal/periodo_considerado">
+            <label>Período Considerado</label>
+            <hint>Período Considerado</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+          </select1>
+          <select1 appearance="minimal" ref="/ict4.2.1-A/meses/factor_nominal/red_interna">
+            <label>Área de red interna</label>
+            <hint>Área de red interna</hint>
+            <item>
+              <label>Seleccione una opción</label>
+              <value>-1</value>
+            </item>
+            <item>
+              <label>Área de Red Interna 1</label>
+              <value>Area_de_Red_Interna_1</value>
+            </item>
+            <item>
+              <label>Área de Red Interna 2</label>
+              <value>Area_de_Red_Interna_2</value>
+            </item>
+            <item>
+              <label>Área de Red Interna 3</label>
+              <value>Area_de_Red_Interna_3</value>
+            </item>
+            <item>
+              <label>Área de Red Interna 4</label>
+              <value>Area_de_Red_Interna_4</value>
+            </item>
+            <item>
+              <label>Área de Red Interna 5</label>
+              <value>Area_de_Red_Interna_5</value>
+            </item>
+          </select1>
+          <input ref="/ict4.2.1-A/meses/factor_nominal/velocidad">
+            <label>Velocidad nominal de transferencia (VNT) de bajada del usuario con acceso multiplexado</label>
+            <hint>Velocidad nominal de transferencia (VNT) de bajada del usuario con acceso multiplexado</hint>
+          </input>
+          <input ref="/ict4.2.1-A/meses/factor_nominal/diferencia">
+            <label>Diferencia entre la suma de la VNT de los vínculos entre prestadores y la VNT de bajada de los usuarios con accesos dedicados</label>
+            <hint>Diferencia entre la suma de las velocidades nominales de transferencia de los vínculos entre prestadores y las velocidades de transferencia nominal de bajada de los usuarios con accesos dedicados</hint>
+          </input>
+          <input ref="/ict4.2.1-A/meses/factor_nominal/fnr">
+            <label>FNR</label>
+            <hint>FNR</hint>
+          </input>
+        </group>
+      </repeat>
+    </group>
+  </h:body>
+</h:html>

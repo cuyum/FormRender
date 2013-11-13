@@ -1,0 +1,27 @@
+{
+    "header": {
+        "callback_id": ""
+    },
+    "payload": {
+        "formulario": {
+            "id": "ict4.2.1-A",
+            "data": [
+                {
+                    "instance": 0,
+                    "periodo_considerado": {
+                        "label": "Febrero",
+                        "value": "2"
+                    },
+                    "red_interna": {
+                        "label": "Área de Red Interna 1",
+                        "value": "Area_de_Red_Interna_1"
+                    },
+                    "velocidad": 3,
+                    "diferencia": 90,
+                    "fnr": 0.03,
+                    "firma_digital": "28c2d53fa76c0a296c006528f4b1edf5ded1e85f"
+                }
+            ]
+        }
+    }
+}

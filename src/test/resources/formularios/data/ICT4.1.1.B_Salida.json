@@ -1,0 +1,106 @@
+{
+    "header": {
+        "callback_id": ""
+    },
+    "payload": {
+        "formulario": {
+            "id": "ICT4.1.1.B",
+            "data": {
+                "registros": [
+                    {
+                        "instance": 0,
+                        "periodo_considerado": {
+                            "label": "Enero",
+                            "value": "1"
+                        },
+                        "provincia": {
+                            "label": "CABA",
+                            "value": "1"
+                        },
+                        "partido": {
+                            "label": "Ciudad Autónoma de Buenos Aires",
+                            "value": "193"
+                        },
+                        "partido_otro": "",
+                        "localidad": {
+                            "label": "Ciudad Autónoma de Buenos Aires",
+                            "value": "3667"
+                        },
+                        "localidad_otro": "",
+                        "area": {
+                            "label": "AMBA",
+                            "value": "1"
+                        },
+                        "area_otro": "",
+                        "aveia": 10,
+                        "facturacion": 100,
+                        "inst_serv_camb_domicilio": 600,
+                        "saldo_cuentas_prepagas": 200,
+                        "incump_baja_servicio": 50,
+                        "otros": 10,
+                        "rowTotal": 970,
+                        "firma_digital": "5ad6e8a4e90f37e8eb90f0c16842c9cc8261f9b8"
+                    },
+                    {
+                        "instance": 0,
+                        "periodo_considerado": {
+                            "label": "Enero",
+                            "value": "1"
+                        },
+                        "provincia": {
+                            "label": "BUENOS AIRES",
+                            "value": "2"
+                        },
+                        "partido": {
+                            "label": "25 de Mayo",
+                            "value": "43"
+                        },
+                        "partido_otro": "",
+                        "localidad": {
+                            "label": "25 de Mayo",
+                            "value": "9"
+                        },
+                        "localidad_otro": "",
+                        "area": {
+                            "label": "25 DE MAYO (PROV. BUENOS AIRES)",
+                            "value": "267"
+                        },
+                        "area_otro": "",
+                        "aveia": 34,
+                        "facturacion": 45234,
+                        "inst_serv_camb_domicilio": 3452345,
+                        "saldo_cuentas_prepagas": 4534,
+                        "incump_baja_servicio": 412,
+                        "otros": 534,
+                        "rowTotal": 3503093,
+                        "firma_digital": "718a5d1be9bb7d29cc7324c47af1398d85fb94dc"
+                    }
+                ],
+                "sumarizados": [
+                    {
+                        "periodo_considerado": "Enero",
+                        "area": "AMBA",
+                        "firma_digital": "1347ef3c2631f2d447db7f1e142830b7584606d5",
+                        "aveia": 10,
+                        "facturacion": 100,
+                        "inst_serv_camb_domicilio": 600,
+                        "saldo_cuentas_prepagas": 200,
+                        "incump_baja_servicio": 50,
+                        "otros": 10
+                    },
+                    {
+                        "periodo_considerado": "Enero",
+                        "area": "25 DE MAYO (PROV. BUENOS AIRES)",
+                        "firma_digital": "97427e3e9ec479cb674e8a34d6f0b98ba2b8dd5b",
+                        "aveia": 34,
+                        "facturacion": 45234,
+                        "inst_serv_camb_domicilio": 3452345,
+                        "saldo_cuentas_prepagas": 4534,
+                        "incump_baja_servicio": 412,
+                        "otros": 534
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
 
 import ar.com.cuyum.cnc.domain.jsonsla.Formulario;
+import ar.com.cuyum.cnc.domain.jsonsla.Row;
 import ar.com.cuyum.cnc.exceptions.ExceptionValidation;
 import ar.com.cuyum.cnc.service.RelayService;
 
@@ -30,12 +31,12 @@ import com.github.fge.jsonschema.report.ProcessingReport;
 /**
  * 
  * @author ltroconis
- *
+ * 
  */
 public class JsonUtils {
 	public transient static Logger log = Logger.getLogger(JsonUtils.class);
-	
-	public static JsonNode msg(Boolean success,String msg){
+
+	public static JsonNode msg(Boolean success, String msg) {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode msgJson = mapper.createObjectNode();
 		msgJson.put("success", success);
@@ -52,23 +53,23 @@ public class JsonUtils {
 	private static JsonNode doJson(String json) {
 		ObjectMapper mapper = new ObjectMapper();
 		JsonNode jsonObject = mapper.createObjectNode();
-		
+
 		try {
 			jsonObject = mapper.readTree(json);
 			json = jsonObject.toString();
 		} catch (JsonProcessingException e2) {
 			String msg = "Error prosesando json";
 			log.error(msg, e2);
-			return JsonUtils.msg(false,msg);
+			return JsonUtils.msg(false, msg);
 		} catch (IOException e2) {
 			String msg = "Error E/S prosesando json";
 			log.error(e2);
-			return JsonUtils.msg(false,msg);
+			return JsonUtils.msg(false, msg);
 		}
 
 		return jsonObject;
 	}
-	
+
 	/**
 	 * Carga los json schemas
 	 * 
@@ -76,44 +77,47 @@ public class JsonUtils {
 	 * @param formulario
 	 * @return
 	 */
-	private static JsonNode getJsonSchemasObjectFromURL(URL schema,URL formulario){
+	private static JsonNode getJsonSchemasObjectFromURL(URL schema,
+			URL formulario) {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode schemas = mapper.createObjectNode();
-		
+
 		try {
-			schemas.put("schema",mapper.readTree(schema));
-			schemas.put("schema-form",mapper.readTree(formulario));			
-		} catch (JsonProcessingException e) {	
+			schemas.put("schema", mapper.readTree(schema));
+			schemas.put("schema-form", mapper.readTree(formulario));
+		} catch (JsonProcessingException e) {
 			String msg = "Error procesando esquemas, el jsonschema está mal formado";
-			log.error(msg,e);
-			return JsonUtils.msg(false,msg);
+			log.error(msg, e);
+			return JsonUtils.msg(false, msg);
 		} catch (IOException e) {
-			String msg = "Error procesando esquemas, error de E/S jsonschema"; 
-			log.error(msg,e);
-			return JsonUtils.msg(false,msg);
+			String msg = "Error procesando esquemas, error de E/S jsonschema";
+			log.error(msg, e);
+			return JsonUtils.msg(false, msg);
 		}
-		
+
 		return schemas;
-		
+
 	}
-	
-	private static JsonNode getJsonSchemasFromPath(String schemaPath, String schemaFormPath) {
-		URL urlSchema,urlFormulario;
+
+	private static JsonNode getJsonSchemasFromPath(String schemaPath,
+			String schemaFormPath) {
+		URL urlSchema, urlFormulario;
 		try {
 			urlSchema = new URL(schemaPath);
 			urlFormulario = new URL(schemaFormPath);
-		} catch (MalformedURLException e) {	
+		} catch (MalformedURLException e) {
 			String msg = "Error checkeando json, url de jsonschema mal formado";
-			log.error(msg,e);
-			return msg(false,msg);
-		}		
-		ObjectNode schemas = (ObjectNode) getJsonSchemasObjectFromURL(urlSchema,urlFormulario);
-		schemas.put("schema-url",schemaPath);
-		schemas.put("schema-form-url",schemaFormPath);
-		return schemas;	
+			log.error(msg, e);
+			return msg(false, msg);
+		}
+		ObjectNode schemas = (ObjectNode) getJsonSchemasObjectFromURL(
+				urlSchema, urlFormulario);
+		schemas.put("schema-url", schemaPath);
+		schemas.put("schema-form-url", schemaFormPath);
+		return schemas;
 	}
-	
-	private static ObjectNode processingMessagesReport(ProcessingReport report){
+
+	private static ObjectNode processingMessagesReport(ProcessingReport report) {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode msg = mapper.createObjectNode();
 		ObjectNode error = mapper.createObjectNode();
@@ -121,61 +125,71 @@ public class JsonUtils {
 		while (messages.hasNext()) {
 			ProcessingMessage msj = messages.next();
 			if (LogLevel.ERROR.equals(msj.getLogLevel())) {
-				error.put(msj.asJson().get("instance").get("pointer").asText(),msj.getMessage());
+				error.put(msj.asJson().get("instance").get("pointer").asText(),
+						msj.getMessage());
 			}
 		}
-	   msg.put("errores",error);
-	   return msg;
+		msg.put("errores", error);
+		return msg;
 	}
-	
-	public static JsonNode checkSchema(JsonNode schemas,JsonNode data) {
-		
-		final LoadingConfigurationBuilder builder = LoadingConfiguration.newBuilder();
-		builder.preloadSchema(schemas.get("schema-url").asText(), schemas.get("schema"));
-		builder.preloadSchema(schemas.get("schema-form-url").asText(), schemas.get("schema-form"));
+
+	public static JsonNode checkSchema(JsonNode schemas, JsonNode data) {
+
+		final LoadingConfigurationBuilder builder = LoadingConfiguration
+				.newBuilder();
+		builder.preloadSchema(schemas.get("schema-url").asText(),
+				schemas.get("schema"));
+		builder.preloadSchema(schemas.get("schema-form-url").asText(),
+				schemas.get("schema-form"));
 
 		log.debug(schemas.get("schema"));
-		
+
 		final JsonSchemaFactory factory = JsonSchemaFactory.newBuilder()
 				.setLoadingConfiguration(builder.freeze()).freeze();
-		
+
 		JsonSchema schema;
 		ProcessingReport report;
-		
+
 		try {
 			schema = factory.getJsonSchema(schemas.get("schema-url").asText());
 			report = schema.validate(data);
 		} catch (ProcessingException e) {
 			String msg = "Error checkeando json, url de jsonschema mal formado";
-			log.error(msg+e.getProcessingMessage().asJson());
-			return msg(false,msg);
-		}		
-		
-		if(!report.isSuccess()){
+			log.error(msg + e.getProcessingMessage().asJson());
+			return msg(false, msg);
+		}
+
+		if (!report.isSuccess()) {
 			ObjectNode msg = processingMessagesReport(report);
-			return JsonUtils.msg(false,msg.toString());
-		} 
-		
-		return JsonUtils.msg(report.isSuccess(),schemas.get("schema").toString());
-	}
-		
-	private static String getActualPath(HttpServletRequest request){
-		return "http://" + request.getServerName() + ":"+request.getServerPort()+
-				"/"+request.getServletContext().getServletContextName();
-	}
-	
-	private static String getPathSChemaURL(HttpServletRequest request, String idForm){
-		return  getActualPath(request)+"/schemas/"+idForm+"-schema.json";
-	}
-	
-	private static String getPathSChemaFormURL(HttpServletRequest request){
-		return  getActualPath(request)+"/schemas/formulario.json";
+			return JsonUtils.msg(false, msg.toString());
+		}
+
+		return JsonUtils.msg(report.isSuccess(), schemas.get("schema")
+				.toString());
 	}
 
-	public JsonNode proccessDataValidation(String submit_data, HttpServletRequest request, RelayService relayService,FormRenderProperties frp) {
+	private static String getActualPath(HttpServletRequest request) {
+		return "http://" + request.getServerName() + ":"
+				+ request.getServerPort() + "/"
+				+ request.getServletContext().getServletContextName();
+	}
+
+	private static String getPathSChemaURL(HttpServletRequest request,
+			String idForm) {
+		return getActualPath(request) + "/schemas/" + idForm + "-schema.json";
+	}
+
+	private static String getPathSChemaFormURL(HttpServletRequest request) {
+		return getActualPath(request) + "/schemas/formulario.json";
+	}
+
+	public JsonNode proccessDataValidation(String submit_data,
+			HttpServletRequest request, RelayService relayService,
+			FormRenderProperties frp) {
+		ObjectMapper mapper = new ObjectMapper();
 		JsonNode validJson = doJson(submit_data);
 
-		//if el json no es un json valido y por eso no fue creado
+		// if el json no es un json valido y por eso no fue creado
 		if (validJson.has("success") && !validJson.get("success").asBoolean())
 			return validJson;
 
@@ -183,17 +197,17 @@ public class JsonUtils {
 		// formulario
 		if (!validJson.has("formulario")
 				|| !validJson.get("formulario").has("id")) {
-			return JsonUtils.msg(false,"Json Invalido, no posee id de formulario");
+			return JsonUtils.msg(false,
+					"Json Invalido, no posee id de formulario");
 		}
 
 		String idForm = validJson.get("formulario").get("id").asText();
 
-
 		String schemaPath = JsonUtils.getPathSChemaURL(request, idForm);
 		String schemaFormPath = JsonUtils.getPathSChemaFormURL(request);
-		JsonNode schemas = getJsonSchemasFromPath(schemaPath,schemaFormPath);
-		
-		// si no se pudo contruir el objeto de los schemas 
+		JsonNode schemas = getJsonSchemasFromPath(schemaPath, schemaFormPath);
+
+		// si no se pudo contruir el objeto de los schemas
 		if (schemas.has("success") && !schemas.get("success").asBoolean()) {
 			return schemas;
 		}
@@ -201,50 +215,57 @@ public class JsonUtils {
 		JsonNode success = checkSchema(schemas, validJson);
 
 		// si no es un json data valido segun el json schema correspondiente
-		if (!success.get("success").asBoolean()) return success;		
-		
-		//si ya pasó las validaciones de jsonschema se pasa a la segunda etapa de validación
+		if (!success.get("success").asBoolean())
+			return success;
+
+		// si ya pasó las validaciones de jsonschema se pasa a la segunda etapa
+		// de validación
 		// de cada formulario
-		ArrayNode listForms = (ArrayNode) validJson.get("formulario").get("formularios");
-		
+		ArrayNode listForms = (ArrayNode) validJson.get("formulario").get(
+				"formularios");
+
 		// se obtienen los campos del formulario a partir del json schema, para
 		// ser validados
 		JsonNode formularios = schemas.get("schema").get("properties")
 				.get("formulario").get("properties").get("formularios")
 				.get("items").get("properties");
-		JsonNode schemaItemsProperties = formularios.get("data").get("items")
-				.get("properties");
 
-		// validando cada item de datos del formularios
+		JsonNode schemaItemsDescription = formularios.get("data").get("items");
+
+		ArrayNode listDataForm = mapper.createArrayNode();
+
 		for (int j = 0, n = listForms.size(); j < n; j++) {
+
 			JsonNode formNode = listForms.get(j);
-			//si ya pasó las validaciones de jsonschema se pasa a la segunda etapa de validación
+
+			// si ya pasó las validaciones de jsonschema se pasa a la segunda
+			// etapa de validación
 			// del formulario
+
+			Formulario formulario = new Formulario(idForm,
+					schemaItemsDescription, relayService);
 			ArrayNode data = (ArrayNode) formNode.get("data");
-			Formulario form = new Formulario(idForm,schemaItemsProperties,relayService);
-			// validando cada item de datos del formularios
-			for (int i = 0, nf = data.size(); i < nf; i++) {
-				JsonNode item = data.get(i);			
-				try {
-					form.setDataByJson(item);
-					log.info(form.getId()+"="+form.toString());
-					form.isDataValid();
-				} catch (ExceptionValidation e) {
-					return msg(false,"error procesando data masiva en el formulario:("+j+") item:("+i+") :"+e.getMessage());		
-				}
-			}
+			formulario.addDataFromJson(data);
+			log.info(formulario.valuesToJson());
+			System.out.print("esto");
+
+			try {
+				formulario.processData();
+			} catch (ExceptionValidation e) {
+				log.error(e);
+				return msg(false,
+						"error procesando data masiva en el formulario:(" + j
+								+ ") " + e.getMessage());
+			} 
+
+			listDataForm.add(formulario.valuesToJson());
 		}
-				
-		//return msg(true,data.toString());
-		
-		ObjectMapper mapper = new ObjectMapper();
+
 		ObjectNode response = mapper.createObjectNode();
-		response.put("id",idForm);
-		response.put("listDataForm",listForms);
-		
-		return JsonUtils.msg(true,response.toString());
+		response.put("id", idForm);
+		response.put("listDataForm", listDataForm);
+
+		return JsonUtils.msg(true, response.toString());
 	}
 
 }
-
-

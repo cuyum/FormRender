@@ -1,7 +1,5 @@
 package ar.com.cuyum.cnc.domain.jsonsla;
 
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -9,16 +7,9 @@ import java.util.List;
 import ar.com.cuyum.cnc.exceptions.ExceptionComboRelayUrl;
 import ar.com.cuyum.cnc.exceptions.ExceptionValidation;
 import ar.com.cuyum.cnc.service.RelayService;
-import ar.com.cuyum.cnc.utils.FormRenderProperties;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 
 /**
  * 
@@ -37,6 +28,10 @@ public class Combo extends Componente {
 	private List<Item> values = new ArrayList<Item>();
 
 	private Item value;
+	
+	protected void setRelayService(RelayService relayService) {
+		this.relayService = relayService;		
+	}
 
 	public String toString() {
 		return super.toString()
@@ -57,11 +52,6 @@ public class Combo extends Componente {
 		return (super.equals(((Componente) o)) && url == ((Combo) o).url && depends == ((Combo) o).depends)
 				&& values.containsAll(((Combo) o).values);
 	}
-
-	public void setRelayService(RelayService relayService) {
-		this.relayService = relayService;		
-	}
-	
 
 	public String getUrl() {
 		return url;
@@ -117,75 +107,6 @@ public class Combo extends Componente {
 		this.value = value;
 	}
 
-	public Boolean validCuit(String value) {
-		String inputString = value.toString();
-
-		if (inputString.length() == 11) {
-			String Caracters_1_2 = inputString.substring(0,2);
-			if ("20".equals(Caracters_1_2) || "23".equals(Caracters_1_2)
-					|| "24".equals(Caracters_1_2) || "27".equals(Caracters_1_2)
-					|| "30".equals(Caracters_1_2) || "33".equals(Caracters_1_2)
-					|| "34".equals(Caracters_1_2)) {
-				int Count = inputString.charAt(0) * 5 + inputString.charAt(1)
-						* 4 + inputString.charAt(2) * 3 + inputString.charAt(3)
-						* 2 + inputString.charAt(4) * 7 + inputString.charAt(5)
-						* 6 + inputString.charAt(6) * 5 + inputString.charAt(7)
-						* 4 + inputString.charAt(8) * 3 + inputString.charAt(9)
-						* 2 + inputString.charAt(10) * 1;
-				double Division = Count / 11;
-				if (Division == Math.floor(Division)) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * @author ltroconisanObject
-	 * 
-	 * @param url
-	 *            remota
-	 * @param fkey
-	 *            valor de dependencia
-	 * @return
-	 * @throws ExceptionComboRelayUrl
-	 */
-     private List<Item> getValuesFromUrl(String fkey)
-			throws ExceptionComboRelayUrl {
-	
-		if (relayService == null)
-			throw new ExceptionComboRelayUrl(
-					"No se puede cargar el combo a partir de la URL, el servicio no está disponible");
-		FormRenderProperties frp = relayService.getFormRenderProperties();
-		if (frp == null)
-			throw new ExceptionComboRelayUrl(
-					"No se puede cargar el combo a partir de la URL, propiedades no disponibles");
-		ObjectMapper mapper = new ObjectMapper();
-		List<Item> items = new ArrayList<Item>();
-		String msg_error = "No se pudo generar la respuesta json en relay service ya que "
-				+ "el servicio remoto ha respondido en un objeto JSON inv&aacute;lid";
-		try {
-			String remoteHost = frp.getRemoteListHost();
-			URL urlRemote = new URL(remoteHost + url);
-			String remoteResponse = relayService.request(urlRemote, fkey);					
-			JsonNode remoteMsg = mapper.readTree(remoteResponse);
-			ArrayNode result = (ArrayNode) remoteMsg.get("result");
-			items = mapper.readValue(result.toString(),	new TypeReference<List<Item>>(){});			
-		} catch (JsonParseException e) {
-			log.error(msg_error, e);
-		} catch (JsonMappingException e) {
-			log.error(msg_error, e);
-		} catch (JsonProcessingException e) {
-			log.error(msg_error, e);
-		} catch (IOException e) {
-			log.error(msg_error, e);
-		}
-
-		return items;
-
-	}
-
 	@Override
 	public Boolean isDataValid() throws ExceptionValidation {
 		
@@ -194,7 +115,7 @@ public class Combo extends Componente {
 		
 		if (cuit != null && cuit) {
 			log.info("validando si cuit ok");
-			if (!validCuit(value.getId())) {
+			if (!Componente.validCuit(value.getId())) {
 				throw new ExceptionValidation("formato de cuit invalido");
 			}
 		}
@@ -213,7 +134,7 @@ public class Combo extends Componente {
 			}
 			List<Item> valuesFromURL = new ArrayList<Item>();
 			try {
-				valuesFromURL = getValuesFromUrl(fkey);
+				valuesFromURL = getValuesFromUrl(relayService,fkey,url);
 			} catch (ExceptionComboRelayUrl e) {
 				throw new ExceptionValidation("Servicio no disponible, "+e.getMessage());
 			}
@@ -248,6 +169,17 @@ public class Combo extends Componente {
 	@Override
 	public JsonNode valueToJson() {	   
 	   return (value==null)?null:value.toJson();
+	}
+
+	@Override
+	public String getValueToString() {
+		if (value!=null) return value.getLabel();
+		return null;
+	}
+
+	@Override
+	public String getType() {		
+		return Componente.COMBO;
 	}
 
 

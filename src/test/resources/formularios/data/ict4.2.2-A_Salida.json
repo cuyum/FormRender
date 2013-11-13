@@ -1,0 +1,58 @@
+{
+    "header": {
+        "callback_id": ""
+    },
+    "payload": {
+        "formulario": {
+            "id": "ict4.2.2-A",
+            "data": [
+                {
+                    "registros": [
+                        {
+                            "instance": 0,
+                            "periodo_considerado": {
+                                "label": "Enero",
+                                "value": "1"
+                            },
+                            "provincia": {
+                                "label": "BUENOS AIRES",
+                                "value": "2"
+                            },
+                            "partido": {
+                                "label": "9 de Julio",
+                                "value": "88"
+                            },
+                            "partido_otro": "",
+                            "localidad": {
+                                "label": "12 de Octubre",
+                                "value": "3"
+                            },
+                            "localidad_otro": "",
+                            "area": {
+                                "label": "12 DE OCTUBRE                                              ",
+                                "value": "165"
+                            },
+                            "area_otro": "",
+                            "hora_pico_inicio": "09:12",
+                            "hora_pico_fin": "10:12",
+                            "cantidad_asignada_ex": 50,
+                            "cantidad_total_tent": 50,
+                            "porcentaje": 100,
+                            "firma_digital": "94458cf85ad1e5bd06ae416653d209e6388d9e49"
+                        }
+                    ],
+                    "sumarizados": [
+                        {
+                            "periodo_considerado": "Enero",
+                            "area": "12 DE OCTUBRE                                              ",
+                            "hora_pico_inicio": "09:12",
+                            "firma_digital": "6c38b52e02a1d6ffe7b579b537ef632b1768d355",
+                            "cantidad_asignada_ex": 50,
+                            "cantidad_total_tent": 50
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

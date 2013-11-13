@@ -5,7 +5,7 @@
     <model>
       <submission action="/api/deposition" method="form-data-post"/>
       <instance>
-        <ict4.1.2.b id="ICT4.1.2.B">
+        <ict4.1.2-B id="ict4.1.2-B">
           <meses jr:template="">
             <mes>
               <periodo_considerado/>
@@ -17,22 +17,22 @@
           <meta>
             <instanceID/>
           </meta>
-        </ict4.1.2.b>
+        </ict4.1.2-B>
       </instance>
-      <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.1.2.b/meses/mes/periodo_considerado" required="true()" type="select1"/>
-      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.2.b/meses/mes/provincia" required="true()" type="select1"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.1.2.b/meses/mes/cant_usuarios_reiteracion" required="true()" type="int"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.1.2.b/meses/mes/cant_usuarios_reclamo" required="true()" type="int"/>
-      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.2.b/meta/instanceID" readonly="true()" type="string"/>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.1.2-B/meses/mes/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.2-B/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.2-B/meses/mes/cant_usuarios_reiteracion" required="true()" type="int"/>
+      <bind constraint=".&gt;=0" nodeset="/ict4.1.2-B/meses/mes/cant_usuarios_reclamo" required="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.2-B/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group ref="/ict4.1.2.b/meses">
+    <group ref="/ict4.1.2-B/meses">
       <label></label>
-      <repeat appearance="grilla" nodeset="/ict4.1.2.b/meses">
-        <group appearance="col3 well-white" ref="/ict4.1.2.b/meses/mes">
+      <repeat appearance="grilla" nodeset="/ict4.1.2-B/meses">
+        <group appearance="col3 well-white" ref="/ict4.1.2-B/meses/mes">
           <label>Usuarios que han realizado reclamos ante el Prestador por Provincia</label>
-          <select1 appearance="minimal" ref="/ict4.1.2.b/meses/mes/periodo_considerado">
+          <select1 appearance="minimal" ref="/ict4.1.2-B/meses/mes/periodo_considerado">
             <label>Período Considerado</label>
             <hint>Período Considerado</hint>
             <item>
@@ -40,7 +40,7 @@
               <value>-1</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/ict4.1.2.b/meses/mes/provincia">
+          <select1 appearance="minimal" ref="/ict4.1.2-B/meses/mes/provincia">
             <label>Provincia</label>
             <hint>Provincia</hint>
             <item>
@@ -48,11 +48,11 @@
               <value>-1</value>
             </item>
           </select1>
-          <input ref="/ict4.1.2.b/meses/mes/cant_usuarios_reiteracion">
+          <input ref="/ict4.1.2-B/meses/mes/cant_usuarios_reiteracion">
             <label>Cant. de usuarios con reiteración de un reclamo</label>
             <hint>Cant. de usuarios que han reiterado un reclamo ante el Prestador en un mismo período</hint>
           </input>
-          <input ref="/ict4.1.2.b/meses/mes/cant_usuarios_reclamo">
+          <input ref="/ict4.1.2-B/meses/mes/cant_usuarios_reclamo">
             <label>Cant. de usuarios con un reclamo</label>
             <hint>Cant. de usuarios que han realizado un solo reclamo (por tipo) ante el Prestador en el período</hint>
           </input>
