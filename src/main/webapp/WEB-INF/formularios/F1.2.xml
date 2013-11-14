@@ -24,14 +24,14 @@
         </F1.2>
       </instance>
       <bind nodeset="/F1.2/titulo" readonly="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/F1.2/inter/interconexion/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/F1.2/inter/interconexion/provincia" nodeset="/F1.2/inter/interconexion/partido" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/provincias" nodeset="/F1.2/inter/interconexion/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/partidos and depends=/F1.2/inter/interconexion/provincia" nodeset="/F1.2/inter/interconexion/partido" required="true()" type="select1"/>
       <bind nodeset="/F1.2/inter/interconexion/partido_otro" relevant=" /F1.2/inter/interconexion/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/F1.2/inter/interconexion/partido" nodeset="/F1.2/inter/interconexion/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/localidades and depends=/F1.2/inter/interconexion/partido" nodeset="/F1.2/inter/interconexion/localidad" required="true()" type="select1"/>
       <bind nodeset="/F1.2/inter/interconexion/localidad_otro" relevant=" /F1.2/inter/interconexion/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/prestadores" nodeset="/F1.2/inter/interconexion/prestador" required="true()" type="select1"/>
+      <bind constraint="url=/localizacion/rest/localizaciones/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/F1.2/inter/interconexion/prestador" required="true()" type="select1"/>
       <bind nodeset="/F1.2/inter/interconexion/prestadores_otro" relevant=" /F1.2/inter/interconexion/prestador =999999" required="true()" type="string"/>
-	 <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999" nodeset="/F1.2/inter/interconexion/capacidad" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999" nodeset="/F1.2/inter/interconexion/capacidad" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/F1.2/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
