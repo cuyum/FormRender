@@ -192,20 +192,25 @@ var gui = new function(){
 				var val;
 				
 				if(field.is("select")){
-					o = field.children("option:selected");
-					val = {label:o.text(),value: field.val()};
+					var os = field.children("option:selected");
+					if(os != null && os != undefined){
+						val = {label:o.text(),value: field.val()};
+						kvpair[key] = val;
+					}
 				}else if(field.attr("data-type-xml")=="select2"){
-					data = field.select2("data");
-					val = {label:data.text,value:data.id};
+					var ds = field.select2("data");
+					if(ds != null && ds != undefined){
+						val = {label:ds.text,value:ds.id};
+						kvpair[key] = val;
+					}
 				}else{
 					if(this.isCNCNumberField(field)){
 						val = this.toNumber(field.val());
 					}else{
 						val = field.val();
 					}
+					kvpair[key] = val;
 				}
-				
-				kvpair[key] = val;
 			}
 			data.push(kvpair);
 		}
