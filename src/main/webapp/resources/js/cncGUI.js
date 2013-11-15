@@ -280,20 +280,25 @@ var gui = new function(){
 				var val;
 				
 				if(field.is("select")){
-					o = field.children("option:selected");
-					val = {label:o.text(),value: field.val()};
+					var os = field.children("option:selected");
+					if(os != null && os != undefined){
+						val = {label:os.text(),value: field.val()};
+						kvpair[key] = val;
+					}
 				}else if(field.attr("data-type-xml")=="select2"){
-					data = field.select2("data");
-					val = {label:data.text,value:data.id};
+					var ds = field.select2("data");
+					if(ds != null && ds != undefined){
+						val = {label:ds.text,value:ds.id};
+						kvpair[key] = val;
+					}
 				}else{
 					if(this.isCNCNumberField(field)){
 						val = this.toNumber(field.val());
 					}else{
 						val = field.val();
 					}
+					kvpair[key] = val;
 				}
-				
-				kvpair[key] = val;
 			}
 			data.push(kvpair);
 		}
@@ -688,24 +693,27 @@ var gui = new function(){
 			var field = $(fields[i]);
 			var fieldCleanName = gui.getCleanFieldName(field.attr("name"),record.instance);
 			
-			if(field.is("select") ){
-				if(record[fieldCleanName].value == null){
-					field.select2("data",null);
-				}else{
-					field.select2("val",record[fieldCleanName].value);
+			if(record[fieldCleanName]!=undefined && record[fieldCleanName]!=null){
+				if(field.is("select") ){
+					if(record[fieldCleanName].value == null){
+						field.select2("data",null);
+					}else{
+						field.select2("val",record[fieldCleanName].value);
+					}
+				}else if(field.attr("data-type-xml")=="select2"){
+					if(record[fieldCleanName].value == null){
+						field.select2("data",null);
+					}else{
+						field.select2("data",{id:record[fieldCleanName].value,text:record[fieldCleanName].label});
+					}
+				}else{ 
+					if(!isNaN(record[fieldCleanName])){//javascript valid number need to be parsed to locale
+						record[fieldCleanName] = record[fieldCleanName];
+					}
+					field.val(record[fieldCleanName]);
 				}
-			}else if(field.attr("data-type-xml")=="select2"){
-				if(record[fieldCleanName].value == null){
-					field.select2("data",null);
-				}else{
-					field.select2("data",{id:record[fieldCleanName].value,text:record[fieldCleanName].label});
-				}
-			}else{ 
-				if(!isNaN(record[fieldCleanName])){//javascript valid number need to be parsed to locale
-					record[fieldCleanName] = record[fieldCleanName];
-				}
-				field.val(record[fieldCleanName]);
 			}
+			
 			field.trigger("change");
 		}
 	};
