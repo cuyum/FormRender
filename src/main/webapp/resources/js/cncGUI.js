@@ -194,7 +194,7 @@ var gui = new function(){
 				if(field.is("select")){
 					var os = field.children("option:selected");
 					if(os != null && os != undefined){
-						val = {label:o.text(),value: field.val()};
+						val = {label:os.text(),value: field.val()};
 						kvpair[key] = val;
 					}
 				}else if(field.attr("data-type-xml")=="select2"){
