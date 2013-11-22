@@ -40,8 +40,8 @@
       <bind constraint="agrupador=3" nodeset="/ict4.2.4.4-A/trimestres/relacion/hora_pico_inicio" required="true()" type="time"/>
       <bind constraint="url=/servicios/rest/parameter?name=minutos_hora and hora_delta= /ict4.2.4.4-A/trimestres/relacion/hora_pico_inicio " nodeset="/ict4.2.4.4-A/trimestres/relacion/hora_pico_fin" required="true()" type="string"/>
       <bind constraint="agrupador=4" nodeset="/ict4.2.4.4-A/trimestres/relacion/tipo_informacion" required="true()" type="select1"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.2.4.4-A/trimestres/relacion/cant_paquetes_recibidos" required="true()" type="int"/>
-      <bind constraint=".&gt;=0" nodeset="/ict4.2.4.4-A/trimestres/relacion/cant_total_paquetes_recibidos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.2.4.4-A/trimestres/relacion/cant_paquetes_recibidos" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.2.4.4-A/trimestres/relacion/cant_total_paquetes_recibidos" required="true()" type="int"/>
       <bind constraint="porcentual= /ict4.2.4.4-A/trimestres/relacion/cant_paquetes_recibidos , /ict4.2.4.4-A/trimestres/relacion/cant_total_paquetes_recibidos ,100" nodeset="/ict4.2.4.4-A/trimestres/relacion/porcentaje" readonly="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.2.4.4-A/meta/instanceID" readonly="true()" type="string"/>
     </model>

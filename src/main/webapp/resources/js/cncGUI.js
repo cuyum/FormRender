@@ -260,7 +260,9 @@ var gui = new function(){
 		});
 	};
 	this.resetFields = function(fields){
+		
 		for ( var i = 0; i < fields.length; i++) {
+			
 			var field = $(fields[i]);
 			if(field.is("select")){
 				field.select2("val","-1");
@@ -363,6 +365,13 @@ var gui = new function(){
 	};
 	this.saveFinal = function(message){
 		
+		var result=gui.validarPeriodicidad();
+		 
+		if (result==1)
+			gui.displayWarning("Debe agregar como minimo un registro para cada mes.");
+		else if(result==2)
+			gui.displayWarning("Debe agregar como minimo un registro para cada trimestre.");
+		else{
 //		clickEvent.preventDefault();
 		bootbox.confirm("Esta acci\u00F3n implica que UD. ha completado la carga del formulario. No podr\u00E1 seguir edit\u00E1ndolo ya que es parte integral de la DDJJ. Desea continuar?", function(confirmed) {
 			if(confirmed){
@@ -383,7 +392,81 @@ var gui = new function(){
 				}
 			}
 		});
+		}
+		
 	};
+	
+	this.validarPeriodicidad = function (){
+		
+		var dl = gui.grid.element.dataTable().fnGetData();
+		var dataList = [];
+		var dataFinal = null;
+		var contTrim = [0,0,0,0];
+		var contTrim1 = [0,0,0];
+		var contTrim2 = [0,0,0];
+		var contTrim3 = [0,0,0];
+		var contTrim4 = [0,0,0];
+		var contAnual = [0,0,0,0,0,0,0,0,0,0,0,0];		
+		
+		for ( var i = 0; i < dl.length; i++) {
+			var data = dl[i];
+			
+			if(data.periodo_considerado.value < 13)
+				contAnual [data.periodo_considerado.value - 1]++;
+			if(data.periodo_considerado.value >= 13 && data.periodo_considerado.value < 16)
+				contTrim1 [data.periodo_considerado.value - 13]++;
+			if(data.periodo_considerado.value >= 16 && data.periodo_considerado.value < 19)
+				contTrim2 [data.periodo_considerado.value - 16]++;
+			if(data.periodo_considerado.value >= 19 && data.periodo_considerado.value < 22)
+				contTrim3 [data.periodo_considerado.value - 19]++;
+			if(data.periodo_considerado.value >= 22 && data.periodo_considerado.value < 25)
+				contTrim4 [data.periodo_considerado.value - 22]++;
+			if(data.periodo_considerado.value >= 25 && data.periodo_considerado.value < 29)
+				contTrim [data.periodo_considerado.value - 25]++;
+			
+			dataList.push(data);
+		}
+		
+		var url = location.href;
+		var index = url.indexOf("?");
+		var parameter="periodicidad";
+		index = url.indexOf(parameter,index) + parameter.length;			
+		if (url.charAt(index) == "="){					
+			var result = url.indexOf("&",index);
+			if (result == -1)
+				result=url.length;
+			}	
+		var periodicidad = url.substring(index + 1,result);
+		var faltaRegistro=0;
+		
+		if(periodicidad=="anual")
+			for(var i=0;i<12;i++)
+				if(contAnual[i]==0)
+					faltaRegistro=1;
+		if(periodicidad=="trimestral_1")
+			for(var i=0;i<3;i++)
+				if(contTrim1[i]==0)
+					faltaRegistro=1;
+		if(periodicidad=="trimestral_2")
+			for(var i=0;i<3;i++)
+				if(contTrim2[i]==0)
+					faltaRegistro=1;
+		if(periodicidad=="trimestral_3")
+			for(var i=0;i<3;i++)
+				if(contTrim3[i]==0)
+					faltaRegistro=1;
+		if(periodicidad=="trimestral_4")
+			for(var i=0;i<3;i++)
+				if(contTrim4[i]==0)
+					faltaRegistro=1;
+		if(periodicidad=="trimestral")
+			for(var i=0;i<4;i++)
+				if(contTrim[i]==0)
+					faltaRegistro=2;
+		
+		return faltaRegistro;
+	};
+	
 	this.submissionHandler = function(clickEvent){
 		/*instancia del mensaje por defecto*/
 		var message = {
@@ -426,8 +509,11 @@ var gui = new function(){
 			if(dl.length>0){
 				var dataList = [];
 				var dataFinal = null;
+				
+				
 				for ( var i = 0; i < dl.length; i++) {
 					var data = dl[i];
+					
 					if(data["values"] != undefined)
 						delete data["values"];
 					if(data["fields"] != undefined)
@@ -474,10 +560,11 @@ var gui = new function(){
 					}];
 				}else{
 					dataFinal = dataList;
-				}
+				}				
 				
 				message.payload.formulario.data = dataFinal;
 				draft==true?gui.saveDraft(message):gui.saveFinal(message);
+
 			} else {
 				gui.displayWarning("No se encuentran registros para guardar.");
 				console.warn("No data in grid");

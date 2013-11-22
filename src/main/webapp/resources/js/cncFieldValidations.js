@@ -1,5 +1,6 @@
 var validationRequired = function(field){
 	var isRequired = field.attr("required");
+	
 	if(isRequired){
 		field.rules( "add", {
 			required:true,
