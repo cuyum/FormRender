@@ -373,9 +373,9 @@ var gui = new function(){
 		var result=gui.validarPeriodicidad();
 		 
 		if (result==1)
-			gui.displayWarning("Debe agregar como minimo un registro para cada mes.");
+			gui.displayWarning("Debe agregar como mínimo un registro para cada mes.");
 		else if(result==2)
-			gui.displayWarning("Debe agregar como minimo un registro para cada trimestre.");
+			gui.displayWarning("Debe agregar como mínimo un registro para cada trimestre.");
 		else{
 //		clickEvent.preventDefault();
 		bootbox.confirm("Esta acci\u00F3n implica que UD. ha completado la carga del formulario. No podr\u00E1 seguir edit\u00E1ndolo ya que es parte integral de la DDJJ. Desea continuar?", function(confirmed) {
