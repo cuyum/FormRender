@@ -16,7 +16,7 @@ import ar.com.cuyum.cnc.utils.JsonShemaGenerator;
 public class TestJsonSchemaGeneration {
 	private static Logger log = Logger
 			.getLogger(TestJsonSchemaGeneration.class);
-	static URI dir_actual = URI.create(System.getProperty("user.dir"));
+
 
 	@BeforeClass
 	public static void startup() {

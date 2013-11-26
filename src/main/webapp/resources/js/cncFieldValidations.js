@@ -1,5 +1,6 @@
 var validationRequired = function(field){
 	var isRequired = field.attr("required");
+	
 	if(isRequired){
 		field.rules( "add", {
 			required:true,
@@ -849,7 +850,10 @@ var addVisualizationLogic = function(field){
 };
 
 var setupValidationDefaults = function(){
-	$("input[type='button'][action='submit']").click(gui.submissionHandler);
+	var submitBtn = $("input[type='button'][action='submit']");
+	if(submitBtn != undefined && submitBtn != null){
+		submitBtn.click(gui.submissionHandler);
+	}
 	$.validator.setDefaults({
 		debug: false,
 		success: "valid"
