@@ -17,8 +17,8 @@
 		<jta-data-source>java:jboss/datasources/FormRenderDS</jta-data-source>
 		<class>ar.com.cuyum.cnc.domain.Formulario</class>
 		<class>ar.com.cuyum.cnc.domain.Xsl</class>		
-		<properties>
-			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" /> 			
+	<properties>
+		<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" /> 			
          	<property name="hibernate.show_sql" value="false"/>
          	<property name="hibernate.format_sql" value="true"/>
      	</properties>
