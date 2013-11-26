@@ -67,10 +67,10 @@ public class RelayRest {
 			remoteResponse = relay.request(url, fkey);
 			response = new JSONObject(remoteResponse);
 			return response.toString();
-		} catch (MalformedURLException e) {
-			String msg = "No se pudo generar la petici&oacute;n con relay service ya que la URL suministrada es inv&aacute;lida";
-			log.error(msg, e);
-			return "{\"success\":false,\"msg\": \"" + msg + "\"}";
+		}catch (MalformedURLException e){
+			String msg = "No se pudo generar la petici&oacute;n con relay service ya que la URL suministrada es inv&aacute;lida ("+frp.getRemoteListHost()+remoteUrl+")";
+			log.error(msg,e);
+			return "{\"success\":false,\"msg\": \""+msg+"\"}";
 		} catch (JSONException e) {
 			String msg = "No se pudo generar la respuesta json en relay service ya que el servicio ha respondido en un objeto JSON inv&aacute;lido";
 			log.error(msg, e);
