@@ -41,11 +41,11 @@
             </item>
           </select1>
           <input ref="/ict4.2.5-A/trimestres/trimestre/cantidad_mensajes_cortos">
-            <label>Cant. de mensajes cortos entregados por el SMSC</label>
+            <label>Numerador</label>
             <hint>Cantidad de mensajes cortos entregados por el SMSC</hint>
           </input>
           <input ref="/ict4.2.5-A/trimestres/trimestre/cantidad_total_mensajes">
-            <label>Cant. total de mensajes cortos recibidos por el SMSC</label>
+            <label>Denominador</label>
             <hint>Cantidad total de mensajes cortos recibidos por el SMSC</hint>
           </input>
           <input ref="/ict4.2.5-A/trimestres/trimestre/porcentaje">

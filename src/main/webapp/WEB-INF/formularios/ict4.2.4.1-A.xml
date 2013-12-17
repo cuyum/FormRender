@@ -141,11 +141,11 @@
             </item>
           </select1>
           <input ref="/ict4.2.4.1-A/trimestres/relacion/cant_paquetes">
-            <label>Cant. de paquetes recibidos dentro de un tiempo (T1)</label>
+            <label>Numerador</label>
             <hint>Cantidad de paquetes recibidos dentro de un tiempo (T1)</hint>
           </input>
           <input ref="/ict4.2.4.1-A/trimestres/relacion/cant_total_paquetes_recibidos">
-            <label>Cant. total de paquetes recibidos</label>
+            <label>Denominador</label>
             <hint>Cantidad total de paquetes recibidos</hint>
           </input>
           <input ref="/ict4.2.4.1-A/trimestres/relacion/porcentaje">

@@ -111,11 +111,11 @@
             <hint>Hora Pico Final</hint>
           </input>
           <input ref="/ict4.2.2-A/trimestres/tasa/cantidad_asignada_ex">
-            <label>Cant. de asignaciones exitosas de los recursos</label>
+            <label>Numerador</label>
             <hint>Cantidad de asignaciones exitosas de los recursos necesarios para gestionar la comunicación</hint>
           </input>
           <input ref="/ict4.2.2-A/trimestres/tasa/cantidad_total_tent">
-            <label>Cant. de tent. de asignación de recursos realizadas</label>
+            <label>Denominador</label>
             <hint>Cantidad total de tentativas de asignación de recursos realizadas</hint>
           </input>
           <input ref="/ict4.2.2-A/trimestres/tasa/porcentaje">

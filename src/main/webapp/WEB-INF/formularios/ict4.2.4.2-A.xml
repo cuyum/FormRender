@@ -141,11 +141,11 @@
             </item>
           </select1>
           <input ref="/ict4.2.4.2-A/trimestres/relacion/cant_paquetes_perdidos">
-            <label>Cant. de paquetes perdidos</label>
+            <label>Numerador</label>
             <hint>Cantidad de paquetes perdidos</hint>
           </input>
           <input ref="/ict4.2.4.2-A/trimestres/relacion/cant_total_paquetes_transmitidos">
-            <label>Cant. de paquetes transmitidos</label>
+            <label>Denominador</label>
             <hint>Cantidad total de paquetes transmitidos</hint>
           </input>
           <input ref="/ict4.2.4.2-A/trimestres/relacion/porcentaje">

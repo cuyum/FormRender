@@ -71,11 +71,11 @@
             </item>
           </select1>
           <input ref="/ict4.2.1-A/meses/factor_nominal/velocidad">
-            <label>Velocidad nominal de transferencia (VNT) de bajada del usuario con acceso multiplexado</label>
+            <label>Numerador</label>
             <hint>Velocidad nominal de transferencia (VNT) de bajada del usuario con acceso multiplexado</hint>
           </input>
           <input ref="/ict4.2.1-A/meses/factor_nominal/diferencia">
-            <label>Diferencia entre la suma de la VNT de los vínculos entre prestadores y la VNT de bajada de los usuarios con accesos dedicados</label>
+            <label>Denominador</label>
             <hint>Diferencia entre la suma de las velocidades nominales de transferencia de los vínculos entre prestadores y las velocidades de transferencia nominal de bajada de los usuarios con accesos dedicados</hint>
           </input>
           <input ref="/ict4.2.1-A/meses/factor_nominal/fnr">
