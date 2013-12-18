@@ -804,7 +804,7 @@ var gui = new function(){
 			field.trigger("change");
 		}
 	};
-	this.gridTotalizadora ={
+	this.gridTotalizadora = {
 		agrupadores : [],
 		totalizadores : [],
 		headers : [],
@@ -972,6 +972,12 @@ var gui = new function(){
 				}
 			}
 			
+			this.headers.push({
+				"sTitle":"Total",
+				"mData": "rowTotal",
+				"bSearchable": false,
+			});
+			
 			this.element.dataTable({
 				"bJQueryUI": false,
 			    "bScrollCollapse": true,			    
@@ -1020,7 +1026,7 @@ var gui = new function(){
 					totalizado[this.totalizadores[i].nombre+"_ingresado"] = "-";
 				}
 			}
-			
+
 			return totalizado;
 		},
 		/**
@@ -1053,10 +1059,14 @@ var gui = new function(){
 			
 			var totalizado = this.processGroups(record);
 			
+			var acumulaTotal=0;
 			for ( var i = 0; i < this.totalizadores.length; i++) {
 				var r = record[this.totalizadores[i].nombre];
 				totalizado[this.totalizadores[i].nombre] = this.accountedFor? totalizado[this.totalizadores[i].nombre] + r : r;
+				acumulaTotal = acumulaTotal + totalizado[this.totalizadores[i].nombre]; 
 			}
+			
+			totalizado["rowTotal"] = acumulaTotal;
 
 			if(this.accountedFor){
 				this.updateRow(totalizado,this.totalizadoIdx);
