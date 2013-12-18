@@ -972,12 +972,13 @@ var gui = new function(){
 				}
 			}
 			
-			this.headers.push({
-				"sTitle":"Total",
-				"mData": "rowTotal",
-				"bSearchable": false,
-			});
-			
+			if(gui.renderTotal){
+				this.headers.push({
+					"sTitle":"Total",
+					"mData": "rowTotal",
+					"bSearchable": false,
+				});
+			}
 			this.element.dataTable({
 				"bJQueryUI": false,
 			    "bScrollCollapse": true,			    
