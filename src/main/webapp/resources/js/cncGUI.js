@@ -1090,7 +1090,7 @@ var gui = new function(){
 			/*si las firmas son las mismas, han cambiado los totalizadores solamente*/
 			if(totalizadoNuevo.firma_digital == totalizadoOrig.firma_digital){
 				var totalizado = this.processGroups(record);
-				
+				var acumulaTotal=0;
 				
 				for ( var i = 0; i < this.totalizadores.length; i++) {
 					var r = record[this.totalizadores[i].nombre];
@@ -1111,7 +1111,10 @@ var gui = new function(){
 				
 				for ( var i = 0; i < this.totalizadores.length; i++) {
 					totalizado[this.totalizadores[i].nombre] = totalizado[this.totalizadores[i].nombre] + totalizadoDelta[this.totalizadores[i].nombre];
+					acumulaTotal = acumulaTotal + totalizado[this.totalizadores[i].nombre];
 				}
+				
+				totalizado["rowTotal"] = acumulaTotal;
 				
 				this.updateRow(totalizado,this.totalizadoIdx);
 				this.resetProcessVars();
@@ -1131,12 +1134,15 @@ var gui = new function(){
 			var totalizado = this.processGroups(record);
 			
 			var total = 0;
+			var acumulaTotal=0;
 			for ( var i = 0; i < this.totalizadores.length; i++) {
 				var r = record[this.totalizadores[i].nombre];
 				totalizado[this.totalizadores[i].nombre] = totalizado[this.totalizadores[i].nombre] - r;
 				total += totalizado[this.totalizadores[i].nombre];
+				acumulaTotal = acumulaTotal + totalizado[this.totalizadores[i].nombre];
 			}
 			
+			totalizado["rowTotal"] = acumulaTotal;
 			//si la sumatoria es menor igual que cero se elimina el registro
 			if(total<=0){
 				this.removeRow(this.totalizadoIdx);
