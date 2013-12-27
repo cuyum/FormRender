@@ -873,7 +873,7 @@ var gui = new function() {
 						if (dependant[0].nodeName == "SELECT")
 							continue;
 						dependant.data("funcionRequired")(_this, dependant);
-						setupValidations(dependant);
+						validationRequired(dependant);
 					}
 				});
 			}
@@ -1283,14 +1283,12 @@ var gui = new function() {
 			var acumulaTotal = 0;
 			for ( var i = 0; i < this.totalizadores.length; i++) {
 
-				if (record[this.totalizadores[i].nombre] != undefined) {
 					var r = record[this.totalizadores[i].nombre];
 					totalizado[this.totalizadores[i].nombre] = this.accountedFor ? totalizado[this.totalizadores[i].nombre]
 							+ r
 							: r;
 					acumulaTotal = acumulaTotal
 							+ totalizado[this.totalizadores[i].nombre];
-				}
 			}
 
 			totalizado["rowTotal"] = acumulaTotal;

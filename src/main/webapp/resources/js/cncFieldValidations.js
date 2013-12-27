@@ -1105,15 +1105,19 @@ var addRequired = function(field) {
 							|| field[0].name == "/ict4.1.1-E/meses/mes/localidad_0"
 							|| field[0].name == "/ict4.1.1-E/meses/mes/partido_0")
 						field[0].required = false;
-					if(field[0].name == "/ict4.1.1-E/meses/mes/tiempo_espera_0")
+					if (field[0].name == "/ict4.1.1-E/meses/mes/tiempo_espera_0")
 						field[0].required = true;
 
 				}
+
 				if (i == 2 && select[i].selected) {
 
+					if (field[0].name == "/ict4.1.1-E/meses/mes/canales_otros_0")
+						field[0].required = false;
+					else
 						field[0].required = true;
-
 				}
+
 				if (i == 3 && select[i].selected) {
 
 					if (field[0].name == "/ict4.1.1-E/meses/mes/provincia_0"
@@ -1125,8 +1129,12 @@ var addRequired = function(field) {
 				}
 
 				if (i == 4 && select[i].selected) {
-					if (field[0].name == "/ict4.1.1-E/meses/mes/canales_otros_0")
-						field[0].data("renderLogic")(field[0]);
+					
+					field[0].required = true;
+					
+					if (field[0].name == "/ict4.1.1-E/meses/mes/canales_otros_0"){
+						field[0].required = false;
+					}
 				}
 
 			}
