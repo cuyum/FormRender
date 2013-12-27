@@ -26,10 +26,12 @@ var validationRequired = function(field) {
 				}
 			});
 		}
-	} else
+	} else{
 		field.rules("add", {
 			required : false,
 		});
+		removeAsterisco(field);
+	}
 };
 
 /* FormHint MUST be setup befor other hints */
@@ -1089,6 +1091,21 @@ var url = function() {
 	return form;
 };
 
+var removeAsterisco = function(field){
+	
+	input = "input[name='" + field[0].name + "']";
+	
+	$(input).siblings("span.required").html("");
+};
+
+var addAsterisco = function(field){
+	
+	input = "input[name='" + field[0].name + "']";
+	
+	if($(input).siblings("span.required").text() == "")
+		$(input).siblings("span.required").html("*");
+}
+
 var addRequired = function(field) {
 
 	var form = url();
@@ -1103,8 +1120,12 @@ var addRequired = function(field) {
 
 					if (field[0].name == "/ict4.1.1-E/meses/mes/provincia_0"
 							|| field[0].name == "/ict4.1.1-E/meses/mes/localidad_0"
-							|| field[0].name == "/ict4.1.1-E/meses/mes/partido_0")
+							|| field[0].name == "/ict4.1.1-E/meses/mes/partido_0"){
+						
 						field[0].required = false;
+						removeAsterisco(field);
+					}
+					else addAsterisco(field);
 					if (field[0].name == "/ict4.1.1-E/meses/mes/tiempo_espera_0")
 						field[0].required = true;
 
@@ -1112,10 +1133,16 @@ var addRequired = function(field) {
 
 				if (i == 2 && select[i].selected) {
 
-					if (field[0].name == "/ict4.1.1-E/meses/mes/canales_otros_0")
+					if (field[0].name == "/ict4.1.1-E/meses/mes/canales_otros_0"){
 						field[0].required = false;
-					else
+						removeAsterisco(field);
+					}
+					else{
+						
 						field[0].required = true;
+						addAsterisco(field);
+					}
+						
 				}
 
 				if (i == 3 && select[i].selected) {
@@ -1123,9 +1150,13 @@ var addRequired = function(field) {
 					if (field[0].name == "/ict4.1.1-E/meses/mes/provincia_0"
 							|| field[0].name == "/ict4.1.1-E/meses/mes/localidad_0"
 							|| field[0].name == "/ict4.1.1-E/meses/mes/partido_0"
-							|| field[0].name == "/ict4.1.1-E/meses/mes/tiempo_espera_0")
+							|| field[0].name == "/ict4.1.1-E/meses/mes/tiempo_espera_0"){
+						
 						field[0].required = false;
-
+						removeAsterisco(field);
+					}
+					else addAsterisco(field);
+					
 				}
 
 				if (i == 4 && select[i].selected) {
@@ -1134,7 +1165,9 @@ var addRequired = function(field) {
 					
 					if (field[0].name == "/ict4.1.1-E/meses/mes/canales_otros_0"){
 						field[0].required = false;
+						removeAsterisco(field);
 					}
+					else addAsterisco(field);
 				}
 
 			}
