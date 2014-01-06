@@ -292,9 +292,7 @@ En la secci&oacute;n __<datasources>__ la siguiente entrada, especificando usuar
 
 - Ejecutar los scripts de estructura y datos en la BD creada, estos est&aacute;n ubicados en FormRender/sql/ y son:
 	- FormRender/sql/estructuras.sql (crea las tablas en la bd)
-	- FormRender/sql/datos.sql (inserción de formularios)
-	- FormRender/sql/estructura-DELTA_incremental-20131126.sql (actualiza la estructura de la bd)
-	- FormRender/sql/datos-DELTA_incremental-20131126.sql (actualiza los datos de la bd)
+	- FormRender/sql/formulariosCNC.sql (inserción de formularios de CNC)
 
 <span id="54"/></span>
 
@@ -302,7 +300,7 @@ En la secci&oacute;n __<datasources>__ la siguiente entrada, especificando usuar
 
 - Este proyecto usa git para control de versiones y esta disponible en github. Para bajarse el proyecto, ejecutar
 
-		git clone git@cluster.softwarepublico.gob.ar:cnc_ict.git
+		git clone git@cluster.softwarepublico.gob.ar:cnc2220.git
    
 - Realizar una copia del archivo de configuraci&oacute;n base (**FormRender/src/main/resources/formrender.properties**) y completar las variables con la informaci&oacute;n correcta:
 	- Configurar path destino de los archivos de especificacion de formularios (.xml) en archivo de propiedades 
