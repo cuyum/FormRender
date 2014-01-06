@@ -301,8 +301,8 @@ En la secci&oacute;n __<datasources>__ la siguiente entrada, especificando usuar
 
 	- FormRender/sql/estructuras.sql (crea las tablas en la bd)
 	- FormRender/sql/datos.sql (inserción de formularios)
-	- FormRender/sql/estructura-DELTA_incremental-20131126.sql (actualiza la estructura de la bd)
-	- FormRender/sql/datos-DELTA_incremental-20131126.sql (actualiza los datos en la bd)
+	- FormRender/sql/estructura-DELTA_incremental-[DATESTAMP ULTIMA ACTUALIZACIÓN].sql (actualiza la estructura de la bd)
+	- FormRender/sql/datos-DELTA_incremental-[DATESTAMP ULTIMA ACTUALIZACIÓN].sql (actualiza los datos en la bd)
 
 <span id="54"/></span>
 
