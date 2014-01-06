@@ -255,24 +255,24 @@ En la secci&oacute;n __<datasources>__ la siguiente entrada, especificando usuar
 		<datasources>
 		...	
 			<datasource jta="true" jndi-name="java:jboss/datasources/FormRenderDS" pool-name="FormRenderDS" enabled="true" use-java-context="true" use-ccm="true">
-	            	<connection-url>jdbc:postgresql://localhost:5432/formrender</connection-url>
-          	  	<driver-class>org.postgresql.Driver</driver-class>
-	            	<driver>postgresql</driver>
-          	  	<security>
-				<user-name>${username}</user-name>
-          	      		<password>${password}</password>
-	          	</security>
-		</datasource>  
+	            		<connection-url>jdbc:postgresql://localhost:5432/formrender</connection-url>
+          	  		<driver-class>org.postgresql.Driver</driver-class>
+	            		<driver>postgresql</driver>
+          	  		<security>
+					<user-name>${username}</user-name>
+          	      			<password>${password}</password>
+	          		</security>
+			</datasource>  
 		...              
-		<drivers>    
+			<drivers>    
 		...                
-			<driver name="postgresql" module="org.postgresql">
-				<xa-datasource-class>org.postgresql.xa.PGXADataSource</xa-datasource-class>
-			</driver>
+				<driver name="postgresql" module="org.postgresql">
+					<xa-datasource-class>org.postgresql.xa.PGXADataSource</xa-datasource-class>
+				</driver>
 		...    
-		</drivers>
+			</drivers>
 
-
+		<datasources>
 
 #####5.3.1 DataSource/DB
 
@@ -298,8 +298,11 @@ En la secci&oacute;n __<datasources>__ la siguiente entrada, especificando usuar
 - Crear base de datos BD "formrender" utilizando el cliente de preferencias, si el esquema (base de datos) no se encuentra creado, la aplicaci&oacute;n no levantar&aacute; correctamente.
 
 - Ejecutar los scripts de estructura y datos en la BD creada, estos est&aacute;n ubicados en FormRender/sql/ y son:
+
 	- FormRender/sql/estructuras.sql (crea las tablas en la bd)
-	- FormRender/sql/formulariosCNC.sql (inserci&oacute;n de formularios de CNC)
+	- FormRender/sql/datos.sql (inserción de formularios)
+	- FormRender/sql/estructura-DELTA_incremental-20131126.sql (actualiza la estructura de la bd)
+	- FormRender/sql/datos-DELTA_incremental-20131126.sql (actualiza los datos en la bd)
 
 <span id="54"/></span>
 
@@ -307,7 +310,7 @@ En la secci&oacute;n __<datasources>__ la siguiente entrada, especificando usuar
 
 - Este proyecto usa git para control de versiones y esta disponible en github. Para bajarse el proyecto, ejecutar
 
-		git clone git@cluster.softwarepublico.gob.ar:cnc2220.git
+		git clone git@cluster.softwarepublico.gob.ar:cnc_ict.git
    
 - Realizar una copia del archivo de configuraci&oacute;n base (**FormRender/src/main/resources/formrender.properties**) y completar las variables con la informaci&oacute;n correcta:
 	- Configurar path destino de los archivos de especificacion de formularios (.xml) en archivo de propiedades 
@@ -327,7 +330,7 @@ En la secci&oacute;n __<datasources>__ la siguiente entrada, especificando usuar
 	- Estos mismos pasos deben realizarse para configurar tambi&eacute;n el servidor de persistencia de persistencia bajo el prefijo **submit.remote**.
 		- submit.remote.draft (Ej. /deposition/draft)
 		- submit.remote.final= (Ej. /deposition)
-	- El archivo modificado se deber&aacute; pegar en el directorio de configuraci&oacute;n de Jboss (**<jboss-as-7.1.0.Final>/standalone/configuration/**)
+	- El archivo formrender.properties modificado se deber&aacute; pegar en el directorio de configuraci&oacute;n de Jboss (**<jboss-as-7.1.0.Final>/standalone/configuration/**)
 	- Se debe evitar en todas las variables ubicar "slashes finales" (submit.remote.draft = /example <- INCORRECTO)
 
 - Situarse en la ra&iacute;z del directorio del c&oacute;digo y ejecutar 
