@@ -287,7 +287,7 @@ var gui = new function(){
 				if(thisForm.attr("submit-url")){
 					gui.executeSubmission(thisForm.attr("submit-url"), message).done(function(data){
 						if(data.success){
-							gui.resetForm();
+//							gui.resetForm();
 							gui.cleanFormValidations();
 							if(gui.renderGrid){
 //								gui.grid.element.dataTable().fnClearTable();
