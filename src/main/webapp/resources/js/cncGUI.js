@@ -264,7 +264,7 @@ var gui = new function(){
 							gui.resetForm();
 							gui.cleanFormValidations();
 							if(gui.renderGrid){
-								gui.grid.element.dataTable().fnClearTable();
+//								gui.grid.element.dataTable().fnClearTable();
 							}
 						}
 					});
