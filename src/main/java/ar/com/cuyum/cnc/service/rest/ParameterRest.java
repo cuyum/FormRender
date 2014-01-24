@@ -14,7 +14,6 @@ import javax.ws.rs.Produces;
 import org.apache.log4j.Logger;
 
 import ar.com.cuyum.cnc.service.ParameterService;
-import ar.com.cuyum.cnc.utils.FormRenderProperties;
 
 /**
  * @author Jorge Morando

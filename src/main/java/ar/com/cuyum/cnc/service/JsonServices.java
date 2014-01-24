@@ -1,12 +1,15 @@
 package ar.com.cuyum.cnc.service;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Serializable;
@@ -971,6 +974,24 @@ public class JsonServices implements Serializable {
         }
 
         return formulario.getCodigo();
+    }
+    
+    public String previewExample(final InputStream input, final ServletContext sc)
+            throws Exception {
+
+    	String str = "";
+        BufferedReader br = new BufferedReader(new InputStreamReader(input));
+    	String linea;
+    	
+    	StringBuilder sb = new StringBuilder();
+    	
+		while ((linea = br.readLine()) != null) {
+			sb.append(linea);
+		}
+    	
+		str = sb.toString();
+		
+        return str;
     }
 
 }
