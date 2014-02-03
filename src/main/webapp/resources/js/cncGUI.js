@@ -428,21 +428,13 @@ var gui = new function() {
 								if (confirmed) {
 									var thisForm = $(gui.form);
 									if (thisForm.attr("submit-url")) {
-										gui
-												.executeSubmission(
-														thisForm
-																.attr("submit-url"),
-														message)
-												.done(
+										gui.executeSubmission(thisForm.attr("submit-url"),message).done(
 														function(data) {
 															if (data.success) {
-																gui.resetForm();
-																gui
-																		.cleanFormValidations();
+//																gui.resetForm();
+																gui.cleanFormValidations();
 																if (gui.renderGrid) {
-																	gui.grid.element
-																			.dataTable()
-																			.fnClearTable();
+//																	gui.grid.element.dataTable().fnClearTable();
 																}
 															}
 														});
