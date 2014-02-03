@@ -1519,13 +1519,14 @@ var gui = new function() {
 						if (field.is("select")) {
 							var o;
 							if (value.trim() != "") {
-
-								o = field.children("option:selected");
-								record[attribute] = {
-									label : o.text(),
-									value : value
-								};
-								tmpHash = tmpHash + value;
+								if(value!=-1){
+									o = field.children("option:selected");
+									record[attribute] = {
+											label : o.text(),
+											value : value
+									};
+									tmpHash = tmpHash + value;
+								}
 							} else {
 								record[attribute] = {
 									label : "",
