@@ -142,7 +142,6 @@ var gui = new function() {
 			}
 			return this; // for chaining...
 		};
-
 	};
 	this.setupDefaults = function() {
 		$("select").select2();
@@ -257,7 +256,6 @@ var gui = new function() {
 		return par;
 	};
 	this.cleanFormValidations = function() {
-		// console.info("Cleaning Form Validations");
 		$("[class~='error']").siblings("label[class='error']").remove();
 		$("[class~='error']").removeClass("error");
 	};
@@ -341,8 +339,7 @@ var gui = new function() {
 		return data;
 	};
 	this.validateRemoteSelects = function() {
-		var selectFields = $("input[class~='select2-offscreen']:hidden").not(
-				".select2-focusser");
+		var selectFields = $("input[class~='select2-offscreen']:hidden").not(".select2-focusser");
 		var valid = true;
 		for ( var i = 0; i < selectFields.length; i++) {
 			if (!$(gui.form).validate().element(selectFields[i]) && valid) {
@@ -420,15 +417,12 @@ var gui = new function() {
 		var result = gui.validarPeriodicidad();
 
 		if (result == 1)
-			gui
-					.displayWarning("Debe agregar como mínimo un registro para cada mes.");
+			gui.displayWarning("Debe agregar como mínimo un registro para cada mes.");
 		else if (result == 2)
-			gui
-					.displayWarning("Debe agregar como mínimo un registro para cada trimestre.");
+			gui.displayWarning("Debe agregar como mínimo un registro para cada trimestre.");
 		else {
 			// clickEvent.preventDefault();
-			bootbox
-					.confirm(
+			bootbox.confirm(
 							"Esta acci\u00F3n implica que UD. ha completado la carga del formulario. No podr\u00E1 seguir edit\u00E1ndolo ya que es parte integral de la DDJJ. Desea continuar?",
 							function(confirmed) {
 								if (confirmed) {
@@ -602,7 +596,6 @@ var gui = new function() {
 
 				for ( var i = 0; i < dl.length; i++) {
 					var data = dl[i];
-
 					if (data["values"] != undefined)
 						delete data["values"];
 					if (data["fields"] != undefined)
@@ -664,6 +657,7 @@ var gui = new function() {
 				message.payload.formulario.data = dataFinal;
 				draft == true ? gui.saveDraft(message) : gui.saveFinal(message);
 
+
 			} else {
 				gui.displayWarning("No se encuentran registros para guardar.");
 				console.warn("No data in grid");
@@ -674,6 +668,7 @@ var gui = new function() {
 			 * si no hay grilla es necesario extraer los datos del formulario
 			 * crudo y si es un draft, no hace falta validar caso contrario se
 			 * debera validar todo el formulario antes de realizar el submit
+
 			 */
 		} else {
 			if (draft == true) {
@@ -804,6 +799,7 @@ var gui = new function() {
 				return dependants;
 			} else
 				return [];
+
 		}
 	};
 	this.getField = function(name, fieldset) {
@@ -913,6 +909,7 @@ var gui = new function() {
 		}
 		return hiddens;
 	};
+
 	this.resetSelect = function(field) {
 		if (field.is("select")) {
 			var option = field.children("option[value='-1']").clone();
@@ -994,8 +991,6 @@ var gui = new function() {
 					}
 				} else {
 					if (!isNaN(record[fieldCleanName])) {// javascript valid
-						// number need to be
-						// parsed to locale
 						record[fieldCleanName] = record[fieldCleanName];
 					}
 					field.val(record[fieldCleanName]);
@@ -1438,6 +1433,7 @@ var gui = new function() {
 		getRowData : function(rowIndex) {
 			return this.element.dataTable().fnGetData(rowIndex);
 		},
+
 		setupAddClick : function() {
 			$("input[type~='button'][repeat-action='add']").click(
 					this,
@@ -1472,6 +1468,7 @@ var gui = new function() {
 								$(gui.fieldsets[record.instance].dom)
 										.scrollTo();
 							});
+
 		},
 		setupRemoveClick : function() {
 			$("input[type~='button'][repeat-action='remove']").unbind("click");
@@ -1483,6 +1480,7 @@ var gui = new function() {
 						var record = gui.grid.getRowData(rowIndex);
 						gui.grid.removeRow(rowIndex);
 						gui.gridTotalizadora.processRemoval(record);
+
 						var fields = gui.fieldsets[record.instance].fields;
 						if (gui.grid.editing > -1) {
 							gui.grid.editing = -1;
@@ -1521,6 +1519,7 @@ var gui = new function() {
 						if (field.is("select")) {
 							var o;
 							if (value.trim() != "") {
+
 								o = field.children("option:selected");
 								record[attribute] = {
 									label : o.text(),
@@ -1530,6 +1529,7 @@ var gui = new function() {
 							} else {
 								record[attribute] = {
 									label : "",
+
 									value : null
 								};
 							}
@@ -1544,12 +1544,15 @@ var gui = new function() {
 								tmpHash = tmpHash + data.id;
 							} else {
 								record[attribute] = {
+
 									label : "",
+
 									value : null
 								};
 							}
 						} else {
 							if (gui.isCNCNumberField(field)) {
+
 								value = gui.toNumber(value);
 								if (gui.renderTotal
 										&& field
@@ -1571,6 +1574,7 @@ var gui = new function() {
 						console.warn("Could not commit due to field", field);
 						break;
 					}
+
 				} else {// si no es visible poner valores por defecto
 					if (field.is("select"))
 						record[attribute] = {
@@ -1578,11 +1582,13 @@ var gui = new function() {
 						};
 					else
 						record[attribute] = "";
+
 				}
 			}
 			record.instance = fieldset.instance;
 			var storedData = this.getData();
 			// console.info("new record",record.signature);
+
 			for ( var i = 0; i < storedData.length; i++) {
 				var storedRecord = storedData[i];
 				// console.info("stored record",storedRecord.signature);
@@ -1612,6 +1618,7 @@ var gui = new function() {
 						r["original"] = this.getRowData(this.editing);
 						gui.gridTotalizadora.processEdition(r);
 					}
+
 					this.element.dataTable().fnUpdate(record, this.editing);
 					this.editing = -1;
 				}
@@ -1669,12 +1676,14 @@ var gui = new function() {
 					});
 				}
 			}
+
 			if (gui.renderTotal) {
 				this.headers.push({
 					"sTitle" : "Total",
 					"mData" : "rowTotal",
 					"bSearchable" : false,
 				});
+
 			}
 			if (!gui.readonly) {
 				this.headers
@@ -1738,9 +1747,12 @@ var cncToNumber = function(value) {
 	}
 };
 
+
 var cncFromNumber = function(value, dec) {
 	var vStr = "" + value;
 	var decimals = dec;
+
+
 	if (decimals == undefined) {
 		var d = 0;
 		if (vStr.indexOf(".") > 0) {
@@ -1752,6 +1764,7 @@ var cncFromNumber = function(value, dec) {
 	}
 
 	if (value && !isNaN(value)) {
+
 		/* FIX de librería i18n que tiene problemas para formatear el 0 */
 		if (value == 0) {
 			var val = "0";
@@ -1762,6 +1775,7 @@ var cncFromNumber = function(value, dec) {
 			}
 			return val;
 		}
+
 		var formated = $.i18n.formatNumber(value, decimals, {
 			region : 'es-AR'
 		});
