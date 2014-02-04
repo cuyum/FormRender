@@ -28,6 +28,7 @@ import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
+import org.primefaces.json.JSONException;
 import org.primefaces.json.JSONObject;
 
 import ar.com.cuyum.cnc.domain.Formulario;
@@ -35,9 +36,11 @@ import ar.com.cuyum.cnc.domain.Xsl;
 import ar.com.cuyum.cnc.utils.FormRenderProperties;
 
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 @Stateless
@@ -993,5 +996,91 @@ public class JsonServices implements Serializable {
 		
         return str;
     }
+    
+    public String obtenerNodo(final JSONObject ojson)
+            throws Exception {
+
+    	String str = "";
+    	ObjectMapper mapper = new ObjectMapper();
+    	JsonNode node;
+    	JsonNode requeridos;
+    	JsonNode datos;
+    	
+    	try{
+    		node = mapper.readTree(ojson.toString());
+        	
+        	node = node.get("properties").get("formulario").get("properties").get("formularios").get("items").get("properties").get("data").get("items");
+            
+        	requeridos = node.get("required");
+        	
+        	datos = node .get("properties");
+        	
+        	str = generarDatos(datos,requeridos);
+        	
+    	}catch (Exception e) {
+            throw new Exception("Error al cargar el Json Schema", e);
+        }
+
+    	return str;
+    }
+
+	private String generarDatos(JsonNode datos, JsonNode requeridos) {
+
+		String nuevoDato = "\"data\": [";
+		String str = null;
+		int cantInstancias;
+		
+		for (cantInstancias = 0; cantInstancias < 2; cantInstancias++) {
+			
+			Iterator<JsonNode> items = datos.elements();
+			Iterator<String> namesItems = datos.fieldNames();
+			if(cantInstancias==0)
+				nuevoDato += "{\""+ "instance\"" + "  :  " + cantInstancias + ", ";
+			else nuevoDato += ",{\""+ "instance\"" + "  :  " + cantInstancias + ", ";
+			if (datos.get("item") != null) {
+				
+				nuevoDato += "\"" + "item\"" + "  : " + "\"Nombre Mes\"" + ", ";
+			}
+
+			while (items.hasNext()) {
+
+				JsonNode item = items.next();
+				String name = namesItems.next();
+				
+				if (item.get("title") != null) {
+					if (item.get("$ref").asText().compareTo("formulario.json#/definitions/string") == 0) {
+						str = "\"" + name + "\"  : \"" + "String"
+								+ "\", ";
+					}
+					if (item.get("$ref").asText().compareTo("formulario.json#/definitions/integer") == 0) {
+						str = "\"" + name + "\"  : \"" + "Numero Entero"
+								+ "\", ";
+					}
+					if (item.get("$ref").asText().compareTo("formulario.json#/definitions/decimal") == 0) {
+						str = "\"" + name + "\"  : \"" + "Numero Decimal Con Punto"
+								+ "\", ";
+					}
+					if (item.get("$ref").asText().compareTo("formulario.json#/definitions/combo") == 0) {
+						str = "\"" + name + "\"  : {\"label\" : \"" + "Nombre"
+								+ "\", \"value\"  : \"" + "Codigo" + "\"}, ";
+					}
+					
+					nuevoDato += str;
+				}
+			}
+			nuevoDato = nuevoDato.substring(0, nuevoDato.lastIndexOf(",")) +"}";
+		}
+		
+		str = nuevoDato + "]";
+		
+		return str;
+	}
+
+	public String obtenerHeader(String formId) {
+		
+		String header = new String("{\"formulario\": {\"id\": \"" + formId + "\", \"formularios\": [");
+		
+		return header;
+	}
 
 }

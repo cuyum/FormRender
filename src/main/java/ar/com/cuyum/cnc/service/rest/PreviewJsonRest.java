@@ -1,6 +1,5 @@
 package ar.com.cuyum.cnc.service.rest;
 
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -12,16 +11,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 
 import org.apache.log4j.Logger;
+import org.primefaces.json.JSONException;
+import org.primefaces.json.JSONObject;
 
 import ar.com.cuyum.cnc.service.JsonServices;
 import ar.com.cuyum.cnc.service.RelayService;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Path("/previewJson")
 @RequestScoped
@@ -94,6 +97,48 @@ public class PreviewJsonRest {
 			log.error(exp);
 		}
 
+		return resp;
+	}
+	
+	@GET
+	@Path("jsonDates/{id}")
+	@Produces("application/json")
+	public String previewJsonDates(@Context ServletContext servletContext, @PathParam("id") String formId) throws IOException {
+
+		String form = formId + "-schema.json";
+		InputStream input;
+		JSONObject ojson = new JSONObject();
+		JsonNode node = null;
+		ObjectMapper mapper = new ObjectMapper();
+		
+		String resp = new String();
+		String header = jsonService.obtenerHeader(formId);
+		
+		try {
+			input= servletContext.getResourceAsStream("/schemas/" + form);
+			resp = jsonService.previewExample(input, servletContext);
+			ojson = new JSONObject(resp);
+			
+			resp = header;
+			for(int i=0;i<2;i++){
+				resp += "{" + jsonService.obtenerNodo(ojson) + "},";
+			}
+			resp = resp.substring(0, resp.lastIndexOf(","))+"]}}";
+			
+		} catch (Exception exp) {
+			log.error(exp);
+		}
+
+		try {
+			ojson = new JSONObject(resp);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+//		node = mapper.createArrayNode().add(resp);
+//		node = mapper.readTree(resp);
+//		return node.asText().toString();
 		return resp;
 	}
 }
