@@ -1008,6 +1008,7 @@ public class JsonServices implements Serializable {
     	
     	try{
     		node = mapper.readTree(ojson.toString());
+    		
         	
         	node = node.get("properties").get("formulario").get("properties").get("formularios").get("items").get("properties").get("data").get("items");
             
@@ -1039,7 +1040,7 @@ public class JsonServices implements Serializable {
 			else nuevoDato += ",{\""+ "instance\"" + "  :  " + cantInstancias + ", ";
 			if (datos.get("item") != null) {
 				
-				nuevoDato += "\"" + "item\"" + "  : " + "\"Nombre Mes\"" + ", ";
+				nuevoDato += "\"" + "item\"" + "  : " + "\"\"" + ", ";
 			}
 
 			while (items.hasNext()) {
@@ -1049,20 +1050,20 @@ public class JsonServices implements Serializable {
 				
 				if (item.get("title") != null) {
 					if (item.get("$ref").asText().compareTo("formulario.json#/definitions/string") == 0) {
-						str = "\"" + name + "\"  : \"" + "String"
+						str = "\"" + name + "\"  : \"" + ""
 								+ "\", ";
 					}
 					if (item.get("$ref").asText().compareTo("formulario.json#/definitions/integer") == 0) {
-						str = "\"" + name + "\"  : \"" + "Numero Entero"
-								+ "\", ";
+						str = "\"" + name + "\"  : " + 0
+								+ ", ";
 					}
 					if (item.get("$ref").asText().compareTo("formulario.json#/definitions/decimal") == 0) {
-						str = "\"" + name + "\"  : \"" + "Numero Decimal Con Punto"
-								+ "\", ";
+						str = "\"" + name + "\"  : " + 0.0
+								+ ", ";
 					}
 					if (item.get("$ref").asText().compareTo("formulario.json#/definitions/combo") == 0) {
-						str = "\"" + name + "\"  : {\"label\" : \"" + "Nombre"
-								+ "\", \"value\"  : \"" + "Codigo" + "\"}, ";
+						str = "\"" + name + "\"  : {\"label\" : \"" + ""
+								+ "\", \"value\"  : \"" + "" + "\"}, ";
 					}
 					
 					nuevoDato += str;
@@ -1075,6 +1076,57 @@ public class JsonServices implements Serializable {
 		
 		return str;
 	}
+//	private String generarDatos(JsonNode datos, JsonNode requeridos) {
+//
+//		String nuevoDato = "\"data\": [";
+//		String str = null;
+//		int cantInstancias;
+//		
+//		for (cantInstancias = 0; cantInstancias < 2; cantInstancias++) {
+//			
+//			Iterator<JsonNode> items = datos.elements();
+//			Iterator<String> namesItems = datos.fieldNames();
+//			if(cantInstancias==0)
+//				nuevoDato += "{\""+ "instance\"" + "  :  " + cantInstancias + ", ";
+//			else nuevoDato += ",{\""+ "instance\"" + "  :  " + cantInstancias + ", ";
+//			if (datos.get("item") != null) {
+//				
+//				nuevoDato += "\"" + "item\"" + "  : " + "\"Nombre Mes\"" + ", ";
+//			}
+//
+//			while (items.hasNext()) {
+//
+//				JsonNode item = items.next();
+//				String name = namesItems.next();
+//				
+//				if (item.get("title") != null) {
+//					if (item.get("$ref").asText().compareTo("formulario.json#/definitions/string") == 0) {
+//						str = "\"" + name + "\"  : \"" + "String"
+//								+ "\", ";
+//					}
+//					if (item.get("$ref").asText().compareTo("formulario.json#/definitions/integer") == 0) {
+//						str = "\"" + name + "\"  : \"" + "Numero Entero"
+//								+ "\", ";
+//					}
+//					if (item.get("$ref").asText().compareTo("formulario.json#/definitions/decimal") == 0) {
+//						str = "\"" + name + "\"  : \"" + "Numero Decimal Con Punto"
+//								+ "\", ";
+//					}
+//					if (item.get("$ref").asText().compareTo("formulario.json#/definitions/combo") == 0) {
+//						str = "\"" + name + "\"  : {\"label\" : \"" + "Nombre"
+//								+ "\", \"value\"  : \"" + "Codigo" + "\"}, ";
+//					}
+//					
+//					nuevoDato += str;
+//				}
+//			}
+//			nuevoDato = nuevoDato.substring(0, nuevoDato.lastIndexOf(",")) +"}";
+//		}
+//		
+//		str = nuevoDato + "]";
+//		
+//		return str;
+//	}
 
 	public String obtenerHeader(String formId) {
 		
