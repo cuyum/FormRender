@@ -111,11 +111,11 @@
             <hint>Hora Pico Final</hint>
           </input>
           <input ref="/ict4.2.2.1-A/trimestres/relacion/cantidad_llamadas">
-            <label>Cant. de llamadas completadas</label>
+            <label>Numerador</label>
             <hint>Cantidad de llamadas completadas originadas en el Área Local</hint>
           </input>
           <input ref="/ict4.2.2.1-A/trimestres/relacion/cantidad_intentos">
-            <label>excluyendo las &quot;No Contesta u Ocupado&quot;</label>
+            <label>Denominador</label>
             <hint>Cantidad de intentos de llamadas originadas en el Área Local excluyendo llamadas con retorno &quot;No Contesta u Ocupado&quot;</hint>
           </input>
           <input ref="/ict4.2.2.1-A/trimestres/relacion/porcentaje">

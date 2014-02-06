@@ -111,11 +111,11 @@
             <hint>Hora Pico Fin</hint>
           </input>
           <input ref="/ict4.2.3-A/trimestres/tasa/cant_recursos">
-            <label>Cant. de recursos asig. que se liberan por causas ajenas al usuario</label>
+            <label>Numerador</label>
             <hint>Cantidad de recursos asignados que se liberan por causas ajenas al usuario</hint>
           </input>
           <input ref="/ict4.2.3-A/trimestres/tasa/cant_total_recursos_asignado">
-            <label>Cant. total de recursos asignados</label>
+            <label>Denominador</label>
             <hint>Cantidad total de recursos asignados</hint>
           </input>
           <input ref="/ict4.2.3-A/trimestres/tasa/porcentaje">

@@ -10,6 +10,7 @@
             <mes>
               <dialUp/>
               <bandaAncha>
+				<H512Kbps/>
                 <kbps1Mbps/>
                 <Mbps6Mbps/>
                 <Mbps10Mbps/>
@@ -22,7 +23,9 @@
           </meta>
         </F1.21>
       </instance>
-      <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.21/meses/mes/dialUp" required="true()" type="int"/>
+      
+	  <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.21/meses/mes/dialUp" required="true()" type="int"/>
+	  <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.21/meses/mes/bandaAncha/H512Kbps" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.21/meses/mes/bandaAncha/kbps1Mbps" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.21/meses/mes/bandaAncha/Mbps6Mbps" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/F1.21/meses/mes/bandaAncha/Mbps10Mbps" required="true()" type="int"/>
@@ -42,6 +45,10 @@
           </input>
           <group appearance="col4 well-white" ref="/F1.21/meses/mes/bandaAncha">
             <label>Banda Ancha</label>
+			<input ref="/F1.21/meses/mes/bandaAncha/H512Kbps">
+              <label>Hasta 512 Kbps</label>
+              <hint>Hasta 512 Kbps [en miles de pesos]</hint>
+            </input>
             <input ref="/F1.21/meses/mes/bandaAncha/kbps1Mbps">
               <label>512 kbps a 1 Mbps</label>
               <hint>512 kbps a 1 Mbps [en miles de pesos]</hint>

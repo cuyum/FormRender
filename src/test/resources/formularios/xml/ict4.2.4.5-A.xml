@@ -111,11 +111,11 @@
             <hint>Hora Pico Fin</hint>
           </input>
           <input ref="/ict4.2.4.5-A/trimestres/relacion/velocidad_efectiva_media_transferencia">
-            <label>Velocidad Efectiva Media de Transferencia</label>
+            <label>Numerador</label>
             <hint>Velocidad Efectiva Media de Transferencia</hint>
           </input>
           <input ref="/ict4.2.4.5-A/trimestres/relacion/velocidad_transferencia_nominal">
-            <label>Velocidad de Transferencia Nominal</label>
+            <label>Denominador</label>
             <hint>Velocidad de Transferencia Nominal</hint>
           </input>
           <input ref="/ict4.2.4.5-A/trimestres/relacion/porcentaje">

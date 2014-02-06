@@ -29,8 +29,8 @@
       </instance>
       <bind constraint="periodicidad=/servicios/rest/periodicidad and agrupador=1" nodeset="/ict4.1.1-E/meses/mes/periodo_considerado" required="true()" type="select1"/>
       <bind constraint="agrupador=2" nodeset="/ict4.1.1-E/meses/mes/canales" required="true()" type="select1"/>
-      <bind nodeset="/ict4.1.1-E/meses/mes/canales_otros" relevant=" /ict4.1.1-E/meses/mes/canales =Otros" required="true()" type="string"/>
-      <bind nodeset="/ict4.1.1-E/meses/mes/id_bocas" required="true()" type="select1"/>
+      <bind nodeset="/ict4.1.1-E/meses/mes/canales_otros" relevant=" /ict4.1.1-E/meses/mes/canales =Otros" required="false()" type="string"/>
+      <bind nodeset="/ict4.1.1-E/meses/mes/id_bocas" required="true()" type="string"/>
       <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.1-E/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/ict4.1.1-E/meses/mes/provincia" nodeset="/ict4.1.1-E/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/ict4.1.1-E/meses/mes/partido_otro" relevant=" /ict4.1.1-E/meses/mes/partido =9999" required="true()" type="string"/>
@@ -84,51 +84,11 @@
             <label>Canales Otros</label>
             <hint>Canales de Atencion al usuario Otros</hint>
           </input>
-          <select1 appearance="minimal" ref="/ict4.1.1-E/meses/mes/id_bocas">
+          <input ref="/ict4.1.1-E/meses/mes/id_bocas">
             <label>ID Bocas de atención</label>
             <hint>ID Bocas de atención</hint>
-            <item>
-              <label>Seleccione una opción</label>
-              <value>-1</value>
-            </item>
-            <item>
-              <label>Call Center 1</label>
-              <value>Call_Center_1</value>
-            </item>
-            <item>
-              <label>Call Center 2</label>
-              <value>Call_Center_2</value>
-            </item>
-            <item>
-              <label>Área 1</label>
-              <value>Área_1</value>
-            </item>
-            <item>
-              <label>Sucursal 1</label>
-              <value>Sucursal_1</value>
-            </item>
-            <item>
-              <label>Sucursal 2</label>
-              <value>Sucursal_2</value>
-            </item>
-            <item>
-              <label>Sucursal 3</label>
-              <value>Sucursal_3</value>
-            </item>
-            <item>
-              <label>Sucursal 4</label>
-              <value>Sucursal_4</value>
-            </item>
-            <item>
-              <label>Sucursal 5</label>
-              <value>Sucursal_5</value>
-            </item>
-            <item>
-              <label>Sucursal 6</label>
-              <value>Sucursal_6</value>
-            </item>
-          </select1>
-          <select1 appearance="minimal" ref="/ict4.1.1-E/meses/mes/provincia">
+		  </input>	
+            <select1 appearance="minimal" ref="/ict4.1.1-E/meses/mes/provincia">
             <label>Provincia</label>
             <hint>Provincia</hint>
             <item>
