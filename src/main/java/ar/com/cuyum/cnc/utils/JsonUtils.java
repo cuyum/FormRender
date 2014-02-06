@@ -58,7 +58,7 @@ public class JsonUtils {
 			jsonObject = mapper.readTree(json);
 			json = jsonObject.toString();
 		} catch (JsonProcessingException e2) {
-			String msg = "Error procesando json";
+			String msg = "Error procesando json, formato invalido";
 			log.error(msg, e2);
 			return JsonUtils.msg(false, msg);
 		} catch (IOException e2) {
