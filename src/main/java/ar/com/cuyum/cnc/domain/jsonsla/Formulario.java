@@ -231,16 +231,21 @@ public class Formulario implements Serializable {
 			items.add(this.data.get(i).valuesToJson());
 		}
 
-		if (sumarizadosJson != null && grid.getCalculados()) {
-			ArrayNode items2 =  mapper.createArrayNode();
-			ObjectNode item = mapper.createObjectNode();
-			item.put("registros",items);
-			item.put("sumarizados",sumarizadosJson);
-			items2.add(item);
-			data.put("data",items2);
-		}else{
-    	   data.put("data",items);
+		try {
+			if (sumarizadosJson != null && grid.getCalculados()) {
+				ArrayNode items2 =  mapper.createArrayNode();
+				ObjectNode item = mapper.createObjectNode();
+				item.put("registros",items);
+				item.put("sumarizados",sumarizadosJson);
+				items2.add(item);
+				data.put("data",items2);
+			}else{
+	    	   data.put("data",items);
+			}
+		} catch (Exception e) {
+			System.out.print("Error al cargar el Json" + e);
 		}
+		
 		
 		return data;
 	}
