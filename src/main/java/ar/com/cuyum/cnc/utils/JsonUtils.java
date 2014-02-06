@@ -58,11 +58,11 @@ public class JsonUtils {
 			jsonObject = mapper.readTree(json);
 			json = jsonObject.toString();
 		} catch (JsonProcessingException e2) {
-			String msg = "Error prosesando json";
+			String msg = "Error procesando json";
 			log.error(msg, e2);
 			return JsonUtils.msg(false, msg);
 		} catch (IOException e2) {
-			String msg = "Error E/S prosesando json";
+			String msg = "Error E/S procesando json";
 			log.error(e2);
 			return JsonUtils.msg(false, msg);
 		}
