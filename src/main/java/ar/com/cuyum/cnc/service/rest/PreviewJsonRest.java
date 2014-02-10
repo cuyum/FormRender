@@ -70,7 +70,7 @@ public class PreviewJsonRest {
 		
 		String resp = new String();
 		try {
-			resp = jsonService.previewExample(input, servletContext);
+			resp = jsonService.previewExample(input);
 		} catch (Exception exp) {
 			log.error(exp);
 		}
@@ -90,7 +90,7 @@ public class PreviewJsonRest {
 		String resp = new String();
 		try {
 			input= servletContext.getResourceAsStream("/schemas/" + form);
-			resp = jsonService.previewExample(input, servletContext);
+			resp = jsonService.previewExample(input);
 		} catch (Exception exp) {
 			log.error(exp);
 		}
@@ -105,26 +105,18 @@ public class PreviewJsonRest {
 
 		String form = formId + "-schema.json";
 		InputStream input;
-		JSONObject ojson = new JSONObject();
-		
-		String resp = new String();
-		String header = jsonService.obtenerHeader(formId);
+
+		String resp = null;
+		String response = null;
 		
 		try {
 			input= servletContext.getResourceAsStream("/schemas/" + form);
-			resp = jsonService.previewExample(input, servletContext);
-
-			ojson = new JSONObject(resp);
-			resp = header;
-			for(int i=0;i<2;i++){
-				resp += "{" + jsonService.obtenerNodo(ojson) + "},";
-			}
-			resp = resp.substring(0, resp.lastIndexOf(","))+"]}}";
-			
+			resp = jsonService.previewExample(input);
+			response = jsonService.obtenerJson(resp, formId);
 		} catch (Exception exp) {
 			log.error(exp);
 		}
 		
-		return resp;
+		return response;
 	}
 }

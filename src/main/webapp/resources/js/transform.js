@@ -122,12 +122,16 @@ $(document).ready(function() {
 							gui.grid.addRows(dataArray);
 						}
 					}else{
-						for ( var i = 0; i < dataArray.length; i++) {
-							var record = dataArray[i];
-//							console.group("CAMPOS INSTANCIA "+i);
-							gui.completeForm(record,gui.fieldsets[i].fields);
-//							console.groupEnd();
+						if(dataArray!=null){
+							for ( var i = 0; i < dataArray.length; i++) {
+							
+								var record = dataArray[i];
+//								console.group("CAMPOS INSTANCIA "+i);
+								gui.completeForm(record,gui.fieldsets[i].fields);
+//								console.groupEnd();
+							}
 						}
+						else console.error("Error en la recepcion de los datos");
 					}
 				}
 			},

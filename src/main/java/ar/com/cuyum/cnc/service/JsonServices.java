@@ -979,7 +979,7 @@ public class JsonServices implements Serializable {
         return formulario.getCodigo();
     }
     
-    public String previewExample(final InputStream input, final ServletContext sc)
+    public String previewExample(final InputStream input)
             throws Exception {
 
     	String str = "";
@@ -997,6 +997,29 @@ public class JsonServices implements Serializable {
         return str;
     }
     
+	public String obtenerJson(String resp, String formId) {
+
+		JSONObject ojson = new JSONObject();
+		String header = obtenerHeader(formId);
+
+		try {
+			ojson = new JSONObject(resp);
+
+			resp = header;
+			for (int i = 0; i < 2; i++) {
+				resp += "{" + obtenerNodo(ojson) + "},";
+			}
+			resp = resp.substring(0, resp.lastIndexOf(",")) + "]}}";
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resp;
+	}
+
     public String obtenerNodo(final JSONObject ojson)
             throws Exception {
 
@@ -1031,13 +1054,13 @@ public class JsonServices implements Serializable {
 		String str = null;
 		int cantInstancias;
 		
-		for (cantInstancias = 0; cantInstancias < 2; cantInstancias++) {
+		for (cantInstancias = 0; cantInstancias < 1; cantInstancias++) {
 			
 			Iterator<JsonNode> items = datos.elements();
 			Iterator<String> namesItems = datos.fieldNames();
 			if(cantInstancias==0)
-				nuevoDato += "{\""+ "instance\"" + "  :  " + cantInstancias + ", ";
-			else nuevoDato += ",{\""+ "instance\"" + "  :  " + cantInstancias + ", ";
+				nuevoDato += "{\""+ "instance\"" + "  :  " + 0 + ", ";
+			else nuevoDato += ",{\""+ "instance\"" + "  :  " + 0 + ", ";
 			if (datos.get("item") != null) {
 				
 				nuevoDato += "\"" + "item\"" + "  : " + "\"\"" + ", ";

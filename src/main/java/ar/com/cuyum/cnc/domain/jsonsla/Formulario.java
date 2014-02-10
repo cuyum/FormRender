@@ -231,8 +231,7 @@ public class Formulario implements Serializable {
 			items.add(this.data.get(i).valuesToJson());
 		}
 
-		try {
-			if (sumarizadosJson != null && grid.getCalculados()) {
+			if (sumarizadosJson != null && grid!= null && grid.getCalculados()) {
 				ArrayNode items2 =  mapper.createArrayNode();
 				ObjectNode item = mapper.createObjectNode();
 				item.put("registros",items);
@@ -241,11 +240,7 @@ public class Formulario implements Serializable {
 				data.put("data",items2);
 			}else{
 	    	   data.put("data",items);
-			}
-		} catch (Exception e) {
-			System.out.print("Error al cargar el Json" + e);
-		}
-		
+			}		
 		
 		return data;
 	}
