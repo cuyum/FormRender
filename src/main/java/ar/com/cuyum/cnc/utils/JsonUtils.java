@@ -247,7 +247,6 @@ public class JsonUtils {
 			ArrayNode data = (ArrayNode) formNode.get("data");
 			formulario.addDataFromJson(data);
 			log.info(formulario.valuesToJson());
-			System.out.print("esto");
 
 			try {
 				formulario.processData();

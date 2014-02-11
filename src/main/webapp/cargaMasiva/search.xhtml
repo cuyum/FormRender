@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:p="http://primefaces.org/ui"	
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{formularioBean.pageItems}" var="_item"/>
+		<f:event type="preRenderView" listener="#{formularioBean.paginate}"/>
+		
+	</f:metadata>
+
+
+	<ui:param name="pageTitle" value="Buscar Formulario"/>
+
+	<ui:define name="header">
+		Formulario
+	</ui:define>
+
+	<ui:define name="subheader">
+		Buscar Formulario 
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<p:panel styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="formularioBeanExampleFormCodigo" value="C&oacute;digo:"/>
+						<h:panelGroup>
+							<h:inputText id="formularioBeanExampleFormCodigo" value="#{formularioBean.example.codigo}"/>
+							<h:message for="formularioBeanExampleFormCodigo" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="formularioBeanExampleNombre" value="Nombre:"/>
+						<h:panelGroup>
+							<h:inputText id="formularioBeanExampleNombre" value="#{formularioBean.example.nombre}"/>
+							<h:message for="formularioBeanExampleNombre" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>						
+					</h:panelGrid>
+					<p:panel>
+						<p:commandButton value="Buscar" id="btBuscar" action="#{formularioBean.search}" update="formularioBeanPageItems"/>
+						<p:defaultCommand target="btBuscar"/>
+					</p:panel>
+				</p:panel>
+			</f:validateBean>
+			<p:dataTable id="formularioBeanPageItems" value="#{formularioBean.pageItems}" var="_item" style="font-size:12px;" rows="20" 
+			paginator="true" paginatorPosition="bottom" emptyMessage="No se encontraron resultados.">
+				<p:column headerText="Cod.">					
+					<h:link outcome="/cargaMasiva/cargaMasiva" styleClass="decoNone">
+						<f:param name="id" value="#{_item.id}"/>
+	 					<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+					</h:link>
+				</p:column>
+				<p:column headerText="Nombre">					
+<!-- 					<h:link outcome="/cargaMasiva/cargaMasiva" styleClass="decoNone"> -->
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNombre" value="#{_item.nombre}" />
+<!-- 					</h:link> -->
+				</p:column>							
+				<p:column headerText="Schema">
+					<h:link outcome="/cargaMasiva/viewSchema.xhtml#{_item.parametrosUrl eq ' ' or _item.parametrosUrl eq null ? '':'?'}#{_item.parametrosUrl}" value="Ver" styleClass="button"/>								
+				</p:column>
+				<p:column headerText="Json">
+					<h:link outcome="/cargaMasiva/viewJson.xhtml#{_item.parametrosUrl eq ' ' or _item.parametrosUrl eq null ? '':'?'}#{_item.parametrosUrl}" value="Ver" styleClass="button"/>
+				</p:column>
+			</p:dataTable>			
+		</h:form>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{jsonBean.id}"/>
+		<f:event type="preRenderView" listener="#{jsonBean.getJson()}" />
+	</f:metadata>
+		
+	<ui:param name="pageTitle" value="View Json "/>
+
+	<ui:define name="header">
+		Ejemplo Json
+	</ui:define>
+
+	<ui:define name="subheader">
+		Formulario:
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputText />
+				<p:panel >
+					<p:inputTextarea id="json_output" name="json_output"  value="#{jsonBean.json}" cols="140" rows="30" wrap="off" style= "resize: both; width: 889px; max-width: 883px;"
+						readonly="true" autoResize="false" />
+				</p:panel>
+			
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="Volver" outcome="search" styleClass="btn btn-primary"/> 
+		</div>
+	</ui:define>
+
+</ui:composition>
