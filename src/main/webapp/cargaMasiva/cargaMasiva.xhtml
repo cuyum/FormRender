@@ -23,16 +23,15 @@
 	<ui:define name="main">
 
 		<h:form id="form">
-		
 			<p:panel>
-			<h:outputText id="msg" value= "#{jsonBean.msg}"/>
+				<h:outputText id="msg" value= "#{jsonBean.msg}"/>
 				<p:inputTextarea id="json_input" name="json_input"
 					value="#{jsonBean.jsonDates}" cols="140" rows="30" wrap="off"
 					style="resize: both; width: 889px; max-width: 883px;"
 					readonly="false" autoResize="false" />
 			</p:panel>
 			<div class="buttons">
-				<h:commandLink value="Cargar" action="#{jsonBean.validarJson()}" render="#{msg}"/>
+					<h:commandLink value="Cargar" action="#{jsonBean.validarJson()}"/>
 				<h:link value="Volver" outcome="search" styleClass="btn btn-primary" />
 			</div>
 		</h:form>

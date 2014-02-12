@@ -62,10 +62,10 @@
 					</h:link>
 				</p:column>
 				<p:column headerText="Nombre">					
-<!-- 					<h:link outcome="/cargaMasiva/cargaMasiva" styleClass="decoNone"> -->
+					<h:link outcome="/cargaMasiva/cargaMasiva" styleClass="decoNone">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemNombre" value="#{_item.nombre}" />
-<!-- 					</h:link> -->
+					</h:link>
 				</p:column>							
 				<p:column headerText="Schema">
 					<h:link outcome="/cargaMasiva/viewSchema.xhtml#{_item.parametrosUrl eq ' ' or _item.parametrosUrl eq null ? '':'?'}#{_item.parametrosUrl}" value="Ver" styleClass="button"/>								

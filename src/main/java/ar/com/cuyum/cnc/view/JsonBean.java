@@ -1,5 +1,6 @@
 package ar.com.cuyum.cnc.view;
 
+import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -188,6 +189,7 @@ public class JsonBean implements Serializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		setMsg(response);
 		return response;
 	}
@@ -199,7 +201,7 @@ public class JsonBean implements Serializable {
 	public void setJsonDates(String jsonDates) {
 		this.jsonDates = jsonDates;
 	}
-
+	
 	public String getMsg() {
 		return msg;
 	}
