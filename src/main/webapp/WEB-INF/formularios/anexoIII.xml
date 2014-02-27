@@ -1,0 +1,430 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Anexo III</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <anexoIII id="anexoIII">
+          <recuadro>
+            <titulo/>
+          </recuadro>
+          <membrete>
+            <lugar_y_fecha/>
+            <nombre_organismo/>
+          </membrete>
+          <procedimiento>
+            <tipo/>
+            <numero/>
+            <ejercicio/>
+            <clase/>
+            <modalidad/>
+            <expediente/>
+            <rubro/>
+            <objetivo/>
+          </procedimiento>
+          <retiro>
+            <lugar_direccion/>
+            <plazo_horario/>
+            <costo/>
+          </retiro>
+          <consulta>
+            <lugar_direccion/>
+            <plazo_horario/>
+          </consulta>
+          <presentacion>
+            <lugar_direccion/>
+            <plazo_horario/>
+          </presentacion>
+          <acto>
+            <lugar_direccion/>
+            <dia/>
+          </acto>
+          <nota>
+            <obsAnexoC/>
+          </nota>
+          <grupo>
+            <cantidad/>
+            <numero_aviso/>
+            <fecha_comienzo/>
+            <fecha_fin/>
+          </grupo>
+          <meta>
+            <instanceID/>
+          </meta>
+        </anexoIII>
+      </instance>
+      <bind nodeset="/anexoIII/recuadro/titulo" type="string"/>
+      <bind nodeset="/anexoIII/membrete/lugar_y_fecha" type="string"/>
+      <bind nodeset="/anexoIII/membrete/nombre_organismo" type="string"/>
+      <bind nodeset="/anexoIII/procedimiento/tipo" type="select1"/>
+      <bind nodeset="/anexoIII/procedimiento/numero" type="int"/>
+      <bind nodeset="/anexoIII/procedimiento/ejercicio" type="int"/>
+      <bind nodeset="/anexoIII/procedimiento/clase" type="select1"/>
+      <bind nodeset="/anexoIII/procedimiento/modalidad" type="select1"/>
+      <bind nodeset="/anexoIII/procedimiento/expediente" type="int"/>
+      <bind nodeset="/anexoIII/procedimiento/rubro" type="select1"/>
+      <bind nodeset="/anexoIII/procedimiento/objetivo" type="string"/>
+      <bind nodeset="/anexoIII/retiro/lugar_direccion" type="string"/>
+      <bind nodeset="/anexoIII/retiro/plazo_horario" type="string"/>
+      <bind nodeset="/anexoIII/retiro/costo" type="string"/>
+      <bind nodeset="/anexoIII/consulta/lugar_direccion" type="string"/>
+      <bind nodeset="/anexoIII/consulta/plazo_horario" type="string"/>
+      <bind nodeset="/anexoIII/presentacion/lugar_direccion" type="string"/>
+      <bind nodeset="/anexoIII/presentacion/plazo_horario" type="string"/>
+      <bind nodeset="/anexoIII/acto/lugar_direccion" type="string"/>
+      <bind nodeset="/anexoIII/acto/dia" type="string"/>
+      <bind nodeset="/anexoIII/nota/obsAnexoC" type="string"/>
+      <bind nodeset="/anexoIII/grupo/cantidad" type="int"/>
+      <bind nodeset="/anexoIII/grupo/numero_aviso" type="int"/>
+      <bind nodeset="/anexoIII/grupo/fecha_comienzo" type="string"/>
+      <bind nodeset="/anexoIII/grupo/fecha_fin" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/anexoIII/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/anexoIII/recuadro">
+        <label>FORMATO ESTANDAR DEL PEDIDO DE PUBLICACION DE LAS CONVOCATORIAS A LOS PROCEDIMIENTOS DE SELECCION EN EL BOLETIN OFICIAL O EN LOS MEDIOS DE DIFUSION CORRESPONDIENTES</label>
+    </group>
+    <group appearance="col4 well-white" ref="/anexoIII/membrete">
+      <label>MEMBRETE DEL ORGANISMO</label>
+      <input ref="/anexoIII/membrete/lugar_y_fecha">
+        <label>Lugar y Fecha</label>
+      </input>
+      <input ref="/anexoIII/membrete/nombre_organismo">
+        <label>Nombre del organismo contratante</label>
+      </input>
+    </group>
+    <group appearance="col3 well-white" ref="/anexoIII/procedimiento">
+      <label>PROCEDIMIENTO DE SELECCIÓN</label>
+      <select1 appearance="minimal" ref="/anexoIII/procedimiento/tipo">
+        <label>Tipo:</label>
+        <hint>Tipo de procedimiento por el que se realizó la selección</hint>
+        <item>
+          <label>Seleccione una opción</label>
+          <value>-1</value>
+        </item>
+        <item>
+          <label>licitación pública</label>
+          <value>licitacion_publica</value>
+        </item>
+        <item>
+          <label>concurso privado</label>
+          <value>concurso_privado</value>
+        </item>
+        <item>
+          <label>contratación directa</label>
+          <value>contratacion_directa</value>
+        </item>
+        <item>
+          <label>etc.</label>
+          <value>etc</value>
+        </item>
+      </select1>
+      <input ref="/anexoIII/procedimiento/numero">
+        <label>Nº:</label>
+      </input>
+      <input ref="/anexoIII/procedimiento/ejercicio">
+        <label>Ejercicio:</label>
+      </input>
+      <select1 appearance="minimal" ref="/anexoIII/procedimiento/clase">
+        <label>Clase:</label>
+        <hint>Clase de procedimiento</hint>
+        <item>
+          <label>Seleccione una opción</label>
+          <value>-1</value>
+        </item>
+        <item>
+          <label>etapa única nacional</label>
+          <value>etapa_unica</value>
+        </item>
+        <item>
+          <label>etapa múltiple internacional</label>
+          <value>etapa_multiple</value>
+        </item>
+        <item>
+          <label>etc</label>
+          <value>etc</value>
+        </item>
+      </select1>
+      <select1 appearance="minimal" ref="/anexoIII/procedimiento/modalidad">
+        <label>Modalidad:</label>
+        <hint>Modalidad utilizada</hint>
+        <item>
+          <label>Seleccione una opción</label>
+          <value>-1</value>
+        </item>
+        <item>
+          <label>consolidada</label>
+          <value>consolidada</value>
+        </item>
+        <item>
+          <label>iniciativa privada</label>
+          <value>iniciativa_privada</value>
+        </item>
+        <item>
+          <label>precio tope o de referencia</label>
+          <value>precio_tope</value>
+        </item>
+        <item>
+          <label>sin modalidad</label>
+          <value>sin_modalidad</value>
+        </item>
+        <item>
+          <label>etc</label>
+          <value>etc</value>
+        </item>
+      </select1>
+      <input ref="/anexoIII/procedimiento/expediente">
+        <label>Expediente Nº</label>
+      </input>
+      <select1 appearance="minimal" ref="/anexoIII/procedimiento/rubro">
+        <label>Rubro comercial:</label>
+        <item>
+          <label>Seleccione una opción</label>
+          <value>-1</value>
+        </item>
+        <item>
+          <label>ALIMENTOS</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>LIBRERIA,PAP. Y UTILES OFICINA</label>
+          <value>2</value>
+        </item>
+        <item>
+          <label>ELEMENTOS DE LIMPIEZA</label>
+          <value>3</value>
+        </item>
+        <item>
+          <label>INDUMENT TEXTIL Y CONFECCIONES</label>
+          <value>4</value>
+        </item>
+        <item>
+          <label>BAZAR Y MENAJE</label>
+          <value>5</value>
+        </item>
+        <item>
+          <label>FERRETERIA</label>
+          <value>6</value>
+        </item>
+        <item>
+          <label>COMBUSTIBLES Y LUBRICANTES</label>
+          <value>7</value>
+        </item>
+        <item>
+          <label>CARPINTERIA</label>
+          <value>8</value>
+        </item>
+        <item>
+          <label>ELECTRICIDAD Y TELEFONIA</label>
+          <value>9</value>
+        </item>
+        <item>
+          <label>CERRAJERIA</label>
+          <value>10</value>
+        </item>
+        <item>
+          <label>SANITARIOS, PLOMERIA Y GAS</label>
+          <value>12</value>
+        </item>
+        <item>
+          <label>INFORMATICA</label>
+          <value>13</value>
+        </item>
+        <item>
+          <label>REPUESTOS</label>
+          <value>14</value>
+        </item>
+        <item>
+          <label>VIDRIERIA</label>
+          <value>15</value>
+        </item>
+        <item>
+          <label>MATERIALES DE CONSTRUCCION</label>
+          <value>16</value>
+        </item>
+        <item>
+          <label>PINTURAS</label>
+          <value>17</value>
+        </item>
+        <item>
+          <label>TAPICERIA</label>
+          <value>18</value>
+        </item>
+        <item>
+          <label>ARTICULOS DEL HOGAR</label>
+          <value>19</value>
+        </item>
+        <item>
+          <label>HERRERIA</label>
+          <value>20</value>
+        </item>
+        <item>
+          <label>PRODUCTOS VETERINARIOS</label>
+          <value>21</value>
+        </item>
+        <item>
+          <label>EQUIPOS</label>
+          <value>24</value>
+        </item>
+        <item>
+          <label>EQUIPO DE OFICINA Y MUEBLES</label>
+          <value>27</value>
+        </item>
+        <item>
+          <label>GASES INDUSTRIALES</label>
+          <value>31</value>
+        </item>
+        <item>
+          <label>HERRAMIENTAS</label>
+          <value>33</value>
+        </item>
+        <item>
+          <label>CINE/TELVIS./RADIO/FOTOGRAFIA</label>
+          <value>36</value>
+        </item>
+        <item>
+          <label>IMPRENTA Y EDITORIALES</label>
+          <value>38</value>
+        </item>
+        <item>
+          <label>SERVICIOS BASICOS</label>
+          <value>40</value>
+        </item>
+        <item>
+          <label>VIGILANCIA Y SEGURIDAD</label>
+          <value>42</value>
+        </item>
+        <item>
+          <label>MANT. REPARACION Y LIMPIEZA</label>
+          <value>45</value>
+        </item>
+        <item>
+          <label>ALQUILER</label>
+          <value>46</value>
+        </item>
+        <item>
+          <label>PRODUCTOS MEDICO/FARMACEUTICOS</label>
+          <value>51</value>
+        </item>
+        <item>
+          <label>EQUIPO MILITAR Y DE SEGURIDAD</label>
+          <value>52</value>
+        </item>
+        <item>
+          <label>CULTURA</label>
+          <value>55</value>
+        </item>
+        <item>
+          <label>SERV. PROFESIONAL Y COMERCIAL</label>
+          <value>58</value>
+        </item>
+        <item>
+          <label>SERVICIO DE NOTICIAS</label>
+          <value>59</value>
+        </item>
+        <item>
+          <label>BANCOS Y SEGUROS</label>
+          <value>62</value>
+        </item>
+        <item>
+          <label>TRANSPORTE Y DEPOSITO</label>
+          <value>63</value>
+        </item>
+        <item>
+          <label>NAUTICA</label>
+          <value>66</value>
+        </item>
+        <item>
+          <label>AGRIC,GANADERIA,CAZA,SILVICULT</label>
+          <value>70</value>
+        </item>
+        <item>
+          <label>UTILES Y PRODUCTOS DEPORTIVOS</label>
+          <value>73</value>
+        </item>
+        <item>
+          <label>JOYERIA Y ORFEBRERIA</label>
+          <value>74</value>
+        </item>
+        <item>
+          <label>CEREMONIAL</label>
+          <value>79</value>
+        </item>
+        <item>
+          <label>QUIMICOS</label>
+          <value>80</value>
+        </item>
+      </select1>
+      <input ref="/anexoIII/procedimiento/objetivo">
+        <label>Objeto de la contratación:</label>
+      </input>
+    </group>
+    <group appearance="col3 well-white" ref="/anexoIII/retiro">
+      <label>RETIRO O ADQUISICION DE PLIEGOS</label>
+      <input ref="/anexoIII/retiro/lugar_direccion">
+        <label>Lugar/Dirección</label>
+        <hint>Indicar dirección, código postal, localidad y provincia.</hint>
+      </input>
+      <input ref="/anexoIII/retiro/plazo_horario">
+        <label>Plazo y horario</label>
+      </input>
+      <input ref="/anexoIII/retiro/costo">
+        <label>Costo del pliego:</label>
+        <hint>Indicar el costo del pliego en los casos en que corresponda.</hint>
+      </input>
+    </group>
+    <group appearance="col3 well-white" ref="/anexoIII/consulta">
+      <label>CONSULTA DE PLIEGOS</label>
+      <input ref="/anexoIII/consulta/lugar_direccion">
+        <label>Lugar/Dirección</label>
+        <hint>Indicar dirección, código postal, localidad y provincia.</hint>
+      </input>
+      <input ref="/anexoIII/consulta/plazo_horario">
+        <label>Plazo y horario</label>
+      </input>
+    </group>
+    <group appearance="col3 well-white" ref="/anexoIII/presentacion">
+      <label>PRESENTACION DE OFERTAS</label>
+      <input ref="/anexoIII/presentacion/lugar_direccion">
+        <label>Lugar/Dirección</label>
+        <hint>Indicar dirección, código postal, localidad y provincia.</hint>
+      </input>
+      <input ref="/anexoIII/presentacion/plazo_horario">
+        <label>Plazo y horario</label>
+      </input>
+    </group>
+    <group appearance="col3 well-white" ref="/anexoIII/acto">
+      <label>ACTO DE APERTURA</label>
+      <input ref="/anexoIII/acto/lugar_direccion">
+        <label>Lugar/Dirección</label>
+        <hint>Indicar dirección, código postal, localidad y provincia.</hint>
+      </input>
+      <input ref="/anexoIII/acto/dia">
+        <label>Día y Hora</label>
+      </input>
+    </group>
+    <group appearance="textarea" ref="/anexoIII/nota">
+      <label>OBSERVACIONES GENERALES</label>
+      <input appearance="multiline" ref="/anexoIII/nota/obsAnexoC">
+        <hint>Indicar las observaciones pertinentes, como por ejemplo la base de la contratación en los casos en que hubiere.</hint>
+      </input>
+    </group>
+    <group appearance="col4 well-white" ref="/anexoIII/grupo">
+      <input ref="/anexoIII/grupo/cantidad">
+        <label>Cantidad de publicaciones</label>
+      </input>
+      <input ref="/anexoIII/grupo/numero_aviso">
+        <label>Número del aviso</label>
+        <hint>A completar por la Dirección Nacional del Registro Oficial.</hint>
+      </input>
+      <input ref="/anexoIII/grupo/fecha_comienzo">
+        <label>Fecha de comienzo de la publicación</label>
+      </input>
+      <input ref="/anexoIII/grupo/fecha_fin">
+        <label>Fecha de finalización de la publicación</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>
