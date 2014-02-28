@@ -329,22 +329,22 @@
     <group appearance="textarea" ref="/anexoIV/recuadro_1">
       <label>ESPECIFICACIONES Y CLAUSULAS PARTICULARES</label>
       <input appearance="multiline" ref="/anexoIV/recuadro_1/especificaciones">
-        <label>ESPECIFICACIONES</label>
+        <label>Especificaciones</label>
         <hint>Texto de las cláusulas particulares de los proyectos de pliegos de bases y condiciones particulares.</hint>
       </input>
       <input appearance="multiline" ref="/anexoIV/recuadro_1/clausulas">
-        <label>CLAUSULAS PARTICULARES</label>
+        <label>Cláusulas Particulares</label>
         <hint>Texto de las cláusulas particulares de los proyectos de pliegos de bases y condiciones particulares.</hint>
       </input>
     </group>
     <group appearance="textarea" ref="/anexoIV/recuadro_2">
       <label>ANEXOS Y OBSERVACIONES GENERALES</label>
       <input appearance="multiline" ref="/anexoIV/recuadro_2/anexo">
-        <label>ANEXOS</label>
+        <label>Anexos</label>
         <hint>Texto de las cláusulas particulares de los proyectos de pliegos de bases y condiciones particulares.</hint>
       </input>
       <input appearance="multiline" ref="/anexoIV/recuadro_2/observaciones">
-        <label>OBSERVACIONES GENERALES</label>
+        <label>Observaciones Generales</label>
         <hint>Texto de las observaciones generales a los proyectos de pliegos de bases y condiciones particulares</hint>
       </input>
     </group>

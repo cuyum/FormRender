@@ -379,10 +379,10 @@
     </group>
     <group appearance="col4 well-white" ref="/anexoVI/grupo_2">
       <input ref="/anexoVI/grupo_2/firma">
-        <label>FIRMA Y ACLARACION DE LA UNIDAD</label>
+        <label>Firma y Aclaración de la Unidad</label>
       </input>
       <input ref="/anexoVI/grupo_2/operativa">
-        <label>OPERATIVA DE CONTRATACIONES</label>
+        <label>Operatica de Contrataciones</label>
       </input>
     </group>
   </h:body>
