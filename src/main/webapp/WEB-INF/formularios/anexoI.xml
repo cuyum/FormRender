@@ -169,7 +169,7 @@
         <label>Nº de Solicitud:</label>
       </input>
       <input ref="/anexoI/solicitud_gastos/nombre_organismo_contratante">
-        <label>Nombre del organismo contratante</label>
+        <label>Nombre del organismo contratante:</label>
       </input>
       <input ref="/anexoI/solicitud_gastos/saf">
         <label>SAF:</label>
@@ -178,21 +178,21 @@
         <label>CUIT:</label>
       </input>
       <input ref="/anexoI/solicitud_gastos/expediente_nro">
-        <label>EXPEDIENTE Nº:</label>
+        <label>Expediente Nº:</label>
       </input>
     </group>
     <group appearance="col4 well-white" ref="/anexoI/solicitud_gastos2">
       <input ref="/anexoI/solicitud_gastos2/actividad_interna">
-        <label>ACTIVIDAD INTERNA:</label>
+        <label>Actividad Interna:</label>
       </input>
       <input ref="/anexoI/solicitud_gastos2/delegacion">
-        <label>DELEGACION:</label>
+        <label>Delegación:</label>
       </input>
       <input ref="/anexoI/solicitud_gastos2/unidad_solicitante">
-        <label>UNIDAD SOLICITANTE:</label>
+        <label>Unidad Solicitante:</label>
       </input>
       <select1 appearance="minimal" ref="/anexoI/solicitud_gastos2/rubro_comercial">
-        <label>RUBRO COMERCIAL:</label>
+        <label>Rubro Comercial:</label>
         <item>
           <label>Seleccione una opción</label>
           <value>-1</value>
@@ -371,7 +371,7 @@
         </item>
       </select1>
       <input ref="/anexoI/solicitud_gastos2/modalidad_compra_sugerida">
-        <label>MODALIDAD DE COMPRA SUGERIDA:</label>
+        <label>Modalidad de compra sugerida:</label>
       </input>
       <input ref="/anexoI/solicitud_gastos2/fecha_inicio_sugerida">
         <label>Fecha de inicio de vigencia sugerida:</label>
@@ -380,25 +380,25 @@
         <label>Fecha fin de vigencia sugerida:</label>
       </input>
       <input ref="/anexoI/solicitud_gastos2/clase">
-        <label>PROC. SELECCIÓN SUGERIDOS – CLASE:</label>
+        <label>Proc. selección sugeridos – Clase:</label>
       </input>
     </group>
     <group appearance="col4 well-white" ref="/anexoI/solicitud_gastos3">
       <input ref="/anexoI/solicitud_gastos3/objeto">
-        <label>OBJETO:</label>
+        <label>Objeto:</label>
       </input>
       <input ref="/anexoI/solicitud_gastos3/prioridad_justificacion_necesidad">
-        <label>PRIORIDAD y JUSTIFICACION DE LA NECESIDAD:</label>
+        <label>Prioridad y justificación de la necesidad:</label>
         <hint>Motivos que fundamenten la necesidad de la adquisición</hint>
       </input>
     </group>
     <group appearance="col4 well-white" ref="/anexoI/solicitud_gastos4">
       <label>Entrega Única</label>
       <input ref="/anexoI/solicitud_gastos4/fecha_entrega">
-        <label>Fecha entrega</label>
+        <label>Fecha entrega:</label>
       </input>
       <input ref="/anexoI/solicitud_gastos4/lugar_entrega">
-        <label>Lugar de entrega</label>
+        <label>Lugar de entrega:</label>
       </input>
     </group>
     <group appearance="col4 well-white" ref="/anexoI/solicitud_gastos6">
@@ -457,7 +457,7 @@
     </group>
     <group appearance="col4 well-white" ref="/anexoI/solicitud_gastos7">
       <input ref="/anexoI/solicitud_gastos7/causas_contratacion_directa">
-        <label>CAUSAS DE CONTRATACIÓN DIRECTA:</label>
+        <label>Causas de contratación directa:</label>
         <hint>Ejemplo: razones de urgencia – obras científicas, técnicas o artísticas cuya ejecución deba confiarse a empresas personas o artistas especializados – bienes cuya fabricación o venta sea exclusiva de determinada persona.</hint>
       </input>
     </group>
@@ -467,22 +467,22 @@
         <group appearance="col4 well-white" ref="/anexoI/bienes/bienes_y_servicios_solicitados">
           <label>BIENES Y SERVICIOS SOLICITADOS</label>
           <input ref="/anexoI/bienes/bienes_y_servicios_solicitados/codigo_de_catalogo">
-            <label>CODIGO DE CATALOGO:</label>
+            <label>Código de catálogo:</label>
           </input>
           <input ref="/anexoI/bienes/bienes_y_servicios_solicitados/descripcion">
-            <label>DESCRIPCION:</label>
+            <label>Descripción:</label>
           </input>
           <input ref="/anexoI/bienes/bienes_y_servicios_solicitados/unidad_de_medida">
-            <label>UNIDAD DE MEDIDA:</label>
+            <label>Unidad de medida:</label>
           </input>
           <input ref="/anexoI/bienes/bienes_y_servicios_solicitados/cantidad">
-            <label>CANTIDAD:</label>
+            <label>Cantidad:</label>
           </input>
           <input ref="/anexoI/bienes/bienes_y_servicios_solicitados/importe_unitario">
-            <label>IMPORTE UNITARIO:</label>
+            <label>Importe Unitario:</label>
           </input>
           <input ref="/anexoI/bienes/bienes_y_servicios_solicitados/importe_total">
-            <label>IMPORTE TOTAL:</label>
+            <label>Importe Total:</label>
           </input>
         </group>
       </repeat>
@@ -532,10 +532,10 @@
     </group>
     <group appearance="col4 well-white" ref="/anexoI/resultado_suma">
       <input ref="/anexoI/resultado_suma/suma_de">
-        <label>LA SUMA DE:</label>
+        <label>La suma de:</label>
       </input>
       <input ref="/anexoI/resultado_suma/total_suma">
-        <label>TOTAL:</label>
+        <label>Total:</label>
       </input>
     </group>
     <group appearance="textarea" ref="/anexoI/nota">
@@ -547,19 +547,19 @@
     </group>
     <group appearance="col4 well-white" ref="/anexoI/Texto-7">
       <input ref="/anexoI/Texto-7/solicitante">
-        <label>SOLICITANTE:</label>
+        <label>Solicitante:</label>
       </input>
       <input ref="/anexoI/Texto-7/firma_y_aclaracion">
-        <label>FIRMA Y ACLARACION:</label>
+        <label>Firma y aclaración:</label>
       </input>
     </group>
     <group appearance="col4 well-white" ref="/anexoI/Texto-8">
       <label>AUTORIZACION DEL GASTO</label>
       <input ref="/anexoI/Texto-8/fecha_autorizacion">
-        <label>FECHA:</label>
+        <label>Fecha:</label>
       </input>
       <input ref="/anexoI/Texto-8/firma_y_aclaracion_autorizacion">
-        <label>FIRMA Y ACLARACION:</label>
+        <label>Firma y aclaración:</label>
       </input>
     </group>
   </h:body>
