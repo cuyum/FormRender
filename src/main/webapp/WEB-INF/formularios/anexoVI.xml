@@ -1,14 +1,11 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Anexo III</h:title>
+    <h:title>FORMATO ESTANDAR DE LAS CIRCULARES ACLARATORIAS Y MODIFICATORIAS DE LOS PLIEGOS DE BASES Y CONDICIONES PARTICULARES</h:title>
     <model>
       <submission action="/api/deposition" method="form-data-post"/>
       <instance>
-        <anexoVI id="anexoIII">
-          <recuadro>
-            <titulo/>
-          </recuadro>
+        <anexoVI id="anexoVI">
           <membrete>
             <circular_numero/>
             <lugar_y_fecha/>
@@ -38,15 +35,14 @@
             <fecha_fin/>
           </grupo_1>
           <grupo_2>
-            <cantidad/>
-            <numero_aviso/>
+            <firma/>
+            <operativa/>
           </grupo_2>
           <meta>
             <instanceID/>
           </meta>
         </anexoVI>
       </instance>
-      <bind nodeset="/anexoVI/recuadro/titulo" type="string"/>
       <bind nodeset="/anexoVI/membrete/circular_numero" type="int"/>
       <bind nodeset="/anexoVI/membrete/lugar_y_fecha" type="string"/>
       <bind nodeset="/anexoVI/membrete/nombre_organismo" type="string"/>
@@ -65,15 +61,12 @@
       <bind nodeset="/anexoVI/grupo_1/numero_aviso" type="int"/>
       <bind nodeset="/anexoVI/grupo_1/fecha_comienzo" type="string"/>
       <bind nodeset="/anexoVI/grupo_1/fecha_fin" type="string"/>
-      <bind nodeset="/anexoVI/grupo_2/cantidad" type="string"/>
-      <bind nodeset="/anexoVI/grupo_2/numero_aviso" type="string"/>
+      <bind nodeset="/anexoVI/grupo_2/firma" type="string"/>
+      <bind nodeset="/anexoVI/grupo_2/operativa" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/anexoVI/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group ref="/anexoVI/recuadro">
-        <label>FORMATO ESTANDAR DE LAS CIRCULARES ACLARATORIAS Y MODIFICATORIAS DE LOS PLIEGOS DE BASES Y CONDICIONES PARTICULARES</label>
-    </group>
     <group appearance="col4 well-white" ref="/anexoVI/membrete">
       <label>MEMBRETE DEL ORGANISMO</label>
       <input ref="/anexoVI/membrete/circular_numero">

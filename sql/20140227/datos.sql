@@ -6,6 +6,8 @@ INSERT INTO formulario (codigo, nombre, formVersion, archivo, version,xsltransfo
 INSERT INTO formulario (codigo, nombre, formVersion, archivo, version,xsltransform_id) VALUES ('anexoVI','anexoVI','anexoVI-V001-FEB14','anexoVI.xml', 0,1);
 
 UPDATE formulario SET parametrosurl = 'id=anexoI' WHERE (codigo = 'anexoI');
+UPDATE formulario SET parametrosurl = 'id=anexoI&repeat=1' WHERE (codigo = 'anexoI');
+
 UPDATE formulario SET parametrosurl = 'id=anexoII' WHERE (codigo = 'anexoII');
 UPDATE formulario SET parametrosurl = 'id=anexoIII' WHERE (codigo = 'anexoIII');
 UPDATE formulario SET parametrosurl = 'id=anexoIV' WHERE (codigo = 'anexoIV');

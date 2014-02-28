@@ -1,14 +1,11 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Anexo II</h:title>
+    <h:title>FORMATO ESTANDAR DEL PEDIDO DE PUBLICACION DE LA CONVOCATORIA PARA EFECTUAR OBSERVACIONES A LOS PROYECTOS DE PLIEGOS DE BASES Y CONDICIONES PARTICULARES EN EL BOLETIN OFICIAL O EN LOS MEDIOS DE DIFUSION CORRESPONDIENTES</h:title>
     <model>
       <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <anexoII id="anexoII">
-          <recuadro>
-            <formato/>
-          </recuadro>
           <membrete>
             <lugar_y_fecha/>
             <nombre_organismo/>
@@ -37,7 +34,7 @@
             <finalizacion_plazo/>
           </presentacion>
           <nota>
-            <obsAnexoC/>
+            <observacion/>
           </nota>
           <grupo>
             <cantidad/>
@@ -50,7 +47,6 @@
           </meta>
         </anexoII>
       </instance>
-      <bind nodeset="/anexoII/recuadro/formato" type="string"/>
       <bind nodeset="/anexoII/membrete/lugar_y_fecha" type="string"/>
       <bind nodeset="/anexoII/membrete/nombre_organismo" type="string"/>
       <bind nodeset="/anexoII/procedimiento/tipo" type="select1"/>
@@ -68,7 +64,7 @@
       <bind nodeset="/anexoII/presentacion/lugar_direccion" type="string"/>
       <bind nodeset="/anexoII/presentacion/plazo_horario" type="string"/>
       <bind nodeset="/anexoII/presentacion/finalizacion_plazo" type="string"/>
-      <bind nodeset="/anexoII/nota/obsAnexoC" type="string"/>
+      <bind nodeset="/anexoII/nota/observacion" type="string"/>
       <bind nodeset="/anexoII/grupo/cantidad" type="int"/>
       <bind nodeset="/anexoII/grupo/numero_aviso" type="int"/>
       <bind nodeset="/anexoII/grupo/fecha_comienzo" type="string"/>
@@ -77,9 +73,6 @@
     </model>
   </h:head>
   <h:body>
-    <group ref="/anexoII/recuadro">
-        <label>FORMATO ESTANDAR DEL PEDIDO DE PUBLICACION DE LA CONVOCATORIA PARA EFECTUAR OBSERVACIONES A LOS PROYECTOS DE PLIEGOS DE BASES Y CONDICIONES PARTICULARES EN EL BOLETIN OFICIAL O EN LOS MEDIOS DE DIFUSION CORRESPONDIENTES</label>
-    </group>
     <group appearance="col4 well-white" ref="/anexoII/membrete">
       <label>MEMBRETE DEL ORGANISMO</label>
       <input ref="/anexoII/membrete/lugar_y_fecha">
@@ -391,8 +384,9 @@
     </group>
     <group appearance="textarea" ref="/anexoII/nota">
       <label>OBSERVACIONES GENERALES</label>
-      <input appearance="multiline" ref="/anexoII/nota/obsAnexoC">
-        <hint>Observaciones Generales</hint>
+      <input appearance="multiline" ref="/anexoII/nota/observacion">
+        <label>Observaciones</label>
+        <hint>Observaciones</hint>
       </input>
     </group>
     <group appearance="col4 well-white" ref="/anexoII/grupo">

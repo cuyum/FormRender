@@ -1,14 +1,11 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Anexo I</h:title>
+    <h:title>FORMATO ESTANDAR DE SOLICITUD DE GASTOS</h:title>
     <model>
       <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <anexoI id="anexoI">
-          <info>
-            <titulo/>
-          </info>
           <solicitud_gastos>
             <nro_solicitud/>
             <nombre_organismo_contratante/>
@@ -28,14 +25,12 @@
           </solicitud_gastos2>
           <solicitud_gastos3>
             <objeto/>
+            <prioridad_justificacion_necesidad/>
           </solicitud_gastos3>
           <solicitud_gastos4>
-            <prioridad_justificacion_necesidad/>
-          </solicitud_gastos4>
-          <solicitud_gastos5>
             <fecha_entrega/>
             <lugar_entrega/>
-          </solicitud_gastos5>
+          </solicitud_gastos4>
           <solicitud_gastos6>
             <jurisdiccion/>
             <subju/>
@@ -70,22 +65,12 @@
           </bienes>
           <texto-1>
             <datos_servicio/>
-          </texto-1>
-          <Texto-2>
             <observaciones_propias/>
-          </Texto-2>
-          <Texto-3>
             <observaciones_catalogo/>
-          </Texto-3>
-          <Texto-4>
             <especificacion_tecnica/>
-          </Texto-4>
-          <Texto-5>
             <despiece/>
-          </Texto-5>
-          <Texto-6>
             <tolerancia/>
-          </Texto-6>
+          </texto-1>
           <suma jr:template="">
             <suma2>
               <fecha_entrega/>
@@ -115,73 +100,69 @@
           </meta>
         </anexoI>
       </instance>
-      <bind nodeset="/anexoI/info/titulo" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos/nro_solicitud" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos/nombre_organismo_contratante" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos/saf" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos/cuit" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos/expediente_nro" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos2/actividad_interna" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos2/delegacion" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos2/unidad_solicitante" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos2/rubro_comercial" required="true()" type="select1"/>
-      <bind nodeset="/anexoI/solicitud_gastos2/modalidad_compra_sugerida" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos2/fecha_inicio_sugerida" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos2/fecha_fin_vigencia_sugerida" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos2/clase" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos3/objeto" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos4/prioridad_justificacion_necesidad" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos5/fecha_entrega" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos5/lugar_entrega" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos6/jurisdiccion" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos6/subju" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos6/ent" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos6/programa" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos6/subprog" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos6/proy" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos6/activ" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos6/ob" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos6/descripcion_act_prog" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos6/ejerc_inc" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos6/ppr" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos6/ppa" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos6/spa" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos6/fuente_financiamiento" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos6/ub_geografica" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos6/mon" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos6/importe" required="true()" type="string"/>
-      <bind nodeset="/anexoI/solicitud_gastos7/causas_contratacion_directa" required="true()" type="string"/>
-      <bind nodeset="/anexoI/bienes/bienes_y_servicios_solicitados/codigo_de_catalogo" required="true()" type="string"/>
-      <bind nodeset="/anexoI/bienes/bienes_y_servicios_solicitados/descripcion" required="true()" type="string"/>
-      <bind nodeset="/anexoI/bienes/bienes_y_servicios_solicitados/unidad_de_medida" required="true()" type="string"/>
-      <bind nodeset="/anexoI/bienes/bienes_y_servicios_solicitados/cantidad" required="true()" type="string"/>
-      <bind nodeset="/anexoI/bienes/bienes_y_servicios_solicitados/importe_unitario" required="true()" type="string"/>
-      <bind nodeset="/anexoI/bienes/bienes_y_servicios_solicitados/importe_total" required="true()" type="string"/>
-      <bind nodeset="/anexoI/texto-1/datos_servicio" required="true()" type="string"/>
-      <bind nodeset="/anexoI/Texto-2/observaciones_propias" required="true()" type="string"/>
-      <bind nodeset="/anexoI/Texto-3/observaciones_catalogo" required="true()" type="string"/>
-      <bind nodeset="/anexoI/Texto-4/especificacion_tecnica" required="true()" type="string"/>
-      <bind nodeset="/anexoI/Texto-5/despiece" required="true()" type="string"/>
-      <bind nodeset="/anexoI/Texto-6/tolerancia" required="true()" type="string"/>
-      <bind nodeset="/anexoI/suma/suma2/fecha_entrega" required="true()" type="string"/>
-      <bind nodeset="/anexoI/suma/suma2/descripcion" required="true()" type="string"/>
-      <bind nodeset="/anexoI/suma/suma2/unidad_de_medida" required="true()" type="string"/>
-      <bind nodeset="/anexoI/suma/suma2/cantidad" required="true()" type="string"/>
-      <bind nodeset="/anexoI/suma/suma2/importe_unitario" required="true()" type="string"/>
-      <bind nodeset="/anexoI/resultado_suma/suma_de" required="true()" type="string"/>
-      <bind nodeset="/anexoI/resultado_suma/total_suma" required="true()" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos/nro_solicitud" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos/nombre_organismo_contratante" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos/saf" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos/cuit" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos/expediente_nro" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos2/actividad_interna" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos2/delegacion" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos2/unidad_solicitante" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos2/rubro_comercial" type="select1"/>
+      <bind nodeset="/anexoI/solicitud_gastos2/modalidad_compra_sugerida" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos2/fecha_inicio_sugerida" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos2/fecha_fin_vigencia_sugerida" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos2/clase" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos3/objeto" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos3/prioridad_justificacion_necesidad" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos4/fecha_entrega" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos4/lugar_entrega" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/jurisdiccion" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/subju" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/ent" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/programa" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/subprog" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/proy" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/activ" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/ob" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/descripcion_act_prog" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/ejerc_inc" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/ppr" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/ppa" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/spa" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/fuente_financiamiento" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/ub_geografica" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/mon" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/importe" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos7/causas_contratacion_directa" type="string"/>
+      <bind nodeset="/anexoI/bienes/bienes_y_servicios_solicitados/codigo_de_catalogo" type="string"/>
+      <bind nodeset="/anexoI/bienes/bienes_y_servicios_solicitados/descripcion" type="string"/>
+      <bind nodeset="/anexoI/bienes/bienes_y_servicios_solicitados/unidad_de_medida" type="string"/>
+      <bind nodeset="/anexoI/bienes/bienes_y_servicios_solicitados/cantidad" type="string"/>
+      <bind nodeset="/anexoI/bienes/bienes_y_servicios_solicitados/importe_unitario" type="string"/>
+      <bind nodeset="/anexoI/bienes/bienes_y_servicios_solicitados/importe_total" type="string"/>
+      <bind nodeset="/anexoI/texto-1/datos_servicio" type="string"/>
+      <bind nodeset="/anexoI/texto-1/observaciones_propias" type="string"/>
+      <bind nodeset="/anexoI/texto-1/observaciones_catalogo" type="string"/>
+      <bind nodeset="/anexoI/texto-1/especificacion_tecnica" type="string"/>
+      <bind nodeset="/anexoI/texto-1/despiece" type="string"/>
+      <bind nodeset="/anexoI/texto-1/tolerancia" type="string"/>
+      <bind nodeset="/anexoI/suma/suma2/fecha_entrega" type="string"/>
+      <bind nodeset="/anexoI/suma/suma2/descripcion" type="string"/>
+      <bind nodeset="/anexoI/suma/suma2/unidad_de_medida" type="string"/>
+      <bind nodeset="/anexoI/suma/suma2/cantidad" type="string"/>
+      <bind nodeset="/anexoI/suma/suma2/importe_unitario" type="string"/>
+      <bind nodeset="/anexoI/resultado_suma/suma_de" type="string"/>
+      <bind nodeset="/anexoI/resultado_suma/total_suma" type="string"/>
       <bind nodeset="/anexoI/nota/obsAnexoC" type="string"/>
-      <bind nodeset="/anexoI/Texto-7/solicitante" required="true()" type="string"/>
-      <bind nodeset="/anexoI/Texto-7/firma_y_aclaracion" required="true()" type="string"/>
-      <bind nodeset="/anexoI/Texto-8/fecha_autorizacion" required="true()" type="string"/>
-      <bind nodeset="/anexoI/Texto-8/firma_y_aclaracion_autorizacion" required="true()" type="string"/>
+      <bind nodeset="/anexoI/Texto-7/solicitante" type="string"/>
+      <bind nodeset="/anexoI/Texto-7/firma_y_aclaracion" type="string"/>
+      <bind nodeset="/anexoI/Texto-8/fecha_autorizacion" type="string"/>
+      <bind nodeset="/anexoI/Texto-8/firma_y_aclaracion_autorizacion" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/anexoI/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group ref="/anexoI/info">
-        <label>FORMATO ESTANDAR DE SOLICITUD DE GASTOS</label>
-    </group>
     <group appearance="col4 well-white" ref="/anexoI/solicitud_gastos">
       <label>SOLICITUD DE GASTOS</label>
       <input ref="/anexoI/solicitud_gastos/nro_solicitud">
@@ -200,7 +181,7 @@
         <label>EXPEDIENTE Nº:</label>
       </input>
     </group>
-    <group ref="/anexoI/solicitud_gastos2">
+    <group appearance="col4 well-white" ref="/anexoI/solicitud_gastos2">
       <input ref="/anexoI/solicitud_gastos2/actividad_interna">
         <label>ACTIVIDAD INTERNA:</label>
       </input>
@@ -402,23 +383,21 @@
         <label>PROC. SELECCIÓN SUGERIDOS – CLASE:</label>
       </input>
     </group>
-    <group ref="/anexoI/solicitud_gastos3">
+    <group appearance="col4 well-white" ref="/anexoI/solicitud_gastos3">
       <input ref="/anexoI/solicitud_gastos3/objeto">
         <label>OBJETO:</label>
       </input>
-    </group>
-    <group ref="/anexoI/solicitud_gastos4">
-      <input ref="/anexoI/solicitud_gastos4/prioridad_justificacion_necesidad">
+      <input ref="/anexoI/solicitud_gastos3/prioridad_justificacion_necesidad">
         <label>PRIORIDAD y JUSTIFICACION DE LA NECESIDAD:</label>
         <hint>Motivos que fundamenten la necesidad de la adquisición</hint>
       </input>
     </group>
-    <group appearance="col2 well-white" ref="/anexoI/solicitud_gastos5">
-      <label>ENTREGA UNICA</label>
-      <input ref="/anexoI/solicitud_gastos5/fecha_entrega">
+    <group appearance="col4 well-white" ref="/anexoI/solicitud_gastos4">
+      <label>Entrega Única</label>
+      <input ref="/anexoI/solicitud_gastos4/fecha_entrega">
         <label>Fecha entrega</label>
       </input>
-      <input ref="/anexoI/solicitud_gastos5/lugar_entrega">
+      <input ref="/anexoI/solicitud_gastos4/lugar_entrega">
         <label>Lugar de entrega</label>
       </input>
     </group>
@@ -476,7 +455,7 @@
         <label>Importe</label>
       </input>
     </group>
-    <group ref="/anexoI/solicitud_gastos7">
+    <group appearance="col4 well-white" ref="/anexoI/solicitud_gastos7">
       <input ref="/anexoI/solicitud_gastos7/causas_contratacion_directa">
         <label>CAUSAS DE CONTRATACIÓN DIRECTA:</label>
         <hint>Ejemplo: razones de urgencia – obras científicas, técnicas o artísticas cuya ejecución deba confiarse a empresas personas o artistas especializados – bienes cuya fabricación o venta sea exclusiva de determinada persona.</hint>
@@ -485,7 +464,7 @@
     <group ref="/anexoI/bienes">
       <label></label>
       <repeat appearance="grilla" nodeset="/anexoI/bienes">
-        <group appearance="col6 well-white" ref="/anexoI/bienes/bienes_y_servicios_solicitados">
+        <group appearance="col4 well-white" ref="/anexoI/bienes/bienes_y_servicios_solicitados">
           <label>BIENES Y SERVICIOS SOLICITADOS</label>
           <input ref="/anexoI/bienes/bienes_y_servicios_solicitados/codigo_de_catalogo">
             <label>CODIGO DE CATALOGO:</label>
@@ -508,40 +487,30 @@
         </group>
       </repeat>
     </group>
-    <group ref="/anexoI/texto-1">
+    <group appearance="col4 well-white" ref="/anexoI/texto-1">
       <input ref="/anexoI/texto-1/datos_servicio">
         <label>Datos del servicio:</label>
       </input>
-    </group>
-    <group ref="/anexoI/Texto-2">
-      <input ref="/anexoI/Texto-2/observaciones_propias">
+      <input ref="/anexoI/texto-1/observaciones_propias">
         <label>Observaciones propias:</label>
       </input>
-    </group>
-    <group ref="/anexoI/Texto-3">
-      <input ref="/anexoI/Texto-3/observaciones_catalogo">
+      <input ref="/anexoI/texto-1/observaciones_catalogo">
         <label>Observaciones del catálogo:</label>
       </input>
-    </group>
-    <group ref="/anexoI/Texto-4">
-      <input ref="/anexoI/Texto-4/especificacion_tecnica">
+      <input ref="/anexoI/texto-1/especificacion_tecnica">
         <label>Especificación Técnica:</label>
       </input>
-    </group>
-    <group ref="/anexoI/Texto-5">
-      <input ref="/anexoI/Texto-5/despiece">
+      <input ref="/anexoI/texto-1/despiece">
         <label>Despiece:</label>
       </input>
-    </group>
-    <group ref="/anexoI/Texto-6">
-      <input ref="/anexoI/Texto-6/tolerancia">
+      <input ref="/anexoI/texto-1/tolerancia">
         <label>Tolerancia:</label>
       </input>
     </group>
     <group ref="/anexoI/suma">
       <label></label>
       <repeat appearance="grilla" nodeset="/anexoI/suma">
-        <group appearance="col5 well-white" ref="/anexoI/suma/suma2">
+        <group appearance="col4 well-white" ref="/anexoI/suma/suma2">
           <label>BIENES Y SERVICIOS SOLICITADOS</label>
           <input ref="/anexoI/suma/suma2/fecha_entrega">
             <label>Fecha entrega</label>
@@ -561,7 +530,7 @@
         </group>
       </repeat>
     </group>
-    <group appearance="col2 well-white" ref="/anexoI/resultado_suma">
+    <group appearance="col4 well-white" ref="/anexoI/resultado_suma">
       <input ref="/anexoI/resultado_suma/suma_de">
         <label>LA SUMA DE:</label>
       </input>
@@ -572,10 +541,11 @@
     <group appearance="textarea" ref="/anexoI/nota">
       <label>OBSERVACIONES O ANTECEDENTES DE INTERES:</label>
       <input appearance="multiline" ref="/anexoI/nota/obsAnexoC">
+        <label>Observaciones o antecedentes de interés</label>
         <hint>OBSERVACIONES O ANTECEDENTES DE INTERES</hint>
       </input>
     </group>
-    <group ref="/anexoI/Texto-7">
+    <group appearance="col4 well-white" ref="/anexoI/Texto-7">
       <input ref="/anexoI/Texto-7/solicitante">
         <label>SOLICITANTE:</label>
       </input>
@@ -583,7 +553,7 @@
         <label>FIRMA Y ACLARACION:</label>
       </input>
     </group>
-    <group ref="/anexoI/Texto-8">
+    <group appearance="col4 well-white" ref="/anexoI/Texto-8">
       <label>AUTORIZACION DEL GASTO</label>
       <input ref="/anexoI/Texto-8/fecha_autorizacion">
         <label>FECHA:</label>

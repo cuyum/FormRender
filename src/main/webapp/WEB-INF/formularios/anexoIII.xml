@@ -1,14 +1,11 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Anexo III</h:title>
+    <h:title>FORMATO ESTANDAR DEL PEDIDO DE PUBLICACION DE LAS CONVOCATORIAS A LOS PROCEDIMIENTOS DE SELECCION EN EL BOLETIN OFICIAL O EN LOS MEDIOS DE DIFUSION CORRESPONDIENTES</h:title>
     <model>
       <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <anexoIII id="anexoIII">
-          <recuadro>
-            <titulo/>
-          </recuadro>
           <membrete>
             <lugar_y_fecha/>
             <nombre_organismo/>
@@ -41,7 +38,7 @@
             <dia/>
           </acto>
           <nota>
-            <obsAnexoC/>
+            <observacion/>
           </nota>
           <grupo>
             <cantidad/>
@@ -54,7 +51,6 @@
           </meta>
         </anexoIII>
       </instance>
-      <bind nodeset="/anexoIII/recuadro/titulo" type="string"/>
       <bind nodeset="/anexoIII/membrete/lugar_y_fecha" type="string"/>
       <bind nodeset="/anexoIII/membrete/nombre_organismo" type="string"/>
       <bind nodeset="/anexoIII/procedimiento/tipo" type="select1"/>
@@ -74,7 +70,7 @@
       <bind nodeset="/anexoIII/presentacion/plazo_horario" type="string"/>
       <bind nodeset="/anexoIII/acto/lugar_direccion" type="string"/>
       <bind nodeset="/anexoIII/acto/dia" type="string"/>
-      <bind nodeset="/anexoIII/nota/obsAnexoC" type="string"/>
+      <bind nodeset="/anexoIII/nota/observacion" type="string"/>
       <bind nodeset="/anexoIII/grupo/cantidad" type="int"/>
       <bind nodeset="/anexoIII/grupo/numero_aviso" type="int"/>
       <bind nodeset="/anexoIII/grupo/fecha_comienzo" type="string"/>
@@ -83,9 +79,6 @@
     </model>
   </h:head>
   <h:body>
-    <group ref="/anexoIII/recuadro">
-        <label>FORMATO ESTANDAR DEL PEDIDO DE PUBLICACION DE LAS CONVOCATORIAS A LOS PROCEDIMIENTOS DE SELECCION EN EL BOLETIN OFICIAL O EN LOS MEDIOS DE DIFUSION CORRESPONDIENTES</label>
-    </group>
     <group appearance="col4 well-white" ref="/anexoIII/membrete">
       <label>MEMBRETE DEL ORGANISMO</label>
       <input ref="/anexoIII/membrete/lugar_y_fecha">
@@ -407,7 +400,8 @@
     </group>
     <group appearance="textarea" ref="/anexoIII/nota">
       <label>OBSERVACIONES GENERALES</label>
-      <input appearance="multiline" ref="/anexoIII/nota/obsAnexoC">
+      <input appearance="multiline" ref="/anexoIII/nota/observacion">
+        <label>Observaciones</label>
         <hint>Indicar las observaciones pertinentes, como por ejemplo la base de la contratación en los casos en que hubiere.</hint>
       </input>
     </group>

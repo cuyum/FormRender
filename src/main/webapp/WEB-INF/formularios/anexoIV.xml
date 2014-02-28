@@ -1,14 +1,11 @@
 <?xml version="1.0"?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>Anexo IV</h:title>
+    <h:title>FORMATO ESTANDAR DE LOS PROYECTOS DE PLIEGOS DE BASES Y CONDICIONES PARTICULARES</h:title>
     <model>
       <submission action="/api/deposition" method="form-data-post"/>
       <instance>
         <anexoIV id="anexoIV">
-          <recuadro>
-            <formato/>
-          </recuadro>
           <membrete>
             <proyecto>
               <nombre_organismo/>
@@ -24,24 +21,19 @@
             <rubro/>
             <objetivo/>
           </procedimiento>
-          <retiro>
-            <obsAnexoC/>
-          </retiro>
-          <consulta>
-            <obsAnexoC/>
-          </consulta>
-          <presentacion>
-            <obsAnexoC/>
-          </presentacion>
-          <nota>
-            <obsAnexoC/>
-          </nota>
+          <recuadro_1>
+            <especificaciones/>
+            <clausulas/>
+          </recuadro_1>
+          <recuadro_2>
+            <anexo/>
+            <observaciones/>
+          </recuadro_2>
           <meta>
             <instanceID/>
           </meta>
         </anexoIV>
       </instance>
-      <bind nodeset="/anexoIV/recuadro/formato" type="string"/>
       <bind nodeset="/anexoIV/membrete/proyecto/nombre_organismo" type="string"/>
       <bind nodeset="/anexoIV/procedimiento/tipo" type="select1"/>
       <bind nodeset="/anexoIV/procedimiento/numero" type="int"/>
@@ -51,22 +43,17 @@
       <bind nodeset="/anexoIV/procedimiento/expediente" type="int"/>
       <bind nodeset="/anexoIV/procedimiento/rubro" type="select1"/>
       <bind nodeset="/anexoIV/procedimiento/objetivo" type="string"/>
-      <bind nodeset="/anexoIV/retiro/obsAnexoC" type="string"/>
-      <bind nodeset="/anexoIV/consulta/obsAnexoC" type="string"/>
-      <bind nodeset="/anexoIV/presentacion/obsAnexoC" type="string"/>
-      <bind nodeset="/anexoIV/nota/obsAnexoC" type="string"/>
+      <bind nodeset="/anexoIV/recuadro_1/especificaciones" type="string"/>
+      <bind nodeset="/anexoIV/recuadro_1/clausulas" type="string"/>
+      <bind nodeset="/anexoIV/recuadro_2/anexo" type="string"/>
+      <bind nodeset="/anexoIV/recuadro_2/observaciones" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/anexoIV/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <group ref="/anexoIV/recuadro">
-
-        <label>FORMATO ESTANDAR DE LOS PROYECTOS DE PLIEGOS DE BASES Y CONDICIONES PARTICULARES</label>
-
-    </group>
     <group appearance="col4 well-white" ref="/anexoIV/membrete">
       <label>MEMBRETE DEL ORGANISMO</label>
-      <group appearance="col4 well-white" ref="/anexoIV/membrete/proyecto">
+      <group appearance="col2 well-white" ref="/anexoIV/membrete/proyecto">
         <label>PROYECTO DE PLIEGO DE BASES Y CONDICIONES PARTICULARES</label>
         <input ref="/anexoIV/membrete/proyecto/nombre_organismo">
           <label>Nombre del organismo contratante</label>
@@ -339,27 +326,25 @@
         <label>Objeto de la contratación:</label>
       </input>
     </group>
-    <group appearance="textarea" ref="/anexoIV/retiro">
-      <label>ESPECIFICACIONES</label>
-      <input appearance="multiline" ref="/anexoIV/retiro/obsAnexoC">
+    <group appearance="textarea" ref="/anexoIV/recuadro_1">
+      <label>ESPECIFICACIONES Y CLAUSULAS PARTICULARES</label>
+      <input appearance="multiline" ref="/anexoIV/recuadro_1/especificaciones">
+        <label>ESPECIFICACIONES</label>
+        <hint>Texto de las cláusulas particulares de los proyectos de pliegos de bases y condiciones particulares.</hint>
+      </input>
+      <input appearance="multiline" ref="/anexoIV/recuadro_1/clausulas">
+        <label>CLAUSULAS PARTICULARES</label>
         <hint>Texto de las cláusulas particulares de los proyectos de pliegos de bases y condiciones particulares.</hint>
       </input>
     </group>
-    <group appearance="textarea" ref="/anexoIV/consulta">
-      <label>CLAUSULAS PARTICULARES</label>
-      <input appearance="multiline" ref="/anexoIV/consulta/obsAnexoC">
+    <group appearance="textarea" ref="/anexoIV/recuadro_2">
+      <label>ANEXOS Y OBSERVACIONES GENERALES</label>
+      <input appearance="multiline" ref="/anexoIV/recuadro_2/anexo">
+        <label>ANEXOS</label>
         <hint>Texto de las cláusulas particulares de los proyectos de pliegos de bases y condiciones particulares.</hint>
       </input>
-    </group>
-    <group appearance="textarea" ref="/anexoIV/presentacion">
-      <label>ANEXOS</label>
-      <input appearance="multiline" ref="/anexoIV/presentacion/obsAnexoC">
-        <hint>Texto de las cláusulas particulares de los proyectos de pliegos de bases y condiciones particulares.</hint>
-      </input>
-    </group>
-    <group appearance="textarea" ref="/anexoIV/nota">
-      <label>OBSERVACIONES GENERALES</label>
-      <input appearance="multiline" ref="/anexoIV/nota/obsAnexoC">
+      <input appearance="multiline" ref="/anexoIV/recuadro_2/observaciones">
+        <label>OBSERVACIONES GENERALES</label>
         <hint>Texto de las observaciones generales a los proyectos de pliegos de bases y condiciones particulares</hint>
       </input>
     </group>
