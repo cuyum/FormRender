@@ -50,12 +50,8 @@
             <obsAnexoV/>
           </grupo_b>
           <grupo_c>
-            <consulta>
-              <clausula/>
-            </consulta>
-            <anexo>
-              <anexo/>
-            </anexo>
+            <clausula/>
+            <anexo/>
           </grupo_c>
           <nota>
             <observaciones/>
@@ -92,8 +88,8 @@
       <bind nodeset="/anexoV/grupo_b/frecuencia" type="string"/>
       <bind nodeset="/anexoV/grupo_b/cantidad_minima" type="string"/>
       <bind nodeset="/anexoV/grupo_b/obsAnexoV" type="string"/>
-      <bind nodeset="/anexoV/grupo_c/consulta/clausula" type="string"/>
-      <bind nodeset="/anexoV/grupo_c/anexo/anexo" type="string"/>
+      <bind nodeset="/anexoV/grupo_c/clausula" type="string"/>
+      <bind nodeset="/anexoV/grupo_c/anexo" type="string"/>
       <bind nodeset="/anexoV/nota/observaciones" type="string"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/anexoV/meta/instanceID" readonly="true()" type="string"/>
     </model>
@@ -449,23 +445,18 @@
         <hint>Observaciones</hint>
       </input>
     </group>
-    <group appearance="col4 well-white" ref="/anexoV/grupo_c">
-      <group appearance="textarea" ref="/anexoV/grupo_c/consulta">
+    <group appearance="textarea" ref="/anexoV/grupo_c">
+      <label>CLAUSULAS PARTICULARES Y ANEXOS</label>
+      <input appearance="multiline" ref="/anexoV/grupo_c/clausula">
         <label>CLAUSULAS PARTICULARES</label>
-        <input appearance="multiline" ref="/anexoV/grupo_c/consulta/clausula">
-          <label>Clausulas Particulares</label>
-          <hint>Texto de las cláusulas particulares de los proyectos de pliegos de bases y condiciones particulares.</hint>
-        </input>
-      </group>
-      <group appearance="textarea" ref="/anexoV/grupo_c/anexo">
+        <hint>Texto de las cláusulas particulares de los proyectos de pliegos de bases y condiciones particulares.</hint>
+      </input>
+      <input appearance="multiline" ref="/anexoV/grupo_c/anexo">
         <label>ANEXOS</label>
-        <input appearance="multiline" ref="/anexoV/grupo_c/anexo/anexo">
-          <label>Anexos</label>
-          <hint>Texto de las cláusulas particulares de los proyectos de pliegos de bases y condiciones particulares.</hint>
-        </input>
-      </group>
+        <hint>Texto de las cláusulas particulares de los proyectos de pliegos de bases y condiciones particulares.</hint>
+      </input>
     </group>
-    <group appearance="textarea and col4 well-white" ref="/anexoV/nota">
+    <group appearance="textarea" ref="/anexoV/nota">
       <label>OBSERVACIONES GENERALES</label>
       <input appearance="multiline" ref="/anexoV/nota/observaciones">
         <label>Obsercvaciones Generales</label>

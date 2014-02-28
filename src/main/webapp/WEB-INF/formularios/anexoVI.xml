@@ -26,7 +26,7 @@
             <dia/>
           </acto>
           <nota>
-            <obsAnexo/>
+            <descripcion/>
           </nota>
           <grupo_1>
             <cantidad/>
@@ -56,7 +56,7 @@
       <bind nodeset="/anexoVI/procedimiento/objetivo" type="string"/>
       <bind nodeset="/anexoVI/acto/lugar_direccion" type="string"/>
       <bind nodeset="/anexoVI/acto/dia" type="string"/>
-      <bind nodeset="/anexoVI/nota/obsAnexo" type="string"/>
+      <bind nodeset="/anexoVI/nota/descripcion" type="string"/>
       <bind nodeset="/anexoVI/grupo_1/cantidad" type="int"/>
       <bind nodeset="/anexoVI/grupo_1/numero_aviso" type="int"/>
       <bind nodeset="/anexoVI/grupo_1/fecha_comienzo" type="string"/>
@@ -357,7 +357,8 @@
     </group>
     <group appearance="textarea" ref="/anexoVI/nota">
       <label>DESCRIPCION</label>
-      <input appearance="multiline" ref="/anexoVI/nota/obsAnexo">
+      <input appearance="multiline" ref="/anexoVI/nota/descripcion">
+        <label>Descripción</label>
         <hint>Texto de la circular aclaratoria o modificatoria</hint>
       </input>
     </group>
