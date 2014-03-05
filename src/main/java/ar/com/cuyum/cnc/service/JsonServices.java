@@ -419,7 +419,8 @@ public class JsonServices implements Serializable {
 
         if ("text".equals(jsonObject.get("type").asText().trim())
                 || "int".equals(jsonObject.get("type").asText().trim())
-                || "date".equals(jsonObject.get("type").asText().trim())) {
+                || "date".equals(jsonObject.get("type").asText().trim())
+                || "numeric".equals(jsonObject.get("type").asText().trim())) {
 
             writeXMLInput(key, jsonObject, id, out);
 
