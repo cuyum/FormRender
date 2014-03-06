@@ -142,6 +142,65 @@ public class JsonServices implements Serializable {
         out.writeCharacters("\n\t\t\t\t\t");
         out.writeEndElement();
     }
+    
+    /**
+     * Escribe los input en el xml.
+     *
+     * @autor ltroconis
+     * @param name
+     *            el nombre del objeto select, este seria el key que tiene en el
+     *            Json y que va en la propiedad del tag en ref
+     * @param jsonObject
+     *            el objeto json que representa el input
+     * @param id
+     *            el id del formulario, es tomado del header.code
+     * @param out
+     *            el writerString del xml
+     *
+     * @throws XMLStreamException
+     *             error construyendo el xml
+     */
+    private void writeXMLTextArea(final String name, final JsonNode jsonObject,
+            final String id, final XMLStreamWriter out)
+            throws XMLStreamException {
+
+        JsonNode properties = jsonObject.get("properties");
+
+        out.writeCharacters("\n\t\t\t\t\t");
+        out.writeStartElement("input");
+
+        if (properties.has("groups_rel")) {
+            out.writeAttribute("ref", "/" + id
+                    + properties.get("groups_rel").asText() + "/" + name);
+        }
+
+        if (properties.has("appearance")) {
+            out.writeAttribute("appearance", properties.get("appearance").asText());
+        }
+
+        if (properties.has("label")) {
+            out.writeCharacters("\n\t\t\t\t\t\t");
+            out.writeStartElement("label");
+            out.writeCharacters(properties.get("label").asText());
+            out.writeEndElement();
+        }
+
+        if (properties.has("tooltip")) {
+            out.writeCharacters("\n\t\t\t\t\t\t");
+            out.writeStartElement("hint");
+            out.writeCharacters(properties.get("tooltip").asText());
+            out.writeEndElement();
+        } else {
+            out.writeCharacters("\n\t\t\t\t\t\t");
+            out.writeStartElement("hint");
+            out.writeCharacters(properties.get("label").asText());
+            out.writeEndElement();
+        }
+
+        out.writeCharacters("\n\t\t\t\t\t");
+        out.writeEndElement();
+    }
+
 
     /**
      * Escribe los select en el xml.
@@ -420,7 +479,7 @@ public class JsonServices implements Serializable {
         if ("text".equals(jsonObject.get("type").asText().trim())
                 || "int".equals(jsonObject.get("type").asText().trim())
                 || "date".equals(jsonObject.get("type").asText().trim())
-                || "numeric".equals(jsonObject.get("type").asText().trim())) {
+                || "decimal".equals(jsonObject.get("type").asText().trim())) {
 
             writeXMLInput(key, jsonObject, id, out);
 
@@ -478,6 +537,10 @@ public class JsonServices implements Serializable {
             }
 
             writeXMLCloseGroup(out);
+        }else{
+        	if("string".equals(jsonObject.get("type").asText().trim())){
+        		writeXMLTextArea(key, jsonObject, id, out);
+        	}
         }
 
     }
