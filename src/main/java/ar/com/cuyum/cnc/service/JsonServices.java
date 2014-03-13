@@ -202,6 +202,10 @@ public class JsonServices implements Serializable {
     }
 
 
+   
+    /**
+
+    
     /**
      * Escribe los select en el xml.
      *
@@ -483,7 +487,9 @@ public class JsonServices implements Serializable {
 
             writeXMLInput(key, jsonObject, id, out);
 
-        } else if ("selectOne".equals(jsonObject.get("type").asText().trim())) {
+        } else 
+        	
+        	if ("selectOne".equals(jsonObject.get("type").asText().trim())) {
 
             if (jsonObject.has("properties")) {
                 ObjectNode writerPropertie = (ObjectNode) jsonObject
@@ -504,10 +510,10 @@ public class JsonServices implements Serializable {
 
             if (jsonObject.has("properties")) {
                 if (jsonObject.get("properties").has("grid")) {
-                    if ("true".equals(jsonObject.get("properties").get("grid")
-                            .asText())) {
+//                    if ("true".equals(jsonObject.get("properties").get("grid")
+//                            .asText())) {
                         repeat = mapper.createObjectNode();
-                    }
+//                    }
                 }
             }
 
@@ -537,13 +543,15 @@ public class JsonServices implements Serializable {
             }
 
             writeXMLCloseGroup(out);
-        }else{
+        }else
         	if("string".equals(jsonObject.get("type").asText().trim())){
         		writeXMLTextArea(key, jsonObject, id, out);
         	}
-        }
+        	
+      	}
+        
 
-    }
+    
 
     /**
      * Recorrido del Json (components) para crear los componentes que van en el
