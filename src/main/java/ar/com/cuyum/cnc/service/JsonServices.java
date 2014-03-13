@@ -127,10 +127,10 @@ public class JsonServices implements Serializable {
             out.writeEndElement();
         }
 
-        if (properties.has("tooltip")) {
+        if (properties.has("hint")) {
             out.writeCharacters("\n\t\t\t\t\t\t");
             out.writeStartElement("hint");
-            out.writeCharacters(properties.get("tooltip").asText());
+            out.writeCharacters(properties.get("hint").asText());
             out.writeEndElement();
         } else {
             out.writeCharacters("\n\t\t\t\t\t\t");
@@ -185,10 +185,10 @@ public class JsonServices implements Serializable {
             out.writeEndElement();
         }
 
-        if (properties.has("tooltip")) {
+        if (properties.has("hint")) {
             out.writeCharacters("\n\t\t\t\t\t\t");
             out.writeStartElement("hint");
-            out.writeCharacters(properties.get("tooltip").asText());
+            out.writeCharacters(properties.get("hint").asText());
             out.writeEndElement();
         } else {
             out.writeCharacters("\n\t\t\t\t\t\t");
@@ -251,8 +251,9 @@ public class JsonServices implements Serializable {
         out.writeStartElement("hint");
 
         String tooltip = properties.get("label").asText();
-        if (properties.has("tooltip")) {
-            tooltip = properties.get("tooltip").asText();
+        
+        if (properties.has("hint")) {
+            tooltip = properties.get("hint").asText();
         }
 
         out.writeCharacters(tooltip);
@@ -634,8 +635,8 @@ public class JsonServices implements Serializable {
             String id = header.get("code").asText();
             String tooltip = "";
 
-            if (header.has("tooltip")) {
-                tooltip = header.get("tooltip").asText();
+            if (header.has("hint")) {
+                tooltip = header.get("hint").asText();
             } else if (header.has("descrip")) {
                 tooltip = header.get("descrip").asText();
             }
@@ -645,7 +646,7 @@ public class JsonServices implements Serializable {
             ObjectNode nodeTooltip = mapper.createObjectNode();
 
             ObjectNode properties = mapper.createObjectNode();
-            properties.put("tooltip", tooltip);
+            properties.put("hint", tooltip);
             properties.put("appearance", "tooltip");
             properties.put("readonly", true);
 
