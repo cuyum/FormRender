@@ -354,6 +354,16 @@ public class JsonServices implements Serializable {
         }
 
     }
+    
+    private void writeXMLOpenEmptyGroup(final String name,
+            final JsonNode jsonObject, final String id,
+            final XMLStreamWriter out) throws XMLStreamException {
+        out.writeCharacters("\n\t\t\t");
+        out.writeStartElement("group");
+
+
+    }
+
 
     /**
      * Escribe los repeat relacionados en el grupo del xml (el tag abierto), el
@@ -517,7 +527,8 @@ public class JsonServices implements Serializable {
 //                    }
                 }
             }
-
+            writeXMLOpenGroup(key, jsonObject, id, out);
+            
             if (repeat != null) {
                 repeat.put("appearance", "grilla");
                 repeat.put("groups", key);
@@ -528,7 +539,7 @@ public class JsonServices implements Serializable {
                 jsonObject = writerJsonObject;
             }
 
-            writeXMLOpenGroup(key, jsonObject, id, out);
+            writeXMLOpenEmptyGroup("", jsonObject, id, out);
 
             if (jsonObject.has("repeat")) {
                 writeXMLOpenGroupRepeat(key, jsonObject.get("repeat"), id, out);
@@ -542,6 +553,7 @@ public class JsonServices implements Serializable {
             if (jsonObject.has("repeat")) {
                 writeXMLCloseGroupRepeat(out);
             }
+            writeXMLCloseGroup(out);
 
             writeXMLCloseGroup(out);
         }else
