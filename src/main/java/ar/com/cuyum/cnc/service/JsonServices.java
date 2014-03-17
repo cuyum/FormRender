@@ -539,21 +539,23 @@ public class JsonServices implements Serializable {
                 jsonObject = writerJsonObject;
             }
 
-            writeXMLOpenEmptyGroup("", jsonObject, id, out);
-
+           
             if (jsonObject.has("repeat")) {
                 writeXMLOpenGroupRepeat(key, jsonObject.get("repeat"), id, out);
             }
+            writeXMLOpenEmptyGroup("", jsonObject, id, out);
 
             if (jsonObject.has("components")) {
                 jsonParserObject(rutaActual, jsonObject.get("components"), id,
                         out);
             }
+            
+            writeXMLCloseGroup(out);
 
             if (jsonObject.has("repeat")) {
                 writeXMLCloseGroupRepeat(out);
             }
-            writeXMLCloseGroup(out);
+            
 
             writeXMLCloseGroup(out);
         }else
