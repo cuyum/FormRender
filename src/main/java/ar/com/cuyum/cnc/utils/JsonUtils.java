@@ -169,7 +169,7 @@ public class JsonUtils {
 	}
 
 	private static String getActualPath(HttpServletRequest request) {
-		return "http://" + request.getServerName() + ":"
+		return request.getScheme() + "://" + request.getServerName() + ":"
 				+ request.getServerPort() + "/"
 				+ request.getServletContext().getServletContextName();
 	}
