@@ -135,15 +135,33 @@ public class RelayRest {
 	 */
 	@POST
 	@Path("/submit/massive")
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public String massiveSubmit(@FormParam("submit_data") String submit_data,
-			@FormParam("url") String submit_url) {
+	public String massiveSubmit(String json) {
 		
+		JSONObject jsonObj;
 		JSONObject response;
-		String remoteResponse = "";
+		String formUrl;
+		String submit_data;
+		
 		try {
-			URL url = new URL(frp.getRemoteSubmissionHost() + submit_url);
+			jsonObj = new JSONObject(json);
+			if(!jsonObj.has("submit_data") || !jsonObj.has("url")){
+				String msg = "Alguno de los par&aacute;metros necesarios para el env&iacute;o del formulario al servicio de carga masiva no se encuentra.";
+				return "{\"success\":false,\"msg\": \"" + msg + "\"}";
+			}
+			formUrl = jsonObj.getString("url");
+			submit_data = jsonObj.getString("submit_data");
+		} catch (JSONException e) {
+			String msg = "No se pudo consultar el servicio de relay ya que el objeto JSON recibido es inv&aacute;lido";
+			log.warn(msg, e);
+			log.debug("JSON received: " + json);
+			return "{\"success\":false,\"msg\": \"" + msg + "\"}";
+		}
+		
+		String remoteResponse = "{\"success\":false,\"msg\":\"Unable to relay message\"}";
+		try {
+			URL url = new URL(frp.getRemoteSubmissionHost() + formUrl);
 			remoteResponse = relay.massiveSubmit(url, submit_data, request);
 			response = new JSONObject(remoteResponse);
 			return response.toString();
