@@ -527,6 +527,8 @@ public class JsonServices implements Serializable {
 //                    }
                 }
             }
+            writeXMLOpenEmptyGroup("", jsonObject, id, out);
+            
             writeXMLOpenGroup(key, jsonObject, id, out);
             
             if (repeat != null) {
@@ -557,6 +559,7 @@ public class JsonServices implements Serializable {
             }
             
 
+            writeXMLCloseGroup(out);
             writeXMLCloseGroup(out);
         }else
         	if("string".equals(jsonObject.get("type").asText().trim())){
