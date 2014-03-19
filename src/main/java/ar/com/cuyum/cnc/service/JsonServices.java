@@ -77,6 +77,7 @@ public class JsonServices implements Serializable {
         }
 
     }
+    
 
     public InputStream loadXslFile(String filename, ServletContext sc) {
         InputStream xslIS = sc.getResourceAsStream("/WEB-INF/xsl/" + filename);
@@ -354,6 +355,16 @@ public class JsonServices implements Serializable {
         }
 
     }
+    
+    private void writeXMLOpenEmptyGroup(final String name,
+            final JsonNode jsonObject, final String id,
+            final XMLStreamWriter out) throws XMLStreamException {
+        out.writeCharacters("\n\t\t\t");
+        out.writeStartElement("group");
+
+
+    }
+
 
     /**
      * Escribe los repeat relacionados en el grupo del xml (el tag abierto), el
@@ -517,7 +528,10 @@ public class JsonServices implements Serializable {
 //                    }
                 }
             }
-
+            writeXMLOpenEmptyGroup("", jsonObject, id, out);
+            
+            writeXMLOpenGroup(key, jsonObject, id, out);
+            
             if (repeat != null) {
                 repeat.put("appearance", "grilla");
                 repeat.put("groups", key);
@@ -528,21 +542,25 @@ public class JsonServices implements Serializable {
                 jsonObject = writerJsonObject;
             }
 
-            writeXMLOpenGroup(key, jsonObject, id, out);
-
+           
             if (jsonObject.has("repeat")) {
                 writeXMLOpenGroupRepeat(key, jsonObject.get("repeat"), id, out);
             }
+            writeXMLOpenEmptyGroup("", jsonObject, id, out);
 
             if (jsonObject.has("components")) {
                 jsonParserObject(rutaActual, jsonObject.get("components"), id,
                         out);
             }
+            
+            writeXMLCloseGroup(out);
 
             if (jsonObject.has("repeat")) {
                 writeXMLCloseGroupRepeat(out);
             }
+            
 
+            writeXMLCloseGroup(out);
             writeXMLCloseGroup(out);
         }else
         	if("string".equals(jsonObject.get("type").asText().trim())){
@@ -1012,24 +1030,26 @@ public class JsonServices implements Serializable {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            JsonNode jsonObject = mapper.readTree(jsonValue);
+           JsonNode jsonObject = mapper.readTree(jsonValue);
 
-            JsonNode header = jsonObject.get("header");
+           JsonNode header = jsonObject.get("header");
+           String code = header.get("code").asText();
+           //obtener los parametros de repeat:
+           //JsonNode urlParmas = jsonObject.get("header");
 
-            String title = header.get("name").asText();
-
-            String id = header.get("code").asText();
-
-            formulario.setCodigo(id);
-            formulario.setNombre(title);
-
+            formulario.setCodigo(header.get("code").asText());
+            formulario.setNombre(header.get("name").asText());
+            formulario.setVersion(Integer.parseInt(header.get("version").asText()));
+//            formulario.set(header.get("status").asText());
+//            formulario.set(header.get("descrip").asText());
+            
             String xmlString = jsonToXForm(jsonValue);
 
             String path = frp.getDestinationXml();
 
             try {
                 File xmlToSave = new File(path
-                        + System.getProperty("file.separator") + id + ".xml");
+                        + System.getProperty("file.separator") + code + ".xml");
                 BufferedWriter output = new BufferedWriter(new FileWriter(
                         xmlToSave));
                 output.write(xmlString);
@@ -1040,6 +1060,7 @@ public class JsonServices implements Serializable {
 
             formulario.setArchivo(jsonObject.get("_id") + ".xml");
             formulario.setUrl(path);
+            formulario.setParametrosUrl("&repeat=1");
             Xsl xsl = entityManager.find(Xsl.class, 1L);
             System.out.println("Xsl encontrado: " + xsl.getNombre());
             formulario.setXslTransform(xsl);

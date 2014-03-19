@@ -132,7 +132,7 @@ public class ExternalRest {
 
 
 	@POST
-    @Path("/url")
+    @Path("/save")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
     public Response formConsumerURL(@FormParam("value") String input){
