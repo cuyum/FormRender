@@ -133,9 +133,9 @@ public class ExternalRest {
 
 	@POST
     @Path("/save")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response formConsumerURL(@FormParam("value") String input){
+    public Response formConsumerURL(String input){
     	Response.ResponseBuilder builder = null;
         String ret =  "http://"+ request.getServerName() +":" +request.getServerPort() + request.getServletContext().getContextPath() + "/formulario/display.xhtml?id=";
         String cod ="";
@@ -143,7 +143,7 @@ public class ExternalRest {
         try{
 			cod = jsonService.persistFormFromJson(input);
 			builder = Response.ok();
-			return builder.status(200).entity("{'success':'true','result': ' " + ret + cod +"'}").build();
+			return builder.status(200).entity("{'success':'true','result': ' " + ret + cod +"&repeat=1" + "'}").build();
 		} catch (Exception e) {
 			builder = Response.serverError();
 			//				response.sendError(400, "Error en conversion de json");

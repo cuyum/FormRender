@@ -5,7 +5,6 @@ import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,20 +35,23 @@ import ar.com.cuyum.cnc.domain.Xsl;
 import ar.com.cuyum.cnc.utils.FormRenderProperties;
 
 import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 @Stateless
 public class JsonServices implements Serializable {
 
-    @Inject
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Inject
     private TransformationService ts;
 
-    @Inject
+	@Inject
     private FormRenderProperties frp;
 
     @PersistenceContext(type = PersistenceContextType.EXTENDED)
@@ -1021,7 +1023,7 @@ public class JsonServices implements Serializable {
 
     // Persistimos en base y genermamos retornamos codigo que se utiliza para
     // visualizar el documento
-    public final String persistFormFromJson(final String jsonValue)
+    public String persistFormFromJson(String jsonValue)
             throws Exception {
 
         // Creamos y llenamos los atributos del nuevo formulario a persistir
@@ -1049,7 +1051,7 @@ public class JsonServices implements Serializable {
 
             try {
                 File xmlToSave = new File(path
-                        + System.getProperty("file.separator") + code + ".xml");
+                        + System.getProperty("file.separator") + jsonObject.get("_id").asText() + ".xml");
                 BufferedWriter output = new BufferedWriter(new FileWriter(
                         xmlToSave));
                 output.write(xmlString);
@@ -1058,12 +1060,13 @@ public class JsonServices implements Serializable {
                 e.printStackTrace();
             }
 
-            formulario.setArchivo(jsonObject.get("_id") + ".xml");
+            formulario.setArchivo(jsonObject.get("_id").asText() + ".xml");
             formulario.setUrl(path);
-            formulario.setParametrosUrl("&repeat=1");
+            formulario.setParametrosUrl("id="+ formulario.getCodigo() + "&repeat=1");
             Xsl xsl = entityManager.find(Xsl.class, 1L);
             System.out.println("Xsl encontrado: " + xsl.getNombre());
             formulario.setXslTransform(xsl);
+            formulario.setFormVersion(header.get("version").asText());
             entityManager.persist(formulario);
 
         } catch (Exception e) {
