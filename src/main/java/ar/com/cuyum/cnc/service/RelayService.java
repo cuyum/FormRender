@@ -162,19 +162,24 @@ public class RelayService {
 		return responseStr;
 	}
 
-	private ObjectNode formData(String id, ArrayNode data) {
+	private ObjectNode formData(String id, ObjectNode form) {
+		ArrayNode data = (ArrayNode) form.get("data");
 		ObjectMapper mapper = new ObjectMapper();
-		ObjectNode form = mapper.createObjectNode();
+		ObjectNode formOut = mapper.createObjectNode();
 		ObjectNode header = mapper.createObjectNode();
 		ObjectNode payload = mapper.createObjectNode();
 		ObjectNode formulario = mapper.createObjectNode();
 		header.put("callback_id", "");
 		formulario.put("id", id);
+		if(form.has("recordId")){
+			String recordId = form.get("recordId").asText();
+			formulario.put("recordId",recordId);
+		}
 		formulario.put("data", data);
 		payload.put("formulario", formulario);
-		form.put("header", header);
-		form.put("payload", payload);
-		return form;
+		formOut.put("header", header);
+		formOut.put("payload", payload);
+		return formOut;
 	}
 
 	private String performMassiveSubmission(URL url, String idForm,
@@ -185,7 +190,7 @@ public class RelayService {
 		ObjectNode respon = mapper.createObjectNode();
 
 		for (int i = 0, n = form.size(); i < n; i++) {
-			ArrayNode dataNode = (ArrayNode) form.get(i).get("data");
+			ObjectNode dataNode =  (ObjectNode) form.get(i);
 			ObjectNode formData = formData(idForm, dataNode);
 			log.info("Persistiendo:" + formData);
 

@@ -39,6 +39,7 @@ public class Formulario implements Serializable {
 	private List<Row> data = new ArrayList<Row>();
 	private RelayService relayService;
 	private ArrayNode sumarizadosJson;
+	private String recordId;
 
 	// Solo la parte del esquema que interesa los items
 	public Formulario(String id, JsonNode schema, RelayService relayService) {
@@ -231,18 +232,30 @@ public class Formulario implements Serializable {
 			items.add(this.data.get(i).valuesToJson());
 		}
 
-			if (sumarizadosJson != null && grid!= null && grid.getCalculados()) {
-				ArrayNode items2 =  mapper.createArrayNode();
-				ObjectNode item = mapper.createObjectNode();
-				item.put("registros",items);
-				item.put("sumarizados",sumarizadosJson);
-				items2.add(item);
-				data.put("data",items2);
-			}else{
-	    	   data.put("data",items);
-			}		
+		if (sumarizadosJson != null && grid!= null && grid.getCalculados()) {
+			ArrayNode items2 =  mapper.createArrayNode();
+			ObjectNode item = mapper.createObjectNode();
+			item.put("registros",items);
+			item.put("sumarizados",sumarizadosJson);
+			items2.add(item);
+			data.put("data",items2);
+		}else{
+    	   data.put("data",items);
+		}
+		
+		if(recordId!=null && !recordId.isEmpty()){
+			data.put("recordId", recordId);
+		}
 		
 		return data;
+	}
+
+	public String getRecordId() {
+		return recordId;
+	}
+
+	public void setRecordId(String recordId) {
+		this.recordId = recordId;
 	}
 
 }

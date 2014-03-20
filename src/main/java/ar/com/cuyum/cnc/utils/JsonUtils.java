@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
 
 import ar.com.cuyum.cnc.domain.jsonsla.Formulario;
-import ar.com.cuyum.cnc.domain.jsonsla.Row;
 import ar.com.cuyum.cnc.exceptions.ExceptionValidation;
 import ar.com.cuyum.cnc.service.RelayService;
 
@@ -247,6 +246,11 @@ public class JsonUtils {
 			ArrayNode data = (ArrayNode) formNode.get("data");
 			formulario.addDataFromJson(data);
 			log.info(formulario.valuesToJson());
+			
+			if(formNode.has("recordId")){
+				String recordId =  formNode.get("recordId").asText();
+				formulario.setRecordId(recordId);
+			}
 
 			try {
 				formulario.processData();
