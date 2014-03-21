@@ -1158,10 +1158,8 @@ var gui = new function() {
 			if (!gui.gridTotalizadora.checkNiveles())
 				return;
 
-			var modalBody = $("#modal-totalizadora").children(
-					"[class='block well']");
-			$('<div class="table-overflow"></div>').append(this.element)
-					.appendTo(modalBody);
+			var modalBody = $("#modal-totalizadora").children("#agrupadora_modal_body");
+			$('<div class="table-overflow"></div>').append(this.element).appendTo(modalBody);
 
 			for ( var i = 1; i <= this.agrupadores.length; i++) {
 				this.headers.push({

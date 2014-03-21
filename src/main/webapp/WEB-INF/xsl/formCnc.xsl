@@ -289,13 +289,16 @@ XSLT Stylesheet that transforms OpenRosa style (X)Forms into valid HTMl5 forms
 						<h5 id="myModalLabel">Total Calculado</h5>
 					</div>
 					<div class="modal-body" id="modal-totalizadora">
-						<div class="block well">
-							<div class="navbar">
-								<div class="navbar-inner">
-									<h5>Totales</h5>
-								</div>
-							</div>
-						</div>
+						<fieldset class="col1" id="agrupadora_modal_body">
+							<h4>Totales</h4>
+						</fieldset>
+<!-- 						<div class="block well"> -->
+<!-- 							<div class="navbar"> -->
+<!-- 								<div class="navbar-inner"> -->
+<!-- 									<h5>Totales</h5> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
 					</div>
 					<div class="modal-footer">
 						<button class="btn" data-dismiss="modal">
