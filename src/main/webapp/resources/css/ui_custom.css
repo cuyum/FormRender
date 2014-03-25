@@ -203,3 +203,9 @@ th.ui-state-default:first-child { border-left: none; }
 #repeat-grid_length div.select2-container {
     width: 60px;
 }
+
+/*===== GRIDS AGRUPADORAS =====*/
+#agrupadora-grid_length div.select2-container {
+    width: 60px;
+}
+
