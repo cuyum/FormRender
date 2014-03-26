@@ -23,8 +23,7 @@
         </ict4.1.4-B>
       </instance>
       <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.1.4-B/meses/mes/periodo_considerado" required="true()" type="select1"/>
-      <bind nodeset="/ict4.1.4-B/meses/mes/accesos" required="true()" type="select1"/>
-      <bind nodeset="/ict4.1.4-B/meses/mes/accesos_otros" relevant=" /ict4.1.4-B/meses/mes/accesos =Otros" required="true()" type="string"/>
+      <bind nodeset="/ict4.1.4-B/meses/mes/accesos" required="true()" type="string"/>
       <bind nodeset="/ict4.1.4-B/meses/mes/contactos" required="true()" type="select1"/>
       <bind nodeset="/ict4.1.4-B/meses/mes/contacto_otros" relevant=" /ict4.1.4-B/meses/mes/contactos =Otros" required="false()" type="string"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.4-B/meses/mes/dentro_30" required="true()" type="int"/>
@@ -46,36 +45,9 @@
               <value>-1</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/ict4.1.4-B/meses/mes/accesos">
+          <input ref="/ict4.1.4-B/meses/mes/accesos">
             <label>Accesos a la Atención Telefónica</label>
             <hint>Accesos a la Atención Telefónica</hint>
-            <item>
-              <label>Seleccione una opción</label>
-              <value>-1</value>
-            </item>
-            <item>
-              <label>111</label>
-              <value>111</value>
-            </item>
-            <item>
-              <label>112</label>
-              <value>112</value>
-            </item>
-            <item>
-              <label>114</label>
-              <value>114</value>
-            </item>
-            <item>
-              <label>0800</label>
-              <value>0800</value>
-            </item>
-            <item>
-              <label>Otros</label>
-              <value>Otros</value>
-            </item>
-          </select1>
-          <input ref="/ict4.1.4-B/meses/mes/accesos_otros">
-            <label>Accesos Otros</label>
           </input>
           <select1 appearance="minimal" ref="/ict4.1.4-B/meses/mes/contactos">
             <label>Tipo de contacto</label>

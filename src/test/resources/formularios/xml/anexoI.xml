@@ -1,0 +1,566 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>FORMATO ESTANDAR DE SOLICITUD DE GASTOS</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <anexoI id="anexoI">
+          <solicitud_gastos>
+            <nro_solicitud/>
+            <nombre_organismo_contratante/>
+            <saf/>
+            <cuit/>
+            <expediente_nro/>
+          </solicitud_gastos>
+          <solicitud_gastos2>
+            <actividad_interna/>
+            <delegacion/>
+            <unidad_solicitante/>
+            <rubro_comercial/>
+            <modalidad_compra_sugerida/>
+            <fecha_inicio_sugerida/>
+            <fecha_fin_vigencia_sugerida/>
+            <clase/>
+          </solicitud_gastos2>
+          <solicitud_gastos3>
+            <objeto/>
+            <prioridad_justificacion_necesidad/>
+          </solicitud_gastos3>
+          <solicitud_gastos4>
+            <fecha_entrega/>
+            <lugar_entrega/>
+          </solicitud_gastos4>
+          <solicitud_gastos6>
+            <jurisdiccion/>
+            <subju/>
+            <ent/>
+            <programa/>
+            <subprog/>
+            <proy/>
+            <activ/>
+            <ob/>
+            <descripcion_act_prog/>
+            <ejerc_inc/>
+            <ppr/>
+            <ppa/>
+            <spa/>
+            <fuente_financiamiento/>
+            <ub_geografica/>
+            <mon/>
+            <importe/>
+          </solicitud_gastos6>
+          <solicitud_gastos7>
+            <causas_contratacion_directa/>
+          </solicitud_gastos7>
+          <bienes jr:template="">
+            <bienes_y_servicios_solicitados>
+              <codigo_de_catalogo/>
+              <descripcion/>
+              <unidad_de_medida/>
+              <cantidad/>
+              <importe_unitario/>
+              <importe_total/>
+            </bienes_y_servicios_solicitados>
+          </bienes>
+          <texto-1>
+            <datos_servicio/>
+            <observaciones_propias/>
+            <observaciones_catalogo/>
+            <especificacion_tecnica/>
+            <despiece/>
+            <tolerancia/>
+          </texto-1>
+          <suma jr:template="">
+            <suma2>
+              <fecha_entrega/>
+              <descripcion/>
+              <unidad_de_medida/>
+              <cantidad/>
+              <importe_unitario/>
+            </suma2>
+          </suma>
+          <resultado_suma>
+            <suma_de/>
+            <total_suma/>
+          </resultado_suma>
+          <nota>
+            <obsAnexoC/>
+          </nota>
+          <Texto-7>
+            <solicitante/>
+            <firma_y_aclaracion/>
+          </Texto-7>
+          <Texto-8>
+            <fecha_autorizacion/>
+            <firma_y_aclaracion_autorizacion/>
+          </Texto-8>
+          <meta>
+            <instanceID/>
+          </meta>
+        </anexoI>
+      </instance>
+      <bind nodeset="/anexoI/solicitud_gastos/nro_solicitud" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos/nombre_organismo_contratante" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos/saf" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos/cuit" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos/expediente_nro" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos2/actividad_interna" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos2/delegacion" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos2/unidad_solicitante" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos2/rubro_comercial" type="select1"/>
+      <bind nodeset="/anexoI/solicitud_gastos2/modalidad_compra_sugerida" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos2/fecha_inicio_sugerida" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos2/fecha_fin_vigencia_sugerida" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos2/clase" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos3/objeto" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos3/prioridad_justificacion_necesidad" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos4/fecha_entrega" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos4/lugar_entrega" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/jurisdiccion" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/subju" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/ent" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/programa" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/subprog" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/proy" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/activ" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/ob" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/descripcion_act_prog" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/ejerc_inc" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/ppr" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/ppa" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/spa" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/fuente_financiamiento" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/ub_geografica" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/mon" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos6/importe" type="string"/>
+      <bind nodeset="/anexoI/solicitud_gastos7/causas_contratacion_directa" type="string"/>
+      <bind nodeset="/anexoI/bienes/bienes_y_servicios_solicitados/codigo_de_catalogo" type="string"/>
+      <bind nodeset="/anexoI/bienes/bienes_y_servicios_solicitados/descripcion" type="string"/>
+      <bind nodeset="/anexoI/bienes/bienes_y_servicios_solicitados/unidad_de_medida" type="string"/>
+      <bind nodeset="/anexoI/bienes/bienes_y_servicios_solicitados/cantidad" type="string"/>
+      <bind nodeset="/anexoI/bienes/bienes_y_servicios_solicitados/importe_unitario" type="string"/>
+      <bind nodeset="/anexoI/bienes/bienes_y_servicios_solicitados/importe_total" type="string"/>
+      <bind nodeset="/anexoI/texto-1/datos_servicio" type="string"/>
+      <bind nodeset="/anexoI/texto-1/observaciones_propias" type="string"/>
+      <bind nodeset="/anexoI/texto-1/observaciones_catalogo" type="string"/>
+      <bind nodeset="/anexoI/texto-1/especificacion_tecnica" type="string"/>
+      <bind nodeset="/anexoI/texto-1/despiece" type="string"/>
+      <bind nodeset="/anexoI/texto-1/tolerancia" type="string"/>
+      <bind nodeset="/anexoI/suma/suma2/fecha_entrega" type="string"/>
+      <bind nodeset="/anexoI/suma/suma2/descripcion" type="string"/>
+      <bind nodeset="/anexoI/suma/suma2/unidad_de_medida" type="string"/>
+      <bind nodeset="/anexoI/suma/suma2/cantidad" type="string"/>
+      <bind nodeset="/anexoI/suma/suma2/importe_unitario" type="string"/>
+      <bind nodeset="/anexoI/resultado_suma/suma_de" type="string"/>
+      <bind nodeset="/anexoI/resultado_suma/total_suma" type="string"/>
+      <bind nodeset="/anexoI/nota/obsAnexoC" type="string"/>
+      <bind nodeset="/anexoI/Texto-7/solicitante" type="string"/>
+      <bind nodeset="/anexoI/Texto-7/firma_y_aclaracion" type="string"/>
+      <bind nodeset="/anexoI/Texto-8/fecha_autorizacion" type="string"/>
+      <bind nodeset="/anexoI/Texto-8/firma_y_aclaracion_autorizacion" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/anexoI/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col4 well-white" ref="/anexoI/solicitud_gastos">
+      <label>SOLICITUD DE GASTOS</label>
+      <input ref="/anexoI/solicitud_gastos/nro_solicitud">
+        <label>Nº de Solicitud:</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos/nombre_organismo_contratante">
+        <label>Nombre del organismo contratante:</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos/saf">
+        <label>SAF:</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos/cuit">
+        <label>CUIT:</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos/expediente_nro">
+        <label>Expediente Nº:</label>
+      </input>
+    </group>
+    <group appearance="col4 well-white" ref="/anexoI/solicitud_gastos2">
+      <input ref="/anexoI/solicitud_gastos2/actividad_interna">
+        <label>Actividad Interna:</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos2/delegacion">
+        <label>Delegación:</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos2/unidad_solicitante">
+        <label>Unidad Solicitante:</label>
+      </input>
+      <select1 appearance="minimal" ref="/anexoI/solicitud_gastos2/rubro_comercial">
+        <label>Rubro Comercial:</label>
+        <item>
+          <label>Seleccione una opción</label>
+          <value>-1</value>
+        </item>
+        <item>
+          <label>ALIMENTOS</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>LIBRERIA,PAP. Y UTILES OFICINA</label>
+          <value>2</value>
+        </item>
+        <item>
+          <label>ELEMENTOS DE LIMPIEZA</label>
+          <value>3</value>
+        </item>
+        <item>
+          <label>INDUMENT TEXTIL Y CONFECCIONES</label>
+          <value>4</value>
+        </item>
+        <item>
+          <label>BAZAR Y MENAJE</label>
+          <value>5</value>
+        </item>
+        <item>
+          <label>FERRETERIA</label>
+          <value>6</value>
+        </item>
+        <item>
+          <label>COMBUSTIBLES Y LUBRICANTES</label>
+          <value>7</value>
+        </item>
+        <item>
+          <label>CARPINTERIA</label>
+          <value>8</value>
+        </item>
+        <item>
+          <label>ELECTRICIDAD Y TELEFONIA</label>
+          <value>9</value>
+        </item>
+        <item>
+          <label>CERRAJERIA</label>
+          <value>10</value>
+        </item>
+        <item>
+          <label>SANITARIOS, PLOMERIA Y GAS</label>
+          <value>12</value>
+        </item>
+        <item>
+          <label>INFORMATICA</label>
+          <value>13</value>
+        </item>
+        <item>
+          <label>REPUESTOS</label>
+          <value>14</value>
+        </item>
+        <item>
+          <label>VIDRIERIA</label>
+          <value>15</value>
+        </item>
+        <item>
+          <label>MATERIALES DE CONSTRUCCION</label>
+          <value>16</value>
+        </item>
+        <item>
+          <label>PINTURAS</label>
+          <value>17</value>
+        </item>
+        <item>
+          <label>TAPICERIA</label>
+          <value>18</value>
+        </item>
+        <item>
+          <label>ARTICULOS DEL HOGAR</label>
+          <value>19</value>
+        </item>
+        <item>
+          <label>HERRERIA</label>
+          <value>20</value>
+        </item>
+        <item>
+          <label>PRODUCTOS VETERINARIOS</label>
+          <value>21</value>
+        </item>
+        <item>
+          <label>EQUIPOS</label>
+          <value>24</value>
+        </item>
+        <item>
+          <label>EQUIPO DE OFICINA Y MUEBLES</label>
+          <value>27</value>
+        </item>
+        <item>
+          <label>GASES INDUSTRIALES</label>
+          <value>31</value>
+        </item>
+        <item>
+          <label>HERRAMIENTAS</label>
+          <value>33</value>
+        </item>
+        <item>
+          <label>CINE/TELVIS./RADIO/FOTOGRAFIA</label>
+          <value>36</value>
+        </item>
+        <item>
+          <label>IMPRENTA Y EDITORIALES</label>
+          <value>38</value>
+        </item>
+        <item>
+          <label>SERVICIOS BASICOS</label>
+          <value>40</value>
+        </item>
+        <item>
+          <label>VIGILANCIA Y SEGURIDAD</label>
+          <value>42</value>
+        </item>
+        <item>
+          <label>MANT. REPARACION Y LIMPIEZA</label>
+          <value>45</value>
+        </item>
+        <item>
+          <label>ALQUILER</label>
+          <value>46</value>
+        </item>
+        <item>
+          <label>PRODUCTOS MEDICO/FARMACEUTICOS</label>
+          <value>51</value>
+        </item>
+        <item>
+          <label>EQUIPO MILITAR Y DE SEGURIDAD</label>
+          <value>52</value>
+        </item>
+        <item>
+          <label>CULTURA</label>
+          <value>55</value>
+        </item>
+        <item>
+          <label>SERV. PROFESIONAL Y COMERCIAL</label>
+          <value>58</value>
+        </item>
+        <item>
+          <label>SERVICIO DE NOTICIAS</label>
+          <value>59</value>
+        </item>
+        <item>
+          <label>BANCOS Y SEGUROS</label>
+          <value>62</value>
+        </item>
+        <item>
+          <label>TRANSPORTE Y DEPOSITO</label>
+          <value>63</value>
+        </item>
+        <item>
+          <label>NAUTICA</label>
+          <value>66</value>
+        </item>
+        <item>
+          <label>AGRIC, GANADERIA, CAZA, SILVICULT</label>
+          <value>70</value>
+        </item>
+        <item>
+          <label>UTILES Y PRODUCTOS DEPORTIVOS</label>
+          <value>73</value>
+        </item>
+        <item>
+          <label>JOYERIA Y ORFEBRERIA</label>
+          <value>74</value>
+        </item>
+        <item>
+          <label>CEREMONIAL</label>
+          <value>79</value>
+        </item>
+        <item>
+          <label>QUIMICOS</label>
+          <value>80</value>
+        </item>
+      </select1>
+      <input ref="/anexoI/solicitud_gastos2/modalidad_compra_sugerida">
+        <label>Modalidad de compra sugerida:</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos2/fecha_inicio_sugerida">
+        <label>Fecha de inicio de vigencia sugerida:</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos2/fecha_fin_vigencia_sugerida">
+        <label>Fecha fin de vigencia sugerida:</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos2/clase">
+        <label>Proc. selección sugeridos – Clase:</label>
+      </input>
+    </group>
+    <group appearance="col4 well-white" ref="/anexoI/solicitud_gastos3">
+      <input ref="/anexoI/solicitud_gastos3/objeto">
+        <label>Objeto:</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos3/prioridad_justificacion_necesidad">
+        <label>Prioridad y justificación de la necesidad:</label>
+        <hint>Motivos que fundamenten la necesidad de la adquisición</hint>
+      </input>
+    </group>
+    <group appearance="col4 well-white" ref="/anexoI/solicitud_gastos4">
+      <label>Entrega Única</label>
+      <input ref="/anexoI/solicitud_gastos4/fecha_entrega">
+        <label>Fecha entrega:</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos4/lugar_entrega">
+        <label>Lugar de entrega:</label>
+      </input>
+    </group>
+    <group appearance="col4 well-white" ref="/anexoI/solicitud_gastos6">
+      <label>IMPUTACION PRESUPUESTARIA:</label>
+      <input ref="/anexoI/solicitud_gastos6/jurisdiccion">
+        <label>Jurisdicción</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos6/subju">
+        <label>Subju.</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos6/ent">
+        <label>Ent</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos6/programa">
+        <label>Programa</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos6/subprog">
+        <label>Subprog.</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos6/proy">
+        <label>Proy.</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos6/activ">
+        <label>Activ.</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos6/ob">
+        <label>Ob.</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos6/descripcion_act_prog">
+        <label>Descripción de la actividad programática.</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos6/ejerc_inc">
+        <label>Ejerc Inc.</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos6/ppr">
+        <label>Ppr</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos6/ppa">
+        <label>Ppa</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos6/spa">
+        <label>Spa</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos6/fuente_financiamiento">
+        <label>Fuente de Financiamiento</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos6/ub_geografica">
+        <label>Ub. Geográfica</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos6/mon">
+        <label>Mon</label>
+      </input>
+      <input ref="/anexoI/solicitud_gastos6/importe">
+        <label>Importe</label>
+      </input>
+    </group>
+    <group appearance="col4 well-white" ref="/anexoI/solicitud_gastos7">
+      <input ref="/anexoI/solicitud_gastos7/causas_contratacion_directa">
+        <label>Causas de contratación directa:</label>
+        <hint>Ejemplo: razones de urgencia – obras científicas, técnicas o artísticas cuya ejecución deba confiarse a empresas personas o artistas especializados – bienes cuya fabricación o venta sea exclusiva de determinada persona.</hint>
+      </input>
+    </group>
+    <group ref="/anexoI/bienes">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/anexoI/bienes">
+        <group appearance="col4 well-white" ref="/anexoI/bienes/bienes_y_servicios_solicitados">
+          <label>BIENES Y SERVICIOS SOLICITADOS</label>
+          <input ref="/anexoI/bienes/bienes_y_servicios_solicitados/codigo_de_catalogo">
+            <label>Código de catálogo:</label>
+          </input>
+          <input ref="/anexoI/bienes/bienes_y_servicios_solicitados/descripcion">
+            <label>Descripción:</label>
+          </input>
+          <input ref="/anexoI/bienes/bienes_y_servicios_solicitados/unidad_de_medida">
+            <label>Unidad de medida:</label>
+          </input>
+          <input ref="/anexoI/bienes/bienes_y_servicios_solicitados/cantidad">
+            <label>Cantidad:</label>
+          </input>
+          <input ref="/anexoI/bienes/bienes_y_servicios_solicitados/importe_unitario">
+            <label>Importe Unitario:</label>
+          </input>
+          <input ref="/anexoI/bienes/bienes_y_servicios_solicitados/importe_total">
+            <label>Importe Total:</label>
+          </input>
+        </group>
+      </repeat>
+    </group>
+    <group appearance="col4 well-white" ref="/anexoI/texto-1">
+      <input ref="/anexoI/texto-1/datos_servicio">
+        <label>Datos del servicio:</label>
+      </input>
+      <input ref="/anexoI/texto-1/observaciones_propias">
+        <label>Observaciones propias:</label>
+      </input>
+      <input ref="/anexoI/texto-1/observaciones_catalogo">
+        <label>Observaciones del catálogo:</label>
+      </input>
+      <input ref="/anexoI/texto-1/especificacion_tecnica">
+        <label>Especificación Técnica:</label>
+      </input>
+      <input ref="/anexoI/texto-1/despiece">
+        <label>Despiece:</label>
+      </input>
+      <input ref="/anexoI/texto-1/tolerancia">
+        <label>Tolerancia:</label>
+      </input>
+    </group>
+    <group ref="/anexoI/suma">
+      <label></label>
+      <repeat appearance="grilla" nodeset="/anexoI/suma">
+        <group appearance="col4 well-white" ref="/anexoI/suma/suma2">
+          <label>BIENES Y SERVICIOS SOLICITADOS</label>
+          <input ref="/anexoI/suma/suma2/fecha_entrega">
+            <label>Fecha entrega</label>
+          </input>
+          <input ref="/anexoI/suma/suma2/descripcion">
+            <label>Lugar de entrega</label>
+          </input>
+          <input ref="/anexoI/suma/suma2/unidad_de_medida">
+            <label>Cantidad</label>
+          </input>
+          <input ref="/anexoI/suma/suma2/cantidad">
+            <label>Unidad</label>
+          </input>
+          <input ref="/anexoI/suma/suma2/importe_unitario">
+            <label>Observaciones</label>
+          </input>
+        </group>
+      </repeat>
+    </group>
+    <group appearance="col4 well-white" ref="/anexoI/resultado_suma">
+      <input ref="/anexoI/resultado_suma/suma_de">
+        <label>La suma de:</label>
+      </input>
+      <input ref="/anexoI/resultado_suma/total_suma">
+        <label>Total:</label>
+      </input>
+    </group>
+    <group appearance="textarea" ref="/anexoI/nota">
+      <label>OBSERVACIONES O ANTECEDENTES DE INTERES:</label>
+      <input appearance="multiline" ref="/anexoI/nota/obsAnexoC">
+        <label>Observaciones o antecedentes de interés</label>
+        <hint>OBSERVACIONES O ANTECEDENTES DE INTERES</hint>
+      </input>
+    </group>
+    <group appearance="col4 well-white" ref="/anexoI/Texto-7">
+      <input ref="/anexoI/Texto-7/solicitante">
+        <label>Solicitante:</label>
+      </input>
+      <input ref="/anexoI/Texto-7/firma_y_aclaracion">
+        <label>Firma y aclaración:</label>
+      </input>
+    </group>
+    <group appearance="col4 well-white" ref="/anexoI/Texto-8">
+      <label>AUTORIZACION DEL GASTO</label>
+      <input ref="/anexoI/Texto-8/fecha_autorizacion">
+        <label>Fecha:</label>
+      </input>
+      <input ref="/anexoI/Texto-8/firma_y_aclaracion_autorizacion">
+        <label>Firma y aclaración:</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

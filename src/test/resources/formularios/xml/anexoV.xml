@@ -1,0 +1,467 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>FORMATO ESTANDAR DE LOS PROYECTOS DE PLIEGOS DE BASES Y CONDICIONES PARTICULARES</h:title>
+    <model>
+      <submission action="/api/deposition" method="form-data-post"/>
+      <instance>
+        <anexoV id="anexoV">
+          <membrete>
+            <proyecto>
+              <nombre_organismo/>
+            </proyecto>
+          </membrete>
+          <procedimiento>
+            <tipo/>
+            <numero/>
+            <ejercicio/>
+            <clase/>
+            <modalidad/>
+            <expediente/>
+            <rubro/>
+            <objetivo/>
+            <costo/>
+          </procedimiento>
+          <retiro>
+            <lugar_direccion/>
+            <plazo_horario/>
+          </retiro>
+          <acto>
+            <lugar_direccion/>
+            <dia_hora/>
+          </acto>
+          <grupo>
+            <renglon/>
+            <cantidad/>
+            <unidad/>
+            <descripcion/>
+          </grupo>
+          <grup_a>
+            <servicio/>
+            <obser_item/>
+            <obser_catalogo/>
+            <especif_tec/>
+            <despiece/>
+            <tolerancia/>
+          </grup_a>
+          <grupo_b>
+            <frecuencia/>
+            <cantidad_minima/>
+            <obsAnexoV/>
+          </grupo_b>
+          <grupo_c>
+            <clausula/>
+            <anexo/>
+          </grupo_c>
+          <nota>
+            <observaciones/>
+          </nota>
+          <meta>
+            <instanceID/>
+          </meta>
+        </anexoV>
+      </instance>
+      <bind nodeset="/anexoV/membrete/proyecto/nombre_organismo" type="string"/>
+      <bind nodeset="/anexoV/procedimiento/tipo" type="select1"/>
+      <bind nodeset="/anexoV/procedimiento/numero" type="int"/>
+      <bind nodeset="/anexoV/procedimiento/ejercicio" type="int"/>
+      <bind nodeset="/anexoV/procedimiento/clase" type="select1"/>
+      <bind nodeset="/anexoV/procedimiento/modalidad" type="select1"/>
+      <bind nodeset="/anexoV/procedimiento/expediente" type="int"/>
+      <bind nodeset="/anexoV/procedimiento/rubro" type="select1"/>
+      <bind nodeset="/anexoV/procedimiento/objetivo" type="string"/>
+      <bind nodeset="/anexoV/procedimiento/costo" type="string"/>
+      <bind nodeset="/anexoV/retiro/lugar_direccion" type="string"/>
+      <bind nodeset="/anexoV/retiro/plazo_horario" type="string"/>
+      <bind nodeset="/anexoV/acto/lugar_direccion" type="string"/>
+      <bind nodeset="/anexoV/acto/dia_hora" type="string"/>
+      <bind nodeset="/anexoV/grupo/renglon" type="int"/>
+      <bind nodeset="/anexoV/grupo/cantidad" type="int"/>
+      <bind nodeset="/anexoV/grupo/unidad" type="string"/>
+      <bind nodeset="/anexoV/grupo/descripcion" type="string"/>
+      <bind nodeset="/anexoV/grup_a/servicio" type="string"/>
+      <bind nodeset="/anexoV/grup_a/obser_item" type="string"/>
+      <bind nodeset="/anexoV/grup_a/obser_catalogo" type="string"/>
+      <bind nodeset="/anexoV/grup_a/especif_tec" type="string"/>
+      <bind nodeset="/anexoV/grup_a/despiece" type="string"/>
+      <bind nodeset="/anexoV/grup_a/tolerancia" type="string"/>
+      <bind nodeset="/anexoV/grupo_b/frecuencia" type="string"/>
+      <bind nodeset="/anexoV/grupo_b/cantidad_minima" type="string"/>
+      <bind nodeset="/anexoV/grupo_b/obsAnexoV" type="string"/>
+      <bind nodeset="/anexoV/grupo_c/clausula" type="string"/>
+      <bind nodeset="/anexoV/grupo_c/anexo" type="string"/>
+      <bind nodeset="/anexoV/nota/observaciones" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/anexoV/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group appearance="col4 well-white" ref="/anexoV/membrete">
+      <label>MEMBRETE DEL ORGANISMO</label>
+      <group appearance="col4 well-white" ref="/anexoV/membrete/proyecto">
+        <label>PLIEGO DE BASES Y CONDICIONES PARTICULARES</label>
+        <input ref="/anexoV/membrete/proyecto/nombre_organismo">
+          <label>Nombre del organismo contratante</label>
+        </input>
+      </group>
+    </group>
+    <group appearance="col3 well-white" ref="/anexoV/procedimiento">
+      <label>PROCEDIMIENTO DE SELECCIÓN</label>
+      <select1 appearance="minimal" ref="/anexoV/procedimiento/tipo">
+        <label>Tipo:</label>
+        <hint>Tipo de procedimiento por el que se realizó la selección</hint>
+        <item>
+          <label>Seleccione una opción</label>
+          <value>-1</value>
+        </item>
+        <item>
+          <label>licitación pública</label>
+          <value>licitacion_publica</value>
+        </item>
+        <item>
+          <label>concurso privado</label>
+          <value>concurso_privado</value>
+        </item>
+        <item>
+          <label>contratación directa</label>
+          <value>contratacion_directa</value>
+        </item>
+        <item>
+          <label>etc.</label>
+          <value>etc</value>
+        </item>
+      </select1>
+      <input ref="/anexoV/procedimiento/numero">
+        <label>Nº:</label>
+      </input>
+      <input ref="/anexoV/procedimiento/ejercicio">
+        <label>Ejercicio:</label>
+      </input>
+      <select1 appearance="minimal" ref="/anexoV/procedimiento/clase">
+        <label>Clase:</label>
+        <hint>Clase de procedimiento</hint>
+        <item>
+          <label>Seleccione una opción</label>
+          <value>-1</value>
+        </item>
+        <item>
+          <label>etapa única nacional</label>
+          <value>etapa_unica</value>
+        </item>
+        <item>
+          <label>etapa múltiple internacional</label>
+          <value>etapa_multiple</value>
+        </item>
+        <item>
+          <label>etc</label>
+          <value>etc</value>
+        </item>
+      </select1>
+      <select1 appearance="minimal" ref="/anexoV/procedimiento/modalidad">
+        <label>Modalidad:</label>
+        <hint>Modalidad utilizada</hint>
+        <item>
+          <label>Seleccione una opción</label>
+          <value>-1</value>
+        </item>
+        <item>
+          <label>consolidada</label>
+          <value>consolidada</value>
+        </item>
+        <item>
+          <label>iniciativa privada</label>
+          <value>iniciativa_privada</value>
+        </item>
+        <item>
+          <label>precio tope o de referencia</label>
+          <value>precio_tope</value>
+        </item>
+        <item>
+          <label>sin modalidad</label>
+          <value>sin_modalidad</value>
+        </item>
+        <item>
+          <label>etc</label>
+          <value>etc</value>
+        </item>
+      </select1>
+      <input ref="/anexoV/procedimiento/expediente">
+        <label>Expediente Nº</label>
+      </input>
+      <select1 appearance="minimal" ref="/anexoV/procedimiento/rubro">
+        <label>Rubro comercial:</label>
+        <item>
+          <label>Seleccione una opción</label>
+          <value>-1</value>
+        </item>
+        <item>
+          <label>ALIMENTOS</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>LIBRERIA,PAP. Y UTILES OFICINA</label>
+          <value>2</value>
+        </item>
+        <item>
+          <label>ELEMENTOS DE LIMPIEZA</label>
+          <value>3</value>
+        </item>
+        <item>
+          <label>INDUMENT TEXTIL Y CONFECCIONES</label>
+          <value>4</value>
+        </item>
+        <item>
+          <label>BAZAR Y MENAJE</label>
+          <value>5</value>
+        </item>
+        <item>
+          <label>FERRETERIA</label>
+          <value>6</value>
+        </item>
+        <item>
+          <label>COMBUSTIBLES Y LUBRICANTES</label>
+          <value>7</value>
+        </item>
+        <item>
+          <label>CARPINTERIA</label>
+          <value>8</value>
+        </item>
+        <item>
+          <label>ELECTRICIDAD Y TELEFONIA</label>
+          <value>9</value>
+        </item>
+        <item>
+          <label>CERRAJERIA</label>
+          <value>10</value>
+        </item>
+        <item>
+          <label>SANITARIOS, PLOMERIA Y GAS</label>
+          <value>12</value>
+        </item>
+        <item>
+          <label>INFORMATICA</label>
+          <value>13</value>
+        </item>
+        <item>
+          <label>REPUESTOS</label>
+          <value>14</value>
+        </item>
+        <item>
+          <label>VIDRIERIA</label>
+          <value>15</value>
+        </item>
+        <item>
+          <label>MATERIALES DE CONSTRUCCION</label>
+          <value>16</value>
+        </item>
+        <item>
+          <label>PINTURAS</label>
+          <value>17</value>
+        </item>
+        <item>
+          <label>TAPICERIA</label>
+          <value>18</value>
+        </item>
+        <item>
+          <label>ARTICULOS DEL HOGAR</label>
+          <value>19</value>
+        </item>
+        <item>
+          <label>HERRERIA</label>
+          <value>20</value>
+        </item>
+        <item>
+          <label>PRODUCTOS VETERINARIOS</label>
+          <value>21</value>
+        </item>
+        <item>
+          <label>EQUIPOS</label>
+          <value>24</value>
+        </item>
+        <item>
+          <label>EQUIPO DE OFICINA Y MUEBLES</label>
+          <value>27</value>
+        </item>
+        <item>
+          <label>GASES INDUSTRIALES</label>
+          <value>31</value>
+        </item>
+        <item>
+          <label>HERRAMIENTAS</label>
+          <value>33</value>
+        </item>
+        <item>
+          <label>CINE/TELVIS./RADIO/FOTOGRAFIA</label>
+          <value>36</value>
+        </item>
+        <item>
+          <label>IMPRENTA Y EDITORIALES</label>
+          <value>38</value>
+        </item>
+        <item>
+          <label>SERVICIOS BASICOS</label>
+          <value>40</value>
+        </item>
+        <item>
+          <label>VIGILANCIA Y SEGURIDAD</label>
+          <value>42</value>
+        </item>
+        <item>
+          <label>MANT. REPARACION Y LIMPIEZA</label>
+          <value>45</value>
+        </item>
+        <item>
+          <label>ALQUILER</label>
+          <value>46</value>
+        </item>
+        <item>
+          <label>PRODUCTOS MEDICO/FARMACEUTICOS</label>
+          <value>51</value>
+        </item>
+        <item>
+          <label>EQUIPO MILITAR Y DE SEGURIDAD</label>
+          <value>52</value>
+        </item>
+        <item>
+          <label>CULTURA</label>
+          <value>55</value>
+        </item>
+        <item>
+          <label>SERV. PROFESIONAL Y COMERCIAL</label>
+          <value>58</value>
+        </item>
+        <item>
+          <label>SERVICIO DE NOTICIAS</label>
+          <value>59</value>
+        </item>
+        <item>
+          <label>BANCOS Y SEGUROS</label>
+          <value>62</value>
+        </item>
+        <item>
+          <label>TRANSPORTE Y DEPOSITO</label>
+          <value>63</value>
+        </item>
+        <item>
+          <label>NAUTICA</label>
+          <value>66</value>
+        </item>
+        <item>
+          <label>AGRIC,GANADERIA,CAZA,SILVICULT</label>
+          <value>70</value>
+        </item>
+        <item>
+          <label>UTILES Y PRODUCTOS DEPORTIVOS</label>
+          <value>73</value>
+        </item>
+        <item>
+          <label>JOYERIA Y ORFEBRERIA</label>
+          <value>74</value>
+        </item>
+        <item>
+          <label>CEREMONIAL</label>
+          <value>79</value>
+        </item>
+        <item>
+          <label>QUIMICOS</label>
+          <value>80</value>
+        </item>
+      </select1>
+      <input ref="/anexoV/procedimiento/objetivo">
+        <label>Objeto de la contratación:</label>
+      </input>
+      <input ref="/anexoV/procedimiento/costo">
+        <label>Costo del pliego:</label>
+        <hint>Indicar el costo del pliego en los casos en que corresponda.</hint>
+      </input>
+    </group>
+    <group appearance="col3 well-white" ref="/anexoV/retiro">
+      <label>PRESENTACION DE OFERTAS</label>
+      <input ref="/anexoV/retiro/lugar_direccion">
+        <label>Lugar/Dirección</label>
+        <hint>Indicar dirección, código postal, localidad y provincia.</hint>
+      </input>
+      <input ref="/anexoV/retiro/plazo_horario">
+        <label>Plazo y horario</label>
+      </input>
+    </group>
+    <group appearance="col3 well-white" ref="/anexoV/acto">
+      <label>ACTO DE APERTURA</label>
+      <input ref="/anexoV/acto/lugar_direccion">
+        <label>Lugar/Dirección</label>
+        <hint>Indicar dirección, código postal, localidad y provincia.</hint>
+      </input>
+      <input ref="/anexoV/acto/dia_hora">
+        <label>Día y Hora</label>
+      </input>
+    </group>
+    <group appearance="col4 well-white" ref="/anexoV/grupo">
+      <label>ESPECIFICACIONES</label>
+      <input ref="/anexoV/grupo/renglon">
+        <label>Renglón Nº</label>
+      </input>
+      <input ref="/anexoV/grupo/cantidad">
+        <label>Cantidad</label>
+      </input>
+      <input ref="/anexoV/grupo/unidad">
+        <label>Unidad de medida</label>
+      </input>
+      <input ref="/anexoV/grupo/descripcion">
+        <label>Descripción</label>
+        <hint>Código y descripción del catálogo que genera el Sistema de Identificación de Bienes y Servicios de Utilización Común (Decisión Administrativa Nº 344/97)</hint>
+      </input>
+    </group>
+    <group appearance="col4 well-white" ref="/anexoV/grup_a">
+      <input ref="/anexoV/grup_a/servicio">
+        <label>Servicio</label>
+      </input>
+      <input ref="/anexoV/grup_a/obser_item">
+        <label>Observaciones del ítem</label>
+      </input>
+      <input ref="/anexoV/grup_a/obser_catalogo">
+        <label>Observaciones del catálogo</label>
+      </input>
+      <input ref="/anexoV/grup_a/especif_tec">
+        <label>Especificación técnica</label>
+      </input>
+      <input ref="/anexoV/grup_a/despiece">
+        <label>Despiece</label>
+      </input>
+      <input ref="/anexoV/grup_a/tolerancia">
+        <label>Tolerancia</label>
+      </input>
+    </group>
+    <group appearance="col4 well-white" ref="/anexoV/grupo_b">
+      <label>Datos de la solicitud de provisión</label>
+      <input ref="/anexoV/grupo_b/frecuencia">
+        <label>Frecuencia:</label>
+        <hint>Frecuencia en que se realizarán las solicitudes de provisión.</hint>
+      </input>
+      <input ref="/anexoV/grupo_b/cantidad_minima">
+        <label>Cantidad mínima:</label>
+        <hint>Cantidad que el organismo contratante fijó como mínima para cada solicitud de provisión.</hint>
+      </input>
+      <input appearance="multiline" ref="/anexoV/grupo_b/obsAnexoV">
+        <label>Observaciones:</label>
+        <hint>Observaciones</hint>
+      </input>
+    </group>
+    <group appearance="textarea" ref="/anexoV/grupo_c">
+      <label>CLAUSULAS PARTICULARES Y ANEXOS</label>
+      <input appearance="multiline" ref="/anexoV/grupo_c/clausula">
+        <label>Cláusulas Particulares</label>
+        <hint>Texto de las cláusulas particulares de los proyectos de pliegos de bases y condiciones particulares.</hint>
+      </input>
+      <input appearance="multiline" ref="/anexoV/grupo_c/anexo">
+        <label>Anexos</label>
+        <hint>Texto de las cláusulas particulares de los proyectos de pliegos de bases y condiciones particulares.</hint>
+      </input>
+    </group>
+    <group appearance="textarea" ref="/anexoV/nota">
+      <label>OBSERVACIONES GENERALES</label>
+      <input appearance="multiline" ref="/anexoV/nota/observaciones">
+        <label>Obsercvaciones Generales</label>
+        <hint>Texto de las observaciones generales a los proyectos de pliegos de bases y condiciones particulares</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>
