@@ -7,6 +7,7 @@ var gui = new function() {
 	this.renderTotal = false;
 	this.renderTotalizadores = false;
 	this.renderTotalizadoresIngresados = false;
+	this.renderPorcentaje = false;
 	this.readonly = false;
 	this.MESSAGES = {
 		INFO : "alert-info",
@@ -91,6 +92,9 @@ var gui = new function() {
 		// }
 		if (this.renderTotalizadoresIngresados) {
 			this.renderTotalizadores = true;
+		}
+		if(!this.renderTotal){
+			this.renderPorcentaje = true;
 		}
 
 		/** ******* SETUP GUI JQUERY PLUGIN FUNCTIONALITY ******** */
@@ -1192,6 +1196,14 @@ var gui = new function() {
 				}
 			}
 
+			if (gui.renderPorcentaje) {
+				this.headers.push({
+					"sTitle" : "Resultado %",
+					"mData" : "resultado",
+					"bSearchable" : false,
+				});
+			}
+			
 			if (gui.renderTotal) {
 				this.headers.push({
 					"sTitle" : "Total",
@@ -1199,6 +1211,7 @@ var gui = new function() {
 					"bSearchable" : false,
 				});
 			}
+			
 			this.element
 					.dataTable({
 						"bJQueryUI" : false,
@@ -1284,6 +1297,8 @@ var gui = new function() {
 			var totalizado = this.processGroups(record);
 
 			var acumulaTotal = 0;
+			var porcentaje = 0;
+			
 			for ( var i = 0; i < this.totalizadores.length; i++) {
 
 				var r = record[this.totalizadores[i].nombre];
@@ -1292,9 +1307,14 @@ var gui = new function() {
 						: r;
 				acumulaTotal = acumulaTotal
 						+ totalizado[this.totalizadores[i].nombre];
+				
 			}
 
+			i=0;
+			porcentaje = totalizado[this.totalizadores[i].nombre]*100/totalizado[this.totalizadores[i+1].nombre];
+			
 			totalizado["rowTotal"] = acumulaTotal;
+			totalizado["resultado"] = porcentaje.toFixed(2);
 
 			if (this.accountedFor) {
 				this.updateRow(totalizado, this.totalizadoIdx);
@@ -1355,7 +1375,11 @@ var gui = new function() {
 							+ totalizado[this.totalizadores[i].nombre];
 				}
 
+				i=0;
+				porcentaje = totalizado[this.totalizadores[i].nombre]*100/totalizado[this.totalizadores[i+1].nombre];
+				
 				totalizado["rowTotal"] = acumulaTotal;
+				totalizado["resultado"] = porcentaje.toFixed(2);
 
 				this.updateRow(totalizado, this.totalizadoIdx);
 				this.resetProcessVars();
@@ -1392,8 +1416,14 @@ var gui = new function() {
 							+ totalizado[this.totalizadores[i].nombre];
 				}
 			}
-
+			
+			i=0;
+			porcentaje = totalizado[this.totalizadores[i].nombre]*100/totalizado[this.totalizadores[i+1].nombre];
+			
 			totalizado["rowTotal"] = acumulaTotal;
+			totalizado["resultado"] = porcentaje.toFixed(2);
+
+			
 			// si la sumatoria es menor igual que cero se elimina el registro
 			if (total <= 0) {
 				this.removeRow(this.totalizadoIdx);
@@ -1676,6 +1706,9 @@ var gui = new function() {
 				});
 
 			}
+			
+			
+			
 			if (!gui.readonly) {
 				this.headers
 						.push({
