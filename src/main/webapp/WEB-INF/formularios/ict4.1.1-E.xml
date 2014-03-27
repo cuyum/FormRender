@@ -27,14 +27,14 @@
           </meta>
         </ict4.1.1-E>
       </instance>
-      <bind constraint="periodicidad=/servicios/rest/periodicidad and agrupador=1" nodeset="/ict4.1.1-E/meses/mes/periodo_considerado" required="true()" type="select1"/>
-      <bind constraint="agrupador=2" nodeset="/ict4.1.1-E/meses/mes/canales" required="true()" type="select1"/>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad and agrupador=1 and clave_primaria" nodeset="/ict4.1.1-E/meses/mes/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="agrupador=2 and clave_primaria" nodeset="/ict4.1.1-E/meses/mes/canales" required="true()" type="select1"/>
       <bind nodeset="/ict4.1.1-E/meses/mes/canales_otros" relevant=" /ict4.1.1-E/meses/mes/canales =Otros" required="false()" type="string"/>
-      <bind nodeset="/ict4.1.1-E/meses/mes/id_bocas" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.1-E/meses/mes/provincia" required="true()" type="select1"/>
-      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/ict4.1.1-E/meses/mes/provincia" nodeset="/ict4.1.1-E/meses/mes/partido" required="true()" type="select1"/>
+      <bind constraint="clave_primaria" nodeset="/ict4.1.1-E/meses/mes/id_bocas" required="true()" type="string"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias and clave_primaria" nodeset="/ict4.1.1-E/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/ict4.1.1-E/meses/mes/provincia and clave_primaria" nodeset="/ict4.1.1-E/meses/mes/partido" required="true()" type="select1"/>
       <bind nodeset="/ict4.1.1-E/meses/mes/partido_otro" relevant=" /ict4.1.1-E/meses/mes/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/ict4.1.1-E/meses/mes/partido" nodeset="/ict4.1.1-E/meses/mes/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/ict4.1.1-E/meses/mes/partido and clave_primaria" nodeset="/ict4.1.1-E/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/ict4.1.1-E/meses/mes/localidad_otro" relevant=" /ict4.1.1-E/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.1-E/meses/mes/tiempo_espera" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.1.1-E/meses/mes/personal_afectado_reclamos" required="true()" type="int"/>
