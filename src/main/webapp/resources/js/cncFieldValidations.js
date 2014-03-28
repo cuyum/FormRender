@@ -622,6 +622,19 @@ var setupDataConstraints = function(field, fieldset) {
 					});
 				}
 			} else
+				/* clave constraint */
+				if (constraint.indexOf("clave_primaria") != -1) {
+					
+					field.data("jr:constraint:clave_primaria", true);
+					
+						var header = field.siblings("span.jr-label");
+						gui.grid.claves_primarias.push({
+							"nombre" : gui.getCleanFieldName(field.attr("name"),
+									fieldset.instance),
+							"titulo" : header.text()
+						});
+					
+				} else	
 			/* query_param */
 			if (constraint.indexOf("periodicidad") != -1) {
 				var params = constraint.substring(constraint
@@ -1372,6 +1385,28 @@ var setupHoraDelta = function(field, fieldset) {
 	}
 	;
 
+};
+
+var validationPrimaryKey = function(record,storedData,fieldset,pkeys){
+	
+	result=false;
+	record.instance = fieldset.instance;
+	
+	for ( var i = 0; i < storedData.length; i++) {
+		var cont = 0;
+		var storedRecord = storedData[i];
+		
+		for(var j=0; j<pkeys.length;j++){
+			if (storedRecord[pkeys[j].nombre].value== record[pkeys[j].nombre].value) {
+				cont++;
+			}
+		}
+		if(cont==pkeys.length){
+			result=true;
+			break;
+		}
+	}
+	return result;
 };
 
 var setupValidations = function(f, fieldset) {

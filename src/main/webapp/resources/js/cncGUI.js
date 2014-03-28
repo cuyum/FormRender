@@ -1439,6 +1439,7 @@ var gui = new function() {
 	this.grid = {
 		editing : -1,
 		headers : [],
+		claves_primarias: [],
 		data : [],
 		model : {
 			fields : [],
@@ -1515,6 +1516,7 @@ var gui = new function() {
 		addRow : function(fieldsetInstance) {
 			var fieldset = gui.fieldsets[fieldsetInstance];
 			var fields = [];
+			
 			var record = $.extend(true, {}, this.model);
 			var tmpHash = "";
 			if (gui.repeatCount && gui.repeatCount > 1) {
@@ -1530,6 +1532,7 @@ var gui = new function() {
 				var field = $(fieldset.fields[i]);
 				var attribute = gui.getCleanFieldName(field.attr("name"),
 						fieldsetInstance);
+				
 				if (field.is(":visible")
 						|| field.attr("data-type-xml") == "select2") {
 					var value = field.val();
@@ -1614,13 +1617,18 @@ var gui = new function() {
 				var storedRecord = storedData[i];
 				// console.info("stored record",storedRecord.signature);
 				if (storedRecord.firma_digital == record.firma_digital) {
-					gui
-							.displayWarning("Ya se encuentra agregado un registro con esos valores");
+					gui.displayWarning("Ya se encuentra agregado un registro con esos valores");
 					commit = false;
 					break;
 				}
 				;
 			}
+			
+			if(validationPrimaryKey(record,storedData,fieldset,gui.grid.claves_primarias)){
+				gui.displayWarning("se repite clave primaria");
+				commit = false;
+			}
+			
 			if (commit) {
 				gui.cleanFormValidations();
 				gui.resetFields(fields);
