@@ -1625,7 +1625,11 @@ var gui = new function() {
 			}
 			
 			if(validationPrimaryKey(record,storedData,fieldset,gui.grid.claves_primarias)){
-				gui.displayWarning("se repite clave primaria");
+				var claves=" ";
+				for(var i=0; i < (gui.grid.claves_primarias.length);i++){
+					claves+=gui.grid.claves_primarias[i].nombre+" - ";
+				}
+				gui.displayWarning("No se pueden repetir la combinación de campos:" + claves);
 				commit = false;
 			}
 			
