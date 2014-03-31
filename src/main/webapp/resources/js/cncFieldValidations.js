@@ -750,20 +750,28 @@ var setupPorcentual = function(field, fieldset) {
 					var dividendoLabel = dividendo.siblings("span.jr-label")
 							.text();
 					var divisorLabel = divisor.siblings("span.jr-label").text();
-					var message = dividendoLabel
-							+ " debe ser menor o igual que " + divisorLabel;
+//					var message = dividendoLabel
+//							+ " debe ser menor o igual que " + divisorLabel;
+					var message = divisorLabel
+					+ " debe ser mayor o igual que " + dividendoLabel;
 
 					/*
 					 * El divisor tiene que ser mayor o igual que el dividendo
 					 * por regla
 					 */
-					dividendo.rules("add", {
-						letf : divisor,
+//					dividendo.rules("add", {
+//						letf : divisor,
+//						messages : {
+//							letf : message,
+//						}
+//					});
+					divisor.rules("add", {
+						getf : dividendo,
 						messages : {
-							letf : message,
+							getf : message,
 						}
 					});
-
+					
 					dividendo.on("change", {
 						divisor : divisor,
 						porcentual : porcentual,
@@ -782,6 +790,18 @@ var setupPorcentual = function(field, fieldset) {
 									+ dividendo.attr("name")
 									+ ") no tiene un valor v\u00E1lido ("
 									+ dividendo.val() + ")");
+							return;
+						}
+						
+						if(dividendo.val()>divisor.val()){
+							input = "input[name='" + divisor[0].name + "']";
+							$(input).siblings("label.error").html(message);
+							$(input).addClass('error');
+							return;
+						}
+						if(dividendo.val()<=ivisor.val()){
+							input = "input[name='" + divisor[0].name + "']";
+							$(input).siblings("label.error").html("");
 							return;
 						}
 
@@ -823,7 +843,7 @@ var setupPorcentual = function(field, fieldset) {
 									+ divisor.val() + ")");
 							return;
 						}
-
+						
 						if (dividendo.val() != undefined
 								&& dividendo.val().trim() != ""
 								&& !isNaN(dividendo.val())) {
@@ -1117,7 +1137,7 @@ var addAsterisco = function(field){
 	
 	if($(input).siblings("span.required").text() == "")
 		$(input).siblings("span.required").html("*");
-}
+};
 
 var addRequired = function(field) {
 
@@ -1288,7 +1308,6 @@ var setupValidationDefaults = function() {
 		return this.optional(element)
 				|| gui.toNumber(value) >= gui.toNumber(param.val());
 	}, 'Valor Inv\u00E1lido');
-
 };
 
 var setupHoraDelta = function(field, fieldset) {
