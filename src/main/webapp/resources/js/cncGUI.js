@@ -1613,24 +1613,26 @@ var gui = new function() {
 			var storedData = this.getData();
 			// console.info("new record",record.signature);
 
-			for ( var i = 0; i < storedData.length; i++) {
-				var storedRecord = storedData[i];
-				// console.info("stored record",storedRecord.signature);
-				if (storedRecord.firma_digital == record.firma_digital) {
-					gui.displayWarning("Ya se encuentra agregado un registro con esos valores");
-					commit = false;
-					break;
-				}
-				;
-			}
+			if(gui.grid.claves_primarias.length==0){
 			
-			if(validationPrimaryKey(record,storedData,fieldset,gui.grid.claves_primarias)){
-				var claves=" ";
-				for(var i=0; i < (gui.grid.claves_primarias.length);i++){
-					claves+=gui.grid.claves_primarias[i].nombre+" - ";
+				for ( var i = 0; i < storedData.length; i++) {
+					var storedRecord = storedData[i];
+					// console.info("stored record",storedRecord.signature);
+					if (storedRecord.firma_digital == record.firma_digital) {
+						gui.displayWarning("Ya se encuentra agregado un registro con esos valores");
+						commit = false;
+						break;
+					}
 				}
-				gui.displayWarning("No se pueden repetir la combinación de campos:" + claves);
-				commit = false;
+			}else{
+				if(validationPrimaryKey(record,storedData,fieldset,gui.grid.claves_primarias)){
+					var claves=" ";
+					for(var i=0; i < (gui.grid.claves_primarias.length);i++){
+						claves+=gui.grid.claves_primarias[i].nombre+" - ";
+					}
+					gui.displayWarning("No se pueden repetir la combinación de campos:" + claves);
+					commit = false;
+				}
 			}
 			
 			if (commit) {
