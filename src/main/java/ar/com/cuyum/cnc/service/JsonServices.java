@@ -1185,6 +1185,10 @@ public class JsonServices implements Serializable {
 						str = "\"" + name + "\"  : {\"label\" : \"" + ""
 								+ "\", \"value\"  : \"" + "" + "\"}, ";
 					}
+					if (item.get("$ref").asText().compareTo("formulario.json#/definitions/time") == 0) {
+						str = "\"" + name + "\"  : " + "00:00"
+								+ ", ";
+					}
 					
 					nuevoDato += str;
 				}
