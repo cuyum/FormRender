@@ -199,7 +199,20 @@ th.ui-state-default:first-child { border-left: none; }
 
 .ui-widget-shadow { margin: -8px 0 0 -8px; padding: 8px; background: #AAA url(images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x; opacity: .30; filter: Alpha(Opacity=30); -moz-border-radius: 8px; -khtml-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; }
 
+/*===== MODAL =====*/
+.modal-body {
+    overflow: scroll;
+    padding: 15px;
+}
+
+
 /*===== SELECT 2 =====*/
 #repeat-grid_length div.select2-container {
     width: 60px;
 }
+
+/*===== GRIDS AGRUPADORAS =====*/
+#agrupadora-grid_length div.select2-container {
+    width: 60px;
+}
+

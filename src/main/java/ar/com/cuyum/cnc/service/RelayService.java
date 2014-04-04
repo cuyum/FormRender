@@ -173,7 +173,8 @@ public class RelayService {
 		formulario.put("id", id);
 		if(form.has("recordId")){
 			String recordId = form.get("recordId").asText();
-			formulario.put("recordId",recordId);
+			header.put("id", recordId);
+//			formulario.put("recordId",recordId);
 		}
 		formulario.put("data", data);
 		payload.put("formulario", formulario);

@@ -19,7 +19,7 @@
           </meta>
         </ict4.1.5-A>
       </instance>
-      <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.1.5-A/meses/mes/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad and clave_primaria" nodeset="/ict4.1.5-A/meses/mes/periodo_considerado" required="true()" type="select1"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.5-A/meses/mes/cant_reclamo_prepaga" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.5-A/meses/mes/total_accesos" required="true()" type="int"/>
       <bind constraint="porcentual= /ict4.1.5-A/meses/mes/cant_reclamo_prepaga , /ict4.1.5-A/meses/mes/total_accesos ,100" nodeset="/ict4.1.5-A/meses/mes/porcentaje" readonly="true()" type="decimal"/>

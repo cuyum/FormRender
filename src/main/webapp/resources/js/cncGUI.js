@@ -7,6 +7,7 @@ var gui = new function() {
 	this.renderTotal = false;
 	this.renderTotalizadores = false;
 	this.renderTotalizadoresIngresados = false;
+	this.renderPorcentaje = false;
 	this.readonly = false;
 	this.MESSAGES = {
 		INFO : "alert-info",
@@ -91,6 +92,9 @@ var gui = new function() {
 		// }
 		if (this.renderTotalizadoresIngresados) {
 			this.renderTotalizadores = true;
+		}
+		if(!this.renderTotal){
+			this.renderPorcentaje = true;
 		}
 
 		/** ******* SETUP GUI JQUERY PLUGIN FUNCTIONALITY ******** */
@@ -1192,6 +1196,14 @@ var gui = new function() {
 				}
 			}
 
+			if (gui.renderPorcentaje) {
+				this.headers.push({
+					"sTitle" : "Resultado %",
+					"mData" : "resultado",
+					"bSearchable" : false,
+				});
+			}
+			
 			if (gui.renderTotal) {
 				this.headers.push({
 					"sTitle" : "Total",
@@ -1199,6 +1211,7 @@ var gui = new function() {
 					"bSearchable" : false,
 				});
 			}
+			
 			this.element
 					.dataTable({
 						"bJQueryUI" : false,
@@ -1284,6 +1297,8 @@ var gui = new function() {
 			var totalizado = this.processGroups(record);
 
 			var acumulaTotal = 0;
+			var porcentaje = 0;
+			
 			for ( var i = 0; i < this.totalizadores.length; i++) {
 
 				var r = record[this.totalizadores[i].nombre];
@@ -1292,9 +1307,14 @@ var gui = new function() {
 						: r;
 				acumulaTotal = acumulaTotal
 						+ totalizado[this.totalizadores[i].nombre];
+				
 			}
 
+			i=0;
+			porcentaje = totalizado[this.totalizadores[i].nombre]*100/totalizado[this.totalizadores[i+1].nombre];
+			
 			totalizado["rowTotal"] = acumulaTotal;
+			totalizado["resultado"] = porcentaje.toFixed(2);
 
 			if (this.accountedFor) {
 				this.updateRow(totalizado, this.totalizadoIdx);
@@ -1355,7 +1375,11 @@ var gui = new function() {
 							+ totalizado[this.totalizadores[i].nombre];
 				}
 
+				i=0;
+				porcentaje = totalizado[this.totalizadores[i].nombre]*100/totalizado[this.totalizadores[i+1].nombre];
+				
 				totalizado["rowTotal"] = acumulaTotal;
+				totalizado["resultado"] = porcentaje.toFixed(2);
 
 				this.updateRow(totalizado, this.totalizadoIdx);
 				this.resetProcessVars();
@@ -1392,8 +1416,14 @@ var gui = new function() {
 							+ totalizado[this.totalizadores[i].nombre];
 				}
 			}
-
+			
+			i=0;
+			porcentaje = totalizado[this.totalizadores[i].nombre]*100/totalizado[this.totalizadores[i+1].nombre];
+			
 			totalizado["rowTotal"] = acumulaTotal;
+			totalizado["resultado"] = porcentaje.toFixed(2);
+
+			
 			// si la sumatoria es menor igual que cero se elimina el registro
 			if (total <= 0) {
 				this.removeRow(this.totalizadoIdx);
@@ -1409,6 +1439,7 @@ var gui = new function() {
 	this.grid = {
 		editing : -1,
 		headers : [],
+		claves_primarias: [],
 		data : [],
 		model : {
 			fields : [],
@@ -1485,6 +1516,7 @@ var gui = new function() {
 		addRow : function(fieldsetInstance) {
 			var fieldset = gui.fieldsets[fieldsetInstance];
 			var fields = [];
+			
 			var record = $.extend(true, {}, this.model);
 			var tmpHash = "";
 			if (gui.repeatCount && gui.repeatCount > 1) {
@@ -1500,6 +1532,7 @@ var gui = new function() {
 				var field = $(fieldset.fields[i]);
 				var attribute = gui.getCleanFieldName(field.attr("name"),
 						fieldsetInstance);
+				
 				if (field.is(":visible")
 						|| field.attr("data-type-xml") == "select2") {
 					var value = field.val();
@@ -1580,17 +1613,28 @@ var gui = new function() {
 			var storedData = this.getData();
 			// console.info("new record",record.signature);
 
-			for ( var i = 0; i < storedData.length; i++) {
-				var storedRecord = storedData[i];
-				// console.info("stored record",storedRecord.signature);
-				if (storedRecord.firma_digital == record.firma_digital) {
-					gui
-							.displayWarning("Ya se encuentra agregado un registro con esos valores");
-					commit = false;
-					break;
+			if(gui.grid.claves_primarias.length==0){
+			
+				for ( var i = 0; i < storedData.length; i++) {
+					var storedRecord = storedData[i];
+					// console.info("stored record",storedRecord.signature);
+					if (storedRecord.firma_digital == record.firma_digital) {
+						gui.displayWarning("Ya se encuentra agregado un registro con esos valores");
+						commit = false;
+						break;
+					}
 				}
-				;
+			}else{
+				if(validationPrimaryKey(record,storedData,fieldset,gui.grid.claves_primarias)){
+					var claves=" ";
+					for(var i=0; i < (gui.grid.claves_primarias.length);i++){
+						claves+=gui.grid.claves_primarias[i].nombre+" - ";
+					}
+					gui.displayWarning("No se pueden repetir la combinación de campos:" + claves);
+					commit = false;
+				}
 			}
+			
 			if (commit) {
 				gui.cleanFormValidations();
 				gui.resetFields(fields);
@@ -1676,6 +1720,9 @@ var gui = new function() {
 				});
 
 			}
+			
+			
+			
 			if (!gui.readonly) {
 				this.headers
 						.push({
