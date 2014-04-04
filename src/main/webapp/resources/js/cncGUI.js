@@ -1625,7 +1625,7 @@ var gui = new function() {
 					}
 				}
 			}else{
-				if(validationPrimaryKey(record,storedData,fieldset,gui.grid.claves_primarias)){
+				if(validationPrimaryKey(record,storedData,fieldset,gui.grid.claves_primarias,this.editing)){
 					var claves=" ";
 					for(var i=0; i < (gui.grid.claves_primarias.length);i++){
 						claves+=gui.grid.claves_primarias[i].nombre+" - ";

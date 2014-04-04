@@ -799,7 +799,7 @@ var setupPorcentual = function(field, fieldset) {
 							$(input).addClass('error');
 							return;
 						}
-						if(dividendo.val()<=ivisor.val()){
+						if(dividendo.val()<=divisor.val()){
 							input = "input[name='" + divisor[0].name + "']";
 							$(input).siblings("label.error").html("");
 							return;
@@ -1406,7 +1406,7 @@ var setupHoraDelta = function(field, fieldset) {
 
 };
 
-var validationPrimaryKey = function(record,storedData,fieldset,pkeys){
+var validationPrimaryKey = function(record,storedData,fieldset,pkeys,editing){
 	
 	result=false;
 	record.instance = fieldset.instance;
@@ -1417,14 +1417,15 @@ var validationPrimaryKey = function(record,storedData,fieldset,pkeys){
 		
 		for(var j=0; j<pkeys.length;j++){
 			if (storedRecord[pkeys[j].nombre].value== record[pkeys[j].nombre].value) {
+				if(i!=editing)
 				cont++;
 			}
 		}
 		if(cont==pkeys.length){
 			result=true;
 			break;
-		}
-	}
+		}		
+	}	
 	return result;
 };
 
