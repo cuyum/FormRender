@@ -854,24 +854,33 @@ public class JsonServices implements Serializable {
                     //Logica para caso de constraint en int, decimal
 //                    if(((jsonObject.get("type").asText()).trim().equals("decimal"))||((jsonObject.get("type").asText()).equals("int"))){
 
+                    String msg="Ingrese valor";
 	                    if((properties.has("minInclusive"))&&(properties.get("minInclusive").asBoolean()==true)&&(properties.has("minValue"))){
 	                    	constraint += ".>=" + properties.get("minValue").asText();
+	                    	msg += " mayor o igual a " + properties.get("minValue").asText(); 
 	                    }
 	                    
 	                    if((properties.has("minInclusive"))&&(properties.get("minInclusive").asBoolean()==false)&&(properties.has("minValue"))){
 	                    	constraint += ".>" + properties.get("minValue").asText();
+	                    	msg += " mayor a " + properties.get("minValue").asText(); 
+
 	                    }
 	                    
 	                    if((properties.has("minValue"))&&(properties.has("maxValue"))){
 	                    	constraint += " and ";
+	                    	msg += " y";
 	                    }
 	                    
 	                    if((properties.has("maxInclusive"))&&(properties.get("maxInclusive").asBoolean()==true)&&(properties.has("maxValue"))){
 	                    	constraint += ".<=" + properties.get("maxValue").asText();
+	                    	msg += " menor o igual a " + properties.get("maxValue").asText(); 
+
 	                    }
 	                    
 	                    if((properties.has("maxInclusive"))&&(properties.get("maxInclusive").asBoolean()==false)&&(properties.has("maxValue"))){
 	                    	constraint += ".<" + properties.get("maxValue").asText();
+	                    	msg = " meyor a " + properties.get("maxValue").asText(); 
+
 	                    }
 	                    
 //	                    if(properties.get("constraint").isTextual())
@@ -880,27 +889,40 @@ public class JsonServices implements Serializable {
                     
                     System.out.println(constraint);
                     out.writeAttribute("constraint", constraint);
+                    
+                    System.out.println(constraint);
+                    out.writeAttribute("jr:constraintMsg", msg);
+                    
                 }else{
                 	//Logica para caso de constraint en int, decimal
                 		String constraint ="";
+                		String msg="Ingrese valor";
 	                    if((properties.has("minInclusive"))&&(properties.get("minInclusive").asBoolean()==true)&&(properties.has("minValue"))){
 	                    	constraint += ".>=" + properties.get("minValue").asText();
+	                    	msg += " mayor o igual a " + properties.get("minValue").asText(); 
 	                    }
 	                    
 	                    if((properties.has("minInclusive"))&&(properties.get("minInclusive").asBoolean()==false)&&(properties.has("minValue"))){
 	                    	constraint += ".>" + properties.get("minValue").asText();
+	                    	msg += " mayor a " + properties.get("minValue").asText(); 
+
 	                    }
 	                    
 	                    if((properties.has("minValue"))&&(properties.has("maxValue"))){
 	                    	constraint += " and ";
+	                    	msg += " y";
 	                    }
 	                    
 	                    if((properties.has("maxInclusive"))&&(properties.get("maxInclusive").asBoolean()==true)&&(properties.has("maxValue"))){
 	                    	constraint += ".<=" + properties.get("maxValue").asText();
+	                    	msg += " menor o igual a " + properties.get("maxValue").asText(); 
+
 	                    }
 	                    
 	                    if((properties.has("maxInclusive"))&&(properties.get("maxInclusive").asBoolean()==false)&&(properties.has("maxValue"))){
 	                    	constraint += ".<" + properties.get("maxValue").asText();
+	                    	msg = " meyor a " + properties.get("maxValue").asText(); 
+
 	                    }
 	                    
 //	                    if(properties.get("constraint").isTextual())
@@ -909,6 +931,10 @@ public class JsonServices implements Serializable {
                   
                   System.out.println(constraint);
                   out.writeAttribute("constraint", constraint);
+                  
+                  System.out.println(constraint);
+                  out.writeAttribute("jr:constraintMsg", msg);
+                  
               }
                 
                 if (properties.has("relevant")) {
