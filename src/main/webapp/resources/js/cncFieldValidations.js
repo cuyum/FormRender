@@ -850,8 +850,7 @@ var setupPorcentual = function(field, fieldset) {
 
 							if (dividendo.valid()) {
 								if (divisor.val() > 0 && dividendo.val() > 0) {
-									total.val(cncFromNumber((dividendo.val()
-											/ divisor.val() * porcentual), 2));
+									total.val(cncFromNumber((dividendo.val()/ divisor.val() * porcentual), 2));
 								} else {
 									total.val(0);
 								}

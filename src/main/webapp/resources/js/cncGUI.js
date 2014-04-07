@@ -427,7 +427,8 @@ var gui = new function() {
 		else {
 			// clickEvent.preventDefault();
 			bootbox.confirm(
-							"Esta acci\u00F3n implica que UD. ha completado la carga del formulario. No podr\u00E1 seguir edit\u00E1ndolo ya que es parte integral de la DDJJ. Desea continuar?",
+							"Esta acción implica que ha completado la carga de este formulario. " +
+							"El estado del mismo será actualizado a \"Listo\" ¿Desea continuar?",
 							function(confirmed) {
 								if (confirmed) {
 									var thisForm = $(gui.form);
@@ -1417,12 +1418,16 @@ var gui = new function() {
 				}
 			}
 			
-			i=0;
-			porcentaje = totalizado[this.totalizadores[i].nombre]*100/totalizado[this.totalizadores[i+1].nombre];
+			if(this.totalizadores.length>0){
+				i=0;
+				porcentaje = totalizado[this.totalizadores[i].nombre]*100/totalizado[this.totalizadores[i+1].nombre];
+			}
 			
 			totalizado["rowTotal"] = acumulaTotal;
-			totalizado["resultado"] = porcentaje.toFixed(2);
-
+			
+			if(porcentaje){
+				totalizado["resultado"] = porcentaje.toFixed(2);
+			}
 			
 			// si la sumatoria es menor igual que cero se elimina el registro
 			if (total <= 0) {
@@ -1500,13 +1505,12 @@ var gui = new function() {
 										$(evt.target).closest('tr').get(0));
 						var record = gui.grid.getRowData(rowIndex);
 						gui.grid.removeRow(rowIndex);
-						gui.gridTotalizadora.processRemoval(record);
-
 						var fields = gui.fieldsets[record.instance].fields;
 						if (gui.grid.editing > -1) {
 							gui.grid.editing = -1;
 						}
 						gui.resetFields(fields);
+						gui.gridTotalizadora.processRemoval(record);
 					});
 		},
 		setupRowActions : function() {
