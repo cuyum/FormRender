@@ -30,8 +30,8 @@
       <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/F1.2/inter/interconexion/partido" nodeset="/F1.2/inter/interconexion/localidad" required="true()" type="select1"/>
       <bind nodeset="/F1.2/inter/interconexion/localidad_otro" relevant=" /F1.2/inter/interconexion/localidad =9999" required="true()" type="string"/>
       <bind nodeset="/F1.2/inter/interconexion/destino" required="true()" type="select1"/>
-      <bind constraint="url=/servicios/rest/prestadores" nodeset="/F1.2/inter/interconexion/Prestador" relevant=" /F1.2/inter/interconexion/destino =Prestador" required="true()" type="select1"/>
-	  <bind constraint="url=/servicios/rest/naps" nodeset="/F1.2/inter/interconexion/NAP" relevant=" /F1.2/inter/interconexion/destino =NAP" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/prestadores" nodeset="/F1.2/inter/interconexion/destino_Prestador" relevant=" /F1.2/inter/interconexion/destino =Prestador" required="true()" type="select1"/>
+	  <bind constraint="url=/servicios/rest/naps" nodeset="/F1.2/inter/interconexion/destino_NAP" relevant=" /F1.2/inter/interconexion/destino =NAP" required="true()" type="select1"/>
 	  <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999" nodeset="/F1.2/inter/interconexion/capacidad" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/F1.2/meta/instanceID" readonly="true()" type="string"/>
     </model>
@@ -79,7 +79,7 @@
           </input>
           <select1 appearance="minimal" ref="/F1.2/inter/interconexion/destino">
             <label>Destino</label>
-            <hint>Destino.</hint>
+            <hint>Destino</hint>
             <item>
               <label>Seleccione una opción</label>
               <value>-1</value>
@@ -93,7 +93,7 @@
               <value>NAP</value>
             </item>
           </select1>
-           <select1 appearance="minimal" ref="/F1.2/inter/interconexion/Prestador">
+           <select1 appearance="minimal" ref="/F1.2/inter/interconexion/destino_Prestador">
             <label>Prestador</label>
             <hint>Prestador con el cual se interconecta.</hint>
             <item>
@@ -101,9 +101,9 @@
               <value>-1</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/F1.2/inter/interconexion/NAP">
+          <select1 appearance="minimal" ref="/F1.2/inter/interconexion/destino_NAP">
             <label>NAP</label>
-            <hint>NAP.</hint>
+            <hint>NAP</hint>
             <item>
               <label>Seleccione una opción</label>
               <value>-1</value>

@@ -207,7 +207,9 @@ var setupRelevantData = function(field, fieldset, oldField) {
 			el = field.closest("fieldset").closest("label");
 		} else if (field.is("select")) {
 			el = field.closest("label");
-		} else {
+		} else if (field.is("input")) {
+			el = field.closest("label");
+		}else {
 			console.warn("no se pudo encontrar el dom parent de "
 					+ field.attr("name") + " para esconder el campo");
 		}
@@ -299,10 +301,8 @@ var setupDependency = function(field, fieldset, oldField) {
 
 		var ancestor = $(ancestorSelector);
 
-		if (ancestor.is("select") /*
-									 * || ancestor.attr("data-type-xml") ==
-									 * "select2"
-									 */) {/*
+		if (ancestor.is("select")){//|| ancestor.attr("data-type-xml") == "select2") 
+		/*
 				 * solo funciona con selects hasta ahora
 				 */
 			gui.addDependant(ancestor, field);
@@ -1210,6 +1210,39 @@ var addRequired = function(field) {
 	}
 
 };
+/**por el momento la funcionalidad es solo paraa F1.2**/
+var addVisibility=function(field){
+	var form = url();
+	var name = "/"+form+"/inter/interconexion/destino_0";
+	
+	if(field[0].name==name){
+		
+		var funcionVisibility = function(ancestor, field, nroField){
+			
+			var select = ancestor[0];
+//			for ( var i = 0; i < select.length; i++) {
+
+				if (select[nroField].selected) {
+					console.log("Requerido: "+ field[0].name);
+					field[0].required = true;
+					field[0].hidden = false;
+				} else {
+					console.log("NO Requerido: "+ field[0].name);
+					field[0].required = false;
+					field[0].hidden = true;
+				}
+				
+//			}
+		};
+		
+		field.data("funcionVisibility", funcionVisibility);
+	}else {
+		var funcionVisibility = function(ancestor, field, nroField){
+			
+		};
+		field.data("funcionVisibility", funcionVisibility);
+	}
+};
 
 var setupValidationDefaults = function() {
 	var submitBtn = $("input[type='button'][action='submit']");
@@ -1443,6 +1476,7 @@ var setupValidations = function(f, fieldset) {
 	setupDataConstraints(field, fieldset);
 	addVisualizationLogic(field);
 	addRequired(field);
+	addVisibility(field);
 
 	/* Validations */
 	validationRequired(field);

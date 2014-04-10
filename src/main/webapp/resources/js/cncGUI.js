@@ -843,6 +843,7 @@ var gui = new function() {
 					for ( var i = 0; i < dependants.length; i++) {
 						var dependant = dependants[i];
 						dependant.data("renderLogic")(dependant);
+						_this.data("funcionVisibility")(_this, dependant,i+1);
 					}
 				});
 			}
@@ -854,7 +855,7 @@ var gui = new function() {
 				|| ancestor.attr("data-type-xml") == "select2") {
 
 			var isChecking = ancestor.data("isCheckingRequired");
-
+			console.log(ancestor[0]);
 			if (!isChecking) {
 				ancestor.data("isCheckingRequired", true);
 				ancestor.on("change", {
@@ -1536,7 +1537,28 @@ var gui = new function() {
 				var field = $(fieldset.fields[i]);
 				var attribute = gui.getCleanFieldName(field.attr("name"),
 						fieldsetInstance);
-				
+				//Si es hidden pongo valores por defecto
+				if(field[0].hidden==true){
+					field.val(" ");
+					if (field.is("select")){
+						record[attribute] = {
+							label : "",
+							value : null
+						};
+					} else if (field.is("select2")){
+						record[attribute] = {
+							label : "",
+							value : null
+						};
+					}else{
+						record[attribute] = {
+							label : "",
+							value : null
+						};
+					}
+				}
+				else{
+					
 				if (field.is(":visible")
 						|| field.attr("data-type-xml") == "select2") {
 					var value = field.val();
@@ -1604,14 +1626,20 @@ var gui = new function() {
 					}
 
 				} else {// si no es visible poner valores por defecto
-					if (field.is("select"))
+					if (field.is("select")){
 						record[attribute] = {
 							label : ""
 						};
-					else
+					} else if (field.is("select2")){
+						record[attribute] = {
+							label : ""
+						};
+					}else
 						record[attribute] = "";
 
 				}
+			}
+				
 			}
 			record.instance = fieldset.instance;
 			var storedData = this.getData();
