@@ -21,7 +21,7 @@
         </ict4.1.1-C>
       </instance>
       <bind constraint="periodicidad=/servicios/rest/periodicidad and clave_primaria" nodeset="/ict4.1.1-C/meses/mes/periodo_considerado" required="true()" type="select1"/>
-      <bind constraint="clave_primaria" nodeset="/ict4.1.1-C/meses/mes/canales" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas and clave_primaria" nodeset="/ict4.1.1-C/meses/mes/canal" required="true()" type="select1"/>
       <bind nodeset="/ict4.1.1-C/meses/mes/canales_otros" relevant=" /ict4.1.1-C/meses/mes/canales =Otros" required="false()" type="string"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.1-C/meses/mes/cant_recl_ingresados" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.1-C/meses/mes/cant_total_contacto_rec" required="true()" type="int"/>
@@ -42,29 +42,14 @@
               <value>-1</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/ict4.1.1-C/meses/mes/canales">
+          <select1 appearance="minimal" ref="/ict4.1.1-C/meses/mes/canal">
             <label>Canales de Atención al Usuario</label>
             <hint>Canales de Atención al Usuario</hint>
             <item>
               <label>Seleccione una opción</label>
               <value>-1</value>
             </item>
-            <item>
-              <label>Atención Telefónica</label>
-              <value>Atencion_Telefonica</value>
-            </item>
-            <item>
-              <label>Atención Personalizada - Sucursal</label>
-              <value>Atencion_Personalizada_Sucursal</value>
-            </item>
-            <item>
-              <label>Atención en Redes Sociales / Web / Mail / Postal u otros medios Escritos</label>
-              <value>Atencion_en_Redes_Sociales</value>
-            </item>
-            <item>
-              <label>Otros</label>
-              <value>Otros</value>
-            </item>
+
           </select1>
           <input ref="/ict4.1.1-C/meses/mes/canales_otros">
             <label>Canales Otros</label>

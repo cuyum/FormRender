@@ -39,7 +39,7 @@
       <bind nodeset="/ict4.2.4.4-A/trimestres/relacion/area_otro" relevant=" /ict4.2.4.4-A/trimestres/relacion/area =9999" required="true()" type="string"/>
       <bind constraint="agrupador=3 and clave_primaria" nodeset="/ict4.2.4.4-A/trimestres/relacion/hora_pico_inicio" required="true()" type="time"/>
       <bind constraint="url=/servicios/rest/parameter?name=minutos_hora and hora_delta= /ict4.2.4.4-A/trimestres/relacion/hora_pico_inicio and clave_primaria " nodeset="/ict4.2.4.4-A/trimestres/relacion/hora_pico_fin" required="true()" type="string"/>
-      <bind constraint="agrupador=4 and clave_primaria" nodeset="/ict4.2.4.4-A/trimestres/relacion/tipo_informacion" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas and agrupador=4 and clave_primaria" nodeset="/ict4.2.4.4-A/trimestres/relacion/tipo_informacion2" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.2.4.4-A/trimestres/relacion/cant_paquetes_recibidos" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.2.4.4-A/trimestres/relacion/cant_total_paquetes_recibidos" required="true()" type="int"/>
       <bind constraint="porcentual= /ict4.2.4.4-A/trimestres/relacion/cant_paquetes_recibidos , /ict4.2.4.4-A/trimestres/relacion/cant_total_paquetes_recibidos ,100" nodeset="/ict4.2.4.4-A/trimestres/relacion/porcentaje" readonly="true()" type="decimal"/>
@@ -112,23 +112,14 @@
             <label>Hora Pico Fin</label>
             <hint>Hora Pico Fin</hint>
           </input>
-          <select1 appearance="minimal" ref="/ict4.2.4.4-A/trimestres/relacion/tipo_informacion">
+          <select1 appearance="minimal" ref="/ict4.2.4.4-A/trimestres/relacion/tipo_informacion2">
             <label>Tipo de información</label>
             <hint>Tipo de información</hint>
             <item>
               <label>Seleccione una opción</label>
               <value>-1</value>
             </item>
-            <item>
-              <label>Audio Bidireccional</label>
-              <value>Audio_Bidireccional</value>
-            </item>
-            <item>
-              <label>Audio</label>
-              <value>Audio</value>
-            </item>
-
-          </select1>
+            </select1>
           <input ref="/ict4.2.4.4-A/trimestres/relacion/cant_paquetes_recibidos">
             <label>Numerador</label>
             <hint>Cantidad de paquetes recibidos con una variación en la sincronía labios/voz máxima ∆T1</hint>

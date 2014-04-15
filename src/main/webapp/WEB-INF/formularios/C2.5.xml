@@ -25,7 +25,7 @@
         </C2.5>
       </instance>
       <bind nodeset="/C2.5/titulo" readonly="true()" type="string"/>
-      <bind nodeset="/C2.5/ingresos/anio" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas" nodeset="/C2.5/ingresos/anio" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999999" nodeset="/C2.5/ingresos/abono" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999999" nodeset="/C2.5/trafico/urbano" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999999" nodeset="/C2.5/trafico/interurbano" required="true()" type="int"/>
@@ -47,50 +47,7 @@
           <label>Seleccione una opción</label>
           <value>-1</value>
         </item>
-        <item>
-          <label>2010</label>
-          <value>2010</value>
-        </item>
-        <item>
-          <label>2011</label>
-          <value>2011</value>
-        </item>
-        <item>
-          <label>2012</label>
-          <value>2012</value>
-        </item>
-        <item>
-          <label>2013</label>
-          <value>2013</value>
-        </item>
-        <item>
-          <label>2014</label>
-          <value>2014</value>
-        </item>
-        <item>
-          <label>2015</label>
-          <value>2015</value>
-        </item>
-        <item>
-          <label>2016</label>
-          <value>2016</value>
-        </item>
-        <item>
-          <label>2017</label>
-          <value>2017</value>
-        </item>
-        <item>
-          <label>2018</label>
-          <value>2018</value>
-        </item>
-        <item>
-          <label>2019</label>
-          <value>2019</value>
-        </item>
-        <item>
-          <label>2020</label>
-          <value>2020</value>
-        </item>
+        
       </select1>
       <input ref="/C2.5/ingresos/abono">
         <label>Abono</label>

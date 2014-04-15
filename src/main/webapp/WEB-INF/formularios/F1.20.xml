@@ -26,9 +26,9 @@
       </instance>
       <bind nodeset="/F1.20/titulo" readonly="true()" type="string"/>
       <bind nodeset="/F1.20/agregar/planes/planesPlan" required="true()" type="string"/>
-      <bind nodeset="/F1.20/agregar/planes/planesAccesos" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/servicios/accesos" nodeset="/F1.20/agregar/planes/planesAccesos" required="true()" type="select1"/>
       <bind nodeset="/F1.20/agregar/planes/planesAccesos_otro" relevant=" /F1.20/agregar/planes/planesAccesos =OTROS" required="true()" type="string"/>
-      <bind nodeset="/F1.20/agregar/planes/velocidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas" nodeset="/F1.20/agregar/planes/velocidad" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/F1.20/agregar/planes/abono" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=9999" jr:constraintMsg="Ingrese entero entre 0 y 9999" nodeset="/F1.20/agregar/planes/vigencia" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/F1.20/agregar/planes/abonoFinal" required="true()" type="decimal"/>
@@ -56,46 +56,7 @@
               <label>Seleccione una opción</label>
               <value>-1</value>
             </item>
-            <item>
-              <label>DIAL UP</label>
-              <value>DIALUP</value>
-            </item>
-            <item>
-              <label>ADSL</label>
-              <value>ADSL</value>
-            </item>
-            <item>
-              <label>CABLEMODEN</label>
-              <value>CABLEMODEN</value>
-            </item>
-            <item>
-              <label>WIRELESS</label>
-              <value>WIRELESS</value>
-            </item>
-            <item>
-              <label>CELULAR</label>
-              <value>CELULAR</value>
-            </item>
-            <item>
-              <label>SATELITAL</label>
-              <value>SATELITAL</value>
-            </item>
-            <item>
-              <label>BPL</label>
-              <value>BPL</value>
-            </item>
-            <item>
-              <label>WIMAX</label>
-              <value>WIMAX</value>
-            </item>
-            <item>
-              <label>FIBRA OPTICA</label>
-              <value>FIBRAOPTICA</value>
-            </item>
-            <item>
-              <label>OTROS</label>
-              <value>OTROS</value>
-            </item>
+            
           </select1>
           <input ref="/F1.20/agregar/planes/planesAccesos_otro">
             <label>Acceso Otros</label>
@@ -108,34 +69,7 @@
               <label>Seleccione una opción</label>
               <value>-1</value>
             </item>
-            <item>
-              <label>HASTA 512 kbps</label>
-              <value>HASTA512kbps</value>
-            </item>
-            <item>
-              <label>+ 512 Kbps - 1 Mbps</label>
-              <value>512Kbps_1Mbps</value>
-            </item>
-            <item>
-              <label>+ 1 Mbps - 6 Mbps</label>
-              <value>1Mbps_6Mbps</value>
-            </item>
-            <item>
-              <label>+ 6 Mbps - 10 Mbps</label>
-              <value>6Mbps_10Mbps</value>
-            </item>
-            <item>
-              <label>+ 10 Mbps - 20 Mbps</label>
-              <value>10Mbps_20Mbps</value>
-            </item>
-            <item>
-              <label>+ 20 Mbps - 30 Mbps</label>
-              <value>20Mbps_30Mbps</value>
-            </item>
-            <item>
-              <label>+ 30 Mbps</label>
-              <value>30Mbps</value>
-            </item>
+            
           </select1>
           <input ref="/F1.20/agregar/planes/abono">
             <label>Abono</label>

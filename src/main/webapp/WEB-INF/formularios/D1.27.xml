@@ -59,8 +59,8 @@
       </instance>
       <bind nodeset="/D1.27/titulo" readonly="true()" type="string"/>
       <bind nodeset="/D1.27/tarifasPlanes/caracteristicas/plan" required="true()" type="string"/>
-      <bind nodeset="/D1.27/tarifasPlanes/caracteristicas/modalidad" required="true()" type="select1"/>
-      <bind nodeset="/D1.27/tarifasPlanes/caracteristicas/segmento" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas" nodeset="/D1.27/tarifasPlanes/caracteristicas/modalidad1" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas" nodeset="/D1.27/tarifasPlanes/caracteristicas/segmento" required="true()" type="select1"/>
       <bind nodeset="/D1.27/tarifasPlanes/caracteristicas/segmento_otro" relevant=" /D1.27/tarifasPlanes/caracteristicas/segmento =OTROS" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/D1.27/tarifasPlanes/cargos/abono" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/D1.27/tarifasPlanes/cargos/gastos" required="true()" type="decimal"/>
@@ -95,21 +95,14 @@
             <label>Nombre del Plan</label>
             <hint>Nombre del Plan</hint>
           </input>
-          <select1 appearance="minimal" ref="/D1.27/tarifasPlanes/caracteristicas/modalidad">
+          <select1 appearance="minimal" ref="/D1.27/tarifasPlanes/caracteristicas/modalidad1">
             <label>Modalidad</label>
             <hint>Modalidad</hint>
             <item>
               <label>Seleccione opción</label>
               <value>-1</value>
             </item>
-            <item>
-              <label>POSPAGO</label>
-              <value>pospago</value>
-            </item>
-            <item>
-              <label>MIXTO</label>
-              <value>mixto</value>
-            </item>
+            
           </select1>
           <select1 appearance="minimal" ref="/D1.27/tarifasPlanes/caracteristicas/segmento">
             <label>Segmento</label>
@@ -118,30 +111,7 @@
               <label>Seleccione opción</label>
               <value>-1</value>
             </item>
-            <item>
-              <label>HOGARES</label>
-              <value>HOGARES</value>
-            </item>
-            <item>
-              <label>COMERCIAL</label>
-              <value>COMERCIAL</value>
-            </item>
-            <item>
-              <label>JUBILADOS</label>
-              <value>JUBILADOS</value>
-            </item>
-            <item>
-              <label>GOBIERNO</label>
-              <value>GOBIERNO</value>
-            </item>
-            <item>
-              <label>PROFESIONALES</label>
-              <value>PROFESIONALES</value>
-            </item>
-            <item>
-              <label>OTROS</label>
-              <value>OTROS</value>
-            </item>
+            
           </select1>
           <input ref="/D1.27/tarifasPlanes/caracteristicas/segmento_otro">
             <label>Segmento Otros</label>
