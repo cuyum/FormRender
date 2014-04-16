@@ -1235,9 +1235,11 @@ var addRequired = function(field) {
 /**por el momento la funcionalidad es solo paraa F1.2**/
 var addVisibility=function(field){
 	var form = url();
-	var name = "/"+form+"/inter/interconexion/destino_0";
+	var name = "destino_0";
+	var index = (field.attr("name")).lastIndexOf("/");
+	var fieldName = (field.attr("name")).substring(index+1);
 	
-	if(field[0].name==name){
+	if(fieldName==name){
 		
 		var funcionVisibility = function(ancestor, field, nroField){
 			
