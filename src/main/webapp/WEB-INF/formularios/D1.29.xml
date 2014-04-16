@@ -76,14 +76,14 @@
         </input>
       </group>
       <group appearance="col2 well-white" ref="/D1.29/hasta110/ldn110">
-        <label>LDN precio minuto</label>
+        <label>LDN precio segundo</label>
         <input ref="/D1.29/hasta110/ldn110/ldnPrepago110">
           <label>Prepago</label>
-          <hint>Prepago</hint>
+          <hint>Valor del segundo</hint>
         </input>
         <input ref="/D1.29/hasta110/ldn110/ldnPospago110">
           <label>Pospago</label>
-          <hint>Pospago</hint>
+          <hint>Valor del segundo</hint>
         </input>
       </group>
     </group>
@@ -101,14 +101,14 @@
         </input>
       </group>
       <group appearance="col2 well-white" ref="/D1.29/de110A240/ldn240">
-        <label>LDN precio minuto</label>
+        <label>LDN precio segundo</label>
         <input ref="/D1.29/de110A240/ldn240/ldnPrepago240">
           <label>Prepago</label>
-          <hint>Prepago</hint>
+          <hint>Valor del segundo</hint>
         </input>
         <input ref="/D1.29/de110A240/ldn240/ldnPospago240">
           <label>Pospago</label>
-          <hint>Pospago</hint>
+          <hint>Valor del segundo</hint>
         </input>
       </group>
     </group>
@@ -126,14 +126,14 @@
         </input>
       </group>
       <group appearance="col2 well-white" ref="/D1.29/mas240/ldnMas240">
-        <label>LDN precio minuto</label>
+        <label>LDN precio segundo</label>
         <input ref="/D1.29/mas240/ldnMas240/ldnPrepagoMas240">
           <label>Prepago</label>
-          <hint>Prepago</hint>
+          <hint>Valor del segundo</hint>
         </input>
         <input ref="/D1.29/mas240/ldnMas240/ldnPospagoMas240">
           <label>Pospago</label>
-          <hint>Pospago</hint>
+          <hint>Valor del segundo</hint>
         </input>
       </group>
     </group>

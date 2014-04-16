@@ -26,10 +26,10 @@
               <serviciosAdic/>
             </servicios>
             <precios>
-              <minutoLocal>
-                <minutoOnNet/>
-                <minutoOffNet/>
-              </minutoLocal>
+              <segundoLocal>
+                <segundoOnNet/>
+                <segundoOffNet/>
+              </segundoLocal>
               <sms>
                 <smsOnNet/>
                 <smsOffNet/>
@@ -69,8 +69,8 @@
       <bind nodeset="/D1.27/tarifasPlanes/servicios/sms" required="true()" type="string"/>
       <bind nodeset="/D1.27/tarifasPlanes/servicios/mms" required="true()" type="string"/>
       <bind nodeset="/D1.27/tarifasPlanes/servicios/serviciosAdic" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.27/tarifasPlanes/precios/minutoLocal/minutoOnNet" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.27/tarifasPlanes/precios/minutoLocal/minutoOffNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.27/tarifasPlanes/precios/segundoLocal/segundoOnNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.27/tarifasPlanes/precios/segundoLocal/segundoOffNet" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.27/tarifasPlanes/precios/sms/smsOnNet" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.27/tarifasPlanes/precios/sms/smsOffNet" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.27/tarifasPlanes/precios/mms/mmsOnNet" required="true()" type="decimal"/>
@@ -164,7 +164,7 @@
           </input>
         </group>
         <group appearance="col4 well-white" ref="/D1.27/tarifasPlanes/servicios">
-          <label>Servicios Inluidos en Abono</label>
+          <label>Servicios Incluidos en Abono</label>
           <input ref="/D1.27/tarifasPlanes/servicios/minutos">
             <label>Minutos</label>
             <hint>Minutos [&quot;ILIMITADO&quot; ó 9999]</hint>
@@ -184,15 +184,15 @@
         </group>
         <group appearance="col1 well-white" ref="/D1.27/tarifasPlanes/precios">
           <label>Precios</label>
-          <group appearance="col2 well-white" ref="/D1.27/tarifasPlanes/precios/minutoLocal">
-            <label>Minuto Local</label>
-            <input ref="/D1.27/tarifasPlanes/precios/minutoLocal/minutoOnNet">
+          <group appearance="col2 well-white" ref="/D1.27/tarifasPlanes/precios/segundoLocal">
+            <label>Segundo Local</label>
+            <input ref="/D1.27/tarifasPlanes/precios/segundoLocal/segundoOnNet">
               <label>ON NET</label>
-              <hint>Precio del minuto excedente promedio, luego de agotar los incluidos en el abono.</hint>
+              <hint>Precio del segundo excedente, luego de agotar los incluidos en el abono.</hint>
             </input>
-            <input ref="/D1.27/tarifasPlanes/precios/minutoLocal/minutoOffNet">
+            <input ref="/D1.27/tarifasPlanes/precios/segundoLocal/segundoOffNet">
               <label>OFF NET</label>
-              <hint>Precio del minuto excedente promedio, luego de agotar los incluidos en el abono.</hint>
+              <hint>Precio del segundo excedente, luego de agotar los incluidos en el abono.</hint>
             </input>
           </group>
           <group appearance="col2 well-white" ref="/D1.27/tarifasPlanes/precios/sms">
