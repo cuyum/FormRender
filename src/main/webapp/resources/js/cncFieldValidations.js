@@ -801,19 +801,6 @@ var setupPorcentual = function(field, fieldset) {
 									+ dividendo.val() + ")");
 							return;
 						}
-						
-						if(dividendo.val()>divisor.val()){
-							input = "input[name='" + divisor[0].name + "']";
-							$(input).siblings("label.error").html(message);
-							$(input).addClass('error');
-							return;
-						}
-						if(dividendo.val()<=divisor.val()){
-							input = "input[name='" + divisor[0].name + "']";
-							$(input).siblings("label.error").html("");
-							return;
-						}
-
 						if (divisor.val() != undefined
 								&& divisor.val().trim() != ""
 								&& !isNaN(divisor.val())) {
@@ -832,6 +819,20 @@ var setupPorcentual = function(field, fieldset) {
 							console.warn("El divisor (" + divisor.attr("name")
 									+ ") no tiene un valor v\u00E1lido ("
 									+ divisor.val() + ")");
+						
+						if(dividendo.val()>divisor.val()){
+							input = "input[name='" + divisor[0].name + "']";
+							$(input).siblings("label.error").html(message);
+//							$(input).addClass('error');
+							return;
+						}
+						if(dividendo.val()<=divisor.val()){
+							input = "input[name='" + divisor[0].name + "']";
+							$(input).siblings("label.error").html("");
+							return;
+						}
+
+						
 					});
 
 					divisor.on("change", {
@@ -871,6 +872,18 @@ var setupPorcentual = function(field, fieldset) {
 									+ dividendo.attr("name")
 									+ ") no tiene un valor v\u00E1lido ("
 									+ dividendo.val() + ")");
+						
+						if(dividendo.val()>divisor.val()){
+							input = "input[name='" + divisor[0].name + "']";
+							$(input).siblings("label.error").html(message);
+							$(input).addClass('error');
+							return;
+						}
+						if(dividendo.val()<=divisor.val()){
+							input = "input[name='" + divisor[0].name + "']";
+							$(input).siblings("label.error").html("");
+							return;
+						}
 					});
 				}
 
