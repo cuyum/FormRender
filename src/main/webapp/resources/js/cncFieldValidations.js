@@ -335,6 +335,15 @@ var setupRemoteData = function(field, fieldset) {
 	var fieldName = field.attr("name");
 	if (field.data("jr:constraint:remote") != undefined && field.is("select")) {
 		var url = field.data("jr:constraint:remote");
+		var tipo="";
+		var dsd=0;
+		var hta=0;
+		
+		if(fieldName.lastIndexOf("/")!=null && fieldName.lastIndexOf("/")!=-1){
+			dsd = fieldName.lastIndexOf("/");
+			hta= fieldName.lastIndexOf("_");
+			tipo= fieldName.substring(dsd+1,hta);
+		}
 		// console.group("CAMPO:"+fieldName+"---Lista remota");
 
 		/*
@@ -399,8 +408,8 @@ var setupRemoteData = function(field, fieldset) {
 									+ "?limit=20&page="
 									+ page
 									+ (term && term.length > 0 ? "&term="
-											+ term.toLowerCase() : "") // remote
-						// service
+											+ term.toLowerCase() : "")		// remote
+									+ "&tipo="+tipo		// service
 						// url
 						};
 					},
@@ -453,7 +462,7 @@ var setupRemoteData = function(field, fieldset) {
 									+ page
 									+ (term && term.length > 0 ? "&term="
 											+ term.toLowerCase() : "") // remote
-						// service
+											+ "&tipo="+tipo// service
 						// url
 						};
 					},
@@ -792,19 +801,6 @@ var setupPorcentual = function(field, fieldset) {
 									+ dividendo.val() + ")");
 							return;
 						}
-						
-						if(dividendo.val()>divisor.val()){
-							input = "input[name='" + divisor[0].name + "']";
-							$(input).siblings("label.error").html(message);
-							$(input).addClass('error');
-							return;
-						}
-						if(dividendo.val()<=divisor.val()){
-							input = "input[name='" + divisor[0].name + "']";
-							$(input).siblings("label.error").html("");
-							return;
-						}
-
 						if (divisor.val() != undefined
 								&& divisor.val().trim() != ""
 								&& !isNaN(divisor.val())) {
@@ -823,6 +819,20 @@ var setupPorcentual = function(field, fieldset) {
 							console.warn("El divisor (" + divisor.attr("name")
 									+ ") no tiene un valor v\u00E1lido ("
 									+ divisor.val() + ")");
+						
+						if(dividendo.val()>divisor.val()){
+							input = "input[name='" + divisor[0].name + "']";
+							$(input).siblings("label.error").html(message);
+//							$(input).addClass('error');
+							return;
+						}
+						if(dividendo.val()<=divisor.val()){
+							input = "input[name='" + divisor[0].name + "']";
+							$(input).siblings("label.error").html("");
+							return;
+						}
+
+						
 					});
 
 					divisor.on("change", {
@@ -862,6 +872,18 @@ var setupPorcentual = function(field, fieldset) {
 									+ dividendo.attr("name")
 									+ ") no tiene un valor v\u00E1lido ("
 									+ dividendo.val() + ")");
+						
+						if(dividendo.val()>divisor.val()){
+							input = "input[name='" + divisor[0].name + "']";
+							$(input).siblings("label.error").html(message);
+							$(input).addClass('error');
+							return;
+						}
+						if(dividendo.val()<=divisor.val()){
+							input = "input[name='" + divisor[0].name + "']";
+							$(input).siblings("label.error").html("");
+							return;
+						}
 					});
 				}
 
