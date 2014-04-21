@@ -511,10 +511,14 @@ var setupDataConstraints = function(field, fieldset) {
 				// number = number.match(/\d*/gi)[0];
 				// console.log("max="+number);
 				var max = new Number(number);
+				if((!isNaN(max))&&(constraint.indexOf("string-length")!= -1))
+					field.data("jr:constraint:maxLength", max);
+					else
 				if (!isNaN(max))
 					field.data("jr:constraint:max", max);
 				else
 					log.error("Not a number for max constraint", number);
+				
 			} else
 			/* min constraint */
 			if (constraint.indexOf(".>=") != -1
@@ -524,6 +528,10 @@ var setupDataConstraints = function(field, fieldset) {
 				// number = number.match(/\d*/gi)[0];
 				// console.log("min="+number);
 				var min = new Number(number);
+				
+				if((!isNaN(min))&&(constraint.indexOf("string-length")!= -1))
+					field.data("jr:constraint:minLength", min);
+					else
 				if (!isNaN(min))
 					field.data("jr:constraint:min", min);
 				else
@@ -537,6 +545,10 @@ var setupDataConstraints = function(field, fieldset) {
 				// number = number.match(/\d*/gi)[0];
 				// console.log("lower than="+number);
 				var lower = new Number(number);
+				
+				if((!isNaN(lower))&&(constraint.indexOf("string-length")!= -1))
+					field.data("jr:constraint:lowerLength", lower);
+					else
 				if (!isNaN(lower))
 					field.data("jr:constraint:lower", lower);
 				else
@@ -550,6 +562,10 @@ var setupDataConstraints = function(field, fieldset) {
 				// number = number.match(/\d*/gi)[0];
 				// console.log("higher than="+number);
 				var higher = new Number(number);
+				
+				if((!isNaN(higher))&&(constraint.indexOf("string-length")!= -1))
+					field.data("jr:constraint:higherLength", higher);
+					else
 				if (!isNaN(higher))
 					field.data("jr:constraint:higher", higher);
 				else
@@ -978,6 +994,70 @@ var validationDecimal = function(field) {
 	}
 };
 
+var validationTextLower = function(field) {
+	if (field.data("jr:constraint:lowerLength") != undefined) {
+		var min = field.data("jr:constraint:lowerLength");
+		var constraintMsg = field.attr("data-constraint-msg");
+		field.rules("add", {
+			lowerLength : min,
+			messages : {
+				min : constraintMsg
+						|| "Debe ser un valor mayor o igual que {0}",
+				number : constraintMsg
+						|| "Debe ser un valor num&eacute;rico v&aacute;lido"
+			}
+		});
+	}
+};
+
+var validationTextHigher = function(field) {
+	if (field.data("jr:constraint:higherLength") != undefined) {
+		var max = field.data("jr:constraint:higherLength");
+		var constraintMsg = field.attr("data-constraint-msg");
+		field.rules("add", {
+			higherLength : max,
+			messages : {
+				max : constraintMsg
+						|| "Debe ser un valor menor o igual que {0}",
+				number : constraintMsg
+						|| "Debe ser un valor num&eacute;rico v&aacute;lido"
+			}
+		});
+	}
+};
+
+var validationTextMin = function(field) {
+	if (field.data("jr:constraint:minLength") != undefined) {
+		var min = field.data("jr:constraint:minLength");
+		var constraintMsg = field.attr("data-constraint-msg");
+		field.rules("add", {
+			minLength : min,
+			messages : {
+				min : constraintMsg
+						|| "Debe ser un valor mayor o igual que {0}",
+				number : constraintMsg
+						|| "Debe ser un valor num&eacute;rico v&aacute;lido"
+			}
+		});
+	}
+};
+
+var validationTextMax = function(field) {
+	if (field.data("jr:constraint:maxLength") != undefined) {
+		var max = field.data("jr:constraint:maxLength");
+		var constraintMsg = field.attr("data-constraint-msg");
+		field.rules("add", {
+			maxLength : max,
+			messages : {
+				max : constraintMsg
+						|| "Debe ser un valor menor o igual que {0}",
+				number : constraintMsg
+						|| "Debe ser un valor num&eacute;rico v&aacute;lido"
+			}
+		});
+	}
+};
+
 var validationInteger = function(field) {
 	var data_type = field.attr("data-type-xml");
 	if (data_type && data_type == "int") {
@@ -1244,7 +1324,7 @@ var setupValidationDefaults = function() {
 	$.validator.addMethod("lower", function(value, element, param) {
 		return this.optional(element) || value < param;
 	}, "Debe ser menor que {0} ");
-
+	
 	$.validator.addMethod("min", function(value, element, param) {
 		return this.optional(element) || gui.toNumber(value) >= param;
 	}, "Debe ser mayor o igual que {0} ");
@@ -1253,6 +1333,32 @@ var setupValidationDefaults = function() {
 		return this.optional(element) || gui.toNumber(value) <= param;
 	}, "Debe ser menor o igual que {0} ");
 
+	
+	//tratamiento para los campos tipo String
+	
+	$.validator.addMethod("maxLength", function(value, element, param) {
+		console.log("maxLength");
+		return this.optional(element) || value.length <= param;
+	}, "Debe ser menor o igual que {0} caracteres");
+
+	$.validator.addMethod("minLength", function(value, element, param) {
+		console.log("minLenght");
+		return this.optional(element) || value.length >= param;
+	}, "Debe ser mayor o igual que {0} caracteres");
+	
+	$.validator.addMethod("higherLength", function(value, element, param) {
+		console.log("higherLength");
+		return this.optional(element) || value.length > param;
+	}, "Debe ser mayor que {0} caracteres");
+
+	$.validator.addMethod("lowerLength", function(value, element, param) {
+		console.log("lowerLength");
+		return this.optional(element) || value.length < param;
+	}, "Debe ser menor que {0} caracteres");
+	
+	// fin tratamiento para los campos tipo String
+	
+	
 	$.validator.addMethod("required", function(value, element, param) {
 		// check if dependency is met
 		if (!this.depend(param, element)) {
@@ -1447,6 +1553,10 @@ var setupValidations = function(f, fieldset) {
 	/* Validations */
 	validationRequired(field);
 	validationDecimal(field);
+	validationTextLower(field);
+	validationTextHigher(field);
+	validationTextMin(field);
+	validationTextMax(field);	
 	validationInteger(field);
 	validationLower(field);
 	validationHigher(field);

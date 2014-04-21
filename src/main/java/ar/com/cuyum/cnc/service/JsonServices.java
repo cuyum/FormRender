@@ -851,8 +851,6 @@ public class JsonServices implements Serializable {
                                 + "/" + constraints.get("depends").asText();
                     }
                     
-                    //Logica para caso de constraint en int, decimal
-//                    if(((jsonObject.get("type").asText()).trim().equals("decimal"))||((jsonObject.get("type").asText()).equals("int"))){
 
                     String msg="Ingrese valor";
 	                    if((properties.has("minInclusive"))&&(properties.get("minInclusive").asBoolean()==true)&&(properties.has("minValue"))){
@@ -879,13 +877,40 @@ public class JsonServices implements Serializable {
 	                    
 	                    if((properties.has("maxInclusive"))&&(properties.get("maxInclusive").asBoolean()==false)&&(properties.has("maxValue"))){
 	                    	constraint += ".<" + properties.get("maxValue").asText();
-	                    	msg = " meyor a " + properties.get("maxValue").asText(); 
+	                    	msg = " mayor a " + properties.get("maxValue").asText(); 
 
 	                    }
 	                    
-//	                    if(properties.get("constraint").isTextual())
-//	                    	constraint = properties.get("constraint").asText();
-//                    }
+                    	// Para String
+	                    
+	                    if((properties.has("minInclusive"))&&(properties.get("minInclusive").asBoolean()==true)&&(properties.has("minLength"))){
+	                    	constraint += "string-length .>=" + properties.get("minLength").asText();
+	                    	msg += " mayor o igual a " + properties.get("minLength").asText(); 
+	                    }
+	                    
+	                    if((properties.has("minInclusive"))&&(properties.get("minInclusive").asBoolean()==false)&&(properties.has("minLength"))){
+	                    	constraint += "string-length .>" + properties.get("minLength").asText();
+	                    	msg += " mayor a " + properties.get("minLength").asText(); 
+
+	                    }
+	                    
+	                    if((properties.has("minLength"))&&(properties.has("maxLength"))){
+	                    	constraint += " and ";
+	                    	msg += " y";
+	                    }
+	                    
+	                    if((properties.has("maxInclusive"))&&(properties.get("maxInclusive").asBoolean()==true)&&(properties.has("maxLength"))){
+	                    	constraint += "string-length .<=" + properties.get("maxLength").asText();
+	                    	msg += " menor o igual a " + properties.get("maxLength").asText(); 
+
+	                    }
+	                    
+	                    if((properties.has("maxInclusive"))&&(properties.get("maxInclusive").asBoolean()==false)&&(properties.has("maxLength"))){
+	                    	constraint += "string-length .<" + properties.get("maxLength").asText();
+	                    	msg = " mayor a " + properties.get("maxLength").asText(); 
+
+	                    }
+	                    
                     
                     System.out.println(constraint);
                     out.writeAttribute("constraint", constraint);
@@ -921,13 +946,40 @@ public class JsonServices implements Serializable {
 	                    
 	                    if((properties.has("maxInclusive"))&&(properties.get("maxInclusive").asBoolean()==false)&&(properties.has("maxValue"))){
 	                    	constraint += ".<" + properties.get("maxValue").asText();
-	                    	msg = " meyor a " + properties.get("maxValue").asText(); 
+	                    	msg = " mayor a " + properties.get("maxValue").asText(); 
 
 	                    }
 	                    
-//	                    if(properties.get("constraint").isTextual())
-//	                    	constraint = properties.get("constraint").asText();
-//                  }
+	                    
+                    	// Para String
+	                    
+	                    if((properties.has("minInclusive"))&&(properties.get("minInclusive").asBoolean()==true)&&(properties.has("minLength"))){
+	                    	constraint += "string-length .>=" + properties.get("minLength").asText();
+	                    	msg += " mayor o igual a " + properties.get("minLength").asText(); 
+	                    }
+	                    
+	                    if((properties.has("minInclusive"))&&(properties.get("minInclusive").asBoolean()==false)&&(properties.has("minLength"))){
+	                    	constraint += "string-length .>" + properties.get("minLength").asText();
+	                    	msg += " mayor a " + properties.get("minLength").asText(); 
+
+	                    }
+	                    
+	                    if((properties.has("minLength"))&&(properties.has("maxLength"))){
+	                    	constraint += " and ";
+	                    	msg += " y";
+	                    }
+	                    
+	                    if((properties.has("maxInclusive"))&&(properties.get("maxInclusive").asBoolean()==true)&&(properties.has("maxLength"))){
+	                    	constraint += "string-length .<=" + properties.get("maxLength").asText();
+	                    	msg += " menor o igual a " + properties.get("maxLength").asText(); 
+
+	                    }
+	                    
+	                    if((properties.has("maxInclusive"))&&(properties.get("maxInclusive").asBoolean()==false)&&(properties.has("maxLength"))){
+	                    	constraint += "string-length .<" + properties.get("maxLength").asText();
+	                    	msg = " mayor a " + properties.get("maxLength").asText(); 
+
+	                    }
                   
                   System.out.println(constraint);
                   out.writeAttribute("constraint", constraint);
