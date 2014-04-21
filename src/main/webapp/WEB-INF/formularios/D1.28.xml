@@ -53,7 +53,7 @@
       </instance>
       <bind nodeset="/D1.28/titulo" readonly="true()" type="string"/>
       <bind nodeset="/D1.28/tarifasPlanes/caracteristicas/plan" required="true()" type="string"/>
-      <bind nodeset="/D1.28/tarifasPlanes/caracteristicas/recargaTipo" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas" nodeset="/D1.28/tarifasPlanes/caracteristicas/recargaTipo" required="true()" type="select1"/>
       <bind nodeset="/D1.28/tarifasPlanes/caracteristicas/serviciosAdicionales" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.28/tarifasPlanes/precios/minuto/minutoOnNet" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.28/tarifasPlanes/precios/minuto/minutoOffNet" required="true()" type="decimal"/>
@@ -65,7 +65,7 @@
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.28/tarifasPlanes/precios/datos/datosOffNet" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/D1.28/tarifasPlanes/vigencia/credito" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/D1.28/tarifasPlanes/vigencia/sms" required="true()" type="int"/>
-      <bind constraint="url=/servicios/rest/listas and .&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/D1.28/tarifasPlanes/vigencia/recarga" required="true()" type="int"/>
+      <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/D1.28/tarifasPlanes/vigencia/recarga" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/D1.28/tarifasPlanes/vigencia/cuentaActiva" required="true()" type="int"/>
       <bind nodeset="/D1.28/tarifasPlanes/otrosImp/grupoOtros/otros" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/D1.28/tarifasPlanes/otrosImp/impuestos/porcentaje" required="true()" type="decimal"/>
@@ -92,26 +92,7 @@
               <label>Seleccione opción</label>
               <value>-1</value>
             </item>
-            <item>
-              <label>Hasta 10 pesos.</label>
-              <value>hasta_10_pesos</value>
-            </item>
-            <item>
-              <label>desde 10 hasta 20 pesos.</label>
-              <value>desde_10_hasta_20_pesos</value>
-            </item>
-            <item>
-              <label>desde 20 hasta 30 pesos.</label>
-              <value>desde_20_hasta_30_pesos</value>
-            </item>
-            <item>
-              <label>desde 30 hasta 50 pesos.</label>
-              <value>desde_30_hasta_50_pesos</value>
-            </item>
-            <item>
-              <label>desde 50 pesos.</label>
-              <value>desde_50_pesos</value>
-            </item>
+            
           </select1>
           <input ref="/D1.28/tarifasPlanes/caracteristicas/serviciosAdicionales">
             <label>Servicios Adicionales Incluidos</label>

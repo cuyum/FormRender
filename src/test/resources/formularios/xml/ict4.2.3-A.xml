@@ -28,16 +28,16 @@
           </meta>
         </ict4.2.3-A>
       </instance>
-      <bind constraint="periodicidad=/servicios/rest/periodicidad and agrupador=1" nodeset="/ict4.2.3-A/trimestres/tasa/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad and agrupador=1 and clave_primaria" nodeset="/ict4.2.3-A/trimestres/tasa/periodo_considerado" required="true()" type="select1"/>
       <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.2.3-A/trimestres/tasa/provincia" required="true()" type="select1"/>
       <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/ict4.2.3-A/trimestres/tasa/provincia" nodeset="/ict4.2.3-A/trimestres/tasa/partido" required="true()" type="select1"/>
       <bind nodeset="/ict4.2.3-A/trimestres/tasa/partido_otro" relevant=" /ict4.2.3-A/trimestres/tasa/partido =9999" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/ict4.2.3-A/trimestres/tasa/partido" nodeset="/ict4.2.3-A/trimestres/tasa/localidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/ict4.2.3-A/trimestres/tasa/partido and clave_primaria" nodeset="/ict4.2.3-A/trimestres/tasa/localidad" required="true()" type="select1"/>
       <bind nodeset="/ict4.2.3-A/trimestres/tasa/localidad_otro" relevant=" /ict4.2.3-A/trimestres/tasa/localidad =9999" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/localizaciones/areas2 and depends=/ict4.2.3-A/trimestres/tasa/localidad and agrupador=2" nodeset="/ict4.2.3-A/trimestres/tasa/area" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/areas2 and depends=/ict4.2.3-A/trimestres/tasa/localidad and agrupador=2 and clave_primaria" nodeset="/ict4.2.3-A/trimestres/tasa/area" required="true()" type="select1"/>
       <bind nodeset="/ict4.2.3-A/trimestres/tasa/area_otro" relevant=" /ict4.2.3-A/trimestres/tasa/area =9999" required="true()" type="string"/>
-      <bind constraint="agrupador=3" nodeset="/ict4.2.3-A/trimestres/tasa/hora_pico_inicio" required="true()" type="time"/>
-      <bind constraint="url=/servicios/rest/parameter?name=minutos_hora and hora_delta= /ict4.2.3-A/trimestres/tasa/hora_pico_inicio " nodeset="/ict4.2.3-A/trimestres/tasa/hora_pico_fin" readonly="true()" type="string"/>
+      <bind constraint="agrupador=3 and clave_primaria" nodeset="/ict4.2.3-A/trimestres/tasa/hora_pico_inicio" required="true()" type="time"/>
+      <bind constraint="url=/servicios/rest/parameter?name=minutos_hora and hora_delta= /ict4.2.3-A/trimestres/tasa/hora_pico_inicio and clave_primaria" nodeset="/ict4.2.3-A/trimestres/tasa/hora_pico_fin" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and and totalizador" nodeset="/ict4.2.3-A/trimestres/tasa/cant_recursos" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and totalizador" nodeset="/ict4.2.3-A/trimestres/tasa/cant_total_recursos_asignado" required="true()" type="int"/>
       <bind constraint="porcentual= /ict4.2.3-A/trimestres/tasa/cant_recursos , /ict4.2.3-A/trimestres/tasa/cant_total_recursos_asignado ,100" nodeset="/ict4.2.3-A/trimestres/tasa/porcentaje" readonly="true()" type="decimal"/>
