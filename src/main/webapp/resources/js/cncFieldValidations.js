@@ -1235,9 +1235,11 @@ var addRequired = function(field) {
 /**por el momento la funcionalidad es solo paraa F1.2**/
 var addVisibility=function(field){
 	var form = url();
-	var name = "/"+form+"/inter/interconexion/destino_0";
+	var name = "destino_0";
+	var index = (field.attr("name")).lastIndexOf("/");
+	var fieldName = (field.attr("name")).substring(index+1);
 	
-	if(field[0].name==name){
+	if(fieldName==name){
 		
 		var funcionVisibility = function(ancestor, field, nroField){
 			
@@ -1470,9 +1472,19 @@ var validationPrimaryKey = function(record,storedData,fieldset,pkeys,editing){
 		var storedRecord = storedData[i];
 		
 		for(var j=0; j<pkeys.length;j++){
-			if (storedRecord[pkeys[j].nombre].value== record[pkeys[j].nombre].value) {
-				if(i!=editing)
-				cont++;
+			
+			if(pkeys[j].nombre!="hora_pico_inicio" && pkeys[j].nombre!="hora_pico_fin"){
+				if (storedRecord[pkeys[j].nombre].value== record[pkeys[j].nombre].value) {
+					console.debug(storedRecord[pkeys[j].nombre].value +"="+record[pkeys[j].nombre].value);
+					if(i!=editing)
+						cont++;
+				}
+			}else{
+				if (storedRecord[pkeys[j].nombre]== record[pkeys[j].nombre]) {
+					console.debug(storedRecord[pkeys[j].nombre].value +"="+record[pkeys[j].nombre].value);
+					if(i!=editing)
+						cont++;
+				}
 			}
 		}
 		if(cont==pkeys.length){
