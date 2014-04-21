@@ -32,7 +32,7 @@
       <bind nodeset="/F1.6/meses/mes/localidad_otro" relevant=" /F1.6/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind constraint="url=/servicios/rest/servicios" nodeset="/F1.6/meses/mes/servicio" required="true()" type="select1"/>
       <bind nodeset="/F1.6/meses/mes/servicio_otro" relevant=" /F1.6/meses/mes/servicio =OTROS" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/accesos and depends=/F1.6/meses/mes/servicio" nodeset="/F1.6/meses/mes/acceso" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/servicios/accesos and depends=/F1.6/meses/mes/servicio" nodeset="/F1.6/meses/mes/acceso" required="true()" type="select1"/>
       <bind nodeset="/F1.6/meses/mes/acceso_otro" relevant=" /F1.6/meses/mes/acceso =OTROS" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/F1.6/meses/mes/cuentas" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/F1.6/meta/instanceID" readonly="true()" type="string"/>
@@ -83,30 +83,7 @@
               <label>Seleccione una opción</label>
               <value>-1</value>
             </item>
-            <item>
-              <label>610</label>
-              <value>610</value>
-            </item>
-            <item>
-              <label>611</label>
-              <value>611</value>
-            </item>
-            <item>
-              <label>612</label>
-              <value>612</value>
-            </item>
-            <item>
-              <label>Nº GEOGRAFICO</label>
-              <value>NRO_GEOGRAFICO</value>
-            </item>
-            <item>
-              <label>OTROS</label>
-              <value>OTROS</value>
-            </item>
-            <item>
-              <label>BANDA ANCHA</label>
-              <value>BANDA_ANCHA</value>
-            </item>
+            
           </select1>
           <input ref="/F1.6/meses/mes/servicio_otro">
             <label>Servicio Otros</label>

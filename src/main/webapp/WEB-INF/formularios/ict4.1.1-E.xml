@@ -28,7 +28,7 @@
         </ict4.1.1-E>
       </instance>
       <bind constraint="periodicidad=/servicios/rest/periodicidad and agrupador=1 and clave_primaria" nodeset="/ict4.1.1-E/meses/mes/periodo_considerado" required="true()" type="select1"/>
-      <bind constraint="agrupador=2 and clave_primaria" nodeset="/ict4.1.1-E/meses/mes/canales" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas and agrupador=2 and clave_primaria" nodeset="/ict4.1.1-E/meses/mes/canal" required="true()" type="select1"/>
       <bind nodeset="/ict4.1.1-E/meses/mes/canales_otros" relevant=" /ict4.1.1-E/meses/mes/canales =Otros" required="false()" type="string"/>
       <bind constraint="clave_primaria" nodeset="/ict4.1.1-E/meses/mes/id_bocas" required="true()" type="string"/>
       <bind constraint="url=/servicios/rest/localizaciones/provincias and clave_primaria" nodeset="/ict4.1.1-E/meses/mes/provincia" required="true()" type="select1"/>
@@ -56,28 +56,12 @@
               <value>-1</value>
             </item>
           </select1>
-          <select1 appearance="minimal" ref="/ict4.1.1-E/meses/mes/canales">
+          <select1 appearance="minimal" ref="/ict4.1.1-E/meses/mes/canal">
             <label>Canales de Atención al Usuario</label>
             <hint>Canales de Atención al Usuario</hint>
             <item>
               <label>Seleccione una opción</label>
               <value>-1</value>
-            </item>
-            <item>
-              <label>Atención Telefónica</label>
-              <value>Atencion_Telefonica</value>
-            </item>
-            <item>
-              <label>Atención Personalizada - Sucursal</label>
-              <value>Atencion_Personalizada_Sucursal</value>
-            </item>
-            <item>
-              <label>Atención en Redes Sociales / Web / Mail / Postal u otros medios Escritos</label>
-              <value>Atencion_en_Redes_Sociales</value>
-            </item>
-            <item>
-              <label>Otros</label>
-              <value>Otros</value>
             </item>
           </select1>
           <input ref="/ict4.1.1-E/meses/mes/canales_otros">

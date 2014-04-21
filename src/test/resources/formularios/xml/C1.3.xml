@@ -58,16 +58,16 @@
       <bind nodeset="/C1.3/puntos/lugarOrigen/localidadOrigen_otro" relevant=" /C1.3/puntos/lugarOrigen/localidadOrigen =9999" required="true()" type="string"/>
       <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/C1.3/puntos/lugarOrigen/localidadOrigen" nodeset="/C1.3/puntos/lugarOrigen/areaOrigen" required="true()" type="select1"/>
       <bind nodeset="/C1.3/puntos/lugarOrigen/area_otro" relevant=" /C1.3/puntos/lugarOrigen/areaOrigen =9999" required="true()" type="string"/>
-      <bind nodeset="/C1.3/puntos/equipamiento/tecnologia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas" nodeset="/C1.3/puntos/equipamiento/tecnologia" required="true()" type="select1"/>
       <bind nodeset="/C1.3/puntos/equipamiento/tecnologia_otro" relevant=" /C1.3/puntos/equipamiento/tecnologia =Otros" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999" nodeset="/C1.3/puntos/equipamiento/equipCapacidadDisp" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999" nodeset="/C1.3/puntos/equipamiento/equipCapacidadUtilizada" required="true()" type="int"/>
-      <bind nodeset="/C1.3/puntos/tipomedio/medio" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas" nodeset="/C1.3/puntos/tipomedio/medio" required="true()" type="select1"/>
       <bind nodeset="/C1.3/puntos/tipomedio/medio_otro" relevant=" /C1.3/puntos/tipomedio/medio =Otros" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=99999" jr:constraintMsg="Ingrese entero entre 0 y 99999" nodeset="/C1.3/puntos/tipomedio/medioCapacidadDisp" relevant=" /C1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=99999" jr:constraintMsg="Ingrese entero entre 0 y 99999" nodeset="/C1.3/puntos/tipomedio/medioCapacidadUtilizada" relevant=" /C1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
       <bind nodeset="/C1.3/puntos/tipotendido" relevant=" /C1.3/puntos/tipomedio/medio =FO or  /C1.3/puntos/tipomedio/medio =Otros"/>
-      <bind nodeset="/C1.3/puntos/tipotendido/tendido" relevant=" /C1.3/puntos/tipomedio/medio =FO or  /C1.3/puntos/tipomedio/medio =Otros" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas" nodeset="/C1.3/puntos/tipotendido/tendido" relevant=" /C1.3/puntos/tipomedio/medio =FO or  /C1.3/puntos/tipomedio/medio =Otros" required="true()" type="select1"/>
       <bind nodeset="/C1.3/puntos/tipotendido/tendido_otro" relevant=" /C1.3/puntos/tipotendido/tendido =Otros" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/C1.3/puntos/tipotendido/tendidoCapacidadDisp" relevant=" /C1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/C1.3/puntos/tipotendido/tendidoCapacidadUtilizada" relevant=" /C1.3/puntos/tipomedio/medio =FO" required="true()" type="int"/>
@@ -142,26 +142,6 @@
               <label>Seleccione una opción</label>
               <value>-1</value>
             </item>
-            <item>
-              <label>SDH</label>
-              <value>SDH</value>
-            </item>
-            <item>
-              <label>DWDM</label>
-              <value>DWDM</value>
-            </item>
-            <item>
-              <label>PDH</label>
-              <value>PDH</value>
-            </item>
-            <item>
-              <label>IP</label>
-              <value>IP</value>
-            </item>
-            <item>
-              <label>Otros</label>
-              <value>Otros</value>
-            </item>
           </select1>
           <input ref="/C1.3/puntos/equipamiento/tecnologia_otro">
             <label>Tecnología Otros</label>
@@ -185,18 +165,6 @@
               <label>Seleccione una opción</label>
               <value>-1</value>
             </item>
-            <item>
-              <label>FO</label>
-              <value>FO</value>
-            </item>
-            <item>
-              <label>MW</label>
-              <value>MW</value>
-            </item>
-            <item>
-              <label>Otros</label>
-              <value>Otros</value>
-            </item>
           </select1>
           <input ref="/C1.3/puntos/tipomedio/medio_otro">
             <label>Tipo Otros</label>
@@ -219,18 +187,6 @@
             <item>
               <label>Seleccione una opción</label>
               <value>-1</value>
-            </item>
-            <item>
-              <label>AEREO</label>
-              <value>AEREO</value>
-            </item>
-            <item>
-              <label>SUBTERRANEO</label>
-              <value>SUBTERRANEO</value>
-            </item>
-            <item>
-              <label>Otros</label>
-              <value>Otros</value>
             </item>
           </select1>
           <input ref="/C1.3/puntos/tipotendido/tendido_otro">

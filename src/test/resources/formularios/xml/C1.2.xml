@@ -36,7 +36,7 @@
       <bind nodeset="/C1.2/inter/interconexion/area_otro" relevant=" /C1.2/inter/interconexion/area =9999" required="true()" type="string"/>
       <bind constraint="url=/servicios/rest/prestadores" nodeset="/C1.2/inter/interconexion/prestador" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999" nodeset="/C1.2/inter/interconexion/capacidad" required="true()" type="int"/>
-      <bind nodeset="/C1.2/inter/interconexion/unidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas" nodeset="/C1.2/inter/interconexion/unidad" required="true()" type="select1"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C1.2/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -111,14 +111,6 @@
             <item>
               <label>Seleccione una opción</label>
               <value>-1</value>
-            </item>
-            <item>
-              <label>Mbps</label>
-              <value>mbps</value>
-            </item>
-            <item>
-              <label>n*E1</label>
-              <value>n*E1</value>
             </item>
           </select1>
         </group>

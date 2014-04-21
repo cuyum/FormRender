@@ -40,8 +40,8 @@
         </E1.28>
       </instance>
       <bind nodeset="/E1.28/agregar/caracteristicas/plan" required="true()" type="string"/>
-      <bind nodeset="/E1.28/agregar/caracteristicas/modalidad" required="true()" type="select1"/>
-      <bind nodeset="/E1.28/agregar/abonoDatos/abonoRecarga/abono" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas" nodeset="/E1.28/agregar/caracteristicas/modalidad2" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas" nodeset="/E1.28/agregar/abonoDatos/abonoRecarga/abono" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999" jr:constraintMsg="Ingrese entero entre 0 y 999999" nodeset="/E1.28/agregar/abonoDatos/datos/datosIncuidos" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.28/agregar/precios/kb" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.28/agregar/precios/kbExedente" required="true()" type="decimal"/>
@@ -62,25 +62,14 @@
             <label>Nombre del Plan</label>
             <hint>Nombre del Plan</hint>
           </input>
-          <select1 appearance="minimal" ref="/E1.28/agregar/caracteristicas/modalidad">
+          <select1 appearance="minimal" ref="/E1.28/agregar/caracteristicas/modalidad2">
             <label>Modalidad</label>
             <hint>Modalidad</hint>
             <item>
               <label>Seleccione opción</label>
               <value>-1</value>
             </item>
-            <item>
-              <label>PREPAGO</label>
-              <value>prepago</value>
-            </item>
-            <item>
-              <label>POSPAGO</label>
-              <value>pospago</value>
-            </item>
-            <item>
-              <label>MIXTO</label>
-              <value>mixto</value>
-            </item>
+            
           </select1>
         </group>
         <group appearance="col1 well-white" ref="/E1.28/agregar/abonoDatos">
@@ -93,26 +82,7 @@
                 <label>Seleccione opción</label>
                 <value>-1</value>
               </item>
-              <item>
-                <label>Hasta 10 pesos.</label>
-                <value>hasta_10_pesos</value>
-              </item>
-              <item>
-                <label>desde 10 hasta 20 pesos.</label>
-                <value>desde_10_hasta_20_pesos</value>
-              </item>
-              <item>
-                <label>desde 20 hasta 30 pesos.</label>
-                <value>desde_20_hasta_30_pesos</value>
-              </item>
-              <item>
-                <label>desde 30 hasta 50 pesos.</label>
-                <value>desde_30_hasta_50_pesos</value>
-              </item>
-              <item>
-                <label>desde 50 pesos.</label>
-                <value>desde_50_pesos</value>
-              </item>
+              
             </select1>
           </group>
           <group appearance="col2 well-white" ref="/E1.28/agregar/abonoDatos/datos">

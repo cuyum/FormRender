@@ -26,8 +26,8 @@
           </meta>
         </ict4.1.6-B>
       </instance>
-      <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.1.6-B/meses/mes/periodo_considerado" required="true()" type="select1"/>
-      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.6-B/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad and clave_primaria" nodeset="/ict4.1.6-B/meses/mes/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias and clave_primaria" nodeset="/ict4.1.6-B/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.6-B/meses/mes/desconoc_llamadas" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.6-B/meses/mes/conceptos_orden_tercero" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.6-B/meses/mes/falta_reintegro" required="true()" type="int"/>

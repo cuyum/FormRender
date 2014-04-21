@@ -20,7 +20,7 @@
         </ict4.1.1-D>
       </instance>
       <bind constraint="periodicidad=/servicios/rest/periodicidad and clave_primaria" nodeset="/ict4.1.1-D/meses/mes/periodo_considerado" required="true()" type="select1"/>
-      <bind constraint="clave_primaria" nodeset="/ict4.1.1-D/meses/mes/contacto" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas and clave_primaria" nodeset="/ict4.1.1-D/meses/mes/contacto" required="true()" type="select1"/>
       <bind nodeset="/ict4.1.1-D/meses/mes/contacto_otros" relevant=" /ict4.1.1-D/meses/mes/contacto =Otro" required="false()" type="string"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.1-D/meses/mes/cantidad_contactos_usuario" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/ict4.1.1-D/meta/instanceID" readonly="true()" type="string"/>
@@ -46,26 +46,6 @@
             <item>
               <label>Seleccione una opción</label>
               <value>-1</value>
-            </item>
-            <item>
-              <label>Reclamo</label>
-              <value>Reclamo</value>
-            </item>
-            <item>
-              <label>Consulta</label>
-              <value>Consulta</value>
-            </item>
-            <item>
-              <label>Asistencia</label>
-              <value>Asistencia</value>
-            </item>
-            <item>
-              <label>Solicitud de alta de servicio</label>
-              <value>Solicitud_de_alta_de_servicio</value>
-            </item>
-            <item>
-              <label>Otro</label>
-              <value>Otro</value>
             </item>
           </select1>
           <input ref="/ict4.1.1-D/meses/mes/contacto_otros">

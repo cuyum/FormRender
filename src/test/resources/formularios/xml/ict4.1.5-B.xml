@@ -22,8 +22,8 @@
           </meta>
         </ict4.1.5-B>
       </instance>
-      <bind constraint="periodicidad=/servicios/rest/periodicidad" nodeset="/ict4.1.5-B/meses/mes/periodo_considerado" required="true()" type="select1"/>
-      <bind constraint="url=/servicios/rest/localizaciones/provincias" nodeset="/ict4.1.5-B/meses/mes/provincia" required="true()" type="select1"/>
+      <bind constraint="periodicidad=/servicios/rest/periodicidad and clave_primaria" nodeset="/ict4.1.5-B/meses/mes/periodo_considerado" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/localizaciones/provincias and clave_primaria" nodeset="/ict4.1.5-B/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.5-B/meses/mes/venc_saldos" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.5-B/meses/mes/promociones" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.5-B/meses/mes/acreditaciones" required="true()" type="int"/>
