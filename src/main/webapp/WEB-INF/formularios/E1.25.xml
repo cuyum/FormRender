@@ -52,7 +52,7 @@
       </instance>
       <bind nodeset="/E1.25/titulo" readonly="true()" type="string"/>
       <bind nodeset="/E1.25/tarifasPlanes/caracteristicas/plan" required="true()" type="string"/>
-      <bind nodeset="/E1.25/tarifasPlanes/caracteristicas/recargaTipo" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas" nodeset="/E1.25/tarifasPlanes/caracteristicas/recargaTipo" required="true()" type="select1"/>
       <bind nodeset="/E1.25/tarifasPlanes/caracteristicas/serviciosAdicionales" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.25/tarifasPlanes/precios/minuto/minutoOnNet" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.25/tarifasPlanes/precios/minuto/minutoOffNet" required="true()" type="decimal"/>
@@ -90,26 +90,7 @@
               <label>Seleccione opción</label>
               <value>-1</value>
             </item>
-            <item>
-              <label>Hasta 10 pesos.</label>
-              <value>hasta_10_pesos</value>
-            </item>
-            <item>
-              <label>desde 10 hasta 20 pesos.</label>
-              <value>desde_10_hasta_20_pesos</value>
-            </item>
-            <item>
-              <label>desde 20 hasta 30 pesos.</label>
-              <value>desde_20_hasta_30_pesos</value>
-            </item>
-            <item>
-              <label>desde 30 hasta 50 pesos.</label>
-              <value>desde_30_hasta_50_pesos</value>
-            </item>
-            <item>
-              <label>desde 50 pesos.</label>
-              <value>desde_50_pesos</value>
-            </item>
+            
           </select1>
           <input ref="/E1.25/tarifasPlanes/caracteristicas/serviciosAdicionales">
             <label>Servicios Adicionales Incluidos</label>

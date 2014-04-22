@@ -22,7 +22,7 @@
         </F1.16>
       </instance>
       <bind nodeset="/F1.16/titulo" readonly="true()" type="string"/>
-      <bind nodeset="/F1.16/agregar/tarifas/tarifasAcceso" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/servicios/accesos" nodeset="/F1.16/agregar/tarifas/tarifasAcceso" required="true()" type="select1"/>
       <bind nodeset="/F1.16/agregar/tarifas/tarifasAcceso_otro" relevant=" /F1.16/agregar/tarifas/tarifasAcceso =OTROS" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/F1.16/agregar/tarifas/tarifasInstalacion" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/F1.16/agregar/tarifas/tarifasModem" required="true()" type="decimal"/>
@@ -45,46 +45,6 @@
             <item>
               <label>Seleccione una opción</label>
               <value>-1</value>
-            </item>
-            <item>
-              <label>DIAL UP</label>
-              <value>DIALUP</value>
-            </item>
-            <item>
-              <label>ADSL</label>
-              <value>ADSL</value>
-            </item>
-            <item>
-              <label>CABLEMODEN</label>
-              <value>CABLEMODEN</value>
-            </item>
-            <item>
-              <label>WIRELESS</label>
-              <value>WIRELESS</value>
-            </item>
-            <item>
-              <label>CELULAR</label>
-              <value>CELULAR</value>
-            </item>
-            <item>
-              <label>SATELITAL</label>
-              <value>SATELITAL</value>
-            </item>
-            <item>
-              <label>BPL</label>
-              <value>BPL</value>
-            </item>
-            <item>
-              <label>WIMAX</label>
-              <value>WIMAX</value>
-            </item>
-            <item>
-              <label>FIBRA OPTICA</label>
-              <value>FIBRAOPTICA</value>
-            </item>
-            <item>
-              <label>OTROS</label>
-              <value>OTROS</value>
             </item>
           </select1>
           <input ref="/F1.16/agregar/tarifas/tarifasAcceso_otro">

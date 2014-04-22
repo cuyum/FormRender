@@ -36,7 +36,7 @@
       <bind nodeset="/H1.2/inter/interconexion/area_otro" relevant=" /H1.2/inter/interconexion/area =9999" required="true()" type="string"/>
       <bind constraint="url=/servicios/rest/prestadores and cuit" jr:constraintMsg="CUIT no válido" nodeset="/H1.2/inter/interconexion/prestador" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999" nodeset="/H1.2/inter/interconexion/capacidad" required="true()" type="int"/>
-      <bind nodeset="/H1.2/inter/interconexion/unidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas" nodeset="/H1.2/inter/interconexion/unidad" required="true()" type="select1"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/H1.2/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

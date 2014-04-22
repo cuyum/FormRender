@@ -1244,19 +1244,26 @@ var addVisibility=function(field){
 		var funcionVisibility = function(ancestor, field, nroField){
 			
 			var select = ancestor[0];
-//			for ( var i = 0; i < select.length; i++) {
-
-				if (select[nroField].selected) {
+			var selected = select["defaultValue"];
+			index = (field.attr("name")).lastIndexOf("/");
+			var nameField = (field.attr("name")).substring(index+1);
+			selected = "destino_"+selected+"_0";
+			
+				if(selected==nameField){
 					console.log("Requerido: "+ field[0].name);
 					field[0].required = true;
 					field[0].hidden = false;
-				} else {
+				}
+//				if (select[nroField].selected) {
+//					console.log("Requerido: "+ field[0].name);
+//					field[0].required = true;
+//					field[0].hidden = false;
+//				} 
+				else {
 					console.log("NO Requerido: "+ field[0].name);
 					field[0].required = false;
 					field[0].hidden = true;
-				}
-				
-//			}
+				}			
 		};
 		
 		field.data("funcionVisibility", funcionVisibility);
@@ -1286,7 +1293,7 @@ var setupValidationDefaults = function() {
 	// "Debe especificar un n&uacute;mero entero");
 
 	$.validator.addMethod("decimal", function(value, element) {
-		// var match
+		// var matchse
 		// =/^-?(?:\d+\,\d{1,3}|\d{1,3}(?:\.\d{3})+\,\d{1,3})$/.test(value);
 		var match = /^\s*-?(\d+(\.\d{1,3})?|\.\d{1,3})\s*$/.test(value);
 		return this.optional(element) || match;
