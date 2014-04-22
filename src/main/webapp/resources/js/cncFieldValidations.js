@@ -277,8 +277,8 @@ var setupRequired = function(field, fieldset) {
 		var data_required = field.attr("name");
 
 		if (data_required != "/ict4.1.1-E/meses/mes/periodo_considerado_0"
-				&& data_required != "/ict4.1.1-E/meses/mes/canales_0") {
-			var ancestor = gui.getField("/ict4.1.1-E/meses/mes/canales",
+				&& data_required != "/ict4.1.1-E/meses/mes/canal_0") {
+			var ancestor = gui.getField("/ict4.1.1-E/meses/mes/canal",
 					fieldset);
 
 			gui.addDependencia(ancestor, field);
