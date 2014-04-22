@@ -1168,9 +1168,9 @@ var addRequired = function(field) {
 
 		var funcionRequired = function(ancestor, field) {
 			var select = ancestor[0];
-			for ( var i = 0; i < select.length; i++) {
+			var selected = select["defaultValue"];			
 
-				if (i == 1 && select[i].selected) {
+				if (selected=="Atencion_Telefonica") {
 
 					if (field[0].name == "/ict4.1.1-E/meses/mes/provincia_0"
 							|| field[0].name == "/ict4.1.1-E/meses/mes/localidad_0"
@@ -1185,7 +1185,7 @@ var addRequired = function(field) {
 
 				}
 
-				if (i == 2 && select[i].selected) {
+				if (selected=="Atencion_Personalizada_Sucursal") {
 
 					if (field[0].name == "/ict4.1.1-E/meses/mes/canales_otros_0"){
 						field[0].required = false;
@@ -1199,7 +1199,7 @@ var addRequired = function(field) {
 						
 				}
 
-				if (i == 3 && select[i].selected) {
+				if (selected=="Atencion_en_Redes_Sociales") {
 
 					if (field[0].name == "/ict4.1.1-E/meses/mes/provincia_0"
 							|| field[0].name == "/ict4.1.1-E/meses/mes/localidad_0"
@@ -1213,7 +1213,7 @@ var addRequired = function(field) {
 					
 				}
 
-				if (i == 4 && select[i].selected) {
+				if (selected=="Otros") {
 					
 					field[0].required = true;
 					
@@ -1224,7 +1224,6 @@ var addRequired = function(field) {
 					else addAsterisco(field);
 				}
 
-			}
 		};
 
 		field.data("funcionRequired", funcionRequired);
