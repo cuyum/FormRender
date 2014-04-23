@@ -342,7 +342,12 @@ var setupRemoteData = function(field, fieldset) {
 		if(fieldName.lastIndexOf("/")!=null && fieldName.lastIndexOf("/")!=-1){
 			dsd = fieldName.lastIndexOf("/");
 			hta= fieldName.lastIndexOf("_");
-			tipo= fieldName.substring(dsd+1,hta);
+			if(hta!=-1){
+				tipo= fieldName.substring(dsd+1,hta);
+			}else{
+				tipo= fieldName.substring(dsd+1);
+			}
+			
 		}
 		// console.group("CAMPO:"+fieldName+"---Lista remota");
 
