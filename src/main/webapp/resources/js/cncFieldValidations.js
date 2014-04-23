@@ -277,8 +277,8 @@ var setupRequired = function(field, fieldset) {
 		var data_required = field.attr("name");
 
 		if (data_required != "/ict4.1.1-E/meses/mes/periodo_considerado_0"
-				&& data_required != "/ict4.1.1-E/meses/mes/canales_0") {
-			var ancestor = gui.getField("/ict4.1.1-E/meses/mes/canales",
+				&& data_required != "/ict4.1.1-E/meses/mes/canal_0") {
+			var ancestor = gui.getField("/ict4.1.1-E/meses/mes/canal",
 					fieldset);
 
 			gui.addDependencia(ancestor, field);
@@ -1248,9 +1248,9 @@ var addRequired = function(field) {
 
 		var funcionRequired = function(ancestor, field) {
 			var select = ancestor[0];
-			for ( var i = 0; i < select.length; i++) {
+			var selected = select["defaultValue"];			
 
-				if (i == 1 && select[i].selected) {
+				if (selected=="Atencion_Telefonica") {
 
 					if (field[0].name == "/ict4.1.1-E/meses/mes/provincia_0"
 							|| field[0].name == "/ict4.1.1-E/meses/mes/localidad_0"
@@ -1265,7 +1265,7 @@ var addRequired = function(field) {
 
 				}
 
-				if (i == 2 && select[i].selected) {
+				if (selected=="Atencion_Personalizada_Sucursal") {
 
 					if (field[0].name == "/ict4.1.1-E/meses/mes/canales_otros_0"){
 						field[0].required = false;
@@ -1279,7 +1279,7 @@ var addRequired = function(field) {
 						
 				}
 
-				if (i == 3 && select[i].selected) {
+				if (selected=="Atencion_en_Redes_Sociales") {
 
 					if (field[0].name == "/ict4.1.1-E/meses/mes/provincia_0"
 							|| field[0].name == "/ict4.1.1-E/meses/mes/localidad_0"
@@ -1293,7 +1293,7 @@ var addRequired = function(field) {
 					
 				}
 
-				if (i == 4 && select[i].selected) {
+				if (selected=="Otros") {
 					
 					field[0].required = true;
 					
@@ -1304,7 +1304,6 @@ var addRequired = function(field) {
 					else addAsterisco(field);
 				}
 
-			}
 		};
 
 		field.data("funcionRequired", funcionRequired);
@@ -1324,19 +1323,26 @@ var addVisibility=function(field){
 		var funcionVisibility = function(ancestor, field, nroField){
 			
 			var select = ancestor[0];
-//			for ( var i = 0; i < select.length; i++) {
-
-				if (select[nroField].selected) {
+			var selected = select["defaultValue"];
+			index = (field.attr("name")).lastIndexOf("/");
+			var nameField = (field.attr("name")).substring(index+1);
+			selected = "destino_"+selected+"_0";
+			
+				if(selected==nameField){
 					console.log("Requerido: "+ field[0].name);
 					field[0].required = true;
 					field[0].hidden = false;
-				} else {
+				}
+//				if (select[nroField].selected) {
+//					console.log("Requerido: "+ field[0].name);
+//					field[0].required = true;
+//					field[0].hidden = false;
+//				} 
+				else {
 					console.log("NO Requerido: "+ field[0].name);
 					field[0].required = false;
 					field[0].hidden = true;
-				}
-				
-//			}
+				}			
 		};
 		
 		field.data("funcionVisibility", funcionVisibility);
@@ -1366,7 +1372,7 @@ var setupValidationDefaults = function() {
 	// "Debe especificar un n&uacute;mero entero");
 
 	$.validator.addMethod("decimal", function(value, element) {
-		// var match
+		// var matchse
 		// =/^-?(?:\d+\,\d{1,3}|\d{1,3}(?:\.\d{3})+\,\d{1,3})$/.test(value);
 		var match = /^\s*-?(\d+(\.\d{1,3})?|\.\d{1,3})\s*$/.test(value);
 		return this.optional(element) || match;

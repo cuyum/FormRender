@@ -26,6 +26,10 @@
               <serviciosAdic/>
             </servicios>
             <precios>
+			  <bloquePrimeros>
+                <segundoOnNet_BP/>
+                <segundoOffNet_BP/>
+              </bloquePrimeros>
               <segundoLocal>
                 <segundoOnNet/>
                 <segundoOffNet/>
@@ -69,6 +73,8 @@
       <bind nodeset="/D1.27/tarifasPlanes/servicios/sms" required="true()" type="string"/>
       <bind nodeset="/D1.27/tarifasPlanes/servicios/mms" required="true()" type="string"/>
       <bind nodeset="/D1.27/tarifasPlanes/servicios/serviciosAdic" type="string"/>
+	  <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.27/tarifasPlanes/precios/bloquePrimeros/segundoOnNet_BP" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.27/tarifasPlanes/precios/bloquePrimeros/segundoOffNet_BP" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.27/tarifasPlanes/precios/segundoLocal/segundoOnNet" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.27/tarifasPlanes/precios/segundoLocal/segundoOffNet" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.27/tarifasPlanes/precios/sms/smsOnNet" required="true()" type="decimal"/>
@@ -154,8 +160,19 @@
         </group>
         <group appearance="col1 well-white" ref="/D1.27/tarifasPlanes/precios">
           <label>Precios</label>
+          <group appearance="col2 well-white" ref="/D1.27/tarifasPlanes/precios/bloquePrimeros">
+            <label>Bloque primeros 30 segundos (Telefonía/Voz) </label>
+            <input ref="/D1.27/tarifasPlanes/precios/bloquePrimeros/segundoOnNet_BP">
+              <label>ON NET</label>
+              <hint>Precio del segundo excedente, luego de agotar los incluidos en el abono.</hint>
+            </input>
+            <input ref="/D1.27/tarifasPlanes/precios/bloquePrimeros/segundoOffNet_BP">
+              <label>OFF NET</label>
+              <hint>Precio del segundo excedente, luego de agotar los incluidos en el abono.</hint>
+            </input>
+          </group>		  
           <group appearance="col2 well-white" ref="/D1.27/tarifasPlanes/precios/segundoLocal">
-            <label>Segundo Local</label>
+            <label>Segundo Local (Telefonía/Voz)</label>
             <input ref="/D1.27/tarifasPlanes/precios/segundoLocal/segundoOnNet">
               <label>ON NET</label>
               <hint>Precio del segundo excedente, luego de agotar los incluidos en el abono.</hint>

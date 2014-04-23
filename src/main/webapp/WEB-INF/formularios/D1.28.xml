@@ -14,6 +14,10 @@
               <serviciosAdicionales/>
             </caracteristicas>
             <precios>
+			  <bloquePrimeros>
+                <segundoOnNet_BP/>
+                <segundoOffNet_BP/>
+              </bloquePrimeros>			
               <segundo>
                 <segundoOnNet/>
                 <segundoOffNet/>
@@ -55,6 +59,8 @@
       <bind nodeset="/D1.28/tarifasPlanes/caracteristicas/plan" required="true()" type="string"/>
       <bind constraint="url=/servicios/rest/listas" nodeset="/D1.28/tarifasPlanes/caracteristicas/recargaTipo" required="true()" type="select1"/>
       <bind nodeset="/D1.28/tarifasPlanes/caracteristicas/serviciosAdicionales" required="true()" type="string"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.28/tarifasPlanes/precios/bloquePrimeros/segundoOnNet_BP" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.28/tarifasPlanes/precios/bloquePrimeros/segundoOffNet_BP" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.28/tarifasPlanes/precios/segundo/segundoOnNet" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.28/tarifasPlanes/precios/segundo/segundoOffNet" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.28/tarifasPlanes/precios/sms/smsOnNet" required="true()" type="decimal"/>
@@ -101,8 +107,19 @@
         </group>
         <group appearance="col1 well-white" ref="/D1.28/tarifasPlanes/precios">
           <label>Precios</label>
+          <group appearance="col2 well-white" ref="/D1.28/tarifasPlanes/precios/bloquePrimeros">
+            <label>Bloque primeros 30 segundos (Telefonía/Voz)</label>
+            <input ref="/D1.28/tarifasPlanes/precios/bloquePrimeros/segundoOnNet_BP">
+              <label>ON NET</label>
+              <hint>ON NET</hint>
+            </input>
+            <input ref="/D1.28/tarifasPlanes/precios/bloquePrimeros/segundoOffNet_BP">
+              <label>OFF NET</label>
+              <hint>OFF NET</hint>
+            </input>
+          </group>		  
           <group appearance="col2 well-white" ref="/D1.28/tarifasPlanes/precios/segundo">
-            <label>Segundo Local</label>
+            <label>Segundo Local (Telefonía/Voz)</label>
             <input ref="/D1.28/tarifasPlanes/precios/segundo/segundoOnNet">
               <label>ON NET</label>
               <hint>ON NET</hint>
