@@ -309,6 +309,7 @@ public class FormularioBean implements Serializable
 		  	  if (copiado) {
 		  		this.formulario.setArchivo(file.getFileName());
 		  		this.formulario.setUrl(destination);
+		  		this.formulario.setParametrosUrl("id="+formulario.getCodigo());
 		  	  }	
 		  	  else {		  		
 				   FacesContext.getCurrentInstance().addMessage(null, msgArchivoSubida);
