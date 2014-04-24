@@ -22,7 +22,7 @@
         </F1.16>
       </instance>
       <bind nodeset="/F1.16/titulo" readonly="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/servicios/accesos" nodeset="/F1.16/agregar/tarifas/tarifasAcceso" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas" nodeset="/F1.16/agregar/tarifas/tarifasAcceso" required="true()" type="select1"/>
       <bind nodeset="/F1.16/agregar/tarifas/tarifasAcceso_otro" relevant=" /F1.16/agregar/tarifas/tarifasAcceso =OTROS" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/F1.16/agregar/tarifas/tarifasInstalacion" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/F1.16/agregar/tarifas/tarifasModem" required="true()" type="decimal"/>
