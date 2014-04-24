@@ -142,8 +142,13 @@ public class ExternalRest {
 		
         try{
 			cod = jsonService.persistFormFromJson(input);
-			builder = Response.ok();
-			return builder.status(200).entity("{'success':'true','result': ' " + ret + cod +"&repeat=1" + "'}").build();
+			if(cod.contains("duplicate")){
+				builder = Response.ok();
+				return builder.status(200).entity("{'success':'false','result':'', 'code':'0', 'message':'El codigo del formulario ya ha sido utilizado'}").build();
+			}else{
+				builder = Response.ok();
+				return builder.status(200).entity("{'success':'true','result': ' " + ret + cod +"&repeat=1" + "'}").build();
+			}
 		} catch (Exception e) {
 			builder = Response.serverError();
 			//				response.sendError(400, "Error en conversion de json");
