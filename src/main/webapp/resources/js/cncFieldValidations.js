@@ -541,6 +541,7 @@ var setupDataConstraints = function(field, fieldset) {
 						constraint.indexOf(".>=") + 3, constraint.length);
 				// number = number.match(/\d*/gi)[0];
 				// console.log("min="+number);
+				
 				var min = new Number(number);
 				
 				if((!isNaN(min))&&(constraint.indexOf("string-length")!= -1))
@@ -1386,18 +1387,26 @@ var setupValidationDefaults = function() {
 	// punto");
 
 	$.validator.addMethod("higher", function(value, element, param) {
+		if(element.type=="date")
+			value=element.valueAsNumber;
 		return this.optional(element) || value > param;
 	}, "Debe ser mayor que {0} ");
 
 	$.validator.addMethod("lower", function(value, element, param) {
+		if(element.type=="date")
+			value=element.valueAsNumber;
 		return this.optional(element) || value < param;
 	}, "Debe ser menor que {0} ");
 	
 	$.validator.addMethod("min", function(value, element, param) {
+		if(element.type=="date")
+			value=element.valueAsNumber;
 		return this.optional(element) || gui.toNumber(value) >= param;
 	}, "Debe ser mayor o igual que {0} ");
 
 	$.validator.addMethod("max", function(value, element, param) {
+		if(element.type=="date")
+			value=element.valueAsNumber;
 		return this.optional(element) || gui.toNumber(value) <= param;
 	}, "Debe ser menor o igual que {0} ");
 

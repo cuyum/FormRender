@@ -12,16 +12,24 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Serializable;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
+import javax.persistence.PersistenceException;
+import javax.persistence.TransactionRequiredException;
 import javax.servlet.ServletContext;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -849,17 +857,47 @@ public class JsonServices implements Serializable {
                     if (constraints.has("depends")) {
                         constraint = constraint + " and depends=" + "/" + id
                                 + "/" + constraints.get("depends").asText();
-                    }
+                    } //verificamos si minValue o maxValue vienen en formato long, sino, convertimos:
+                    String minValue = "";
+                    String maxValue = "";
                     
+                    
+                    if((properties.has("minValue"))&&(properties.get("minValue").asText().contains("/"))){
+                    	try {
+							Date date = new SimpleDateFormat("dd/MM/yyyy", new Locale("es_AR")).parse(properties.get("minValue").asText());
+							minValue = Long.toString(date.getTime());
+						} catch (ParseException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+                    }else
+                    if(properties.has("minValue"))
+                    	minValue = properties.get("minValue").asText();
+                    
+                    if((properties.has("maxValue"))&&(properties.get("maxValue").asText().contains("/"))){
+                    	try {
+							Date date = new SimpleDateFormat("dd/MM/yyyy", new Locale("es_AR")).parse(properties.get("maxValue").asText());
+							maxValue = Long.toString(date.getTime());
+						} catch (ParseException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+                    }else
+                    if(properties.has("maxValue"))
+                    	maxValue = properties.get("maxValue").asText();
+                    
+                  //Logica para caso de constraint en int, decimal, date
+                    
+                                       
 
                     String msg="Ingrese valor";
 	                    if((properties.has("minInclusive"))&&(properties.get("minInclusive").asBoolean()==true)&&(properties.has("minValue"))){
-	                    	constraint += ".>=" + properties.get("minValue").asText();
+	                    	constraint += ".>=" + minValue;
 	                    	msg += " mayor o igual a " + properties.get("minValue").asText(); 
 	                    }
 	                    
 	                    if((properties.has("minInclusive"))&&(properties.get("minInclusive").asBoolean()==false)&&(properties.has("minValue"))){
-	                    	constraint += ".>" + properties.get("minValue").asText();
+	                    	constraint += ".>" + minValue;
 	                    	msg += " mayor a " + properties.get("minValue").asText(); 
 
 	                    }
@@ -870,13 +908,13 @@ public class JsonServices implements Serializable {
 	                    }
 	                    
 	                    if((properties.has("maxInclusive"))&&(properties.get("maxInclusive").asBoolean()==true)&&(properties.has("maxValue"))){
-	                    	constraint += ".<=" + properties.get("maxValue").asText();
+	                    	constraint += ".<=" + maxValue;
 	                    	msg += " menor o igual a " + properties.get("maxValue").asText(); 
 
 	                    }
 	                    
 	                    if((properties.has("maxInclusive"))&&(properties.get("maxInclusive").asBoolean()==false)&&(properties.has("maxValue"))){
-	                    	constraint += ".<" + properties.get("maxValue").asText();
+	                    	constraint += ".<" + maxValue;
 	                    	msg = " mayor a " + properties.get("maxValue").asText(); 
 
 	                    }
@@ -919,16 +957,48 @@ public class JsonServices implements Serializable {
                     out.writeAttribute("jr:constraintMsg", msg);
                     
                 }else{
-                	//Logica para caso de constraint en int, decimal
+                	//Logica para caso de constraint en int, decimal, date
+                	
+                	 //verificamos si minValue o maxValue vienen en formato long, sino, convertimos:
+                    String minValue = "";
+                    String maxValue = "";
+                    
+                    
+                    if((properties.has("minValue"))&&(properties.get("minValue").asText().contains("/"))){
+                    	try {
+							Date date = new SimpleDateFormat("dd/MM/yyyy", new Locale("es_AR")).parse(properties.get("minValue").asText());
+							minValue = Long.toString(date.getTime());
+						} catch (ParseException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+                    }else
+                    if(properties.has("minValue"))
+                    	minValue = properties.get("minValue").asText();
+                    
+                    if((properties.has("maxValue"))&&(properties.get("maxValue").asText().contains("/"))){
+                    	try {
+							Date date = new SimpleDateFormat("dd/MM/yyyy", new Locale("es_AR")).parse(properties.get("maxValue").asText());
+							maxValue = Long.toString(date.getTime());
+						} catch (ParseException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+                    }else
+                    if(properties.has("maxValue"))
+                    	maxValue = properties.get("maxValue").asText();
+                    
+                    
                 		String constraint ="";
+                	
                 		String msg="Ingrese valor";
 	                    if((properties.has("minInclusive"))&&(properties.get("minInclusive").asBoolean()==true)&&(properties.has("minValue"))){
-	                    	constraint += ".>=" + properties.get("minValue").asText();
+	                    	constraint += ".>=" + minValue;
 	                    	msg += " mayor o igual a " + properties.get("minValue").asText(); 
 	                    }
 	                    
 	                    if((properties.has("minInclusive"))&&(properties.get("minInclusive").asBoolean()==false)&&(properties.has("minValue"))){
-	                    	constraint += ".>" + properties.get("minValue").asText();
+	                    	constraint += ".>" + minValue;
 	                    	msg += " mayor a " + properties.get("minValue").asText(); 
 
 	                    }
@@ -939,13 +1009,13 @@ public class JsonServices implements Serializable {
 	                    }
 	                    
 	                    if((properties.has("maxInclusive"))&&(properties.get("maxInclusive").asBoolean()==true)&&(properties.has("maxValue"))){
-	                    	constraint += ".<=" + properties.get("maxValue").asText();
+	                    	constraint += ".<=" + maxValue;
 	                    	msg += " menor o igual a " + properties.get("maxValue").asText(); 
 
 	                    }
 	                    
 	                    if((properties.has("maxInclusive"))&&(properties.get("maxInclusive").asBoolean()==false)&&(properties.has("maxValue"))){
-	                    	constraint += ".<" + properties.get("maxValue").asText();
+	                    	constraint += ".<" + maxValue;
 	                    	msg = " mayor a " + properties.get("maxValue").asText(); 
 
 	                    }
@@ -1160,8 +1230,8 @@ public class JsonServices implements Serializable {
     // Persistimos en base y genermamos retornamos codigo que se utiliza para
     // visualizar el documento
     public String persistFormFromJson(String jsonValue)
-            throws Exception {
-
+            throws Exception{
+    	String ret ="";
         // Creamos y llenamos los atributos del nuevo formulario a persistir
         Formulario formulario = new Formulario();
 
@@ -1204,13 +1274,21 @@ public class JsonServices implements Serializable {
             System.out.println("Xsl encontrado: " + xsl.getNombre());
             formulario.setXslTransform(xsl);
             formulario.setFormVersion(header.get("version").asText());
-            entityManager.persist(formulario);
+           
+            try {
+				entityManager.persist(formulario);
+//				entityManager.createQuery("").setParameter("value", formulario);
+				ret = formulario.getCodigo();
+			} catch (PersistenceException e) {
+					 ret = e.getMessage();
+				 return ret;
+			}
 
         } catch (Exception e) {
             throw new Exception("Error en conversión de JSON  a XML", e);
         }
 
-        return formulario.getCodigo();
+        return ret;
     }
     
     public String previewExample(final InputStream input)
