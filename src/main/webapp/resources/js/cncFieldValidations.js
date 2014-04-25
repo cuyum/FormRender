@@ -1202,9 +1202,13 @@ var addVisualizationLogic = function(field) {
 			if (show) {
 				// console.log("should show ",field);
 				field.closest("label").show();
+				if(field.attr("data-type-xml") == "select2")
+					field[0].hidden=false;
 			} else {
 				// console.log("should not show");
 				field.closest("label").hide();
+				if(field.attr("data-type-xml") == "select2")
+					field[0].hidden=true;
 			}
 		}// else console.log("no relevants found");
 
@@ -1319,12 +1323,12 @@ var addRequired = function(field) {
 };
 /**por el momento la funcionalidad es solo paraa F1.2**/
 var addVisibility=function(field){
-	var form = url();
-	var name = "destino_0";
+	var destino = "destino_0";
+	var medio = "mdio_0";
 	var index = (field.attr("name")).lastIndexOf("/");
 	var fieldName = (field.attr("name")).substring(index+1);
 	
-	if(fieldName==name){
+	if(fieldName==destino){
 		
 		var funcionVisibility = function(ancestor, field, nroField){
 			
@@ -1339,11 +1343,28 @@ var addVisibility=function(field){
 					field[0].required = true;
 					field[0].hidden = false;
 				}
-//				if (select[nroField].selected) {
-//					console.log("Requerido: "+ field[0].name);
-//					field[0].required = true;
-//					field[0].hidden = false;
-//				} 
+				else {
+					console.log("NO Requerido: "+ field[0].name);
+					field[0].required = false;
+					field[0].hidden = true;
+				}			
+		};
+		
+		field.data("funcionVisibility", funcionVisibility);
+	}else if(fieldName==medio){
+			var funcionVisibility = function(ancestor, field, nroField){
+			
+			var select = ancestor[0];
+			var selected = select["defaultValue"];
+			index = (field.attr("name")).lastIndexOf("/");
+			var nameField = (field.attr("name")).substring(index+1);
+			selected = "destino_"+selected+"_0";
+			
+				if(selected==nameField){
+					console.log("Requerido: "+ field[0].name);
+					field[0].required = true;
+					field[0].hidden = false;
+				}
 				else {
 					console.log("NO Requerido: "+ field[0].name);
 					field[0].required = false;
@@ -1359,7 +1380,42 @@ var addVisibility=function(field){
 		field.data("funcionVisibility", funcionVisibility);
 	}
 };
-
+///**Funcionalidad para aquellos combos que dependen de otro combo seleccionado NO FUNCIONA**/
+//var addVisibility=function(field){
+//	
+//	var index = (field.attr("name")).lastIndexOf("/");
+//	var fieldName = (field.attr("name")).substring(index+1);
+//			
+//		var funcionVisibility = function(ancestor, field, nroField){
+//			
+//			var select = ancestor[0];
+//			var selected = select["defaultValue"];
+//			index = (field.attr("name")).lastIndexOf("/");
+//			var nameField = (field.attr("name")).substring(index+1);
+//			var ind = (fieldName.attr("name")).lastIndexOf("_");
+//			var aux = (fieldName.attr("name")).substring(ind-1);
+//			selected = aux+selected+"_0";
+//			
+//				if(selected==nameField){
+//					console.log("Requerido: "+ field[0].name);
+//					field[0].required = true;
+//					field[0].hidden = false;
+//				}
+////				if (select[nroField].selected) {
+////					console.log("Requerido: "+ field[0].name);
+////					field[0].required = true;
+////					field[0].hidden = false;
+////				} 
+//				else {
+//					console.log("NO Requerido: "+ field[0].name);
+//					field[0].required = false;
+//					field[0].hidden = true;
+//				}			
+//		};
+//		
+//		field.data("funcionVisibility", funcionVisibility);
+//	
+//};
 var setupValidationDefaults = function() {
 	var submitBtn = $("input[type='button'][action='submit']");
 	if (submitBtn != undefined && submitBtn != null) {
