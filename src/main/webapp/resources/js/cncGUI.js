@@ -855,7 +855,6 @@ var gui = new function() {
 				|| ancestor.attr("data-type-xml") == "select2") {
 
 			var isChecking = ancestor.data("isCheckingRequired");
-			console.log(ancestor[0]);
 			if (!isChecking) {
 				ancestor.data("isCheckingRequired", true);
 				ancestor.on("change", {

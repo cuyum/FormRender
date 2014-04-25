@@ -1653,9 +1653,11 @@ var validationPrimaryKey = function(record,storedData,fieldset,pkeys,editing){
 		var cont = 0;
 		var storedRecord = storedData[i];
 		
+		
 		for(var j=0; j<pkeys.length;j++){
-			
-			if(pkeys[j].nombre!="hora_pico_inicio" && pkeys[j].nombre!="hora_pico_fin"){
+			typeof(storedRecord[pkeys[j].nombre]);
+			if(typeof(storedRecord[pkeys[j].nombre])=="object"){
+
 				if (storedRecord[pkeys[j].nombre].value== record[pkeys[j].nombre].value) {
 					console.debug(storedRecord[pkeys[j].nombre].value +"="+record[pkeys[j].nombre].value);
 					if(i!=editing)
