@@ -26,7 +26,7 @@
       </instance>
       <bind nodeset="/F1.20/titulo" readonly="true()" type="string"/>
       <bind nodeset="/F1.20/agregar/planes/planesPlan" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/servicios/accesos" nodeset="/F1.20/agregar/planes/planesAccesos" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas" nodeset="/F1.20/agregar/planes/planesAccesos" required="true()" type="select1"/>
       <bind nodeset="/F1.20/agregar/planes/planesAccesos_otro" relevant=" /F1.20/agregar/planes/planesAccesos =OTROS" required="true()" type="string"/>
       <bind constraint="url=/servicios/rest/listas" nodeset="/F1.20/agregar/planes/velocidad" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/F1.20/agregar/planes/abono" required="true()" type="decimal"/>
