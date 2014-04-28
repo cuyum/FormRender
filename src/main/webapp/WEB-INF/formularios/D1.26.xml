@@ -34,7 +34,7 @@
       <label></label>
       <repeat nodeset="/D1.26/meses">
         <group appearance="col3 well-white variable" ref="/D1.26/meses/mes">
-          <label>{title}</label>
+          <label>Tasas generales</label>
           <input ref="/D1.26/meses/mes/cargoActivacion">
             <label>Cargo de Activación</label>
             <hint>Cargo de Activación</hint>
