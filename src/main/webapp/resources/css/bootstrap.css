@@ -1571,6 +1571,16 @@ a.thumbnail:hover { border-color: #0088cc; -webkit-box-shadow: 0 1px 3px #dddddd
 
 /* # Alerts
 ================================================== */
+.noticeS{
+	position:fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000;    
+    opacity: .80;
+    z-index:999999;    
+}
 
 .alert { padding: 8px 35px 8px 14px; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; color: #c09853; border: 1px solid #f2d083; color: #826200; box-shadow: 0 1px 0px rgba(255,255,255,0.2) inset, 0 1px 1px #dfdfdf; -webkit-box-shadow: 0 1px 0px rgba(255,255,255,0.2) inset, 0 1px 1px #dfdfdf; -moz-box-shadow: 0 1px 0px rgba(255,255,255,0.2) inset, 0 1px 1px #dfdfdf;
   background: #ffedbc;
@@ -1581,6 +1591,13 @@ a.thumbnail:hover { border-color: #0088cc; -webkit-box-shadow: 0 1px 3px #dddddd
   background: -ms-linear-gradient(top,  #ffedbc 0%,#fbe5a8 100%);
   background: linear-gradient(top,  #ffedbc 0%,#fbe5a8 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffedbc', endColorstr='#fbe5a8',GradientType=0 );
+    width: 50%;
+  z-index: 300;
+  position: fixed;
+  top: 34%;
+  left:25%;
+  font-size: 13px;
+    font-weight: bold;
 }
 .alert h4 { margin: 0; }
 .alert .close { position: relative; top: 2px; right: -21px; line-height: 20px; }
