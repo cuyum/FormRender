@@ -29,7 +29,7 @@
       </instance>
       <bind nodeset="/F1.19/titulo" readonly="true()" type="string"/>
       <bind nodeset="/F1.19/agregar/planes/planesPlan" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/servicios/accesos" nodeset="/F1.19/agregar/planes/planesAccesos" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas" nodeset="/F1.19/agregar/planes/planesAccesos" required="true()" type="select1"/>
       <bind nodeset="/F1.19/agregar/planes/planesAccesos_otro" relevant=" /F1.19/agregar/planes/planesAccesos =OTROS" required="true()" type="string"/>
       <bind constraint="url=/servicios/rest/listas" nodeset="/F1.19/agregar/planes/velocidad/velocidadSubida" required="true()" type="select1"/>
       <bind constraint="url=/servicios/rest/listas" nodeset="/F1.19/agregar/planes/velocidad/velocidadBajada" required="true()" type="select1"/>

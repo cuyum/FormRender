@@ -710,12 +710,14 @@ public class JsonShemaGenerator {
 		ArrayNode requiredForm = mapper.createArrayNode();
 
 		ArrayNode required = (ArrayNode) description.get("required");
+		ArrayNode claves_primarias = (ArrayNode) description.get("clave_primaria");
 		ObjectNode grid = (ObjectNode) description.get("grid");
 		ObjectNode properties = (ObjectNode) description.get("properties");
 		TextNode action = (TextNode) description.get("action");
 
 		dataItems.put("type", "object");
 		dataItems.put("required", required);
+		dataItems.put("clave_primaria", claves_primarias);
 
 		if (grid!=null)
 			dataItems.put("grid",grid);
@@ -735,6 +737,7 @@ public class JsonShemaGenerator {
 
 		formulariosItems.put("type", "object");
 		formulariosItems.put("required", mapper.createArrayNode().add("data"));
+		formulariosItems.put("clave_primaria", mapper.createArrayNode().add("data"));
 
 		formulariosItems.put("properties", formulariosItemsProperties);
 		formularios.put("type", "array");

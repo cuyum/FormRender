@@ -29,7 +29,7 @@
       </instance>
       <bind constraint="periodicidad=/servicios/rest/periodicidad and agrupador=1 and clave_primaria" nodeset="/ict4.1.1-E/meses/mes/periodo_considerado" required="true()" type="select1"/>
       <bind constraint="url=/servicios/rest/listas and agrupador=2 and clave_primaria" nodeset="/ict4.1.1-E/meses/mes/canal" required="true()" type="select1"/>
-      <bind nodeset="/ict4.1.1-E/meses/mes/canales_otros" relevant=" /ict4.1.1-E/meses/mes/canales =Otros" required="false()" type="string"/>
+      <bind nodeset="/ict4.1.1-E/meses/mes/canales_otros" relevant=" /ict4.1.1-E/meses/mes/canal =Otros" required="false()" type="string"/>
       <bind constraint="clave_primaria" nodeset="/ict4.1.1-E/meses/mes/id_bocas" required="true()" type="string"/>
       <bind constraint="url=/servicios/rest/localizaciones/provincias and clave_primaria" nodeset="/ict4.1.1-E/meses/mes/provincia" required="true()" type="select1"/>
       <bind constraint="url=/servicios/rest/localizaciones/partidos and depends=/ict4.1.1-E/meses/mes/provincia and clave_primaria" nodeset="/ict4.1.1-E/meses/mes/partido" required="true()" type="select1"/>

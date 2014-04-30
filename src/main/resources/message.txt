@@ -1,0 +1,3 @@
+object instance has properties which are not allowed by the schema:=El objeto tiene propiedades no permitidas por el schema:
+object has missing required properties=El objeto requiere la propiedad
+array must not contain duplicate elements=No debe contener registros duplicados
