@@ -175,9 +175,9 @@ var gui = new function() {
 				});
 
 		if (insert) {
-			var alertDiv = $("<div data-dismiss='alert' class='fade noticeS "
+			var alertDiv = $("<div data-dismiss='alert' class='fade alert "
 					+ type
-					+ "'><div class='alert'<button  class='close' type='button'>×</button></div></div>");
+					+ "'><button  class='close' type='button'>×</button></div>");
 			var m = alertDiv.append("<span id='msg-text'>" + message
 					+ "</span>");
 			messageDiv.append(m).scrollTo();
