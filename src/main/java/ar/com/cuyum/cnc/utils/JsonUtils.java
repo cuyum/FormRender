@@ -1,13 +1,37 @@
 package ar.com.cuyum.cnc.utils;
 
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.security.Principal;
+import java.util.Collection;
+import java.util.Enumeration;
 import java.util.Iterator;
+import java.util.Locale;
+import java.util.Map;
 
+import javax.servlet.AsyncContext;
+import javax.servlet.DispatcherType;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.ServletInputStream;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import org.apache.log4j.Logger;
+import org.hibernate.validator.internal.util.privilegedactions.GetClassLoader;
 
 import ar.com.cuyum.cnc.domain.jsonsla.Formulario;
 import ar.com.cuyum.cnc.exceptions.ExceptionValidation;
@@ -26,6 +50,7 @@ import com.github.fge.jsonschema.main.JsonSchemaFactory;
 import com.github.fge.jsonschema.report.LogLevel;
 import com.github.fge.jsonschema.report.ProcessingMessage;
 import com.github.fge.jsonschema.report.ProcessingReport;
+
 
 /**
  * 
@@ -120,11 +145,25 @@ public class JsonUtils {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode msg = mapper.createObjectNode();
 		ObjectNode error = mapper.createObjectNode();
+		String msje,prop;
 		Iterator<ProcessingMessage> messages = report.iterator();
 		while (messages.hasNext()) {
 			ProcessingMessage msj = messages.next();
 			if (LogLevel.ERROR.equals(msj.getLogLevel())) {
-				error.put(msj.asJson().get("instance").get("pointer").asText(),
+				
+				msje = msj.getMessage();
+				if(msje.indexOf('(')!=-1){
+					prop = msje.substring(msje.indexOf('('));
+					msje = searchError(msje.substring(0, msje.indexOf('(')));
+				}else if(msje.indexOf(':')!=-1){
+					prop = msje.substring(msje.indexOf(':'));
+					msje = searchError(msje.substring(0, msje.indexOf(':')));
+				}else prop = "";
+				
+				if(!msje.equals(""))
+					error.put(msj.asJson().get("instance").get("pointer").asText(),
+						msje+prop);
+				else error.put(msj.asJson().get("instance").get("pointer").asText(),
 						msj.getMessage());
 			}
 		}
@@ -132,6 +171,36 @@ public class JsonUtils {
 		return msg;
 	}
 
+	private static String searchError(String msj) {
+		String msg="";
+		
+		final ClassLoader loader = JsonUtils.class.getClassLoader();
+		
+		final String FILE_NAME = "message.txt";
+		
+		try{
+            
+            FileInputStream fstream = new FileInputStream(loader.getResource(FILE_NAME).getPath());
+            DataInputStream entrada = new DataInputStream(fstream);
+            BufferedReader buffer = new BufferedReader(new InputStreamReader(entrada));
+            String strLinea;
+           
+            while ((strLinea = buffer.readLine()) != null)   {
+                String msgIng = strLinea.substring(0, strLinea.indexOf('='));
+                String msgEsp = strLinea.substring(strLinea.indexOf('=')+1);
+            	
+                if(msj.trim().equals(msgIng.trim())){
+                	msg=msgEsp;
+                }
+            }
+            
+            entrada.close();
+        }catch (Exception e){ //Catch de excepciones
+            System.err.println("Ocurrio un error: " + e.getMessage());
+        }
+		return msg;
+	}
+	
 	public static JsonNode checkSchema(JsonNode schemas, JsonNode data) {
 
 		final LoadingConfigurationBuilder builder = LoadingConfiguration
@@ -257,8 +326,8 @@ public class JsonUtils {
 			} catch (ExceptionValidation e) {
 				log.error(e);
 				return msg(false,
-						"error procesando data masiva en el formulario:(" + j
-								+ ") " + e.getMessage());
+						"ERROR procesando datos formulario:(" + j
+								+ ")" + e.getMessage());
 			} 
 
 			listDataForm.add(formulario.valuesToJson());

@@ -50,7 +50,8 @@ public abstract class Componente implements Serializable, Cloneable {
 	public static final String CONSTRAINT_PORCENTUAL = "porcentual";
 	public static final String CONSTRAINT_TOTALIZADOR = "totalizador";
 	public static final String CONSTRAINT_DIVISOR = "divisor";	
-	
+	public static final String CONSTRAINT_CLAVE_PRIMARIA = "clave_primaria";	
+
 	//en jsonschema minimu es incluyente lo mismo que <=
 	public static final String CONSTRAINT_MINIMO = "minimum";
 	
@@ -74,10 +75,10 @@ public abstract class Componente implements Serializable, Cloneable {
 	public static List<String> COMBO_CONSTRAINTS = Arrays.asList(
 			Componente.CONSTRAINT_URL, Componente.CONSTRAINT_DEPENDS,
 			Componente.CONSTRAINT_CUIT, Componente.CONSTRAINT_PERIODICIDAD,
-			Componente.CONSTRAINT_AGRUPADOR);
+			Componente.CONSTRAINT_AGRUPADOR, Componente.CONSTRAINT_CLAVE_PRIMARIA);
 
 	public static List<String> STRING_CONSTRAINTS = Arrays.asList(
-			Componente.CONSTRAINT_URL,Componente.CONSTRAINT_HORA_DELTA);
+			Componente.CONSTRAINT_URL,Componente.CONSTRAINT_HORA_DELTA,Componente.CONSTRAINT_CLAVE_PRIMARIA);
 	
 	public static List<String> INTEGER_CONSTRAINTS = 
 			Arrays.asList(".&gt;", ".&lt;", ".>", ".<",
@@ -99,7 +100,7 @@ public abstract class Componente implements Serializable, Cloneable {
 			Componente.CONSTRAINT_DIVISOR);	
 	
 	public static List<String> TIME_CONSTRAINTS = 
-			Arrays.asList(Componente.CONSTRAINT_AGRUPADOR);	
+			Arrays.asList(Componente.CONSTRAINT_AGRUPADOR,Componente.CONSTRAINT_CLAVE_PRIMARIA);	
 
 	protected Map<String, Componente> listComponets = new HashMap<String, Componente>();
 	
@@ -361,6 +362,8 @@ public abstract class Componente implements Serializable, Cloneable {
 						+ divisor.trim() + "," + valores[2]);
 			} else if (constraint.indexOf(CONSTRAINT_TOTALIZADOR) != -1) {
 				constraintResult.put(CONSTRAINT_TOTALIZADOR, true);
+			} else if (constraint.indexOf(CONSTRAINT_CLAVE_PRIMARIA) != -1) {
+				constraintResult.put(CONSTRAINT_CLAVE_PRIMARIA, true);
 			} else if (constraint.indexOf(CONSTRAINT_HORA_DELTA) != -1) {
 				String[] porcentual = constraint.split("=");
 				constraintResult
