@@ -29,6 +29,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
 import javax.persistence.PersistenceException;
+import javax.persistence.Query;
 import javax.persistence.TransactionRequiredException;
 import javax.servlet.ServletContext;
 import javax.xml.stream.XMLOutputFactory;
@@ -64,6 +65,22 @@ public class JsonServices implements Serializable {
 
     @PersistenceContext(type = PersistenceContextType.EXTENDED)
     private EntityManager entityManager;
+    
+    
+    //ATENCION!!! BAJA FISICA (el archivo xForm no se elimina) si el archivo no existe devuelve true
+    public boolean remove(String codigo) throws Exception{
+    	
+    	try{
+    		Query query = entityManager.createQuery("delete Formulario f where f.codigo = :code")
+    		.setParameter("code", codigo);
+    		query.executeUpdate();
+    		System.out.println("Formulario " + codigo + " eliminado." );
+    		return true;
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+    }
 
     public String previewHtml(final String jsonValue, final ServletContext sc)
             throws Exception {

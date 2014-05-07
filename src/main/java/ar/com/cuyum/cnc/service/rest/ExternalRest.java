@@ -157,6 +157,31 @@ public class ExternalRest {
 		
 	}
 
+	@POST
+	@Path("/remove")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces("text/html;charset=UTF-8")
+	public Response removeForm(@Context ServletContext servletContext,
+			@FormParam("value") String codigo) {
+    	Response.ResponseBuilder builder = null;
+		
+        try{
+			if (jsonService.remove(codigo)){
+				builder = Response.ok();
+				return builder.status(200).entity("{'success':'true'}").build();
+			}else{
+				builder = Response.ok();
+				return builder.status(200).entity("{'success':'false','result':'', 'code':'0', 'message':'No se pudo eliminar el formulario'}").build();
+			}
+		} catch (Exception e) {
+			builder = Response.serverError();
+			//				response.sendError(400, "Error en conversion de json");
+			return builder.status(400).entity("Error al intentar eliminar formulario"
+					+ "").build();
+		}
+		
+	}
+	
 
 	@GET
 	@Path("/preview2")
