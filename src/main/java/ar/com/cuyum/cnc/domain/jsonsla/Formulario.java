@@ -35,6 +35,7 @@ public class Formulario implements Serializable {
 	private String id;
 	private JsonNode schema;
 	private Grid grid;
+	private Clave_Primaria clave_primaria;
 	private Map<String, Componente> mapComponets = new HashMap<String, Componente>();
 	private List<Row> data = new ArrayList<Row>();
 	private RelayService relayService;
@@ -56,12 +57,21 @@ public class Formulario implements Serializable {
 				setGrid(mapper.readValue(this.schema.get("grid").toString(),
 						Grid.class));
 			} catch (JsonParseException e) {
-				log.error("el schema grid tiene formato inavalido", e);
+				log.error("el schema grid tiene formato invalido", e);
 			} catch (JsonMappingException e) {
-				log.error("el schema grid tiene formato inavalido", e);
+				log.error("el schema grid tiene formato invalido", e);
 			} catch (IOException e) {
-				log.error("el schema grid tiene formato inavalido", e);
+				log.error("el schema grid tiene formato invalido", e);
 			}
+		}
+	}
+	
+	private void initClave_PrimariaFromSchema() {
+		ObjectMapper mapper = new ObjectMapper();
+		if (this.schema.has("claves_primarias")) {
+			
+				setClavePrimaria(this.schema.get("claves_primarias").toString());
+			
 		}
 	}
 	
@@ -90,11 +100,11 @@ public class Formulario implements Serializable {
 
 				mapComponets.put(name, component);
 			} catch (JsonParseException e) {
-				log.error("el schema propertie tiene formato inavalido", e);
+				log.error("el schema propertie tiene formato invalido", e);
 			} catch (JsonMappingException e) {
-				log.error("el schema propertie tiene formato inavalido", e);
+				log.error("el schema propertie tiene formato invalido", e);
 			} catch (IOException e) {
-				log.error("el schema propertie tiene formato inavalido", e);
+				log.error("el schema propertie tiene formato invalido", e);
 			}
 
 			log.info("objeto mappeado name:"+name+" "+component);
@@ -103,6 +113,7 @@ public class Formulario implements Serializable {
 
 	private void init() {
 		initGridFromSchema();
+		initClave_PrimariaFromSchema();
 		JsonNode schemaItemsProperties = schema.get("properties");
 		initComponent(schemaItemsProperties);
 		JsonNode schemaOtherFields = schema.get("otherFields");
@@ -165,10 +176,34 @@ public class Formulario implements Serializable {
 		}
 
 	}
+	
+	public Boolean validationPrimaryKey(){
+		List<String> lstPK = this.clave_primaria.getClaves_primarias();
+		String value, value2;
+		int m=lstPK.size(), n=data.size(), cont=0;
+		
+		for(int j = 0; j < m; j++){
+			for (int i = 0; i < n-1; i++) {
+				value=data.get(i).getFieldByName(lstPK.get(j)).getValueToString();
+				
+				for(int k = 0; k < n; k++){
+					value2=data.get(k).getFieldByName(lstPK.get(j)).getValueToString();
+					if(k!=i){
+						if(value.equals(value2)){
+							cont++;
+						}
+					}
+				}
+			}
+		}
+		if(cont==m)
+			return true;
+		else return false;
+	}
 
 	public Boolean processData() throws ExceptionValidation {
 		Map<String, Map<String, Componente>> iterMapRowTotal = new HashMap<String, Map<String, Componente>>();
-
+		
 		for (int i = 0, n = data.size(); i < n; i++) {
 			this.data.get(i).isDataValid();
 
@@ -220,6 +255,16 @@ public class Formulario implements Serializable {
 
 	public void setGrid(Grid grid) {
 		this.grid = grid;
+	}
+	
+	public Clave_Primaria getClavePrimaria() {
+		return clave_primaria;
+	}
+	
+	public void setClavePrimaria(String clave_primaria) {
+		Clave_Primaria pk = new Clave_Primaria();
+		pk.setClaves_primarias(clave_primaria);
+		this.clave_primaria=pk;
 	}
 
 	public JsonNode valuesToJson() {

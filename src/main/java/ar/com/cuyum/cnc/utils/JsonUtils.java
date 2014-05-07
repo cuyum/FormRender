@@ -157,8 +157,11 @@ public class JsonUtils {
 					msje = searchError(msje.substring(0, msje.indexOf('(')));
 				}else if(msje.indexOf(':')!=-1){
 					prop = msje.substring(msje.indexOf(':'));
-					msje = searchError(msje.substring(0, msje.indexOf(':')));
-				}else prop = "";
+					msje = searchError(msje.substring(0, msje.indexOf(':')+1));
+				}else { 
+					prop = "";
+					msje = searchError(msje);
+				}
 				
 				if(!msje.equals(""))
 					error.put(msj.asJson().get("instance").get("pointer").asText(),
@@ -320,7 +323,13 @@ public class JsonUtils {
 				String recordId =  formNode.get("recordId").asText();
 				formulario.setRecordId(recordId);
 			}
-
+			
+			if(formulario.validationPrimaryKey()){
+				return msg(false,
+						"ERROR claves primarias duplicadas en formulario:(" + j
+								+ ")");
+			} 
+			
 			try {
 				formulario.processData();
 			} catch (ExceptionValidation e) {
@@ -329,6 +338,8 @@ public class JsonUtils {
 						"ERROR procesando datos formulario:(" + j
 								+ ")" + e.getMessage());
 			} 
+			
+			
 
 			listDataForm.add(formulario.valuesToJson());
 		}
