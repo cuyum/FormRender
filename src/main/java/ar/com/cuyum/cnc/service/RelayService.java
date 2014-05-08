@@ -150,9 +150,9 @@ public class RelayService {
 		return performRetrieval(remoteUrl);
 	}
 
-	public String request(URL remoteUrl, String fkey) {
+	public String request(URL remoteUrl, String fkey, String tipo) {
 		setupSSLContext();
-		return performRequest(remoteUrl, fkey);
+		return performRequest(remoteUrl, fkey, tipo);
 	}
 
 	private String performSubmission(URL url, String data) {
@@ -233,8 +233,8 @@ public class RelayService {
 		return responseStr;
 	}
 
-	private String performRequest(URL url, String fkey) {
-		HttpPost request = buildRequest(url, fkey);
+	private String performRequest(URL url, String fkey, String tipo) {
+		HttpPost request = buildRequest(url, fkey, tipo);
 		HttpResponse rawResponse = execute(request);
 		String responseStr = processResponse(rawResponse);
 		return responseStr;
@@ -264,12 +264,13 @@ public class RelayService {
 		return method;
 	}
 
-	private final HttpPost buildRequest(URL url, String fkey) {
+	private final HttpPost buildRequest(URL url, String fkey, String tipo) {
 		HttpPost method = null;
 		try {
 			method = new HttpPost(url.toURI());
 
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
+			params.add(new BasicNameValuePair("tipo", tipo));
 			params.add(new BasicNameValuePair("fkey", fkey));
 
 			method.setEntity(new UrlEncodedFormEntity(params));
@@ -297,6 +298,7 @@ public class RelayService {
 			return entity;
 		try {
 			entity = EntityUtils.toString(rawResponse.getEntity());
+			log.info("<<<<ENTITY<<<<<<<"+entity);
 		} catch (Exception e) {
 			log.error(e);
 		}

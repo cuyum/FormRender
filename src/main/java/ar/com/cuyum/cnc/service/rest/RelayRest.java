@@ -56,7 +56,7 @@ public class RelayRest {
 	@Path("/relay")
 	@Produces("application/json")
 	public String relay(@FormParam("remoteUrl") String remoteUrl,
-			@FormParam("fkey") String fkey) {
+			@FormParam("fkey") String fkey, String tipo) {
 		log.info("Ingreso en relay de " + remoteUrl
 				+ (fkey != null ? " con el siguiente fkey " + fkey : ""));
 
@@ -64,7 +64,7 @@ public class RelayRest {
 		String remoteResponse = "";
 		try {
 			URL url = new URL(frp.getRemoteListHost() + remoteUrl);
-			remoteResponse = relay.request(url, fkey);
+			remoteResponse = relay.request(url, fkey, tipo);
 			response = new JSONObject(remoteResponse);
 			return response.toString();
 		}catch (MalformedURLException e){

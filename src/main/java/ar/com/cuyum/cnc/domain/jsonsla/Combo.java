@@ -108,7 +108,7 @@ public class Combo extends Componente {
 	}
 
 	@Override
-	public Boolean isDataValid() throws ExceptionValidation {
+	public Boolean isDataValid(String name) throws ExceptionValidation {
 		
 		//si el campo es obligatorio el valor no puede ser nulo pero ya eso se evalua con el jsonschema 
 		if(value == null) return null;
@@ -134,7 +134,7 @@ public class Combo extends Componente {
 			}
 			List<Item> valuesFromURL = new ArrayList<Item>();
 			try {
-				valuesFromURL = getValuesFromUrl(relayService,fkey,url);
+				valuesFromURL = getValuesFromUrl(relayService,fkey,url,name);
 			} catch (ExceptionComboRelayUrl e) {
 				throw new ExceptionValidation("Servicio no disponible, "+e.getMessage());
 			}
@@ -180,6 +180,12 @@ public class Combo extends Componente {
 	@Override
 	public String getType() {		
 		return Componente.COMBO;
+	}
+
+	@Override
+	public Boolean isDataValid() throws ExceptionValidation {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

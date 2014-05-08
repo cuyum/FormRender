@@ -120,7 +120,7 @@ public class Texto extends Componente {
 						"Servicio remoto no disponible, para el string");
 			JsonNode data;
 			try {
-				data = getFromUrl(relayService,null,url);
+				data = getFromUrl(relayService,null,url, "hora");
 			} catch (ExceptionComboRelayUrl e) {				
 				log.error(e);
 				throw new ExceptionValidation(
@@ -187,5 +187,11 @@ public class Texto extends Componente {
 
 	public void setHora_delta(String hora_delta) {
 		this.hora_delta = hora_delta;
+	}
+
+	@Override
+	public Boolean isDataValid(String name) throws ExceptionValidation {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

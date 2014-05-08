@@ -306,4 +306,10 @@ public class Decimal extends Componente implements Numero {
 		this.divisor = divisor;
 	}
 
+	@Override
+	public Boolean isDataValid(String name) throws ExceptionValidation {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

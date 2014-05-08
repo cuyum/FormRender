@@ -95,7 +95,7 @@ public class Row implements Serializable {
 					.next();
 			try {
 				log.info("validando " + componente.getKey()+" de tipo: "+componente.getValue().getType());
-				componente.getValue().isDataValid();
+				componente.getValue().isDataValid(componente.getKey());
 				log.info(componente.getKey()+": es valido");
 			} catch (ExceptionValidation e) {
 				String msg = "Error validando componente "

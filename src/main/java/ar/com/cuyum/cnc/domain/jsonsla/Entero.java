@@ -263,5 +263,11 @@ public class Entero extends Componente implements Numero {
 			return divide((Decimal)otro);
 		}
 	}
+
+	@Override
+	public Boolean isDataValid(String name) throws ExceptionValidation {
+		// TODO Auto-generated method stub
+		return null;
+	}
 		
 }

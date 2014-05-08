@@ -67,4 +67,10 @@ public class RepeatItem extends Componente {
 	public String getType() {		
 		return Componente.ITEM;
 	}
+
+	@Override
+	public Boolean isDataValid(String name) throws ExceptionValidation {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

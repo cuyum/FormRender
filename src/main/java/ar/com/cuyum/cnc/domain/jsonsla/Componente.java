@@ -107,6 +107,8 @@ public abstract class Componente implements Serializable, Cloneable {
 	abstract public String getType();
 
 	abstract public Boolean isDataValid() throws ExceptionValidation;
+	
+	abstract public Boolean isDataValid(String name) throws ExceptionValidation;
 
 	abstract public void setValueFromJson(JsonNode value)
 			throws ExceptionValidation;
@@ -409,7 +411,7 @@ public abstract class Componente implements Serializable, Cloneable {
 
 	
 	protected JsonNode getFromUrl(RelayService relayService,
-			String fkey, String url) throws ExceptionComboRelayUrl {
+			String fkey, String url, String tipo) throws ExceptionComboRelayUrl {
 
 		JsonNode remoteMsg = null;
 		
@@ -426,7 +428,7 @@ public abstract class Componente implements Serializable, Cloneable {
 			
 			String remoteHost = frp.getRemoteListHost();
 			URL urlRemote = new URL(remoteHost + url);
-			String remoteResponse = relayService.request(urlRemote, fkey);
+			String remoteResponse = relayService.request(urlRemote, fkey, tipo);
 			ObjectMapper mapper = new ObjectMapper();
 			remoteMsg = mapper.readTree(remoteResponse);
 			
@@ -456,10 +458,10 @@ public abstract class Componente implements Serializable, Cloneable {
 	 */
 	
 	protected List<Item> getValuesFromUrl(RelayService relayService,
-			String fkey, String url) throws ExceptionComboRelayUrl {
+			String fkey, String url, String tipo) throws ExceptionComboRelayUrl {
 		List<Item> items = new ArrayList<Item>();
 		ObjectMapper mapper = new ObjectMapper();
-		JsonNode remoteMsg = getFromUrl(relayService, fkey, url);
+		JsonNode remoteMsg = getFromUrl(relayService, fkey, url,tipo);
 		ArrayNode result = (ArrayNode) remoteMsg.get("result");
 		String msg_error = "No se pudo generar la respuesta json en relay service ya que "
 				+ "el servicio remoto ha respondido en un objeto JSON inv&aacute;lid";
