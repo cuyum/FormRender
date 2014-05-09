@@ -12,9 +12,14 @@
               <limitrofeRoamPrepago/>
               <limitrofeRoamPospago/>
             </limitrofeRoaming>
+			<!--Agregado 20140508-->
+            <limitrofeLdi_BP>
+              <limitrofeLdiPrepago_BP/>
+              <limitrofeLdiPospago_BP/>
+            </limitrofeLdi_BP>	
             <limitrofeLdi>
-              <limitrofeLdiPrepago/>
-              <limitrofeLdiPospago/>
+              <limitrofeLdiPrepago_Seg/>
+              <limitrofeLdiPospago_Seg/>
             </limitrofeLdi>
           </limitrofes>
           <sudamerica>
@@ -22,9 +27,14 @@
               <sudamRoamPrepago/>
               <sudamRoamPospago/>
             </sudamRoaming>
+			<!--Agregado 20140508-->
+            <sudamLdi_BP>
+              <sudamLdiPrepago_BP/>
+              <sudamLdiPospago_BP/>
+            </sudamLdi_BP>			
             <sudamLdi>
-              <sudamLdiPrepago/>
-              <sudamLdiPospago/>
+              <sudamLdiPrepago_Seg/>
+              <sudamLdiPospago_Seg/>
             </sudamLdi>
           </sudamerica>
           <norteAmerica>
@@ -32,9 +42,14 @@
               <norteamRoamingPrepago/>
               <norteamRoamingPospago/>
             </norteamRoaming>
+			<!--Agregado 20140508-->			
+            <norteamLdi_BP>
+              <norteamLdiPrepago_BP/>
+              <norteamLdiPospago_BP/>
+            </norteamLdi_BP>			
             <norteamLdi>
-              <norteamLdiPrepago/>
-              <norteamLdiPospago/>
+              <norteamLdiPrepago_Seg/>
+              <norteamLdiPospago_Seg/>
             </norteamLdi>
           </norteAmerica>
           <europa>
@@ -42,9 +57,14 @@
               <euroRoamPrepago/>
               <euroRoamPospago/>
             </euroRoaming>
+			<!--Agregado 20140508-->				
+            <euroLdi_BP>
+              <euroLdiPrepago_BP/>
+              <euroLdiPospago_BP/>
+            </euroLdi_BP>			
             <euroLdi>
-              <euroLdiPrepago/>
-              <euroLdiPospago/>
+              <euroLdiPrepago_Seg/>
+              <euroLdiPospago_Seg/>
             </euroLdi>
           </europa>
           <mundo>
@@ -52,9 +72,14 @@
               <mundoRoamPrepago/>
               <mundoRoamPospago/>
             </mundoRoaming>
+			<!--Agregado 20140508-->				
+            <mundoLdi_BP>
+              <mundoLdiPrepago_BP/>
+              <mundoLdiPospago_BP/>
+            </mundoLdi_BP>			
             <mundoLdi>
-              <mundoLdiPrepago/>
-              <mundoLdiPospago/>
+              <mundoLdiPrepago_Seg/>
+              <mundoLdiPospago_Seg/>
             </mundoLdi>
           </mundo>
           <meta>
@@ -65,24 +90,34 @@
       <bind nodeset="/E1.27/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/limitrofes/limitrofeRoaming/limitrofeRoamPrepago" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/limitrofes/limitrofeRoaming/limitrofeRoamPospago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/limitrofes/limitrofeLdi/limitrofeLdiPrepago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/limitrofes/limitrofeLdi/limitrofeLdiPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/limitrofes/limitrofeLdi_BP/limitrofeLdiPrepago_BP" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/limitrofes/limitrofeLdi_BP/limitrofeLdiPospago_BP" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/limitrofes/limitrofeLdi/limitrofeLdiPrepago_Seg" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/limitrofes/limitrofeLdi/limitrofeLdiPospago_Seg" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/sudamerica/sudamRoaming/sudamRoamPrepago" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/sudamerica/sudamRoaming/sudamRoamPospago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/sudamerica/sudamLdi/sudamLdiPrepago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/sudamerica/sudamLdi/sudamLdiPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/sudamerica/sudamLdi_BP/sudamLdiPrepago_BP" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/sudamerica/sudamLdi_BP/sudamLdiPospago_BP" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/sudamerica/sudamLdi/sudamLdiPrepago_Seg" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/sudamerica/sudamLdi/sudamLdiPospago_Seg" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/norteAmerica/norteamRoaming/norteamRoamingPrepago" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/norteAmerica/norteamRoaming/norteamRoamingPospago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/norteAmerica/norteamLdi/norteamLdiPrepago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/norteAmerica/norteamLdi/norteamLdiPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/norteAmerica/norteamLdi_BP/norteamLdiPrepago_BP" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/norteAmerica/norteamLdi_BP/norteamLdiPospago_BP" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/norteAmerica/norteamLdi/norteamLdiPrepago_Seg" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/norteAmerica/norteamLdi/norteamLdiPospago_Seg" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/europa/euroRoaming/euroRoamPrepago" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/europa/euroRoaming/euroRoamPospago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/europa/euroLdi/euroLdiPrepago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/europa/euroLdi/euroLdiPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/europa/euroLdi_BP/euroLdiPrepago_BP" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/europa/euroLdi_BP/euroLdiPospago_BP" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/europa/euroLdi/euroLdiPrepago_Seg" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/europa/euroLdi/euroLdiPospago_Seg" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/mundo/mundoRoaming/mundoRoamPrepago" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/mundo/mundoRoaming/mundoRoamPospago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/mundo/mundoLdi/mundoLdiPrepago" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/mundo/mundoLdi/mundoLdiPospago" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/mundo/mundoLdi_BP/mundoLdiPrepago_BP" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/mundo/mundoLdi_BP/mundoLdiPospago_BP" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/mundo/mundoLdi/mundoLdiPrepago_Seg" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.27/mundo/mundoLdi/mundoLdiPospago_Seg" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/E1.27/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -103,15 +138,26 @@
           <hint>Pospago</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/E1.27/limitrofes/limitrofeLdi">
-        <label>LDI precio minuto</label>
-        <input ref="/E1.27/limitrofes/limitrofeLdi/limitrofeLdiPrepago">
+      <group appearance="col2 well-white" ref="/E1.27/limitrofes/limitrofeLdi_BP">
+        <label>LDI Bloque primeros 30 segundos (Telefonía/Voz)</label>
+        <input ref="/E1.27/limitrofes/limitrofeLdi_BP/limitrofeLdiPrepago_BP">
           <label>Prepago</label>
-          <hint>Prepago</hint>
+          <hint>Valor del bloque.</hint>
         </input>
-        <input ref="/E1.27/limitrofes/limitrofeLdi/limitrofeLdiPospago">
+        <input ref="/E1.27/limitrofes/limitrofeLdi_BP/limitrofeLdiPospago_BP">
           <label>Pospago</label>
-          <hint>Pospago</hint>
+          <hint>Valor del bloque.</hint>
+        </input>
+      </group>	  
+      <group appearance="col2 well-white" ref="/E1.27/limitrofes/limitrofeLdi">
+        <label>LDI precio segundo</label>
+        <input ref="/E1.27/limitrofes/limitrofeLdi/limitrofeLdiPrepago_Seg">
+          <label>Prepago</label>
+          <hint>Valor del segundo.</hint>
+        </input>
+        <input ref="/E1.27/limitrofes/limitrofeLdi/limitrofeLdiPospago_Seg">
+          <label>Pospago</label>
+          <hint>Valor del segundo.</hint>
         </input>
       </group>
     </group>
@@ -128,20 +174,31 @@
           <hint>Pospago</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/E1.27/sudamerica/sudamLdi">
-        <label>LDI precio minuto</label>
-        <input ref="/E1.27/sudamerica/sudamLdi/sudamLdiPrepago">
+      <group appearance="col2 well-white" ref="/E1.27/sudamerica/sudamLdi_BP">
+        <label>LDI Bloque primeros 30 segundos (Telefonía/Voz)</label>
+        <input ref="/E1.27/sudamerica/sudamLdi_BP/sudamLdiPrepago_BP">
           <label>Prepago</label>
-          <hint>Prepago</hint>
+          <hint>Valor del bloque.</hint>
         </input>
-        <input ref="/E1.27/sudamerica/sudamLdi/sudamLdiPospago">
+        <input ref="/E1.27/sudamerica/sudamLdi_BP/sudamLdiPospago_BP">
           <label>Pospago</label>
-          <hint>Pospago</hint>
+          <hint>Valor del bloque.</hint>
+        </input>
+      </group>	  
+      <group appearance="col2 well-white" ref="/E1.27/sudamerica/sudamLdi">
+        <label>LDI precio segundo</label>
+        <input ref="/E1.27/sudamerica/sudamLdi/sudamLdiPrepago_Seg">
+          <label>Prepago</label>
+          <hint>Valor del segundo.</hint>
+        </input>
+        <input ref="/E1.27/sudamerica/sudamLdi/sudamLdiPospago_Seg">
+          <label>Pospago</label>
+          <hint>Valor del segundo.</hint>
         </input>
       </group>
     </group>
     <group appearance="col1 well-white" ref="/E1.27/norteAmerica">
-      <label>Centro y Norte América</label>
+      <label>Centro y América del Norte</label>
       <group appearance="col2 well-white" ref="/E1.27/norteAmerica/norteamRoaming">
         <label>Roaming LDI precio</label>
         <input ref="/E1.27/norteAmerica/norteamRoaming/norteamRoamingPrepago">
@@ -153,15 +210,26 @@
           <hint>Pospago</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/E1.27/norteAmerica/norteamLdi">
-        <label>LDI precio minuto</label>
-        <input ref="/E1.27/norteAmerica/norteamLdi/norteamLdiPrepago">
+      <group appearance="col2 well-white" ref="/E1.27/norteAmerica/norteamLdi_BP">
+        <label>LDI Bloque primeros 30 segundos (Telefonía/Voz)</label>
+        <input ref="/E1.27/norteAmerica/norteamLdi_BP/norteamLdiPrepago_BP">
           <label>Prepago</label>
-          <hint>Prepago</hint>
+          <hint>Valor del bloque.</hint>
         </input>
-        <input ref="/E1.27/norteAmerica/norteamLdi/norteamLdiPospago">
+        <input ref="/E1.27/norteAmerica/norteamLdi_BP/norteamLdiPospago_BP">
           <label>Pospago</label>
-          <hint>Pospago</hint>
+          <hint>Valor del bloque.</hint>
+        </input>
+      </group>	  
+      <group appearance="col2 well-white" ref="/E1.27/norteAmerica/norteamLdi">
+        <label>LDI precio segundo</label>
+        <input ref="/E1.27/norteAmerica/norteamLdi/norteamLdiPrepago_Seg">
+          <label>Prepago</label>
+          <hint>Valor del segundo.</hint>
+        </input>
+        <input ref="/E1.27/norteAmerica/norteamLdi/norteamLdiPospago_Seg">
+          <label>Pospago</label>
+          <hint>Valor del segundo.</hint>
         </input>
       </group>
     </group>
@@ -178,15 +246,26 @@
           <hint>Pospago</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/E1.27/europa/euroLdi">
-        <label>LDI precio minuto</label>
-        <input ref="/E1.27/europa/euroLdi/euroLdiPrepago">
+      <group appearance="col2 well-white" ref="/E1.27/europa/euroLdi_BP">
+        <label>LDI Bloque primeros 30 segundos (Telefonía/Voz)</label>
+        <input ref="/E1.27/europa/euroLdi_BP/euroLdiPrepago_BP">
           <label>Prepago</label>
-          <hint>Prepago</hint>
+          <hint>Valor del bloque.</hint>
         </input>
-        <input ref="/E1.27/europa/euroLdi/euroLdiPospago">
+        <input ref="/E1.27/europa/euroLdi_BP/euroLdiPospago_BP">
           <label>Pospago</label>
-          <hint>Pospago</hint>
+          <hint>Valor del bloque.</hint>
+        </input>
+      </group>	  
+      <group appearance="col2 well-white" ref="/E1.27/europa/euroLdi">
+        <label>LDI precio segundo</label>
+        <input ref="/E1.27/europa/euroLdi/euroLdiPrepago_Seg">
+          <label>Prepago</label>
+          <hint>Valor del segundo.</hint>
+        </input>
+        <input ref="/E1.27/europa/euroLdi/euroLdiPospago_Seg">
+          <label>Pospago</label>
+          <hint>Valor del segundo.</hint>
         </input>
       </group>
     </group>
@@ -203,15 +282,26 @@
           <hint>Pospago</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/E1.27/mundo/mundoLdi">
-        <label>LDI precio minuto</label>
-        <input ref="/E1.27/mundo/mundoLdi/mundoLdiPrepago">
+      <group appearance="col2 well-white" ref="/E1.27/mundo/mundoLdi_BP">
+        <label>LDI Bloque primeros 30 segundos (Telefonía/Voz)</label>
+        <input ref="/E1.27/mundo/mundoLdi_BP/mundoLdiPrepago_BP">
           <label>Prepago</label>
-          <hint>Prepago</hint>
+          <hint>Valor del bloque.</hint>
         </input>
-        <input ref="/E1.27/mundo/mundoLdi/mundoLdiPospago">
+        <input ref="/E1.27/mundo/mundoLdi_BP/mundoLdiPospago_BP">
           <label>Pospago</label>
-          <hint>Pospago</hint>
+          <hint>Valor del bloque.</hint>
+        </input>
+      </group>	  
+      <group appearance="col2 well-white" ref="/E1.27/mundo/mundoLdi">
+        <label>LDI precio segundo</label>
+        <input ref="/E1.27/mundo/mundoLdi/mundoLdiPrepago_Seg">
+          <label>Prepago</label>
+          <hint>Valor del segundo.</hint>
+        </input>
+        <input ref="/E1.27/mundo/mundoLdi/mundoLdiPospago_Seg">
+          <label>Pospago</label>
+          <hint>Valor del segundo.</hint>
         </input>
       </group>
     </group>

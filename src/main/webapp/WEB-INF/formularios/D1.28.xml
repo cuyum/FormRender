@@ -57,7 +57,7 @@
       </instance>
       <bind nodeset="/D1.28/titulo" readonly="true()" type="string"/>
       <bind nodeset="/D1.28/tarifasPlanes/caracteristicas/plan" required="true()" type="string"/>
-      <bind nodeset="/D1.28/tarifasPlanes/caracteristicas/recargaTipo" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas" nodeset="/D1.28/tarifasPlanes/caracteristicas/recargaTipo" required="true()" type="select1"/>
       <bind nodeset="/D1.28/tarifasPlanes/caracteristicas/serviciosAdicionales" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.28/tarifasPlanes/precios/bloquePrimeros/segundoOnNet_BP" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.28/tarifasPlanes/precios/bloquePrimeros/segundoOffNet_BP" required="true()" type="decimal"/>
@@ -98,26 +98,7 @@
               <label>Seleccione opción</label>
               <value>-1</value>
             </item>
-            <item>
-              <label>Hasta 10 pesos.</label>
-              <value>hasta_10_pesos</value>
-            </item>
-            <item>
-              <label>desde 10 hasta 20 pesos.</label>
-              <value>desde_10_hasta_20_pesos</value>
-            </item>
-            <item>
-              <label>desde 20 hasta 30 pesos.</label>
-              <value>desde_20_hasta_30_pesos</value>
-            </item>
-            <item>
-              <label>desde 30 hasta 50 pesos.</label>
-              <value>desde_30_hasta_50_pesos</value>
-            </item>
-            <item>
-              <label>desde 50 pesos.</label>
-              <value>desde_50_pesos</value>
-            </item>
+            
           </select1>
           <input ref="/D1.28/tarifasPlanes/caracteristicas/serviciosAdicionales">
             <label>Servicios Adicionales Incluidos</label>
@@ -130,22 +111,22 @@
             <label>Bloque primeros 30 segundos (Telefonía/Voz)</label>
             <input ref="/D1.28/tarifasPlanes/precios/bloquePrimeros/segundoOnNet_BP">
               <label>ON NET</label>
-              <hint>ON NET</hint>
+              <hint>Valor del bloque.</hint>
             </input>
             <input ref="/D1.28/tarifasPlanes/precios/bloquePrimeros/segundoOffNet_BP">
               <label>OFF NET</label>
-              <hint>OFF NET</hint>
+              <hint>Valor del bloque.</hint>
             </input>
           </group>		  
           <group appearance="col2 well-white" ref="/D1.28/tarifasPlanes/precios/segundo">
             <label>Segundo Local (Telefonía/Voz)</label>
             <input ref="/D1.28/tarifasPlanes/precios/segundo/segundoOnNet">
               <label>ON NET</label>
-              <hint>ON NET</hint>
+              <hint>Precio del segundo excedente.</hint>
             </input>
             <input ref="/D1.28/tarifasPlanes/precios/segundo/segundoOffNet">
               <label>OFF NET</label>
-              <hint>OFF NET</hint>
+              <hint>Precio del segundo excedente.</hint>
             </input>
           </group>
           <group appearance="col2 well-white" ref="/D1.28/tarifasPlanes/precios/sms">
