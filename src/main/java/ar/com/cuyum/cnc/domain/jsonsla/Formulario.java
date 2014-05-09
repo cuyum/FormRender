@@ -182,20 +182,23 @@ public class Formulario implements Serializable {
 		String value, value2;
 		int m=lstPK.size(), n=data.size(), cont=0;
 		
-		for(int j = 0; j < m; j++){
-			for (int i = 0; i < n-1; i++) {
-				value=data.get(i).getFieldByName(lstPK.get(j)).getValueToString();
-				
-				for(int k = 0; k < n; k++){
-					value2=data.get(k).getFieldByName(lstPK.get(j)).getValueToString();
-					if(k!=i){
-						if(value.equals(value2)){
-							cont++;
+		if(m>1){
+			for(int j = 0; j < m; j++){
+				for (int i = 0; i < n-1; i++) {
+					value=data.get(i).getFieldByName(lstPK.get(j)).getValueToString();
+					
+					for(int k = 0; k < n; k++){
+						value2=data.get(k).getFieldByName(lstPK.get(j)).getValueToString();
+						if(k!=i){
+							if(value.equals(value2)){
+								cont++;
+							}
 						}
 					}
 				}
 			}
-		}
+		}else return false;
+		
 		if(cont==m)
 			return true;
 		else return false;
