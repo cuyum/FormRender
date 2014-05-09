@@ -199,7 +199,7 @@ public class JsonUtils {
             
             entrada.close();
         }catch (Exception e){ //Catch de excepciones
-            System.err.println("Ocurrio un error: " + e.getMessage());
+            System.err.println("-----------------Ocurrio un error: " + e.getMessage());
         }
 		return msg;
 	}
