@@ -324,13 +324,13 @@ public class JsonUtils {
 				formulario.setRecordId(recordId);
 			}
 			
-			if(formNode.has("claves_primarias")){
+			
 				if(formulario.validationPrimaryKey()){
 					return msg(false,
 							"ERROR claves primarias duplicadas en formulario:(" + j
 									+ ")");
 				} 
-			}
+			
 			
 			
 			try {
