@@ -119,7 +119,7 @@ public class Decimal extends Componente implements Numero {
 	}
 
 	@Override
-	public Boolean isDataValid() throws ExceptionValidation {		
+	public Boolean isDataValid(String name) throws ExceptionValidation {		
 
 		if (porcentual != null) {
 			String[] operandos = porcentual.split(",");
@@ -307,9 +307,10 @@ public class Decimal extends Componente implements Numero {
 	}
 
 	@Override
-	public Boolean isDataValid(String name) throws ExceptionValidation {
+	public Boolean isDataValid() throws ExceptionValidation {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	
 }

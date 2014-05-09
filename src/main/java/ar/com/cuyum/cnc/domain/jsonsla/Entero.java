@@ -119,7 +119,7 @@ public class Entero extends Componente implements Numero {
 	}
 
 	@Override
-	public Boolean isDataValid() throws ExceptionValidation {
+	public Boolean isDataValid(String name) throws ExceptionValidation {
 
 		//Si el valor es nulo pero hay relevant con los valores seteados
 		if (value == null){
@@ -265,9 +265,11 @@ public class Entero extends Componente implements Numero {
 	}
 
 	@Override
-	public Boolean isDataValid(String name) throws ExceptionValidation {
+	public Boolean isDataValid() throws ExceptionValidation {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 		
 }

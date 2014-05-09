@@ -202,7 +202,9 @@ public class RelayService {
 
 			try {
 				response = mapper.readTree(processResponse(rawResponse));
-			} catch (JsonProcessingException e) {
+			}catch(NullPointerException exp){
+				log.error(exp);
+			}catch (JsonProcessingException e) {
 				log.error(e);
 			} catch (IOException e) {
 				log.error(e);
@@ -296,10 +298,12 @@ public class RelayService {
 		String entity = "{\"success\":false,\"msg\":\"Empty response received.\"}";
 		if (rawResponse == null)
 			return entity;
+		
 		try {
 			entity = EntityUtils.toString(rawResponse.getEntity());
 			log.info("<<<<ENTITY<<<<<<<"+entity);
 		} catch (Exception e) {
+			
 			log.error(e);
 		}
 		return entity;
