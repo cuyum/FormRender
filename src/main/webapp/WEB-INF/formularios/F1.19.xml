@@ -70,7 +70,10 @@
             <label>Velocidad</label>
             <select1 appearance="minimal" ref="/F1.19/agregar/planes/velocidad/velocidadSubida">
               <label>Subida</label>
-             
+             <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
             </select1>
             <select1 appearance="minimal" ref="/F1.19/agregar/planes/velocidad/velocidadBajada">
               <label>Bajada</label>

@@ -201,9 +201,9 @@ public class RelayService {
 			JsonNode response = null, result = null;
 
 			try {
-				response = mapper.readTree(processResponse(rawResponse));
-			}catch(NullPointerException exp){
-				log.error(exp);
+				
+					response = mapper.readTree(processResponse(rawResponse));
+				
 			}catch (JsonProcessingException e) {
 				log.error(e);
 			} catch (IOException e) {
@@ -212,14 +212,16 @@ public class RelayService {
 
 			try {
 				result = mapper.readTree(response.get("result").toString());
-			} catch (JsonProcessingException e) {
+			} catch(NullPointerException exp){
+				log.error(exp);
+			}catch (JsonProcessingException e) {
 				log.error(e);
 			} catch (IOException e) {
 				log.error(e);
 			}
 
 			if (!response.get("success").asBoolean()) {
-				respon.put("Formulario-" + i + "", result);
+				respon.put("Error con servidor de persistencia - Contacte a su administrador", result);
 			} else {
 				respon.put("Formulario-" + i + "", result);
 			}
@@ -296,12 +298,11 @@ public class RelayService {
 
 	private final String processResponse(HttpResponse rawResponse) {
 		String entity = "{\"success\":false,\"msg\":\"Empty response received.\"}";
-		if (rawResponse == null)
+		if (rawResponse == null){
 			return entity;
-		
+		}
 		try {
 			entity = EntityUtils.toString(rawResponse.getEntity());
-			log.info("<<<<ENTITY<<<<<<<"+entity);
 		} catch (Exception e) {
 			
 			log.error(e);
