@@ -20,7 +20,7 @@ public class Item implements Serializable{
 
 	private String id;
 	private String text;
-
+	private String idPadre;
 
    public static Item getItemFromJson(JsonNode jsonItem){
 	   Item item = new Item();
@@ -90,6 +90,14 @@ public class Item implements Serializable{
 	
 	public void setLabel(String text) {
 		this.text = text;
+	}
+
+	public String getIdPadre() {
+		return idPadre;
+	}
+
+	public void setIdPadre(String idPadre) {
+		this.idPadre = idPadre;
 	}
 
 }
