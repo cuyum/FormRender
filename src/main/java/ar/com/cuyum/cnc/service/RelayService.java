@@ -220,11 +220,13 @@ public class RelayService {
 				log.error(e);
 			}
 
-			if (!response.get("success").asBoolean()) {
+			if(response==null)
 				respon.put("Error con servidor de persistencia - Contacte a su administrador", result);
-			} else {
-				respon.put("Formulario-" + i + "", result);
-			}
+			else if (!response.get("success").asBoolean()) {
+					respon.put("Formulario-" + i + "", result);				
+					} else {
+						respon.put("Formulario-" + i + "", result);
+					}
 		}
 
 		return JsonUtils.msg(true, respon.toString()).toString();
