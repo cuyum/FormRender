@@ -651,6 +651,7 @@ public class JsonShemaGenerator {
 		}
 
 		returnNode.put("properties", properties);
+		
 		returnNode.put("required", required);
 		returnNode.put("claves_primarias", claves_primarias);
 		returnNode.put("action", action);

@@ -410,11 +410,12 @@ var setupRemoteData = function(field, fieldset) {
 						return {
 							fkey : ancestor.val(),
 							remoteUrl : url
+							
 									+ "?limit=20&page="
 									+ page
 									+ (term && term.length > 0 ? "&term="
 											+ term.toLowerCase() : "")		// remote
-									+ "&tipo="+tipo		// service
+										// service
 						// url
 						};
 					},
@@ -463,11 +464,12 @@ var setupRemoteData = function(field, fieldset) {
 						}
 						return {
 							remoteUrl : url
+							
 									+ "?limit=20&page="
 									+ page
 									+ (term && term.length > 0 ? "&term="
 											+ term.toLowerCase() : "") // remote
-											+ "&tipo="+tipo// service
+											// service
 						// url
 						};
 					},

@@ -148,7 +148,7 @@ public class Combo extends Componente {
 					coma=",";
 				}
 				throw new ExceptionValidation(
-						"valor invalido ("+value.getId()+","+value.getText()+") para el combo, segun la url remota con contenido:"+list.toString());
+						" ("+value.getId()+","+value.getText()+") es invalido, no se corresponde con ingresado, segun la url remota los posibles son:"+list.toString());
 			}	
 		}else if (values.size()>1){
 			if (!values.contains(value)){

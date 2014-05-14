@@ -17,7 +17,7 @@
         </H1.22>
       </instance>
       <bind nodeset="/H1.22/titulo" readonly="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/listas" nodeset="/H1.22/inversiones/anio" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/anio" nodeset="/H1.22/inversiones/anio" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999999" jr:constraintMsg="Ingrese entero entre 0 y 999999999" nodeset="/H1.22/inversiones/total" required="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/H1.22/meta/instanceID" readonly="true()" type="string"/>
     </model>

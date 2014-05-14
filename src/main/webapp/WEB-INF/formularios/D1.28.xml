@@ -57,7 +57,7 @@
       </instance>
       <bind nodeset="/D1.28/titulo" readonly="true()" type="string"/>
       <bind nodeset="/D1.28/tarifasPlanes/caracteristicas/plan" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/listas" nodeset="/D1.28/tarifasPlanes/caracteristicas/recargaTipo" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/recargaTipo" nodeset="/D1.28/tarifasPlanes/caracteristicas/recargaTipo" required="true()" type="select1"/>
       <bind nodeset="/D1.28/tarifasPlanes/caracteristicas/serviciosAdicionales" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.28/tarifasPlanes/precios/bloquePrimeros/segundoOnNet_BP" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.28/tarifasPlanes/precios/bloquePrimeros/segundoOffNet_BP" required="true()" type="decimal"/>

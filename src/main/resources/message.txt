@@ -1,5 +1,4 @@
 object instance has properties which are not allowed by the schema:=El objeto tiene propiedades no permitidas por el schema:
 object has missing required properties=El objeto requiere la propiedad
 array must not contain duplicate elements=El formulario no puede tener registros duplicados
-instance type (object) does not match any allowed primitive type=el objeto tiene un tipo no permitido
-instance type (string) does not match any allowed primitive type (allowed: ["integer"])=tiene tipo string no permitido, debe ser un entero
+instance type=Error de tipo de dato - Tipo no permitido:

@@ -60,7 +60,7 @@
       </instance>
       <bind nodeset="/E1.25/titulo" readonly="true()" type="string"/>
       <bind nodeset="/E1.25/tarifasPlanes/caracteristicas/plan" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/listas" nodeset="/E1.25/tarifasPlanes/caracteristicas/recargaTipo" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/recargaTipo" nodeset="/E1.25/tarifasPlanes/caracteristicas/recargaTipo" required="true()" type="select1"/>
       <bind nodeset="/E1.25/tarifasPlanes/caracteristicas/serviciosAdicionales" required="true()" type="string"/>
 	  
 	  <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.25/tarifasPlanes/precios/bloquePrimeros30_TVoz/BPTelVozOnNet" required="true()" type="decimal"/>

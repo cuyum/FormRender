@@ -24,8 +24,8 @@
         </C1.27>
       </instance>
       <bind nodeset="/C1.27/plan_plan/planes/plan" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/listas" nodeset="/C1.27/plan_plan/planes/aplicacion" required="true()" type="select1"/>
-      <bind constraint="url=/servicios/rest/listas" nodeset="/C1.27/plan_plan/planes/segmento" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/aplicacion" nodeset="/C1.27/plan_plan/planes/aplicacion" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/segmento" nodeset="/C1.27/plan_plan/planes/segmento" required="true()" type="select1"/>
       <bind nodeset="/C1.27/plan_plan/planes/segmento_otro" relevant=" /C1.27/plan_plan/planes/segmento =OTROS" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/C1.27/plan_plan/planes/abono" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=999999" jr:constraintMsg="Ingrese entero entre 0 y 999999" nodeset="/C1.27/plan_plan/planes/minutos" required="true()" type="int"/>

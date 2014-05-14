@@ -24,7 +24,7 @@
       </instance>
       <bind constraint="periodicidad=/servicios/rest/periodicidad and clave_primaria" nodeset="/ict4.1.4-B/meses/mes/periodo_considerado" required="true()" type="select1"/>
       <bind constraint="clave_primaria" nodeset="/ict4.1.4-B/meses/mes/accesos" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/listas and clave_primaria" nodeset="/ict4.1.4-B/meses/mes/contacto" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/contacto and clave_primaria" nodeset="/ict4.1.4-B/meses/mes/contacto" required="true()" type="select1"/>
       <bind nodeset="/ict4.1.4-B/meses/mes/contacto_otros" relevant=" /ict4.1.4-B/meses/mes/contacto=Otros" required="false()" type="string"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.4-B/meses/mes/dentro_30" required="true()" type="int"/>
       <bind constraint=".&gt;=0" nodeset="/ict4.1.4-B/meses/mes/despues_30" required="true()" type="int"/>

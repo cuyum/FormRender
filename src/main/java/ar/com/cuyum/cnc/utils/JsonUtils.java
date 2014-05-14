@@ -153,7 +153,7 @@ public class JsonUtils {
 				
 				msje = msj.getMessage();
 				if(msje.indexOf('(')!=-1){
-					prop = msje.substring(msje.indexOf('('));
+					prop = msje.substring(msje.indexOf('('),msje.indexOf(')')+1);
 					msje = searchError(msje.substring(0, msje.indexOf('(')));
 				}else if(msje.indexOf(':')!=-1){
 					prop = msje.substring(msje.indexOf(':'));

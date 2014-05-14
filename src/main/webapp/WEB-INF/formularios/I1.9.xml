@@ -66,8 +66,8 @@
       </instance>
       <bind nodeset="/I1.9/titulo" readonly="true()" type="string"/>
       <bind nodeset="/I1.9/tarifasPlanes/caracteristicas/plan" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/listas" nodeset="/I1.9/tarifasPlanes/caracteristicas/modalidad2" required="true()" type="select1"/>
-      <bind constraint="url=/servicios/rest/listas" nodeset="/I1.9/tarifasPlanes/caracteristicas/segmento" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/modalidad2" nodeset="/I1.9/tarifasPlanes/caracteristicas/modalidad2" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/segmento" nodeset="/I1.9/tarifasPlanes/caracteristicas/segmento" required="true()" type="select1"/>
       <bind nodeset="/I1.9/tarifasPlanes/caracteristicas/segmento_otro" relevant=" /I1.9/tarifasPlanes/caracteristicas/segmento =OTROS" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/I1.9/tarifasPlanes/cargos/abono" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/I1.9/tarifasPlanes/cargos/gastos" required="true()" type="decimal"/>
