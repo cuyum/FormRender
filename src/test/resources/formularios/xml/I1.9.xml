@@ -26,18 +26,26 @@
               <serviciosAdic/>
             </servicios>
             <precios>
-              <minutoLocal>
-                <minutoOnNet/>
-                <minutoOffNet/>
-              </minutoLocal>
+			  <bloquePrimeros30_TVoz>
+                <BPTelVozOnNet/>
+                <BPTelVozOffNet/>
+              </bloquePrimeros30_TVoz>
+			  <bloquePrimeros30_Radio>
+                <BPRadioOnNet/>
+                <BPRadioOffNet/>
+              </bloquePrimeros30_Radio>			  
+              <segundoLocal>
+                <segundoOnNet/>
+                <segundoOffNet/>
+              </segundoLocal>			
               <sms>
                 <smsOnNet/>
                 <smsOffNet/>
               </sms>
-              <mms>
-                <mmsOnNet/>
-                <mmsOffNet/>
-              </mms>
+              <segundoRadio>
+                <segundoRadioOnNet/>
+                <segundoRadioOffNet/>
+              </segundoRadio>
               <datos>
                 <datosPrecio/>
               </datos>
@@ -58,8 +66,8 @@
       </instance>
       <bind nodeset="/I1.9/titulo" readonly="true()" type="string"/>
       <bind nodeset="/I1.9/tarifasPlanes/caracteristicas/plan" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/listas" nodeset="/I1.9/tarifasPlanes/caracteristicas/modalidad2" required="true()" type="select1"/>
-      <bind constraint="url=/servicios/rest/listas" nodeset="/I1.9/tarifasPlanes/caracteristicas/segmento" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/modalidad2" nodeset="/I1.9/tarifasPlanes/caracteristicas/modalidad2" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/segmento" nodeset="/I1.9/tarifasPlanes/caracteristicas/segmento" required="true()" type="select1"/>
       <bind nodeset="/I1.9/tarifasPlanes/caracteristicas/segmento_otro" relevant=" /I1.9/tarifasPlanes/caracteristicas/segmento =OTROS" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/I1.9/tarifasPlanes/cargos/abono" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/I1.9/tarifasPlanes/cargos/gastos" required="true()" type="decimal"/>
@@ -68,12 +76,16 @@
       <bind nodeset="/I1.9/tarifasPlanes/servicios/sms" required="true()" type="string"/>
       <bind nodeset="/I1.9/tarifasPlanes/servicios/minutosRadios" required="true()" type="string"/>
       <bind nodeset="/I1.9/tarifasPlanes/servicios/serviciosAdic" type="string"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/I1.9/tarifasPlanes/precios/minutoLocal/minutoOnNet" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/I1.9/tarifasPlanes/precios/minutoLocal/minutoOffNet" required="true()" type="decimal"/>
+	  <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/I1.9/tarifasPlanes/precios/bloquePrimeros30_TVoz/BPTelVozOnNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/I1.9/tarifasPlanes/precios/bloquePrimeros30_TVoz/BPTelVozOffNet" required="true()" type="decimal"/>
+	  <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/I1.9/tarifasPlanes/precios/bloquePrimeros30_Radio/BPRadioOnNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/I1.9/tarifasPlanes/precios/bloquePrimeros30_Radio/BPRadioOffNet" required="true()" type="decimal"/>  
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/I1.9/tarifasPlanes/precios/segundoLocal/segundoOnNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/I1.9/tarifasPlanes/precios/segundoLocal/segundoOffNet" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/I1.9/tarifasPlanes/precios/sms/smsOnNet" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/I1.9/tarifasPlanes/precios/sms/smsOffNet" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/I1.9/tarifasPlanes/precios/mms/mmsOnNet" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/I1.9/tarifasPlanes/precios/mms/mmsOffNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/I1.9/tarifasPlanes/precios/segundoRadio/segundoRadioOnNet" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/I1.9/tarifasPlanes/precios/segundoRadio/segundoRadioOffNet" required="true()" type="decimal"/>
       <bind nodeset="/I1.9/tarifasPlanes/precios/datos/datosPrecio" required="true()" type="string"/>
       <bind nodeset="/I1.9/tarifasPlanes/otrosImp/grupoOtros/otros" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 999.99" nodeset="/I1.9/tarifasPlanes/otrosImp/impuestos/porcentaje" required="true()" type="decimal"/>
@@ -132,7 +144,7 @@
           </input>
         </group>
         <group appearance="col4 well-white" ref="/I1.9/tarifasPlanes/servicios">
-          <label>Servicios Inluidos en Abono</label>
+          <label>Servicios Incluidos en el Abono</label>
           <input ref="/I1.9/tarifasPlanes/servicios/minutos">
             <label>Minutos</label>
             <hint>Minutos [&quot;ILIMITADO&quot; ó 9999]</hint>
@@ -152,17 +164,39 @@
         </group>
         <group appearance="col1 well-white" ref="/I1.9/tarifasPlanes/precios">
           <label>Precios</label>
-          <group appearance="col2 well-white" ref="/I1.9/tarifasPlanes/precios/minutoLocal">
-            <label>Minuto Local</label>
-            <input ref="/I1.9/tarifasPlanes/precios/minutoLocal/minutoOnNet">
+          <group appearance="col2 well-white" ref="/I1.9/tarifasPlanes/precios/bloquePrimeros30_TVoz">
+            <label>Bloque primeros 30 segundos (Telefonía/Voz)</label>
+            <input ref="/I1.9/tarifasPlanes/precios/bloquePrimeros30_TVoz/BPTelVozOnNet">
               <label>ON NET</label>
-              <hint>Precio del minuto promedio.</hint>
+              <hint>Valor del bloque.</hint>
             </input>
-            <input ref="/I1.9/tarifasPlanes/precios/minutoLocal/minutoOffNet">
+            <input ref="/I1.9/tarifasPlanes/precios/bloquePrimeros30_TVoz/BPTelVozOffNet">
               <label>OFF NET</label>
-              <hint>Precio del minuto promedio.</hint>
+              <hint>Valor del bloque.</hint>
             </input>
           </group>
+          <group appearance="col2 well-white" ref="/I1.9/tarifasPlanes/precios/bloquePrimeros30_Radio">
+            <label>Bloque primeros 30 segundos (Radio)</label>
+            <input ref="/I1.9/tarifasPlanes/precios/bloquePrimeros30_Radio/BPRadioOnNet">
+              <label>ON NET</label>
+              <hint>Valor del bloque.</hint>
+            </input>
+            <input ref="/I1.9/tarifasPlanes/precios/bloquePrimeros30_Radio/BPRadioOffNet">
+              <label>OFF NET</label>
+              <hint>Valor del bloque.</hint>
+            </input>
+          </group>			  
+          <group appearance="col2 well-white" ref="/I1.9/tarifasPlanes/precios/segundoLocal">
+            <label>Segundo Local (Telefonía/Voz)</label>
+            <input ref="/I1.9/tarifasPlanes/precios/segundoLocal/segundoOnNet">
+              <label>ON NET</label>
+              <hint>Precio del segundo excedente.</hint>
+            </input>
+            <input ref="/I1.9/tarifasPlanes/precios/segundoLocal/segundoOffNet">
+              <label>OFF NET</label>
+              <hint>Precio del segundo excedente.</hint>
+            </input>
+          </group>		  
           <group appearance="col2 well-white" ref="/I1.9/tarifasPlanes/precios/sms">
             <label>SMS</label>
             <input ref="/I1.9/tarifasPlanes/precios/sms/smsOnNet">
@@ -174,15 +208,15 @@
               <hint>Precio del SMS promedio.</hint>
             </input>
           </group>
-          <group appearance="col2 well-white" ref="/I1.9/tarifasPlanes/precios/mms">
-            <label>Minutos Radios</label>
-            <input ref="/I1.9/tarifasPlanes/precios/mms/mmsOnNet">
+          <group appearance="col2 well-white" ref="/I1.9/tarifasPlanes/precios/segundoRadio">
+            <label>Segundo Radio</label>
+            <input ref="/I1.9/tarifasPlanes/precios/segundoRadio/segundoRadioOnNet">
               <label>ON NET</label>
-              <hint>Precio del minuto de radio promedio.</hint>
+              <hint>Precio del segundo de radio.</hint>
             </input>
-            <input ref="/I1.9/tarifasPlanes/precios/mms/mmsOffNet">
+            <input ref="/I1.9/tarifasPlanes/precios/segundoRadio/segundoRadioOffNet">
               <label>OFF NET</label>
-              <hint>Precio del minuto de radio promedio.</hint>
+              <hint>Precio del segundo de radio.</hint>
             </input>
           </group>
           <group appearance="col2 well-white" ref="/I1.9/tarifasPlanes/precios/datos">

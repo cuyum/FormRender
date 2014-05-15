@@ -25,7 +25,7 @@
         </C2.5>
       </instance>
       <bind nodeset="/C2.5/titulo" readonly="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/listas" nodeset="/C2.5/ingresos/anio" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/anio" nodeset="/C2.5/ingresos/anio" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999999" nodeset="/C2.5/ingresos/abono" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999999" nodeset="/C2.5/trafico/urbano" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=9999999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999999" nodeset="/C2.5/trafico/interurbano" required="true()" type="int"/>

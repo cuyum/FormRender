@@ -26,8 +26,8 @@
       </instance>
       <bind nodeset="/H1.15/titulo" readonly="true()" type="string"/>
       <bind nodeset="/H1.15/plan_plan/nombrePlan/plan" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/listas" nodeset="/H1.15/plan_plan/nombrePlan/aplicacion" required="true()" type="select1"/>
-      <bind constraint="url=/servicios/rest/listas" nodeset="/H1.15/plan_plan/nombrePlan/segmento" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/aplicacion" nodeset="/H1.15/plan_plan/nombrePlan/aplicacion" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/segmento" nodeset="/H1.15/plan_plan/nombrePlan/segmento" required="true()" type="select1"/>
       <bind nodeset="/H1.15/plan_plan/nombrePlan/segmento_otro" relevant=" /H1.15/plan_plan/nombrePlan/segmento =OTROS" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/H1.15/plan_plan/nombrePlan/abono" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=999999" jr:constraintMsg="Ingrese entero entre 0 y 999999" nodeset="/H1.15/plan_plan/nombrePlan/minutos" required="true()" type="int"/>

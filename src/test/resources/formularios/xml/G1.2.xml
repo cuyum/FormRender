@@ -58,16 +58,16 @@
       <bind nodeset="/G1.2/puntos/ubicacionOrigen/localidadOrigen_otro" relevant=" /G1.2/puntos/ubicacionOrigen/localidadOrigen =9999" required="true()" type="string"/>
       <bind constraint="url=/servicios/rest/localizaciones/areas and depends=/G1.2/puntos/ubicacionOrigen/localidadOrigen" nodeset="/G1.2/puntos/ubicacionOrigen/areaOrigen" required="true()" type="select1"/>
       <bind nodeset="/G1.2/puntos/ubicacionOrigen/areaOrigen_otro" relevant=" /G1.2/puntos/ubicacionOrigen/areaOrigen =9999" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/listas" nodeset="/G1.2/puntos/equipamiento/tecnologia" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/tecnologia" nodeset="/G1.2/puntos/equipamiento/tecnologia" required="true()" type="select1"/>
       <bind nodeset="/G1.2/puntos/equipamiento/tecnologia_otro" relevant=" /G1.2/puntos/equipamiento/tecnologia =Otros" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999" nodeset="/G1.2/puntos/equipamiento/equipCapacidadDisp" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=9999999" jr:constraintMsg="Ingrese entero entre 0 y 9999999" nodeset="/G1.2/puntos/equipamiento/equipCapacidadUtilizada" required="true()" type="int"/>
-      <bind constraint="url=/servicios/rest/listas" nodeset="/G1.2/puntos/tipomedio/medio" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/medio" nodeset="/G1.2/puntos/tipomedio/medio" required="true()" type="select1"/>
       <bind nodeset="/G1.2/puntos/tipomedio/medio_otro" relevant=" /G1.2/puntos/tipomedio/medio =Otros" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=99999" jr:constraintMsg="Ingrese entero entre 0 y 99999" nodeset="/G1.2/puntos/tipomedio/medioCapacidadDisp" relevant=" /G1.2/puntos/tipomedio/medio =FO" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=99999" jr:constraintMsg="Ingrese entero entre 0 y 99999" nodeset="/G1.2/puntos/tipomedio/medioCapacidadUtilizada" relevant=" /G1.2/puntos/tipomedio/medio =FO" required="true()" type="int"/>
       <bind nodeset="/G1.2/puntos/tipotendido" relevant=" /G1.2/puntos/tipomedio/medio =FO or  /G1.2/puntos/tipomedio/medio =Otros"/>
-      <bind constraint="url=/servicios/rest/listas" nodeset="/G1.2/puntos/tipotendido/tendido" relevant=" /G1.2/puntos/tipomedio/medio =FO or  /G1.2/puntos/tipomedio/medio =Otros" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/tendido" nodeset="/G1.2/puntos/tipotendido/tendido" relevant=" /G1.2/puntos/tipomedio/medio =FO or  /G1.2/puntos/tipomedio/medio =Otros" required="true()" type="select1"/>
       <bind nodeset="/G1.2/puntos/tipotendido/tendido_otro" relevant=" /G1.2/puntos/tipotendido/tendido =Otros" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/G1.2/puntos/tipotendido/tendidoCapacidadDisp" relevant=" /G1.2/puntos/tipomedio/medio =FO" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/G1.2/puntos/tipotendido/tendidoCapacidadUtilizada" relevant=" /G1.2/puntos/tipomedio/medio =FO" required="true()" type="int"/>

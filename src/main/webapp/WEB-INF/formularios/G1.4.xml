@@ -14,7 +14,7 @@
           </meta>
         </G1.4>
       </instance>
-      <bind nodeset="/G1.4/nota/obsAnexoG" type="string"/>
+      <bind nodeset="/G1.4/nota/obsAnexoG" type="string" required="true()"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/G1.4/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

@@ -40,8 +40,8 @@
         </D1.31>
       </instance>
       <bind nodeset="/D1.31/agregar/caracteristicas/plan" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/listas" nodeset="/D1.31/agregar/caracteristicas/modalidad1" required="true()" type="select1"/>
-      <bind constraint="url=/servicios/rest/listas" nodeset="/D1.31/agregar/abonoDatos/abonoRecarga/abono" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/modalidad1" nodeset="/D1.31/agregar/caracteristicas/modalidad1" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/abono" nodeset="/D1.31/agregar/abonoDatos/abonoRecarga/abono" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=999999" jr:constraintMsg="Ingrese entero entre 0 y 999999" nodeset="/D1.31/agregar/abonoDatos/datos/datosIncuidos" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.31/agregar/precios/kb" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/D1.31/agregar/precios/kbExedente" required="true()" type="decimal"/>

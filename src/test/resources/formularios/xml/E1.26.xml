@@ -12,9 +12,13 @@
               <roamingPrepago110/>
               <roamingPospago110/>
             </roaming110>
+            <ldnH110_BP>
+              <ldnPrepagoH110_BP/>
+              <ldnPospagoH110_BP/>
+            </ldnH110_BP>			
             <ldn110>
-              <ldnPrepago110/>
-              <ldnPospago110/>
+              <ldnPrepago110_Seg/>
+              <ldnPospago110_Seg/>
             </ldn110>
           </hasta110>
           <de110A240>
@@ -22,9 +26,13 @@
               <roamingPrepago240/>
               <roamingPospago240/>
             </roaming240>
+            <ldnH240_BP>
+              <ldnPrepagoH240_BP/>
+              <ldnPospagoH240_BP/>
+            </ldnH240_BP>			
             <ldn240>
-              <ldnPrepago240/>
-              <ldnPospago240/>
+              <ldnPrepago240_Seg/>
+              <ldnPospago240_Seg/>
             </ldn240>
           </de110A240>
           <mas240>
@@ -32,9 +40,13 @@
               <roamPrepagoMas240/>
               <roamPospagoMas240/>
             </roamMas240>
+            <ldnM240_BP>
+              <ldnPrepagoM240_BP/>
+              <ldnPospagoM240_BP/>
+            </ldnM240_BP>			
             <ldnMas240>
-              <ldnPrepagoMas240/>
-              <ldnPospagoMas240/>
+              <ldnPrepagoMas240_Seg/>
+              <ldnPospagoMas240_Seg/>
             </ldnMas240>
           </mas240>
           <meta>
@@ -45,16 +57,22 @@
       <bind nodeset="/E1.26/titulo" readonly="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/hasta110/roaming110/roamingPrepago110" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/hasta110/roaming110/roamingPospago110" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/hasta110/ldn110/ldnPrepago110" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/hasta110/ldn110/ldnPospago110" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/hasta110/ldnH110_BP/ldnPrepagoH110_BP" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/hasta110/ldnH110_BP/ldnPospagoH110_BP" required="true()" type="decimal"/>	  
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/hasta110/ldn110/ldnPrepago110_Seg" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/hasta110/ldn110/ldnPospago110_Seg" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/de110A240/roaming240/roamingPrepago240" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/de110A240/roaming240/roamingPospago240" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/de110A240/ldn240/ldnPrepago240" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/de110A240/ldn240/ldnPospago240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/de110A240/ldnH240_BP/ldnPrepagoH240_BP" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/de110A240/ldnH240_BP/ldnPospagoH240_BP" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/de110A240/ldn240/ldnPrepago240_Seg" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/de110A240/ldn240/ldnPospago240_Seg" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/mas240/roamMas240/roamPrepagoMas240" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/mas240/roamMas240/roamPospagoMas240" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/mas240/ldnMas240/ldnPrepagoMas240" required="true()" type="decimal"/>
-      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/mas240/ldnMas240/ldnPospagoMas240" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/mas240/ldnM240_BP/ldnPrepagoM240_BP" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/mas240/ldnM240_BP/ldnPospagoM240_BP" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/mas240/ldnMas240/ldnPrepagoMas240_Seg" required="true()" type="decimal"/>
+      <bind constraint=".&gt;=0 and .&lt;=99.999" jr:constraintMsg="Ingrese decimal entre 0.00 y 99.999" nodeset="/E1.26/mas240/ldnMas240/ldnPospagoMas240_Seg" required="true()" type="decimal"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/E1.26/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>
@@ -75,15 +93,26 @@
           <hint>Pospago</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/E1.26/hasta110/ldn110">
-        <label>LDN precio minuto</label>
-        <input ref="/E1.26/hasta110/ldn110/ldnPrepago110">
+      <group appearance="col2 well-white" ref="/E1.26/hasta110/ldnH110_BP">
+        <label>LDN Bloque primeros 30 segundos (Telefonía/Voz).</label>
+        <input ref="/E1.26/hasta110/ldnH110_BP/ldnPrepagoH110_BP">
           <label>Prepago</label>
-          <hint>Prepago</hint>
+          <hint>Valor del bloque.</hint>
         </input>
-        <input ref="/E1.26/hasta110/ldn110/ldnPospago110">
+        <input ref="/E1.26/hasta110/ldnH110_BP/ldnPospagoH110_BP">
           <label>Pospago</label>
-          <hint>Pospago</hint>
+          <hint>Valor del bloque.</hint>
+        </input>
+      </group>
+      <group appearance="col2 well-white" ref="/E1.26/hasta110/ldn110">
+        <label>LDN precio segundo</label>
+        <input ref="/E1.26/hasta110/ldn110/ldnPrepago110_Seg">
+          <label>Prepago</label>
+          <hint>Valor del segundo.</hint>
+        </input>
+        <input ref="/E1.26/hasta110/ldn110/ldnPospago110_Seg">
+          <label>Pospago</label>
+          <hint>Valor del segundo.</hint>
         </input>
       </group>
     </group>
@@ -100,15 +129,26 @@
           <hint>Pospago</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/E1.26/de110A240/ldn240">
-        <label>LDN precio minuto</label>
-        <input ref="/E1.26/de110A240/ldn240/ldnPrepago240">
+      <group appearance="col2 well-white" ref="/E1.26/de110A240/ldnH240_BP">
+        <label>LDN Bloque primeros 30 segundos (Telefonía/Voz).</label>
+        <input ref="/E1.26/de110A240/ldnH240_BP/ldnPrepagoH240_BP">
           <label>Prepago</label>
-          <hint>Prepago</hint>
+          <hint>Valor del bloque.</hint>
         </input>
-        <input ref="/E1.26/de110A240/ldn240/ldnPospago240">
+        <input ref="/E1.26/de110A240/ldnH240_BP/ldnPospagoH240_BP">
           <label>Pospago</label>
-          <hint>Pospago</hint>
+          <hint>Valor del bloque.</hint>
+        </input>
+      </group>	  
+      <group appearance="col2 well-white" ref="/E1.26/de110A240/ldn240">
+        <label>LDN precio segundo</label>
+        <input ref="/E1.26/de110A240/ldn240/ldnPrepago240_Seg">
+          <label>Prepago</label>
+          <hint>Valor del segundo.</hint>
+        </input>
+        <input ref="/E1.26/de110A240/ldn240/ldnPospago240_Seg">
+          <label>Pospago</label>
+          <hint>Valor del segundo.</hint>
         </input>
       </group>
     </group>
@@ -125,15 +165,26 @@
           <hint>Pospago</hint>
         </input>
       </group>
-      <group appearance="col2 well-white" ref="/E1.26/mas240/ldnMas240">
-        <label>LDN precio minuto</label>
-        <input ref="/E1.26/mas240/ldnMas240/ldnPrepagoMas240">
+      <group appearance="col2 well-white" ref="/E1.26/mas240/ldnM240_BP">
+        <label>LDN Bloque primeros 30 segundos (Telefonía/Voz).</label>
+        <input ref="/E1.26/mas240/ldnM240_BP/ldnPrepagoM240_BP">
           <label>Prepago</label>
-          <hint>Prepago</hint>
+          <hint>Valor del bloque.</hint>
         </input>
-        <input ref="/E1.26/mas240/ldnMas240/ldnPospagoMas240">
+        <input ref="/E1.26/mas240/ldnM240_BP/ldnPospagoM240_BP">
           <label>Pospago</label>
-          <hint>Pospago</hint>
+          <hint>Valor del bloque.</hint>
+        </input>
+      </group>	  
+      <group appearance="col2 well-white" ref="/E1.26/mas240/ldnMas240">
+        <label>LDN precio segundo</label>
+        <input ref="/E1.26/mas240/ldnMas240/ldnPrepagoMas240_Seg">
+          <label>Prepago</label>
+          <hint>Valor del segundo.</hint>
+        </input>
+        <input ref="/E1.26/mas240/ldnMas240/ldnPospagoMas240_Seg">
+          <label>Pospago</label>
+          <hint>Valor del segundo.</hint>
         </input>
       </group>
     </group>

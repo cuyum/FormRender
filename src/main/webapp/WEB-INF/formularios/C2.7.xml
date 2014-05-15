@@ -14,7 +14,7 @@
           </meta>
         </C2.7>
       </instance>
-      <bind nodeset="/C2.7/nota/obsAnexoC2" type="string"/>
+      <bind nodeset="/C2.7/nota/obsAnexoC2" type="string" required="true()"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/C2.7/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

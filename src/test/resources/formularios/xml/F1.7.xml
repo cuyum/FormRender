@@ -28,7 +28,7 @@
       <bind constraint="url=/servicios/rest/localizaciones/localidades and depends=/F1.7/meses/mes/partido" nodeset="/F1.7/meses/mes/localidad" required="true()" type="select1"/>
       <bind nodeset="/F1.7/meses/mes/localidad_otro" relevant=" /F1.7/meses/mes/localidad =9999" required="true()" type="string"/>
       <bind constraint=".&gt;=0 and .&lt;=99999999" jr:constraintMsg="Ingrese entero entre 0 y 99999999" nodeset="/F1.7/meses/mes/cuentas" required="true()" type="int"/>
-      <bind constraint="url=/servicios/rest/listas" nodeset="/F1.7/meses/mes/velocidad" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/velocidad" nodeset="/F1.7/meses/mes/velocidad" required="true()" type="select1"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/F1.7/meta/instanceID" readonly="true()" type="string"/>
     </model>
   </h:head>

@@ -29,10 +29,10 @@
       </instance>
       <bind nodeset="/F1.19/titulo" readonly="true()" type="string"/>
       <bind nodeset="/F1.19/agregar/planes/planesPlan" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/listas" nodeset="/F1.19/agregar/planes/planesAccesos" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/planesAccesos" nodeset="/F1.19/agregar/planes/planesAccesos" required="true()" type="select1"/>
       <bind nodeset="/F1.19/agregar/planes/planesAccesos_otro" relevant=" /F1.19/agregar/planes/planesAccesos =OTROS" required="true()" type="string"/>
-      <bind constraint="url=/servicios/rest/listas" nodeset="/F1.19/agregar/planes/velocidad/velocidadSubida" required="true()" type="select1"/>
-      <bind constraint="url=/servicios/rest/listas" nodeset="/F1.19/agregar/planes/velocidad/velocidadBajada" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/velocidadSubida" nodeset="/F1.19/agregar/planes/velocidad/velocidadSubida" required="true()" type="select1"/>
+      <bind constraint="url=/servicios/rest/listas/velocidadBajada" nodeset="/F1.19/agregar/planes/velocidad/velocidadBajada" required="true()" type="select1"/>
       <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/F1.19/agregar/planes/planesAbono" required="true()" type="decimal"/>
       <bind constraint=".&gt;=0 and .&lt;=999" jr:constraintMsg="Ingrese entero entre 0 y 999" nodeset="/F1.19/agregar/planes/planesVigencia" required="true()" type="int"/>
       <bind constraint=".&gt;=0 and .&lt;=9999.99" jr:constraintMsg="Ingrese decimal entre 0.00 y 9999.99" nodeset="/F1.19/agregar/planes/planesPrecioFinal" required="true()" type="decimal"/>
@@ -70,7 +70,10 @@
             <label>Velocidad</label>
             <select1 appearance="minimal" ref="/F1.19/agregar/planes/velocidad/velocidadSubida">
               <label>Subida</label>
-             
+             <item>
+                <label>Seleccione una opción</label>
+                <value>-1</value>
+              </item>
             </select1>
             <select1 appearance="minimal" ref="/F1.19/agregar/planes/velocidad/velocidadBajada">
               <label>Bajada</label>
