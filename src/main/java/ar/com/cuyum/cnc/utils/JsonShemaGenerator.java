@@ -544,7 +544,7 @@ public class JsonShemaGenerator {
 		ArrayNode agrupadores = mapper.createArrayNode();
 		ArrayNode totalizadores = mapper.createArrayNode();
 		ArrayNode claves_primarias = mapper.createArrayNode();
-
+		List<String> auxiliarClavesPrimarias = new ArrayList<String>();
 
 		// Lista de nombres de los que ciertos elementos dependen
 		List<String> depends = new ArrayList<String>();
@@ -575,7 +575,8 @@ public class JsonShemaGenerator {
 
 			int leng = nodeset.getNodeValue().split("/").length;
 			String name = nodeset.getNodeValue().split("/")[leng - 1];
-
+			
+			
 			Node req = node.getAttributes().getNamedItem("required");
 
 			if (relevant == null && req != null
@@ -618,6 +619,9 @@ public class JsonShemaGenerator {
 			}
 
 			if (object != null) {
+				
+				auxiliarClavesPrimarias.add(name);
+				
 				if (readonly == null) {
 					properties.put(name, object);
 				} else {
@@ -653,6 +657,11 @@ public class JsonShemaGenerator {
 		returnNode.put("properties", properties);
 		
 		returnNode.put("required", required);
+		if(claves_primarias.size()==0){
+			for (int i = 0; i < auxiliarClavesPrimarias.size(); i++) {
+				claves_primarias.add(auxiliarClavesPrimarias.get(i));
+			}
+		}
 		returnNode.put("claves_primarias", claves_primarias);
 		returnNode.put("action", action);
 		if(otherFields.size()>0) 
