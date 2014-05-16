@@ -196,7 +196,7 @@ public class Formulario implements Serializable {
 								cont++;
 							}							
 						}
-						if(cont==m)
+						if(cont>=m)
 							return true;
 					}
 				}
