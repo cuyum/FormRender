@@ -65,17 +65,17 @@ public class Formulario implements Serializable {
 			}
 		}
 	}
-	
+
 	private void initClave_PrimariaFromSchema() {
 		ObjectMapper mapper = new ObjectMapper();
 		if (this.schema.has("claves_primarias")) {
-			
-				setClavePrimaria(this.schema.get("claves_primarias").toString());
-			
+
+			setClavePrimaria(this.schema.get("claves_primarias").toString());
+
 		}
 	}
-	
-	private void initComponent(JsonNode schemaItemsProperties){
+
+	private void initComponent(JsonNode schemaItemsProperties) {
 		ObjectMapper mapper = new ObjectMapper();
 		Iterator<String> names = schemaItemsProperties.fieldNames();
 		mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY,
@@ -92,11 +92,11 @@ public class Formulario implements Serializable {
 						.readValue(nodePropertie.toString(),
 								Componente.getTypeClass(type));
 
-				if (Componente.COMBO.equals(type)){
+				if (Componente.COMBO.equals(type)) {
 					((Combo) component).setRelayService(relayService);
-				}else if( Componente.STRING.equals(type)) {
+				} else if (Componente.STRING.equals(type)) {
 					((Texto) component).setRelayService(relayService);
-				}  
+				}
 
 				mapComponets.put(name, component);
 			} catch (JsonParseException e) {
@@ -107,7 +107,7 @@ public class Formulario implements Serializable {
 				log.error("el schema propertie tiene formato invalido", e);
 			}
 
-			log.info("objeto mappeado name:"+name+" "+component);
+			log.info("objeto mappeado name:" + name + " " + component);
 		}
 	}
 
@@ -176,37 +176,44 @@ public class Formulario implements Serializable {
 		}
 
 	}
-	
-	public Boolean validationPrimaryKey(){
+
+	public Boolean validationPrimaryKey() {
 		List<String> lstPK = this.clave_primaria.getClaves_primarias();
 		String value, value2;
-		int m=lstPK.size(), n=data.size(), cont=0;
-		
-		if(m>1){
-			for(int j = 0; j < m; j++){
-				for (int i = 0; i < n-1; i++) {
-					value=data.get(i).getFieldByName(lstPK.get(j)).getValueToString();
-					
-					for(int k = 0; k < n; k++){
-						value2=data.get(k).getFieldByName(lstPK.get(j)).getValueToString();
-						if(k!=i){
-							if(value.equals(value2)){
+		int m = lstPK.size(), n = data.size(), cont = 0;
+
+		if (m > 0) {
+
+			for (int i = 0; i < n - 1; i++) {
+				for (int k = 0; k < n; k++) {					
+					if (k != i) {
+						for (int j = 0; j < m; j++) {
+							value = data.get(i).getFieldByName(lstPK.get(j))
+									.getValueToString();
+							value2 = data.get(k).getFieldByName(lstPK.get(j))
+									.getValueToString();
+							if (value.equals(value2)) {
 								cont++;
-							}
+							}							
 						}
+						if(cont==m)
+							return true;
 					}
 				}
 			}
-		}else return false;
-		
-		if(cont==m)
+
+		} else
+			return false;
+
+		if (cont == m)
 			return true;
-		else return false;
+		else
+			return false;
 	}
 
 	public Boolean processData() throws ExceptionValidation {
 		Map<String, Map<String, Componente>> iterMapRowTotal = new HashMap<String, Map<String, Componente>>();
-		
+
 		for (int i = 0, n = data.size(); i < n; i++) {
 			this.data.get(i).isDataValid();
 
@@ -232,14 +239,16 @@ public class Formulario implements Serializable {
 				log.info(key);
 
 				for (int j = 0, at = totalizadores.size(); j < at; j++) {
-					Numero total = (Numero) sumarizados.get(totalizadores.get(j));
-					Numero aSumar = (Numero) this.data.get(i).getFieldByName(totalizadores.get(j));
-					
+					Numero total = (Numero) sumarizados.get(totalizadores
+							.get(j));
+					Numero aSumar = (Numero) this.data.get(i).getFieldByName(
+							totalizadores.get(j));
+
 					if (total == null) {
-						total = ((Numero)(((Componente) aSumar).clone()));
+						total = ((Numero) (((Componente) aSumar).clone()));
 					} else {
-							total = total.sum(aSumar);
-					}					
+						total = total.sum(aSumar);
+					}
 					sumarizados.put(totalizadores.get(j), (Componente) total);
 				}
 
@@ -248,7 +257,7 @@ public class Formulario implements Serializable {
 			}
 			createAutorizadosJson(iterMapRowTotal);
 		}
-		
+
 		return true;
 	}
 
@@ -259,42 +268,42 @@ public class Formulario implements Serializable {
 	public void setGrid(Grid grid) {
 		this.grid = grid;
 	}
-	
+
 	public Clave_Primaria getClavePrimaria() {
 		return clave_primaria;
 	}
-	
+
 	public void setClavePrimaria(String clave_primaria) {
 		Clave_Primaria pk = new Clave_Primaria();
 		pk.setClaves_primarias(clave_primaria);
-		this.clave_primaria=pk;
+		this.clave_primaria = pk;
 	}
 
 	public JsonNode valuesToJson() {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode data = mapper.createObjectNode();
-		
+
 		ArrayNode items = mapper.createArrayNode();
 
 		for (int i = 0, nf = this.data.size(); i < nf; i++) {
 			items.add(this.data.get(i).valuesToJson());
 		}
 
-		if (sumarizadosJson != null && grid!= null && grid.getCalculados()) {
-			ArrayNode items2 =  mapper.createArrayNode();
+		if (sumarizadosJson != null && grid != null && grid.getCalculados()) {
+			ArrayNode items2 = mapper.createArrayNode();
 			ObjectNode item = mapper.createObjectNode();
-			item.put("registros",items);
-			item.put("sumarizados",sumarizadosJson);
+			item.put("registros", items);
+			item.put("sumarizados", sumarizadosJson);
 			items2.add(item);
-			data.put("data",items2);
-		}else{
-    	   data.put("data",items);
+			data.put("data", items2);
+		} else {
+			data.put("data", items);
 		}
-		
-		if(recordId!=null && !recordId.isEmpty()){
+
+		if (recordId != null && !recordId.isEmpty()) {
 			data.put("recordId", recordId);
 		}
-		
+
 		return data;
 	}
 
