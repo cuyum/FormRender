@@ -185,7 +185,9 @@ public class Formulario implements Serializable {
 		if (m > 0) {
 
 			for (int i = 0; i < n - 1; i++) {
-				for (int k = 0; k < n; k++) {					
+				
+				for (int k = 0; k < n; k++) {		
+					cont = 0;
 					if (k != i) {
 						for (int j = 0; j < m; j++) {
 							value = data.get(i).getFieldByName(lstPK.get(j))
@@ -196,9 +198,10 @@ public class Formulario implements Serializable {
 								cont++;
 							}							
 						}
-						if(cont>=m)
-							return true;
+						
 					}
+					if(cont>=m)
+						return true;
 				}
 			}
 
