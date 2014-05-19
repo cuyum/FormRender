@@ -1418,8 +1418,8 @@ public class JsonServices implements Serializable {
 								+ "\", \"value\"  : \"" + "" + "\"}, ";
 					}
 					if (item.get("$ref").asText().compareTo("formulario.json#/definitions/time") == 0) {
-						str = "\"" + name + "\"  : " + "00:00"
-								+ ", ";
+						str = "\"" + name + "\"  : \"" + "00:00"
+								+ "\", ";
 					}
 					
 					nuevoDato += str;
