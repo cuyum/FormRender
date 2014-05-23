@@ -657,11 +657,11 @@ public class JsonShemaGenerator {
 		returnNode.put("properties", properties);
 		
 		returnNode.put("required", required);
-		if(claves_primarias.size()==0){
-			for (int i = 0; i < required.size(); i++) {
-				claves_primarias.add(required.get(i));
-			}
-		}
+//		if(claves_primarias.size()==0){
+//			for (int i = 0; i < required.size(); i++) {
+//				claves_primarias.add(required.get(i));
+//			}
+//		}
 		returnNode.put("claves_primarias", claves_primarias);
 		returnNode.put("action", action);
 		if(otherFields.size()>0) 

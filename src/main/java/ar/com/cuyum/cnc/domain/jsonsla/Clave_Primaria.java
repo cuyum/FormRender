@@ -29,24 +29,26 @@ public class Clave_Primaria implements Serializable {
 	}
 
 	public void setClaves_primarias(String claves_primarias) {
-		
+
 		List<String> lst = new ArrayList<String>();
-		String pk=claves_primarias.replaceAll("\"", "");
-		for(int i=0;i<pk.length();i++){
-			
-			if(pk.charAt(i)=='['){
-				if(pk.indexOf(',')!=-1)
-					lst.add(pk.substring(i+1, pk.indexOf(',')));
-				else
-					lst.add(pk.substring(i+1, pk.indexOf(']')));
-			}else if(pk.charAt(i)==','){
-				if(pk.indexOf(',',i+1)!=-1)
-					lst.add(pk.substring(i+1, pk.indexOf(',',i+1)));
-				else
-					lst.add(pk.substring(i+1, pk.indexOf(']')));
+		if (!claves_primarias.equals("[]")) {
+
+			String pk = claves_primarias.replaceAll("\"", "");
+			for (int i = 0; i < pk.length(); i++) {
+
+				if (pk.charAt(i) == '[') {
+					if (pk.indexOf(',') != -1)
+						lst.add(pk.substring(i + 1, pk.indexOf(',')));
+					else
+						lst.add(pk.substring(i + 1, pk.indexOf(']')));
+				} else if (pk.charAt(i) == ',') {
+					if (pk.indexOf(',', i + 1) != -1)
+						lst.add(pk.substring(i + 1, pk.indexOf(',', i + 1)));
+					else
+						lst.add(pk.substring(i + 1, pk.indexOf(']')));
+				}
 			}
 		}
-		
 		this.claves_primarias = lst;
 	}
 

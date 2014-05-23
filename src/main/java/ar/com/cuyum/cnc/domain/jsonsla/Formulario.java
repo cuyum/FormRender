@@ -278,7 +278,11 @@ public class Formulario implements Serializable {
 
 	public void setClavePrimaria(String clave_primaria) {
 		Clave_Primaria pk = new Clave_Primaria();
-		pk.setClaves_primarias(clave_primaria);
+		if(clave_primaria.equals(""))
+			pk.setClaves_primarias(null);
+		else
+			pk.setClaves_primarias(clave_primaria);
+		
 		this.clave_primaria = pk;
 	}
 
