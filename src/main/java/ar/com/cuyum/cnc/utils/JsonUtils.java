@@ -182,7 +182,7 @@ public class JsonUtils {
 		final String FILE_NAME = "message.txt";
 		
 		try{
-            
+            log.error(">>>>>>>>>>>>>>filePath:"+ loader.getResource(FILE_NAME).getPath());
             FileInputStream fstream = new FileInputStream(loader.getResource(FILE_NAME).getPath());
             DataInputStream entrada = new DataInputStream(fstream);
             BufferedReader buffer = new BufferedReader(new InputStreamReader(entrada));

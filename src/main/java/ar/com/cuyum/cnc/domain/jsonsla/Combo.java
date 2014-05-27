@@ -138,7 +138,15 @@ public class Combo extends Componente {
 			} catch (ExceptionComboRelayUrl e) {
 				throw new ExceptionValidation("Servicio no disponible, "+e.getMessage());
 			}
-			if (!valuesFromURL.contains(value)){
+			boolean isValidId = false;
+			
+			for (Item item_ : valuesFromURL){
+				if (item_.getId().equals(value.getId())){
+					value.setText(item_.getText());
+					isValidId = true;
+				}
+			}
+			if (!isValidId){
 				StringBuilder list= new StringBuilder();
 				String coma="";
 				for(int i=0,n=valuesFromURL.size();i<n;i++){
@@ -148,8 +156,8 @@ public class Combo extends Componente {
 					coma=",";
 				}
 				throw new ExceptionValidation(
-						" ("+value.getId()+","+value.getText()+") es invalido, no se corresponde con el ingresado, segun la url remota los posibles son:"+list.toString());
-			}	
+						" ("+value.getId()+","+value.getText()+") es invalido, no se corresponde con el ingresado, segun la url remota los posibles son:"+list.toString());				
+			}			
 		}else if (values.size()>1){
 			if (!values.contains(value)){
 				log.info("validando si el dato pertenece a la lista del combo");

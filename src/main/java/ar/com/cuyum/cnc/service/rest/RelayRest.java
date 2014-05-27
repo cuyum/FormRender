@@ -161,7 +161,9 @@ public class RelayRest {
 		
 		String remoteResponse = "{\"success\":false,\"msg\":\"Unable to relay message\"}";
 		try {
-			URL url = new URL(frp.getRemoteSubmissionHost() + formUrl);
+			log.error(frp.getRemoteSubmissionHost());
+			log.error(frp.getRemoteDraftHost());
+			URL url = new URL(frp.getRemoteDraftHost());
 			remoteResponse = relay.massiveSubmit(url, submit_data, request);
 			response = new JSONObject(remoteResponse);
 			return response.toString();
