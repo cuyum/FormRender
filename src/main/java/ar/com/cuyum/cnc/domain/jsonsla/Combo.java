@@ -106,6 +106,22 @@ public class Combo extends Componente {
 	public void setValue(Item value) {
 		this.value = value;
 	}
+	
+	public String findPadre(String name){
+		
+		String padre="";
+			
+		if(name.equals("partido"))
+			padre="provincia";
+		if(name.equals("localidad"))
+			padre="partido";
+		if(name.equals("area"))
+			padre="localidad";
+		if(name.equals("area2"))
+			padre="localidad";
+		
+		return padre;
+	}
 
 	@Override
 	public Boolean isDataValid(String name) throws ExceptionValidation {
@@ -156,7 +172,7 @@ public class Combo extends Componente {
 					coma=",";
 				}
 				throw new ExceptionValidation(
-						" ("+value.getId()+","+value.getText()+") es invalido, no se corresponde con el ingresado, segun la url remota los posibles son:"+list.toString());				
+						" ("+value.getId()+","+value.getText()+") es invalido, no se corresponde con " + findPadre(name) + " ingresado/a " );				
 			}			
 		}else if (values.size()>1){
 			if (!values.contains(value)){

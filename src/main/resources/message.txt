@@ -1,4 +1,5 @@
-object instance has properties which are not allowed by the schema:=El objeto tiene propiedades no permitidas por el schema:
-object has missing required properties=El objeto requiere la propiedad
-array must not contain duplicate elements=El formulario no puede tener registros duplicados
-instance type=Error de tipo de dato - Tipo no permitido:
+1=El objeto tiene propiedades no permitidas por el schema:
+2=El objeto requiere la propiedad:
+3=El formulario no puede tener registros duplicados
+4=Error de tipo de dato - Tipo no permitido:
+5=Debe tener al menos 1 elemento en el arreglo

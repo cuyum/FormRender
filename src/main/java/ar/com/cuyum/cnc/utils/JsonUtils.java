@@ -82,7 +82,7 @@ public class JsonUtils {
 			jsonObject = mapper.readTree(json);
 			json = jsonObject.toString();
 		} catch (JsonProcessingException e2) {
-			String msg = "Error procesando json, formato invalido";
+			String msg = "Error procesando json, formato invalido " + "- Línea: " + (e2.getLocation().getLineNr());
 			log.error(msg, e2);
 			return JsonUtils.msg(false, msg);
 		} catch (IOException e2) {
@@ -110,11 +110,11 @@ public class JsonUtils {
 			schemas.put("schema", mapper.readTree(schema));
 			schemas.put("schema-form", mapper.readTree(formulario));
 		} catch (JsonProcessingException e) {
-			String msg = "Error procesando esquemas, el jsonschema está mal formado";
+			String msg = "Error procesando esquemas, el jsonschema está mal formado - " + "Línea: " + e.getLocation().getLineNr();
 			log.error(msg, e);
 			return JsonUtils.msg(false, msg);
 		} catch (IOException e) {
-			String msg = "Error procesando esquemas, error de E/S jsonschema";
+			String msg = "Error procesando esquemas, error de E/S jsonschema - Verifique el id del formulario";
 			log.error(msg, e);
 			return JsonUtils.msg(false, msg);
 		}
@@ -136,8 +136,16 @@ public class JsonUtils {
 		}
 		ObjectNode schemas = (ObjectNode) getJsonSchemasObjectFromURL(
 				urlSchema, urlFormulario);
-		schemas.put("schema-url", schemaPath);
-		schemas.put("schema-form-url", schemaFormPath);
+
+		if(schemas.get("success")!=null){
+			if(schemas.get("success").asBoolean()){
+				schemas.put("schema-url", schemaPath);
+				schemas.put("schema-form-url", schemaFormPath);
+			}
+		}else {
+			schemas.put("schema-url", schemaPath);
+			schemas.put("schema-form-url", schemaFormPath);
+		}
 		return schemas;
 	}
 
@@ -145,23 +153,40 @@ public class JsonUtils {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode msg = mapper.createObjectNode();
 		ObjectNode error = mapper.createObjectNode();
-		String msje,prop;
+		String msje,prop="";
 		Iterator<ProcessingMessage> messages = report.iterator();
 		while (messages.hasNext()) {
 			ProcessingMessage msj = messages.next();
 			if (LogLevel.ERROR.equals(msj.getLogLevel())) {
 				
 				msje = msj.getMessage();
-				if(msje.indexOf('(')!=-1){
-					prop = msje.substring(msje.indexOf('('),msje.indexOf(')')+1);
-					msje = searchError(msje.substring(0, msje.indexOf('(')));
-				}else if(msje.indexOf(':')!=-1){
-					prop = msje.substring(msje.indexOf(':'));
-					msje = searchError(msje.substring(0, msje.indexOf(':')+1));
-				}else { 
-					prop = "";
-					msje = searchError(msje);
+				int keymsge=0;
+				
+				if(msje.indexOf("properties which are not allowed")!=-1){
+					keymsge = 1;
+					if(msje.indexOf("[")!=-1){
+						prop = msje.substring(msje.indexOf("["), msje.indexOf("]")+1);
+					}
 				}
+					
+				if(msje.indexOf("required properties")!=-1){
+					keymsge = 2;
+					if(msje.indexOf("[")!=-1){
+						prop = msje.substring(msje.indexOf("["), msje.indexOf("]")+1);
+					}
+				}
+				if(msje.indexOf("not contain duplicate elements")!=-1)
+					keymsge = 3;
+				if(msje.indexOf("instance type")!=-1){
+					keymsge = 4;
+					if(msje.indexOf("[")!=-1){
+						prop = msje.substring(msje.indexOf("["), msje.indexOf("]")+1);
+					}
+				}				
+				if(msje.indexOf("array is too short")!=-1)
+					keymsge = 5;
+				
+				msje = searchError(keymsge);
 				
 				if(!msje.equals(""))
 					error.put(msj.asJson().get("instance").get("pointer").asText(),
@@ -174,33 +199,53 @@ public class JsonUtils {
 		return msg;
 	}
 
-	private static String searchError(String msj) {
+	private static String searchError(int msj) {
 		String msg="";
 		
-		final ClassLoader loader = JsonUtils.class.getClassLoader();
+		switch (msj) {
+		case 1:
+			msg="El objeto tiene propiedades no permitidas por el schema:";
+			break;
+		case 2:
+			msg="El objeto requiere la propiedad:";
+			break;
+		case 3:
+			msg="El formulario no puede tener registros duplicados";
+			break;
+		case 4:
+			msg="Error de tipo de dato - Tipo permitido:";
+			break;
+		case 5:
+			msg="Debe tener al menos un registro en data";
+			break;
+
+		default:
+			break;
+		}
 		
-		final String FILE_NAME = "message.txt";
-		
-		try{
-            log.error(">>>>>>>>>>>>>>filePath:"+ loader.getResource(FILE_NAME).getPath());
-            FileInputStream fstream = new FileInputStream(loader.getResource(FILE_NAME).getPath());
-            DataInputStream entrada = new DataInputStream(fstream);
-            BufferedReader buffer = new BufferedReader(new InputStreamReader(entrada));
-            String strLinea;
-           
-            while ((strLinea = buffer.readLine()) != null)   {
-                String msgIng = strLinea.substring(0, strLinea.indexOf('='));
-                String msgEsp = strLinea.substring(strLinea.indexOf('=')+1);
-            	
-                if(msj.trim().equals(msgIng.trim())){
-                	msg=msgEsp;
-                }
-            }
-            
-            entrada.close();
-        }catch (Exception e){ //Catch de excepciones
-            System.err.println("-----------------Ocurrio un error: " + e.getMessage());
-        }
+//		final ClassLoader loader = JsonUtils.class.getClassLoader();
+//		
+//		final String FILE_NAME = "message.txt";
+//		
+//		try{
+//            FileInputStream fstream = new FileInputStream(loader.getResource(FILE_NAME).getPath());
+//            DataInputStream entrada = new DataInputStream(fstream);
+//            BufferedReader buffer = new BufferedReader(new InputStreamReader(entrada));
+//            String strLinea;
+//           
+//            while ((strLinea = buffer.readLine()) != null)   {
+//                String msgIng = strLinea.substring(0, strLinea.indexOf('='));
+//                String msgEsp = strLinea.substring(strLinea.indexOf('=')+1);
+//            	
+//                if(msj.trim().equals(msgIng.trim())){
+//                	msg=msgEsp;
+//                }
+//            }
+//            
+//            entrada.close();
+//        }catch (Exception e){ //Catch de excepciones
+//            System.err.println("-----------------Ocurrio un error: " + e.getMessage());
+//        }
 		return msg;
 	}
 	
@@ -323,16 +368,12 @@ public class JsonUtils {
 				String recordId =  formNode.get("recordId").asText();
 				formulario.setRecordId(recordId);
 			}
-			
-			
-				if(formulario.validationPrimaryKey()){
-					return msg(false,
-							"ERROR claves primarias duplicadas en formulario:(" + j
-									+ ")");
-				} 
-			
-			
-			
+	
+			if (formulario.validationPrimaryKey()) {
+				return msg(false,
+						"ERROR claves primarias duplicadas en formulario:(" + j
+								+ ")");
+			}
 			try {
 				formulario.processData();
 			} catch (ExceptionValidation e) {

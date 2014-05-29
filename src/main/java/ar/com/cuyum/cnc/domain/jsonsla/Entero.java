@@ -131,12 +131,12 @@ public class Entero extends Componente implements Numero {
 		
 		if (minimum != null && value!=null && value.compareTo(minimum) < 0) {
 			throw new ExceptionValidation("Entero menor al minimo (" + minimum
-					+ ")+ permitido");
+					+ ") permitido");
 		}
 		if (maximum != null && value!=null && value.compareTo(maximum) > 0) {
 
 			throw new ExceptionValidation("Entero mayor al maximo (" + maximum
-					+ ")+ permitido");
+					+ ") permitido");
 		}
 				
 		return true;

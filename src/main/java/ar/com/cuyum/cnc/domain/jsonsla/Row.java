@@ -86,6 +86,8 @@ public class Row implements Serializable {
 	}
 
 	public Boolean isDataValid() throws ExceptionValidation {
+		
+		List<String> names = new ArrayList<String>();
 
 		Iterator<Entry<String, Componente>> iterListComponent = mapComponets
 				.entrySet().iterator();
@@ -99,7 +101,7 @@ public class Row implements Serializable {
 				log.info(componente.getKey()+": es valido");
 			} catch (ExceptionValidation e) {
 				String msg = "El valor de la componente "
-						+ componente.getKey() + ",";
+						+ componente.getKey() + " - ";
 				log.error(msg + " " + e.getMessage());
 				throw new ExceptionValidation(msg + " " + e.getMessage());
 			}
