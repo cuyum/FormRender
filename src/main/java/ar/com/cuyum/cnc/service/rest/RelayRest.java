@@ -92,7 +92,7 @@ public class RelayRest {
 
 			remoteResponse = relay.submit(url, submit_data);
 			response = new JSONObject(remoteResponse);
-			return response.toString();
+			return response.get("msg").toString();
 		} catch (MalformedURLException e) {
 			String msg = "No se pudo generar la petici&oacute;n con relay service ya que la URL suministrada es inv&aacute;lida";
 			log.error(msg, e);

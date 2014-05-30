@@ -94,8 +94,7 @@ public class JsonBean implements Serializable {
 	private String schema;
 	private String json;
 	private String jsonDates="Ingrese aqui su objeto Json";
-	private String msg=null;
-	
+	private String msg = null;	
 	
 	/*
 	 * Support creating and retrieving Xsl entities
@@ -189,9 +188,26 @@ public class JsonBean implements Serializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+		response = cleanMsg(response);
 		
 		setMsg(response);
 		return response;
+	}
+	
+	public String cleanMsg(String msj) {
+		String msg=msj;
+		msg = msg.replace("\\", "");
+		
+		if(msg.indexOf("msg")!=-1){
+			
+			msg = msg.substring(msg.indexOf("msg")-1, msg.indexOf("}"));
+			if(msg.indexOf("{")!=-1)
+				msg = msg + "}}";
+			else msg = "{"+ msg + "}";
+		}
+		
+		return msg;
 	}
 
 	public String getJsonDates() {
@@ -201,7 +217,6 @@ public class JsonBean implements Serializable {
 	public void setJsonDates(String jsonDates) {
 		this.jsonDates = jsonDates;
 	}
-	
 	public String getMsg() {
 		return msg;
 	}

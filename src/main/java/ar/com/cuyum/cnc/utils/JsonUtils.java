@@ -379,7 +379,7 @@ public class JsonUtils {
 			} catch (ExceptionValidation e) {
 				log.error(e);
 				return msg(false,
-						"ERROR procesando datos formulario:(" + j
+						"ERROR procesando datos en formulario:(" + j
 								+ ")" + e.getMessage());
 			} 
 			

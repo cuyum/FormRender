@@ -132,7 +132,7 @@ public class Combo extends Componente {
 		if (cuit != null && cuit) {
 			log.info("validando si cuit ok");
 			if (!Componente.validCuit(value.getId())) {
-				throw new ExceptionValidation("formato de cuit invalido");
+				throw new ExceptionValidation("formato de cuit inválido");
 			}
 		}
 		if (url != null) {
@@ -178,7 +178,7 @@ public class Combo extends Componente {
 			if (!values.contains(value)){
 				log.info("validando si el dato pertenece a la lista del combo");
 				throw new ExceptionValidation(
-						"valor invalido ("+value.getId()+","+value.getText()+") para el combo");
+						"valor inválido ("+value.getId()+","+value.getText()+") para el combo");
 			}	
 		}
 		return true;
@@ -186,7 +186,7 @@ public class Combo extends Componente {
 
 	@Override
 	public void setValueFromJson(JsonNode value) throws ExceptionValidation {
-		if(!value.has("value") || !value.has("label"))  throw new ExceptionValidation("Json invalido para combo");
+		if(!value.has("value") || !value.has("label"))  throw new ExceptionValidation("Json inválido para combo");
 		this.value = Item.getItemFromJson(value);  
 	}
 
