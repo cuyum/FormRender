@@ -92,7 +92,7 @@ public class RelayRest {
 
 			remoteResponse = relay.submit(url, submit_data);
 			response = new JSONObject(remoteResponse);
-			return response.get("msg").toString();
+			return response.toString();
 		} catch (MalformedURLException e) {
 			String msg = "No se pudo generar la petici&oacute;n con relay service ya que la URL suministrada es inv&aacute;lida";
 			log.error(msg, e);
@@ -153,7 +153,7 @@ public class RelayRest {
 			formUrl = jsonObj.getString("url");
 			submit_data = jsonObj.getString("submit_data");
 		} catch (JSONException e) {
-			String msg = "No se pudo consultar el servicio ya que el objeto JSON recibido es inválido";
+			String msg = "No se pudo consultar el servicio de relay ya que el objeto JSON recibido es inv&aacute;lido";
 			log.warn(msg, e);
 			log.debug("JSON received: " + json);
 			return "{\"success\":false,\"msg\": \"" + msg + "\"}";
@@ -168,7 +168,7 @@ public class RelayRest {
 			response = new JSONObject(remoteResponse);
 			return response.toString();
 		} catch (MalformedURLException e) {
-			String msg = "No se pudo generar la petici&oacute;n con relay service ya que la URL suministrada es inválida";
+			String msg = "No se pudo generar la petici&oacute;n con relay service ya que la URL suministrada es inv&aacute;lida";
 			log.error(msg, e);
 			return "{\"success\":false,\"msg\": \"" + msg + "\"}";
 		} catch (JSONException e) {
