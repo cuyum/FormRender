@@ -114,10 +114,11 @@ $(document).ready(function() {
 //					console.log(data);
 					gui.readonly = data.header.readonly;
 					var dataArray = data.payload.formulario.data;
+					gui.gridTotalizadora.processRecord(dataArray[0].registros[0]);
 					if(gui.renderGrid){
-						if(gui.renderTotalizadores || gui.renderTotalizadoresIngresados){						
+						if(gui.renderTotalizadores || gui.renderTotalizadoresIngresados){
 							gui.grid.addRows(dataArray[0].registros);
-							gui.gridTotalizadora.addRows(dataArray[0].sumarizados);
+//							gui.gridTotalizadora.addRows(dataArray[0].sumarizados);
 						}else{
 							gui.grid.addRows(dataArray);
 						}

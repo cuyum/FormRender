@@ -890,6 +890,8 @@ var gui = new function() {
 			}
 		}
 	};
+	
+	
 
 	this.getHidden = function() {
 		var inputs = $(":hidden");
@@ -962,6 +964,24 @@ var gui = new function() {
 				gui.resetHierarchy(dependants);
 			}
 		}
+	};
+	this.settearPorcentaje = function(dataArray){
+		
+		var size = this.gridTotalizadora.totalizadores.length;
+		
+		if(size > 2){
+			
+		}else{
+			if(dataArray[0].registros[0].porcentaje==null){
+				var name = this.gridTotalizadora.totalizadores[0].nombre;
+				porcentaje = dataArray[0].registros[0];
+			}
+			console.warn("Entro a settear porcentaje");
+		}
+			
+		
+		
+		
 	};
 	this.completeForm = function(record, fields) {
 		for ( var i = 0; i < fields.length; i++) {
@@ -1317,6 +1337,9 @@ var gui = new function() {
 			totalizado["rowTotal"] = acumulaTotal;
 			totalizado["resultado"] = porcentaje.toFixed(2);
 
+			if(record.porcentaje==null)
+				record.porcentaje=porcentaje;
+			
 			if (this.accountedFor) {
 				this.updateRow(totalizado, this.totalizadoIdx);
 			} else {
@@ -1698,6 +1721,7 @@ var gui = new function() {
 		removeRow : function(rowIndex) {
 			this.element.dataTable().fnDeleteRow(rowIndex);
 		},
+		
 		/**
 		 * Call grid render function after building Form.fieldsets with repeat
 		 * parent fieldset
@@ -1742,7 +1766,7 @@ var gui = new function() {
 					});
 				}
 			}
-
+			
 			if (gui.renderTotal) {
 				this.headers.push({
 					"sTitle" : "Total",
