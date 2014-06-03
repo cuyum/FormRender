@@ -153,7 +153,7 @@ public class RelayRest {
 			formUrl = jsonObj.getString("url");
 			submit_data = jsonObj.getString("submit_data");
 		} catch (JSONException e) {
-			String msg = "No se pudo consultar el servicio de relay ya que el objeto JSON recibido es inv&aacute;lido";
+			String msg = "Error procesando json, formato invalido";
 			log.warn(msg, e);
 			log.debug("JSON received: " + json);
 			return "{\"success\":false,\"msg\": \"" + msg + "\"}";

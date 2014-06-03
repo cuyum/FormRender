@@ -114,9 +114,17 @@ $(document).ready(function() {
 //					console.log(data);
 					gui.readonly = data.header.readonly;
 					var dataArray = data.payload.formulario.data;
-					gui.gridTotalizadora.processRecord(dataArray[0].registros[0]);
+//					gui.gridTotalizadora.processRecord(dataArray[0].registros[0]);
 					if(gui.renderGrid){
+						
+						
 						if(gui.renderTotalizadores || gui.renderTotalizadoresIngresados){
+
+							if(dataArray[0].registros!=null){
+								for ( var i = 0; i < dataArray[0].registros.length; i++) {
+									gui.gridTotalizadora.processRecord(dataArray[0].registros[i]);
+								}
+							}
 							gui.grid.addRows(dataArray[0].registros);
 //							gui.gridTotalizadora.addRows(dataArray[0].sumarizados);
 						}else{
