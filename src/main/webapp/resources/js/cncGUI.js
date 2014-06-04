@@ -965,24 +965,7 @@ var gui = new function() {
 			}
 		}
 	};
-	this.settearPorcentaje = function(dataArray){
-		
-		var size = this.gridTotalizadora.totalizadores.length;
-		
-		if(size > 2){
-			
-		}else{
-			if(dataArray[0].registros[0].porcentaje==null){
-				var name = this.gridTotalizadora.totalizadores[0].nombre;
-				porcentaje = dataArray[0].registros[0];
-			}
-			console.warn("Entro a settear porcentaje");
-		}
-			
-		
-		
-		
-	};
+	
 	this.completeForm = function(record, fields) {
 		for ( var i = 0; i < fields.length; i++) {
 			var field = $(fields[i]);
@@ -1336,9 +1319,6 @@ var gui = new function() {
 			
 			totalizado["rowTotal"] = acumulaTotal;
 			totalizado["resultado"] = porcentaje.toFixed(2);
-
-			if(record.porcentaje==null)
-				record.porcentaje=porcentaje;
 			
 			if (this.accountedFor) {
 				this.updateRow(totalizado, this.totalizadoIdx);
@@ -1720,6 +1700,25 @@ var gui = new function() {
 		},
 		removeRow : function(rowIndex) {
 			this.element.dataTable().fnDeleteRow(rowIndex);
+		},
+		processNulls : function() {
+			var cont=0;
+		for(var j =0; j<gui.fieldsets.length;j++){	
+			for ( var i = 0; i < gui.fieldsets[j].fields.length; i++) {
+				var f = $(gui.fieldsets[j].fields[i]);
+				
+				if(f.is("select")){
+					if(f.labels!=null){
+						gui.fieldsets[0].fields[i].labels="";
+						gui.fieldsets[0].fields[i].value="";
+						cont++;
+					}
+					
+				}
+			}
+		}
+		
+		console.debug("Contador: "+cont);
 		},
 		
 		/**
