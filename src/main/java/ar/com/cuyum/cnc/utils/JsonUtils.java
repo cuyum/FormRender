@@ -16,6 +16,7 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.inject.Inject;
 import javax.servlet.AsyncContext;
 import javax.servlet.DispatcherType;
 import javax.servlet.RequestDispatcher;
@@ -60,6 +61,10 @@ import com.github.fge.jsonschema.report.ProcessingReport;
 public class JsonUtils {
 	public transient static Logger log = Logger.getLogger(JsonUtils.class);
 
+	
+	@Inject
+    private static FormRenderProperties frp;
+	
 	public static JsonNode msg(Boolean success, String msg) {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode msgJson = mapper.createObjectNode();
@@ -292,7 +297,7 @@ public class JsonUtils {
 
 	private static String getPathSChemaURL(HttpServletRequest request,
 			String idForm) {
-		return getActualPath(request) + "/schemas/" + idForm + "-schema.json";
+		return frp.getDestinationSchema() + idForm + "-schema.json";
 	}
 
 	private static String getPathSChemaFormURL(HttpServletRequest request) {

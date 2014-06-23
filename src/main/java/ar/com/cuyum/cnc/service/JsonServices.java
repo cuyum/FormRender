@@ -23,6 +23,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import javax.ejb.Stateless;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
@@ -32,16 +33,21 @@ import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 import javax.persistence.TransactionRequiredException;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
 import org.primefaces.json.JSONException;
 import org.primefaces.json.JSONObject;
+import org.xml.sax.SAXException;
 
 import ar.com.cuyum.cnc.domain.Formulario;
 import ar.com.cuyum.cnc.domain.Xsl;
+import ar.com.cuyum.cnc.exceptions.ExceptionParserJson;
 import ar.com.cuyum.cnc.utils.FormRenderProperties;
+import ar.com.cuyum.cnc.utils.JsonShemaGenerator;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -1296,6 +1302,8 @@ public class JsonServices implements Serializable {
 				entityManager.persist(formulario);
 //				entityManager.createQuery("").setParameter("value", formulario);
 				ret = formulario.getCodigo();
+				generateSchema(new File(path
+                        + System.getProperty("file.separator") + jsonObject.get("_id").asText() + ".xml"));
 			} catch (PersistenceException e) {
 					 ret = e.getMessage();
 				 return ret;
@@ -1419,6 +1427,10 @@ public class JsonServices implements Serializable {
 					}
 					if (item.get("$ref").asText().compareTo("formulario.json#/definitions/time") == 0) {
 						str = "\"" + name + "\"  : \"" + "00:00"
+								+ "\", ";
+					}
+					if (item.get("$ref").asText().compareTo("formulario.json#/definitions/date") == 0) {
+						str = "\"" + name + "\"  : \"" + "dd/MM/yyyy"
 								+ "\", ";
 					}
 					
@@ -1562,6 +1574,28 @@ public String repeat(String tab, int count){
         } 
 
         return newJson;
+	}
+	
+	private void generateSchema(File xmlForm){
+		
+		
+		File schemasDir = new File(frp.getDestinationSchema());
+		JsonShemaGenerator jsonSchemas = new JsonShemaGenerator();
+		try {
+			jsonSchemas.doSchemasFromFile(xmlForm, schemasDir);
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExceptionParserJson e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 

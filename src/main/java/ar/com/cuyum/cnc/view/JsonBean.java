@@ -3,6 +3,7 @@ package ar.com.cuyum.cnc.view;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -38,6 +39,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 import javax.ws.rs.core.Context;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpRequest;
 import org.apache.http.client.params.HttpClientParams;
 import org.apache.http.protocol.RequestContent;
@@ -50,6 +52,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.google.common.io.Files;
 
 import ar.com.cuyum.cnc.domain.Formulario;
 import ar.com.cuyum.cnc.service.JsonServices;
@@ -136,36 +139,48 @@ public class JsonBean implements Serializable {
 	public String getSchema() {
 		
 		
-		InputStream input = null;
+//		InputStream input = null;
 		
-		FacesContext context = FacesContext.getCurrentInstance();
-		ServletContext request = (ServletContext) context.getExternalContext()
-				.getContext();
+//		FacesContext context = FacesContext.getCurrentInstance();
+//		ServletContext request = (ServletContext) context.getExternalContext()
+//				.getContext();
 		
 		String form = id + "-schema.json";
+		
+		File file = new File(frp.getDestinationSchema() + form);
+
+		
+		  FileInputStream inputStream = null;
 		try {
-			input = request.getResourceAsStream("/schemas/" + form);
-			schema = jsonService.previewExample(input);
-		} catch (Exception exp) {
-			log.error(exp);
+			inputStream = new FileInputStream(file);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		    try {
+		        try {
+		        	schema = IOUtils.toString(inputStream);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		    } finally {
+		        try {
+					inputStream.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		    }
+		    
 		schema = jsonService.formatJson(schema);
 		return schema;
 	}
 	
 	public String getJson() {
 
-		InputStream input = null;
-
-		FacesContext context = FacesContext.getCurrentInstance();
-		ServletContext request = (ServletContext) context.getExternalContext()
-				.getContext();
-
-		String form = id + "-schema.json";
-
 		try {
-			input = request.getResourceAsStream("/schemas/" + form);
-			schema = jsonService.previewExample(input);
+			schema = getSchema();
 			json = jsonService.obtenerJson(schema, id);
 		} catch (Exception exp) {
 			log.error(exp);

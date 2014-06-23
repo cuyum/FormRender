@@ -62,6 +62,12 @@ public class FormRenderProperties extends Properties {
 		else return null;
 	}
 	
+	public String getDestinationSchema(){
+		if(!this.isEmpty())
+			return get("schemaForms.destination");
+		else return null;
+	}
+	
 	public String getRemoteListHost(){
 		if(!this.isEmpty()){
 			String rlh = get("list.remote.host");
