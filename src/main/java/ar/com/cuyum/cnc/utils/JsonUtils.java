@@ -1,38 +1,14 @@
 package ar.com.cuyum.cnc.utils;
 
-import java.io.BufferedReader;
-import java.io.DataInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.security.Principal;
-import java.util.Collection;
-import java.util.Enumeration;
 import java.util.Iterator;
-import java.util.Locale;
-import java.util.Map;
 
-import javax.inject.Inject;
-import javax.servlet.AsyncContext;
-import javax.servlet.DispatcherType;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletInputStream;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.Part;
 
 import org.apache.log4j.Logger;
-import org.hibernate.validator.internal.util.privilegedactions.GetClassLoader;
 
 import ar.com.cuyum.cnc.domain.jsonsla.Formulario;
 import ar.com.cuyum.cnc.exceptions.ExceptionValidation;
@@ -61,10 +37,6 @@ import com.github.fge.jsonschema.report.ProcessingReport;
 public class JsonUtils {
 	public transient static Logger log = Logger.getLogger(JsonUtils.class);
 
-	
-	@Inject
-    private static FormRenderProperties frp;
-	
 	public static JsonNode msg(Boolean success, String msg) {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode msgJson = mapper.createObjectNode();
@@ -106,7 +78,7 @@ public class JsonUtils {
 	 * @param formulario
 	 * @return
 	 */
-	private static JsonNode getJsonSchemasObjectFromURL(URL schema,
+	private static JsonNode getJsonSchemasObjectFromURL(File schema,
 			URL formulario) {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode schemas = mapper.createObjectNode();
@@ -130,12 +102,12 @@ public class JsonUtils {
 
 	private static JsonNode getJsonSchemasFromPath(String schemaPath,
 			String schemaFormPath) {
-		URL urlSchema, urlFormulario;
+		File urlSchema=null; URL urlFormulario=null;
 		try {
-			urlSchema = new URL(schemaPath);
+			urlSchema = new File(schemaPath);
 			urlFormulario = new URL(schemaFormPath);
 		} catch (MalformedURLException e) {
-			String msg = "Error checkeando json, url de jsonschema mal formado";
+			String msg = "Error checkeando json, url de jsonschema mal formado:"+schemaPath;
 			log.error(msg, e);
 			return msg(false, msg);
 		}
@@ -144,11 +116,11 @@ public class JsonUtils {
 
 		if(schemas.get("success")!=null){
 			if(schemas.get("success").asBoolean()){
-				schemas.put("schema-url", schemaPath);
+				schemas.put("schema-url","file://"+schemaPath);
 				schemas.put("schema-form-url", schemaFormPath);
 			}
 		}else {
-			schemas.put("schema-url", schemaPath);
+			schemas.put("schema-url", "file://"+schemaPath);
 			schemas.put("schema-form-url", schemaFormPath);
 		}
 		return schemas;
@@ -296,7 +268,7 @@ public class JsonUtils {
 	}
 
 	private static String getPathSChemaURL(HttpServletRequest request,
-			String idForm) {
+			String idForm,FormRenderProperties frp) {
 		return frp.getDestinationSchema() + idForm + "-schema.json";
 	}
 
@@ -324,7 +296,7 @@ public class JsonUtils {
 
 		String idForm = validJson.get("formulario").get("id").asText();
 
-		String schemaPath = JsonUtils.getPathSChemaURL(request, idForm);
+		String schemaPath = JsonUtils.getPathSChemaURL(request, idForm, frp);
 		String schemaFormPath = JsonUtils.getPathSChemaFormURL(request);
 		JsonNode schemas = getJsonSchemasFromPath(schemaPath, schemaFormPath);
 

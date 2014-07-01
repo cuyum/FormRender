@@ -118,8 +118,7 @@ public class RelayService {
 			HttpServletRequest request) {
 		setupSSLContext();
 
-		JsonNode success = jsonUtils.proccessDataValidation(data, request,
-				this, frp);
+		JsonNode success = jsonUtils.proccessDataValidation(data, request, this, frp);
 		if (!success.get("success").asBoolean())
 			return success.toString();
 
