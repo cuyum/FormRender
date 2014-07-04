@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -32,7 +33,11 @@ import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.cache.CacheConfig;
+import org.apache.http.impl.client.cache.CachingHttpClient;
+import org.apache.http.impl.client.cache.CachingHttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
@@ -41,6 +46,11 @@ import ar.com.cuyum.cnc.utils.FormRenderProperties;
 //import ar.com.cuyum.cnc.domain.jsonsla.Item;
 //import ar.com.cuyum.cnc.utils.FormRenderProperties;
 import ar.com.cuyum.cnc.utils.JsonUtils;
+
+
+
+
+
 
 //import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -69,54 +79,68 @@ public class RelayService {
 
 	public transient static Logger log = Logger.getLogger(RelayService.class);
 
-	private HttpClient client = new DefaultHttpClient();
+	//private HttpClient client = new DefaultHttpClient();
+//	
+	CacheConfig cacheConfig = CacheConfig.custom()
+				        	  .setMaxCacheEntries(1000000)
+				        	  .setMaxObjectSize(10000192)
+				        	  .build();
+	RequestConfig requestConfig = RequestConfig.custom()
+	        					 .setConnectTimeout(60000)
+	        					 .setSocketTimeout(60000)
+	        					 .build();
+
+	CloseableHttpClient client = CachingHttpClients.custom().setCacheConfig(cacheConfig)
+								.setDefaultRequestConfig(requestConfig)
+								.build();
+		  
 
 	/* ========================SSL========================= */
 
-	private void setupSSLContext() {
-		SSLContext ctx;
-		try {
-			ctx = SSLContext.getInstance("TLS");
-			X509TrustManager tm = new X509TrustManager() {
-				public void checkClientTrusted(X509Certificate[] xcs,
-						String string) throws CertificateException {
-				}
-
-				public void checkServerTrusted(X509Certificate[] xcs,
-						String string) throws CertificateException {
-				}
-
-				public X509Certificate[] getAcceptedIssuers() {
-					return null;
-				}
-			};
-			ctx.init(null, new TrustManager[] { tm }, null);
-			SSLSocketFactory ssf = new SSLSocketFactory(ctx);
-			ssf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
-			ClientConnectionManager ccm = client.getConnectionManager();
-			SchemeRegistry sr = ccm.getSchemeRegistry();
-			sr.register(new Scheme("https", ssf, 443));
-			client = new DefaultHttpClient(ccm, client.getParams());
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (KeyManagementException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
+//	private void setupSSLContext() {
+//		SSLContext ctx;
+//		try {
+//			ctx = SSLContext.getInstance("TLS");
+//			X509TrustManager tm = new X509TrustManager() {
+//				public void checkClientTrusted(X509Certificate[] xcs,
+//						String string) throws CertificateException {
+//				}
+//
+//				public void checkServerTrusted(X509Certificate[] xcs,
+//						String string) throws CertificateException {
+//				}
+//
+//				public X509Certificate[] getAcceptedIssuers() {
+//					return null;
+//				}
+//			};
+//			ctx.init(null, new TrustManager[] { tm }, null);
+//			SSLSocketFactory ssf = new SSLSocketFactory(ctx);
+//			ssf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+//			ClientConnectionManager ccm = client.getConnectionManager();
+//			SchemeRegistry sr = ccm.getSchemeRegistry();
+//			sr.register(new Scheme("https", ssf, 443));
+//			client = new DefaultHttpClient(ccm, client.getParams());
+//		} catch (NoSuchAlgorithmException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (KeyManagementException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//
+//	}
 
 	/* ================ POINT OF ENTRANCE ================= */
 
 	public String submit(URL remoteUrl, String data) {
-		setupSSLContext();
+		//setupSSLContext();
 		return performSubmission(remoteUrl, data);
 	}
 
 	public String massiveSubmit(URL remoteUrl, String data,
 			HttpServletRequest request) {
-		setupSSLContext();
+		//setupSSLContext();
 
 		JsonNode success = jsonUtils.proccessDataValidation(data, request,
 				this, frp);
@@ -146,12 +170,12 @@ public class RelayService {
 	}
 
 	public String retrieve(URL remoteUrl) {
-		setupSSLContext();
+		//setupSSLContext();
 		return performRetrieval(remoteUrl);
 	}
 
 	public String request(URL remoteUrl, String fkey, String tipo) {
-		setupSSLContext();
+		//setupSSLContext();
 		return performRequest(remoteUrl, fkey, tipo);
 	}
 
