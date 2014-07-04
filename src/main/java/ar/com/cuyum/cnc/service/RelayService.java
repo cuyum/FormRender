@@ -137,7 +137,29 @@ public class RelayService {
 		//setupSSLContext();
 		return performSubmission(remoteUrl, data);
 	}
+	
+	
+	public String massiveSubmit(URL remoteUrl, JsonNode data,
+			HttpServletRequest request) {
+		//setupSSLContext();
 
+		JsonNode dataForm = jsonUtils.proccessDataValidation(data, request, this, frp);
+		
+		if (dataForm.has("success")&&!dataForm.get("success").asBoolean())
+			return dataForm.toString();
+
+		String id = dataForm.get("id").asText();
+
+		ArrayNode listDataForm = (ArrayNode) dataForm.get("listDataForm");
+
+		if (listDataForm == null)
+			return JsonUtils.msg(false,
+					"Lista de datos nulla, error desconocido").toString();
+
+		return performMassiveSubmission(remoteUrl, id, listDataForm, request);
+	}
+	
+    //FIXME:Lo usa JsonBean por eso no lo borre, hay que ver para que y cambiarlo
 	public String massiveSubmit(URL remoteUrl, String data,
 			HttpServletRequest request) {
 		//setupSSLContext();

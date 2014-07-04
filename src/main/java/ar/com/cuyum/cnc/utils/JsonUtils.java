@@ -298,7 +298,102 @@ public class JsonUtils {
 	private static String getPathSChemaFormURL(HttpServletRequest request) {
 		return getActualPath(request) + "/schemas/formulario.json";
 	}
+	
+	public JsonNode proccessDataValidation(int formPosition, JsonNode formNode,
+			JsonNode schemaItemsDescription, String idForm,
+			RelayService relayService) {
 
+		// si ya pasó las validaciones de jsonschema se pasa a la segunda
+		// etapa de validación
+		// del formulario
+
+		Formulario formulario = new Formulario(idForm, schemaItemsDescription,
+				relayService);
+		ArrayNode data = (ArrayNode) formNode.get("data");
+		formulario.addDataFromJson(data);
+		log.info(formulario.valuesToJson());
+
+		if (formNode.has("recordId")) {
+			String recordId = formNode.get("recordId").asText();
+			formulario.setRecordId(recordId);
+		}
+
+		if (formulario.validationPrimaryKey()) {
+			return msg(false,
+					"ERROR claves primarias duplicadas en formulario:("
+							+ formPosition + ")");
+		}
+		try {
+			formulario.processData();
+		} catch (ExceptionValidation e) {
+			log.error(e);
+			return msg(false, "ERROR procesando datos en formulario:("
+					+ formPosition + ")" + e.getMessage());
+		}
+
+		return formulario.valuesToJson();
+	};
+	
+	private JsonNode getSchemaItemsDescription(JsonNode schemas) {
+		// se obtienen los campos del formulario a partir del json schema, para
+		// ser validados
+		JsonNode formularios = schemas.get("schema").get("properties")
+				.get("formulario").get("properties").get("formularios")
+				.get("items").get("properties");
+		JsonNode schemaItemsDescription = formularios.get("data").get("items");
+
+		return schemaItemsDescription;
+	}
+	
+	public JsonNode proccessDataValidation(JsonNode validJson,
+  			HttpServletRequest request, RelayService relayService,
+  			FormRenderProperties frp) {
+		
+		ObjectMapper mapper = new ObjectMapper();
+  		// if el json no es un json valido y por eso no fue creado
+  		if (validJson.has("success") && !validJson.get("success").asBoolean()){
+  			return validJson;
+  		}	
+  		// formulario
+  		if (!validJson.has("formulario")|| !validJson.get("formulario").has("id")) {
+			return JsonUtils.msg(false,	"Json Invalido, no posee id de formulario");
+  		}
+  
+  		String idForm = validJson.get("formulario").get("id").asText();
+  
+		String schemaPath = JsonUtils.getPathSChemaURL(request,idForm);
+  		String schemaFormPath = JsonUtils.getPathSChemaFormURL(request);
+  		JsonNode schemas = getJsonSchemasFromPath(schemaPath, schemaFormPath);
+  
+  		// si ya pasó las validaciones de jsonschema se pasa a la segunda etapa
+  		// de validación
+  		// de cada formulario
+		ArrayNode listForms = (ArrayNode) validJson.get("formulario").get("formularios");
+  
+		//ArrayNode listDataForm = mapper.createArrayNode();
+  
+		JsonNode schemaItemsDescription = getSchemaItemsDescription(schemas);
+		
+  		for (int j = 0, n = listForms.size(); j < n; j++) {
+  
+  			JsonNode formNode = listForms.get(j);
+			JsonNode formResult = proccessDataValidation(j,formNode,schemaItemsDescription,idForm,relayService);
+  			
+			if(formResult.has("success") && formResult.get("success").asBoolean()==false){
+				return formResult;
+  			}
+			listForms.add(formResult);
+			listForms.remove(j);
+  		}
+  
+  		ObjectNode response = mapper.createObjectNode();
+  		response.put("id", idForm);
+		response.put("listDataForm", listForms);
+  
+		return response; 
+  	}
+
+	//FIXME:Lo usa JsonBean por eso no lo borre, hay que ver para que y cambiarlo
 	public JsonNode proccessDataValidation(String submit_data,
 			HttpServletRequest request, RelayService relayService,
 			FormRenderProperties frp) {

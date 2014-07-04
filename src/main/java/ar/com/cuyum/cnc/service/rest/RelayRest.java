@@ -23,6 +23,11 @@ import org.apache.log4j.Logger;
 import org.primefaces.json.JSONException;
 import org.primefaces.json.JSONObject;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import ar.com.cuyum.cnc.service.RelayService;
 import ar.com.cuyum.cnc.utils.FormRenderProperties;
 
@@ -67,10 +72,11 @@ public class RelayRest {
 			remoteResponse = relay.request(url, fkey, tipo);
 			response = new JSONObject(remoteResponse);
 			return response.toString();
-		}catch (MalformedURLException e){
-			String msg = "No se pudo generar la petici&oacute;n con relay service ya que la URL suministrada es inv&aacute;lida ("+frp.getRemoteListHost()+remoteUrl+")";
-			log.error(msg,e);
-			return "{\"success\":false,\"msg\": \""+msg+"\"}";
+		} catch (MalformedURLException e) {
+			String msg = "No se pudo generar la petici&oacute;n con relay service ya que la URL suministrada es inv&aacute;lida ("
+					+ frp.getRemoteListHost() + remoteUrl + ")";
+			log.error(msg, e);
+			return "{\"success\":false,\"msg\": \"" + msg + "\"}";
 		} catch (JSONException e) {
 			String msg = "No se pudo generar la respuesta json en relay service ya que el servicio ha respondido en un objeto JSON inv&aacute;lido";
 			log.error(msg, e);
@@ -138,35 +144,30 @@ public class RelayRest {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public String massiveSubmit(String json) {
-		
-		JSONObject jsonObj;
-		JSONObject response;
-		String formUrl;
-		String submit_data;
-		
+
+		ObjectMapper mapper = new ObjectMapper();
+		String remoteResponse = "{\"success\":false,\"msg\":\"Unable to relay message\"}";
 		try {
-			jsonObj = new JSONObject(json);
-			if(!jsonObj.has("submit_data") || !jsonObj.has("url")){
+			JsonNode jsonObj = mapper.readTree(json);
+			if (!jsonObj.has("submit_data") || !jsonObj.has("url")) {
 				String msg = "Alguno de los par&aacute;metros necesarios para el env&iacute;o del formulario al servicio de carga masiva no se encuentra.";
 				return "{\"success\":false,\"msg\": \"" + msg + "\"}";
 			}
-			formUrl = jsonObj.getString("url");
-			submit_data = jsonObj.getString("submit_data");
-		} catch (JSONException e) {
+			jsonObj = jsonObj.get("submit_data");
+			URL url = new URL(frp.getRemoteDraftHost());
+			remoteResponse = relay.massiveSubmit(url, jsonObj,request);
+			JSONObject response = new JSONObject(remoteResponse);
+			return response.toString();
+		} catch (JsonParseException e) {
+			String msg = "Error en parse de json, formato invalido";
+			log.warn(msg, e);
+			// log.debug("JSON received: " + json);
+			return "{\"success\":false,\"msg\": \"" + msg + "\"}";
+		} catch (JsonProcessingException e) {
 			String msg = "Error procesando json, formato invalido";
 			log.warn(msg, e);
-			log.debug("JSON received: " + json);
+			// log.debug("JSON received: " + json);
 			return "{\"success\":false,\"msg\": \"" + msg + "\"}";
-		}
-		
-		String remoteResponse = "{\"success\":false,\"msg\":\"Unable to relay message\"}";
-		try {
-			log.error(frp.getRemoteSubmissionHost());
-			log.error(frp.getRemoteDraftHost());
-			URL url = new URL(frp.getRemoteDraftHost());
-			remoteResponse = relay.massiveSubmit(url, submit_data, request);
-			response = new JSONObject(remoteResponse);
-			return response.toString();
 		} catch (MalformedURLException e) {
 			String msg = "No se pudo generar la petici&oacute;n con relay service ya que la URL suministrada es inv&aacute;lida";
 			log.error(msg, e);
@@ -176,8 +177,12 @@ public class RelayRest {
 			log.error(msg, e);
 			log.debug("Remote response: " + remoteResponse);
 			return "{\"success\":false,\"msg\": \"" + msg + "\"}";
+		} catch (Exception e) {
+			String msg = "Error desconocido";
+			log.warn(msg, e);
+			// log.debug("JSON received: " + json);
+			return "{\"success\":false,\"msg\": \"" + msg + "\"}";
 		}
 	}
-
 
 }
