@@ -255,7 +255,8 @@ public class RelayService {
 		for (int i = 0, n = form.size(); i < n; i++) {
 			ObjectNode dataNode =  (ObjectNode) form.get(i);
 			ObjectNode formData = formData(idForm, dataNode);
-			log.info("Persistiendo:" + formData);
+			//log.info("Persistiendo:" + formData);
+			log.info("Persistiendo");
 
 			HttpPost requestPost = buildSubmission(url, formData.toString());
 			HttpResponse rawResponse = execute(requestPost);
@@ -274,6 +275,7 @@ public class RelayService {
 
 			try {
 				result = mapper.readTree(response.get("result").toString());
+				log.info("Resultado de persistir:"+result);
 			} catch(NullPointerException exp){
 				log.error(exp);
 			}catch (JsonProcessingException e) {
