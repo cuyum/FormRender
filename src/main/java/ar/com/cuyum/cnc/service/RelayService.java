@@ -153,6 +153,7 @@ public class RelayService {
 			return JsonUtils.msg(false,
 					"Lista de datos nulla, error desconocido").toString();
 
+		log.info("Proceso de validación ha concluido se procede a persistir");
 		String response = performMassiveSubmission(remoteUrl, id, listDataForm, request);
 		ObjectNode resp = null;
 		
@@ -260,12 +261,14 @@ public class RelayService {
 
 			HttpPost requestPost = buildSubmission(url, formData.toString());
 			HttpResponse rawResponse = execute(requestPost);
+			log.info("Respuesta de execute:"+rawResponse);
 
 			JsonNode response = null, result = null;
 
 			try {
 				
-					response = mapper.readTree(processResponse(rawResponse));
+				response = mapper.readTree(processResponse(rawResponse));				
+				log.info(response);
 				
 			}catch (JsonProcessingException e) {
 				log.error(e);
@@ -282,12 +285,14 @@ public class RelayService {
 				log.error(e);
 			} catch (IOException e) {
 				log.error(e);
+			} catch (Exception e) {
+				log.error(e);
 			}
 
-			if(response==null)
-				respon.put("Error con servidor de persistencia - Contacte a su administrador", result);
-			else if (!response.get("success").asBoolean()) {
-					respon.put("Formulario-" + i + "", result);				
+			if(response==null){
+				respon.put("Error con servidor de persistencia - Contacte a su administrador", result);				
+			}else if (response.has("success") && !response.get("success").asBoolean()) {
+						respon.put("Formulario-" + i + "", result);				
 					} else {
 						respon.put("Formulario-" + i + "", result);
 					}
@@ -357,7 +362,7 @@ public class RelayService {
 			log.info("Ejecutando: " + method);
 			resp = client.execute(method);
 		} catch (Exception e) {
-			log.error(e.getMessage());
+			log.error("Error ejecutando metodo",e);
 		}
 		return resp;
 	}
