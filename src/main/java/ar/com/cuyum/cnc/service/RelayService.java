@@ -137,7 +137,7 @@ public class RelayService {
 		setupSSLContext();
 		
 		Long inicio = (new Date()).getTime();
-		log.info("tiempo de inicio"+inicio);
+		log.info("tiempo de inicio: "+inicio);
 		
 		JsonNode dataForm = jsonUtils.proccessDataValidation(data, request, this, frp);
 		
@@ -166,7 +166,7 @@ public class RelayService {
 		}
 		
 		Long fin = (new Date()).getTime();
-		log.info("tiempo de finalizacion:"+inicio);
+		log.info("tiempo de finalizacion: "+inicio);
 		
 		log.info("duración:"+(fin-inicio));
 		
