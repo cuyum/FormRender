@@ -132,8 +132,7 @@ public class RelayService {
 	}
 	
 	
-	public String massiveSubmit(URL remoteUrl, JsonNode data,
-			HttpServletRequest request) {
+	public String massiveSubmit(URL remoteUrl, JsonNode data, HttpServletRequest request) {
 		
 		setupSSLContext();
 		
@@ -171,41 +170,23 @@ public class RelayService {
 		
 		log.info("duración:"+(fin-inicio));
 		
-		resp.put("tiempo en milisegundos:",(fin-inicio));
+		resp.put("tiempo en milisegundos",(fin-inicio));
 		
 		return resp.toString();
 	}
 	
-    //FIXME:Lo usa JsonBean por eso no lo borre, hay que ver para que y cambiarlo
-	public String massiveSubmit(URL remoteUrl, String data,
-			HttpServletRequest request) {
+	public String massiveSubmit(URL remoteUrl, String data,	HttpServletRequest request) {
 		setupSSLContext();
-
-		JsonNode success = jsonUtils.proccessDataValidation(data, request,
-				this, frp);
-		if (!success.get("success").asBoolean())
-			return success.toString();
-
 		ObjectMapper mapper = new ObjectMapper();
-		JsonNode dataForm = null;
-
+		ObjectNode json = null;
 		try {
-			dataForm = mapper.readTree(success.get("msg").asText());
+			json = (ObjectNode) mapper.readTree(data);
 		} catch (JsonProcessingException e) {
-			log.error(e);
+			e.printStackTrace();
 		} catch (IOException e) {
-			log.error(e);
+			e.printStackTrace();
 		}
-
-		String id = dataForm.get("id").asText();
-
-		ArrayNode listDataForm = (ArrayNode) dataForm.get("listDataForm");
-
-		if (listDataForm == null)
-			return JsonUtils.msg(false,
-					"Lista de datos nulla, error desconocido").toString();
-
-		return performMassiveSubmission(remoteUrl, id, listDataForm, request);
+		return massiveSubmit(remoteUrl,json,request);
 	}
 
 	public String retrieve(URL remoteUrl) {
@@ -261,7 +242,7 @@ public class RelayService {
 
 			HttpPost requestPost = buildSubmission(url, formData.toString());
 			HttpResponse rawResponse = execute(requestPost);
-			log.info("Respuesta de execute:"+rawResponse);
+			log.info("Respuesta de execute: "+rawResponse);
 
 			JsonNode response = null, result = null;
 
