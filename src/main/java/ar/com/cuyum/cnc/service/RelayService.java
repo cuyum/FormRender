@@ -166,7 +166,7 @@ public class RelayService {
 		}
 		
 		Long fin = (new Date()).getTime();
-		log.info("tiempo de finalizacion"+inicio);
+		log.info("tiempo de finalizacion:"+inicio);
 		
 		log.info("duración:"+(fin-inicio));
 		
