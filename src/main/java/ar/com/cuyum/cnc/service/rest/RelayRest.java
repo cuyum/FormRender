@@ -156,7 +156,7 @@ public class RelayRest {
 			jsonObj = jsonObj.get("submit_data");
 			URL url = new URL(frp.getRemoteDraftHost());
 			response = relay.massiveSubmit(url, jsonObj,request);
-			response = new JSONObject(response).toString();
+			//response = new JSONObject(response).toString();
 			log.info("El servicio rest envia respuesta:"+response);	
 			return response;
 		} catch (JsonParseException e) {
@@ -174,11 +174,11 @@ public class RelayRest {
 			log.error(msg, e);
 			response = "{\"success\":false,\"msg\": \"" + msg + "\"}";
 			return response;
-		} catch (JSONException e) {
-			String msg = "No se pudo generar la respuesta json en relay service ya que el servicio remoto ha respondido en un objeto JSON inv&aacute;lido";
-			log.error(msg, e);
-			log.debug("Remote response: " + response);
-			return response;
+//		} catch (JSONException e) {
+//			String msg = "No se pudo generar la respuesta json en relay service ya que el servicio remoto ha respondido en un objeto JSON inv&aacute;lido";
+//			log.error(msg, e);
+//			log.debug("Remote response: " + response);
+//			return response;
 		} catch (Exception e) {
 			String msg = "Un error ha ocurrido";
 			log.warn(msg, e);
