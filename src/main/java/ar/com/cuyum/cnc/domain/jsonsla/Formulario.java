@@ -38,6 +38,7 @@ public class Formulario implements Serializable {
 	private Clave_Primaria clave_primaria;
 	private Map<String, Componente> mapComponets = new HashMap<String, Componente>();
 	private List<Row> data = new ArrayList<Row>();
+	private int rowlength = 0;
 	private RelayService relayService;
 	private ArrayNode sumarizadosJson;
 	private String recordId;
@@ -47,6 +48,7 @@ public class Formulario implements Serializable {
 		this.id = id;
 		this.schema = schema;
 		this.relayService = relayService;
+		this.setRowlength(0);
 		init();
 	}
 
@@ -140,7 +142,8 @@ public class Formulario implements Serializable {
 	}
 
 	public void addDataFromJson(ArrayNode data) {
-		for (int i = 0, nf = data.size(); i < nf; i++) {
+		this.rowlength = data.size();
+		for (int i = 0, nf = this.rowlength; i < nf; i++) {
 			JsonNode item = data.get(i);
 			this.data.add(createDataItemFromJson(item));
 		}
@@ -320,6 +323,14 @@ public class Formulario implements Serializable {
 
 	public void setRecordId(String recordId) {
 		this.recordId = recordId;
+	}
+
+	public int getRowlength() {
+		return rowlength;
+	}
+
+	public void setRowlength(int rowlength) {
+		this.rowlength = rowlength;
 	}
 
 }

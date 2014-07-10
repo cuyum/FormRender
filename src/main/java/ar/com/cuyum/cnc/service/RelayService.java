@@ -31,15 +31,11 @@ import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.conn.scheme.Scheme;
 import org.apache.http.conn.scheme.SchemeRegistry;
-import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.client.cache.CacheConfig;
-import org.apache.http.impl.client.cache.CachingHttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
@@ -48,10 +44,6 @@ import ar.com.cuyum.cnc.utils.FormRenderProperties;
 //import ar.com.cuyum.cnc.domain.jsonsla.Item;
 //import ar.com.cuyum.cnc.utils.FormRenderProperties;
 import ar.com.cuyum.cnc.utils.JsonUtils;
-
-
-
-
 
 //import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -80,20 +72,20 @@ public class RelayService {
 
 	public transient static Logger log = Logger.getLogger(RelayService.class);
 
-//	private HttpClient client = new DefaultHttpClient();
+	private HttpClient client = new DefaultHttpClient();
 	
-	CacheConfig cacheConfig = CacheConfig.custom()
-				        	  .setMaxCacheEntries(1000000)
-				        	  .setMaxObjectSize(10000192)
-				        	  .build();
-	RequestConfig requestConfig = RequestConfig.custom()
-	        					 .setConnectTimeout(60000)
-	        					 .setSocketTimeout(60000)
-	        					 .build();
+//	CacheConfig cacheConfig = CacheConfig.custom()
+//				        	  .setMaxCacheEntries(1000000)
+//				        	  .setMaxObjectSize(10000192)
+//				        	  .build();
+//	RequestConfig requestConfig = RequestConfig.custom()
+//	        					 .setConnectTimeout(60000)
+//	        					 .setSocketTimeout(60000)
+//	        					 .build();
 
-	CloseableHttpClient client = CachingHttpClients.custom().setCacheConfig(cacheConfig)
-								.setDefaultRequestConfig(requestConfig)
-								.build();
+//	CloseableHttpClient client = CachingHttpClients.custom().setCacheConfig(cacheConfig)
+//								.setDefaultRequestConfig(requestConfig)
+//								.build();
 
 	/* ========================SSL========================= */
 
@@ -114,26 +106,18 @@ public class RelayService {
 					return null;
 				}
 			};
-			
 			ctx.init(null, new TrustManager[] { tm }, null);
-		    SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(
-		            ctx,
-		            new String[] { "TLSv1" },
-		            null,
-		            SSLConnectionSocketFactory.BROWSER_COMPATIBLE_HOSTNAME_VERIFIER);
-
-//			SSLSocketFactory ssf = new SSLSocketFactory(ctx);
-//			ssf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
-//			ClientConnectionManager ccm = client.getConnectionManager();			
-//			SchemeRegistry sr = ccm.getSchemeRegistry();
-//			sr.register(new Scheme("https", ssf, 443));
-//			client = new DefaultHttpClient(ccm, client.getParams());	
-			client = HttpClients.custom().setSSLSocketFactory(sslsf).build();
+			SSLSocketFactory ssf = new SSLSocketFactory(ctx);
+			ssf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
+			ClientConnectionManager ccm = client.getConnectionManager();
+			SchemeRegistry sr = ccm.getSchemeRegistry();
+			sr.register(new Scheme("https", ssf, 443));
+			client = new DefaultHttpClient(ccm, client.getParams());	
+			//client = HttpClients.custom().setSSLSocketFactory(ssf).build();
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-		catch (KeyManagementException e) {
+		} catch (KeyManagementException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -187,6 +171,7 @@ public class RelayService {
 		log.info("duración:"+(fin-inicio));
 		
 		resp.put("tiempo en milisegundos",(fin-inicio));
+		resp.put("registros procesados",dataForm.get("registros").asInt());
 		
 		return resp.toString();
 	}
@@ -253,7 +238,7 @@ public class RelayService {
 		for (int i = 0, n = form.size(); i < n; i++) {
 			ObjectNode dataNode =  (ObjectNode) form.get(i);
 			ObjectNode formData = formData(idForm, dataNode);
-			//log.info("Persistiendo:" + formData);
+			log.info("Persistiendo:" + formData);
 			log.info("Persistiendo");
 
 			HttpPost requestPost = buildSubmission(url, formData.toString());

@@ -330,8 +330,11 @@ public class JsonUtils {
 			return msg(false, "ERROR procesando datos en formulario:("
 					+ formPosition + ")" + e.getMessage());
 		}
+		
+		ObjectNode forJson = (ObjectNode) formulario.valuesToJson(); 
+		forJson.put("registros",formulario.getRowlength());
 
-		return formulario.valuesToJson();
+		return forJson;
 	};
 	
 	private JsonNode getSchemaItemsDescription(JsonNode schemas) {
@@ -373,6 +376,7 @@ public class JsonUtils {
 		//ArrayNode listDataForm = mapper.createArrayNode();
   
 		JsonNode schemaItemsDescription = getSchemaItemsDescription(schemas);
+		int registrosProcesados = 0;
 		
   		for (int j = 0, n = listForms.size(); j < n; j++) {
   
@@ -381,13 +385,20 @@ public class JsonUtils {
   			
 			if(formResult.has("success") && formResult.get("success").asBoolean()==false){
 				return formResult;
-  			}
+  			}	
+			
+			if(formResult.has("registros")){
+				registrosProcesados = registrosProcesados + registrosProcesados+formResult.get("registros").asInt();
+				((ObjectNode)formResult).remove("registros");
+			}
+			
 			listForms.add(formResult);
 			listForms.remove(j);
   		}
   
   		ObjectNode response = mapper.createObjectNode();
   		response.put("id", idForm);
+  		response.put("registros",registrosProcesados);
 		response.put("listDataForm", listForms);
   
 		return response; 
