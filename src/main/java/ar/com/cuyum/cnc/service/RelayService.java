@@ -169,6 +169,7 @@ public class RelayService {
 		log.info("tiempo de finalizacion: "+inicio);
 		
 		log.info("duración:"+(fin-inicio));
+		log.info("registros:"+dataForm.get("registros").asInt());
 		
 		resp.put("tiempo en milisegundos",(fin-inicio));
 		resp.put("registros procesados",dataForm.get("registros").asInt());
