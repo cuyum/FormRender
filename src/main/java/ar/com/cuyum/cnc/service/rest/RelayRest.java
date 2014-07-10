@@ -156,7 +156,7 @@ public class RelayRest {
 			jsonObj = jsonObj.get("submit_data");
 			URL url = new URL(frp.getRemoteDraftHost());
 			response = relay.massiveSubmit(url, jsonObj,request);
-			response = new JSONObject(response).toString();
+			//response = new JSONObject(response).toString();
 			log.info("El servicio rest envia respuesta:"+response);	
 			return response;
 		} catch (JsonParseException e) {
