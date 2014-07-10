@@ -146,7 +146,7 @@ public class RelayRest {
 	public String massiveSubmit(String json) {
 
 		ObjectMapper mapper = new ObjectMapper();
-		String remoteResponse = "{\"success\":false,\"msg\":\"Unable to relay message\"}";
+		String response = "{\"success\":false,\"msg\":\"Unable to relay message\"}";
 		try {
 			JsonNode jsonObj = mapper.readTree(json);
 			if (!jsonObj.has("submit_data") || !jsonObj.has("url")) {
@@ -155,33 +155,35 @@ public class RelayRest {
 			}
 			jsonObj = jsonObj.get("submit_data");
 			URL url = new URL(frp.getRemoteDraftHost());
-			remoteResponse = relay.massiveSubmit(url, jsonObj,request);
-			JSONObject response = new JSONObject(remoteResponse);
-			return response.toString();
+			response = relay.massiveSubmit(url, jsonObj,request);
+			response = new JSONObject(response).toString();
+			log.info("El servicio rest envia respuesta:"+response);	
+			return response;
 		} catch (JsonParseException e) {
 			String msg = "Error en parse de json, formato invalido";
-			log.warn(msg, e);
-			// log.debug("JSON received: " + json);
-			return "{\"success\":false,\"msg\": \"" + msg + "\"}";
+			log.warn(msg, e);			
+			response = "{\"success\":false,\"msg\": \"" + msg + "\"}";
+			return response;
 		} catch (JsonProcessingException e) {
 			String msg = "Error procesando json, formato invalido";
-			log.warn(msg, e);
-			// log.debug("JSON received: " + json);
-			return "{\"success\":false,\"msg\": \"" + msg + "\"}";
+			log.warn(msg, e);			
+			response = "{\"success\":false,\"msg\": \"" + msg + "\"}";
+			return response;
 		} catch (MalformedURLException e) {
 			String msg = "No se pudo generar la petici&oacute;n con relay service ya que la URL suministrada es inv&aacute;lida";
 			log.error(msg, e);
-			return "{\"success\":false,\"msg\": \"" + msg + "\"}";
+			response = "{\"success\":false,\"msg\": \"" + msg + "\"}";
+			return response;
 		} catch (JSONException e) {
 			String msg = "No se pudo generar la respuesta json en relay service ya que el servicio remoto ha respondido en un objeto JSON inv&aacute;lido";
 			log.error(msg, e);
-			log.debug("Remote response: " + remoteResponse);
-			return "{\"success\":false,\"msg\": \"" + msg + "\"}";
+			log.debug("Remote response: " + response);
+			return response;
 		} catch (Exception e) {
-			String msg = "Error desconocido";
+			String msg = "Un error ha ocurrido";
 			log.warn(msg, e);
-			// log.debug("JSON received: " + json);
-			return "{\"success\":false,\"msg\": \"" + msg + "\"}";
+			response = "{\"success\":false,\"msg\": \"" + msg + "\"}";
+			return response;
 		}
 	}
 
