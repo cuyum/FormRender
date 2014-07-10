@@ -238,7 +238,7 @@ public class RelayService {
 		for (int i = 0, n = form.size(); i < n; i++) {
 			ObjectNode dataNode =  (ObjectNode) form.get(i);
 			ObjectNode formData = formData(idForm, dataNode);
-			log.info("Persistiendo:" + formData);
+			//log.info("Persistiendo:" + formData);
 			log.info("Persistiendo");
 
 			HttpPost requestPost = buildSubmission(url, formData.toString());
