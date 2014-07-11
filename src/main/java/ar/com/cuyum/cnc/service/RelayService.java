@@ -45,6 +45,7 @@ import ar.com.cuyum.cnc.utils.FormRenderProperties;
 //import ar.com.cuyum.cnc.utils.FormRenderProperties;
 import ar.com.cuyum.cnc.utils.JsonUtils;
 
+
 //import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 //import com.fasterxml.jackson.core.type.TypeReference;
@@ -140,6 +141,9 @@ public class RelayService {
 		log.info("tiempo de inicio: "+inicio);
 		
 		JsonNode dataForm = jsonUtils.proccessDataValidation(data, request, this, frp);
+		data=null;
+		Runtime garbage = Runtime.getRuntime();
+		garbage.gc();
 		
 		if (dataForm.has("success")&&!dataForm.get("success").asBoolean())
 			return dataForm.toString();

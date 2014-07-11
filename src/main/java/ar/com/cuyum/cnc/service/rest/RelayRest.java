@@ -149,13 +149,18 @@ public class RelayRest {
 		String response = "{\"success\":false,\"msg\":\"Unable to relay message\"}";
 		try {
 			JsonNode jsonObj = mapper.readTree(json);
+			json="";
+			Runtime garbage = Runtime.getRuntime();
+		    garbage.gc();
 			if (!jsonObj.has("submit_data") || !jsonObj.has("url")) {
 				String msg = "Alguno de los par&aacute;metros necesarios para el env&iacute;o del formulario al servicio de carga masiva no se encuentra.";
 				return "{\"success\":false,\"msg\": \"" + msg + "\"}";
 			}
 			jsonObj = jsonObj.get("submit_data");
-			URL url = new URL(frp.getRemoteDraftHost());
+			URL url = new URL(frp.getRemoteDraftHost());			
 			response = relay.massiveSubmit(url, jsonObj,request);
+			jsonObj=null;
+			garbage.gc();
 			//response = new JSONObject(response).toString();
 			log.info("El servicio rest envia respuesta:"+response);	
 			return response;
