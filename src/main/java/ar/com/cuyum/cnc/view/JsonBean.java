@@ -18,6 +18,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.ejb.SessionContext;
 import javax.ejb.Stateful;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
 import javax.faces.application.FacesMessage;
@@ -188,7 +190,8 @@ public class JsonBean implements Serializable {
 		json = jsonService.formatJson(json);
 		return json;
 	}
-
+	
+	@TransactionAttribute(TransactionAttributeType.NEVER)
 	public String validarJson() {
 		
 		String response = null;
