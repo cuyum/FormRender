@@ -428,7 +428,7 @@ public abstract class Componente implements Serializable, Cloneable {
 			
 			String remoteHost = frp.getRemoteListHost();
 			URL urlRemote = new URL(remoteHost + url);
-			String remoteResponse = relayService.request(urlRemote, fkey, tipo);
+			String remoteResponse = relayService.requestWithCache(urlRemote, fkey, tipo);
 			ObjectMapper mapper = new ObjectMapper();
 			remoteMsg = mapper.readTree(remoteResponse);
 			

@@ -13,12 +13,19 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import javax.servlet.http.HttpServletRequest;
+
+import net.sf.ehcache.Cache;
+import net.sf.ehcache.CacheManager;
+import net.sf.ehcache.Element;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -63,6 +70,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * 
  */
 @Stateless
+@TransactionAttribute(TransactionAttributeType.NEVER)
 public class RelayService {
 
 	@Inject
@@ -74,25 +82,24 @@ public class RelayService {
 	public transient static Logger log = Logger.getLogger(RelayService.class);
 
 	private HttpClient client = new DefaultHttpClient();
-	
-//	CacheConfig cacheConfig = CacheConfig.custom()
-//				        	  .setMaxCacheEntries(1000000)
-//				        	  .setMaxObjectSize(10000192)
-//				        	  .build();
-//	RequestConfig requestConfig = RequestConfig.custom()
-//	        					 .setConnectTimeout(60000)
-//	        					 .setSocketTimeout(60000)
-//	        					 .build();
 
-//	CloseableHttpClient client = CachingHttpClients.custom().setCacheConfig(cacheConfig)
-//								.setDefaultRequestConfig(requestConfig)
-//								.build();
+	@Inject
+	private CacheManager cacheManager;
 
+	@PostConstruct
+	public void init() {
+		if (!cacheManager.cacheExists("listasExternasCache")) {
+			cacheManager.addCache("listasExternasCache");
+		}
+		setupSSLContextNew();
+	}
 	/* ========================SSL========================= */
+	
 
-	private void setupSSLContext() {
+	private void setupSSLContextNew() {
 		SSLContext ctx;
 		try {
+			client = new DefaultHttpClient();
 			ctx = SSLContext.getInstance("TLS");
 			X509TrustManager tm = new X509TrustManager() {
 				public void checkClientTrusted(X509Certificate[] xcs,
@@ -113,31 +120,31 @@ public class RelayService {
 			ClientConnectionManager ccm = client.getConnectionManager();
 			SchemeRegistry sr = ccm.getSchemeRegistry();
 			sr.register(new Scheme("https", ssf, 443));
-			client = new DefaultHttpClient(ccm, client.getParams());	
-			//client = HttpClients.custom().setSSLSocketFactory(ssf).build();
-		} catch (NoSuchAlgorithmException e) {
+		} catch (Exception e) {
+
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (KeyManagementException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} 
 
 	}
 
 	/* ================ POINT OF ENTRANCE ================= */
 
-	public String submit(URL remoteUrl, String data) {
-		setupSSLContext();
-		return performSubmission(remoteUrl, data);
+	private Cache getCache() {
+		
+		return cacheManager.getCache("listasExternasCache");
 	}
 	
-	
+	public String submit(URL remoteUrl, String data) {
+		//setupSSLContext();
+		return performSubmission(remoteUrl, data);
+	}
+
 	public String massiveSubmit(URL remoteUrl, JsonNode data, HttpServletRequest request) {
 		
-		setupSSLContext();
+		//setupSSLContext();
 		
-		Long inicio = (new Date()).getTime();
+		long inicio = System.currentTimeMillis();
 		log.info("tiempo de inicio: "+inicio);
 		
 		JsonNode dataForm = jsonUtils.proccessDataValidation(data, request, this, frp);
@@ -152,6 +159,7 @@ public class RelayService {
 
 		ArrayNode listDataForm = (ArrayNode) dataForm.get("listDataForm");
 
+		long finValidacion= System.currentTimeMillis();
 		if (listDataForm == null)
 			return JsonUtils.msg(false,
 					"Lista de datos nulla, error desconocido").toString();
@@ -168,21 +176,21 @@ public class RelayService {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
+		long finSubmision= System.currentTimeMillis();
 		
-		Long fin = (new Date()).getTime();
-		log.info("tiempo de finalizacion: "+inicio);
-		
-		log.info("duración:"+(fin-inicio));
-		log.info("registros:"+dataForm.get("registros").asInt());
-		
-		resp.put("tiempo en milisegundos",(fin-inicio));
-		resp.put("registros procesados",dataForm.get("registros").asInt());
+		long tiempoValidacion = (finValidacion - inicio)/1000;
+		long tiempoSubmision = (finSubmision - finValidacion)/1000;
+		long total = tiempoSubmision+tiempoValidacion;
+		log.info("TIEMPO VALIDACION (Segundos): "+tiempoValidacion);
+		log.info("TIEMPO SUBMISION (Segundos): "+tiempoSubmision);
+		log.info("TIEMPO TOTAL (Segundos): "+total);
+
 		
 		return resp.toString();
 	}
-	
+
 	public String massiveSubmit(URL remoteUrl, String data,	HttpServletRequest request) {
-		setupSSLContext();
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode json = null;
 		try {
@@ -196,14 +204,30 @@ public class RelayService {
 	}
 
 	public String retrieve(URL remoteUrl) {
-		setupSSLContext();
+		//setupSSLContext();
 		return performRetrieval(remoteUrl);
 	}
 
 	public String request(URL remoteUrl, String fkey, String tipo) {
-		setupSSLContext();
+		//setupSSLContext();
 		return performRequest(remoteUrl, fkey, tipo);
 	}
+	
+	
+	public String requestWithCache(URL remoteUrl, String fkey, String tipo) {
+		String key = "POST "+remoteUrl.toString()+"?tipo="+tipo+"&fkey="+fkey;
+		log.info("Ejecutando con CACHE: " + key);
+		if (getCache().isKeyInCache(key)) {
+			log.info("IN CACHE: " + key);
+			return (String)getCache().get(key).getObjectValue();
+		}
+		log.info("NOT IN CACHE: " + key);
+		String ret =  performRequest(remoteUrl, fkey, tipo);
+		getCache().put(new Element(key, ret));
+		return ret;
+	}
+	
+	
 
 	private String performSubmission(URL url, String data) {
 		HttpPost request = buildSubmission(url, data);
