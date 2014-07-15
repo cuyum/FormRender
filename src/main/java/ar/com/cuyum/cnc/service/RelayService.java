@@ -197,8 +197,12 @@ public class RelayService {
 		String key = "POST "+remoteUrl.toString()+"?tipo="+tipo+"&fkey="+fkey;
 		log.info("Ejecutando con CACHE: " + key);
 		if (getCache().isKeyInCache(key)) {
-			log.info("IN CACHE: " + key);
-			return (String)getCache().get(key).getObjectValue();
+			Element elcache = getCache().get(key);
+			if (!elcache.isExpired()) {
+				log.info("IN CACHE: " + key);
+				return (String)getCache().get(key).getObjectValue();
+			}
+			log.info("CACHE EXPIRED: " + key);
 		}
 		log.info("NOT IN CACHE: " + key);
 		String ret =  performRequest(remoteUrl, fkey, tipo);
