@@ -268,8 +268,8 @@ public class JsonUtils {
 	}
 
 	private static String getPathSChemaURL(HttpServletRequest request,
-			String idForm,FormRenderProperties frp) {
-		return frp.getDestinationSchema() + idForm + "-schema.json";
+			String idForm) {
+		return getActualPath(request) + "/schemas/" + idForm + "-schema.json";
 	}
 
 	private static String getPathSChemaFormURL(HttpServletRequest request) {
@@ -295,22 +295,10 @@ public class JsonUtils {
 			formulario.setRecordId(recordId);
 		}
 
-<<<<<<< HEAD
 		if (formulario.validationPrimaryKey()) {
 			return msg(false,
 					"ERROR claves primarias duplicadas en formulario:("
 							+ formPosition + ")");
-=======
-		String idForm = validJson.get("formulario").get("id").asText();
-
-		String schemaPath = JsonUtils.getPathSChemaURL(request, idForm, frp);
-		String schemaFormPath = JsonUtils.getPathSChemaFormURL(request);
-		JsonNode schemas = getJsonSchemasFromPath(schemaPath, schemaFormPath);
-
-		// si no se pudo contruir el objeto de los schemas
-		if (schemas.has("success") && !schemas.get("success").asBoolean()) {
-			return schemas;
->>>>>>> 62a3924b5ee7cbd6c7e42a6748c07f0384162b50
 		}
 		try {
 			formulario.processData();
@@ -326,6 +314,7 @@ public class JsonUtils {
 		return forJson;
 	};
 	
+		
 	private JsonNode getSchemaItemsDescription(JsonNode schemas) {
 		// se obtienen los campos del formulario a partir del json schema, para
 		// ser validados
@@ -392,5 +381,6 @@ public class JsonUtils {
   
 		return response; 
   	}	
+
 
 }
