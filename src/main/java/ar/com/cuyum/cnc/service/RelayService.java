@@ -52,7 +52,6 @@ import ar.com.cuyum.cnc.utils.FormRenderProperties;
 //import ar.com.cuyum.cnc.utils.FormRenderProperties;
 import ar.com.cuyum.cnc.utils.JsonUtils;
 
-
 //import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 //import com.fasterxml.jackson.core.type.TypeReference;
@@ -82,7 +81,7 @@ public class RelayService {
 	public transient static Logger log = Logger.getLogger(RelayService.class);
 
 	private HttpClient client = new DefaultHttpClient();
-
+	
 	@Inject
 	private CacheManager cacheManager;
 
@@ -121,7 +120,6 @@ public class RelayService {
 			SchemeRegistry sr = ccm.getSchemeRegistry();
 			sr.register(new Scheme("https", ssf, 443));
 		} catch (Exception e) {
-
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
@@ -139,35 +137,38 @@ public class RelayService {
 		//setupSSLContext();
 		return performSubmission(remoteUrl, data);
 	}
+	
+	public String massiveSubmit(URL remoteUrl, JsonNode data,
+			HttpServletRequest request) {
 
-	public String massiveSubmit(URL remoteUrl, JsonNode data, HttpServletRequest request) {
-		
-		//setupSSLContext();
-		
+		// setupSSLContext();
+
 		long inicio = System.currentTimeMillis();
-		log.info("tiempo de inicio: "+inicio);
-		
-		JsonNode dataForm = jsonUtils.proccessDataValidation(data, request, this, frp);
-		data=null;
+		log.info("tiempo de inicio: " + inicio);
+
+		JsonNode dataForm = jsonUtils.proccessDataValidation(data, request,
+				this, frp);
+		data = null;
 		Runtime garbage = Runtime.getRuntime();
 		garbage.gc();
-		
-		if (dataForm.has("success")&&!dataForm.get("success").asBoolean())
+
+		if (dataForm.has("success") && !dataForm.get("success").asBoolean())
 			return dataForm.toString();
 
 		String id = dataForm.get("id").asText();
 
 		ArrayNode listDataForm = (ArrayNode) dataForm.get("listDataForm");
 
-		long finValidacion= System.currentTimeMillis();
+		long finValidacion = System.currentTimeMillis();
 		if (listDataForm == null)
 			return JsonUtils.msg(false,
 					"Lista de datos nulla, error desconocido").toString();
 
 		log.info("Proceso de validación ha concluido se procede a persistir");
-		String response = performMassiveSubmission(remoteUrl, id, listDataForm, request);
+		String response = performMassiveSubmission(remoteUrl, id, listDataForm,
+				request);
 		ObjectNode resp = null;
-		
+
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			resp = (ObjectNode) mapper.readTree(response);
@@ -177,16 +178,15 @@ public class RelayService {
 			e.printStackTrace();
 		}
 
-		long finSubmision= System.currentTimeMillis();
-		
-		long tiempoValidacion = (finValidacion - inicio)/1000;
-		long tiempoSubmision = (finSubmision - finValidacion)/1000;
-		long total = tiempoSubmision+tiempoValidacion;
-		log.info("TIEMPO VALIDACION (Segundos): "+tiempoValidacion);
-		log.info("TIEMPO SUBMISION (Segundos): "+tiempoSubmision);
-		log.info("TIEMPO TOTAL (Segundos): "+total);
+		long finSubmision = System.currentTimeMillis();
 
-		
+		long tiempoValidacion = (finValidacion - inicio) / 1000;
+		long tiempoSubmision = (finSubmision - finValidacion) / 1000;
+		long total = tiempoSubmision + tiempoValidacion;
+		log.info("TIEMPO VALIDACION (Segundos): " + tiempoValidacion);
+		log.info("TIEMPO SUBMISION (Segundos): " + tiempoSubmision);
+		log.info("TIEMPO TOTAL (Segundos): " + total);
+
 		return resp.toString();
 	}
 

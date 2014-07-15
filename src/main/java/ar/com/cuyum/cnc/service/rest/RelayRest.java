@@ -171,9 +171,25 @@ public class RelayRest {
 			return response;
 		} catch (JsonProcessingException e) {
 			String msg = "Error procesando json, formato invalido";
+<<<<<<< HEAD
 			log.warn(msg, e);			
 			response = "{\"success\":false,\"msg\": \"" + msg + "\"}";
 			return response;
+=======
+			log.warn(msg, e);
+			log.debug("JSON received: " + json);
+			return "{\"success\":false,\"msg\": \"" + msg + "\"}";
+		}
+		
+		String remoteResponse = "{\"success\":false,\"msg\":\"Unable to relay message\"}";
+		try {
+			log.info(frp.getRemoteSubmissionHost());
+			log.info(frp.getRemoteDraftHost());
+			URL url = new URL(frp.getRemoteDraftHost());
+			remoteResponse = relay.massiveSubmit(url, submit_data, request);
+			response = new JSONObject(remoteResponse);
+			return response.toString();
+>>>>>>> 62a3924b5ee7cbd6c7e42a6748c07f0384162b50
 		} catch (MalformedURLException e) {
 			String msg = "No se pudo generar la petici&oacute;n con relay service ya que la URL suministrada es inv&aacute;lida";
 			log.error(msg, e);

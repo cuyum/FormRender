@@ -263,6 +263,39 @@ public class JsonShemaGenerator {
 
 		return input;
 	}
+	
+	
+	@VisibleForTesting
+	private ObjectNode createJsonNodeDate(Node node, Element inputXml)
+			throws ExceptionParserJson {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode input = mapper.createObjectNode();
+
+		input.put("$ref", "formulario.json#/definitions/" + Componente.DATE);
+
+		ObjectNode constraints = Componente.setConstraintsFromXML(node,
+				Componente.DATE);
+		if (constraints != null) {
+			JsonNode response = isValidConstraintToType(Componente.DATE,
+					constraints);
+			if (!response.get("success").asBoolean())
+				throw new ExceptionParserJson(response.get("msg").toString());
+			input.putAll(constraints);
+		}
+
+		ArrayNode relevant = setRelevant(node);
+		if (relevant != null)
+			input.put("relevant", relevant);
+
+		input.put("title", inputXml.getElementsByTagName("label").item(0)
+				.getTextContent());
+
+		Node hint = inputXml.getElementsByTagName("hint").item(0);
+		if (hint != null)
+			input.put("hint", hint.getTextContent());
+
+		return input;
+	}
 
 	/**
 	 * Crea el esquema de los int a partir de xml node bind propertie type=int.
@@ -597,6 +630,10 @@ public class JsonShemaGenerator {
 						&& "decimal".equals(type.getNodeValue())) {
 					Element input = listInput.get(nodeset.getNodeValue());
 					object = createJsonNodeDecimal(node, input);
+				} else if (type != null
+						&& "date".equals(type.getNodeValue())) {
+					Element input = listInput.get(nodeset.getNodeValue());
+					object = createJsonNodeDate(node, input);
 				} else if (type == null || "string".equals(type.getNodeValue())) {
 					Element input = listInput.get(nodeset.getNodeValue());
 					object = createJsonNodeString(node, input);
@@ -622,7 +659,7 @@ public class JsonShemaGenerator {
 				
 				auxiliarClavesPrimarias.add(name);
 				
-				if (readonly == null) {
+				if ((readonly == null)||(readonly.toString().equals("readonly=\"false()\""))) {
 					properties.put(name, object);
 				} else {
 					otherFields.put(name, object);
@@ -734,7 +771,9 @@ public class JsonShemaGenerator {
 		TextNode action = (TextNode) description.get("action");
 
 		dataItems.put("type", "object");
-		dataItems.put("required", required);
+		
+		if((required!=null)&&(required.isArray())&&(((ArrayNode)required)).size()>0)
+			dataItems.put("required", required);
 		dataItems.put("claves_primarias", claves_primarias);
 
 		if (grid!=null)

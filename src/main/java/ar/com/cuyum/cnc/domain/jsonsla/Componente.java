@@ -63,6 +63,7 @@ public abstract class Componente implements Serializable, Cloneable {
 
 	//Hace excluyente el valor máximo
 	public static final String CONSTRAINT_EXCLUSIVE_MAX = "exclusiveMaximum";
+
 	 
 		
 	public static String STRING = "string";
@@ -71,7 +72,8 @@ public abstract class Componente implements Serializable, Cloneable {
 	public static String DECIMAL = "decimal";
 	public static String ITEM = "item";
 	public static String TIME = "time";
-
+	public static final String DATE = "date";
+	
 	public static List<String> COMBO_CONSTRAINTS = Arrays.asList(
 			Componente.CONSTRAINT_URL, Componente.CONSTRAINT_DEPENDS,
 			Componente.CONSTRAINT_CUIT, Componente.CONSTRAINT_PERIODICIDAD,
@@ -126,6 +128,8 @@ public abstract class Componente implements Serializable, Cloneable {
 			return (Class<T>) RepeatItem.class;
 		if (TIME.equals(type))
 			return (Class<T>) Time.class;
+		if (DATE.equals(type))
+			return (Class<T>) Date.class;
 		return null; // explota si se incorpora un nuevo tipo
 	}
 
@@ -269,6 +273,8 @@ public abstract class Componente implements Serializable, Cloneable {
 			throws ExceptionParserJson {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode constraintResult = mapper.createObjectNode();
+		if((node.getAttributes().getNamedItem("constraint").toString().isEmpty())||((node.getAttributes().getNamedItem("constraint").toString().contains("constraint=\"\""))))
+			return null;
 		Node nodeConstraint = node.getAttributes().getNamedItem("constraint");
 		if (nodeConstraint == null)
 			return null;
