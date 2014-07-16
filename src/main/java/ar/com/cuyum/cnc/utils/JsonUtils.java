@@ -78,7 +78,7 @@ public class JsonUtils {
 	 * @param formulario
 	 * @return
 	 */
-	private static JsonNode getJsonSchemasObjectFromURL(File schema,
+	private static JsonNode getJsonSchemasObjectFromURL(URL schema,
 			URL formulario) {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode schemas = mapper.createObjectNode();
@@ -102,12 +102,13 @@ public class JsonUtils {
 
 	private static JsonNode getJsonSchemasFromPath(String schemaPath,
 			String schemaFormPath) {
-		File urlSchema=null; URL urlFormulario=null;
+
+		URL urlSchema, urlFormulario;
 		try {
-			urlSchema = new File(schemaPath);
+			urlSchema = new URL(schemaPath);
 			urlFormulario = new URL(schemaFormPath);
 		} catch (MalformedURLException e) {
-			String msg = "Error checkeando json, url de jsonschema mal formado:"+schemaPath;
+			String msg = "Error checkeando json, url de jsonschema mal formado";
 			log.error(msg, e);
 			return msg(false, msg);
 		}
