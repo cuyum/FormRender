@@ -275,7 +275,7 @@
     -->
     <defaultCache
             maxElementsInMemory="50000"
-            eternal="false"
+            eternal="true"
             timeToIdleSeconds="6000"
             timeToLiveSeconds="6000"
             maxElementsOnDisk="10000000"
